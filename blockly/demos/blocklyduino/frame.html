@@ -1,0 +1,89 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockly Demo: Code</title>
+  <script type="text/javascript" src="../blockly_compressed.js"></script>
+  <script type="text/javascript" src="arduino.js"></script>
+  <script type="text/javascript" src="arduino/control.js"></script>
+  <script type="text/javascript" src="arduino/logic.js"></script>
+  <script type="text/javascript" src="arduino/math.js"></script>
+  <script type="text/javascript" src="arduino/text.js"></script>
+  <script type="text/javascript" src="arduino/lists.js"></script>
+  <script type="text/javascript" src="arduino/variables.js"></script>
+  <script type="text/javascript" src="arduino/procedures.js"></script>
+  <script type="text/javascript" src="../../language/en/_messages.js"></script>
+  <script type="text/javascript" src="../../language/common/control.js"></script>
+  <script type="text/javascript" src="../../language/common/logic.js"></script>
+  <script type="text/javascript" src="../../language/common/math.js"></script>
+  <script type="text/javascript" src="../../language/common/text.js"></script>
+  <script type="text/javascript" src="../../language/common/lists.js"></script>
+  <!--script type="text/javascript" src="../../language/common/variables.js"></script-->
+  <script type="text/javascript" src="../../language/common/procedures.js"></script>
+  <!-- define blocks -->
+  <script type="text/javascript" src="arduino/base.js"></script>
+  <script type="text/javascript" src="arduino/grove.js"></script>
+  
+  <style>
+    html, body {
+      background-color: #fff;
+      margin: 0;
+      padding:0;
+      overflow: hidden;
+    }
+    .blocklySvg {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <script>
+    function init() {
+      // Whitelist of blocks to keep.
+      var newLanguage = {}
+      var keepers = ['inout_highlow',
+          'inout_digital_write', 'inout_digital_read', 'inout_analog_write', 'inout_analog_read',
+		  'inout_buildin_led',
+          'base_delay', 'base_map',
+		  'servo_move', 'servo_read_degrees',
+          'grove_led', 'grove_button', 'grove_potentiometer', 'grove_tilt_switch', 'grove_piezo_buzzer',
+          'grove_relay', //'grove_temporature_sensor',
+          'controls_if', 'controls_if_if', 'controls_if_elseif', 'controls_if_else', 
+          'controls_for',//'controls_whileUntil', 'controls_flow_statements',
+          'math_number','math_arithmetic',//'math_modulo',
+          'logic_compare', 'logic_operation', 'logic_negate', //'logic_boolean',
+          'variables_get','variables_set', 'variables_declare',
+          //'procedures_defnoreturn', 'procedures_defreturn', 'procedures_callnoreturn', 'procedures_callreturn'
+          ];
+      for (var x = 0; x < keepers.length; x++) {
+        newLanguage[keepers[x]] = Blockly.Language[keepers[x]];
+      }
+      // Fold control category into logic category.
+      /*for (var name in newLanguage) {
+        if (newLanguage[name].category == 'Math') {
+          newLanguage[name].category = 'Logic';
+        }
+      }*/
+      Blockly.Language = newLanguage;
+      
+      Blockly.inject(document.body, {path: '../../'});
+
+      if (window.parent.init) {
+        // Let the top-level application know that Blockly is ready.
+        window.parent.init(Blockly);
+      } else {
+        // Attempt to diagnose the problem.
+        var msg = 'Error: Unable to communicate between frames.\n\n';
+        if (window.parent == window) {
+          msg += 'Try loading index.html instead of frame.html';
+        } else if (window.location.protocol == 'file:') {
+          msg += 'This may be due to a security restriction preventing\n' +
+              'access when using the file:// protocol.\n' +
+              'http://code.google.com/p/chromium/issues/detail?id=47416';
+        }
+        alert(msg);
+      }
+    }
+  </script>
+</head>
+<body onload="init()">
+</body>
+</html>

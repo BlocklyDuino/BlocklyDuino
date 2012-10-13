@@ -1,0 +1,51 @@
+BlocklyDuino
+=======================
+
+0.5 2012/10/
+-----------------
+code name: CREATOR
+
+support int variables and new blockly syntax
+
+Feature:
+
+* support variable declare statement
+* support type declaration for strong type language
+  * (currently only support int type)
+* can restore blocks
+* add for statement
+
+Refactor:
+
+* add board profiles to support different board with ports(current arduino standard-compatible board only)
+* support new blockly syntax
+* change image size to 64*64
+
+Credit: gasolin
+
+
+0.4 2012/10/6
+-----------------
+code name: CITY
+
+First version with minimum function sets.
+
+Feature:
+
+* Compact Digital/Analog Read/Write syntax
+* Auto setup pinMode
+* delay and map function
+* 2 Standard blocks: Build-in LED, Servo 
+* 6 Grove blocks: LED, Potentiometer, Tilt switch, Piezo Buzzer, Relay
+
+Credit: gasolin
+
+
+License
+-----------------
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+
