@@ -48,11 +48,16 @@ Blockly.Language.base_map = {
   init: function() {
     this.setColour(230);
 	this.appendDummyInput("")
-		.appendTitle("Map [0-1024] to [0-255]");
+		.appendTitle("Map ");
 	this.appendValueInput("NUM", Number);
+	this.appendDummyInput("")
+	    .appendTitle("value to [0-");
+	this.appendValueInput("DMAX", Number);
+	this.appendDummyInput("")
+	    .appendTitle("]");
     this.setInputsInline(true);
     this.setOutput(true);
-    this.setTooltip('Re-maps a number from one range to another.');
+    this.setTooltip('Re-maps a number from [0-1024] to another.');
   }
 };
 
@@ -200,8 +205,10 @@ Blockly.Arduino.base_delay = function() {
 
 Blockly.Arduino.base_map = function() {
   var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
+  var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
   value_num = value_num.replace('(','').replace(')','');
-  var code = 'map('+value_num+', 0, 1024, 0, 255)';
+  value_dmax = value_dmax.replace('(','').replace(')','');
+  var code = 'map('+value_num+', 0, 1024, 0, '+value_dmax+')';
   return code;
 };
 

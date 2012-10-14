@@ -1,6 +1,19 @@
 BlocklyDuino
 =======================
 
+0.6 2012/10/
+-----------------
+code name: SUPERHERO
+
+Feature:
+
+Change:
+
+* map function can specify the max range value
+
+Refactor:
+
+
 0.5 2012/10/14
 -----------------
 code name: CREATOR
