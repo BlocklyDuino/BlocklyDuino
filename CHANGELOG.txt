@@ -13,6 +13,11 @@ Change:
 
 Refactor:
 
+Fix:
+
+* fix several functions to able to assigned to variables
+
+Credit: gasolin
 
 0.5 2012/10/14
 -----------------

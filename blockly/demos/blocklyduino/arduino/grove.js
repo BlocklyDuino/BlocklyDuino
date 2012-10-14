@@ -201,21 +201,21 @@ Blockly.Arduino.grove_button = function() {
   Blockly.Arduino.setups_['setup_button_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
   //var code = 'digitalRead('+value_pin+')'
   var code = 'digitalRead('+dropdown_pin+')';
-  return [code, Blockly.Arduino.ORDER_NONE];
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino.grove_potentiometer = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   //Blockly.Arduino.setups_['setup_potentiometer_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
   var code = 'analogRead('+dropdown_pin+')';
-  return [code, Blockly.Arduino.ORDER_NONE];
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino.grove_tilt_switch = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   Blockly.Arduino.setups_['setup_tilt_switch_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
   var code = 'digitalRead('+dropdown_pin+')';
-  return [code, Blockly.Arduino.ORDER_NONE];
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino.grove_piezo_buzzer = function() {
@@ -243,5 +243,5 @@ Blockly.Arduino.grove_temporature_sensor = function() {
 	*/
   //Blockly.Arduino.definitions_['define_'+dropdown_pin] = 'int a;\n';
   var code = 'int('+'1/(log((float)(1023-a)*10000/analogRead('+dropdown_pin+'))/10000)/3975+1/298.15)-273.15'+')';
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };

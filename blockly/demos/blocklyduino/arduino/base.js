@@ -209,7 +209,7 @@ Blockly.Arduino.base_map = function() {
   value_num = value_num.replace('(','').replace(')','');
   value_dmax = value_dmax.replace('(','').replace(')','');
   var code = 'map('+value_num+', 0, 1024, 0, '+value_dmax+')';
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino.inout_buildin_led = function() {
@@ -231,7 +231,7 @@ Blockly.Arduino.inout_digital_read = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
   var code = 'digitalRead('+dropdown_pin+')';
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino.inout_analog_write = function() {
@@ -248,7 +248,7 @@ Blockly.Arduino.inout_analog_read = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   //Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
   var code = 'analogRead('+dropdown_pin+')';
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino.inout_highlow = function() {
