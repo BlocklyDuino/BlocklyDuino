@@ -3,9 +3,12 @@ BlocklyDuino
 
 0.6 2012/10/
 -----------------
-code name: SUPERHERO
+code name: CASTLE
 
 Feature:
+
+* add grove_temporature_sensor block
+* add Serial print block
 
 Change:
 

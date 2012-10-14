@@ -146,10 +146,6 @@ Blockly.Language.inout_highlow = {
   }
 };
 
-Blockly.Language.inout_highlow.OPERATORS =
-    [['HIGH', 'HIGH'],
-     ['LOW', 'LOW']];
-
 //servo block
 //http://www.seeedstudio.com/depot/emax-9g-es08a-high-sensitive-mini-servo-p-760.html?cPath=170_171
 Blockly.Language.servo_move = {
@@ -190,6 +186,21 @@ Blockly.Language.servo_read_degrees = {
 	    .appendTitle("Read Degrees")
 	this.setOutput(true, Number);
     this.setTooltip('return that degree with the last servo move.');
+  }
+};
+
+Blockly.Language.serial_print = {
+  category: 'In/Out',
+  helpUrl: 'http://www.arduino.cc/en/Serial/Print',
+  init: function() {
+    this.setColour(230);
+    //this.appendDummyInput("")
+	//    .appendTitle(new Blockly.FieldDropdown([["9600", "9600"], ["12800", "12800"]]), 'PORT')
+    this.appendValueInput("CONTENT", Number)
+	    .appendTitle("Serial Print");
+	this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Prints data to the console/serial port as human-readable ASCII text.');
   }
 };
 
@@ -298,5 +309,15 @@ Blockly.Arduino.servo_read_degrees = function() {
   Blockly.Arduino.setups_['setup_servo_'+dropdown_pin] = 'servo_'+dropdown_pin+'.attach('+dropdown_pin+');\n';
   
   var code = 'servo_'+dropdown_pin+'.read()';
+  return code;
+};
+
+Blockly.Arduino.serial_print = function() {
+  var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
+  content = content.replace('(','').replace(')','');
+  
+  Blockly.Arduino.setups_['setup_serial_'+profile.arduino.serial] = 'Serial.begin('+profile.arduino.serial+');\n';
+  
+  var code = 'Serial.print('+content+');\nSerial.print(\'\\t\');\n';
   return code;
 };
