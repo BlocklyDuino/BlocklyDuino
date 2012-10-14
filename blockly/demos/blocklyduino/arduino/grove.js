@@ -136,10 +136,10 @@ Blockly.Language.grove_temporature_sensor = {
     this.appendDummyInput("")
 	    .appendTitle("Temporature Sensor")
 	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Temperature1.jpg/400px-Temperature1.jpg", 64, 64))
-		.appendTitle("PIN#").appendTitle("PIN#")
+		.appendTitle("PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.analog), "PIN")
     this.setOutput(true, Number);
-    this.setTooltip('return ambient temperature');
+    this.setTooltip('return number of ambient temperature in ℃');
   }
 };
 
