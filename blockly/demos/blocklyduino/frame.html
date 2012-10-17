@@ -22,6 +22,8 @@
   <!-- define blocks -->
   <script type="text/javascript" src="arduino/base.js"></script>
   <script type="text/javascript" src="arduino/grove.js"></script>
+  <!-- custom block -->
+  <script type="text/javascript" src="arduino/custom.js"></script>
   
   <style>
     html, body {
@@ -40,18 +42,21 @@
       // Whitelist of blocks to keep.
       var newLanguage = {}
       var keepers = ['inout_highlow',
-          'inout_digital_write', 'inout_digital_read', 'inout_analog_write', 'inout_analog_read',
-		  'serial_print', 'inout_buildin_led',
+          'inout_digital_write', 'inout_digital_read',
+          'inout_analog_write', 'inout_analog_read',
+		      'serial_print', 'inout_buildin_led',
           'base_delay', 'base_map',
-		  'servo_move', 'servo_read_degrees',
-          'grove_led', 'grove_button', 'grove_potentiometer', 'grove_tilt_switch', 'grove_piezo_buzzer',
+		      'servo_move', 'servo_read_degrees',
+          'grove_led', 'grove_button', 'grove_potentiometer', 
+          'grove_tilt_switch', 'grove_piezo_buzzer',
           'grove_relay', 'grove_temporature_sensor',
           'controls_if', 'controls_if_if', 'controls_if_elseif', 'controls_if_else', 
           'controls_for',//'controls_whileUntil', 'controls_flow_statements',
           'math_number','math_arithmetic',//'math_modulo',
           'logic_compare', 'logic_operation', 'logic_negate', //'logic_boolean',
           'variables_get','variables_set', 'variables_declare',
-          //'procedures_defnoreturn', 'procedures_defreturn', 'procedures_callnoreturn', 'procedures_callreturn'
+          //'procedures_defnoreturn', 'procedures_defreturn', 'procedures_callnoreturn', 'procedures_callreturn',
+          //'custom_read','custom_write',
           ];
       for (var x = 0; x < keepers.length; x++) {
         newLanguage[keepers[x]] = Blockly.Language[keepers[x]];

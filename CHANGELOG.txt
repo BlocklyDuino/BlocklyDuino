@@ -1,11 +1,14 @@
 BlocklyDuino
 =======================
 
-0.7 2012/
+0.7 2012/10/
 -----------------
 code name: SPACE
 
 Feature:
+
+* promotion video http://www.youtube.com/watch?v=_swiyXcUvNY
+* bootstraping sample blocks and document to easily custom blocks.
 
 Change:
 

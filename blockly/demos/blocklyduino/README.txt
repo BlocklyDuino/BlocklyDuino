@@ -18,12 +18,10 @@ Install
 
 BlocklyDuino is a web tool. You can give it a try at http://www.gasolin.idv.tw/public/blockly/demos/blocklyduino/index.html . 
 
-If you want to install it locally. Checkout Blockly and BlocklyDuino from google code.
+If you want to install it locally. Checkout Blockly and BlocklyDuino from github.
 
-$ svn co http://code.google.com/p/blockly/
-$ hg clone http://code.google.com/p/blocklyduino/
+$ git clone https://github.com/gasolin/BlocklyDuino.git
 
-Then put blocklyduino folder (from BlocklyDuino) into blockly/demos/(from Blockly) folder.
 
 Put blockly into a web server and open the url like localhost/public/blockly/demos/blocklyduino/index.html for use.
 
@@ -37,6 +35,8 @@ Usage (3 Step)
 Credit
 -----------------
 
+Fred Lin is the creator of BlocklyDuino.
+
 Thanks Neil Fraser, Q.Neutron from Blockly http://code.google.com/p/blockly/
 Arduino and Seeeduino guys for Arduino and Grove blocks.
 
@@ -44,7 +44,7 @@ The project is inspired by arduiblock https://github.com/taweili/ardublock and m
 
 License
 -----------------
-Copyright (C) 2012 Fred Lin gasolin@gmail.com
+Copyright (C) 2012 Fred Lin gasolin+arduino@gmail.com
 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
