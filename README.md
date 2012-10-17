@@ -5,10 +5,14 @@ BlocklyDuino is based on [Blockly](http://code.google.com/p/blockly/), the web-b
 
 BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) blocks to easily get started with microcontroller-based experimentation and learning.
 
+[We also have Google+ Page](https://plus.google.com/111979846292233941175).
+
 ### Demo
 
 BlocklyDuino is a web tool. You can give it a try at
 [Link](http://www.gasolin.idv.tw/public/blockly/demos/blocklyduino/index.html) to see the working BlocklyDuino.
+
+Or watch the [video demo](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
 ### Run locally on your web browser
 
