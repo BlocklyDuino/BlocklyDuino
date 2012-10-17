@@ -23,6 +23,7 @@
  * properties with the context menu.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for an editable dropdown field.
@@ -42,6 +43,7 @@ Blockly.FieldDropdown = function(menuGenerator, opt_changeHandler) {
 
 // FieldDropdown is a subclass of Field.
 Blockly.FieldDropdown.prototype = new Blockly.Field(null);
+Blockly.FieldDropdown.constructor = Blockly.FieldDropdown;
 
 /**
  * Create the dropdown field's elements.  Only needs to be called once.

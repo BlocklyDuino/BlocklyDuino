@@ -21,6 +21,7 @@
  * @fileoverview Generating Arduino for math blocks.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 Blockly.Arduino = Blockly.Generator.get('Arduino');
 
@@ -87,13 +88,13 @@ Blockly.Arduino.math_single = function() {
   }
   if (operator == 'ABS' || operator.substring(0, 5) == 'ROUND') {
     arg = Blockly.Arduino.valueToCode(this, 'NUM',
-      Blockly.Arduino.ORDER_UNARY_POSTFIX) || '0';
+        Blockly.Arduino.ORDER_UNARY_POSTFIX) || '0';
   } else if (operator == 'SIN' || operator == 'COS' || operator == 'TAN') {
     arg = Blockly.Arduino.valueToCode(this, 'NUM',
-      Blockly.Arduino.ORDER_MULTIPLICATIVE) || '0';
+        Blockly.Arduino.ORDER_MULTIPLICATIVE) || '0';
   } else {
     arg = Blockly.Arduino.valueToCode(this, 'NUM',
-      Blockly.Arduino.ORDER_NONE) || '0';
+        Blockly.Arduino.ORDER_NONE) || '0';
   }
   // First, handle cases which generate values that don't need parentheses.
   switch (operator) {
@@ -161,8 +162,8 @@ Blockly.Arduino.math_trig = Blockly.Arduino.math_single;
 
 Blockly.Arduino.math_on_list = function() {
   // Math functions for lists.
-  func = this.getTitleValue('OP');
-  list = Blockly.Arduino.valueToCode(this, 'LIST',
+  var func = this.getTitleValue('OP');
+  var list = Blockly.Arduino.valueToCode(this, 'LIST',
       Blockly.Arduino.ORDER_NONE) || '[]';
   var code;
   switch (func) {
@@ -191,7 +192,7 @@ Blockly.Arduino.math_on_list = function() {
         func.push('  if (myList.isEmpty()) return null;');
         func.push('  num minVal = myList[0];');
         func.push('  myList.forEach((num entry) ' +
-				   '{minVal = Math.min(minVal, entry);});');
+                  '{minVal = Math.min(minVal, entry);});');
         func.push('  return minVal;');
         func.push('}');
         Blockly.Arduino.definitions_['math_min'] = func.join('\n');
@@ -208,7 +209,7 @@ Blockly.Arduino.math_on_list = function() {
         func.push('  if (myList.isEmpty()) return null;');
         func.push('  num maxVal = myList[0];');
         func.push('  myList.forEach((num entry) ' +
-				   '{maxVal = Math.max(maxVal, entry);});');
+                  '{maxVal = Math.max(maxVal, entry);});');
         func.push('  return maxVal;');
         func.push('}');
         Blockly.Arduino.definitions_['math_max'] = func.join('\n');
@@ -243,9 +244,9 @@ Blockly.Arduino.math_on_list = function() {
         var func = [];
         func.push('num ' + functionName + '(List myList) {');
         func.push('  // First filter list for numbers only, then sort, '+
-				   'then return middle value');
+                  'then return middle value');
         func.push('  // or the average of two middle values if list has an ' +
-				   'even number of elements.');
+                  'even number of elements.');
         func.push('  List localList = myList.filter((a) => a is num);');
         func.push('  if (localList.isEmpty()) return null;');
         func.push('  localList.sort((a, b) => (a - b));');
@@ -317,14 +318,13 @@ Blockly.Arduino.math_on_list = function() {
         func.push('  num mean = sum / n;');
         func.push('  num sumSquare = 0;');
         func.push('  numbers.forEach((x) => sumSquare += ' +
-				   'Math.pow(x - mean, 2));');
-        func.push('  num standard_dev = Math.sqrt(sumSquare / n);');
-        func.push('  return standard_dev;');
+                  'Math.pow(x - mean, 2));');
+        func.push('  return Math.sqrt(sumSquare / n);');
         func.push('}');
         Blockly.Arduino.definitions_['math_standard_deviation'] = func.join('\n');
       }
       code = Blockly.Arduino.math_on_list.math_standard_deviation +
-	      '(' + list + ')';
+          '(' + list + ')';
       break;
     case 'RANDOM':
       if (!Blockly.Arduino.definitions_['math_random_item']) {
@@ -391,7 +391,7 @@ Blockly.Arduino.math_random_int = function() {
     func.push('}');
     Blockly.Arduino.definitions_['math_random_int'] = func.join('\n');
   }
-  code = Blockly.Arduino.math_random_int.random_function +
+  var code = Blockly.Arduino.math_random_int.random_function +
       '(' + argument0 + ', ' + argument1 + ')';
   return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
 };

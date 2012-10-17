@@ -21,6 +21,7 @@
  * @fileoverview Methods for graphically rendering a block as SVG.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for a block's SVG representation.
@@ -37,8 +38,7 @@ Blockly.BlockSvg = function(block) {
   this.svgPath_ = Blockly.createSvgElement('path', {'class': 'blocklyPath'},
       this.svgGroup_);
   this.svgPathLight_ = Blockly.createSvgElement('path',
-      {'class': 'blocklyPathLight', 'fill': 'none', 'stroke-width': 2,
-      'stroke-linecap': 'round'}, this.svgGroup_);
+      {'class': 'blocklyPathLight'}, this.svgGroup_);
   this.svgPath_.tooltip = this.block_;
   Blockly.Tooltip && Blockly.Tooltip.bindMouseEvents(this.svgPath_);
   if (block.editable) {
@@ -228,7 +228,7 @@ Blockly.BlockSvg.prototype.destroyUiEffect = function() {
 
   var xy = Blockly.getAbsoluteXY_(this.svgGroup_);
   // Deeply clone the current block.
-  clone = this.svgGroup_.cloneNode(true);
+  var clone = this.svgGroup_.cloneNode(true);
   clone.translateX_ = xy.x;
   clone.translateY_ = xy.y;
   clone.setAttribute('transform',
@@ -463,16 +463,21 @@ Blockly.BlockSvg.prototype.renderTitles_ = function(titleList,
 Blockly.BlockSvg.prototype.renderCompute_ = function(iconWidth) {
   var inputList = this.block_.inputList;
   var inputRows = [];
+  inputRows.rightEdge = iconWidth + Blockly.BlockSvg.SEP_SPACE_X * 2;
+  if (this.block_.previousConnection || this.block_.nextConnection) {
+    inputRows.rightEdge = Math.max(inputRows.rightEdge,
+        Blockly.BlockSvg.NOTCH_WIDTH + Blockly.BlockSvg.SEP_SPACE_X);
+  }
+  if (this.block_.collapsed) {
+    // Collapsed blocks have no visible inputs.
+    return inputRows;
+  }
   var titleValueWidth = 0;  // Width of longest external value title.
   var titleStatementWidth = 0;  // Width of longest statement title.
   var hasValue = false;
   var hasStatement = false;
   var hasDummy = false;
   var lastType = undefined;
-  if (this.block_.collapsed) {
-    // Collapsed blocks have no visible inputs.
-    return inputRows;
-  }
   for (var i = 0, input; input = inputList[i]; i++) {
     var row;
     if (!this.block_.inputsInline ||
@@ -578,13 +583,9 @@ Blockly.BlockSvg.prototype.renderCompute_ = function(iconWidth) {
       titleStatementWidth;
   // Compute the preferred right edge.  Inline blocks may extend beyond.
   // This is the width of the block where external inputs connect.
-  inputRows.rightEdge = iconWidth + Blockly.BlockSvg.SEP_SPACE_X * 2;
   if (hasStatement) {
     inputRows.rightEdge = Math.max(inputRows.rightEdge,
         inputRows.statementEdge + Blockly.BlockSvg.NOTCH_WIDTH);
-  } else if (this.block_.previousConnection || this.block_.nextConnection) {
-    inputRows.rightEdge = Math.max(inputRows.rightEdge,
-        Blockly.BlockSvg.NOTCH_WIDTH + Blockly.BlockSvg.SEP_SPACE_X);
   }
   if (hasValue) {
     inputRows.rightEdge = Math.max(inputRows.rightEdge, titleValueWidth +

@@ -21,6 +21,7 @@
  * @fileoverview Non-editable text field.  Used for titles, labels, etc.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for a non-editable field.
@@ -38,6 +39,7 @@ Blockly.FieldLabel = function(text) {
 
 // Text is a subclass of Field.
 Blockly.FieldLabel.prototype = new Blockly.Field(null);
+Blockly.FieldLabel.constructor = Blockly.FieldLabel;
 
 /**
  * Editable fields are saved by the XML renderer, non-editable fields are not.

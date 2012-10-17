@@ -21,6 +21,7 @@
  * @fileoverview Utility functions for handling procedures.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  */
@@ -208,7 +209,7 @@ Blockly.Procedures.refreshFlyoutCategory = function() {
  * @return {!Array.<!Blockly.Block>} Array of caller blocks.
  */
 Blockly.Procedures.getCallers = function(name, workspace) {
-  callers = [];
+  var callers = [];
   var blocks = workspace.getAllBlocks(false);
   // Iterate through every block and check the name.
   for (var x = 0; x < blocks.length; x++) {

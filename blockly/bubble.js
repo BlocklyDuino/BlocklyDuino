@@ -21,6 +21,7 @@
  * @fileoverview Object representing a UI bubble.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for UI bubble.

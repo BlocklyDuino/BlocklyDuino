@@ -21,6 +21,7 @@
  * @fileoverview Helper functions for generating Arduino blocks.
  * @author gasolin@gmail.com (Fred Lin)
  */
+'use strict';
 
 //To support syntax defined in http://arduino.cc/en/Reference/HomePage
 

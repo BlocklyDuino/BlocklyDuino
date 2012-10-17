@@ -21,6 +21,7 @@
  * @fileoverview Library for creating scrollbars.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for a pair of scrollbars.  Horizontal and vertical.

@@ -23,6 +23,7 @@
  * instances would be Blockly.FieldTextInput, Blockly.FieldDropdown, etc.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for an editable field.
@@ -169,11 +170,17 @@ Blockly.Field.prototype.setText = function(text) {
   this.text_ = text;
   // Empty the text element.
   Blockly.removeChildren_(this.textElement_);
-  // Replace whitespace with non-breaking spaces so the text doesn't collapse.
-  text = text.replace(/\s/g, Blockly.Field.NBSP);
   if (!text) {
     // Prevent the field from disappearing if empty.
     text = Blockly.Field.NBSP;
+  // Replace whitespace with non-breaking spaces so the text doesn't collapse.
+  } else {
+	  if(typeof(text)===typeof('a')) {
+	      text = text.replace(/\s/g, Blockly.Field.NBSP);
+      } else {
+		  text = text.name.replace(/\s/g, Blockly.Field.NBSP);
+		  //console.log('obj '+text);
+      }
   }
   var textNode = Blockly.svgDoc.createTextNode(text);
   this.textElement_.appendChild(textNode);

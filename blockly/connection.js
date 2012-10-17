@@ -21,6 +21,7 @@
  * @fileoverview Components for creating connections between blocks.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for a connection between blocks.
@@ -91,23 +92,11 @@ Blockly.Connection.prototype.connect = function(otherConnection) {
       orphanBlock.setParent(null);
       // Attempt to reattach the orphan at the end of the newly inserted
       // block.  Since this block may be a row, walk down to the end.
-      function singleConnection(block) {
-        var connection = false;
-        for (var x = 0; x < block.inputList.length; x++) {
-          var thisConnection = block.inputList[x].connection;
-          if (thisConnection && thisConnection.type == Blockly.INPUT_VALUE &&
-              orphanBlock.outputConnection.checkType_(thisConnection)) {
-            if (connection) {
-              return null;  // More than one connection.
-            }
-            connection = thisConnection;
-          }
-        }
-        return connection;
-      };
       var newBlock = this.sourceBlock_;
       var connection;
-      while (connection = singleConnection(newBlock)) {  // '=' is intentional.
+      while (connection =
+          Blockly.Connection.singleConnection_(newBlock, orphanBlock)) {
+        // '=' is intentional in line above.
         if (connection.targetBlock()) {
           newBlock = connection.targetBlock();
         } else {
@@ -183,6 +172,30 @@ Blockly.Connection.prototype.connect = function(otherConnection) {
     childBlock.svg_.updateDisabled();
     childBlock.render();
   }
+};
+
+/**
+ * Does the given block have one and only one connection point that will accept
+ * the orphaned block?
+ * @pram {!Blockly.Block} block The superior block.
+ * @pram {!Blockly.Block} orphanBlock The inferior block.
+ * @return {Blockly.Connection} The suitable connection point on 'block',
+ *     or null.
+ * @private
+ */
+Blockly.Connection.singleConnection_ = function(block, orphanBlock) {
+  var connection = false;
+  for (var x = 0; x < block.inputList.length; x++) {
+    var thisConnection = block.inputList[x].connection;
+    if (thisConnection && thisConnection.type == Blockly.INPUT_VALUE &&
+        orphanBlock.outputConnection.checkType_(thisConnection)) {
+      if (connection) {
+        return null;  // More than one connection.
+      }
+      connection = thisConnection;
+    }
+  }
+  return connection;
 };
 
 /**
@@ -649,6 +662,7 @@ Blockly.ConnectionDB = function() {
 };
 
 Blockly.ConnectionDB.prototype = new Array();
+Blockly.ConnectionDB.constructor = Blockly.ConnectionDB;
 
 /**
  * Add a connection to the database.  Must not already exist in DB.

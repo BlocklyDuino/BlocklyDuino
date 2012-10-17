@@ -21,6 +21,7 @@
  * @fileoverview Image field.  Used for titles, labels, etc.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for an image.
@@ -57,6 +58,7 @@ Blockly.FieldImage = function(src, width, height) {
 
 // FieldImage is a subclass of Field.
 Blockly.FieldImage.prototype = new Blockly.Field(null);
+Blockly.FieldImage.constructor = Blockly.FieldImage;
 
 /**
  * Rectangular mask used by Firefox.

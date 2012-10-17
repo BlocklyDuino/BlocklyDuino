@@ -26,6 +26,7 @@
  * Third, call Blockly.Tooltip.bindMouseEvents(e) passing the SVG element.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 // Tooltip Engine
 Blockly.Tooltip = {};

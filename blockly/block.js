@@ -21,6 +21,7 @@
  * @fileoverview The class representing one block.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for one block.
@@ -527,8 +528,7 @@ Blockly.Block.prototype.showContextMenu_ = function(x, y) {
         block.setCollapsed(false);
       };
       options.push(expandOption);
-    } else if (this.inputList.length) {
-      // Only display this option if there are inputs on the block.
+    } else {
       var collapseOption = {enabled: true};
       collapseOption.text = Blockly.MSG_COLLAPSE_BLOCK;
       collapseOption.callback = function() {
@@ -1174,34 +1174,31 @@ Blockly.Block.prototype.setCollapsed = function(collapsed) {
           title.getRootElement() : title;
       titleElement.style.display = display;
     }
-    if (input.targetBlock) {
+    if (input.connection) {
       // This is a connection.
       if (collapsed) {
-        input.hideAll();
+        input.connection.hideAll();
       } else {
-        renderList = renderList.concat(input.unhideAll());
+        renderList = renderList.concat(input.connection.unhideAll());
       }
-      var child = input.targetBlock();
+      var child = input.connection.targetBlock();
       if (child) {
         child.svg_.getRootNode().style.display = display;
         if (collapsed) {
           child.rendered = false;
         }
       }
-    } else if (input.getText) {
-      // This is a local variable.
-      input.setVisible(!collapsed);
     }
   }
 
   if (collapsed && this.mutator) {
-    this.mutator.setPinned(false);
+    this.mutator.setVisible(false);
   }
   if (collapsed && this.comment) {
-    this.comment.setPinned(false);
+    this.comment.setVisible(false);
   }
   if (collapsed && this.warning) {
-    this.warning.setPinned(false);
+    this.warning.setVisible(false);
   }
 
   if (renderList.length == 0) {

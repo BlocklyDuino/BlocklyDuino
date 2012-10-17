@@ -21,6 +21,7 @@
  * @fileoverview XML reader and writer.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 Blockly.Xml = {};
 
@@ -224,12 +225,12 @@ Blockly.Xml.domToBlock_ = function(workspace, xmlBlock) {
   var block = new Blockly.Block(workspace, prototypeName);
   block.initSvg();
 
+  var blockChild = null;
   for (var x = 0, xmlChild; xmlChild = xmlBlock.childNodes[x]; x++) {
     if (xmlChild.nodeType == 3 && xmlChild.data.match(/^\s*$/)) {
       // Extra whitespace between tags does not concern us.
       continue;
     }
-    var blockChild = null;
     var input;
 
     // Find the first 'real' grandchild node (that isn't whitespace).
@@ -333,7 +334,11 @@ Blockly.Xml.domToBlock_ = function(workspace, xmlBlock) {
     block.setDisabled(disabled == 'true');
   }
 
-  block.render();
+  if (!blockChild) {
+    // Rendering a block renders all those above it.
+    // Therefore one only needs to render the leaf blocks.
+    block.render();
+  }
   return block;
 };
 

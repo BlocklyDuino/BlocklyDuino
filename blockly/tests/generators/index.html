@@ -68,6 +68,8 @@
 <script type="text/javascript" src="../../workspace.js"></script>
 <script type="text/javascript" src="../../xml.js"></script>
 <script type="text/javascript">
+'use strict';
+
 function start() {
   Blockly.inject(document.getElementById('svg'), {path: '../../'});
 }
@@ -134,7 +136,8 @@ function toXml() {
 }
 
 function toJavaScript() {
-  var code = Blockly.Generator.workspaceToCode('JavaScript');
+  var code = '\'use strict\';\n\n'
+  code += Blockly.Generator.workspaceToCode('JavaScript');
   setOutput(code);
 }
 

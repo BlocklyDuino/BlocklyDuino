@@ -21,6 +21,7 @@
  * @fileoverview Functionality for the right-click context menus.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Due to a bug in WebKit concerning the stacking order of background colours,

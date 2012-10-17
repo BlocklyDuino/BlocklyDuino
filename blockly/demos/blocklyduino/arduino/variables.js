@@ -21,6 +21,7 @@
  * @fileoverview Variable blocks for Arduino.
  * @author gasolin@gmail.com (Fred Lin)
  */
+'use strict';
 
 if (!Blockly.Language) Blockly.Language = {};
 

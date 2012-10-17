@@ -22,6 +22,7 @@
  * Blockly code.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 Blockly.Generator = {};
 
@@ -128,7 +129,7 @@ Blockly.CodeGenerator = function() {};
  *     operator order value.  Returns '' if block is null.
  */
 Blockly.CodeGenerator.prototype.blockToCode = function(block) {
-  if (!block) {
+  if (!block || block.disabled) {
     return '';
   }
   var func = this[block.type];
@@ -139,14 +140,8 @@ Blockly.CodeGenerator.prototype.blockToCode = function(block) {
   var code = func.call(block);
   if (code instanceof Array) {
     // Value blocks return tuples of code and operator order.
-    if (block.disabled) {
-      code[0] = '';
-    }
     return [this.scrub_(block, code[0]), code[1]];
   } else {
-    if (block.disabled) {
-      code = '';
-    }
     return this.scrub_(block, code);
   }
 };
@@ -160,19 +155,28 @@ Blockly.CodeGenerator.prototype.blockToCode = function(block) {
  * @return {string} Generated code or '' if no blocks are connected.
  */
 Blockly.CodeGenerator.prototype.valueToCode = function(block, name, order) {
-  var input = block.getInputTargetBlock(name);
-  if (!input) {
+  var targetBlock = block.getInputTargetBlock(name);
+  if (!targetBlock) {
     return '';
   }
-  var tuple = this.blockToCode(input);
+  var tuple = this.blockToCode(targetBlock);
+  if (tuple === '') {
+    // Disabled block.
+    return '';
+  }
   if (!(tuple instanceof Array)) {
     // Value blocks must return code and order of operations info.
     // Statement blocks must only return code.
-    throw 'Expecting tuple from value block "' + input.type + '".';
+    throw 'Expecting tuple from value block "' + targetBlock.type + '".';
   }
   var code = tuple[0];
   var innerOrder = tuple[1];
   if (code && order <= innerOrder) {
+    // The operators outside this code are stonger than the operators
+    // inside this code.  To prevent the code from being pulled apart,
+    // wrap the code in parentheses.
+    // Technically, this should be handled on a language-by-language basis.
+    // However all known (sane) languages use parentheses for grouping.
     code = '(' + code + ')';
   }
   return code;
@@ -185,12 +189,12 @@ Blockly.CodeGenerator.prototype.valueToCode = function(block, name, order) {
  * @return {string} Generated code or '' if no blocks are connected.
  */
 Blockly.CodeGenerator.prototype.statementToCode = function(block, name) {
-  var input = block.getInputTargetBlock(name);
-  var code = this.blockToCode(input);
+  var targetBlock = block.getInputTargetBlock(name);
+  var code = this.blockToCode(targetBlock);
   if (typeof code != 'string') {
     // Value blocks must return code and order of operations info.
     // Statement blocks must only return code.
-    throw 'Expecting code from statement block "' + input.type + '".';
+    throw 'Expecting code from statement block "' + targetBlock.type + '".';
   }
   if (code) {
     code = Blockly.Generator.prefixLines(code, '  ');

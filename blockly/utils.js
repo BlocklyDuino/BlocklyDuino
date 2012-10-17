@@ -23,6 +23,7 @@
  * a JavaScript framework such as Closure were used.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Removes all the child nodes on a DOM node.

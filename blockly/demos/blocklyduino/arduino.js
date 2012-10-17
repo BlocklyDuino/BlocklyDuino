@@ -21,6 +21,7 @@
  * @fileoverview Helper functions for generating Arduino for blocks.
  * @author gasolin@gmail.com (Fred Lin)
  */
+'use strict';
 
 Blockly.Arduino = Blockly.Generator.get('Arduino');
 

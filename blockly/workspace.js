@@ -21,6 +21,7 @@
  * @fileoverview Object representing a workspace.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for a workspace.

@@ -23,6 +23,7 @@
  * properties with the context menu.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 // Name space for the toolbox.
 Blockly.Toolbox = {};

@@ -21,6 +21,7 @@
  * @fileoverview Text input field.  Used for editable titles and variables.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for an editable text field.
@@ -39,6 +40,7 @@ Blockly.FieldTextInput = function(text, opt_validationFunc) {
 
 // FieldTextInput is a subclass of Field.
 Blockly.FieldTextInput.prototype = new Blockly.Field(null);
+Blockly.FieldTextInput.constructor = Blockly.FieldTextInput;
 
 /**
  * Set the text in this field.

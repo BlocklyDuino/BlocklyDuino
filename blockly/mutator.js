@@ -22,6 +22,7 @@
  * user to change the shape of a block using a nested blocks editor.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for a mutator dialog.

@@ -21,6 +21,7 @@
  * @fileoverview Generating Arduino for logic blocks.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 Blockly.Arduino = Blockly.Generator.get('Arduino');
 

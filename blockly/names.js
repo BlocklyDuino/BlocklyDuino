@@ -21,6 +21,7 @@
  * @fileoverview Utility functions for handling variables and procedure names.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 /**
  * Class for a database of entity names (variables, functions, etc).

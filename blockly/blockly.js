@@ -21,6 +21,7 @@
  * @fileoverview Core JavaScript library for Blockly.
  * @author fraser@google.com (Neil Fraser)
  */
+'use strict';
 
 // Top level object for Blockly.
 var Blockly = {};
