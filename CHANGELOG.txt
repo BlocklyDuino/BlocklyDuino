@@ -1,8 +1,8 @@
 BlocklyDuino
 =======================
 
-0.7 2012/10/
------------------
+0.7 2012/10/18
+------------------
 code name: SPACE
 
 Feature:
@@ -14,6 +14,12 @@ Feature:
 Change:
 
 * update blockly till 10/18
+* move delay block to Control blocks Panel
+* move map block to Math blocks panel
+
+fix:
+
+* fix servo move block cascade input issue 
 
 Credit: gasolin
 
@@ -24,6 +30,7 @@ code name: CASTLE
 
 Feature:
 
+* code on github
 * add grove_temporature_sensor block
 * add Serial print block
 

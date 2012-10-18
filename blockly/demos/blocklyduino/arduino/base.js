@@ -29,10 +29,10 @@
 if (!Blockly.Language) Blockly.Language = {};
 
 Blockly.Language.base_delay = {
-  category: 'Base',
+  category: 'Control',
   helpUrl: 'http://arduino.cc/en/Reference/delay',
   init: function() {
-    this.setColour(230);
+    this.setColour(120);
 	this.appendDummyInput("")
 		.appendTitle("Delay");
 	this.appendValueInput("DELAY_TIME", Number);
@@ -44,7 +44,7 @@ Blockly.Language.base_delay = {
 };
 
 Blockly.Language.base_map = {
-  category: 'Base',
+  category: 'Math',
   helpUrl: 'http://arduino.cc/en/Reference/map',
   init: function() {
     this.setColour(230);
@@ -216,12 +216,12 @@ Blockly.Arduino.base_delay = function() {
 };
 
 Blockly.Arduino.base_map = function() {
-  var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
+  var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
   var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
-  value_num = value_num.replace('(','').replace(')','');
+  //value_num = value_num.replace('(','').replace(')','');
   value_dmax = value_dmax.replace('(','').replace(')','');
   var code = 'map('+value_num+', 0, 1024, 0, '+value_dmax+')';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return [code, Blockly.Arduino.ORDER_NONE];
 };
 
 Blockly.Arduino.inout_buildin_led = function() {
@@ -290,9 +290,9 @@ delay(2000);
 Blockly.Arduino.servo_move = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
-  value_degree = value_degree.replace('(','').replace(')','')
+  //value_degree = value_degree.replace('(','').replace(')','')
   var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '0'
-  delay_time = delay_time.replace('(','').replace(')','');
+  //delay_time = delay_time.replace('(','').replace(')','');
   
   Blockly.Arduino.definitions_['define_servo'] = '#include &lt;Servo.h&gt;\n';
   Blockly.Arduino.definitions_['var_servo'+dropdown_pin] = 'Servo servo_'+dropdown_pin+';\n';
