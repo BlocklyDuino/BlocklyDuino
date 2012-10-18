@@ -121,17 +121,25 @@ Blockly.Arduino.finish = function(code) {
   code = 'void loop() \n{\n' + code + '\n}';
 
   // Convert the definitions dictionary into a list.
+  var imports = [];
   var definitions = [];
   for (var name in Blockly.Arduino.definitions_) {
-    definitions.push(Blockly.Arduino.definitions_[name]);
+    var def = Blockly.Arduino.definitions_[name];
+    if (def.match(/^#include/)) {
+      imports.push(def);
+    } else {
+      definitions.push(def);
+    }
   }
+  
   // Convert the setups dictionary into a list.
   var setups = [];
   for (var name in Blockly.Arduino.setups_) {
     setups.push(Blockly.Arduino.setups_[name]);
   }
   
-  return definitions.join('\n') +'\nvoid setup() \n{\n  '+setups.join('\n  ') + '\n}'+ '\n\n' + code;
+  var allDefs = imports.join('\n') + '\n\n' + definitions.join('\n') + '\nvoid setup() \n{\n  '+setups.join('\n  ') + '\n}'+ '\n\n';
+  return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code;
 };
 
 /**
