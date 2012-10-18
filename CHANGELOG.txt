@@ -9,11 +9,11 @@ Feature:
 
 * promotion video http://www.youtube.com/watch?v=_swiyXcUvNY
 * bootstraping sample blocks and document to easily custom blocks.
-* from blockly) Move include section always at top of the source file
 
 Change:
 
 * update blockly till 10/18
+* from blockly) Move include section always at top of the source file
 * move delay block to Control blocks Panel
 * move map block to Math blocks panel
 
