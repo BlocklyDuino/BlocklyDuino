@@ -25,6 +25,11 @@
 
 Blockly.Arduino = Blockly.Generator.get('Arduino');
 
+if (!Blockly.Arduino.RESERVED_WORDS_) {
+  Blockly.Arduino.RESERVED_WORDS_ = '';
+}
+Blockly.Arduino.RESERVED_WORDS_ += 'Math,';
+
 Blockly.Arduino.math_number = function() {
   // Numeric value.
   var code = window.parseFloat(this.getTitleValue('NUM'));

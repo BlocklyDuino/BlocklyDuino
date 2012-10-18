@@ -13,7 +13,7 @@ Feature:
 
 Change:
 
-* update blockly till 10/17
+* update blockly till 10/18
 
 Credit: gasolin
 

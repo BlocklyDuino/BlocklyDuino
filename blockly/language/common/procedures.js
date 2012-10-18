@@ -102,7 +102,7 @@ Blockly.Language.procedures_defnoreturn = {
   },
   compose: function(containerBlock) {
     this.arguments_ = [];
-    paramIds = [];
+    var paramIds = [];
     var paramBlock = containerBlock.getInputTargetBlock('STACK');
     while (paramBlock) {
       this.arguments_.push(paramBlock.getTitleValue('NAME'));

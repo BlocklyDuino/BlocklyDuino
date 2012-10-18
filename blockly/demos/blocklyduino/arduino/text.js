@@ -60,7 +60,7 @@ Blockly.Arduino.text_append = function() {
       Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Arduino.valueToCode(this, 'TEXT',
       Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
-  return code = varName + ' = new StringBuffer(' + varName +
+  return varName + ' = new StringBuffer(' + varName +
       ').add(' + argument0 + ').toString();\n';
 };
 
@@ -169,7 +169,7 @@ Blockly.Arduino.text_changeCase = function() {
       func.push('      }');
       func.push('    }');
       func.push('  }');
-      func.push('  return title;');
+      func.push('  return title.toString();');
       func.push('}');
       Blockly.Arduino.definitions_['toTitleCase'] = func.join('\n');
     }
