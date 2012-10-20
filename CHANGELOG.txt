@@ -1,6 +1,18 @@
 BlocklyDuino
 =======================
 
+0.8 2012/
+------------------
+
+Feature:
+
+* load source via url param in same site with such "url=xxx" syntax
+* include 2 examples
+* upload potentiometer control servo video http://www.youtube.com/watch?v=u2Fp0KpWxik
+
+Credit: gasolin
+
+
 0.7 2012/10/18
 ------------------
 code name: SPACE

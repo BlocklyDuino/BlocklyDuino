@@ -6,8 +6,29 @@
   <script type="text/javascript" src="BlobBuilder.min.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
-  	  
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script>
+  function load_by_url(arg_url) {
+    $.ajax({
+    type:"GET",
+    dataType:"text",
+    url:arg_url,
+    success: function(msg){
+      //console.log(msg);
+      try {
+        var xml = Blockly.Xml.textToDom(msg);
+      } catch (e) {
+        alert('Error parsing XML:\n' + e);
+        return;
+      }
+      var count = Blockly.mainWorkspace.getAllBlocks().length;
+      if (count && confirm('Replace existing blocks?\n"Cancel" will merge.')) {
+        Blockly.mainWorkspace.clear();
+      }
+      Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+    }
+    });
+  }
   // Whitelist of blocks to keep.
   /*var newLanguage = {}
   var keepers = ['controls_loop', 'controls_delay', 'control_map',
@@ -131,6 +152,13 @@ function init(blockly) {
   }
 
   auto_save_and_restore_blocks();
+
+  //load from url parameter (single param)
+  //http://stackoverflow.com/questions/2090551/parse-query-string-in-javascript
+  var dest = unescape(location.search.replace(/^.*\=/, '')).replace(/\+/g, " ");
+  if(dest){
+    load_by_url(dest);
+  }
 }
   </script>
   <style>
