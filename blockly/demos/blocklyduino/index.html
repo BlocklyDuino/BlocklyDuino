@@ -124,7 +124,9 @@ function renderContent() {
   } else if (content.id == 'content_python') {
     content.innerHTML = Blockly.Generator.workspaceToCode('Python');*/
   } else if (content.id == 'content_arduino') {
-    content.innerHTML = Blockly.Generator.workspaceToCode('Arduino');
+    //content.innerHTML = Blockly.Generator.workspaceToCode('Arduino');
+    var arduinoTextarea = document.getElementById('textarea_arduino');
+    arduinoTextarea.value = Blockly.Generator.workspaceToCode('Arduino');
   }
 }
 
@@ -220,7 +222,7 @@ function init(blockly) {
       padding: 0;
     }
     pre,
-    #content_xml {
+    #content_xml,#content_arduino {
       width: 100%;
       height: 100%;
       padding: 0;
@@ -230,7 +232,7 @@ function init(blockly) {
       overflow: hidden;
       display: none;
     }
-    #textarea_xml {
+    #textarea_xml,#textarea_arduino {
       width: 100%;
       height: 100%;
       border: none;
@@ -302,7 +304,9 @@ function init(blockly) {
 		<!--div id="content_blocks" style="height:auto !important;height:400px; min-height:400px;"></div-->
         <!--pre id="content_javascript"></pre>
         <pre id="content_dart"></pre-->
-        <pre id="content_arduino"></pre>
+        <div id="content_arduino">
+          <textarea id="textarea_arduino"></textarea>
+        </div>
         <!--pre id="content_python"></pre-->
         <div id="content_xml">
           <textarea id="textarea_xml"></textarea>

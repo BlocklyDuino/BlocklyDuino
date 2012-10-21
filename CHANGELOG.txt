@@ -6,6 +6,7 @@ BlocklyDuino
 
 Feature:
 
+* generate arduino code in textarea, let ctrl+a can select correct source
 * load source via url param in same site with such "url=xxx" syntax
 * include 2 examples
 * upload potentiometer control servo video http://www.youtube.com/watch?v=u2Fp0KpWxik
