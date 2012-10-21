@@ -62,13 +62,13 @@ Blockly.Language.grove_button = {
   }
 };
 
-Blockly.Language.grove_potentiometer = {
+Blockly.Language.grove_rotary_angle = {
   category: 'Grove',
   helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Potentiometer',
   init: function() {
     this.setColour(10);
     this.appendDummyInput("")
-	    .appendTitle("Potentiometer")
+	    .appendTitle("Rotary Angle")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/5/59/Potentiometer1.jpg/400px-Potentiometer1.jpg", 64, 64))
 		.appendTitle("PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN");

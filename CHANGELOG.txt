@@ -16,6 +16,7 @@ Feature:
 change:
 
 * call profile params via 'profile.default.digital' instead of 'profile.arduino.digital'
+* rename Potentiometer block to Rotary Angle block
 
 Credit: gasolin
 
