@@ -83,7 +83,7 @@ Blockly.Language.inout_digital_write = {
     this.setColour(230);
 	this.appendDummyInput("")
 	    .appendTitle("DigitalWrite PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.digital), "PIN")
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
 	    .appendTitle("Stat")
 	    .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
     this.setPreviousStatement(true, null);
@@ -99,7 +99,7 @@ Blockly.Language.inout_digital_read = {
     this.setColour(230);
 	this.appendDummyInput("")
 	    .appendTitle("DigitalRead PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.digital), "PIN");
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, Boolean);
     this.setTooltip('');
   }
@@ -112,7 +112,7 @@ Blockly.Language.inout_analog_write = {
     this.setColour(230);
 	this.appendDummyInput("")
 	    .appendTitle("AnalogWrite PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.analog), "PIN")
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN")
 	    .appendTitle("value");
 	this.appendValueInput("NUM", Number);
 	this.setInputsInline(true);
@@ -129,7 +129,7 @@ Blockly.Language.inout_analog_read = {
     this.setColour(230);
 	this.appendDummyInput("")
 	    .appendTitle("AnalogRead PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.analog), "PIN");
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN");
     this.setOutput(true, Number);
     this.setTooltip('Return value between 0 and 1023');
   }
@@ -158,7 +158,7 @@ Blockly.Language.servo_move = {
 	    .appendTitle("Servo")
 	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/a991.jpg", 64, 64))
 	    .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.digital), "PIN")
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
 	this.appendValueInput("DEGREE", Number)
 	    .setAlign(Blockly.ALIGN_RIGHT)
 	    .appendTitle("Degree (0~180)");
@@ -181,7 +181,7 @@ Blockly.Language.servo_read_degrees = {
 	    .appendTitle("Servo")
 	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/a991.jpg", 64, 64))
 	    .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.digital), "PIN");
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
 	this.appendDummyInput("")
 	    .setAlign(Blockly.ALIGN_RIGHT)
 	    .appendTitle("Read Degrees")
@@ -317,7 +317,7 @@ Blockly.Arduino.serial_print = function() {
   var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
   content = content.replace('(','').replace(')','');
   
-  Blockly.Arduino.setups_['setup_serial_'+profile.arduino.serial] = 'Serial.begin('+profile.arduino.serial+');\n';
+  Blockly.Arduino.setups_['setup_serial_'+profile.default.serial] = 'Serial.begin('+profile.default.serial+');\n';
   
   var code = 'Serial.print('+content+');\nSerial.print(\'\\t\');\n';
   return code;

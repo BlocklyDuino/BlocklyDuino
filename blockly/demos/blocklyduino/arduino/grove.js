@@ -38,7 +38,7 @@ Blockly.Language.grove_led = {
 	    .appendTitle("LED")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/e0/LED1.jpg/400px-LED1.jpg", 64, 64))
 	    .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.digital), "PIN")
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
 		.appendTitle("stat")
 	    .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT"); 
 	this.setPreviousStatement(true, null);
@@ -56,7 +56,7 @@ Blockly.Language.grove_button = {
 	    .appendTitle("Button")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/93/Button1.jpg/400px-Button1.jpg", 64, 64))
 		.appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.digital), "PIN");
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, Boolean);
     this.setTooltip('Basic digital input');
   }
@@ -71,7 +71,7 @@ Blockly.Language.grove_potentiometer = {
 	    .appendTitle("Potentiometer")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/5/59/Potentiometer1.jpg/400px-Potentiometer1.jpg", 64, 64))
 		.appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.analog), "PIN");
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN");
     this.setOutput(true, Number);
     this.setTooltip('Analog output between 0 and Vcc');
   }
@@ -86,7 +86,7 @@ Blockly.Language.grove_tilt_switch = {
 	    .appendTitle("Tilt Switch")
 	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/95/Tilt1.jpg/200px-Tilt1.jpg", 64, 64))
 		.appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.digital), "PIN");
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
 	this.setOutput(true, Boolean);
     this.setTooltip('When the switch is level it is open, and when tilted, the switch closes.');
   }
@@ -101,7 +101,7 @@ Blockly.Language.grove_piezo_buzzer = {
 	    .appendTitle("Piezo Buzzer")
 	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/ed/Buzzer1.jpg/400px-Buzzer1.jpg", 64, 64))
 		.appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.digital), "PIN")
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
 	    .appendTitle("stat")
 	    .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");    
     this.setPreviousStatement(true, null);
@@ -119,7 +119,7 @@ Blockly.Language.grove_relay = {
 	    .appendTitle("Relay")
 	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/0/04/Twig-Relay1.jpg/400px-Twig-Relay1.jpg", 64, 64))
 		.appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.digital), "PIN")
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
 	    .appendTitle("stat")
 	    .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");    
     this.setPreviousStatement(true, null);
@@ -137,7 +137,7 @@ Blockly.Language.grove_temporature_sensor = {
 	    .appendTitle("Temporature Sensor")
 	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Temperature1.jpg/400px-Temperature1.jpg", 64, 64))
 		.appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.arduino.analog), "PIN")
+	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN")
     this.setOutput(true, Number);
     this.setTooltip('return number of ambient temperature in ℃');
   }

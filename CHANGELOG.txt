@@ -13,6 +13,10 @@ Feature:
 * include 2 examples
 * upload potentiometer control servo video http://www.youtube.com/watch?v=u2Fp0KpWxik
 
+change:
+
+* call profile params via 'profile.default.digital' instead of 'profile.arduino.digital'
+
 Credit: gasolin
 
 

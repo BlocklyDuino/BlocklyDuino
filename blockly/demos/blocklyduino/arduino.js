@@ -79,7 +79,9 @@ var profile = {
 		//15 analog
 	},
 }
-//alert(profile.arduino.digital[0]);
+//set default profile to arduino standard-compatible board
+profile["default"] = profile["arduino"];
+//alert(profile.default.digital[0]);
 
 /**
  * Initialise the database of variable names.
