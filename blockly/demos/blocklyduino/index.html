@@ -127,6 +127,7 @@ function renderContent() {
     //content.innerHTML = Blockly.Generator.workspaceToCode('Arduino');
     var arduinoTextarea = document.getElementById('textarea_arduino');
     arduinoTextarea.value = Blockly.Generator.workspaceToCode('Arduino');
+    arduinoTextarea.focus();
   }
 }
 

@@ -4,7 +4,9 @@ BlocklyDuino
 0.8 2012/
 ------------------
 
-Feature:
+make editor more user friendly
+
+Feature: 
 
 * generate arduino code in textarea, let ctrl+a can select correct source
 * load source via url param in same site with such "url=xxx" syntax
@@ -18,7 +20,9 @@ Credit: gasolin
 ------------------
 code name: SPACE
 
-Feature:
+Story: refine bootstraping process
+
+Feature: 
 
 * promotion video http://www.youtube.com/watch?v=_swiyXcUvNY
 * bootstraping sample blocks and document to easily custom blocks.
@@ -40,6 +44,8 @@ Credit: gasolin
 0.6 2012/10/14
 -----------------
 code name: CASTLE
+
+make BlocklyDuino public to github
 
 Feature:
 
