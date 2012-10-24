@@ -1,14 +1,15 @@
 BlocklyDuino
 =======================
 
-0.8 2012/
+0.8 2012/10/
 ------------------
 
-make editor more user friendly
+make editor more friendly
 
 Feature: 
 
-* generate arduino code in textarea, let ctrl+a can select correct source
+* generate arduino code in textarea, easier to copy source
+* auto focus to arduino code area, can use ctrl+a to select correct source
 * load source via url param in same site with such "url=xxx" syntax
 * include 2 examples
 * upload potentiometer control servo video http://www.youtube.com/watch?v=u2Fp0KpWxik
@@ -17,6 +18,7 @@ change:
 
 * call profile params via 'profile.default.digital' instead of 'profile.arduino.digital'
 * rename Potentiometer block to Rotary Angle block
+* update blockly till 10/18, move core js into core folder
 
 Credit: gasolin
 

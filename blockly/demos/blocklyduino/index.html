@@ -10,9 +10,10 @@
   <script>
   function load_by_url(arg_url) {
     $.ajax({
-    type:"GET",
-    dataType:"text",
     url:arg_url,
+    type:"GET",
+    cache:false,
+    dataType:"text",
     success: function(msg){
       //console.log(msg);
       try {
