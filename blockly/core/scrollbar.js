@@ -353,7 +353,7 @@ Blockly.ScrollbarNative.prototype.createDom_ = function(element) {
   <foreignObject xmlns="http://www.w3.org/2000/svg">
     <body xmlns="http://www.w3.org/1999/xhtml" class="blocklyMinimalBody">
       <div>
-        <img src="1x1.gif">
+        <img src="media/1x1.gif">
       </div>
     </body>
   </foreignObject>
@@ -365,7 +365,7 @@ Blockly.ScrollbarNative.prototype.createDom_ = function(element) {
   var outer = Blockly.svgDoc.createElementNS(Blockly.HTML_NS, 'div');
   this.outerDiv_ = outer;
   var inner = Blockly.svgDoc.createElementNS(Blockly.HTML_NS, 'img');
-  inner.setAttribute('src', Blockly.pathToBlockly + '1x1.gif');
+  inner.setAttribute('src', Blockly.pathToBlockly + 'media/1x1.gif');
   this.innerImg_ = inner;
 
   outer.appendChild(inner);

@@ -44,6 +44,12 @@ Blockly.Workspace.prototype.trashcan = null;
 Blockly.Workspace.prototype.fireChangeEventPid_ = null;
 
 /**
+ * This workspace's scrollbars, if they exist.
+ * @type {Blockly.ScrollbarPair}
+ */
+Blockly.Workspace.prototype.scrollbar = null;
+
+/**
  * Create the trash can elements.
  * @return {!Element} The workspace's SVG group.
  */

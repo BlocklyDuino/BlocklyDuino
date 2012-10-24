@@ -66,19 +66,6 @@ Blockly.Warning.prototype.iconX_ = null;
 Blockly.Warning.prototype.iconY_ = null;
 
 /**
- * Relative X coordinate of bubble with respect to the icon's centre.
- * In RTL mode the initial value is negated.
- * @private
- */
-Blockly.Warning.prototype.relativeLeft_ = -100;
-
-/**
- * Relative Y coordinate of bubble with respect to the icon's centre.
- * @private
- */
-Blockly.Warning.prototype.relativeTop_ = -120;
-
-/**
  * Create the icon on the block.
  * @private
  */
@@ -144,9 +131,9 @@ Blockly.Warning.prototype.setVisible = function(visible) {
   if (visible) {
     // Create the bubble.
     var paragraph = this.textToDom_(this.text_);
-    this.bubble_ = new Blockly.Bubble(this.block_.workspace.getBubbleCanvas(),
-        paragraph, this.iconX_, this.iconY_,
-        this.relativeLeft_, this.relativeTop_, null, null);
+    this.bubble_ = new Blockly.Bubble(this.block_.workspace,
+        paragraph, this.block_.svg_.svgGroup_,
+        this.iconX_, this.iconY_, null, null);
     if (Blockly.RTL) {
       // Right-align the paragraph.
       // This cannot be done until the bubble is rendered on screen.
@@ -182,20 +169,6 @@ Blockly.Warning.prototype.iconClick_ = function(e) {
  */
 Blockly.Warning.prototype.bodyFocus_ = function(e) {
   this.bubble_.promote_();
-};
-
-/**
- * Set the location of this warning's bubble.
- * @param {number} x Horizontal offset from block.
- * @param {number} y Vertical offset from block.
- */
-Blockly.Warning.prototype.setBubbleLocation = function(x, y) {
-  if (this.isVisible()) {
-    this.bubble_.setBubbleLocation(x, y);
-  } else {
-    this.relativeLeft_ = x;
-    this.relativeTop_ = y;
-  }
 };
 
 /**

@@ -63,7 +63,7 @@ Blockly.createDom_ = function(container) {
   // Load CSS.
   //<link href="blockly.css" rel="stylesheet" type="text/css" />
   var link = doc.createElement('link');
-  link.setAttribute('href', Blockly.pathToBlockly + 'blockly.css');
+  link.setAttribute('href', Blockly.pathToBlockly + 'media/blockly.css');
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('type', 'text/css');
   link.setAttribute('onload', 'Blockly.cssLoaded()');

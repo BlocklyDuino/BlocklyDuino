@@ -61,19 +61,6 @@ Blockly.Mutator.prototype.iconX_ = null;
 Blockly.Mutator.prototype.iconY_ = null;
 
 /**
- * Relative X coordinate of bubble with respect to the icon's centre.
- * In RTL mode the initial value is negated.
- * @private
- */
-Blockly.Mutator.prototype.relativeLeft_ = -180;
-
-/**
- * Relative Y coordinate of bubble with respect to the icon's centre.
- * @private
- */
-Blockly.Mutator.prototype.relativeTop_ = -230;
-
-/**
  * Width of workspace.
  * @private
  */
@@ -209,13 +196,11 @@ Blockly.Mutator.prototype.setVisible = function(visible) {
     // No change.
     return;
   }
-  // Save the bubble location before the visibility switch.
-  var relativeXY = this.getBubbleLocation();
   if (visible) {
     // Create the bubble.
-    this.bubble_ = new Blockly.Bubble(this.block_.workspace.getBubbleCanvas(),
-        this.createEditor_(), this.iconX_, this.iconY_,
-        this.relativeLeft_, this.relativeTop_, null, null);
+    this.bubble_ = new Blockly.Bubble(this.block_.workspace,
+        this.createEditor_(), this.block_.svg_.svgGroup_,
+        this.iconX_, this.iconY_, null, null);
     var thisObj = this;
     this.flyout_.init(this.workspace_,
                       function() {return thisObj.getFlyoutMetrics_()}, false);
@@ -265,8 +250,6 @@ Blockly.Mutator.prototype.setVisible = function(visible) {
       this.sourceListener_ = null;
     }
   }
-  // Restore the bubble location after the visibility switch.
-  this.setBubbleLocation(relativeXY.x, relativeXY.y);
 };
 
 /**
@@ -290,7 +273,6 @@ Blockly.Mutator.prototype.workspaceChanged_ = function() {
 
   // When the mutator's workspace changes, update the source block.
   if (this.rootBlock_.workspace == this.workspace_) {
-    this.resizeBubble_();
     // Switch off rendering while the source block is rebuilt.
     var savedRendered = this.block_.rendered;
     this.block_.rendered = false;
@@ -301,6 +283,7 @@ Blockly.Mutator.prototype.workspaceChanged_ = function() {
     if (this.block_.rendered) {
       this.block_.render();
     }
+    this.resizeBubble_();
     // The source block may have changed, notify its workspace.
     this.block_.workspace.fireChangeEvent();
   }
@@ -335,32 +318,6 @@ Blockly.Mutator.prototype.getFlyoutMetrics_ = function() {
  */
 Blockly.Mutator.prototype.iconClick_ = function(e) {
   this.setVisible(!this.isVisible());
-};
-
-/**
- * Get the location of this mutator's bubble.
- * @return {!Object} Object with x and y properties.
- */
-Blockly.Mutator.prototype.getBubbleLocation = function() {
-  if (this.isVisible()) {
-    return this.bubble_.getBubbleLocation();
-  } else {
-    return {x: this.relativeLeft_, y: this.relativeTop_};
-  }
-};
-
-/**
- * Set the location of this mutator's bubble.
- * @param {number} x Horizontal offset from block.
- * @param {number} y Vertical offset from block.
- */
-Blockly.Mutator.prototype.setBubbleLocation = function(x, y) {
-  if (this.isVisible()) {
-    this.bubble_.setBubbleLocation(x, y);
-  } else {
-    this.relativeLeft_ = x;
-    this.relativeTop_ = y;
-  }
 };
 
 /**

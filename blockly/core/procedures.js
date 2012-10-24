@@ -54,21 +54,29 @@ Blockly.Procedures.allProcedures = function() {
     }
   }
 
-  function tupleComparator(ta, tb) {
-    a = ta[0].toLowerCase();
-    b = tb[0].toLowerCase();
-    if (a > b) {
-      return 1;
-    }
-    if (a < b) {
-      return -1;
-    }
-    return 0;
-  }
-
-  proceduresNoReturn.sort(tupleComparator);
-  proceduresReturn.sort(tupleComparator);
+  proceduresNoReturn.sort(Blockly.Procedures.procTupleComparator_);
+  proceduresReturn.sort(Blockly.Procedures.procTupleComparator_);
   return [proceduresNoReturn, proceduresReturn];
+};
+
+/**
+ * Comparison function for case-insensitive sorting of the first element of
+ * a tuple.
+ * @param {!Array} ta First tuple.
+ * @param {!Array} tb Second tuple.
+ * @return {number} -1, 0, or 1 to signify greater than, equality, or less than.
+ * @private
+ */
+Blockly.Procedures.procTupleComparator_ = function(ta, tb) {
+  var a = ta[0].toLowerCase();
+  var b = tb[0].toLowerCase();
+  if (a > b) {
+    return 1;
+  }
+  if (a < b) {
+    return -1;
+  }
+  return 0;
 };
 
 /**
@@ -252,4 +260,24 @@ Blockly.Procedures.mutateCallers = function(name, workspace,
   for (var x = 0; x < callers.length; x++) {
     callers[x].setProcedureParameters(paramNames, paramIds);
   }
+};
+
+/**
+ * Find the definition block for the named procedure.
+ * @param {string} name Name of procedure.
+ * @param {!Blockly.Workspace} workspace The workspace to search.
+ * @return {Blockly.Block} The procedure definition block, or null not found.
+ */
+Blockly.Procedures.getDefinition = function(name, workspace) {
+  var blocks = workspace.getAllBlocks(false);
+  for (var x = 0; x < blocks.length; x++) {
+    var func = blocks[x].getProcedureDef;
+    if (func) {
+      var tuple = func.call(blocks[x]);
+      if (tuple && Blockly.Names.equals(tuple[0], name)) {
+        return blocks[x];
+      }
+    }
+  }
+  return null;
 };

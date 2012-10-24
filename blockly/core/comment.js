@@ -66,19 +66,6 @@ Blockly.Comment.prototype.iconX_ = null;
 Blockly.Comment.prototype.iconY_ = null;
 
 /**
- * Relative X coordinate of bubble with respect to the icon's centre.
- * In RTL mode the initial value is negated.
- * @private
- */
-Blockly.Comment.prototype.relativeLeft_ = -100;
-
-/**
- * Relative Y coordinate of bubble with respect to the icon's centre.
- * @private
- */
-Blockly.Comment.prototype.relativeTop_ = -120;
-
-/**
  * Width of bubble.
  * @private
  */
@@ -180,13 +167,13 @@ Blockly.Comment.prototype.setVisible = function(visible) {
   }
   // Save the bubble stats before the visibility switch.
   var text = this.getText();
-  var relativeXY = this.getBubbleLocation();
   var size = this.getBubbleSize();
   if (visible) {
     // Create the bubble.
-    this.bubble_ = new Blockly.Bubble(this.block_.workspace.getBubbleCanvas(),
-        this.createEditor_(), this.iconX_, this.iconY_,
-        this.relativeLeft_, this.relativeTop_, this.width_, this.height_);
+    this.bubble_ = new Blockly.Bubble(this.block_.workspace,
+        this.createEditor_(), this.block_.svg_.svgGroup_,
+        this.iconX_, this.iconY_,
+        this.width_, this.height_);
     this.bubble_.registerResizeEvent(this, this.resizeBubble_);
     this.updateColour();
     this.text_ = null;
@@ -199,7 +186,6 @@ Blockly.Comment.prototype.setVisible = function(visible) {
   }
   // Restore the bubble stats after the visibility switch.
   this.setText(text);
-  this.setBubbleLocation(relativeXY.x, relativeXY.y);
   this.setBubbleSize(size.width, size.height);
 };
 
@@ -226,32 +212,6 @@ Blockly.Comment.prototype.textareaFocus_ = function(e) {
   // Since the act of moving this node within the DOM causes a loss of focus,
   // we need to reapply the focus.
   this.textarea_.focus();
-};
-
-/**
- * Get the location of this comment's bubble.
- * @return {!Object} Object with x and y properties.
- */
-Blockly.Comment.prototype.getBubbleLocation = function() {
-  if (this.isVisible()) {
-    return this.bubble_.getBubbleLocation();
-  } else {
-    return {x: this.relativeLeft_, y: this.relativeTop_};
-  }
-};
-
-/**
- * Set the location of this comment's bubble.
- * @param {number} x Horizontal offset from block.
- * @param {number} y Vertical offset from block.
- */
-Blockly.Comment.prototype.setBubbleLocation = function(x, y) {
-  if (this.isVisible()) {
-    this.bubble_.setBubbleLocation(x, y);
-  } else {
-    this.relativeLeft_ = x;
-    this.relativeTop_ = y;
-  }
 };
 
 /**

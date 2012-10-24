@@ -25,19 +25,17 @@
 
 /**
  * Class for UI bubble.
- * @param {!Element} canvas The SVG group on which to draw the bubble.
+ * @param {!Blockly.Workspace} workspace The workspace on which to draw the bubble.
  * @param {!Element} content SVG content for the bubble.
+ * @param {Element} shape SVG element to avoid eclipsing.
  * @param {number} anchorX Absolute horizontal position of bubbles anchor point.
  * @param {number} anchorY Absolute vertical position of bubbles anchor point.
- * @param {number} relativeX Distance between anchorX and bubble center.
- * @param {number} relativeY Distance between anchorY and bubble center.
  * @param {?number} bubbleWidth Width of bubble, or null if not resizable.
  * @param {?number} bubbleHeight Height of bubble, or null if not resizable.
  * @constructor
  */
-Blockly.Bubble = function(canvas, content,
+Blockly.Bubble = function(workspace, content, shape,
                           anchorX, anchorY,
-                          relativeX, relativeY,
                           bubbleWidth, bubbleHeight) {
   var angle = Blockly.Bubble.ARROW_ANGLE;
   if (Blockly.RTL) {
@@ -45,12 +43,13 @@ Blockly.Bubble = function(canvas, content,
   }
   this.arrow_radians_ = angle / 360 * Math.PI * 2;
 
+  this.workspace_ = workspace;
   this.content_ = content;
+  this.shape_ = shape;
+  var canvas = workspace.getBubbleCanvas();
   canvas.appendChild(this.createDom_(content, bubbleWidth && bubbleHeight));
 
-  this.rendered_ = false;
   this.setAnchorLocation(anchorX, anchorY);
-  this.setBubbleLocation(relativeX, relativeY);
   if (!bubbleWidth || !bubbleHeight) {
     var bBox = this.content_.getBBox();
     bubbleWidth = bBox.width + 2 * Blockly.Bubble.BORDER_WIDTH;
@@ -112,12 +111,6 @@ Blockly.Bubble.onMouseUpWrapper_ = null;
 Blockly.Bubble.onMouseMoveWrapper_ = null;
 
 /**
- * Flag to stop incremental rendering during construction.
- * @private
- */
-Blockly.Bubble.rendered_ = false;
-
-/**
  * Stop binding to the global mouseup and mousemove events.
  * @param {!Event} e Mouse up event.
  * @private
@@ -132,6 +125,12 @@ Blockly.Bubble.unbindDragEvents_ = function(e) {
     Blockly.Bubble.onMouseMoveWrapper_ = null;
   }
 };
+
+/**
+ * Flag to stop incremental rendering during construction.
+ * @private
+ */
+Blockly.Bubble.prototype.rendered_ = false;
 
 /**
  * Absolute X coordinate of anchor point.
@@ -169,6 +168,12 @@ Blockly.Bubble.prototype.width_ = 0;
  * @private
  */
 Blockly.Bubble.prototype.height_ = 0;
+
+/**
+ * Automatically position and reposition the bubble.
+ * @private
+ */
+Blockly.Bubble.prototype.autoLayout_ = true;
 
 /**
  * Create the bubble's DOM.
@@ -262,6 +267,7 @@ Blockly.Bubble.prototype.bubbleMouseDown_ = function(e) {
  * @private
  */
 Blockly.Bubble.prototype.bubbleMouseMove_ = function(e) {
+  this.autoLayout_ = false;
   if (Blockly.RTL) {
     this.relativeLeft_ = this.dragDeltaX - e.clientX;
   } else {
@@ -309,6 +315,7 @@ Blockly.Bubble.prototype.resizeMouseDown_ = function(e) {
  * @private
  */
 Blockly.Bubble.prototype.resizeMouseMove_ = function(e) {
+  this.autoLayout_ = false;
   var w = this.resizeDeltaWidth;
   var h = this.resizeDeltaHeight + e.clientY;
   if (Blockly.RTL) {
@@ -358,25 +365,40 @@ Blockly.Bubble.prototype.setAnchorLocation = function(x, y) {
 };
 
 /**
- * Get the location of this bubble.
- * @return {!Object} Object with x and y properties.
+ * Position the bubble so that it does not fall offscreen.
+ * @private
  */
-Blockly.Bubble.prototype.getBubbleLocation = function() {
-  return {x: this.relativeLeft_, y: this.relativeTop_};
-};
-
-/**
- * Set the relative location of this bubble from the anchor.
- * Update the arrow and bubble accordingly.
- * @param {number} x Horizontal offset from anchor.
- * @param {number} y Vertical offset from anchor.
- */
-Blockly.Bubble.prototype.setBubbleLocation = function(x, y) {
-  this.relativeLeft_ = x;
-  this.relativeTop_ = y;
-  if (this.rendered_) {
-    this.positionBubble_();
+Blockly.Bubble.prototype.layoutBubble_ = function() {
+  // Compute the preferred bubble location.
+  var relativeLeft = -this.width_ / 4;
+  var relativeTop = -this.height_ - Blockly.BlockSvg.MIN_BLOCK_Y;
+  // Prevent the bubble from being offscreen.
+  if (this.workspace_.scrollbar) {
+    // Fetch the workspace's metrics, if they exist.
+    var metrics = this.workspace_.scrollbar.getMetrics_();
+    if (this.anchorX_ + relativeLeft <
+        Blockly.BlockSvg.SEP_SPACE_X + metrics.viewLeft) {
+      // Slide the bubble right until it is onscreen.
+      relativeLeft = Blockly.BlockSvg.SEP_SPACE_X + metrics.viewLeft -
+          this.anchorX_;
+    } else if (metrics.viewLeft + metrics.viewWidth <
+        this.anchorX_ + relativeLeft + this.width_ +
+        Blockly.BlockSvg.SEP_SPACE_X +
+        Blockly.Scrollbar.scrollbarThickness) {
+      // Slide the bubble left until it is onscreen.
+      relativeLeft = metrics.viewLeft + metrics.viewWidth - this.anchorX_ -
+          this.width_ - Blockly.BlockSvg.SEP_SPACE_X -
+          Blockly.Scrollbar.scrollbarThickness;
+    }
+    if (this.anchorY_ + relativeTop <
+        Blockly.BlockSvg.SEP_SPACE_Y + metrics.viewTop) {
+      // Slide the bubble below the block.
+      var bBox = this.shape_.getBBox();
+      relativeTop = bBox.height;
+    }
   }
+  this.relativeLeft_ = relativeLeft;
+  this.relativeTop_ = relativeTop;
 };
 
 /**
@@ -431,11 +453,10 @@ Blockly.Bubble.prototype.setBubbleSize = function(width, height) {
     }
   }
   if (this.rendered_) {
-    if (Blockly.RTL) {
-      // In RTL mode a bubble should resize to the left, not to the right.
-      // Bump the location to put it in the right place.
-      this.positionBubble_();
+    if (this.autoLayout_) {
+      this.layoutBubble_();
     }
+    this.positionBubble_();
     this.renderArrow_();
   }
   // Fire an event to allow the contents to resize.
@@ -534,5 +555,7 @@ Blockly.Bubble.prototype.destroy = function() {
   // Destroy and unlink the bubble.
   this.bubbleGroup_.parentNode.removeChild(this.bubbleGroup_);
   this.bubbleGroup_ = null;
+  this.workspace_ = null;
   this.content_ = null;
+  this.shape_ = null;
 };

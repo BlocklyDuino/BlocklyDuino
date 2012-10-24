@@ -70,7 +70,7 @@ def gen_uncompressed():
 (function() {
   var filenames = %s;
   for (var x = 0; x < filenames.length; x++) {
-    document.write('<script type="text/javascript" src="../../' + filenames[x] + '"></script>');
+    document.write('<script type="text/javascript" src="../../core/' + filenames[x] + '"></script>');
   }
 })();
 ''' % (header, filenames)
@@ -94,7 +94,7 @@ def gen_compressed():
 
   # Read in all the source files.
   for filename in filenames:
-    f = open(filename)
+    f = open('core/' + filename)
     params.append(('js_code', ''.join(f.readlines())))
     f.close()
 

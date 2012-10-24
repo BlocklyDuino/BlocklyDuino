@@ -79,9 +79,6 @@ Blockly.Xml.blockToDom_ = function(block) {
     var commentText = document.createTextNode(block.comment.getText());
     commentElement.appendChild(commentText);
     commentElement.setAttribute('pinned', block.comment.isVisible());
-    var xy = block.comment.getBubbleLocation();
-    commentElement.setAttribute('x', xy.x);
-    commentElement.setAttribute('y', xy.y);
     var hw = block.comment.getBubbleSize();
     commentElement.setAttribute('h', hw.height);
     commentElement.setAttribute('w', hw.width);
@@ -255,11 +252,6 @@ Blockly.Xml.domToBlock_ = function(workspace, xmlBlock) {
         var visible = xmlChild.getAttribute('pinned');
         if (visible) {
           block.comment.setVisible(visible == 'true');
-        }
-        var bubbleX = parseInt(xmlChild.getAttribute('x'), 10);
-        var bubbleY = parseInt(xmlChild.getAttribute('y'), 10);
-        if (!isNaN(bubbleX) && !isNaN(bubbleY)) {
-          block.comment.setBubbleLocation(bubbleX, bubbleY, false);
         }
         var bubbleW = parseInt(xmlChild.getAttribute('w'), 10);
         var bubbleH = parseInt(xmlChild.getAttribute('h'), 10);
