@@ -18,7 +18,8 @@ change:
 
 * call profile params via 'profile.default.digital' instead of 'profile.arduino.digital'
 * rename Potentiometer block to Rotary Angle block
-* update blockly till 10/18, move core js into core folder
+* update blockly till r491, move core js into core folder
+* move arduino language generator to top level generator/ folder
 
 Credit: gasolin
 

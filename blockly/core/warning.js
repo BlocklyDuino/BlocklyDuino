@@ -85,7 +85,7 @@ Blockly.Warning.prototype.createIcon_ = function() {
       this.iconGroup_);
   this.iconMark_ = Blockly.createSvgElement('text',
       {'class': 'blocklyIconMark',
-       x: Blockly.Warning.ICON_RADIUS / 2 + 2,
+       x: Blockly.Warning.ICON_RADIUS,
        y: 2 * Blockly.Warning.ICON_RADIUS - 3}, this.iconGroup_);
   this.iconMark_.appendChild(Blockly.svgDoc.createTextNode('!'));
   this.block_.getSvgRoot().appendChild(this.iconGroup_);
