@@ -84,7 +84,7 @@ Blockly.Language.grove_tilt_switch = {
     this.setColour(190);
     this.appendDummyInput("")
 	    .appendTitle("Tilt Switch")
-	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/95/Tilt1.jpg/200px-Tilt1.jpg", 64, 64))
+	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/95/Tilt1.jpg/400px-Tilt1.jpg", 64, 64))
 		.appendTitle("PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
 	this.setOutput(true, Boolean);
@@ -204,7 +204,7 @@ Blockly.Arduino.grove_button = function() {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
-Blockly.Arduino.grove_potentiometer = function() {
+Blockly.Arduino.grove_rotary_angle = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   //Blockly.Arduino.setups_['setup_potentiometer_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
   var code = 'analogRead('+dropdown_pin+')';
