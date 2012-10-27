@@ -179,6 +179,27 @@ Blockly.Language.grove_serial_lcd_print = {
   }
 };
 
+//grove lcd power on/off
+Blockly.Language.grove_serial_lcd_power = {
+category: 'Grove_LCD',
+  helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#LED',
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput("")
+      .appendTitle("Serial LCD")
+      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
+      .appendTitle("PIN#")
+      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+    this.appendDummyInput("")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendTitle("power")
+      .appendTitle(new Blockly.FieldDropdown([["ON", "ON"], ["OFF", "OFF"]]), "STAT"); 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Turn LCD power on/off');
+  }
+};
+
 
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
@@ -395,3 +416,36 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
   return code;
 };
 
+Blockly.Arduino.grove_serial_lcd_power = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_stat = this.getTitleValue('STAT');
+
+  Blockly.Arduino.definitions_['define_lcd'] = '#include <SerialLCD.h>\n#include <SoftwareSerial.h>\n';
+  //generate PIN#+1 port
+  var NextPIN = dropdown_pin;
+  if(parseInt(NextPIN)){
+    NextPIN = parseInt(dropdown_pin)+1;
+  } else {
+    NextPIN = 'A'+(parseInt(NextPIN.slice(1,NextPIN.length))+1);
+  }
+  //check if NextPIN in bound
+  var pinlen = profile.default.digital.length;
+  var notExist=true;
+  for(var i=0;i<pinlen;i++){
+    if(profile.default.digital[i][1] == NextPIN){
+      notExist=false;
+    } 
+  }
+  if(notExist){
+    alert("Serial LCD needs PIN#+1 port, current setting is out of bound.");
+  }
+
+  Blockly.Arduino.definitions_['var_lcd'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
+  var code = 'slcd_'+dropdown_pin;
+  if(dropdown_stat==="ON"){
+    code += '.Power();\n';
+  } else {
+    code += '.noPower();\n';
+  }
+  return code;
+};
