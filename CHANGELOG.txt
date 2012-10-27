@@ -13,6 +13,7 @@ Feature:
 * load source via url param in same site with such "url=xxx" syntax
 * include 2 examples
 * upload potentiometer control servo video http://www.youtube.com/watch?v=u2Fp0KpWxik
+* application cache the block images
 
 change:
 
@@ -20,6 +21,7 @@ change:
 * rename Potentiometer block to Rotary Angle block
 * update blockly till r491, move core js into core folder
 * move arduino language generator to top level generator/ folder
+* reasonable default) change default delay time from 0 to 1000
 
 Credit: gasolin
 
