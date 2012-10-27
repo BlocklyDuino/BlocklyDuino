@@ -143,9 +143,42 @@ Blockly.Language.grove_temporature_sensor = {
   }
 };
 
+Blockly.Language.grove_serial_lcd_print = {
+  category: 'Grove_LCD',
+  helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Serial_LCD',
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput("")
+      .appendTitle("Serial LCD")
+      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
+      .appendTitle("PIN#")
+      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+    this.appendDummyInput("")
+      .appendTitle("print line1")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      //.appendTitle(new Blockly.FieldDropdown([["1", "1"], ["2", "2"]]), "LINE")
+      .appendTitle(new Blockly.FieldImage(Blockly.pathToBlockly +
+        'media/quote0.png', 12, 12))
+      .appendTitle(new Blockly.FieldTextInput(''), 'TEXT')
+      .appendTitle(new Blockly.FieldImage(Blockly.pathToBlockly +
+        'media/quote1.png', 12, 12));
+    this.appendDummyInput("")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendTitle("print line2")
+      .appendTitle(new Blockly.FieldImage(Blockly.pathToBlockly +
+        'media/quote0.png', 12, 12))
+      .appendTitle(new Blockly.FieldTextInput(''), 'TEXT2')
+      .appendTitle(new Blockly.FieldImage(Blockly.pathToBlockly +
+        'media/quote1.png', 12, 12));
+    this.appendValueInput("DELAY_TIME", Number)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendTitle("Delay");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('print text on an 16 character by 2 line LCD.');
+  }
+};
 
-//http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Serial_LCD
-//http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg
 
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
@@ -218,6 +251,58 @@ Blockly.Arduino.grove_tilt_switch = function() {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
+/*
+int buttonPin = 1; 
+int buzzerPin = 2; 
+
+char notes[] = "cdefgabC "; // a space represents a rest 
+const int length = sizeof(notes); // the number of notes
+int beats[length] = { 1,1,1,1,1,1,1,1,1}; 
+
+int tempo = 300; 
+
+void playTone(int tone, int duration) { 
+  for (long i = 0; i < duration * 1000L; i += tone * 2) { 
+    digitalWrite(buzzerPin, HIGH); 
+    delayMicroseconds(tone); 
+    digitalWrite(buzzerPin, LOW); 
+    delayMicroseconds(tone); 
+  }
+} 
+
+void playNote(char note, int duration) { 
+  char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C'}; 
+  int tones[] = { 1915, 1700, 1519, 1432, 1275, 1136, 1014, 956 }; 
+
+  // play the tone corresponding to the note name 
+  for (int i = 0; i < length; i++) {
+    if (names[i] == note) { 
+      playTone(tones[i], duration); 
+    }
+  }
+}
+
+void setup() { 
+  pinMode(buzzerPin, OUTPUT); 
+  pinMode(buttonPin,INPUT); 
+} 
+
+void loop() { 
+  if(digitalRead(buttonPin)) 
+  { 
+  for (int i = 0; i < length; i++) { 
+    if (notes[i] == ' ') { 
+      delay(beats[i] * tempo); // rest 
+    } else { 
+      playNote(notes[i], beats[i] * tempo); 
+    } 
+
+    // pause between notes 
+    delay(tempo / 20);  
+  } 
+  } 
+}  
+*/
 Blockly.Arduino.grove_piezo_buzzer = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var dropdown_stat = this.getTitleValue('STAT');
@@ -245,3 +330,68 @@ Blockly.Arduino.grove_temporature_sensor = function() {
   var code = 'round('+'(1/(log((float)(1023-analogRead('+dropdown_pin+'))*10000/analogRead('+dropdown_pin+'))/10000)/3975+1/298.15)-273.15'+')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
+
+/*
+#include <SerialLCD.h> 
+#include <SoftwareSerial.h> //this is a must 
+SerialLCD slcd(11,12);//this is a must, assign soft serial pins 
+
+void setup() 
+{
+  slcd.begin();// set up : 
+} 
+
+void loop() 
+{ 
+  slcd.backlight();// Turn on the backlight: //noBacklight
+  slcd.setCursor(0,0); // set the cursor to (0,0): 
+  slcd.print("  Seeed Studio"); // Print a message to the LCD. 
+  slcd.setCursor(0,1); //line 2
+  slcd.print("   Starter kit   ");  
+  delay(5000);
+  //slcd.scrollDisplayLeft();//scrollDisplayRight/autoscroll/
+  //slcd.clear(); 
+  //Power/noPower
+} 
+*/
+Blockly.Arduino.grove_serial_lcd_print = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var text = Blockly.Arduino.quote_(this.getTitleValue('TEXT'));
+  var text2 = Blockly.Arduino.quote_(this.getTitleValue('TEXT2'));
+  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000'
+
+  /*if(text.length>16||text2.length>16){
+      alert("string is too long");
+  }*/
+  Blockly.Arduino.definitions_['define_lcd'] = '#include <SerialLCD.h>\n#include <SoftwareSerial.h>\n';
+  //generate PIN#+1 port
+  var NextPIN = dropdown_pin;
+  if(parseInt(NextPIN)){
+    NextPIN = parseInt(dropdown_pin)+1;
+  } else {
+    NextPIN = 'A'+(parseInt(NextPIN.slice(1,NextPIN.length))+1);
+  }
+  //check if NextPIN in bound
+  var pinlen = profile.default.digital.length;
+  var notExist=true;
+  for(var i=0;i<pinlen;i++){
+    if(profile.default.digital[i][1] == NextPIN){
+      notExist=false;
+    } 
+  }
+  if(notExist){
+    alert("Serial LCD needs PIN#+1 port, current setting is out of bound.");
+  }
+
+  Blockly.Arduino.definitions_['var_lcd'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
+  
+  Blockly.Arduino.setups_['setup_lcd_'+dropdown_pin] = 'slcd_'+dropdown_pin+'.begin();\n';
+  var code = 'slcd_'+dropdown_pin+'.backlight();\n';
+  code    += 'slcd_'+dropdown_pin+'.setCursor(0,0);\n';
+  code    += 'slcd_'+dropdown_pin+'.print(\"'+text.replace(new RegExp('\'',"gm"),'')+'\");\n';
+  code    += 'slcd_'+dropdown_pin+'.setCursor(0,1);\n';
+  code    += 'slcd_'+dropdown_pin+'.print(\"'+text2.replace(new RegExp('\'',"gm"),'')+'\");\n';
+  code    += 'delay('+delay_time+');\n';
+  return code;
+};
+
