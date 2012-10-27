@@ -162,7 +162,7 @@ Blockly.Language.servo_move = {
 	this.appendValueInput("DEGREE", Number)
 	    .setAlign(Blockly.ALIGN_RIGHT)
 	    .appendTitle("Degree (0~180)");
-    this.appendValueInput("DELAY_TIME", Number)
+  this.appendValueInput("DELAY_TIME", Number)
 	    .setAlign(Blockly.ALIGN_RIGHT)
 	    .appendTitle("Delay");
 	//this.setInputsInline(true);
@@ -209,7 +209,7 @@ Blockly.Language.serial_print = {
 Blockly.Arduino = Blockly.Generator.get('Arduino');
 
 Blockly.Arduino.base_delay = function() {
-  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '0'
+  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000'
   delay_time = delay_time.replace('(','').replace(')','');
   var code = 'delay(' + delay_time + ');\n';
   return code;
@@ -291,7 +291,7 @@ Blockly.Arduino.servo_move = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
   //value_degree = value_degree.replace('(','').replace(')','')
-  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '0'
+  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000'
   //delay_time = delay_time.replace('(','').replace(')','');
   
   Blockly.Arduino.definitions_['define_servo'] = '#include <Servo.h>\n';
@@ -315,7 +315,7 @@ Blockly.Arduino.servo_read_degrees = function() {
 
 Blockly.Arduino.serial_print = function() {
   var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
-  content = content.replace('(','').replace(')','');
+  //content = content.replace('(','').replace(')','');
   
   Blockly.Arduino.setups_['setup_serial_'+profile.default.serial] = 'Serial.begin('+profile.default.serial+');\n';
   
