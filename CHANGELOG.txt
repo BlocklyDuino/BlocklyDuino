@@ -13,7 +13,7 @@ Feature:
 * load source via url param in same site with such "url=xxx" syntax
 * include 2 examples
 * upload potentiometer control servo video http://www.youtube.com/watch?v=u2Fp0KpWxik
-* application cache the block images
+* application cache block images and jquery
 * add Grove LCD print, Grove LCD power block
 
 change:
