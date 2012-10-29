@@ -181,7 +181,7 @@ Blockly.Language.grove_serial_lcd_print = {
 
 //grove lcd power on/off
 Blockly.Language.grove_serial_lcd_power = {
-category: 'Grove_LCD',
+  category: 'Grove_LCD',
   helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#LED',
   init: function() {
     this.setColour(190);
@@ -192,7 +192,7 @@ category: 'Grove_LCD',
       .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendDummyInput("")
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle("power")
+      .appendTitle("Power")
       .appendTitle(new Blockly.FieldDropdown([["ON", "ON"], ["OFF", "OFF"]]), "STAT"); 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -200,6 +200,10 @@ category: 'Grove_LCD',
   }
 };
 
+//scroll left/right/no scroll/blink/noblink
+/*Blockly.Language.grove_serial_lcd_effect = {
+
+};*/
 
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
@@ -375,17 +379,8 @@ void loop()
   //Power/noPower
 } 
 */
-Blockly.Arduino.grove_serial_lcd_print = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var text = Blockly.Arduino.quote_(this.getTitleValue('TEXT'));
-  var text2 = Blockly.Arduino.quote_(this.getTitleValue('TEXT2'));
-  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000'
 
-  /*if(text.length>16||text2.length>16){
-      alert("string is too long");
-  }*/
-  Blockly.Arduino.definitions_['define_lcd'] = '#include <SerialLCD.h>\n#include <SoftwareSerial.h>\n';
-  //generate PIN#+1 port
+var _get_next_pin = function(dropdown_pin) {
   var NextPIN = dropdown_pin;
   if(parseInt(NextPIN)){
     NextPIN = parseInt(dropdown_pin)+1;
@@ -402,7 +397,24 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
   }
   if(notExist){
     alert("Serial LCD needs PIN#+1 port, current setting is out of bound.");
+    return null;
+  } else {
+    return NextPIN;
   }
+}
+
+Blockly.Arduino.grove_serial_lcd_print = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var text = Blockly.Arduino.quote_(this.getTitleValue('TEXT'));
+  var text2 = Blockly.Arduino.quote_(this.getTitleValue('TEXT2'));
+  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000'
+
+  /*if(text.length>16||text2.length>16){
+      alert("string is too long");
+  }*/
+  Blockly.Arduino.definitions_['define_lcd'] = '#include <SerialLCD.h>\n#include <SoftwareSerial.h>\n';
+  //generate PIN#+1 port
+  var NextPIN = _get_next_pin(dropdown_pin);
 
   Blockly.Arduino.definitions_['var_lcd'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
   
@@ -422,23 +434,7 @@ Blockly.Arduino.grove_serial_lcd_power = function() {
 
   Blockly.Arduino.definitions_['define_lcd'] = '#include <SerialLCD.h>\n#include <SoftwareSerial.h>\n';
   //generate PIN#+1 port
-  var NextPIN = dropdown_pin;
-  if(parseInt(NextPIN)){
-    NextPIN = parseInt(dropdown_pin)+1;
-  } else {
-    NextPIN = 'A'+(parseInt(NextPIN.slice(1,NextPIN.length))+1);
-  }
-  //check if NextPIN in bound
-  var pinlen = profile.default.digital.length;
-  var notExist=true;
-  for(var i=0;i<pinlen;i++){
-    if(profile.default.digital[i][1] == NextPIN){
-      notExist=false;
-    } 
-  }
-  if(notExist){
-    alert("Serial LCD needs PIN#+1 port, current setting is out of bound.");
-  }
+  var NextPIN = _get_next_pin(dropdown_pin);
 
   Blockly.Arduino.definitions_['var_lcd'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
   var code = 'slcd_'+dropdown_pin;
