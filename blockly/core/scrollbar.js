@@ -186,9 +186,9 @@ Blockly.ScrollbarPair.prototype.set = function(x, y) {
  * This technique offers a scrollbar that looks and behaves like the system's
  * scrollbars.  However it isn't well supported at the moment.
  * @param {!Element} element The SVG element to bind the scrollbars to.
- * @param {!Function} getMetrics A function that returns scrolling metrics.
- * @param {!Function} setMetrics A function that sets scrolling metrics.
- * @param {boolean} horizontal True if horizontal, false if vertical.
+ * @param {Function} getMetrics A function that returns scrolling metrics.
+ * @param {Function} setMetrics A function that sets scrolling metrics.
+ * @param {?boolean} horizontal True if horizontal, false if vertical.
  *     Null is used to create a test scrollbar to measure thickness.
  * @param {boolean} opt_pair True if the scrollbar is part of a horiz/vert pair.
  * @constructor
@@ -435,7 +435,7 @@ Blockly.ScrollbarNative.prototype.onScroll_ = function() {
 Blockly.ScrollbarNative.prototype.set = function(value, fireEvents) {
   // If the scrollbar is part of a pair, it is slightly shorter than the view
   // and the value needs to be scaled accordingly.
-  if (!fireEvents) {
+  if (!fireEvents && this.onScrollWrapper_) {
     // Temporarily suppress the onscroll event handler.
     var scrollFunc = Blockly.unbindEvent_(this.onScrollWrapper_);
   }
@@ -445,7 +445,7 @@ Blockly.ScrollbarNative.prototype.set = function(value, fireEvents) {
   } else {
     this.outerDiv_.scrollTop = value * this.ratio_;
   }
-  if (!fireEvents) {
+  if (scrollFunc) {
     // Re-enable the onscroll event handler.
     var scrollbar = this;
     this.onScrollWrapper_ = Blockly.bindEvent_(this.outerDiv_, 'scroll',
@@ -777,9 +777,11 @@ Blockly.ScrollbarSvg.prototype.onMouseDownKnob_ = function(e) {
       this.svgKnob_.getAttribute(this.horizontal_ ? 'x' : 'y'));
   // Record the current mouse position.
   this.startDragMouse = this.horizontal_ ? e.clientX : e.clientY;
-  Blockly.ScrollbarSvg.onMouseUpWrapper_ = Blockly.bindEvent_(Blockly.svgDoc,
+  Blockly.ScrollbarSvg.onMouseUpWrapper_ = Blockly.bindEvent_(
+      /** @type {!Element} */ (Blockly.svgDoc),
       'mouseup', this, this.onMouseUpKnob_);
-  Blockly.ScrollbarSvg.onMouseMoveWrapper_ = Blockly.bindEvent_(Blockly.svgDoc,
+  Blockly.ScrollbarSvg.onMouseMoveWrapper_ = Blockly.bindEvent_(
+      /** @type {!Element} */ (Blockly.svgDoc),
       'mousemove', this, this.onMouseMoveKnob_);
   e.stopPropagation();
 };
@@ -801,10 +803,9 @@ Blockly.ScrollbarSvg.prototype.onMouseMoveKnob_ = function(e) {
 
 /**
  * Stop binding to the global mouseup and mousemove events.
- * @param {!Event} e Mouse up event.
  * @private
  */
-Blockly.ScrollbarSvg.prototype.onMouseUpKnob_ = function(e) {
+Blockly.ScrollbarSvg.prototype.onMouseUpKnob_ = function() {
   if (Blockly.ScrollbarSvg.onMouseUpWrapper_) {
     Blockly.unbindEvent_(Blockly.ScrollbarSvg.onMouseUpWrapper_);
     Blockly.ScrollbarSvg.onMouseUpWrapper_ = null;
@@ -836,10 +837,9 @@ Blockly.ScrollbarSvg.prototype.constrainKnob_ = function(value) {
 
 /**
  * Called when scrollbar is moved.
- * @param {!Event} e Mouse down event.
  * @private
  */
-Blockly.ScrollbarSvg.prototype.onScroll_ = function(e) {
+Blockly.ScrollbarSvg.prototype.onScroll_ = function() {
   var knobValue = parseFloat(
       this.svgKnob_.getAttribute(this.horizontal_ ? 'x' : 'y'));
   var barLength = parseFloat(
@@ -876,6 +876,9 @@ Blockly.ScrollbarSvg.prototype.set = function(value, fireEvents) {
  */
 Blockly.ScrollbarSvg.scrollbarThickness = 15;
 
+/**
+ * Name space for the scrollbar singleton.
+ */
 Blockly.Scrollbar = {};
 
 /**
@@ -908,7 +911,7 @@ Blockly.Scrollbar = {};
  * Insert a node after a reference node.
  * Contrast with node.insertBefore function.
  * @param {!Element} newNode New element to insert.
- * @param {!Element} refNode Existing element to preceed new node.
+ * @param {!Element} refNode Existing element to precede new node.
  * @private
  */
 Blockly.Scrollbar.insertAfter_ = function(newNode, refNode) {

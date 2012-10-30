@@ -23,6 +23,9 @@
  */
 'use strict';
 
+/**
+ * Name space for the XML singleton.
+ */
 Blockly.Xml = {};
 
 /**
@@ -193,7 +196,7 @@ Blockly.Xml.textToDom = function(text) {
 
 /**
  * Decode an XML DOM and create blocks on the workspace.
- * @param {!Object} workspace The SVG workspace.
+ * @param {!Blockly.Workspace} workspace The SVG workspace.
  * @param {!Element} xml XML DOM.
  */
 Blockly.Xml.domToWorkspace = function(workspace, xml) {
@@ -212,7 +215,7 @@ Blockly.Xml.domToWorkspace = function(workspace, xml) {
 /**
  * Decode an XML block tag and create a block (and possibly sub blocks) on the
  * workspace.
- * @param {!Object} workspace The SVG workspace.
+ * @param {!Blockly.Workspace} workspace The workspace.
  * @param {!Element} xmlBlock XML block element.
  * @return {!Blockly.Block} The root block created.
  * @private
@@ -261,16 +264,6 @@ Blockly.Xml.domToBlock_ = function(workspace, xmlBlock) {
         break;
       case 'title':
         block.setTitleValue(xmlChild.textContent, name);
-        break;
-      case 'variable':
-        // In September 2012 the <variable data="x" name="VAR"> tag was
-        // replaced by <title name="VAR">x</title>.
-        // At some future date this section should be deleted.
-        console.log('Obsolete variable tag.  Please regenerate XML.');
-        var data = xmlChild.getAttribute('data');
-        if (data !== null) {
-          block.setTitleValue(data, name);
-        }
         break;
       case 'value':
       case 'statement':

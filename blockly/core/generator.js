@@ -24,8 +24,14 @@
  */
 'use strict';
 
+/**
+ * Name space for the generator singleton.
+ */
 Blockly.Generator = {};
 
+/**
+ * Category to separate generated function names from variables and procedures.
+ */
 Blockly.Generator.NAME_TYPE = 'generated_function';
 
 /**
@@ -40,7 +46,7 @@ Blockly.Generator.languages = {};
  */
 Blockly.Generator.get = function(name) {
   if (!(name in Blockly.Generator.languages)) {
-    var generator = new Blockly.CodeGenerator();
+    var generator = new Blockly.CodeGenerator(name);
     Blockly.Generator.languages[name] = generator;
   }
   return Blockly.Generator.languages[name];
@@ -117,9 +123,12 @@ Blockly.Generator.allNestedComments = function(block) {
 
 /**
  * Class for a code generator that translates the blocks into a language.
+ * @param {string} name Language name of this generator.
  * @constructor
  */
-Blockly.CodeGenerator = function() {};
+Blockly.CodeGenerator = function(name) {
+  this.name_ = name;
+};
 
 /**
  * Generate code for the specified block (and attached blocks).
@@ -134,7 +143,7 @@ Blockly.CodeGenerator.prototype.blockToCode = function(block) {
   }
   var func = this[block.type];
   if (!func) {
-    throw 'Language "' + name + '" does not know how to generate code ' +
+    throw 'Language "' + this.name_ + '" does not know how to generate code ' +
         'for block type "' + block.type + '".';
   }
   var code = func.call(block);
@@ -150,7 +159,7 @@ Blockly.CodeGenerator.prototype.blockToCode = function(block) {
  * Generate code representing the specified value input.
  * @param {!Blockly.Block} block The block containing the input.
  * @param {string} name The name of the input.
- * @param {integer} order The maximum binding strength (minimum order value)
+ * @param {number} order The maximum binding strength (minimum order value)
  *     of any operators adjacent to "block".
  * @return {string} Generated code or '' if no blocks are connected.
  */

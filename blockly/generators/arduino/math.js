@@ -248,7 +248,7 @@ Blockly.Arduino.math_on_list = function() {
         Blockly.Arduino.math_on_list.math_median = functionName;
         var func = [];
         func.push('num ' + functionName + '(List myList) {');
-        func.push('  // First filter list for numbers only, then sort, '+
+        func.push('  // First filter list for numbers only, then sort, ' +
                   'then return middle value');
         func.push('  // or the average of two middle values if list has an ' +
                   'even number of elements.');

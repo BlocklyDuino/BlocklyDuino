@@ -39,6 +39,10 @@ Blockly.FieldLabel = function(text) {
 
 // Text is a subclass of Field.
 Blockly.FieldLabel.prototype = new Blockly.Field(null);
+/**
+ * Don't inherit the constructor from Field.
+ * @type {!Function}
+ */
 Blockly.FieldLabel.constructor = Blockly.FieldLabel;
 
 /**

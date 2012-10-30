@@ -32,12 +32,40 @@ Blockly.Trashcan = function(getMetrics) {
   this.getMetrics_ = getMetrics;
 };
 
+/**
+ * URL of the trashcan image (minus lid).
+ * @private
+ */
 Blockly.Trashcan.prototype.BODY_URL_ = 'media/trashbody.png';
+/**
+ * URL of the lid image.
+ * @private
+ */
 Blockly.Trashcan.prototype.LID_URL_ = 'media/trashlid.png';
+/**
+ * Width of both the trash can and lid images.
+ * @private
+ */
 Blockly.Trashcan.prototype.WIDTH_ = 47;
+/**
+ * Height of the trashcan image (minus lid).
+ * @private
+ */
 Blockly.Trashcan.prototype.BODY_HEIGHT_ = 45;
+/**
+ * Height of the lid image.
+ * @private
+ */
 Blockly.Trashcan.prototype.LID_HEIGHT_ = 15;
+/**
+ * Distance between trashcan and bottom edge of workspace.
+ * @private
+ */
 Blockly.Trashcan.prototype.MARGIN_BOTTOM_ = 35;
+/**
+ * Distance between trashcan and right edge of workspace.
+ * @private
+ */
 Blockly.Trashcan.prototype.MARGIN_SIDE_ = 35;
 
 /**

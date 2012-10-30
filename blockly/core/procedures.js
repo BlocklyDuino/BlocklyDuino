@@ -24,9 +24,13 @@
 'use strict';
 
 /**
+ * Name space for the procedures singleton.
  */
 Blockly.Procedures = {};
 
+/**
+ * Category to separate procedure names from variables and generated functions.
+ */
 Blockly.Procedures.NAME_TYPE = 'procedure';
 
 /**
@@ -37,7 +41,7 @@ Blockly.Procedures.NAME_TYPE = 'procedure';
  *     list, and return value boolean.
  */
 Blockly.Procedures.allProcedures = function() {
-  var blocks = Blockly.mainWorkspace.getAllBlocks(false);
+  var blocks = Blockly.mainWorkspace.getAllBlocks();
   var proceduresReturn = [];
   var proceduresNoReturn = [];
   for (var x = 0; x < blocks.length; x++) {
@@ -111,7 +115,7 @@ Blockly.Procedures.findLegalName = function(name, block) {
  * @return {boolean} True if the name is legal.
  */
 Blockly.Procedures.isLegalName = function(name, workspace, opt_exclude) {
-  var blocks = workspace.getAllBlocks(false);
+  var blocks = workspace.getAllBlocks();
   // Iterate through every block and check the name.
   for (var x = 0; x < blocks.length; x++) {
     if (blocks[x] == opt_exclude) {
@@ -146,7 +150,7 @@ Blockly.Procedures.rename = function(text) {
   // Ensure two identically-named procedures don't exist.
   text = Blockly.Procedures.findLegalName(text, this.sourceBlock_);
   // Rename any callers.
-  var blocks = this.sourceBlock_.workspace.getAllBlocks(false);
+  var blocks = this.sourceBlock_.workspace.getAllBlocks();
   for (var x = 0; x < blocks.length; x++) {
     var func = blocks[x].renameProcedure;
     if (func) {
@@ -218,7 +222,7 @@ Blockly.Procedures.refreshFlyoutCategory = function() {
  */
 Blockly.Procedures.getCallers = function(name, workspace) {
   var callers = [];
-  var blocks = workspace.getAllBlocks(false);
+  var blocks = workspace.getAllBlocks();
   // Iterate through every block and check the name.
   for (var x = 0; x < blocks.length; x++) {
     var func = blocks[x].getProcedureCall;
@@ -269,7 +273,7 @@ Blockly.Procedures.mutateCallers = function(name, workspace,
  * @return {Blockly.Block} The procedure definition block, or null not found.
  */
 Blockly.Procedures.getDefinition = function(name, workspace) {
-  var blocks = workspace.getAllBlocks(false);
+  var blocks = workspace.getAllBlocks();
   for (var x = 0; x < blocks.length; x++) {
     var func = blocks[x].getProcedureDef;
     if (func) {

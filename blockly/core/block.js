@@ -25,7 +25,7 @@
 
 /**
  * Class for one block.
- * @param {Element} workspace The workspace in which to render the block.
+ * @param {!Blockly.Workspace} workspace The new block's workspace.
  * @param {?string} prototypeName Name of the language object containing
  *     type-specific functions for this block.
  * @constructor
@@ -105,17 +105,17 @@ Blockly.Block.prototype.warning = null;
 Blockly.Block.prototype.initSvg = function() {
   this.svg_ = new Blockly.BlockSvg(this);
   this.svg_.init();
-  Blockly.bindEvent_(this.svg_.getRootNode(), 'mousedown', this,
+  Blockly.bindEvent_(this.svg_.getRootElement(), 'mousedown', this,
                      this.onMouseDown_);
-  this.workspace.getCanvas().appendChild(this.svg_.getRootNode());
+  this.workspace.getCanvas().appendChild(this.svg_.getRootElement());
 };
 
 /**
  * Return the root node of the SVG or null if none exists.
- * @return {Node} The root SVG node (probably a group).
+ * @return {Element} The root SVG node (probably a group).
  */
 Blockly.Block.prototype.getSvgRoot = function() {
-  return this.svg_ && this.svg_.getRootNode();
+  return this.svg_ && this.svg_.getRootElement();
 };
 
 /**
@@ -129,24 +129,23 @@ Blockly.Block.dragMode_ = 0;
 
 /**
  * Wrapper function called when a mouseUp occurs during a drag operation.
- * @type {Function}
+ * @type {Array.<!Array>}
  * @private
  */
 Blockly.Block.onMouseUpWrapper_ = null;
 
 /**
  * Wrapper function called when a mouseMove occurs during a drag operation.
- * @type {Function}
+ * @type {Array.<!Array>}
  * @private
  */
 Blockly.Block.onMouseMoveWrapper_ = null;
 
 /**
  * Stop binding to the global mouseup and mousemove events.
- * @param {!Event} e Mouse up event.
  * @private
  */
-Blockly.Block.terminateDrag_ = function(e) {
+Blockly.Block.terminateDrag_ = function() {
   if (Blockly.Block.onMouseUpWrapper_) {
     Blockly.unbindEvent_(Blockly.Block.onMouseUpWrapper_);
     Blockly.Block.onMouseUpWrapper_ = null;
@@ -298,7 +297,7 @@ Blockly.Block.prototype.getRelativeToSurfaceXY = function() {
   var x = 0;
   var y = 0;
   if (this.svg_) {
-    var element = this.svg_.getRootNode();
+    var element = this.svg_.getRootElement();
     do {
       // Loop through this block and every parent.
       var xy = Blockly.getRelativeXY_(element);
@@ -317,7 +316,7 @@ Blockly.Block.prototype.getRelativeToSurfaceXY = function() {
  */
 Blockly.Block.prototype.moveBy = function(dx, dy) {
   var xy = this.getRelativeToSurfaceXY();
-  this.svg_.getRootNode().setAttribute('transform',
+  this.svg_.getRootElement().setAttribute('transform',
       'translate(' + (xy.x + dx) + ', ' + (xy.y + dy) + ')');
   this.moveConnections_(dx, dy);
 };
@@ -356,9 +355,11 @@ Blockly.Block.prototype.onMouseDown_ = function(e) {
     this.startDragMouseX = e.clientX;
     this.startDragMouseY = e.clientY;
     Blockly.Block.dragMode_ = 1;
-    Blockly.Block.onMouseUpWrapper_ = Blockly.bindEvent_(Blockly.svgDoc,
+    Blockly.Block.onMouseUpWrapper_ = Blockly.bindEvent_(
+        /** @type {!Element} */ (Blockly.svgDoc),
         'mouseup', this, this.onMouseUp_);
-    Blockly.Block.onMouseMoveWrapper_ = Blockly.bindEvent_(Blockly.svgDoc,
+    Blockly.Block.onMouseMoveWrapper_ = Blockly.bindEvent_(
+        /** @type {!Element} */ (Blockly.svgDoc),
         'mousemove', this, this.onMouseMove_);
     // Build a list of comments that need to be moved and where they started.
     this.draggedBubbles_ = [];
@@ -449,7 +450,8 @@ Blockly.Block.prototype.duplicate_ = function() {
   // Create a duplicate via XML.
   var xmlBlock = Blockly.Xml.blockToDom_(this);
   Blockly.Xml.deleteNext(xmlBlock);
-  var newBlock = Blockly.Xml.domToBlock_(this.workspace, xmlBlock);
+  var newBlock = Blockly.Xml.domToBlock_(
+      /** @type {!Blockly.Workspace} */ (this.workspace), xmlBlock);
   // Move the duplicate next to the old block.
   var xy = this.getRelativeToSurfaceXY();
   if (Blockly.RTL) {
@@ -698,8 +700,8 @@ Blockly.Block.prototype.onMouseMove_ = function(e) {
     // Unrestricted dragging.
     var x = this.startDragX + dx;
     var y = this.startDragY + dy;
-    this.svg_.getRootNode().setAttribute('transform',
-                                     'translate(' + x + ', ' + y + ')');
+    this.svg_.getRootElement().setAttribute('transform',
+        'translate(' + x + ', ' + y + ')');
     // Drag all the nested comments.
     for (var x = 0; x < this.draggedBubbles_.length; x++) {
       var commentData = this.draggedBubbles_[x];
@@ -853,8 +855,8 @@ Blockly.Block.prototype.setParent = function(newParent) {
     }
     // Move this block up the DOM.  Keep track of x/y translations.
     var xy = this.getRelativeToSurfaceXY();
-    this.workspace.getCanvas().appendChild(this.svg_.getRootNode());
-    this.svg_.getRootNode().setAttribute('transform',
+    this.workspace.getCanvas().appendChild(this.svg_.getRootElement());
+    this.svg_.getRootElement().setAttribute('transform',
         'translate(' + xy.x + ', ' + xy.y + ')');
 
     // Disconnect from superior blocks.
@@ -879,7 +881,7 @@ Blockly.Block.prototype.setParent = function(newParent) {
 
     var oldXY = this.getRelativeToSurfaceXY();
     if (newParent.svg_ && this.svg_) {
-      newParent.svg_.getRootNode().appendChild(this.svg_.getRootNode());
+      newParent.svg_.getRootElement().appendChild(this.svg_.getRootElement());
     }
     var newXY = this.getRelativeToSurfaceXY();
     // Move the connections to match the child's new position.
@@ -906,7 +908,7 @@ Blockly.Block.prototype.getDescendants = function() {
 
 /**
  * Get the colour of a block.
- * @return {string} HSV hue value.
+ * @return {number} HSV hue value.
  */
 Blockly.Block.prototype.getColour = function() {
   return this.colourHue_;
@@ -955,7 +957,7 @@ Blockly.Block.prototype.getTitle_ = function(name) {
 /**
  * Returns the language-neutral value from the title of a block.
  * @param {string} name The name of the title.
- * @return {!string} Value from the title or null if title does not exist.
+ * @return {?string} Value from the title or null if title does not exist.
  */
 Blockly.Block.prototype.getTitleValue = function(name) {
   var title = this.getTitle_(name);
@@ -974,41 +976,6 @@ Blockly.Block.prototype.setTitleValue = function(newValue, name) {
   var title = this.getTitle_(name);
   if (title) {
     title.setValue(newValue);
-  } else {
-    throw 'Title "' + name + '" not found.';
-  }
-};
-
-/**
- * Returns the human-readable text from the title of a block.
- * @param {string} name The name of the title.
- * @return {!string} Text from the title or null if title does not exist.
- * @deprecated Use getValueText instead.
- */
-Blockly.Block.prototype.getTitleText = function(name) {
-  // In September 2012 getTitleText was deprecated in favour of getTitleValue.
-  // At some future date this section should be deleted.
-  console.log('Obsolete call to getTitleText.  Please use getTitleValue.');
-  var title = this.getTitle_(name);
-  if (title) {
-    return title.getText();
-  }
-  return null;
-};
-
-/**
- * Change the title text for a block (e.g. 'choose' or 'remove list item').
- * @param {string} newText Text to be the new title.
- * @param {string} name The name of the title.
- * @deprecated Use setValueText instead.
- */
-Blockly.Block.prototype.setTitleText = function(newText, name) {
-  // In September 2012 setTitleText was deprecated in favour of setTitleValue.
-  // At some future date this section should be deleted.
-  console.log('Obsolete call to setTitleText.  Please use setTitleValue.');
-  var title = this.getTitle_(name);
-  if (title) {
-    title.setText(newText);
   } else {
     throw 'Title "' + name + '" not found.';
   }
@@ -1183,7 +1150,7 @@ Blockly.Block.prototype.setCollapsed = function(collapsed) {
       }
       var child = input.connection.targetBlock();
       if (child) {
-        child.svg_.getRootNode().style.display = display;
+        child.svg_.getRootElement().style.display = display;
         if (collapsed) {
           child.rendered = false;
         }

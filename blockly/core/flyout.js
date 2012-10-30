@@ -43,6 +43,7 @@ Blockly.Flyout.prototype.CORNER_RADIUS = 8;
 
 /**
  * Wrapper function called when a resize occurs.
+ * @type {Array.<!Array>}
  * @private
  */
 Blockly.Flyout.prototype.onResizeWrapper_ = null;
@@ -256,13 +257,16 @@ Blockly.Flyout.prototype.show = function(names) {
   var gaps = [];
   if (names == Blockly.MSG_VARIABLE_CATEGORY) {
     // Special category for variables.
-    Blockly.Variables.flyoutCategory(blocks, gaps, margin, this.workspace_);
+    Blockly.Variables.flyoutCategory(blocks, gaps, margin,
+        /** @type {!Blockly.Workspace} */ (this.workspace_));
   } else if (names == Blockly.MSG_PROCEDURE_CATEGORY) {
     // Special category for procedures.
-    Blockly.Procedures.flyoutCategory(blocks, gaps, margin, this.workspace_);
+    Blockly.Procedures.flyoutCategory(blocks, gaps, margin,
+        /** @type {!Blockly.Workspace} */ (this.workspace_));
   } else {
     for (var i = 0, name; name = names[i]; i++) {
-      var block = new Blockly.Block(this.workspace_, name);
+      var block = new Blockly.Block(
+          /** @type {!Blockly.Workspace} */ (this.workspace_), name);
       block.initSvg();
       blocks[i] = block;
       gaps[i] = margin * 2;
@@ -335,7 +339,11 @@ Blockly.Flyout.createBlockFunc_ = function(flyout, originBlock) {
     var xml = Blockly.Xml.blockToDom_(originBlock);
     var block = Blockly.Xml.domToBlock_(flyout.targetWorkspace_, xml);
     // Place it in the same spot as the flyout copy.
-    var xyOld = Blockly.getAbsoluteXY_(originBlock.getSvgRoot());
+    var svgRoot = originBlock.getSvgRoot();
+    if (!svgRoot) {
+      throw 'originBlock is not rendered.';
+    }
+    var xyOld = Blockly.getAbsoluteXY_(svgRoot);
     var xyNew = Blockly.getAbsoluteXY_(flyout.targetWorkspace_.getCanvas());
     block.moveBy(xyOld.x - xyNew.x, xyOld.y - xyNew.y);
     block.render();

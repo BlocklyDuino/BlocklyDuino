@@ -24,22 +24,23 @@
 'use strict';
 
 /**
- * Due to a bug in WebKit concerning the stacking order of background colours,
- * it is not possible to use foreignObject to nest an HTML context menu in
- * an SVG document.  Therefore the context menu is purely SVG.
- * http://code.google.com/p/chromium/issues/detail?id=35545
+ * Name space for the context menu singleton.
  */
-
-// Name space for the context menu.
 Blockly.ContextMenu = {};
 
-// Horizontal padding on either side of each option.
+/**
+ * Horizontal padding on either side of each option.
+ */
 Blockly.ContextMenu.X_PADDING = 20;
 
-// Vertical height of each option.
+/**
+ * Vertical height of each option.
+ */
 Blockly.ContextMenu.Y_HEIGHT = 20;
 
-// Is a context menu currently showing?
+/**
+ * Is a context menu currently showing?
+ */
 Blockly.ContextMenu.visible = false;
 
 /**

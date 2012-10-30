@@ -48,17 +48,15 @@ Blockly.Mutator.prototype.bubble_ = null;
 
 /**
  * Absolute X coordinate of icon's center.
- * @type {?number}
  * @private
  */
-Blockly.Mutator.prototype.iconX_ = null;
+Blockly.Mutator.prototype.iconX_ = 0;
 
 /**
  * Absolute Y coordinate of icon's centre.
- * @type {?number}
  * @private
  */
-Blockly.Mutator.prototype.iconY_ = null;
+Blockly.Mutator.prototype.iconY_ = 0;
 
 /**
  * Width of workspace.

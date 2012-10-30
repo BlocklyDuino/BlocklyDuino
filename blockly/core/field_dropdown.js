@@ -43,6 +43,10 @@ Blockly.FieldDropdown = function(menuGenerator, opt_changeHandler) {
 
 // FieldDropdown is a subclass of Field.
 Blockly.FieldDropdown.prototype = new Blockly.Field(null);
+/**
+ * Don't inherit the constructor from Field.
+ * @type {!Function}
+ */
 Blockly.FieldDropdown.constructor = Blockly.FieldDropdown;
 
 /**

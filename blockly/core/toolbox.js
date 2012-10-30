@@ -25,7 +25,9 @@
  */
 'use strict';
 
-// Name space for the toolbox.
+/**
+ * Name space for the toolbox singleton.
+ */
 Blockly.Toolbox = {};
 
 /**

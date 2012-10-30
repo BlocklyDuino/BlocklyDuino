@@ -1,7 +1,7 @@
 BlocklyDuino
 =======================
 
-0.8 2012/10/
+0.8 2012/10/30
 ------------------
 
 make editor more friendly
@@ -20,7 +20,7 @@ change:
 
 * call profile params via 'profile.default.digital' instead of 'profile.arduino.digital'
 * rename Potentiometer block to Rotary Angle block
-* update blockly till r491, move core js into core folder
+* update blockly till r494, move core js into core folder
 * move arduino language generator to top level generator/ folder
 * reasonable default) change default delay time from 0 to 1000
 

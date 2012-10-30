@@ -111,7 +111,7 @@ Blockly.Field.prototype.setVisible = function(visible) {
  * @return {!Element} The group element.
  */
 Blockly.Field.prototype.getRootElement = function() {
-  return this.group_;
+  return /** @type {!Element} */ (this.group_);
 };
 
 /**
@@ -169,18 +169,12 @@ Blockly.Field.prototype.getText = function() {
 Blockly.Field.prototype.setText = function(text) {
   this.text_ = text;
   // Empty the text element.
-  Blockly.removeChildren_(this.textElement_);
+  Blockly.removeChildren_(/** @type {!Element} */ (this.textElement_));
+  // Replace whitespace with non-breaking spaces so the text doesn't collapse.
+  text = text.replace(/\s/g, Blockly.Field.NBSP);
   if (!text) {
     // Prevent the field from disappearing if empty.
     text = Blockly.Field.NBSP;
-  // Replace whitespace with non-breaking spaces so the text doesn't collapse.
-  } else {
-	  if(typeof(text)===typeof('a')) {
-	      text = text.replace(/\s/g, Blockly.Field.NBSP);
-      } else {
-		  text = text.name.replace(/\s/g, Blockly.Field.NBSP);
-		  //console.log('obj '+text);
-      }
   }
   var textNode = Blockly.svgDoc.createTextNode(text);
   this.textElement_.appendChild(textNode);

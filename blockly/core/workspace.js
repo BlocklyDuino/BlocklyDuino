@@ -34,13 +34,30 @@ Blockly.Workspace = function(editable) {
   Blockly.ConnectionDB.init(this);
 };
 
+/**
+ * Can this workspace be dragged around (true) or is it fixed (false)?
+ */
 Blockly.Workspace.prototype.dragMode = false;
 
-// Add properties to control the current scrolling offset.
+/**
+ * Current horizontal scrolling offset.
+ */
 Blockly.Workspace.prototype.scrollX = 0;
+/**
+ * Current vertical scrolling offset.
+ */
 Blockly.Workspace.prototype.scrollY = 0;
-
+/**
+ * The workspace's trashcan (if any).
+ * @type {Blockly.Trashcan}
+ */
 Blockly.Workspace.prototype.trashcan = null;
+/**
+ * PID of upcoming firing of a change event.  Used to fire only one event
+ * after multiple changes.
+ * @type {?number}
+ * @private
+ */
 Blockly.Workspace.prototype.fireChangeEventPid_ = null;
 
 /**

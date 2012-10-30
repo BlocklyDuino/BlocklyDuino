@@ -40,6 +40,10 @@ Blockly.FieldTextInput = function(text, opt_validationFunc) {
 
 // FieldTextInput is a subclass of Field.
 Blockly.FieldTextInput.prototype = new Blockly.Field(null);
+/**
+ * Don't inherit the constructor from Field.
+ * @type {!Function}
+ */
 Blockly.FieldTextInput.constructor = Blockly.FieldTextInput;
 
 /**

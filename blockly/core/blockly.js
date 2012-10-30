@@ -32,17 +32,24 @@ var Blockly = {};
  */
 Blockly.pathToBlockly = './';
 
-// Required name space for SVG elements.
+/**
+ * Required name space for SVG elements.
+ */
 Blockly.SVG_NS = 'http://www.w3.org/2000/svg';
-// Required name space for HTML elements.
+/**
+ * Required name space for HTML elements.
+ */
 Blockly.HTML_NS = 'http://www.w3.org/1999/xhtml';
 
 /**
- * The HSV_SATURATION and HSV_VALUE constants provide Blockly with a consistent
- * colour scheme, regardless of the hue.
- * Both constants must be in the range of 0 (inclusive) to 1 (exclusive).
+ * The richness of block colours, regardless of the hue.
+ * Must be in the range of 0 (inclusive) to 1 (exclusive).
  */
 Blockly.HSV_SATURATION = 0.45;
+/**
+ * The intensity of block colours, regardless of the hue.
+ * Must be in the range of 0 (inclusive) to 1 (exclusive).
+ */
 Blockly.HSV_VALUE = 0.65;
 
 /**
@@ -447,17 +454,16 @@ Blockly.isTargetInput_ = function(e) {
  * @private
  */
 Blockly.loadAudio_ = function(name) {
-  if (!Audio) {
+  if (!window.Audio) {
     // No browser support for Audio.
     return;
   }
-  var sound = new Audio(Blockly.pathToBlockly + 'media/' + name + '.wav');
-  // To force the browser to load the sound, play it, but stop it immediately.
-  // If this starts creating a chirp on startup, turn the sound's volume down,
-  // or use another caching method such as XHR.
+  var sound = new window.Audio(Blockly.pathToBlockly +
+                               'media/' + name + '.wav');
+  // To force the browser to load the sound, play it, but at zero volume.
   if (sound && sound.play) {
     sound.play();
-    sound.pause();
+    sound.volume = 0;
     Blockly.SOUNDS_[name] = sound;
   }
 };
@@ -469,6 +475,7 @@ Blockly.loadAudio_ = function(name) {
 Blockly.playAudio = function(name) {
   var sound = Blockly.SOUNDS_[name];
   if (sound) {
+    sound.volume = 1;
     sound.play();
   }
 };

@@ -198,7 +198,7 @@ Blockly.createDom_ = function(container) {
  * @private
  */
 Blockly.init_ = function() {
-  var doc = Blockly.svgDoc;
+  var doc = /** @type {!Element} */ (Blockly.svgDoc);
 
   Blockly.bindEvent_(window, 'resize', doc, Blockly.svgResize);
   // Bind events for scrolling the workspace.
@@ -220,7 +220,7 @@ Blockly.init_ = function() {
   Blockly.mainWorkspace.addTrashcan(Blockly.getMainWorkspaceMetrics);
   Blockly.mainWorkspace.scrollbar = new Blockly.ScrollbarPair(
       Blockly.mainWorkspace.getBubbleCanvas(),
-      Blockly.getMainWorkspaceMetrics, this.setMainWorkspaceMetrics);
+      Blockly.getMainWorkspaceMetrics, Blockly.setMainWorkspaceMetrics);
 
   // Load the sounds.
   Blockly.loadAudio_('click');

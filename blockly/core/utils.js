@@ -28,42 +28,42 @@
 /**
  * Removes all the child nodes on a DOM node.
  * Copied from Closure's goog.dom.removeChildren
- * @param {!Node} node Node to remove children from.
+ * @param {!Element} element Element to remove children from.
  * @private
  */
-Blockly.removeChildren_ = function(node) {
+Blockly.removeChildren_ = function(element) {
   var child;
-  while ((child = node.firstChild)) {
-    node.removeChild(child);
+  while ((child = element.firstChild)) {
+    element.removeChild(child);
   }
 };
 
 /**
- * Add a CSS class to a node.
+ * Add a CSS class to a element.
  * Similar to Closure's goog.dom.classes.add
- * @param {!Node} node DOM node to add class to.
+ * @param {!Element} element DOM element to add class to.
  * @param {string} className Name of class to add.
  * @private
  */
-Blockly.addClass_ = function(node, className) {
-  var classes = node.getAttribute('class') || '';
+Blockly.addClass_ = function(element, className) {
+  var classes = element.getAttribute('class') || '';
   if ((' ' + classes + ' ').indexOf(' ' + className + ' ') == -1) {
     if (classes) {
       classes += ' ';
     }
-    node.setAttribute('class', classes + className);
+    element.setAttribute('class', classes + className);
   }
 };
 
 /**
- * Remove a CSS class from a node.
+ * Remove a CSS class from a element.
  * Similar to Closure's goog.dom.classes.remove
- * @param {!Node} node DOM node to remove class from.
+ * @param {!Element} element DOM element to remove class from.
  * @param {string} className Name of class to remove.
  * @private
  */
-Blockly.removeClass_ = function(node, className) {
-  var classes = node.getAttribute('class');
+Blockly.removeClass_ = function(element, className) {
+  var classes = element.getAttribute('class');
   if ((' ' + classes + ' ').indexOf(' ' + className + ' ') != -1) {
     var classList = classes.split(/\s+/);
     for (var x = 0; x < classList.length; x++) {
@@ -73,9 +73,9 @@ Blockly.removeClass_ = function(node, className) {
       }
     }
     if (classList.length) {
-      node.setAttribute('class', classList.join(' '));
+      element.setAttribute('class', classList.join(' '));
     } else {
-      node.removeAttribute('class');
+      element.removeAttribute('class');
     }
   }
 };
@@ -131,6 +131,12 @@ Blockly.bindEvent_ = function(element, name, thisObject, func) {
   return bindData;
 };
 
+/**
+ * The TOUCH_MAP lookup dictionary specifies additional touch events to fire,
+ * in conjunction with mouse events.
+ * @type {Object}
+ */
+Blockly.bindEvent_.TOUCH_MAP = {};
 if ('ontouchstart' in document.documentElement) {
   Blockly.bindEvent_.TOUCH_MAP = {
     mousedown: 'touchstart',
@@ -319,12 +325,12 @@ Blockly.isRightButton = function(e) {
  * Convert the mouse coordinates into SVG coordinates.
  * @param {number} x X mouse coordinate.
  * @param {number} y Y mouse coordinate.
- * @return {!SVGPoint} Object with x and y properties in SVG coordinates.
+ * @return {!Object} Object with x and y properties in SVG coordinates.
  */
 Blockly.mouseToSvg = function(x, y) {
   var svgPoint = Blockly.svg.createSVGPoint();
   svgPoint.x = x;
   svgPoint.y = y;
   var matrix = Blockly.svg.getScreenCTM().inverse();
-  return svgPoint = svgPoint.matrixTransform(matrix);
+  return svgPoint.matrixTransform(matrix);
 };
