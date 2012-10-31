@@ -87,10 +87,10 @@ Blockly.Mutator.prototype.createIcon = function() {
   }
   var iconShield = Blockly.createSvgElement('rect',
       {'class': 'blocklyIconShield',
-       width: 8 * quantum,
-       height: 8 * quantum,
-       rx: 2 * quantum,
-       ry: 2 * quantum}, this.iconGroup_);
+       'width': 8 * quantum,
+       'height': 8 * quantum,
+       'rx': 2 * quantum,
+       'ry': 2 * quantum}, this.iconGroup_);
   if (!Blockly.Mutator.crossPath_) {
     // Draw the cross once, and save it for future use.
     var path = [];
@@ -105,7 +105,7 @@ Blockly.Mutator.prototype.createIcon = function() {
   }
   this.iconMark_ = Blockly.createSvgElement('path',
       {'class': 'blocklyIconMark',
-       d: Blockly.Mutator.crossPath_}, this.iconGroup_);
+       'd': Blockly.Mutator.crossPath_}, this.iconGroup_);
   this.block_.getSvgRoot().appendChild(this.iconGroup_);
   if (this.block_.editable) {
     Blockly.bindEvent_(this.iconGroup_, 'mouseup', this, this.iconClick_);
@@ -126,10 +126,11 @@ Blockly.Mutator.prototype.createEditor_ = function() {
   </svg>
   */
   this.svgDialog_ = Blockly.createSvgElement('svg',
-      {x: Blockly.Bubble.BORDER_WIDTH, y: Blockly.Bubble.BORDER_WIDTH}, null);
+      {'x': Blockly.Bubble.BORDER_WIDTH, 'y': Blockly.Bubble.BORDER_WIDTH},
+      null);
   this.svgBackground_ = Blockly.createSvgElement('rect',
       {'class': 'blocklyMutatorBackground',
-       height: '100%', width: '100%'}, this.svgDialog_);
+       'height': '100%', 'width': '100%'}, this.svgDialog_);
 
   this.workspace_ = new Blockly.Workspace(true);
   this.flyout_ = new Blockly.Flyout();

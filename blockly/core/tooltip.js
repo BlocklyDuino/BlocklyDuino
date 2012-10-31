@@ -134,7 +134,7 @@ Blockly.Tooltip.createDom = function() {
       Blockly.createSvgElement('g', {'class': 'blocklyHidden'}, null);
   Blockly.Tooltip.svgGroup_ = svgGroup;
   Blockly.Tooltip.svgShadow_ = Blockly.createSvgElement('rect',
-      {'class': 'blocklyTooltipShadow', x: 2, y: 2}, svgGroup);
+      {'class': 'blocklyTooltipShadow', 'x': 2, 'y': 2}, svgGroup);
   Blockly.Tooltip.svgBackground_ = Blockly.createSvgElement('rect',
       {'class': 'blocklyTooltipBackground'}, svgGroup);
   Blockly.Tooltip.svgText_ = Blockly.createSvgElement('text',
@@ -260,7 +260,7 @@ Blockly.Tooltip.show_ = function() {
   var lines = tip.split('\n');
   for (var i = 0; i < lines.length; i++) {
     var tspanElement = Blockly.createSvgElement('tspan',
-        {dy: '1em', x: Blockly.Tooltip.MARGINS}, Blockly.Tooltip.svgText_);
+        {'dy': '1em', 'x': Blockly.Tooltip.MARGINS}, Blockly.Tooltip.svgText_);
     var textNode = Blockly.svgDoc.createTextNode(lines[i]);
     tspanElement.appendChild(textNode);
   }

@@ -116,21 +116,21 @@ Blockly.createDom_ = function(container) {
                    k1="0" k2="1" k3="1" k4="0"/>
     </filter>
   */
-  filter = Blockly.createSvgElement('filter', {id: 'blocklyEmboss'}, defs);
+  filter = Blockly.createSvgElement('filter', {'id': 'blocklyEmboss'}, defs);
   Blockly.createSvgElement('feGaussianBlur',
-      {'in': 'SourceAlpha', stdDeviation: 1, result: 'blur'}, filter);
+      {'in': 'SourceAlpha', 'stdDeviation': 1, 'result': 'blur'}, filter);
   feSpecularLighting = Blockly.createSvgElement('feSpecularLighting',
-      {'in': 'blur', surfaceScale: 1, specularConstant: 0.5,
-      specularExponent: 10, 'lighting-color': 'white', result: 'specOut'},
+      {'in': 'blur', 'surfaceScale': 1, 'specularConstant': 0.5,
+      'specularExponent': 10, 'lighting-color': 'white', 'result': 'specOut'},
       filter);
   Blockly.createSvgElement('fePointLight',
-      {x: -5000, y: -10000, z: 20000}, feSpecularLighting);
+      {'x': -5000, 'y': -10000, 'z': 20000}, feSpecularLighting);
   Blockly.createSvgElement('feComposite',
-      {'in': 'specOut', in2: 'SourceAlpha', operator: 'in', result: 'specOut'},
-      filter);
+      {'in': 'specOut', 'in2': 'SourceAlpha', 'operator': 'in',
+      'result': 'specOut'}, filter);
   Blockly.createSvgElement('feComposite',
-      {'in': 'SourceGraphic', in2: 'specOut', operator: 'arithmetic',
-      k1: 0, k2: 1, k3: 1, k4: 0}, filter);
+      {'in': 'SourceGraphic', 'in2': 'specOut', 'operator': 'arithmetic',
+      'k1': 0, 'k2': 1, 'k3': 1, 'k4': 0}, filter);
   /*
     <filter id="blocklyTrashcanShadowFilter">
       <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
@@ -142,11 +142,11 @@ Blockly.createDom_ = function(container) {
     </filter>
   */
   filter = Blockly.createSvgElement('filter',
-      {id: 'blocklyTrashcanShadowFilter'}, defs);
+      {'id': 'blocklyTrashcanShadowFilter'}, defs);
   Blockly.createSvgElement('feGaussianBlur',
-      {'in': 'SourceAlpha', stdDeviation: 2, result: 'blur'}, filter);
+      {'in': 'SourceAlpha', 'stdDeviation': 2, 'result': 'blur'}, filter);
   Blockly.createSvgElement('feOffset',
-      {'in': 'blur', dx: 1, dy: 1, result: 'offsetBlur'}, filter);
+      {'in': 'blur', 'dx': 1, 'dy': 1, 'result': 'offsetBlur'}, filter);
   feMerge = Blockly.createSvgElement('feMerge', {}, filter);
   Blockly.createSvgElement('feMergeNode', {'in': 'offsetBlur'}, feMerge);
   Blockly.createSvgElement('feMergeNode', {'in': 'SourceGraphic'}, feMerge);
@@ -156,8 +156,8 @@ Blockly.createDom_ = function(container) {
     </filter>
   */
   filter = Blockly.createSvgElement('filter',
-      {id: 'blocklyShadowFilter'}, defs);
-  Blockly.createSvgElement('feGaussianBlur', {stdDeviation: 2}, filter);
+      {'id': 'blocklyShadowFilter'}, defs);
+  Blockly.createSvgElement('feGaussianBlur', {'stdDeviation': 2}, filter);
   /*
     <pattern id="blocklyDisabledPattern" patternUnits="userSpaceOnUse"
              width="10" height="10">
@@ -166,13 +166,12 @@ Blockly.createDom_ = function(container) {
     </pattern>
   */
   pattern = Blockly.createSvgElement('pattern',
-      {id: 'blocklyDisabledPattern', patternUnits: 'userSpaceOnUse',
-       width: 10, height: 10}, defs);
+      {'id': 'blocklyDisabledPattern', 'patternUnits': 'userSpaceOnUse',
+       'width': 10, 'height': 10}, defs);
   Blockly.createSvgElement('rect',
-      {width: 10, height: 10, fill: '#aaa'}, pattern);
+      {'width': 10, 'height': 10, 'fill': '#aaa'}, pattern);
   Blockly.createSvgElement('path',
-      {d: 'M 0 0 L 10 10 M 10 0 L 0 10', stroke: '#cc0'}, pattern);
-
+      {'d': 'M 0 0 L 10 10 M 10 0 L 0 10', 'stroke': '#cc0'}, pattern);
   Blockly.mainWorkspace = new Blockly.Workspace(Blockly.editable);
   svg.appendChild(Blockly.mainWorkspace.createDom());
   if (Blockly.Toolbox && Blockly.editable) {

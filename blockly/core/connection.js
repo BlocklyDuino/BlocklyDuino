@@ -336,7 +336,7 @@ Blockly.Connection.prototype.highlight = function() {
   var y = this.y_ - xy.y;
   Blockly.Connection.highlightedPath_ = Blockly.createSvgElement('path',
       {'class': 'blocklyHighlightedConnectionPath',
-       d: steps,
+       'd': steps,
        transform: 'translate(' + x + ', ' + y + ')'},
       this.sourceBlock_.getSvgRoot());
 };

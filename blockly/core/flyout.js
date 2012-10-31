@@ -306,8 +306,8 @@ Blockly.Flyout.prototype.show = function(names) {
     var bBox = block.getSvgRoot().getBBox();
     var xy = block.getRelativeToSurfaceXY();
     var rect = Blockly.createSvgElement('rect',
-        {width: bBox.width, height: bBox.height,
-        x: xy.x + bBox.x, y: xy.y + bBox.y,
+        {'width': bBox.width, 'height': bBox.height,
+        'x': xy.x + bBox.x, 'y': xy.y + bBox.y,
         'fill-opacity': 0}, null);
     // Add the rectangles under the blocks, so that the blocks' tooltips work.
     this.svgOptions_.insertBefore(rect, this.svgOptions_.firstChild);

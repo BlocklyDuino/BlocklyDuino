@@ -23,8 +23,6 @@
  */
 'use strict';
 
-if (!Blockly.Language) Blockly.Language = {};
-
 Blockly.Language.logic_compare = {
   // Comparison operator.
   category: Blockly.LANG_CATEGORY_LOGIC,

@@ -80,13 +80,13 @@ Blockly.Warning.prototype.createIcon_ = function() {
       {'class': 'blocklyIconGroup'}, null);
   var iconShield = Blockly.createSvgElement('path',
       {'class': 'blocklyIconShield',
-       d: 'M 2,15 Q -1,15 0.5,12 L 6.5,1.7 Q 8,-1 9.5,1.7 L 15.5,12 ' +
+       'd': 'M 2,15 Q -1,15 0.5,12 L 6.5,1.7 Q 8,-1 9.5,1.7 L 15.5,12 ' +
        'Q 17,15 14,15 z'},
       this.iconGroup_);
   this.iconMark_ = Blockly.createSvgElement('text',
       {'class': 'blocklyIconMark',
-       x: Blockly.Warning.ICON_RADIUS,
-       y: 2 * Blockly.Warning.ICON_RADIUS - 3}, this.iconGroup_);
+       'x': Blockly.Warning.ICON_RADIUS,
+       'y': 2 * Blockly.Warning.ICON_RADIUS - 3}, this.iconGroup_);
   this.iconMark_.appendChild(Blockly.svgDoc.createTextNode('!'));
   this.block_.getSvgRoot().appendChild(this.iconGroup_);
   Blockly.bindEvent_(this.iconGroup_, 'mouseup', this, this.iconClick_);
@@ -100,11 +100,11 @@ Blockly.Warning.prototype.createIcon_ = function() {
  */
 Blockly.Warning.prototype.textToDom_ = function(text) {
   var paragraph = Blockly.createSvgElement('text',
-      {'class': 'blocklyText', y: Blockly.Bubble.BORDER_WIDTH}, null);
+      {'class': 'blocklyText', 'y': Blockly.Bubble.BORDER_WIDTH}, null);
   var lines = text.split('\n');
   for (var i = 0; i < lines.length; i++) {
     var tspanElement = Blockly.createSvgElement('tspan',
-        {dy: '1em', x: Blockly.Bubble.BORDER_WIDTH}, paragraph);
+        {'dy': '1em', 'x': Blockly.Bubble.BORDER_WIDTH}, paragraph);
     var textNode = Blockly.svgDoc.createTextNode(lines[i]);
     tspanElement.appendChild(textNode);
   }

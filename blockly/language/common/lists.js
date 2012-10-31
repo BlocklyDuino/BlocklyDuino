@@ -23,8 +23,6 @@
  */
 'use strict';
 
-if (!Blockly.Language) Blockly.Language = {};
-
 Blockly.Language.lists_create_empty = {
   // Create an empty list.
   category: Blockly.LANG_CATEGORY_LISTS,

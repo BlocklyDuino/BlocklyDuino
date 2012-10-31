@@ -40,18 +40,18 @@ Blockly.FieldImage = function(src, width, height) {
   var offsetY = 6 - Blockly.BlockSvg.TITLE_HEIGHT;
   this.group_ = Blockly.createSvgElement('g', {}, null);
   this.imageElement_ = Blockly.createSvgElement('image',
-      {height: height + 'px',
-       width: width + 'px',
-       y: offsetY}, this.group_);
+      {'height': height + 'px',
+       'width': width + 'px',
+       'y': offsetY}, this.group_);
   this.setText(src);
   var isGecko = window.navigator.userAgent.indexOf('Gecko/') != -1;
   if (isGecko) {
     // Due to a Firefox bug which eats mouse events on image elements,
     // a transparent rectangle needs to be placed on top of the image.
     this.rectElement_ = Blockly.createSvgElement('rect',
-        {height: height + 'px',
-         width: width + 'px',
-         y: offsetY,
+        {'height': height + 'px',
+         'width': width + 'px',
+         'y': offsetY,
          'fill-opacity': 0}, this.group_);
   }
 };

@@ -33,7 +33,7 @@ Blockly.BlockSvg = function(block) {
   // Create core elements for the block.
   this.svgGroup_ = Blockly.createSvgElement('g', {}, null);
   this.svgPathDark_ = Blockly.createSvgElement('path',
-      {'class': 'blocklyPathDark', transform: 'translate(1, 1)'},
+      {'class': 'blocklyPathDark', 'transform': 'translate(1, 1)'},
       this.svgGroup_);
   this.svgPath_ = Blockly.createSvgElement('path', {'class': 'blocklyPath'},
       this.svgGroup_);
@@ -42,7 +42,7 @@ Blockly.BlockSvg = function(block) {
   this.svgPath_.tooltip = this.block_;
   Blockly.Tooltip && Blockly.Tooltip.bindMouseEvents(this.svgPath_);
   if (block.editable) {
-    Blockly.addClass_(/** @type{!Element} */ (this.svgGroup_),
+    Blockly.addClass_(/** @type {!Element} */ (this.svgGroup_),
                       'blocklyDraggable');
   }
 };
@@ -50,6 +50,7 @@ Blockly.BlockSvg = function(block) {
 /**
  * Constant for identifying rows that are to be rendered inline.
  * Don't collide with Blockly.INPUT_VALUE and friends.
+ * @const
  */
 Blockly.BlockSvg.INLINE = -1;
 
@@ -79,67 +80,82 @@ Blockly.BlockSvg.prototype.getRootElement = function() {
 // UI constants for rendering blocks.
 /**
  * Horizontal space between elements.
+ * @const
  */
 Blockly.BlockSvg.SEP_SPACE_X = 10;
 /**
  * Vertical space between elements.
+ * @const
  */
 Blockly.BlockSvg.SEP_SPACE_Y = 5;
 /**
  * Minimum height of a block.
+ * @const
  */
 Blockly.BlockSvg.MIN_BLOCK_Y = 25;
 /**
  * Height of horizontal puzzle tab.
+ * @const
  */
 Blockly.BlockSvg.TAB_HEIGHT = 20;
 /**
  * Width of horizontal puzzle tab.
+ * @const
  */
 Blockly.BlockSvg.TAB_WIDTH = 8;
 /**
  * Width of vertical tab (inc left margin).
+ * @const
  */
 Blockly.BlockSvg.NOTCH_WIDTH = 30;
 /**
  * Rounded corner radius.
+ * @const
  */
 Blockly.BlockSvg.CORNER_RADIUS = 8;
 /**
  * Minimum height of title rows.
+ * @const
  */
 Blockly.BlockSvg.TITLE_HEIGHT = 18;
 /**
  * Distance from shape edge to intersect with a curved corner at 45 degrees.
  * Applies to highlighting on around the inside of a curve.
+ * @const
  */
 Blockly.BlockSvg.DISTANCE_45_INSIDE = (1 - Math.SQRT1_2) *
       (Blockly.BlockSvg.CORNER_RADIUS - 1) + 1;
 /**
  * Distance from shape edge to intersect with a curved corner at 45 degrees.
  * Applies to highlighting on around the outside of a curve.
+ * @const
  */
 Blockly.BlockSvg.DISTANCE_45_OUTSIDE = (1 - Math.SQRT1_2) *
       (Blockly.BlockSvg.CORNER_RADIUS + 1) - 1;
 /**
  * SVG path for drawing next/previous notch from left to right.
+ * @const
  */
 Blockly.BlockSvg.NOTCH_PATH_LEFT = 'l 6,4 3,0 6,-4';
 /**
  * SVG path for drawing next/previous notch from left to right with
  * highlighting.
+ * @const
  */
 Blockly.BlockSvg.NOTCH_PATH_LEFT_HIGHLIGHT = 'l 6.5,4 2,0 6.5,-4';
 /**
  * SVG path for drawing next/previous notch from right to left.
+ * @const
  */
 Blockly.BlockSvg.NOTCH_PATH_RIGHT = 'l -6,4 -3,0 -6,-4';
 /**
  * SVG path for drawing jagged teeth at the end of collapsed blocks.
+ * @const
  */
 Blockly.BlockSvg.JAGGED_TEETH = 'l 8,0 0,4 8,4 -16,8 8,4';
 /**
  * SVG path for drawing a horizontal puzzle tab from top to bottom.
+ * @const
  */
 Blockly.BlockSvg.TAB_PATH_DOWN = 'v 5 c 0,10 -' + Blockly.BlockSvg.TAB_WIDTH +
     ',-8 -' + Blockly.BlockSvg.TAB_WIDTH + ',7.5 s ' +
@@ -147,6 +163,7 @@ Blockly.BlockSvg.TAB_PATH_DOWN = 'v 5 c 0,10 -' + Blockly.BlockSvg.TAB_WIDTH +
 /**
  * SVG path for drawing a horizontal puzzle tab from top to bottom with
  * highlighting from the upper-right.
+ * @const
  */
 Blockly.BlockSvg.TAB_PATH_DOWN_HIGHLIGHT_RTL = 'v 6.5 m -' +
     (Blockly.BlockSvg.TAB_WIDTH * 0.98) + ',2.5 q -' +
@@ -156,22 +173,26 @@ Blockly.BlockSvg.TAB_PATH_DOWN_HIGHLIGHT_RTL = 'v 6.5 m -' +
 
 /**
  * SVG start point for drawing the top-left corner.
+ * @const
  */
 Blockly.BlockSvg.TOP_LEFT_CORNER_START =
     'm 0,' + Blockly.BlockSvg.CORNER_RADIUS;
 /**
  * SVG start point for drawing the top-left corner's highlight in RTL.
+ * @const
  */
 Blockly.BlockSvg.TOP_LEFT_CORNER_START_HIGHLIGHT_RTL =
     'm ' + Blockly.BlockSvg.DISTANCE_45_INSIDE + ',' +
     Blockly.BlockSvg.DISTANCE_45_INSIDE;
 /**
  * SVG start point for drawing the top-left corner's highlight in LTR.
+ * @const
  */
 Blockly.BlockSvg.TOP_LEFT_CORNER_START_HIGHLIGHT_LTR =
     'm 1,' + (Blockly.BlockSvg.CORNER_RADIUS - 1);
 /**
  * SVG path for drawing the rounded top-left corner.
+ * @const
  */
 Blockly.BlockSvg.TOP_LEFT_CORNER =
     'A ' + Blockly.BlockSvg.CORNER_RADIUS + ',' +
@@ -179,6 +200,7 @@ Blockly.BlockSvg.TOP_LEFT_CORNER =
     Blockly.BlockSvg.CORNER_RADIUS + ',0';
 /**
  * SVG path for drawing the highlight on the rounded top-left corner.
+ * @const
  */
 Blockly.BlockSvg.TOP_LEFT_CORNER_HIGHLIGHT =
     'A ' + (Blockly.BlockSvg.CORNER_RADIUS - 1) + ',' +
@@ -187,6 +209,7 @@ Blockly.BlockSvg.TOP_LEFT_CORNER_HIGHLIGHT =
 /**
  * SVG path for drawing the top-left corner of a statement input.
  * Includes the top notch, a horizontal space, and the rounded inside corner.
+ * @const
  */
 Blockly.BlockSvg.INNER_TOP_LEFT_CORNER =
     Blockly.BlockSvg.NOTCH_PATH_RIGHT + ' h -' +
@@ -198,6 +221,7 @@ Blockly.BlockSvg.INNER_TOP_LEFT_CORNER =
 /**
  * SVG path for drawing the bottom-left corner of a statement input.
  * Includes the rounded inside corner.
+ * @const
  */
 Blockly.BlockSvg.INNER_BOTTOM_LEFT_CORNER =
     'a ' + Blockly.BlockSvg.CORNER_RADIUS + ',' +
@@ -207,6 +231,7 @@ Blockly.BlockSvg.INNER_BOTTOM_LEFT_CORNER =
 /**
  * SVG path for drawing highlight on the top-left corner of a statement
  * input in RTL.
+ * @const
  */
 Blockly.BlockSvg.INNER_TOP_LEFT_CORNER_HIGHLIGHT_RTL =
     'a ' + (Blockly.BlockSvg.CORNER_RADIUS + 1) + ',' +
@@ -217,6 +242,7 @@ Blockly.BlockSvg.INNER_TOP_LEFT_CORNER_HIGHLIGHT_RTL =
 /**
  * SVG path for drawing highlight on the bottom-left corner of a statement
  * input in RTL.
+ * @const
  */
 Blockly.BlockSvg.INNER_BOTTOM_LEFT_CORNER_HIGHLIGHT_RTL =
     'a ' + (Blockly.BlockSvg.CORNER_RADIUS + 1) + ',' +
@@ -226,6 +252,7 @@ Blockly.BlockSvg.INNER_BOTTOM_LEFT_CORNER_HIGHLIGHT_RTL =
 /**
  * SVG path for drawing highlight on the bottom-left corner of a statement
  * input in LTR.
+ * @const
  */
 Blockly.BlockSvg.INNER_BOTTOM_LEFT_CORNER_HIGHLIGHT_LTR =
     'a ' + (Blockly.BlockSvg.CORNER_RADIUS + 1) + ',' +
@@ -310,8 +337,8 @@ Blockly.BlockSvg.prototype.connectionUiEffect = function() {
     xy.y += 3;
   }
   var ripple = Blockly.createSvgElement('circle',
-      {cx: xy.x, cy: xy.y, r: 0, fill: 'none',
-       stroke: '#888', 'stroke-width': 10},
+      {'cx': xy.x, 'cy': xy.y, 'r': 0, 'fill': 'none',
+       'stroke': '#888', 'stroke-width': 10},
       Blockly.svg);
   // Start the animation.
   ripple.startDate_ = new Date();
@@ -343,9 +370,9 @@ Blockly.BlockSvg.connectionUiStep_ = function(ripple) {
  */
 Blockly.BlockSvg.prototype.updateColour = function() {
   var hexColour = Blockly.makeColour(this.block_.getColour());
-  var r = window.parseInt(hexColour.charAt(1), 16);
-  var g = window.parseInt(hexColour.charAt(2), 16);
-  var b = window.parseInt(hexColour.charAt(3), 16);
+  var r = parseInt(hexColour.charAt(1), 16);
+  var g = parseInt(hexColour.charAt(2), 16);
+  var b = parseInt(hexColour.charAt(3), 16);
   var HEX = '0123456789abcdef';
   var rLight = HEX.charAt(Math.min(r + 3, 15));
   var gLight = HEX.charAt(Math.min(g + 2, 15));
@@ -363,11 +390,11 @@ Blockly.BlockSvg.prototype.updateColour = function() {
  */
 Blockly.BlockSvg.prototype.updateDisabled = function() {
   if (this.block_.disabled || this.block_.getInheritedDisabled()) {
-    Blockly.addClass_(/** @type{!Element} */ (this.svgGroup_),
+    Blockly.addClass_(/** @type {!Element} */ (this.svgGroup_),
                       'blocklyDisabled');
     this.svgPath_.setAttribute('fill', 'url(#blocklyDisabledPattern)');
   } else {
-    Blockly.removeClass_(/** @type{!Element} */ (this.svgGroup_),
+    Blockly.removeClass_(/** @type {!Element} */ (this.svgGroup_),
                          'blocklyDisabled');
     this.updateColour();
   }
@@ -381,7 +408,7 @@ Blockly.BlockSvg.prototype.updateDisabled = function() {
  * Select this block.  Highlight it visually.
  */
 Blockly.BlockSvg.prototype.addSelect = function() {
-  Blockly.addClass_(/** @type{!Element} */ (this.svgGroup_),
+  Blockly.addClass_(/** @type {!Element} */ (this.svgGroup_),
                     'blocklySelected');
   // Move the selected block to the top of the stack.
   this.svgGroup_.parentNode.appendChild(this.svgGroup_);
@@ -391,7 +418,7 @@ Blockly.BlockSvg.prototype.addSelect = function() {
  * Unselect this block.  Remove its highlighting.
  */
 Blockly.BlockSvg.prototype.removeSelect = function() {
-  Blockly.removeClass_(/** @type{!Element} */ (this.svgGroup_),
+  Blockly.removeClass_(/** @type {!Element} */ (this.svgGroup_),
                        'blocklySelected');
 };
 
@@ -400,7 +427,7 @@ Blockly.BlockSvg.prototype.removeSelect = function() {
  * Also disables the highlights/shadows to improve performance.
  */
 Blockly.BlockSvg.prototype.addDragging = function() {
-  Blockly.addClass_(/** @type{!Element} */ (this.svgGroup_),
+  Blockly.addClass_(/** @type {!Element} */ (this.svgGroup_),
                     'blocklyDragging');
 };
 
@@ -408,7 +435,7 @@ Blockly.BlockSvg.prototype.addDragging = function() {
  * Removes the dragging class from this block.
  */
 Blockly.BlockSvg.prototype.removeDragging = function() {
-  Blockly.removeClass_(/** @type{!Element} */ (this.svgGroup_),
+  Blockly.removeClass_(/** @type {!Element} */ (this.svgGroup_),
                        'blocklyDragging');
 };
 

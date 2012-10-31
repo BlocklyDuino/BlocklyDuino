@@ -76,7 +76,7 @@ Blockly.FieldTextInput.injectDom_ = function(workspaceSvg) {
   </foreignObject>
   */
   var foreignObject = Blockly.createSvgElement('foreignObject',
-      {height: 22}, workspaceSvg);
+      {'height': 22}, workspaceSvg);
   Blockly.FieldTextInput.svgForeignObject_ = foreignObject;
   // Can't use 'Blockly.createSvgElement' since this is not in the SVG NS.
   var body = Blockly.svgDoc.createElement('body');

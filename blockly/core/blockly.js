@@ -34,10 +34,12 @@ Blockly.pathToBlockly = './';
 
 /**
  * Required name space for SVG elements.
+ * @const
  */
 Blockly.SVG_NS = 'http://www.w3.org/2000/svg';
 /**
  * Required name space for HTML elements.
+ * @const
  */
 Blockly.HTML_NS = 'http://www.w3.org/1999/xhtml';
 
@@ -103,40 +105,49 @@ Blockly.makeColour = function(hue) {
 
 /**
  * ENUM for a right-facing value input.  E.g. 'test' or 'return'.
+ * @const
  */
 Blockly.INPUT_VALUE = 1;
 /**
  * ENUM for a left-facing value output.  E.g. 'call random'.
+ * @const
  */
 Blockly.OUTPUT_VALUE = 2;
 /**
  * ENUM for a down-facing block stack.  E.g. 'then-do' or 'else-do'.
+ * @const
  */
 Blockly.NEXT_STATEMENT = 3;
 /**
  * ENUM for an up-facing block stack.  E.g. 'close screen'.
+ * @const
  */
 Blockly.PREVIOUS_STATEMENT = 4;
 /**
  * ENUM for an dummy input.  Used to add title(s) with no input.
+ * @const
  */
 Blockly.DUMMY_INPUT = 5;
 
 /**
  * ENUM for left alignment.
+ * @const
  */
 Blockly.ALIGN_LEFT = -1;
 /**
  * ENUM for centre alignment.
+ * @const
  */
 Blockly.ALIGN_CENTRE = 0;
 /**
  * ENUM for right alignment.
+ * @const
  */
 Blockly.ALIGN_RIGHT = 1;
 
 /**
  * Lookup table for determining the opposite type of a connection.
+ * @const
  */
 Blockly.OPPOSITE_TYPE = [];
 Blockly.OPPOSITE_TYPE[Blockly.INPUT_VALUE] = Blockly.OUTPUT_VALUE;
@@ -147,12 +158,13 @@ Blockly.OPPOSITE_TYPE[Blockly.PREVIOUS_STATEMENT] = Blockly.NEXT_STATEMENT;
 /**
  * Database of pre-loaded sounds.
  * @private
+ * @const
  */
 Blockly.SOUNDS_ = {};
 
 /**
  * Currently selected block.
- * @type Blockly.Block
+ * @type {Blockly.Block}
  */
 Blockly.selected = null;
 
@@ -180,16 +192,19 @@ Blockly.localConnection_ = null;
 
 /**
  * Number of pixels the mouse must move before a drag starts.
+ * @const
  */
 Blockly.DRAG_RADIUS = 5;
 
 /**
  * Maximum misalignment between connections for them to snap together.
+ * @const
  */
 Blockly.SNAP_RADIUS = 12;
 
 /**
  * Delay in ms between trigger and bumping unconnected block out of alignment.
+ * @const
  */
 Blockly.BUMP_DELAY = 250;
 
@@ -594,3 +609,9 @@ Blockly.setMainWorkspaceMetrics = function(xyRatio) {
 Blockly.cssLoaded = function() {
   Blockly.Toolbox && Blockly.Toolbox.redraw();
 };
+
+/**
+ * Name space for the Language singleton.
+ * Language gets populated in the language files.
+ */
+Blockly.Language = {};

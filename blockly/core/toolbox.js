@@ -61,7 +61,7 @@ Blockly.Toolbox.createDom = function() {
   var flyoutGroup = Blockly.Toolbox.flyout_.createDom();
   svgGroup.appendChild(flyoutGroup);
   Blockly.Toolbox.svgBackground_ = Blockly.createSvgElement('rect',
-      {'class': 'blocklyToolboxBackground', height: '100%'}, svgGroup);
+      {'class': 'blocklyToolboxBackground', 'height': '100%'}, svgGroup);
   Blockly.Toolbox.svgOptions_ = Blockly.createSvgElement('g',
       {'class': 'blocklyToolboxOptions'}, svgGroup);
   return svgGroup;

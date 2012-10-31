@@ -130,15 +130,15 @@ Blockly.Trashcan.prototype.createDom = function() {
   </g>
   */
   this.svgGroup_ = Blockly.createSvgElement('g',
-      {filter: 'url(#blocklyTrashcanShadowFilter)'}, null);
+      {'filter': 'url(#blocklyTrashcanShadowFilter)'}, null);
   this.svgBody_ = Blockly.createSvgElement('image',
-      {width: this.WIDTH_, height: this.BODY_HEIGHT_},
+      {'width': this.WIDTH_, 'height': this.BODY_HEIGHT_},
       this.svgGroup_);
   this.svgBody_.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
       Blockly.pathToBlockly + this.BODY_URL_);
   this.svgBody_.setAttribute('y', this.LID_HEIGHT_);
   this.svgLid_ = Blockly.createSvgElement('image',
-      {width: this.WIDTH_, height: this.LID_HEIGHT_},
+      {'width': this.WIDTH_, 'height': this.LID_HEIGHT_},
       this.svgGroup_);
   this.svgLid_.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
       Blockly.pathToBlockly + this.LID_URL_);

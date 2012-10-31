@@ -23,8 +23,6 @@
  */
 'use strict';
 
-if (!Blockly.Language) Blockly.Language = {};
-
 Blockly.Language.controls_if = {
   // If/elseif/else condition.
   category: Blockly.LANG_CATEGORY_CONTROLS,

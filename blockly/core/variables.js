@@ -26,13 +26,13 @@
 'use strict';
 
 /**
- * Class for a database of variables.
- * @param {Array.<string>} reservedWords An array of words that are illegal for
- *     use as variable names in a language (e.g. ['new', 'if', 'this', ...]).
- * @constructor
+ * Name space for the variables singleton.
  */
 Blockly.Variables = {};
 
+/**
+ * Category to separate variable names from procedures and generated functions.
+ */
 Blockly.Variables.NAME_TYPE = 'variable';
 
 /**
@@ -102,14 +102,6 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
   // user has created a variable of the same name.
   variableList.unshift(null);
   var defaultVariable = undefined;
-  
-  //add declareBlock into variables flyout
-  var declareBlock = Blockly.Language.variables_declare ?
-      new Blockly.Block(workspace, 'variables_declare') : null;
-  declareBlock && declareBlock.initSvg();
-  declareBlock && blocks.push(declareBlock);
-  gaps.push(margin * 2);
-  
   for (var i = 0; i < variableList.length; i++) {
     if (variableList[i] === defaultVariable) {
       continue;

@@ -23,8 +23,6 @@
  */
 'use strict';
 
-if (!Blockly.Language) Blockly.Language = {};
-
 Blockly.Language.text = {
   // Text value.
   category: Blockly.LANG_CATEGORY_TEXT,

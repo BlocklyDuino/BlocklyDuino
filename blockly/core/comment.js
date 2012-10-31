@@ -90,13 +90,13 @@ Blockly.Comment.prototype.createIcon_ = function() {
       {'class': 'blocklyIconGroup'}, null);
   var iconShield = Blockly.createSvgElement('circle',
       {'class': 'blocklyIconShield',
-       r: Blockly.Comment.ICON_RADIUS,
-       cx: Blockly.Comment.ICON_RADIUS,
-       cy: Blockly.Comment.ICON_RADIUS}, this.iconGroup_);
+       'r': Blockly.Comment.ICON_RADIUS,
+       'cx': Blockly.Comment.ICON_RADIUS,
+       'cy': Blockly.Comment.ICON_RADIUS}, this.iconGroup_);
   this.iconMark_ = Blockly.createSvgElement('text',
       {'class': 'blocklyIconMark',
-       x: Blockly.Comment.ICON_RADIUS,
-       y: 2 * Blockly.Comment.ICON_RADIUS - 3}, this.iconGroup_);
+       'x': Blockly.Comment.ICON_RADIUS,
+       'y': 2 * Blockly.Comment.ICON_RADIUS - 3}, this.iconGroup_);
   this.iconMark_.appendChild(Blockly.svgDoc.createTextNode('?'));
   this.block_.getSvgRoot().appendChild(this.iconGroup_);
   Blockly.bindEvent_(this.iconGroup_, 'mouseup', this, this.iconClick_);
@@ -118,7 +118,7 @@ Blockly.Comment.prototype.createEditor_ = function() {
     </foreignObject>
   */
   this.foreignObject_ = Blockly.createSvgElement('foreignObject',
-      {x: Blockly.Bubble.BORDER_WIDTH, y: Blockly.Bubble.BORDER_WIDTH},
+      {'x': Blockly.Bubble.BORDER_WIDTH, 'y': Blockly.Bubble.BORDER_WIDTH},
       null);
   var body = Blockly.svgDoc.createElementNS(Blockly.HTML_NS, 'body');
   body.setAttribute('xmlns', Blockly.HTML_NS);

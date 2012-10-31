@@ -23,8 +23,6 @@
  */
 'use strict';
 
-if (!Blockly.Language) Blockly.Language = {};
-
 Blockly.Language.procedures_defnoreturn = {
   // Define a procedure with no return value.
   category: null,  // Procedures are handled specially.

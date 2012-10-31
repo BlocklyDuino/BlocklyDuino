@@ -40,10 +40,10 @@ Blockly.FieldVariable = function(varname) {
   }
 };
 
-// FieldDropdown is a subclass of FieldDropdown.
+// FieldVariable is a subclass of FieldDropdown.
 Blockly.FieldVariable.prototype = new Blockly.FieldDropdown([[null]]);
 /**
- * Don't inherit the constructor from Field.
+ * Don't inherit the constructor from FieldDropdown.
  * @type {!Function}
  */
 Blockly.FieldVariable.constructor = Blockly.FieldVariable;
