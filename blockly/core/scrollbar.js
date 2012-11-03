@@ -49,21 +49,21 @@ Blockly.ScrollbarPair = function(element, getMetrics, setMetrics) {
 };
 
 /**
- * Destroy this pair of scrollbars.
+ * Dispose of this pair of scrollbars.
  * Unlink from all DOM elements to prevent memory leaks.
  */
-Blockly.ScrollbarPair.prototype.destroy = function() {
+Blockly.ScrollbarPair.prototype.dispose = function() {
   Blockly.unbindEvent_(this.onResizeWrapper_);
   this.onResizeWrapper_ = null;
-  this.corner_.parentNode.removeChild(this.corner_);
+  goog.dom.removeNode(this.corner_);
   this.corner_ = null;
   this.element_ = null;
   this.getMetrics_ = null;
   this.setMetrics_ = null;
   this.oldHostMetrics_ = null;
-  this.hScroll.destroy();
+  this.hScroll.dispose();
   this.hScroll = null;
-  this.vScroll.destroy();
+  this.vScroll.dispose();
   this.vScroll = null;
 };
 
@@ -189,9 +189,9 @@ Blockly.ScrollbarPair.prototype.set = function(x, y) {
  */
 Blockly.ScrollbarInterface = function() {};
 /**
- * Destroy this scrollbar.
+ * Dispose of this scrollbar.
  */
-Blockly.ScrollbarInterface.prototype.destroy = function() {};
+Blockly.ScrollbarInterface.prototype.dispose = function() {};
 /**
  * Recalculate the scrollbar's location and its length.
  */
@@ -277,15 +277,15 @@ Blockly.ScrollbarNative = function(element, getMetrics, setMetrics,
 };
 
 /**
- * Destroy this scrollbar.
+ * Dispose of this scrollbar.
  * Unlink from all DOM elements to prevent memory leaks.
  */
-Blockly.ScrollbarNative.prototype.destroy = function() {
+Blockly.ScrollbarNative.prototype.dispose = function() {
   Blockly.unbindEvent_(this.onResizeWrapper_);
   this.onResizeWrapper_ = null;
   Blockly.unbindEvent_(this.onScrollWrapper_);
   this.onScrollWrapper_ = null;
-  this.foreignObject_.parentNode.removeChild(this.foreignObject_);
+  goog.dom.removeNode(this.foreignObject_);
   this.foreignObject_ = null;
   this.element_ = null;
   this.getMetrics_ = null;
@@ -394,12 +394,12 @@ Blockly.ScrollbarNative.prototype.createDom_ = function(element) {
   </foreignObject>
   */
   this.foreignObject_ = Blockly.createSvgElement('foreignObject', {}, null);
-  var body = Blockly.svgDoc.createElementNS(Blockly.HTML_NS, 'body');
+  var body = document.createElementNS(Blockly.HTML_NS, 'body');
   body.setAttribute('xmlns', Blockly.HTML_NS);
   body.setAttribute('class', 'blocklyMinimalBody');
-  var outer = Blockly.svgDoc.createElementNS(Blockly.HTML_NS, 'div');
+  var outer = document.createElementNS(Blockly.HTML_NS, 'div');
   this.outerDiv_ = outer;
-  var inner = Blockly.svgDoc.createElementNS(Blockly.HTML_NS, 'img');
+  var inner = document.createElementNS(Blockly.HTML_NS, 'img');
   inner.setAttribute('src', Blockly.pathToBlockly + 'media/1x1.gif');
   this.innerImg_ = inner;
 
@@ -512,8 +512,8 @@ Blockly.ScrollbarNative.measureScrollbarThickness_ = function(element) {
   testBar.outerDiv_.style.overflowY = 'hidden';
   var w2 = testBar.innerImg_.offsetWidth;
 
-  // Destroy the test scrollbar.
-  element.parentNode.removeChild(testBar.foreignObject_);
+  // Dispose of the test scrollbar.
+  goog.dom.removeNode(testBar.foreignObject_);
 
   var thickness = w2 - w1;
   if (thickness <= 0) {
@@ -576,10 +576,10 @@ Blockly.ScrollbarSvg = function(element, getMetrics, setMetrics,
 };
 
 /**
- * Destroy this scrollbar.
+ * Dispose of this scrollbar.
  * Unlink from all DOM elements to prevent memory leaks.
  */
-Blockly.ScrollbarSvg.prototype.destroy = function() {
+Blockly.ScrollbarSvg.prototype.dispose = function() {
   this.onMouseUpKnob_();
   if (this.onResizeWrapper_) {
     Blockly.unbindEvent_(this.onResizeWrapper_);
@@ -590,7 +590,7 @@ Blockly.ScrollbarSvg.prototype.destroy = function() {
   Blockly.unbindEvent_(this.onMouseDownKnobWrapper_);
   this.onMouseDownKnobWrapper_ = null;
 
-  this.svgGroup_.parentNode.removeChild(this.svgGroup_);
+  goog.dom.removeNode(this.svgGroup_);
   this.svgGroup_ = null;
   this.svgBackground_ = null;
   this.svgKnob_ = null;
@@ -807,11 +807,9 @@ Blockly.ScrollbarSvg.prototype.onMouseDownKnob_ = function(e) {
       this.svgKnob_.getAttribute(this.horizontal_ ? 'x' : 'y'));
   // Record the current mouse position.
   this.startDragMouse = this.horizontal_ ? e.clientX : e.clientY;
-  Blockly.ScrollbarSvg.onMouseUpWrapper_ = Blockly.bindEvent_(
-      /** @type {!Element} */ (Blockly.svgDoc),
+  Blockly.ScrollbarSvg.onMouseUpWrapper_ = Blockly.bindEvent_(document,
       'mouseup', this, this.onMouseUpKnob_);
-  Blockly.ScrollbarSvg.onMouseMoveWrapper_ = Blockly.bindEvent_(
-      /** @type {!Element} */ (Blockly.svgDoc),
+  Blockly.ScrollbarSvg.onMouseMoveWrapper_ = Blockly.bindEvent_(document,
       'mousemove', this, this.onMouseMoveKnob_);
   e.stopPropagation();
 };
@@ -907,30 +905,33 @@ Blockly.ScrollbarSvg.prototype.set = function(value, fireEvents) {
  * Choose between the native and the SVG implementations.  The native one is
  * preferred, provided that the browser supports it.
  * To test, see: tests/native_scrollbar_test.html
+ * Known good user agents:
+ * Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:10.0.2)
+ *     Gecko/20100101 Firefox/10.0.2
+ * Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:9.0.1)
+ *     Gecko/20100101 Firefox/9.0.1
  */
-(function() {
-  var useNative = false;
-  var ua = window.navigator.userAgent;
-  var isGecko = ua.indexOf('Gecko/') != -1;
-  var isMac = window.navigator.platform == 'MacIntel';
-  var isLinux = window.navigator.platform.indexOf('Linux') != -1;
-  // Known good user agents:
-  // Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:10.0.2)
-  //     Gecko/20100101 Firefox/10.0.2
-  // Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:9.0.1)
-  //     Gecko/20100101 Firefox/9.0.1
-  if (isGecko && (isMac || isLinux)) {
-    useNative = true;
-  }
-  if (useNative) {
-    Blockly.Scrollbar = Blockly.ScrollbarNative;
-    // Force measurement of native scrollbar's size.
-    Blockly.Scrollbar.scrollbarThickness = 0;
-  } else {
-    Blockly.Scrollbar = Blockly.ScrollbarSvg;
-    Blockly.Scrollbar.scrollbarThickness = 15;
-  }
-})();
+if (goog.userAgent.GECKO &&
+    (goog.userAgent.MAC || goog.userAgent.LINUX)) {
+  /**
+   * Class for a scrollbar.
+   */
+  Blockly.Scrollbar = Blockly.ScrollbarNative;
+  /**
+   * Width of vertical scrollbar or height of horizontal scrollbar.
+   * Automatically measured and set after first scrollbar is created.
+   */
+  Blockly.Scrollbar.scrollbarThickness = 0;
+} else {
+  /**
+   * Class for a scrollbar.
+   */
+  Blockly.Scrollbar = Blockly.ScrollbarSvg;
+  /**
+   * Width of vertical scrollbar or height of horizontal scrollbar.
+   */
+  Blockly.Scrollbar.scrollbarThickness = 15;
+}
 
 /**
  * Insert a node after a reference node.

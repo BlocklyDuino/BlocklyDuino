@@ -68,21 +68,21 @@ Blockly.Flyout.prototype.createDom = function() {
 };
 
 /**
- * Destroy this flyout.
+ * Dispose of this flyout.
  * Unlink from all DOM elements to prevent memory leaks.
  */
-Blockly.Flyout.prototype.destroy = function() {
+Blockly.Flyout.prototype.dispose = function() {
   if (this.onResizeWrapper_) {
     Blockly.unbindEvent_(this.onResizeWrapper_);
     this.onResizeWrapper_ = null;
   }
   if (this.scrollbar_) {
-    this.scrollbar_.destroy();
+    this.scrollbar_.dispose();
     this.scrollbar_ = null;
   }
   this.workspace_ = null;
   if (this.svgGroup_) {
-    this.svgGroup_.parentNode.removeChild(this.svgGroup_);
+    goog.dom.removeNode(this.svgGroup_);
     this.svgGroup_ = null;
   }
   this.svgBackground_ = null;
@@ -135,7 +135,7 @@ Blockly.Flyout.prototype.getMetrics = function() {
  */
 Blockly.Flyout.prototype.setMetrics = function(yRatio) {
   var metrics = this.getMetrics();
-  if (typeof yRatio.y == 'number') {
+  if (goog.isNumber(yRatio.y)) {
     this.svgOptions_.scrollY =
         -metrics.contentHeight * yRatio.y - metrics.contentTop;
   }
@@ -233,12 +233,12 @@ Blockly.Flyout.prototype.hide = function() {
   // Delete all the blocks.
   var blocks = this.workspace_.getTopBlocks(false);
   for (var x = 0, block; block = blocks[x]; x++) {
-    block.destroy(false, false);
+    block.dispose(false, false);
   }
   // Delete all the background buttons.
   for (var x = 0, rect; rect = this.buttons_[x]; x++) {
     Blockly.unbindEvent_(rect.wrapper_);
-    rect.parentNode.removeChild(rect);
+    goog.dom.removeNode(rect);
   }
   this.buttons_ = [];
 };

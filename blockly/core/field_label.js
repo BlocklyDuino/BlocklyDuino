@@ -26,6 +26,7 @@
 /**
  * Class for a non-editable field.
  * @param {string} text The initial content of the field.
+ * @extends Blockly.Field
  * @constructor
  */
 Blockly.FieldLabel = function(text) {
@@ -37,13 +38,8 @@ Blockly.FieldLabel = function(text) {
   this.setText(text);
 };
 
-// Text is a subclass of Field.
-Blockly.FieldLabel.prototype = new Blockly.Field(null);
-/**
- * Don't inherit the constructor from Field.
- * @type {!Function}
- */
-Blockly.FieldLabel.constructor = Blockly.FieldLabel;
+// FieldLabel is a subclass of Field.
+goog.inherits(Blockly.FieldLabel, Blockly.Field);
 
 /**
  * Editable fields are saved by the XML renderer, non-editable fields are not.
@@ -67,10 +63,10 @@ Blockly.FieldLabel.prototype.init = function(block) {
 };
 
 /**
- * Destroy all DOM objects belonging to this text.
+ * Dispose of all DOM objects belonging to this text.
  */
-Blockly.FieldLabel.prototype.destroy = function() {
-  this.textElement_.parentNode.removeChild(this.textElement_);
+Blockly.FieldLabel.prototype.dispose = function() {
+  goog.dom.removeNode(this.textElement_);
   this.textElement_ = null;
 };
 
@@ -80,7 +76,7 @@ Blockly.FieldLabel.prototype.destroy = function() {
  * @return {!Element} The group element.
  */
 Blockly.FieldLabel.prototype.getRootElement = function() {
-  return this.textElement_;
+  return /** @type {!Element} */ (this.textElement_);
 };
 
 /**

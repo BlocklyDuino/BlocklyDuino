@@ -107,7 +107,7 @@ Blockly.Toolbox.getMetrics = function() {
  */
 Blockly.Toolbox.setMetrics = function(yRatio) {
   var metrics = Blockly.Toolbox.getMetrics();
-  if (typeof yRatio.y == 'number') {
+  if (goog.isNumber(yRatio.y)) {
     Blockly.Toolbox.svgOptions_.scrollY = -metrics.contentHeight * yRatio.y -
         metrics.contentTop;
   }
@@ -218,7 +218,7 @@ Blockly.Toolbox.redraw = function() {
   }
 
   // Erase all existing options.
-  Blockly.removeChildren_(Blockly.Toolbox.svgOptions_);
+  goog.dom.removeChildren(Blockly.Toolbox.svgOptions_);
 
   var TOP_MARGIN = 4;
   var maxWidth = 0;

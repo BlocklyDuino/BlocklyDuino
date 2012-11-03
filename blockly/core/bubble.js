@@ -48,7 +48,7 @@ Blockly.Bubble = function(workspace, content, shape,
   this.content_ = content;
   this.shape_ = shape;
   var canvas = workspace.getBubbleCanvas();
-  canvas.appendChild(this.createDom_(content, !bubbleWidth || !bubbleHeight));
+  canvas.appendChild(this.createDom_(content, !!(bubbleWidth && bubbleHeight)));
 
   this.setAnchorLocation(anchorX, anchorY);
   if (!bubbleWidth || !bubbleHeight) {
@@ -252,11 +252,9 @@ Blockly.Bubble.prototype.bubbleMouseDown_ = function(e) {
   }
   this.dragDeltaY = this.relativeTop_ - e.clientY;
 
-  Blockly.Bubble.onMouseUpWrapper_ = Blockly.bindEvent_(
-      /** @type {!Element} */ (Blockly.svgDoc),
+  Blockly.Bubble.onMouseUpWrapper_ = Blockly.bindEvent_(document,
       'mouseup', this, Blockly.Bubble.unbindDragEvents_);
-  Blockly.Bubble.onMouseMoveWrapper_ = Blockly.bindEvent_(
-      /** @type {!Element} */ (Blockly.svgDoc),
+  Blockly.Bubble.onMouseMoveWrapper_ = Blockly.bindEvent_(document,
       'mousemove', this, this.bubbleMouseMove_);
   Blockly.hideChaff();
   // This event has been handled.  No need to bubble up to the document.
@@ -302,11 +300,9 @@ Blockly.Bubble.prototype.resizeMouseDown_ = function(e) {
   }
   this.resizeDeltaHeight = this.height_ - e.clientY;
 
-  Blockly.Bubble.onMouseUpWrapper_ = Blockly.bindEvent_(
-      /** @type {!Element} */ (Blockly.svgDoc),
+  Blockly.Bubble.onMouseUpWrapper_ = Blockly.bindEvent_(document,
       'mouseup', this, Blockly.Bubble.unbindDragEvents_);
-  Blockly.Bubble.onMouseMoveWrapper_ = Blockly.bindEvent_(
-      /** @type {!Element} */ (Blockly.svgDoc),
+  Blockly.Bubble.onMouseMoveWrapper_ = Blockly.bindEvent_(document,
       'mousemove', this, this.resizeMouseMove_);
   Blockly.hideChaff();
   // This event has been handled.  No need to bubble up to the document.
@@ -552,12 +548,12 @@ Blockly.Bubble.prototype.setColour = function(hexColour) {
 };
 
 /**
- * Destroy this bubble.
+ * Dispose of this bubble.
  */
-Blockly.Bubble.prototype.destroy = function() {
+Blockly.Bubble.prototype.dispose = function() {
   Blockly.Bubble.unbindDragEvents_();
-  // Destroy and unlink the bubble.
-  this.bubbleGroup_.parentNode.removeChild(this.bubbleGroup_);
+  // Dispose of and unlink the bubble.
+  goog.dom.removeNode(this.bubbleGroup_);
   this.bubbleGroup_ = null;
   this.workspace_ = null;
   this.content_ = null;

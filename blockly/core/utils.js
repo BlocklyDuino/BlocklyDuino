@@ -26,21 +26,8 @@
 'use strict';
 
 /**
- * Removes all the child nodes on a DOM node.
- * Copied from Closure's goog.dom.removeChildren
- * @param {!Element} element Element to remove children from.
- * @private
- */
-Blockly.removeChildren_ = function(element) {
-  var child;
-  while ((child = element.firstChild)) {
-    element.removeChild(child);
-  }
-};
-
-/**
  * Add a CSS class to a element.
- * Similar to Closure's goog.dom.classes.add
+ * Similar to Closure's goog.dom.classes.add, except it handles SVG elements.
  * @param {!Element} element DOM element to add class to.
  * @param {string} className Name of class to add.
  * @private
@@ -57,7 +44,7 @@ Blockly.addClass_ = function(element, className) {
 
 /**
  * Remove a CSS class from a element.
- * Similar to Closure's goog.dom.classes.remove
+ * Similar to Closure's goog.dom.classes.remove, except it handles SVG elements.
  * @param {!Element} element DOM element to remove class from.
  * @param {string} className Name of class to remove.
  * @private
@@ -175,7 +162,7 @@ Blockly.unbindEvent_ = function(bindData) {
  * @param {string} eventName Name of event (e.g. 'click').
  */
 Blockly.fireUiEvent = function(element, eventName) {
-  var doc = Blockly.svgDoc;
+  var doc = document;
   if (doc.createEvent) {
     // W3
     var evt = doc.createEvent('UIEvents');
@@ -247,7 +234,7 @@ Blockly.getAbsoluteXY_ = function(element) {
     x += xy.x;
     y += xy.y;
     element = element.parentNode;
-  } while (element && element != Blockly.svgDoc);
+  } while (element && element != document);
   return {x: x, y: y};
 };
 
@@ -259,7 +246,7 @@ Blockly.getAbsoluteXY_ = function(element) {
  * @return {!Element} Newly created SVG element.
  */
 Blockly.createSvgElement = function(name, attrs, parent) {
-  var e = Blockly.svgDoc.createElementNS(Blockly.SVG_NS, name);
+  var e = document.createElementNS(Blockly.SVG_NS, name);
   for (var key in attrs) {
     e.setAttribute(key, attrs[key]);
   }
@@ -267,48 +254,6 @@ Blockly.createSvgElement = function(name, attrs, parent) {
     parent.appendChild(e);
   }
   return e;
-};
-
-/**
- * Comparison function that is case-insensitive.
- * Designed to be used by Array.sort()
- * @param {string} a First argument.
- * @param {string} b Second argument.
- * @return {number} 1 if a is bigger, -1 if b is bigger, 0 if equal.
- */
-Blockly.caseInsensitiveComparator = function(a, b) {
-  a = a.toLowerCase();
-  b = b.toLowerCase();
-  if (a > b) {
-    return 1;
-  }
-  if (a < b) {
-    return -1;
-  }
-  return 0;
-};
-
-/**
- * Return a random id that's 8 letters long and conforms to the W3 spec for
- * ID names: http://www.w3.org/TR/html401/types.html#type-id
- * 26*(26+10+4)^7 = 4,259,840,000,000
- * @return {string} Random id.
- */
-Blockly.uniqueId = function() {
-  // First character must be a letter.
-  // IE is case insensitive (in violation of the W3 spec).
-  var soup = 'abcdefghijklmnopqrstuvwxyz';
-  var id = soup.charAt(Math.random() * soup.length);
-  // Subsequent characters may include these.
-  soup += '0123456789-_:.';
-  for (var x = 1; x < 8; x++) {
-    id += soup.charAt(Math.random() * soup.length);
-  }
-  // Don't allow IDs with '--' in them since it might close a comment.
-  if (id.indexOf('--') != -1) {
-    id = Blockly.uniqueId();
-  }
-  return id;
 };
 
 /**

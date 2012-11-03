@@ -53,6 +53,7 @@ Blockly.Names = function(reservedWords) {
  * JavaScript doesn't have a true hashtable, it uses object properties.
  * Since even clean objects have a few properties, prepend this prefix onto
  * names so that they don't collide with any builtins.
+ * @const
  * @private
  */
 Blockly.Names.PREFIX_ = 'v_';
@@ -100,7 +101,13 @@ Blockly.Names.prototype.getDistinctName = function(name, type) {
     i = i ? i + 1 : 2;
   }
   safeName += i;
-  this.db_[Blockly.Names.PREFIX_ + name.toLowerCase() + 'X' + type] = safeName;
+  if(typeof(text)==='string') {
+      this.db_[Blockly.Names.PREFIX_ + name.toLowerCase() + 'X' + type] = safeName;
+  } else {
+    // console.log("process object "+name.name.toLowerCase()+"/"+type);
+	  this.db_[Blockly.Names.PREFIX_ + name.name.toLowerCase() + 'X' + type] = safeName;
+    //set comment Symbol to correspond type
+  }
   this.dbReverse_[Blockly.Names.PREFIX_ + safeName] = true;
   return safeName;
 };
@@ -117,9 +124,14 @@ Blockly.Names.prototype.safeName_ = function(name) {
   if (!name) {
     name = 'unnamed';
   } else {
-    // Unfortunately names in non-latin characters will look like
-    // _E9_9F_B3_E4_B9_90 which is pretty meaningless.
-    name = encodeURI(name.replace(/ /g, '_')).replace(/[^\w]/g, '_');
+      if(typeof(text)==='string') {
+        // Unfortunately names in non-latin characters will look like
+        // _E9_9F_B3_E4_B9_90 which is pretty meaningless.
+        name = encodeURI(name.replace(/ /g, '_')).replace(/[^\w]/g, '_');
+      } else {
+		  name = encodeURI(name.name.replace(/ /g, '_')).replace(/[^\w]/g, '_');
+      }
+    
     // Most languages don't allow names with leading numbers.
     if ('0123456789'.indexOf(name.charAt(0)) != -1) {
       name = 'my_' + name;

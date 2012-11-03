@@ -87,7 +87,7 @@ Blockly.Warning.prototype.createIcon_ = function() {
       {'class': 'blocklyIconMark',
        'x': Blockly.Warning.ICON_RADIUS,
        'y': 2 * Blockly.Warning.ICON_RADIUS - 3}, this.iconGroup_);
-  this.iconMark_.appendChild(Blockly.svgDoc.createTextNode('!'));
+  this.iconMark_.appendChild(document.createTextNode('!'));
   this.block_.getSvgRoot().appendChild(this.iconGroup_);
   Blockly.bindEvent_(this.iconGroup_, 'mouseup', this, this.iconClick_);
 };
@@ -105,7 +105,7 @@ Blockly.Warning.prototype.textToDom_ = function(text) {
   for (var i = 0; i < lines.length; i++) {
     var tspanElement = Blockly.createSvgElement('tspan',
         {'dy': '1em', 'x': Blockly.Bubble.BORDER_WIDTH}, paragraph);
-    var textNode = Blockly.svgDoc.createTextNode(lines[i]);
+    var textNode = document.createTextNode(lines[i]);
     tspanElement.appendChild(textNode);
   }
   return paragraph;
@@ -146,8 +146,8 @@ Blockly.Warning.prototype.setVisible = function(visible) {
     }
     this.updateColour();
   } else {
-    // Destroy the bubble.
-    this.bubble_.destroy();
+    // Dispose of the bubble.
+    this.bubble_.dispose();
     this.bubble_ = null;
     this.body_ = null;
     this.foreignObject_ = null;
@@ -195,13 +195,13 @@ Blockly.Warning.prototype.updateColour = function() {
 };
 
 /**
- * Destroy this warning.
+ * Dispose of this warning.
  */
-Blockly.Warning.prototype.destroy = function() {
-  // Destroy and unlink the icon.
-  this.iconGroup_.parentNode.removeChild(this.iconGroup_);
+Blockly.Warning.prototype.dispose = function() {
+  // Dispose of and unlink the icon.
+  goog.dom.removeNode(this.iconGroup_);
   this.iconGroup_ = null;
-  // Destroy and unlink the bubble.
+  // Dispose of and unlink the bubble.
   this.setVisible(false);
   // Disconnect links between the block and the warning.
   this.block_.warning = null;

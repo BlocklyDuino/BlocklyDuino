@@ -43,9 +43,9 @@ Blockly.Connection = function(source, type) {
 /**
  * Sever all links to this connection (not including from the source object).
  */
-Blockly.Connection.prototype.destroy = function() {
+Blockly.Connection.prototype.dispose = function() {
   if (this.targetConnection) {
-    throw 'Disconnect connection before destroying it.';
+    throw 'Disconnect connection before disposing of it.';
   }
   if (this.inDB_) {
     this.dbList_[this.type].removeConnection_(this);
@@ -345,8 +345,7 @@ Blockly.Connection.prototype.highlight = function() {
  * Remove the highlighting around this connection.
  */
 Blockly.Connection.prototype.unhighlight = function() {
-  var path = Blockly.Connection.highlightedPath_;
-  path.parentNode.removeChild(path);
+  goog.dom.removeNode(Blockly.Connection.highlightedPath_);
   delete Blockly.Connection.highlightedPath_;
 };
 

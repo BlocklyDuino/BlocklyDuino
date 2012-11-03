@@ -27,14 +27,10 @@
 
 /**
  * Class for an editable field.
- * @param {?string} text The initial content of the field.
+ * @param {string} text The initial content of the field.
  * @constructor
  */
 Blockly.Field = function(text) {
-  if (text === null) {
-    // This is a Field instance to be used in inheritance.
-    return;
-  }
   this.sourceBlock_ = null;
   // Build the DOM.
   this.group_ = Blockly.createSvgElement('g', {}, null);
@@ -83,15 +79,15 @@ Blockly.Field.prototype.init = function(block) {
 };
 
 /**
- * Destroy all DOM objects belonging to this editable field.
+ * Dispose of all DOM objects belonging to this editable field.
  */
-Blockly.Field.prototype.destroy = function() {
+Blockly.Field.prototype.dispose = function() {
   if (this.mouseUpWrapper_) {
     Blockly.unbindEvent_(this.mouseUpWrapper_);
     this.mouseUpWrapper_ = null;
   }
   this.sourceBlock_ = null;
-  this.group_.parentNode.removeChild(this.group_);
+  goog.dom.removeNode(this.group_);
   this.group_ = null;
   this.textElement_ = null;
   this.borderRect_ = null;
@@ -169,14 +165,14 @@ Blockly.Field.prototype.getText = function() {
 Blockly.Field.prototype.setText = function(text) {
   this.text_ = text;
   // Empty the text element.
-  Blockly.removeChildren_(/** @type {!Element} */ (this.textElement_));
+  goog.dom.removeChildren(/** @type {!Element} */ (this.textElement_));
   // Replace whitespace with non-breaking spaces so the text doesn't collapse.
   text = text.replace(/\s/g, Blockly.Field.NBSP);
   if (!text) {
     // Prevent the field from disappearing if empty.
     text = Blockly.Field.NBSP;
   }
-  var textNode = Blockly.svgDoc.createTextNode(text);
+  var textNode = document.createTextNode(text);
   this.textElement_.appendChild(textNode);
 
   // Cached width is obsolete.  Clear it.

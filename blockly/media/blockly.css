@@ -28,7 +28,7 @@
   /* Hotspot coordinates are baked into the CUR file, but they are still
      required in the CSS due to a Chrome bug.
      http://code.google.com/p/chromium/issues/detail?id=1446 */
-  cursor: url(media/handopen.cur) 8 5, auto;
+  cursor: url(handopen.cur) 8 5, auto;
 }
 .blocklyResizeSE {
   fill: #aaa;

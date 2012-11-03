@@ -27,6 +27,7 @@
  * Class for a variable's dropdown field.
  * @param {!string} varname The default name for the variable.  If null,
  *     a unique variable name will be generated.
+ * @extends Blockly.FieldDropdown
  * @constructor
  */
 Blockly.FieldVariable = function(varname) {
@@ -41,12 +42,7 @@ Blockly.FieldVariable = function(varname) {
 };
 
 // FieldVariable is a subclass of FieldDropdown.
-Blockly.FieldVariable.prototype = new Blockly.FieldDropdown([[null]]);
-/**
- * Don't inherit the constructor from FieldDropdown.
- * @type {!Function}
- */
-Blockly.FieldVariable.constructor = Blockly.FieldVariable;
+goog.inherits(Blockly.FieldVariable, Blockly.FieldDropdown);
 
 /**
  * Get the variable's name (use a variableDB to convert into a real name).
@@ -78,7 +74,7 @@ Blockly.FieldVariable.dropdownCreate = function() {
   if (name && variableList.indexOf(name) == -1) {
     variableList.push(name);
   }
-  variableList.sort(Blockly.caseInsensitiveComparator);
+  variableList.sort(goog.string.caseInsensitiveCompare);
   variableList.push(Blockly.MSG_RENAME_VARIABLE);
   variableList.push(Blockly.MSG_NEW_VARIABLE);
   // Variables are not language-specific, use the name as both the user-facing

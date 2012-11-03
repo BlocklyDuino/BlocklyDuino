@@ -31,6 +31,7 @@
  *     for a dropdown list, or a function which generates these options.
  * @param {Function} opt_changeHandler A function that is executed when a new
  *     option is selected.
+ * @extends Blockly.Field
  * @constructor
  */
 Blockly.FieldDropdown = function(menuGenerator, opt_changeHandler) {
@@ -42,12 +43,7 @@ Blockly.FieldDropdown = function(menuGenerator, opt_changeHandler) {
 };
 
 // FieldDropdown is a subclass of Field.
-Blockly.FieldDropdown.prototype = new Blockly.Field(null);
-/**
- * Don't inherit the constructor from Field.
- * @type {!Function}
- */
-Blockly.FieldDropdown.constructor = Blockly.FieldDropdown;
+goog.inherits(Blockly.FieldDropdown, Blockly.Field);
 
 /**
  * Create the dropdown field's elements.  Only needs to be called once.
@@ -77,14 +73,14 @@ Blockly.FieldDropdown.createDom = function() {
 };
 
 /**
- * Close the dropdown and destroy all UI.
+ * Close the dropdown and dispose of all UI.
  */
-Blockly.FieldDropdown.prototype.destroy = function() {
+Blockly.FieldDropdown.prototype.dispose = function() {
   if (Blockly.FieldDropdown.openDropdown_ == this) {
     Blockly.FieldDropdown.hideMenu();
   }
   // Call parent's destructor.
-  Blockly.Field.prototype.destroy.call(this);
+  Blockly.Field.prototype.dispose.call(this);
 };
 
 /**
@@ -114,7 +110,7 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
   var svgBackground = Blockly.FieldDropdown.svgBackground_;
   var svgShadow = Blockly.FieldDropdown.svgShadow_;
   // Erase all existing options.
-  Blockly.removeChildren_(svgOptions);
+  goog.dom.removeChildren(svgOptions);
   // The menu must be made visible early since otherwise BBox and
   // getComputedTextLength will return 0.
   svgGroup.style.display = 'block';
@@ -150,7 +146,7 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
       // Insert the checkmark between the rect and text, thus preserving the
       // ability to reference them as firstChild and lastChild respectively.
       gElement.insertBefore(checkElement, textElement);
-      checkElement.appendChild(Blockly.svgDoc.createTextNode('\u2713'));
+      checkElement.appendChild(document.createTextNode('\u2713'));
     }
 
     gElement.setAttribute('transform',
@@ -197,7 +193,7 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
   var hexColour = Blockly.makeColour(this.sourceBlock_.getColour());
   svgBackground.setAttribute('fill', hexColour);
   // Position the dropdown to line up with the field.
-  var xy = Blockly.getAbsoluteXY_(this.borderRect_);
+  var xy = Blockly.getAbsoluteXY_(/** @type {!Element} */ (this.borderRect_));
   var borderBBox = this.borderRect_.getBBox();
   var x;
   if (Blockly.RTL) {
@@ -217,10 +213,10 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
  * @private
  */
 Blockly.FieldDropdown.prototype.getOptions_ = function() {
-  if (typeof this.menuGenerator_ == 'function') {
+  if (goog.isFunction(this.menuGenerator_)) {
     return this.menuGenerator_.call(this);
   }
-  return this.menuGenerator_;
+  return /** @type {!Array.<!Array.<string>>} */ (this.menuGenerator_);
 };
 
 /**

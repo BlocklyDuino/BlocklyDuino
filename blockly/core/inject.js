@@ -29,6 +29,10 @@
  * @param {Object} opt_options Optional dictionary of options.
  */
 Blockly.inject = function(container, opt_options) {
+  // Verify that the container is in document.
+  if (!goog.dom.contains(document, container)) {
+    throw 'Error: container is not in current document.';
+  }
   if (opt_options) {
     Blockly.parseOptions_(opt_options);
   }
@@ -53,21 +57,14 @@ Blockly.parseOptions_ = function(options) {
  * @private
  */
 Blockly.createDom_ = function(container) {
-  // Find the document for the container.
-  var doc = container;
-  while (doc.parentNode) {
-    doc = doc.parentNode;
-  }
-  Blockly.svgDoc = doc;
-
   // Load CSS.
   //<link href="blockly.css" rel="stylesheet" type="text/css" />
-  var link = doc.createElement('link');
-  link.setAttribute('href', Blockly.pathToBlockly + 'media/blockly.css');
-  link.setAttribute('rel', 'stylesheet');
-  link.setAttribute('type', 'text/css');
-  link.setAttribute('onload', 'Blockly.cssLoaded()');
-  var head = doc.head || doc.getElementsByTagName('head')[0];
+  var link = goog.dom.createDom('link', {
+      'href': Blockly.pathToBlockly + 'media/blockly.css',
+      'rel': 'stylesheet',
+      'type': 'text/css',
+      'onload': 'Blockly.cssLoaded()'});
+  var head = document.head || document.getElementsByTagName('head')[0];
   if (!head) {
     throw 'No head in document.';
   }
@@ -99,10 +96,6 @@ Blockly.createDom_ = function(container) {
   var defs = Blockly.createSvgElement('defs', {}, svg);
   var filter, feSpecularLighting, feMerge, pattern;
   /*
-    <!--
-      Blocks are highlighted from a light source at the top-left.
-      In RTL languages we wish to keep this top-left light source.
-    -->
     <filter id="blocklyEmboss">
       <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
       <feSpecularLighting in="blur" surfaceScale="1" specularConstant="0.5"
@@ -197,9 +190,7 @@ Blockly.createDom_ = function(container) {
  * @private
  */
 Blockly.init_ = function() {
-  var doc = /** @type {!Element} */ (Blockly.svgDoc);
-
-  Blockly.bindEvent_(window, 'resize', doc, Blockly.svgResize);
+  Blockly.bindEvent_(window, 'resize', document, Blockly.svgResize);
   // Bind events for scrolling the workspace.
   // Most of these events should be bound to the SVG's surface.
   // However, 'mouseup' has to be on the whole document so that a block dragged
@@ -207,10 +198,10 @@ Blockly.init_ = function() {
   // Also, 'keydown' has to be on the whole document since the browser doesn't
   // understand a concept of focus on the SVG image.
   Blockly.bindEvent_(Blockly.svg, 'mousedown', null, Blockly.onMouseDown_);
-  Blockly.bindEvent_(doc, 'mouseup', null, Blockly.onMouseUp_);
+  Blockly.bindEvent_(document, 'mouseup', null, Blockly.onMouseUp_);
   Blockly.bindEvent_(Blockly.svg, 'mousemove', null, Blockly.onMouseMove_);
   Blockly.bindEvent_(Blockly.svg, 'contextmenu', null, Blockly.onContextMenu_);
-  Blockly.bindEvent_(doc, 'keydown', null, Blockly.onKeyDown_);
+  Blockly.bindEvent_(document, 'keydown', null, Blockly.onKeyDown_);
 
   if (Blockly.editable) {
     Blockly.Toolbox && Blockly.Toolbox.init();

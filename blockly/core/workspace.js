@@ -86,18 +86,18 @@ Blockly.Workspace.prototype.createDom = function() {
 };
 
 /**
- * Destroy this workspace.
+ * Dispose of this workspace.
  * Unlink from all DOM elements to prevent memory leaks.
  */
-Blockly.Workspace.prototype.destroy = function() {
+Blockly.Workspace.prototype.dispose = function() {
   if (this.svgGroup_) {
-    this.svgGroup_.parentNode.removeChild(this.svgGroup_);
+    goog.dom.removeNode(this.svgGroup_);
     this.svgGroup_ = null;
   }
   this.svgBlockCanvas_ = null;
   this.svgBubbleCanvas_ = null;
   if (this.trashcan) {
-    this.trashcan.destroy();
+    this.trashcan.dispose();
     this.trashcan = null;
   }
 };
@@ -188,12 +188,12 @@ Blockly.Workspace.prototype.getAllBlocks = function() {
 };
 
 /**
- * Destroy all blocks in workspace.
+ * Dispose of all blocks in workspace.
  */
 Blockly.Workspace.prototype.clear = function() {
   Blockly.hideChaff();
   while (this.topBlocks_.length) {
-    this.topBlocks_[0].destroy();
+    this.topBlocks_[0].dispose();
   }
 };
 

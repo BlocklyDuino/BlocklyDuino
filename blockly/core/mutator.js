@@ -232,15 +232,15 @@ Blockly.Mutator.prototype.setVisible = function(visible) {
         this.block_, function() {thisObj.workspaceChanged_();});
     this.updateColour();
   } else {
-    // Destroy the bubble.
+    // Dispose of the bubble.
     this.svgDialog_ = null;
     this.svgBackground_ = null;
-    this.flyout_.destroy();
+    this.flyout_.dispose();
     this.flyout_ = null;
-    this.workspace_.destroy();
+    this.workspace_.dispose();
     this.workspace_ = null;
     this.rootBlock_ = null;
-    this.bubble_.destroy();
+    this.bubble_.dispose();
     this.bubble_ = null;
     this.workspaceWidth_ = 0;
     this.workspaceHeight_ = 0;
@@ -265,7 +265,7 @@ Blockly.Mutator.prototype.workspaceChanged_ = function() {
       var xy = block.getRelativeToSurfaceXY();
       if (xy.y < 0 || (Blockly.RTL ?
           xy.x > -this.flyout_.width_ : xy.x < this.flyout_.width_)) {
-        block.destroy(false, false);
+        block.dispose(false, false);
       }
     }
   }
@@ -330,13 +330,13 @@ Blockly.Mutator.prototype.updateColour = function() {
 };
 
 /**
- * Destroy this mutator.
+ * Dispose of this mutator.
  */
-Blockly.Mutator.prototype.destroy = function() {
-  // Destroy and unlink the icon.
-  this.iconGroup_.parentNode.removeChild(this.iconGroup_);
+Blockly.Mutator.prototype.dispose = function() {
+  // Dispose of and unlink the icon.
+  goog.dom.removeNode(this.iconGroup_);
   this.iconGroup_ = null;
-  // Destroy and unlink the bubble.
+  // Dispose of and unlink the bubble.
   this.setVisible(false);
   // Disconnect links between the block and the mutator.
   this.block_.mutator = null;

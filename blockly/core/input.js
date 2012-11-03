@@ -50,8 +50,8 @@ Blockly.Input = function(type, name, block, connection) {
  */
 Blockly.Input.prototype.appendTitle = function(title, opt_name) {
   // Generate a FieldLabel when given a plain text title.
-  if (typeof title == 'string') {
-    title = new Blockly.FieldLabel(title);
+  if (goog.isString(title)) {
+    title = new Blockly.FieldLabel(/** @type {string} */ (title));
   }
   if (this.sourceBlock_.svg_) {
     title.init(this.sourceBlock_);
@@ -108,12 +108,12 @@ Blockly.Input.prototype.init = function() {
 /**
  * Sever all links to this input.
  */
-Blockly.Input.prototype.destroy = function() {
+Blockly.Input.prototype.dispose = function() {
   for (var i = 0, title; title = this.titleRow[i]; i++) {
-    title.destroy();
+    title.dispose();
   }
   if (this.connection) {
-    this.connection.destroy();
+    this.connection.dispose();
   }
   this.sourceBlock_ = null;
 };

@@ -262,10 +262,10 @@ Blockly.BlockSvg.INNER_BOTTOM_LEFT_CORNER_HIGHLIGHT_LTR =
     (Blockly.BlockSvg.DISTANCE_45_OUTSIDE + 1);
 
 /**
- * Destroy this SVG block.
+ * Dispose of this SVG block.
  */
-Blockly.BlockSvg.prototype.destroy = function() {
-  this.svgGroup_.parentNode.removeChild(this.svgGroup_);
+Blockly.BlockSvg.prototype.dispose = function() {
+  goog.dom.removeNode(this.svgGroup_);
   // Sever JavaScript to DOM connections.
   this.svgGroup_ = null;
   this.svgPath_ = null;
@@ -276,9 +276,9 @@ Blockly.BlockSvg.prototype.destroy = function() {
 };
 
 /**
- * Play some UI effects (sound, animation) when destroying a block.
+ * Play some UI effects (sound, animation) when disposing of a block.
  */
-Blockly.BlockSvg.prototype.destroyUiEffect = function() {
+Blockly.BlockSvg.prototype.disposeUiEffect = function() {
   Blockly.playAudio('delete');
 
   var xy = Blockly.getAbsoluteXY_(/** @type {!Element} */ (this.svgGroup_));
@@ -292,19 +292,19 @@ Blockly.BlockSvg.prototype.destroyUiEffect = function() {
   clone.bBox_ = clone.getBBox();
   // Start the animation.
   clone.startDate_ = new Date();
-  Blockly.BlockSvg.destroyUiStep_(clone);
+  Blockly.BlockSvg.disposeUiStep_(clone);
 };
 
 /**
- * Animate a cloned block and eventually destroy it.
- * @param {!Element} clone SVG element to animate and destroy.
+ * Animate a cloned block and eventually dispose of it.
+ * @param {!Element} clone SVG element to animate and dispose of.
  * @private
  */
-Blockly.BlockSvg.destroyUiStep_ = function(clone) {
+Blockly.BlockSvg.disposeUiStep_ = function(clone) {
   var ms = (new Date()) - clone.startDate_;
   var percent = ms / 150;
   if (percent > 1) {
-    clone.parentNode.removeChild(clone);
+    goog.dom.removeNode(clone);
   } else {
     var x = clone.translateX_ +
         (Blockly.RTL ? -1 : 1) * clone.bBox_.width / 2 * percent;
@@ -314,7 +314,7 @@ Blockly.BlockSvg.destroyUiStep_ = function(clone) {
     clone.setAttribute('transform', 'translate(' + translate + ')' +
         ' scale(' + scale + ')');
     var closure = function() {
-      Blockly.BlockSvg.destroyUiStep_(clone);
+      Blockly.BlockSvg.disposeUiStep_(clone);
     };
     window.setTimeout(closure, 10);
   }
@@ -354,7 +354,7 @@ Blockly.BlockSvg.connectionUiStep_ = function(ripple) {
   var ms = (new Date()) - ripple.startDate_;
   var percent = ms / 150;
   if (percent > 1) {
-    ripple.parentNode.removeChild(ripple);
+    goog.dom.removeNode(ripple);
   } else {
     ripple.setAttribute('r', percent * 25);
     ripple.style.opacity = 1 - percent;
@@ -370,18 +370,11 @@ Blockly.BlockSvg.connectionUiStep_ = function(ripple) {
  */
 Blockly.BlockSvg.prototype.updateColour = function() {
   var hexColour = Blockly.makeColour(this.block_.getColour());
-  var r = parseInt(hexColour.charAt(1), 16);
-  var g = parseInt(hexColour.charAt(2), 16);
-  var b = parseInt(hexColour.charAt(3), 16);
-  var HEX = '0123456789abcdef';
-  var rLight = HEX.charAt(Math.min(r + 3, 15));
-  var gLight = HEX.charAt(Math.min(g + 2, 15));
-  var bLight = HEX.charAt(Math.min(b + 2, 15));
-  var rDark = HEX.charAt(Math.max(r - 4, 0));
-  var gDark = HEX.charAt(Math.max(g - 4, 0));
-  var bDark = HEX.charAt(Math.max(b - 4, 0));
-  this.svgPathLight_.setAttribute('stroke', '#' + rLight + gLight + bLight);
-  this.svgPathDark_.setAttribute('fill', '#' + rDark + gDark + bDark);
+  var rgb = goog.color.hexToRgb(hexColour);
+  var rgbLight = goog.color.lighten(rgb, 0.3);
+  var rgbDark = goog.color.darken(rgb, 0.4);
+  this.svgPathLight_.setAttribute('stroke', goog.color.rgbArrayToHex(rgbLight));
+  this.svgPathDark_.setAttribute('fill', goog.color.rgbArrayToHex(rgbDark));
   this.svgPath_.setAttribute('fill', hexColour);
 };
 
@@ -579,7 +572,7 @@ Blockly.BlockSvg.prototype.renderCompute_ = function(iconWidth) {
         // Firefox has trouble with hidden elements (Bug 528969).
         var bBox = {height: 0, width: 0};
       }
-      if (window.navigator.userAgent.indexOf('AppleWebKit/') != -1) {
+      if (goog.userAgent.WEBKIT) {
         /* HACK:
          The current versions of Chrome (16.0) and Safari (5.1) with a common
          root of WebKit 535 has a size reporting bug where the height of a

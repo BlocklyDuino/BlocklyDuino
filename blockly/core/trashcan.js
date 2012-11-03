@@ -156,12 +156,12 @@ Blockly.Trashcan.prototype.init = function() {
 };
 
 /**
- * Destroy this trash can.
+ * Dispose of this trash can.
  * Unlink from all DOM elements to prevent memory leaks.
  */
-Blockly.Trashcan.prototype.destroy = function() {
+Blockly.Trashcan.prototype.dispose = function() {
   if (this.svgGroup_) {
-    this.svgGroup_.parentNode.removeChild(this.svgGroup_);
+    goog.dom.removeNode(this.svgGroup_);
     this.svgGroup_ = null;
   }
   this.svgBody_ = null;

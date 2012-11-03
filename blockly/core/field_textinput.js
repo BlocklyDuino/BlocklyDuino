@@ -30,6 +30,7 @@
  *     to validate any constraints on what the user entered.  Takes the new
  *     text as an argument and returns the accepted text or null to abort
  *     the change.
+ * @extends Blockly.Field
  * @constructor
  */
 Blockly.FieldTextInput = function(text, opt_validationFunc) {
@@ -39,12 +40,7 @@ Blockly.FieldTextInput = function(text, opt_validationFunc) {
 };
 
 // FieldTextInput is a subclass of Field.
-Blockly.FieldTextInput.prototype = new Blockly.Field(null);
-/**
- * Don't inherit the constructor from Field.
- * @type {!Function}
- */
-Blockly.FieldTextInput.constructor = Blockly.FieldTextInput;
+goog.inherits(Blockly.FieldTextInput, Blockly.Field);
 
 /**
  * Set the text in this field.
@@ -79,24 +75,19 @@ Blockly.FieldTextInput.injectDom_ = function(workspaceSvg) {
       {'height': 22}, workspaceSvg);
   Blockly.FieldTextInput.svgForeignObject_ = foreignObject;
   // Can't use 'Blockly.createSvgElement' since this is not in the SVG NS.
-  var body = Blockly.svgDoc.createElement('body');
-  body.className = 'blocklyMinimalBody';
-  var input = Blockly.svgDoc.createElement('input');
-  input.className = 'blocklyHtmlInput';
-  input.style.border = 'none';
-  input.style.outline = 'none';
+  var body = goog.dom.createDom('body', 'blocklyMinimalBody');
+  var input = goog.dom.createDom('input', 'blocklyHtmlInput');
   Blockly.FieldTextInput.htmlInput_ = input;
   body.appendChild(input);
   foreignObject.appendChild(body);
 };
 
 /**
- * Destroy the editable text field's elements.
+ * Dispose of the editable text field's elements.
  * @private
  */
-Blockly.FieldTextInput.destroyDom_ = function() {
-  var node = Blockly.FieldTextInput.svgForeignObject_;
-  node.parentNode.removeChild(node);
+Blockly.FieldTextInput.disposeDom_ = function() {
+  goog.dom.removeNode(Blockly.FieldTextInput.svgForeignObject_);
   Blockly.FieldTextInput.svgForeignObject_ = null;
   Blockly.FieldTextInput.htmlInput_ = null;
 };
@@ -132,15 +123,14 @@ Blockly.FieldTextInput.prototype.showEditor_ = function() {
   htmlInput.value = htmlInput.defaultValue = this.text_;
   htmlInput.oldValue_ = null;
   var htmlInputFrame = Blockly.FieldTextInput.svgForeignObject_;
-  var xy = Blockly.getAbsoluteXY_(this.borderRect_);
+  var xy = Blockly.getAbsoluteXY_(/** @type {!Element} */ (this.borderRect_));
   var baseXy = Blockly.getAbsoluteXY_(workspaceSvg);
   xy.x -= baseXy.x;
   xy.y -= baseXy.y;
   if (!Blockly.RTL) {
     htmlInputFrame.setAttribute('x', xy.x + 1);
   }
-  var isGecko = window.navigator.userAgent.indexOf('Gecko/') != -1;
-  if (isGecko) {
+  if (goog.userAgent.GECKO) {
     htmlInputFrame.setAttribute('y', xy.y - 1);
   } else {
     htmlInputFrame.setAttribute('y', xy.y - 3);
@@ -261,6 +251,6 @@ Blockly.FieldTextInput.prototype.closeEditor_ = function(save) {
     text = htmlInput.defaultValue;
   }
   this.setText(text);
-  Blockly.FieldTextInput.destroyDom_();
+  Blockly.FieldTextInput.disposeDom_();
   this.sourceBlock_.render();
 };

@@ -92,7 +92,7 @@ Blockly.Language.text_join = {
     return containerBlock;
   },
   compose: function(containerBlock) {
-    // Disconnect all input blocks and destroy all inputs.
+    // Disconnect all input blocks and remove all inputs.
     if (this.itemCount_ == 0) {
       this.removeInput('EMPTY');
     } else {

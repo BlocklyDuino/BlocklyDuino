@@ -24,6 +24,12 @@
 'use strict';
 
 /**
+ * Unique ID counter for created blocks.
+ * @private
+ */
+Blockly.uidCounter_ = 0;
+
+/**
  * Class for one block.
  * @param {!Blockly.Workspace} workspace The new block's workspace.
  * @param {?string} prototypeName Name of the language object containing
@@ -31,7 +37,7 @@
  * @constructor
  */
 Blockly.Block = function(workspace, prototypeName) {
-  this.id = Blockly.uniqueId();
+  this.id = ++Blockly.uidCounter_;
   this.outputConnection = null;
   this.nextConnection = null;
   this.previousConnection = null;
@@ -59,16 +65,14 @@ Blockly.Block = function(workspace, prototypeName) {
     if (!prototype) {
       throw 'Error: "' + prototypeName + '" is an unknown language block.';
     }
-    for (var name in prototype) {
-      this[name] = prototype[name];
-    }
+    goog.mixin(this, prototype);
   }
   // Call an initialization function, if it exists.
-  if (typeof this.init == 'function') {
+  if (goog.isFunction(this.init)) {
     this.init();
   }
   // Bind an onchange function, if it exists.
-  if (this.editable && typeof this.onchange == 'function') {
+  if (this.editable && goog.isFunction(this.onchange)) {
     Blockly.bindEvent_(workspace.getCanvas(), 'blocklyWorkspaceChange', this,
                        this.onchange);
   }
@@ -199,13 +203,13 @@ Blockly.Block.prototype.unselect = function() {
 };
 
 /**
- * Destroy this block.
+ * Dispose of this block.
  * @param {boolean} gentle If gentle, then try to heal any gap by connecting
- *     the next statement with the previous statement.  Otherwise, destroy all
- *     children of this block.
- * @param {boolean} animate If true, show a destroy animation and sound.
+ *     the next statement with the previous statement.  Otherwise, dispose of
+ *     all children of this block.
+ * @param {boolean} animate If true, show a disposal animation and sound.
  */
-Blockly.Block.prototype.destroy = function(gentle, animate) {
+Blockly.Block.prototype.dispose = function(gentle, animate) {
   if (this.outputConnection) {
     // Detach this block from the parent's tree.
     this.setParent(null);
@@ -232,7 +236,7 @@ Blockly.Block.prototype.destroy = function(gentle, animate) {
   }
 
   if (animate && this.svg_) {
-    this.svg_.destroyUiEffect();
+    this.svg_.disposeUiEffect();
   }
 
   //This block is now at the top of the workspace.
@@ -253,37 +257,37 @@ Blockly.Block.prototype.destroy = function(gentle, animate) {
     Blockly.Block.terminateDrag_();
   }
 
-  // First, destroy all my children.
+  // First, dispose of all my children.
   for (var x = this.childBlocks_.length - 1; x >= 0; x--) {
-    this.childBlocks_[x].destroy(false);
+    this.childBlocks_[x].dispose(false);
   }
-  // Then destroy myself.
+  // Then dispose of myself.
   if (this.mutator) {
-    this.mutator.destroy();
+    this.mutator.dispose();
   }
   if (this.comment) {
-    this.comment.destroy();
+    this.comment.dispose();
   }
   if (this.warning) {
-    this.warning.destroy();
+    this.warning.dispose();
   }
-  // Destroy all inputs and their titles.
+  // Dispose of all inputs and their titles.
   for (var x = 0, input; input = this.inputList[x]; x++) {
-    input.destroy();
+    input.dispose();
   }
   this.inputList = [];
-  // Destroy any remaining connections (next/previous/output).
+  // Dispose of any remaining connections (next/previous/output).
   var connections = this.getConnections_(true);
   for (var x = 0; x < connections.length; x++) {
     var connection = connections[x];
     if (connection.targetConnection) {
       connection.disconnect();
     }
-    connections[x].destroy();
+    connections[x].dispose();
   }
-  // Destroy the SVG and break circular references.
+  // Dispose of the SVG and break circular references.
   if (this.svg_) {
-    this.svg_.destroy();
+    this.svg_.dispose();
     this.svg_ = null;
   }
 };
@@ -355,11 +359,9 @@ Blockly.Block.prototype.onMouseDown_ = function(e) {
     this.startDragMouseX = e.clientX;
     this.startDragMouseY = e.clientY;
     Blockly.Block.dragMode_ = 1;
-    Blockly.Block.onMouseUpWrapper_ = Blockly.bindEvent_(
-        /** @type {!Element} */ (Blockly.svgDoc),
+    Blockly.Block.onMouseUpWrapper_ = Blockly.bindEvent_(document,
         'mouseup', this, this.onMouseUp_);
-    Blockly.Block.onMouseMoveWrapper_ = Blockly.bindEvent_(
-        /** @type {!Element} */ (Blockly.svgDoc),
+    Blockly.Block.onMouseMoveWrapper_ = Blockly.bindEvent_(document,
         'mousemove', this, this.onMouseMove_);
     // Build a list of comments that need to be moved and where they started.
     this.draggedBubbles_ = [];
@@ -419,7 +421,7 @@ Blockly.Block.prototype.onMouseUp_ = function(e) {
       Blockly.Trashcan.close(trashcan);
     };
     window.setTimeout(closure, 100);
-    Blockly.selected.destroy(false, true);
+    Blockly.selected.dispose(false, true);
     // Dropping a block on the trash can will usually cause the workspace to
     // resize to contain the newly positioned block.  Force a second resize now
     // that the block has been deleted.
@@ -436,7 +438,7 @@ Blockly.Block.prototype.onMouseUp_ = function(e) {
  * @private
  */
 Blockly.Block.prototype.showHelp_ = function() {
-  var url = (typeof this.helpUrl == 'function') ? this.helpUrl() : this.helpUrl;
+  var url = goog.isFunction(this.helpUrl) ? this.helpUrl() : this.helpUrl;
   if (url) {
     window.open(url);
   }
@@ -563,14 +565,14 @@ Blockly.Block.prototype.showContextMenu_ = function(x, y) {
           Blockly.MSG_DELETE_X_BLOCKS.replace('%1', descendantCount),
       enabled: true,
       callback: function() {
-        block.destroy(true, true);
+        block.dispose(true, true);
       }
     };
     options.push(deleteOption);
   }
 
   // Option to get help.
-  var url = (typeof this.helpUrl == 'function') ? this.helpUrl() : this.helpUrl;
+  var url = goog.isFunction(this.helpUrl) ? this.helpUrl() : this.helpUrl;
   var helpOption = {enabled: !!url};
   helpOption.text = Blockly.MSG_HELP;
   helpOption.callback = function() {
@@ -702,9 +704,9 @@ Blockly.Block.prototype.onMouseMove_ = function(e) {
     var y = this.startDragY + dy;
     this.svg_.getRootElement().setAttribute('transform',
         'translate(' + x + ', ' + y + ')');
-    // Drag all the nested comments.
-    for (var x = 0; x < this.draggedBubbles_.length; x++) {
-      var commentData = this.draggedBubbles_[x];
+    // Drag all the nested bubbles.
+    for (var i = 0; i < this.draggedBubbles_.length; i++) {
+      var commentData = this.draggedBubbles_[i];
       commentData.bubble.setIconLocation(commentData.x + dx,
                                          commentData.y + dy);
     }
@@ -1001,7 +1003,7 @@ Blockly.Block.prototype.setPreviousStatement = function(newBoolean, opt_check) {
     if (this.previousConnection.targetConnection) {
       throw 'Must disconnect previous statement before removing connection.';
     }
-    this.previousConnection.destroy();
+    this.previousConnection.dispose();
     this.previousConnection = null;
   }
   if (newBoolean) {
@@ -1032,7 +1034,7 @@ Blockly.Block.prototype.setNextStatement = function(newBoolean, opt_check) {
     if (this.nextConnection.targetConnection) {
       throw 'Must disconnect next statement before removing connection.';
     }
-    this.nextConnection.destroy();
+    this.nextConnection.dispose();
     this.nextConnection = null;
   }
   if (newBoolean) {
@@ -1060,7 +1062,7 @@ Blockly.Block.prototype.setOutput = function(newBoolean, opt_check) {
     if (this.outputConnection.targetConnection) {
       throw 'Must disconnect output value before removing connection.';
     }
-    this.outputConnection.destroy();
+    this.outputConnection.dispose();
     this.outputConnection = null;
   }
   if (newBoolean) {
@@ -1113,7 +1115,7 @@ Blockly.Block.prototype.setDisabled = function(disabled) {
 Blockly.Block.prototype.getInheritedDisabled = function() {
   var block = this;
   while (true) {
-    var block = block.getSurroundParent();
+    block = block.getSurroundParent();
     if (!block) {
       // Ran off the top.
       return false;
@@ -1291,7 +1293,7 @@ Blockly.Block.prototype.removeInput = function(name) {
         // Disconnect any attached block.
         input.connection.targetBlock().setParent(null);
       }
-      input.destroy();
+      input.dispose();
       this.inputList.splice(x, 1);
       if (this.rendered) {
         this.render();
@@ -1336,7 +1338,7 @@ Blockly.Block.prototype.getInputTargetBlock = function(name) {
  */
 Blockly.Block.prototype.setMutator = function(mutator) {
   if (this.mutator && this.mutator !== mutator) {
-    this.mutator.destroy();
+    this.mutator.dispose();
   }
   if (mutator) {
     mutator.block_ = this;
@@ -1369,15 +1371,15 @@ Blockly.Block.prototype.setCommentText = function(text) {
     throw 'Comments not supported.';
   }
   var changedState = false;
-  if (typeof text == 'string') {
+  if (goog.isString(text)) {
     if (!this.comment) {
       this.comment = new Blockly.Comment(this);
       changedState = true;
     }
-    this.comment.setText(text);
+    this.comment.setText(/** @type {string} */ (text));
   } else {
     if (this.comment) {
-      this.comment.destroy();
+      this.comment.dispose();
       changedState = true;
     }
   }
@@ -1399,15 +1401,15 @@ Blockly.Block.prototype.setWarningText = function(text) {
     throw 'Warnings not supported.';
   }
   var changedState = false;
-  if (typeof text == 'string') {
+  if (goog.isString(text)) {
     if (!this.warning) {
       this.warning = new Blockly.Warning(this);
       changedState = true;
     }
-    this.warning.setText(text);
+    this.warning.setText(/** @type {string} */ (text));
   } else {
     if (this.warning) {
-      this.warning.destroy();
+      this.warning.dispose();
       changedState = true;
     }
   }

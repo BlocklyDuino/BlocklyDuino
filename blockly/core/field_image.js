@@ -28,6 +28,7 @@
  * @param {string} src The URL of the image.
  * @param {number} width Width of the image.
  * @param {number} height Height of the image.
+ * @extends Blockly.Field
  * @constructor
  */
 Blockly.FieldImage = function(src, width, height) {
@@ -44,8 +45,7 @@ Blockly.FieldImage = function(src, width, height) {
        'width': width + 'px',
        'y': offsetY}, this.group_);
   this.setText(src);
-  var isGecko = window.navigator.userAgent.indexOf('Gecko/') != -1;
-  if (isGecko) {
+  if (goog.userAgent.GECKO) {
     // Due to a Firefox bug which eats mouse events on image elements,
     // a transparent rectangle needs to be placed on top of the image.
     this.rectElement_ = Blockly.createSvgElement('rect',
@@ -57,12 +57,7 @@ Blockly.FieldImage = function(src, width, height) {
 };
 
 // FieldImage is a subclass of Field.
-Blockly.FieldImage.prototype = new Blockly.Field(null);
-/**
- * Don't inherit the constructor from Field.
- * @type {!Function}
- */
-Blockly.FieldImage.constructor = Blockly.FieldImage;
+goog.inherits(Blockly.FieldImage, Blockly.Field);
 
 /**
  * Rectangular mask used by Firefox.
@@ -94,10 +89,10 @@ Blockly.FieldImage.prototype.init = function(block) {
 };
 
 /**
- * Destroy all DOM objects belonging to this text.
+ * Dispose of all DOM objects belonging to this text.
  */
-Blockly.FieldImage.prototype.destroy = function() {
-  this.group_.parentNode.removeChild(this.group_);
+Blockly.FieldImage.prototype.dispose = function() {
+  goog.dom.removeNode(this.group_);
   this.group_ = null;
   this.imageElement_ = null;
   this.rectElement_ = null;

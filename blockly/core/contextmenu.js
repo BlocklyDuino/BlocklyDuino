@@ -87,7 +87,7 @@ Blockly.ContextMenu.show = function(anchorX, anchorY, options) {
      callback: Blockly.MakeItSo}
   */
   // Erase all existing options.
-  Blockly.removeChildren_(Blockly.ContextMenu.svgOptions);
+  goog.dom.removeChildren(Blockly.ContextMenu.svgOptions);
   /* Here's the SVG we want for each option:
     <g class="blocklyMenuDiv" transform="translate(0, 0)">
       <rect width="100" height="20"/>
@@ -190,7 +190,7 @@ Blockly.ContextMenu.optionToDom = function(text) {
       {'class': 'blocklyMenuText',
       'x': Blockly.ContextMenu.X_PADDING,
       'y': 15}, gElement);
-  var textNode = Blockly.svgDoc.createTextNode(text);
+  var textNode = document.createTextNode(text);
   textElement.appendChild(textNode);
   return gElement;
 };

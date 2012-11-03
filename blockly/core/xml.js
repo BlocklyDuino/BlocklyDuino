@@ -34,7 +34,7 @@ Blockly.Xml = {};
  * @return {!Element} XML document.
  */
 Blockly.Xml.workspaceToDom = function(workspace) {
-  var xml = document.createElement('xml');
+  var xml = goog.dom.createDom('xml');
   var blocks = workspace.getTopBlocks(false);
   for (var i = 0, block; block = blocks[i]; i++) {
     var element = Blockly.Xml.blockToDom_(block);
@@ -53,7 +53,7 @@ Blockly.Xml.workspaceToDom = function(workspace) {
  * @private
  */
 Blockly.Xml.blockToDom_ = function(block) {
-  var element = document.createElement('block');
+  var element = goog.dom.createDom('block');
   element.setAttribute('type', block.type);
   if (block.mutationToDom) {
     // Custom data for an advanced block.
@@ -64,10 +64,8 @@ Blockly.Xml.blockToDom_ = function(block) {
   }
   function titleToDom(title) {
     if (title.name && title.EDITABLE) {
-      var container = document.createElement('title');
+      var container = goog.dom.createDom('title', null, title.getValue());
       container.setAttribute('name', title.name);
-      var titleText = document.createTextNode(title.getValue());
-      container.appendChild(titleText);
       element.appendChild(container);
     }
   }
@@ -78,9 +76,8 @@ Blockly.Xml.blockToDom_ = function(block) {
   }
 
   if (block.comment) {
-    var commentElement = document.createElement('comment');
-    var commentText = document.createTextNode(block.comment.getText());
-    commentElement.appendChild(commentText);
+    var commentElement = goog.dom.createDom('comment', null,
+        block.comment.getText());
     commentElement.setAttribute('pinned', block.comment.isVisible());
     var hw = block.comment.getBubbleSize();
     commentElement.setAttribute('h', hw.height);
@@ -97,10 +94,10 @@ Blockly.Xml.blockToDom_ = function(block) {
     } else {
       var childBlock = input.connection.targetBlock();
       if (input.type == Blockly.INPUT_VALUE) {
-        container = document.createElement('value');
+        container = goog.dom.createDom('value');
         hasValues = true;
       } else if (input.type == Blockly.NEXT_STATEMENT) {
-        container = document.createElement('statement');
+        container = goog.dom.createDom('statement');
       }
       if (childBlock) {
         container.appendChild(Blockly.Xml.blockToDom_(childBlock));
@@ -125,8 +122,8 @@ Blockly.Xml.blockToDom_ = function(block) {
   if (block.nextConnection) {
     var nextBlock = block.nextConnection.targetBlock();
     if (nextBlock) {
-      var container = document.createElement('next');
-      container.appendChild(Blockly.Xml.blockToDom_(nextBlock));
+      var container = goog.dom.createDom('next', null,
+          Blockly.Xml.blockToDom_(nextBlock));
       element.appendChild(container);
     }
   }
@@ -186,7 +183,8 @@ Blockly.Xml.textToDom = function(text) {
   var oParser = new DOMParser();
   var dom = oParser.parseFromString(text, 'text/xml');
   // The DOM should have one and only one top-level node, an XML tag.
-  if (!dom || !dom.firstChild || dom.firstChild.tagName != 'xml' ||
+  if (!dom || !dom.firstChild ||
+      dom.firstChild.nodeName.toLowerCase() != 'xml' ||
       dom.firstChild !== dom.lastChild) {
     // Whatever we got back from the parser is not XML.
     throw 'Blockly.Xml.textToDom did not obtain a valid XML tree.';
@@ -201,7 +199,7 @@ Blockly.Xml.textToDom = function(text) {
  */
 Blockly.Xml.domToWorkspace = function(workspace, xml) {
   for (var x = 0, xmlChild; xmlChild = xml.childNodes[x]; x++) {
-    if (xmlChild.nodeName && xmlChild.nodeName.toLowerCase() == 'block') {
+    if (xmlChild.nodeName.toLowerCase() == 'block') {
       var block = Blockly.Xml.domToBlock_(workspace, xmlChild);
       var blockX = parseInt(xmlChild.getAttribute('x'), 10);
       var blockY = parseInt(xmlChild.getAttribute('y'), 10);
@@ -243,7 +241,7 @@ Blockly.Xml.domToBlock_ = function(workspace, xmlBlock) {
     }
 
     var name = xmlChild.getAttribute('name');
-    switch (xmlChild.tagName.toLowerCase()) {
+    switch (xmlChild.nodeName.toLowerCase()) {
       case 'mutation':
         // Custom data for an advanced block.
         if (block.domToMutation) {
@@ -271,8 +269,8 @@ Blockly.Xml.domToBlock_ = function(workspace, xmlBlock) {
         if (!input) {
           throw 'Input does not exist: ' + name;
         }
-        if (firstRealGrandchild && firstRealGrandchild.tagName &&
-            firstRealGrandchild.tagName.toLowerCase() == 'block') {
+        if (firstRealGrandchild &&
+            firstRealGrandchild.nodeName.toLowerCase() == 'block') {
           blockChild = Blockly.Xml.domToBlock_(workspace, firstRealGrandchild);
           if (blockChild.outputConnection) {
             input.connection.connect(blockChild.outputConnection);
@@ -284,8 +282,8 @@ Blockly.Xml.domToBlock_ = function(workspace, xmlBlock) {
         }
         break;
       case 'next':
-        if (firstRealGrandchild && firstRealGrandchild.tagName &&
-            firstRealGrandchild.tagName.toLowerCase() == 'block') {
+        if (firstRealGrandchild &&
+            firstRealGrandchild.nodeName.toLowerCase() == 'block') {
           if (!block.nextConnection) {
             throw 'Next statement does not exist.';
           } else if (block.nextConnection.targetConnection) {
@@ -328,29 +326,12 @@ Blockly.Xml.domToBlock_ = function(workspace, xmlBlock) {
 };
 
 /**
- * Find the first 'real' child of a node, skipping whitespace text nodes.
- * Return true if that child is of the the specified type (case insensitive).
- * @param {!Node} parentNode The parent node.
- * @param {string} tagName The node type to check for.
- * @return {boolean} True if the first real child is the specified type.
- * @private
- */
-Blockly.Xml.isFirstRealChild_ = function(parentNode, tagName) {
-  for (var x = 0, childNode; childNode = parentNode.childNodes[x]; x++) {
-    if (childNode.nodeType != 3 || !childNode.data.match(/^\s*$/)) {
-      return childNode.tagName && childNode.tagName.toLowerCase() == tagName;
-    }
-  }
-  return false;
-};
-
-/**
  * Remove any 'next' block (statements in a stack).
  * @param {!Element} xmlBlock XML block element.
  */
 Blockly.Xml.deleteNext = function(xmlBlock) {
   for (var x = 0, child; child = xmlBlock.childNodes[x]; x++) {
-    if (child.tagName.toLowerCase() == 'next') {
+    if (child.nodeName.toLowerCase() == 'next') {
       xmlBlock.removeChild(child);
       break;
     }

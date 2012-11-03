@@ -23,6 +23,17 @@
  */
 'use strict';
 
+if (!window.goog) {
+  alert('Error: Closure not found.  Read this:\n' +
+        'http://code.google.com/p/blockly/wiki/Closure\n');
+}
+
+// Closure dependencies.
+goog.require('goog.dom');
+goog.require('goog.color');
+goog.require('goog.string');
+goog.require('goog.userAgent');
+
 // Top level object for Blockly.
 var Blockly = {};
 
@@ -57,50 +68,11 @@ Blockly.HSV_VALUE = 0.65;
 /**
  * Convert a hue (HSV model) into an RGB hex triplet.
  * @param {number} hue Hue on a colour wheel (0-360).
- * @return {string} RGB code, e.g. '#84c'.
+ * @return {string} RGB code, e.g. '#5ba65b'.
  */
 Blockly.makeColour = function(hue) {
-  hue %= 360;
-  var topLimit = Blockly.HSV_VALUE;
-  var bottomLimit = Blockly.HSV_VALUE * (1 - Blockly.HSV_SATURATION);
-  var rangeUp = (topLimit - bottomLimit) * (hue % 60 / 60) + bottomLimit;
-  var rangeDown = (topLimit - bottomLimit) * (1 - hue % 60 / 60) + bottomLimit;
-  var r, g, b;
-  if (0 <= hue && hue < 60) {
-    r = topLimit;
-    g = rangeUp;
-    b = bottomLimit;
-  } else if (60 <= hue && hue < 120) {
-    r = rangeDown;
-    g = topLimit;
-    b = bottomLimit;
-  } else if (120 <= hue && hue < 180) {
-    r = bottomLimit;
-    g = topLimit;
-    b = rangeUp;
-  } else if (180 <= hue && hue < 240) {
-    r = bottomLimit;
-    g = rangeDown;
-    b = topLimit;
-  } else if (240 <= hue && hue < 300) {
-    r = rangeUp;
-    g = bottomLimit;
-    b = topLimit;
-  } else if (300 <= hue && hue < 360) {
-    r = topLimit;
-    g = bottomLimit;
-    b = rangeDown;
-  } else {
-    // Negative number?
-    r = 0;
-    g = 0;
-    b = 0;
-  }
-  r = Math.floor(r * 16);
-  g = Math.floor(g * 16);
-  b = Math.floor(b * 16);
-  var HEX = '0123456789abcdef';
-  return '#' + HEX.charAt(r) + HEX.charAt(g) + HEX.charAt(b);
+  return goog.color.hsvToHex(hue, Blockly.HSV_SATURATION,
+      Blockly.HSV_VALUE * 256);
 };
 
 /**
@@ -209,12 +181,6 @@ Blockly.SNAP_RADIUS = 12;
 Blockly.BUMP_DELAY = 250;
 
 /**
- * The document object.
- * @type {Document}
- */
-Blockly.svgDoc = null;
-
-/**
  * The main workspace (defined by inject.js).
  * @type {Blockly.Workspace}
  */
@@ -240,7 +206,7 @@ Blockly.svgSize = function() {
 
 /**
  * Size the SVG image to completely fill its container.
- * Record both the height/width and the absolute postion of the SVG image.
+ * Record both the height/width and the absolute position of the SVG image.
  */
 Blockly.svgResize = function() {
   var width = Blockly.svg.parentNode.offsetWidth;
@@ -264,13 +230,11 @@ Blockly.svgResize = function() {
  * @private
  */
 Blockly.onMouseDown_ = function(e) {
-  Blockly.Block.terminateDrag_();
+  Blockly.Block.terminateDrag_(); // In case mouse-up event was lost.
   Blockly.hideChaff();
-  if (Blockly.isTargetInput_(e) ||
-      (Blockly.Mutator && Blockly.Mutator.isOpen)) {
-    return;
-  }
-  if (Blockly.selected && e.target.nodeName == 'svg') {
+  var isTargetSvg = e.target && e.target.nodeName &&
+      e.target.nodeName.toLowerCase() == 'svg';
+  if (Blockly.selected && isTargetSvg) {
     // Clicking on the document clears the selection.
     Blockly.selected.unselect();
   }
@@ -279,7 +243,7 @@ Blockly.onMouseDown_ = function(e) {
     if (Blockly.ContextMenu) {
       Blockly.showContextMenu_(e.clientX, e.clientY);
     }
-  } else if (e.target.nodeName == 'svg' || !Blockly.editable) {
+  } else if (!Blockly.editable || isTargetSvg) {
     // If the workspace is editable, only allow dragging when gripping empty
     // space.  Otherwise, allow dragging when gripping anywhere.
     Blockly.mainWorkspace.dragMode = true;
@@ -343,15 +307,11 @@ Blockly.onKeyDown_ = function(e) {
   if (e.keyCode == 27) {
     // Pressing esc closes the context menu.
     Blockly.hideChaff();
-    if (Blockly.Mutator && Blockly.Mutator.isOpen) {
-      Blockly.Mutator.closeDialog();
-    }
   } else if (e.keyCode == 8 || e.keyCode == 46) {
     // Delete or backspace.
-    if (Blockly.selected && Blockly.selected.editable &&
-        (!Blockly.Mutator || !Blockly.Mutator.isOpen)) {
+    if (Blockly.selected && Blockly.selected.editable) {
       Blockly.hideChaff();
-      Blockly.selected.destroy(true, true);
+      Blockly.selected.dispose(true, true);
     }
     // Stop the browser from going back to the previous page.
     e.preventDefault();
@@ -365,7 +325,7 @@ Blockly.onKeyDown_ = function(e) {
       } else if (e.keyCode == 88) {
         // 'x' for cut.
         Blockly.copy_(Blockly.selected);
-        Blockly.selected.destroy(true, true);
+        Blockly.selected.dispose(true, true);
       }
     }
     if (e.keyCode == 86) {
@@ -437,7 +397,7 @@ Blockly.hideChaff = function(opt_allowToolbox) {
 };
 
 /**
- * Destroy all selections on the webpage.
+ * Deselect any selections on the webpage.
  * Chrome will select text outside the SVG when double-clicking.
  * Deselect this text, so that it doesn't mess up any subsequent drag.
  */
@@ -454,7 +414,7 @@ Blockly.removeAllRanges = function() {
 };
 
 /**
- * Is this event targetting a text input widget?
+ * Is this event targeting a text input widget?
  * @param {!Event} e An event.
  * @return {boolean} True if text input.
  * @private
@@ -516,7 +476,7 @@ Blockly.setCursorHand_ = function(closed) {
   }
   // Set cursor on the SVG surface as well as block so that rapid movements
   // don't result in cursor changing to an arrow momentarily.
-  Blockly.svgDoc.getElementsByTagName('svg')[0].style.cursor = cursor;
+  document.getElementsByTagName('svg')[0].style.cursor = cursor;
 };
 
 /**
@@ -585,11 +545,11 @@ Blockly.getMainWorkspaceMetrics = function() {
  */
 Blockly.setMainWorkspaceMetrics = function(xyRatio) {
   var metrics = Blockly.getMainWorkspaceMetrics();
-  if (typeof xyRatio.x == 'number') {
+  if (goog.isNumber(xyRatio.x)) {
     Blockly.mainWorkspace.scrollX = -metrics.contentWidth * xyRatio.x -
         metrics.contentLeft;
   }
-  if (typeof xyRatio.y == 'number') {
+  if (goog.isNumber(xyRatio.y)) {
     Blockly.mainWorkspace.scrollY = -metrics.contentHeight * xyRatio.y -
         metrics.contentTop;
   }

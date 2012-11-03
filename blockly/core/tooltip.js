@@ -162,7 +162,7 @@ Blockly.Tooltip.onMouseOver_ = function(e) {
   // If the tooltip is an object, treat it as a pointer to the next object in
   // the chain to look at.  Terminate when a string is found.
   var element = e.target;
-  while (typeof element.tooltip == 'object') {
+  while (goog.isObject(element.tooltip)) {
     element = element.tooltip;
   }
   if (Blockly.Tooltip.element_ != element) {
@@ -250,18 +250,18 @@ Blockly.Tooltip.show_ = function() {
     return;
   }
   // Erase all existing text.
-  Blockly.removeChildren_(
+  goog.dom.removeChildren(
       /** @type {!Element} */ (Blockly.Tooltip.svgText_));
   // Create new text, line by line.
   var tip = Blockly.Tooltip.element_.tooltip;
-  if (typeof tip == 'function') {
+  if (goog.isFunction(tip)) {
     tip = tip();
   }
   var lines = tip.split('\n');
   for (var i = 0; i < lines.length; i++) {
     var tspanElement = Blockly.createSvgElement('tspan',
         {'dy': '1em', 'x': Blockly.Tooltip.MARGINS}, Blockly.Tooltip.svgText_);
-    var textNode = Blockly.svgDoc.createTextNode(lines[i]);
+    var textNode = document.createTextNode(lines[i]);
     tspanElement.appendChild(textNode);
   }
   // Display the tooltip.

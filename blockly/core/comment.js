@@ -97,7 +97,7 @@ Blockly.Comment.prototype.createIcon_ = function() {
       {'class': 'blocklyIconMark',
        'x': Blockly.Comment.ICON_RADIUS,
        'y': 2 * Blockly.Comment.ICON_RADIUS - 3}, this.iconGroup_);
-  this.iconMark_.appendChild(Blockly.svgDoc.createTextNode('?'));
+  this.iconMark_.appendChild(document.createTextNode('?'));
   this.block_.getSvgRoot().appendChild(this.iconGroup_);
   Blockly.bindEvent_(this.iconGroup_, 'mouseup', this, this.iconClick_);
 };
@@ -120,10 +120,10 @@ Blockly.Comment.prototype.createEditor_ = function() {
   this.foreignObject_ = Blockly.createSvgElement('foreignObject',
       {'x': Blockly.Bubble.BORDER_WIDTH, 'y': Blockly.Bubble.BORDER_WIDTH},
       null);
-  var body = Blockly.svgDoc.createElementNS(Blockly.HTML_NS, 'body');
+  var body = document.createElementNS(Blockly.HTML_NS, 'body');
   body.setAttribute('xmlns', Blockly.HTML_NS);
   body.className = 'blocklyMinimalBody';
-  this.textarea_ = Blockly.svgDoc.createElementNS(Blockly.HTML_NS, 'textarea');
+  this.textarea_ = document.createElementNS(Blockly.HTML_NS, 'textarea');
   this.textarea_.className = 'blocklyCommentTextarea';
   this.textarea_.setAttribute('dir', Blockly.RTL ? 'RTL' : 'LTR');
   body.appendChild(this.textarea_);
@@ -177,8 +177,8 @@ Blockly.Comment.prototype.setVisible = function(visible) {
     this.updateColour();
     this.text_ = null;
   } else {
-    // Destroy the bubble.
-    this.bubble_.destroy();
+    // Dispose of the bubble.
+    this.bubble_.dispose();
     this.bubble_ = null;
     this.textarea_ = null;
     this.foreignObject_ = null;
@@ -270,13 +270,13 @@ Blockly.Comment.prototype.updateColour = function() {
 };
 
 /**
- * Destroy this comment.
+ * Dispose of this comment.
  */
-Blockly.Comment.prototype.destroy = function() {
-  // Destroy and unlink the icon.
-  this.iconGroup_.parentNode.removeChild(this.iconGroup_);
+Blockly.Comment.prototype.dispose = function() {
+  // Dispose of and unlink the icon.
+  goog.dom.removeNode(this.iconGroup_);
   this.iconGroup_ = null;
-  // Destroy and unlink the bubble.
+  // Dispose of and unlink the bubble.
   this.setVisible(false);
   // Disconnect links between the block and the comment.
   this.block_.comment = null;

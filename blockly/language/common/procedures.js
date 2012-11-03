@@ -73,7 +73,7 @@ Blockly.Language.procedures_defnoreturn = {
   domToMutation: function(xmlElement) {
     this.arguments_ = [];
     for (var x = 0, childNode; childNode = xmlElement.childNodes[x]; x++) {
-      if (childNode.nodeName == 'arg') {
+      if (childNode.nodeName.toLowerCase() == 'arg') {
         this.arguments_.push(childNode.getAttribute('name'));
       }
     }
@@ -112,15 +112,15 @@ Blockly.Language.procedures_defnoreturn = {
     Blockly.Procedures.mutateCallers(this.getTitleValue('NAME'),
         this.workspace, this.arguments_, this.paramIds_);
   },
-  destroy: function() {
+  dispose: function() {
     var name = this.getTitleValue('NAME');
     var editable = this.editable;
     var workspace = this.workspace;
     // Call parent's destructor.
-    Blockly.Block.prototype.destroy.apply(this, arguments);
+    Blockly.Block.prototype.dispose.apply(this, arguments);
     if (this.editable) {
-      // Destroy any callers.
-      Blockly.Procedures.destroyCallers(name, workspace);
+      // Dispose of any callers.
+      Blockly.Procedures.disposeCallers(name, workspace);
     }
   },
   getProcedureDef: function() {
@@ -182,7 +182,7 @@ Blockly.Language.procedures_defreturn = {
   domToMutation: Blockly.Language.procedures_defnoreturn.domToMutation,
   decompose: Blockly.Language.procedures_defnoreturn.decompose,
   compose: Blockly.Language.procedures_defnoreturn.compose,
-  destroy: Blockly.Language.procedures_defnoreturn.destroy,
+  dispose: Blockly.Language.procedures_defnoreturn.dispose,
   getProcedureDef: function() {
     // Return the name of the defined procedure,
     // a list of all its arguments,
@@ -295,7 +295,7 @@ Blockly.Language.procedures_callnoreturn = {
       if (input) {
         var connection = input.connection.targetConnection;
         this.quarkConnections_[this.quarkArguments_[x]] = connection;
-        // Disconnect all argument blocks and destroy all inputs.
+        // Disconnect all argument blocks and remove all inputs.
         this.removeInput('ARG' + x);
       }
     }
@@ -349,7 +349,7 @@ Blockly.Language.procedures_callnoreturn = {
     } else {
       this.arguments_ = [];
       for (var x = 0, childNode; childNode = xmlElement.childNodes[x]; x++) {
-        if (childNode.tagName && childNode.tagName.toLowerCase() == 'arg') {
+        if (childNode.nodeName.toLowerCase() == 'arg') {
           this.arguments_.push(childNode.getAttribute('name'));
         }
       }

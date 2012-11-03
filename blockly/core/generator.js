@@ -200,13 +200,13 @@ Blockly.CodeGenerator.prototype.valueToCode = function(block, name, order) {
 Blockly.CodeGenerator.prototype.statementToCode = function(block, name) {
   var targetBlock = block.getInputTargetBlock(name);
   var code = this.blockToCode(targetBlock);
-  if (typeof code != 'string') {
+  if (!goog.isString(code)) {
     // Value blocks must return code and order of operations info.
     // Statement blocks must only return code.
     throw 'Expecting code from statement block "' + targetBlock.type + '".';
   }
   if (code) {
-    code = Blockly.Generator.prefixLines(code, '  ');
+    code = Blockly.Generator.prefixLines(/** @type {string} */ (code), '  ');
   }
   return code;
 };

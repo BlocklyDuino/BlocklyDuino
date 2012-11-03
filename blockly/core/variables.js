@@ -58,15 +58,15 @@ Blockly.Variables.allVariables = function(opt_block) {
         // Variable name may be null if the block is only half-built.
         if (varName) {
           variableHash[Blockly.Names.PREFIX_ +
-              varName.toLowerCase()] = varName;
+              varName.toLowerCase()] = {name:varName, type:'Number'};
         }
       }
     }
   }
   // Flatten the hash into a list.
   var variableList = [];
-  for (var name in variableHash) {
-    variableList.push(variableHash[name]);
+  for (var var_obj in variableHash) {
+    variableList.push(variableHash[var_obj]);
   }
   return variableList;
 };
@@ -96,14 +96,23 @@ Blockly.Variables.renameVariable = function(oldName, newName) {
  */
 Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
   var variableList = Blockly.Variables.allVariables();
-  variableList.sort(Blockly.caseInsensitiveComparator);
+  //variableList.sort(goog.string.caseInsensitiveCompare);
+  variableList.sort(function(a,b){return a.name- b.name});
   // In addition to the user's variables, we also want to display the default
   // variable name at the top.  We also don't want this duplicated if the
   // user has created a variable of the same name.
   variableList.unshift(null);
   var defaultVariable = undefined;
+  
+  //add declareBlock into variables flyout
+  var declareBlock = Blockly.Language.variables_declare ?
+      new Blockly.Block(workspace, 'variables_declare') : null;
+  declareBlock && declareBlock.initSvg();
+  declareBlock && blocks.push(declareBlock);
+  gaps.push(margin * 2);
+  
   for (var i = 0; i < variableList.length; i++) {
-    if (variableList[i] === defaultVariable) {
+    if (variableList[i]!=null && variableList[i].name === defaultVariable) {
       continue;
     }
     var getBlock = Blockly.Language.variables_get ?
@@ -115,8 +124,8 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
     if (variableList[i] === null) {
       defaultVariable = (getBlock || setBlock).getVars()[0];
     } else {
-      getBlock && getBlock.setTitleValue(variableList[i], 'VAR');
-      setBlock && setBlock.setTitleValue(variableList[i], 'VAR');
+      getBlock && getBlock.setTitleValue(variableList[i].name, 'VAR');
+      setBlock && setBlock.setTitleValue(variableList[i].name, 'VAR');
     }
     setBlock && blocks.push(setBlock);
     getBlock && blocks.push(getBlock);
@@ -150,13 +159,14 @@ Blockly.Variables.generateUniqueName = function() {
   var variableList = Blockly.Variables.allVariables();
   var newName = '';
   if (variableList.length) {
-    variableList.sort(Blockly.caseInsensitiveComparator);
+    //variableList.sort(goog.string.caseInsensitiveCompare);
+    variableList.sort(function(a,b){return a.name- b.name});
     var nameSuffix = 0, potName = 'i', i = 0, inUse = false;
     while (!newName) {
       i = 0;
       inUse = false;
       while (i < variableList.length && !inUse) {
-        if (variableList[i].toLowerCase() == potName) {
+        if (variableList[i].name.toLowerCase() == potName) {
           // This potential name is already used.
           inUse = true;
         }
