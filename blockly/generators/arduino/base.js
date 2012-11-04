@@ -118,7 +118,7 @@ Blockly.Language.inout_analog_write = {
 	this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setTooltip('Write analog value to a specific Port');
+    this.setTooltip('Write analog value between 0 and 255 to a specific Port');
   }
 };
 
@@ -131,7 +131,7 @@ Blockly.Language.inout_analog_read = {
 	    .appendTitle("AnalogRead PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN");
     this.setOutput(true, Number);
-    this.setTooltip('Return value between 0 and 1023');
+    this.setTooltip('Return value between 0 and 1024');
   }
 };
 

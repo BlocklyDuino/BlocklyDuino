@@ -19,11 +19,16 @@
 
 /**
  * @fileoverview Generating Arduino for text blocks.
- * @author fraser@google.com (Neil Fraser)
+ * @author gasolin@gmail.com (Fred Lin)
  */
 'use strict';
 
 Blockly.Arduino = Blockly.Generator.get('Arduino');
+
+if (!Blockly.Arduino.RESERVED_WORDS_) {
+  Blockly.Arduino.RESERVED_WORDS_ = '';
+}
+//Blockly.Arduino.RESERVED_WORDS_ += 'Html,Math,';
 
 Blockly.Arduino.text = function() {
   // Text value.
@@ -39,17 +44,17 @@ Blockly.Arduino.text_join = function() {
   } else if (this.itemCount_ == 1) {
     var argument0 = Blockly.Arduino.valueToCode(this, 'ADD0',
         Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
-    code = argument0 + '.toString()';
+    code = argument0;
     return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
   } else {
     code = [];
-    code[0] = 'new StringBuffer(' + (Blockly.Arduino.valueToCode(this, 'ADD0',
-        Blockly.Arduino.ORDER_NONE) || '\'\'') + ')';
+    code[0] = (Blockly.Arduino.valueToCode(this, 'ADD0',
+        Blockly.Arduino.ORDER_NONE) || '\'\'');
     for (var n = 1; n < this.itemCount_; n++) {
-      code[n] = '.add(' + (Blockly.Arduino.valueToCode(this, 'ADD' + n,
-          Blockly.Arduino.ORDER_NONE) || '\'\'') + ')';
+      code[n] = '+' + (Blockly.Arduino.valueToCode(this, 'ADD' + n,
+          Blockly.Arduino.ORDER_NONE) || '\'\'');
     }
-    code = code.join('') + '.toString()';
+    code = code.join('');
     return [code, Blockly.Arduino.ORDER_UNARY_POSTFIX];
   }
 };
@@ -158,14 +163,14 @@ Blockly.Arduino.text_changeCase = function() {
       Blockly.Arduino.text_changeCase.toTitleCase = functionName;
       var func = [];
       func.push('String ' + functionName + '(str) {');
-      func.push('  RegExp exp = const RegExp(@"(\\S+)");');
+      func.push('  RegExp exp = const RegExp(r\'\\b\');');
       func.push('  List<String> list = str.split(exp);');
       func.push('  String title = \'\';');
       func.push('  for (String part in list) {');
       func.push('    if (part.length > 0) {');
-      func.push('      title += part[0].toUpperCase();');
+      func.push('      title.add(part[0].toUpperCase());');
       func.push('      if (part.length > 0) {');
-      func.push('        title += part.substring(1).toLowerCase();');
+      func.push('        title.add(part.substring(1).toLowerCase());');
       func.push('      }');
       func.push('    }');
       func.push('  }');
@@ -196,8 +201,8 @@ Blockly.Arduino.text_trim = function() {
 };
 
 Blockly.Arduino.text_trim.OPERATORS = {
-  LEFT: '.replaceFirst(new RegExp(@"^\\s+"), \'\')',
-  RIGHT: '.replaceFirst(new RegExp(@"\\s+$"), \'\')',
+  LEFT: '.replaceFirst(new RegExp(r\'^\\s+\'), \'\')',
+  RIGHT: '.replaceFirst(new RegExp(r\'\\s+$\'), \'\')',
   BOTH: '.trim()'
 };
 

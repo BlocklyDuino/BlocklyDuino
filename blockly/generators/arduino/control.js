@@ -19,7 +19,7 @@
 
 /**
  * @fileoverview Generating Arduino for control blocks.
- * @author fraser@google.com (Neil Fraser)
+ * @author gasolin@gmail.com  (Fred Lin)
  */
 'use strict';
 
@@ -96,7 +96,8 @@ Blockly.Arduino.controls_for = function() {
         '    (' + startVar + ' <= ' + endVar + ') ? ' +
         variable0 + ' <= ' + endVar + ' : ' +
         variable0 + ' >= ' + endVar + ';\n' +
-        '    ' + variable0 + ' += (' + startVar + ' <= ' + endVar + ') ? 1 : -1) {\n' +
+        '    ' + variable0 + ' += (' + startVar + ' <= ' + endVar +
+            ') ? 1 : -1) {\n' +
         branch0 + '}\n';
   }
   return code;

@@ -19,7 +19,7 @@
 
 /**
  * @fileoverview Generating Arduino for math blocks.
- * @author fraser@google.com (Neil Fraser)
+ * @author gasolin@gmail.com  (Fred Lin)
  */
 'use strict';
 
@@ -84,7 +84,7 @@ Blockly.Arduino.math_single = function() {
     // Negation is a special case given its different operator precedents.
     arg = Blockly.Arduino.valueToCode(this, 'NUM',
         Blockly.Arduino.ORDER_UNARY_PREFIX) || '0';
-    if (arg.charAt(0) == '-') {
+    if (arg[0] == '-') {
       // --3 is not legal in Dart.
       arg = ' ' + arg;
     }

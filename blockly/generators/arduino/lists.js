@@ -19,7 +19,7 @@
 
 /**
  * @fileoverview Generating Arduino for list blocks.
- * @author fraser@google.com (Neil Fraser)
+ * @author gasolin@gmail.com  (Fred Lin)
  */
 'use strict';
 
