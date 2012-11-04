@@ -133,7 +133,7 @@ Blockly.Names.prototype.safeName_ = function(name) {
       }
     
     // Most languages don't allow names with leading numbers.
-    if ('0123456789'.indexOf(name.charAt(0)) != -1) {
+    if ('0123456789'.indexOf(name[0]) != -1) {
       name = 'my_' + name;
     }
   }

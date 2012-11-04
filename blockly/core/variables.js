@@ -174,14 +174,14 @@ Blockly.Variables.generateUniqueName = function() {
       }
       if (inUse) {
         // Try the next potential name.
-        if (potName.charAt(0) === 'z') {
+        if (potName[0] === 'z') {
           // Reached the end of the character sequence so back to 'a' but with
           // a new suffix.
           nameSuffix++;
           potName = 'a';
         } else {
           potName = String.fromCharCode(potName.charCodeAt(0) + 1);
-          if (potName.charAt(0) == 'l') {
+          if (potName[0] == 'l') {
             // Avoid using variable 'l' because of ambiguity with '1'.
             potName = String.fromCharCode(potName.charCodeAt(0) + 1);
           }
