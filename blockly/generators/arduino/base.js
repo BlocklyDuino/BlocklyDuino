@@ -33,9 +33,10 @@ Blockly.Language.base_delay = {
   helpUrl: 'http://arduino.cc/en/Reference/delay',
   init: function() {
     this.setColour(120);
-	this.appendDummyInput("")
-		.appendTitle("Delay");
-	this.appendValueInput("DELAY_TIME", Number);
+	  this.appendDummyInput("")
+		  .appendTitle("Delay");
+	  this.appendValueInput("DELAY_TIME", Number)
+      .setCheck(Number);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -48,13 +49,15 @@ Blockly.Language.base_map = {
   helpUrl: 'http://arduino.cc/en/Reference/map',
   init: function() {
     this.setColour(230);
-	this.appendDummyInput("")
-		.appendTitle("Map ");
-	this.appendValueInput("NUM", Number);
-	this.appendDummyInput("")
+	  this.appendDummyInput("")
+		  .appendTitle("Map ");
+	  this.appendValueInput("NUM", Number)
+      .setCheck(Number);
+	  this.appendDummyInput("")
 	    .appendTitle("value to [0-");
-	this.appendValueInput("DMAX", Number);
-	this.appendDummyInput("")
+	  this.appendValueInput("DMAX", Number)
+      .setCheck(Number);
+	  this.appendDummyInput("")
 	    .appendTitle("]");
     this.setInputsInline(true);
     this.setOutput(true);
@@ -67,7 +70,7 @@ Blockly.Language.inout_buildin_led = {
    helpUrl: 'http://arduino.cc/en/Reference/DigitalWrite',
    init: function() {
      this.setColour(190);
-	 this.appendDummyInput("")
+	   this.appendDummyInput("")
 	     .appendTitle("Build-in LED Stat")
 	     .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
      this.setPreviousStatement(true, null);
@@ -81,7 +84,7 @@ Blockly.Language.inout_digital_write = {
   helpUrl: 'http://arduino.cc/en/Reference/DigitalWrite',
   init: function() {
     this.setColour(230);
-	this.appendDummyInput("")
+	  this.appendDummyInput("")
 	    .appendTitle("DigitalWrite PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
 	    .appendTitle("Stat")
@@ -97,7 +100,7 @@ Blockly.Language.inout_digital_read = {
   helpUrl: 'http://arduino.cc/en/Reference/DigitalRead',
   init: function() {
     this.setColour(230);
-	this.appendDummyInput("")
+	  this.appendDummyInput("")
 	    .appendTitle("DigitalRead PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, Boolean);
@@ -110,12 +113,13 @@ Blockly.Language.inout_analog_write = {
   helpUrl: 'http://arduino.cc/en/Reference/AnalogWrite',
   init: function() {
     this.setColour(230);
-	this.appendDummyInput("")
+	  this.appendDummyInput("")
 	    .appendTitle("AnalogWrite PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN")
 	    .appendTitle("value");
-	this.appendValueInput("NUM", Number);
-	this.setInputsInline(true);
+	  this.appendValueInput("NUM", Number)
+      .setCheck(Number);
+	  this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Write analog value between 0 and 255 to a specific Port');
@@ -127,7 +131,7 @@ Blockly.Language.inout_analog_read = {
   helpUrl: 'http://arduino.cc/en/Reference/AnalogRead',
   init: function() {
     this.setColour(230);
-	this.appendDummyInput("")
+	  this.appendDummyInput("")
 	    .appendTitle("AnalogRead PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN");
     this.setOutput(true, Number);
@@ -154,19 +158,20 @@ Blockly.Language.servo_move = {
   helpUrl: 'http://www.arduino.cc/playground/ComponentLib/servo',
   init: function() {
     this.setColour(190);
-	this.appendDummyInput("")
+	  this.appendDummyInput("")
 	    .appendTitle("Servo")
 	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/a991.jpg", 64, 64))
 	    .appendTitle("PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
-	this.appendValueInput("DEGREE", Number)
+	  this.appendValueInput("DEGREE", Number)
+      .setCheck(Number)
 	    .setAlign(Blockly.ALIGN_RIGHT)
 	    .appendTitle("Degree (0~180)");
-  this.appendValueInput("DELAY_TIME", Number)
+    this.appendValueInput("DELAY_TIME", Number)
+      .setCheck(Number)
 	    .setAlign(Blockly.ALIGN_RIGHT)
 	    .appendTitle("Delay");
-	//this.setInputsInline(true);
-	this.setPreviousStatement(true, null);
+	  this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('move between 0~180 degree');
   }
@@ -177,15 +182,16 @@ Blockly.Language.servo_read_degrees = {
   helpUrl: 'http://www.arduino.cc/playground/ComponentLib/servo',
   init: function() {
     this.setColour(190);
-	this.appendDummyInput("")
+	  this.appendDummyInput("")
 	    .appendTitle("Servo")
 	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/a991.jpg", 64, 64))
 	    .appendTitle("PIN#")
 	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
-	this.appendDummyInput("")
+	  this.appendDummyInput("")
+      .setCheck(Number)
 	    .setAlign(Blockly.ALIGN_RIGHT)
 	    .appendTitle("Read Degrees")
-	this.setOutput(true, Number);
+	  this.setOutput(true, Number);
     this.setTooltip('return that degree with the last servo move.');
   }
 };
@@ -197,9 +203,9 @@ Blockly.Language.serial_print = {
     this.setColour(230);
     //this.appendDummyInput("")
 	//    .appendTitle(new Blockly.FieldDropdown([["9600", "9600"], ["12800", "12800"]]), 'PORT')
-    this.appendValueInput("CONTENT", Number)
+    this.appendValueInput("CONTENT", String)
 	    .appendTitle("Serial Print");
-	this.setPreviousStatement(true, null);
+	  this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Prints data to the console/serial port as human-readable ASCII text.');
   }
