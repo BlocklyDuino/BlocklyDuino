@@ -222,6 +222,21 @@ Blockly.Language.grove_pir_motion_sensor = {
   }
 };
 
+Blockly.Language.grove_line_finder = {
+  category: 'Grove',
+  helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Line_Finder',
+  init: function() {
+    this.setColour(10);
+    this.appendDummyInput("")
+        .appendTitle("Line Finder")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/8/82/Grovelinefinder1.jpg/400px-Grovelinefinder1.jpg", 64, 64))
+	.appendTitle("PIN#")
+	.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+    this.setOutput(true, Boolean);
+    this.setTooltip('Output digital signal so the robot can reliably follow a black line on a white background');
+  }
+};
+
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
 
@@ -463,6 +478,13 @@ Blockly.Arduino.grove_sound_sensor = function() {
 };
 
 Blockly.Arduino.grove_pir_motion_sensor = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
+  var code = 'digitalRead('+dropdown_pin+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.grove_line_finder = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
   var code = 'digitalRead('+dropdown_pin+')';
