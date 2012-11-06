@@ -192,6 +192,20 @@ Blockly.Language.grove_serial_lcd_power = {
   }
 };
 
+Blockly.Language.grove_sound_sensor = {
+  category: 'Grove',
+  helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Sound_Sensor',
+  init: function() {
+    this.setColour(10);
+    this.appendDummyInput("")
+        .appendTitle("Sound Sensor")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/e3/Twig-Sound-sensor.jpg/400px-Twig-Sound-sensor.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN")
+    this.setOutput(true, Number);
+    this.setTooltip('Detect the sound strength of the environment');
+  }
+};
 
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
@@ -428,4 +442,10 @@ Blockly.Arduino.grove_serial_lcd_power = function() {
     code += '.noPower();\n';
   }
   return code;
+};
+
+Blockly.Arduino.grove_sound_sensor = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var code = 'analogRead('+dropdown_pin+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };

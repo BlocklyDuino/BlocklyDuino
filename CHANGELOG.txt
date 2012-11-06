@@ -9,6 +9,7 @@ Blocks with type checking
 Feature: 
 
 * add text blocks
+* add Grove Sound Sensor block
 
 change:
 
