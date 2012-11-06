@@ -9,7 +9,7 @@ Blocks with type checking
 Feature: 
 
 * add text blocks
-* add Grove Sound Sensor block
+* add Grove Sound Sensor and PIR Motion sensor block
 
 change:
 

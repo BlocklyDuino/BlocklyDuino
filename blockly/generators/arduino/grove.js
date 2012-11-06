@@ -207,11 +207,23 @@ Blockly.Language.grove_sound_sensor = {
   }
 };
 
+Blockly.Language.grove_pir_motion_sensor = {
+  category: 'Grove',
+  helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_PIR_Motion_Sensor',
+  init: function() {
+    this.setColour(10);
+    this.appendDummyInput("")
+        .appendTitle("PIR Motion Sensor")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/f/fd/Twig-PIR_Motion_Sensor.jpg/400px-Twig-PIR_Motion_Sensor.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+    this.setOutput(true, Number);
+    this.setTooltip('When anyone moves in it\'s detecting range, the sensor outputs HIGH.');
+  }
+};
+
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
-
-//http://www.seeedstudio.com/wiki/images/thumb/f/fd/Twig-PIR_Motion_Sensor.jpg/200px-Twig-PIR_Motion_Sensor.jpg
-//http://www.seeedstudio.com/wiki/Grove_-_PIR_Motion_Sensor
 
 //http://www.seeedstudio.com/wiki/images/thumb/e/e0/Twig_-_Thumb_Joystick_v0.9b.jpg/200px-Twig_-_Thumb_Joystick_v0.9b.jpg
 //http://www.seeedstudio.com/wiki/Grove_-_Thumb_Joystick
@@ -447,5 +459,12 @@ Blockly.Arduino.grove_serial_lcd_power = function() {
 Blockly.Arduino.grove_sound_sensor = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var code = 'analogRead('+dropdown_pin+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.grove_pir_motion_sensor = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
+  var code = 'digitalRead('+dropdown_pin+')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
