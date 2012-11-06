@@ -35,13 +35,13 @@ Blockly.Language.grove_led = {
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-	    .appendTitle("LED")
-      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/e0/LED1.jpg/400px-LED1.jpg", 64, 64))
-	    .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
-		  .appendTitle("stat")
-	    .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT"); 
-	  this.setPreviousStatement(true, null);
+        .appendTitle("LED")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/e0/LED1.jpg/400px-LED1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+        .appendTitle("stat")
+        .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT"); 
+    this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('green LED');
   }
@@ -53,10 +53,10 @@ Blockly.Language.grove_button = {
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-	    .appendTitle("Button")
-      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/93/Button1.jpg/400px-Button1.jpg", 64, 64))
-		  .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+        .appendTitle("Button")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/93/Button1.jpg/400px-Button1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, Boolean);
     this.setTooltip('Basic digital input');
   }
@@ -68,10 +68,10 @@ Blockly.Language.grove_rotary_angle = {
   init: function() {
     this.setColour(10);
     this.appendDummyInput("")
-	    .appendTitle("Rotary Angle")
-      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/5/59/Potentiometer1.jpg/400px-Potentiometer1.jpg", 64, 64))
-		  .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN");
+        .appendTitle("Rotary Angle")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/5/59/Potentiometer1.jpg/400px-Potentiometer1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN");
     this.setOutput(true, Number);
     this.setTooltip('Analog output between 0 and Vcc');
   }
@@ -83,45 +83,45 @@ Blockly.Language.grove_tilt_switch = {
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-	    .appendTitle("Tilt Switch")
-	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/95/Tilt1.jpg/400px-Tilt1.jpg", 64, 64))
-		  .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
-	  this.setOutput(true, Boolean);
+        .appendTitle("Tilt Switch")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/95/Tilt1.jpg/400px-Tilt1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+    this.setOutput(true, Boolean);
     this.setTooltip('When the switch is level it is open, and when tilted, the switch closes.');
   }
 };
 
 Blockly.Language.grove_piezo_buzzer = {
   category: 'Grove',
-  helpUrl: 'http://www.example.com/',
+  helpUrl: 'http://www.seeedstudio.com/wiki/GROVE_-_Starter_Kit_V1.1b#Grove_.E2.80.93_Buzzer',
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-	    .appendTitle("Piezo Buzzer")
-	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/ed/Buzzer1.jpg/400px-Buzzer1.jpg", 64, 64))
-		  .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
-	    .appendTitle("stat")
-	    .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");    
+        .appendTitle("Piezo Buzzer")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/ed/Buzzer1.jpg/400px-Buzzer1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+        .appendTitle("stat")
+        .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");    
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setTooltip('');
+    this.setTooltip('Emit a tone when the output is high');
   }
 };
 
 Blockly.Language.grove_relay = {
   category: 'Grove',
-  helpUrl: 'http://www.example.com/',
+  helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Relay',
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-	    .appendTitle("Relay")
-	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/0/04/Twig-Relay1.jpg/400px-Twig-Relay1.jpg", 64, 64))
-		  .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
-	    .appendTitle("stat")
-	    .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");    
+        .appendTitle("Relay")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/0/04/Twig-Relay1.jpg/400px-Twig-Relay1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+        .appendTitle("stat")
+        .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");    
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('capable of switching a much higher voltages and currents. The maximum voltage and current that can be controlled by this module upto 250V at 10 amps.');
@@ -134,10 +134,10 @@ Blockly.Language.grove_temporature_sensor = {
   init: function() {
     this.setColour(10);
     this.appendDummyInput("")
-	    .appendTitle("Temporature Sensor")
-	    .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Temperature1.jpg/400px-Temperature1.jpg", 64, 64))
-		  .appendTitle("PIN#")
-	    .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN")
+        .appendTitle("Temporature Sensor")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Temperature1.jpg/400px-Temperature1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN")
     this.setOutput(true, Number);
     this.setTooltip('return number of ambient temperature in ℃');
   }
@@ -149,22 +149,22 @@ Blockly.Language.grove_serial_lcd_print = {
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-      .appendTitle("Serial LCD")
-      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
-      .appendTitle("PIN#")
-      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+        .appendTitle("Serial LCD")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendValueInput("TEXT", String)
-      .setCheck(String)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle("print line1");
+        .setCheck(String)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendTitle("print line1");
     this.appendValueInput("TEXT2", String)
-      .setCheck(String)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle("print line2")
+        .setCheck(String)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendTitle("print line2")
     this.appendValueInput("DELAY_TIME", Number)
-      .setCheck(Number)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle("Delay");
+        .setCheck(Number)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendTitle("Delay");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('print text on an 16 character by 2 line LCD.');
@@ -178,14 +178,14 @@ Blockly.Language.grove_serial_lcd_power = {
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-      .appendTitle("Serial LCD")
-      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
-      .appendTitle("PIN#")
-      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+        .appendTitle("Serial LCD")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendDummyInput("")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle("Power")
-      .appendTitle(new Blockly.FieldDropdown([["ON", "ON"], ["OFF", "OFF"]]), "STAT"); 
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendTitle("Power")
+        .appendTitle(new Blockly.FieldDropdown([["ON", "ON"], ["OFF", "OFF"]]), "STAT"); 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Turn LCD power on/off');
@@ -239,20 +239,14 @@ Blockly.Arduino.grove_led = function() {
 };
 
 Blockly.Arduino.grove_button = function() {
-  //var value_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-  //value_pin = value_pin.replace('(','').replace(')','');
   var dropdown_pin = this.getTitleValue('PIN');
-  // TODO: Assemble Dart into code variable.
-  //Blockly.Arduino.setups_['setup_button'] = 'pinMode( '+value_pin+' , INPUT);';
   Blockly.Arduino.setups_['setup_button_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
-  //var code = 'digitalRead('+value_pin+')'
   var code = 'digitalRead('+dropdown_pin+')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino.grove_rotary_angle = function() {
   var dropdown_pin = this.getTitleValue('PIN');
-  //Blockly.Arduino.setups_['setup_potentiometer_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
   var code = 'analogRead('+dropdown_pin+')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
@@ -333,13 +327,12 @@ Blockly.Arduino.grove_relay = function() {
 };
 
 Blockly.Arduino.grove_temporature_sensor = function() {
-	var dropdown_pin = this.getTitleValue('PIN');
-	/*
+  var dropdown_pin = this.getTitleValue('PIN');
+  /*
 	a=analogRead(0);
 	  resistance=(float)(1023-a)*10000/a; 
 	  temperature=1/(log(resistance/10000)/B+1/298.15)-273.15;
-	*/
-  //Blockly.Arduino.definitions_['define_'+dropdown_pin] = 'int a;\n';
+  */
   var code = 'round('+'(1/(log((float)(1023-analogRead('+dropdown_pin+'))*10000/analogRead('+dropdown_pin+'))/10000)/3975+1/298.15)-273.15'+')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
@@ -396,11 +389,10 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
   //var text = Blockly.Arduino.quote_(this.getTitleValue('TEXT'));
   //var text2 = Blockly.Arduino.quote_(this.getTitleValue('TEXT2'));
   var text = Blockly.Arduino.valueToCode(this, 'TEXT',
-        Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
+      Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
   var text2 = Blockly.Arduino.valueToCode(this, 'TEXT2',
-        Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
+      Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
   var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000'
-
   /*if(text.length>16||text2.length>16){
       alert("string is too long");
   }*/
