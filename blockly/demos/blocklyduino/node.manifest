@@ -1,5 +1,6 @@
 CACHE MANIFEST
-http://code.jquery.com/jquery-1.8.2.min.js
+# 2012-11-06 v1.0.0
+#http://code.jquery.com/jquery-1.8.2.min.js
 http://www.seeedstudio.com/depot/images/product/a991.jpg
 http://www.seeedstudio.com/wiki/images/thumb/e/e0/LED1.jpg/400px-LED1.jpg
 http://www.seeedstudio.com/wiki/images/thumb/9/93/Button1.jpg/400px-Button1.jpg
@@ -12,3 +13,13 @@ http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg
 http://www.seeedstudio.com/wiki/images/thumb/e/e3/Twig-Sound-sensor.jpg/400px-Twig-Sound-sensor.jpg
 http://www.seeedstudio.com/wiki/images/thumb/f/fd/Twig-PIR_Motion_Sensor.jpg/400px-Twig-PIR_Motion_Sensor.jpg
 http://www.seeedstudio.com/wiki/images/thumb/8/82/Grovelinefinder1.jpg/400px-Grovelinefinder1.jpg
+
+BlobBuilder.min.js
+FileSaver.min.js
+blockly_helper.js
+
+NETWORK:
+index.html
+frame.html
+
+FALLBACK:
