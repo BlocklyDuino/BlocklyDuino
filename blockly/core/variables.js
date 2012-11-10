@@ -104,12 +104,13 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
   variableList.unshift(null);
   var defaultVariable = undefined;
   
-  //add declareBlock into variables flyout
-  var declareBlock = Blockly.Language.variables_declare ?
-      new Blockly.Block(workspace, 'variables_declare') : null;
-  declareBlock && declareBlock.initSvg();
-  declareBlock && blocks.push(declareBlock);
-  gaps.push(margin * 2);
+  //add declareBlock into variables flyout //TOOD: add a flag to enable this block
+  if (Blockly.Language.variables_declare ) {
+    var block = new Blockly.Block(workspace, 'variables_declare');
+    block.initSvg();
+    blocks.push(block);
+    gaps.push(margin * 2);
+  }
   
   for (var i = 0; i < variableList.length; i++) {
     if (variableList[i]!=null && variableList[i].name === defaultVariable) {
