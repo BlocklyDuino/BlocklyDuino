@@ -1,10 +1,11 @@
 BlocklyDuino
 =======================
 
-0.9 2012/11/
+0.9 2012/11/11
 ------------------
+code name: TECHNIC
 
-Blocks with type checking
+Refactor blocks, rearrange import blocks and blocks with type checking
 
 Feature: 
 
@@ -21,13 +22,14 @@ change:
 * make LCD allow to input text block
 * update blockly till r504, support checkbox
 * remove jquery dependency by implement ajax via XMLHttpRequest
-* arrange import blocks
+* rearrange import blocks
 
 fix:
 * appcache support
 
 0.8 2012/10/31
 ------------------
+code name: DUPLO
 
 make editor more friendly
 
@@ -56,7 +58,7 @@ Credit: gasolin
 ------------------
 code name: SPACE
 
-Story: refine bootstraping process
+refine bootstraping process
 
 Feature: 
 
