@@ -21,6 +21,10 @@ change:
 * make LCD allow to input text block
 * update blockly till r504, support checkbox
 * remove jquery dependency by implement ajax via XMLHttpRequest
+* arrange import blocks
+
+fix:
+* appcache support
 
 0.8 2012/10/31
 ------------------
