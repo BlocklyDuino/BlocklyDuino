@@ -10,6 +10,7 @@ Feature:
 
 * add text blocks
 * add blocks:
+  Grove serial lcd effect
   Grove Sound Sensor
   PIR Motion sensor
   line finder
