@@ -9,12 +9,16 @@ Blocks with type checking
 Feature: 
 
 * add text blocks
-* add Grove Sound Sensor, PIR Motion sensor and line finder block
+* add blocks:
+  Grove Sound Sensor
+  PIR Motion sensor
+  line finder
 
 change:
 
 * make LCD allow to input text block
 * update blockly till r504, support checkbox
+* remove jquery dependency by implement ajax via XMLHttpRequest
 
 0.8 2012/10/31
 ------------------
