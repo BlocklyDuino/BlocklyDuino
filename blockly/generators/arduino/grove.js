@@ -192,6 +192,27 @@ Blockly.Language.grove_serial_lcd_power = {
   }
 };
 
+//scroll left/right/no scroll/blink/noblink
+Blockly.Language.grove_serial_lcd_effect = {
+category: 'Grove_LCD',
+  helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#LED',
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput("")
+      .appendTitle("Serial LCD")
+      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
+      .appendTitle("PIN#")
+      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+    this.appendDummyInput("")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendTitle("Effect")
+      .appendTitle(new Blockly.FieldDropdown([["Scroll Left", "LEFT"], ["Scroll Right", "RIGHT"], ["Scroll Auto", "AUTO"]]), "STAT"); 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Turn LCD power on/off');
+  }
+};
+
 Blockly.Language.grove_sound_sensor = {
   category: 'Grove',
   helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Sound_Sensor',
@@ -467,6 +488,26 @@ Blockly.Arduino.grove_serial_lcd_power = function() {
     code += '.Power();\n';
   } else {
     code += '.noPower();\n';
+  }
+  return code;
+};
+
+Blockly.Arduino.grove_serial_lcd_effect = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_stat = this.getTitleValue('STAT');
+  
+  Blockly.Arduino.definitions_['define_lcd'] = '#include <SerialLCD.h>\n#include <SoftwareSerial.h>\n';
+  //generate PIN#+1 port
+  var NextPIN = _get_next_pin(dropdown_pin);
+
+  Blockly.Arduino.definitions_['var_lcd'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
+  var code = 'slcd_'+dropdown_pin;
+  if(dropdown_stat==="LEFT"){
+    code += '.scrollDisplayLeft();\n';
+  } else if(dropdown_stat==="RIGHT"){
+    code += '.scrollDisplayRight();\n';
+  } else {
+    code += '.autoscroll();\n';
   }
   return code;
 };
