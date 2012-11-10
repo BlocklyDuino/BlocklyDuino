@@ -17,6 +17,7 @@ Feature:
 
 change:
 
+* separate Grove category into Grove(digital), Grove Analog, and Grove LCD
 * make LCD allow to input text block
 * update blockly till r504, support checkbox
 * remove jquery dependency by implement ajax via XMLHttpRequest

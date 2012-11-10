@@ -63,7 +63,7 @@ Blockly.Language.grove_button = {
 };
 
 Blockly.Language.grove_rotary_angle = {
-  category: 'Grove',
+  category: 'Grove Analog',
   helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Potentiometer',
   init: function() {
     this.setColour(10);
@@ -129,7 +129,7 @@ Blockly.Language.grove_relay = {
 };
 
 Blockly.Language.grove_temporature_sensor = {
-  category: 'Grove',
+  category: 'Grove Analog',
   helpUrl: 'http://www.seeedstudio.com/wiki/Project_Seven_-_Temperature',
   init: function() {
     this.setColour(10);
@@ -144,7 +144,7 @@ Blockly.Language.grove_temporature_sensor = {
 };
 
 Blockly.Language.grove_serial_lcd_print = {
-  category: 'Grove_LCD',
+  category: 'Grove LCD',
   helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Serial_LCD',
   init: function() {
     this.setColour(190);
@@ -173,7 +173,7 @@ Blockly.Language.grove_serial_lcd_print = {
 
 //grove lcd power on/off
 Blockly.Language.grove_serial_lcd_power = {
-  category: 'Grove_LCD',
+  category: 'Grove LCD',
   helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#LED',
   init: function() {
     this.setColour(190);
@@ -194,7 +194,7 @@ Blockly.Language.grove_serial_lcd_power = {
 
 //scroll left/right/no scroll/blink/noblink
 Blockly.Language.grove_serial_lcd_effect = {
-category: 'Grove_LCD',
+category: 'Grove LCD',
   helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#LED',
   init: function() {
     this.setColour(190);
@@ -214,7 +214,7 @@ category: 'Grove_LCD',
 };
 
 Blockly.Language.grove_sound_sensor = {
-  category: 'Grove',
+  category: 'Grove Analog',
   helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Sound_Sensor',
   init: function() {
     this.setColour(10);
@@ -232,7 +232,7 @@ Blockly.Language.grove_pir_motion_sensor = {
   category: 'Grove',
   helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_PIR_Motion_Sensor',
   init: function() {
-    this.setColour(10);
+    this.setColour(190);
     this.appendDummyInput("")
         .appendTitle("PIR Motion Sensor")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/f/fd/Twig-PIR_Motion_Sensor.jpg/400px-Twig-PIR_Motion_Sensor.jpg", 64, 64))
@@ -247,7 +247,7 @@ Blockly.Language.grove_line_finder = {
   category: 'Grove',
   helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Line_Finder',
   init: function() {
-    this.setColour(10);
+    this.setColour(190);
     this.appendDummyInput("")
         .appendTitle("Line Finder")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/8/82/Grovelinefinder1.jpg/400px-Grovelinefinder1.jpg", 64, 64))
