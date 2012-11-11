@@ -7,6 +7,13 @@ BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) 
 
 [We also have Google+ Page](https://plus.google.com/111979846292233941175).
 
+### Features
+
+* Programming Arduino with visually drag and drop code blocks
+* Generate fully compatible arduino source code
+* Interacive Arduino board with 10+ predefined Grove sensor blocks
+
+
 ### Demo
 
 BlocklyDuino is a web tool. You can give it a try at
