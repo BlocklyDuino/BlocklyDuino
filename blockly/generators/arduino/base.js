@@ -33,9 +33,8 @@ Blockly.Language.base_delay = {
   helpUrl: 'http://arduino.cc/en/Reference/delay',
   init: function() {
     this.setColour(120);
-    this.appendDummyInput("")
-	.appendTitle("Delay");
     this.appendValueInput("DELAY_TIME", Number)
+        .appendTitle("Delay")
         .setCheck(Number);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -49,16 +48,14 @@ Blockly.Language.base_map = {
   helpUrl: 'http://arduino.cc/en/Reference/map',
   init: function() {
     this.setColour(230);
-    this.appendDummyInput("")
-	.appendTitle("Map ");
     this.appendValueInput("NUM", Number)
+        .appendTitle("Map ")
         .setCheck(Number);
-    this.appendDummyInput("")
-	.appendTitle("value to [0-");
     this.appendValueInput("DMAX", Number)
+        .appendTitle("value to [0-")
         .setCheck(Number);
     this.appendDummyInput("")
-	.appendTitle("]");
+	      .appendTitle("]");
     this.setInputsInline(true);
     this.setOutput(true);
     this.setTooltip('Re-maps a number from [0-1024] to another.');
@@ -71,8 +68,8 @@ Blockly.Language.inout_buildin_led = {
    init: function() {
      this.setColour(190);
      this.appendDummyInput("")
-	 .appendTitle("Build-in LED Stat")
-	 .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
+	       .appendTitle("Build-in LED Stat")
+	       .appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
      this.setPreviousStatement(true, null);
      this.setNextStatement(true, null);
      this.setTooltip('light or off the build-in LED');
@@ -85,10 +82,10 @@ Blockly.Language.inout_digital_write = {
   init: function() {
     this.setColour(230);
     this.appendDummyInput("")
-	.appendTitle("DigitalWrite PIN#")
-	.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
-	.appendTitle("Stat")
-	.appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
+	      .appendTitle("DigitalWrite PIN#")
+	      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+      	.appendTitle("Stat")
+      	.appendTitle(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Write digital value to a specific Port');
@@ -101,8 +98,8 @@ Blockly.Language.inout_digital_read = {
   init: function() {
     this.setColour(230);
     this.appendDummyInput("")
-	.appendTitle("DigitalRead PIN#")
-	.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+	      .appendTitle("DigitalRead PIN#")
+	      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, Boolean);
     this.setTooltip('');
   }
@@ -115,9 +112,9 @@ Blockly.Language.inout_analog_write = {
     this.setColour(230);
     this.appendDummyInput("")
         .appendTitle("AnalogWrite PIN#")
-        .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN")
-        .appendTitle("value");
+        .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN");
     this.appendValueInput("NUM", Number)
+        .appendTitle("value")
         .setCheck(Number);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
