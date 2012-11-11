@@ -63,7 +63,7 @@ Blockly.Generator.workspaceToCode = function(name) {
   generator.init();
   var blocks = Blockly.mainWorkspace.getTopBlocks(true);
   for (var x = 0, block; block = blocks[x]; x++) {
-    var line = generator.blockToCode(block, true);
+    var line = generator.blockToCode(block);
     if (line instanceof Array) {
       // Value blocks return tuples of code and operator order.
       // Top-level blocks don't care about operator order.

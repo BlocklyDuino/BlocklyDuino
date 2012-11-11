@@ -309,14 +309,14 @@ Blockly.onKeyDown_ = function(e) {
     Blockly.hideChaff();
   } else if (e.keyCode == 8 || e.keyCode == 46) {
     // Delete or backspace.
-    if (Blockly.selected && Blockly.selected.editable) {
+    if (Blockly.selected && Blockly.selected.deletable) {
       Blockly.hideChaff();
       Blockly.selected.dispose(true, true);
     }
     // Stop the browser from going back to the previous page.
     e.preventDefault();
   } else if (e.altKey || e.ctrlKey || e.metaKey) {
-    if (Blockly.selected && Blockly.selected.editable &&
+    if (Blockly.selected && Blockly.selected.deletable &&
         Blockly.selected.workspace == Blockly.mainWorkspace) {
       Blockly.hideChaff();
       if (e.keyCode == 67) {

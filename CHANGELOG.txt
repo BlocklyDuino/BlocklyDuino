@@ -9,6 +9,7 @@ Feature:
 
 Change:
 * clean blocks internal
+* update blockly till r507, pretty print xml
 
 Fix:
 * names with object

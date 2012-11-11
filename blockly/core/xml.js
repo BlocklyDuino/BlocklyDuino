@@ -150,25 +150,25 @@ Blockly.Xml.domToText = function(dom) {
 Blockly.Xml.domToPrettyText = function(dom) {
   // This function is not guaranteed to be correct for all XML.
   // But it handles the XML that Blockly generates.
-  var line = Blockly.Xml.domToText(dom);
-  // Add place every open and close tag on its own line.
-  var lines = line.split('<');
+  var blob = Blockly.Xml.domToText(dom);
+  // Place every open and close tag on its own line.
+  var lines = blob.split('<');
   // Indent every line.
   var indent = '';
   for (var x = 1; x < lines.length; x++) {
-    var nextChar = lines[x][0];
-    if (nextChar == '/') {
+    var line = lines[x]
+    if (line[0] == '/') {
       indent = indent.substring(2);
     }
-    lines[x] = indent + '<' + lines[x];
-    if (nextChar != '/') {
+    lines[x] = indent + '<' + line;
+    if (line[0] != '/' && line.slice(-2) != '/>') {
       indent += '  ';
     }
   }
   // Pull simple tags back together.
   // E.g. <foo></foo>
   var text = lines.join('\n');
-  text = text.replace(/(<(\w+)[^>]*>[^\n]*)\n *<\/\2>/g, '$1</$2>');
+  text = text.replace(/(<(\w+)\b[^>]*>[^\n]*)\n *<\/\2>/g, '$1</$2>');
   // Trim leading blank line.
   return text.replace(/^\n/, '');
 };

@@ -47,6 +47,7 @@ Blockly.Block = function(workspace, prototypeName) {
   this.collapsed = false;
   this.disabled = false;
   this.editable = workspace.editable;
+  this.deletable = workspace.editable;
   this.tooltip = '';
   this.contextMenu = true;
 

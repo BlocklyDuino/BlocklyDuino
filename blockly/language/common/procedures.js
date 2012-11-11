@@ -118,7 +118,7 @@ Blockly.Language.procedures_defnoreturn = {
     var workspace = this.workspace;
     // Call parent's destructor.
     Blockly.Block.prototype.dispose.apply(this, arguments);
-    if (this.editable) {
+    if (editable) {
       // Dispose of any callers.
       Blockly.Procedures.disposeCallers(name, workspace);
     }
@@ -404,3 +404,4 @@ Blockly.Language.procedures_callreturn = {
   renameVar: Blockly.Language.procedures_callnoreturn.renameVar,
   customContextMenu: Blockly.Language.procedures_callnoreturn.customContextMenu
 };
+
