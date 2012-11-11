@@ -199,14 +199,14 @@ category: 'Grove LCD',
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-      .appendTitle("Serial LCD")
-      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
-      .appendTitle("PIN#")
-      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+        .appendTitle("Serial LCD")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
+        .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendDummyInput("")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle("Effect")
-      .appendTitle(new Blockly.FieldDropdown([["Scroll Left", "LEFT"], ["Scroll Right", "RIGHT"], ["Scroll Auto", "AUTO"]]), "STAT"); 
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendTitle("Effect")
+        .appendTitle(new Blockly.FieldDropdown([["Scroll Left", "LEFT"], ["Scroll Right", "RIGHT"], ["Scroll Auto", "AUTO"]]), "STAT"); 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Turn LCD power on/off');
@@ -251,8 +251,8 @@ Blockly.Language.grove_line_finder = {
     this.appendDummyInput("")
         .appendTitle("Line Finder")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/8/82/Grovelinefinder1.jpg/400px-Grovelinefinder1.jpg", 64, 64))
-	.appendTitle("PIN#")
-	.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+	      .appendTitle("PIN#")
+	      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, Boolean);
     this.setTooltip('Output digital signal so the robot can reliably follow a black line on a white background');
   }
