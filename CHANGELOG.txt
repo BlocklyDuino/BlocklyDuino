@@ -1,6 +1,20 @@
 BlocklyDuino
 =======================
 
+1.0 2012/11/
+------------------
+code name: Mindstorms
+
+Feature: 
+
+Change:
+* clean blocks internal
+
+Fix:
+* names with object
+
+Credit: gasolin
+
 0.9 2012/11/11
 ------------------
 code name: TECHNIC
@@ -16,7 +30,7 @@ Feature:
   PIR Motion sensor
   line finder
 
-change:
+Change:
 
 * separate Grove category into Grove(digital), Grove Analog, and Grove LCD
 * make LCD allow to input text block
@@ -24,8 +38,10 @@ change:
 * remove jquery dependency by implement ajax via XMLHttpRequest
 * rearrange import blocks
 
-fix:
+Fix:
 * appcache support
+
+Credit: gasolin
 
 0.8 2012/10/31
 ------------------
@@ -43,7 +59,7 @@ Feature:
 * application cache block images and jquery
 * add Grove LCD print, Grove LCD power block
 
-change:
+Change:
 
 * call profile params via 'profile.default.digital' instead of 'profile.arduino.digital'
 * rename Potentiometer block to Rotary Angle block
@@ -144,6 +160,10 @@ Feature:
 Credit: gasolin
 
 
+Code name convention
+------------------------
+BlocklyDuino code names follows lego themes http://en.wikipedia.org/wiki/Lego
+
 License
 -----------------
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -151,4 +171,3 @@ License
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
-

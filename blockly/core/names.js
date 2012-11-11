@@ -101,7 +101,7 @@ Blockly.Names.prototype.getDistinctName = function(name, type) {
     i = i ? i + 1 : 2;
   }
   safeName += i;
-  if(typeof(text)==='string') {
+  if(typeof(name)==='string') {
       this.db_[Blockly.Names.PREFIX_ + name.toLowerCase() + 'X' + type] = safeName;
   } else {
     // console.log("process object "+name.name.toLowerCase()+"/"+type);
@@ -124,7 +124,7 @@ Blockly.Names.prototype.safeName_ = function(name) {
   if (!name) {
     name = 'unnamed';
   } else {
-      if(typeof(text)==='string') {
+      if(typeof(name)==='string') {
         // Unfortunately names in non-latin characters will look like
         // _E9_9F_B3_E4_B9_90 which is pretty meaningless.
         name = encodeURI(name.replace(/ /g, '_')).replace(/[^\w]/g, '_');
