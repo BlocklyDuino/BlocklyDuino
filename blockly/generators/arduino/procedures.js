@@ -42,7 +42,7 @@ Blockly.Arduino.procedures_defreturn = function() {
         Blockly.Variables.NAME_TYPE);
   }
   var code = returnType + ' ' + funcName + '(' + args.join(', ') + ') {\n' +
-      branch + returnValue + '}';
+      branch + returnValue + '}\n';
   code = Blockly.Arduino.scrub_(this, code);
   Blockly.Arduino.definitions_[funcName] = code;
   return null;
