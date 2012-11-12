@@ -181,6 +181,18 @@ Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
     blocks.push(block);
     gaps.push(margin * 2);
   }
+  if (Blockly.Language.procedures_return) {
+    var block = new Blockly.Block(workspace, 'procedures_return');
+    block.initSvg();
+    blocks.push(block);
+    gaps.push(margin * 2);
+  }
+  if (Blockly.Language.procedures_null) {
+    var block = new Blockly.Block(workspace, 'procedures_null');
+    block.initSvg();
+    blocks.push(block);
+    gaps.push(margin * 2);
+  }
 
   function populateProcedures(procedureList, templateName) {
     for (var x = 0; x < procedureList.length; x++) {
