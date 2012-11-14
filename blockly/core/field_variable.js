@@ -64,11 +64,11 @@ Blockly.FieldVariable.prototype.setValue = function(text) {
 function findById(source, id) {
     for (var i = 0; i < source.length; i++) {
         if(source[i]===id){
-          return 1;
+          return i;
         }
         if(typeof(source[i])==="object"){
           if(source[i].name === id){
-            return 1;
+            return i;
           }
         }
     }
