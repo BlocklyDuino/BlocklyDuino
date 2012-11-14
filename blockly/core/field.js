@@ -166,13 +166,19 @@ Blockly.Field.prototype.setText = function(text) {
   this.text_ = text;
   // Empty the text element.
   goog.dom.removeChildren(/** @type {!Element} */ (this.textElement_));
-  // Replace whitespace with non-breaking spaces so the text doesn't collapse.
-  text = text.replace(/\s/g, Blockly.Field.NBSP);
   if (!text) {
     // Prevent the field from disappearing if empty.
     text = Blockly.Field.NBSP;
   }
-  var textNode = document.createTextNode(text);
+  // Replace whitespace with non-breaking spaces so the text doesn't collapse.
+  if(typeof(text)==="string"){
+    text = text.replace(/\s/g, Blockly.Field.NBSP);
+    var textNode = document.createTextNode(text);
+  } else {
+    text.name = text.name.replace(/\s/g, Blockly.Field.NBSP);
+    var textNode = document.createTextNode(text.name);
+    console.log(text.name);
+  }
   this.textElement_.appendChild(textNode);
 
   // Cached width is obsolete.  Clear it.
