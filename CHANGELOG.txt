@@ -15,6 +15,7 @@ Change:
 
 Fix:
 * names with object
+* variable dropdown with object
 
 Credit: gasolin
 

@@ -61,6 +61,20 @@ Blockly.FieldVariable.prototype.setValue = function(text) {
   this.setText(text);
 };
 
+function findById(source, id) {
+    for (var i = 0; i < source.length; i++) {
+        if(source[i]===id){
+          return 1;
+        }
+        if(typeof(source[i])==="object"){
+          if(source[i].name === id){
+            return 1;
+          }
+        }
+    }
+    return -1;
+}
+
 /**
  * Return a sorted list of variable names for variable dropdown menus.
  * Include a special option at the end for creating a new variable name.
@@ -71,17 +85,24 @@ Blockly.FieldVariable.dropdownCreate = function() {
   var variableList = Blockly.Variables.allVariables();
   // Ensure that the currently selected variable is an option.
   var name = this.getText();
-  if (name && variableList.indexOf(name) == -1) {
-    variableList.push(name);
+  // if (name && variableList.indexOf(name) == -1) {
+  if (name && findById(variableList,name) == -1) {
+    //all variables should be object
+    variableList.push(name.name);
   }
-  variableList.sort(goog.string.caseInsensitiveCompare);
+  // variableList.sort(goog.string.caseInsensitiveCompare);
+  variableList.sort(function(a,b){return a.name- b.name});
   variableList.push(Blockly.MSG_RENAME_VARIABLE);
   variableList.push(Blockly.MSG_NEW_VARIABLE);
   // Variables are not language-specific, use the name as both the user-facing
   // text and the internal representation.
   var options = [];
   for (var x = 0; x < variableList.length; x++) {
-    options[x] = [variableList[x], variableList[x]];
+    if(typeof(variableList[x])==="string"){
+      options[x] = [variableList[x], variableList[x]];
+    } else {
+      options[x] = [variableList[x].name, variableList[x]];
+    }
   }
   return options;
 };
