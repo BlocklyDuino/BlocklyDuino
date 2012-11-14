@@ -177,7 +177,6 @@ Blockly.Field.prototype.setText = function(text) {
   } else {
     text.name = text.name.replace(/\s/g, Blockly.Field.NBSP);
     var textNode = document.createTextNode(text.name);
-    console.log(text.name);
   }
   this.textElement_.appendChild(textNode);
 
