@@ -265,7 +265,7 @@ Blockly.Language.grove_ultrasonic_ranger = {
     this.setColour(190);
     this.appendDummyInput("")
 	      .appendTitle("Ultrasonic Ranger")
-              .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Twig_-_Ultrasonic_Ranger2.jpg/400px-Twig_-_Ultrasonic_Ranger2.jpg", 64, 64))
+              .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Twig_-_Ultrasonic_Ranger2.jpg/200px-Twig_-_Ultrasonic_Ranger2.jpg", 64, 64))
 	      .appendTitle("PIN#")
               .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
               .appendTitle("unit")
