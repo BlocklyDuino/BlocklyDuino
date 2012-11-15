@@ -8,6 +8,8 @@ code name: Mindstorms
 Feature: 
 
 * add procedure support with return/null blocks
+* add blocks:
+  Grove Ultrasonic Ranger
 
 Change:
 * clean blocks internal
@@ -31,8 +33,8 @@ Feature:
 * add blocks:
   Grove serial lcd effect
   Grove Sound Sensor
-  PIR Motion sensor
-  line finder
+  Grove PIR Motion sensor
+  Grove Line finder
 
 Change:
 

@@ -258,14 +258,27 @@ Blockly.Language.grove_line_finder = {
   }
 };
 
+Blockly.Language.grove_ultrasonic_ranger = {
+  category: 'Grove',
+  helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Ultrasonic_Ranger',
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput("")
+	      .appendTitle("Ultrasonic Ranger")
+              .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Twig_-_Ultrasonic_Ranger2.jpg/400px-Twig_-_Ultrasonic_Ranger2.jpg", 64, 64))
+	      .appendTitle("PIN#")
+              .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+              .appendTitle("unit")
+              .appendTitle(new Blockly.FieldDropdown([["cm", "cm"],  ["inch", "inch"]]), "UNIT");
+    this.setOutput(true, Boolean);
+    this.setTooltip('Non-contact distance measurement module');
+  }
+};
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
 
 //http://www.seeedstudio.com/wiki/images/thumb/e/e0/Twig_-_Thumb_Joystick_v0.9b.jpg/200px-Twig_-_Thumb_Joystick_v0.9b.jpg
 //http://www.seeedstudio.com/wiki/Grove_-_Thumb_Joystick
-
-//http://www.seeedstudio.com/wiki/images/thumb/b/b0/Twig_-_Ultrasonic_Ranger2.jpg/200px-Twig_-_Ultrasonic_Ranger2.jpg
-//http://www.seeedstudio.com/wiki/Grove_-_Ultrasonic_Ranger
 
 //http://www.seeedstudio.com/wiki/File:Grove_-_125KHz_RFID_Reader.jpg
 //http://www.seeedstudio.com/wiki/Grove_-_125KHz_RFID_Reader
@@ -448,8 +461,6 @@ var _get_next_pin = function(dropdown_pin) {
 
 Blockly.Arduino.grove_serial_lcd_print = function() {
   var dropdown_pin = this.getTitleValue('PIN');
-  //var text = Blockly.Arduino.quote_(this.getTitleValue('TEXT'));
-  //var text2 = Blockly.Arduino.quote_(this.getTitleValue('TEXT2'));
   var text = Blockly.Arduino.valueToCode(this, 'TEXT',
       Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
   var text2 = Blockly.Arduino.valueToCode(this, 'TEXT2',
@@ -529,5 +540,21 @@ Blockly.Arduino.grove_line_finder = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
   var code = 'digitalRead('+dropdown_pin+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.grove_ultrasonic_ranger = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_unit = this.getTitleValue('UNIT');
+  Blockly.Arduino.definitions_['define_ultrasonic'] = '#include <Ultrasonic.h>\n';
+  Blockly.Arduino.definitions_['var_ultrasonic'+dropdown_pin] = 'Ultrasonic ultrasonic_'+dropdown_pin+'('+dropdown_pin+');\n';
+  var code;
+  if(dropdown_unit==="cm"){
+    Blockly.Arduino.setups_['setup_ultrasonic_'+dropdown_pin] = 'ultrasonic_'+dropdown_pin+'.MeasureInCentimeters();';
+    code = 'ultrasonic_'+dropdown_pin+'.RangeInCentimeters();';
+  } else {
+    Blockly.Arduino.setups_['setup_ultrasonic_'+dropdown_pin] = 'ultrasonic_'+dropdown_pin+'.MeasureInInches();';
+    code = 'ultrasonic_'+dropdown_pin+'.RangeInInches();';
+  }
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
