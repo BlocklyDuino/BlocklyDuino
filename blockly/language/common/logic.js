@@ -121,3 +121,16 @@ Blockly.Language.logic_boolean = {
 Blockly.Language.logic_boolean.OPERATORS =
     [[Blockly.LANG_LOGIC_BOOLEAN_TRUE, 'TRUE'],
      [Blockly.LANG_LOGIC_BOOLEAN_FALSE, 'FALSE']];
+
+Blockly.Language.logic_null = {
+  // Null data type.
+  category: Blockly.LANG_CATEGORY_LOGIC,
+  helpUrl: Blockly.LANG_LOGIC_NULL_HELPURL,
+  init: function() {
+    this.setColour(120);
+    this.setOutput(true, null);
+    this.appendDummyInput()
+        .appendTitle(Blockly.LANG_LOGIC_NULL);
+    this.setTooltip(Blockly.LANG_LOGIC_NULL_TOOLTIP_1);
+  }
+};

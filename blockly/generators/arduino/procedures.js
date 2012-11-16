@@ -84,8 +84,4 @@ Blockly.Arduino.procedures_return = function() {
   return code;
 };
 
-Blockly.Arduino.procedures_null = function() {
-  var code = 'NULL';
-  return [code ,Blockly.Arduino.ORDER_NONE];
-};
 

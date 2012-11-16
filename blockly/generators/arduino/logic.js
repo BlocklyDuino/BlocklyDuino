@@ -70,3 +70,8 @@ Blockly.Arduino.logic_boolean = function() {
   var code = (this.getTitleValue('BOOL') == 'TRUE') ? 'true' : 'false';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
+
+Blockly.Arduino.logic_null = function() {
+  var code = 'NULL';
+  return [code ,Blockly.Arduino.ORDER_NONE];
+};

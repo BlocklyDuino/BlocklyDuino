@@ -146,6 +146,10 @@ Blockly.LANG_LOGIC_BOOLEAN_TRUE = 'true';
 Blockly.LANG_LOGIC_BOOLEAN_FALSE = 'false';
 Blockly.LANG_LOGIC_BOOLEAN_TOOLTIP_1 = 'Returns either true or false.';
 
+Blockly.LANG_LOGIC_NULL_HELPURL = 'http://en.wikipedia.org/wiki/Nullable_type';
+Blockly.LANG_LOGIC_NULL = 'null';
+Blockly.LANG_LOGIC_NULL_TOOLTIP_1 = 'Returns null.';
+
 // Math Blocks.
 Blockly.LANG_CATEGORY_MATH = 'Math';
 Blockly.LANG_MATH_NUMBER_HELPURL = 'http://en.wikipedia.org/wiki/Number';
