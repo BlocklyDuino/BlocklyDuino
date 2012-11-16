@@ -129,7 +129,7 @@ Blockly.Names.prototype.safeName_ = function(name) {
         // _E9_9F_B3_E4_B9_90 which is pretty meaningless.
         name = encodeURI(name.replace(/ /g, '_')).replace(/[^\w]/g, '_');
       } else {
-		  name = encodeURI(name.name.replace(/ /g, '_')).replace(/[^\w]/g, '_');
+		name = encodeURI(name.name.replace(/ /g, '_')).replace(/[^\w]/g, '_');
       }
     
     // Most languages don't allow names with leading numbers.
