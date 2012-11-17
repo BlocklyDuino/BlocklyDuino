@@ -265,15 +265,35 @@ Blockly.Language.grove_ultrasonic_ranger = {
     this.setColour(190);
     this.appendDummyInput("")
 	      .appendTitle("Ultrasonic Ranger")
-              .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Twig_-_Ultrasonic_Ranger2.jpg/200px-Twig_-_Ultrasonic_Ranger2.jpg", 64, 64))
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Twig_-_Ultrasonic_Ranger2.jpg/200px-Twig_-_Ultrasonic_Ranger2.jpg", 64, 64))
 	      .appendTitle("PIN#")
-              .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
-              .appendTitle("unit")
-              .appendTitle(new Blockly.FieldDropdown([["cm", "cm"],  ["inch", "inch"]]), "UNIT");
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+        .appendTitle("unit")
+        .appendTitle(new Blockly.FieldDropdown([["cm", "cm"],  ["inch", "inch"]]), "UNIT");
     this.setOutput(true, Boolean);
     this.setTooltip('Non-contact distance measurement module');
   }
 };
+
+Blockly.Language.grove_motor_shield = {
+  category: 'Grove Motor',
+  helpUrl: 'http://www.seeedstudio.com/wiki/Motor_Shield',
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput("")
+        .appendTitle("Motor")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/4/4d/Smotoshield2.jpg/400px-Smotoshield2.jpg", 64, 64))
+        .appendTitle(new Blockly.FieldDropdown([["Forward", "forward"], ["Stop", "stop"], ["Right", "right"], ["Left", "left"], ["Backward", "backward"]]), "DIRECTION");
+    /*this.appendValueInput("SPEED", Number)
+        .setCheck(Number)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendTitle("Speed");*/
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Drive two brushed DC motors');
+  }
+};
+
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
 
@@ -465,7 +485,7 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
       Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
   var text2 = Blockly.Arduino.valueToCode(this, 'TEXT2',
       Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
-  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000'
+  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000';
   /*if(text.length>16||text2.length>16){
       alert("string is too long");
   }*/
@@ -557,4 +577,70 @@ Blockly.Arduino.grove_ultrasonic_ranger = function() {
     code = 'ultrasonic_'+dropdown_pin+'.RangeInInches();';
   }
   return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.grove_motor_shield = function() {
+  var dropdown_direction = this.getTitleValue('DIRECTION');
+  var speed = 127;//Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC) || '127';
+  Blockly.Arduino.setups_["setup_motor"] = "pinMode(8,OUTPUT);//I1\n"+
+  "  pinMode(11,OUTPUT);//I2\n"+
+  "  pinMode(9,OUTPUT);//speedPinA\n"+
+  "  pinMode(12,OUTPUT);//I3\n"+
+  "  pinMode(13,OUTPUT);//i4\n"+
+  "  pinMode(10,OUTPUT);//speedPinB\n";
+  var code = "";
+  if(dropdown_direction==="forward"){
+    Blockly.Arduino.definitions_['define_forward'] = "void forward()\n"+
+"{\n"+
+     "  analogWrite(9,"+speed+");//input a simulation value to set the speed\n"+
+     "  analogWrite(10,"+speed+");\n"+
+     "  digitalWrite(13,HIGH);//turn DC Motor B move clockwise\n"+
+     "  digitalWrite(12,LOW);\n"+
+     "  digitalWrite(11,LOW);//turn DC Motor A move anticlockwise\n"+
+     "  digitalWrite(8,HIGH);\n"+
+"}\n";
+    code="forward();\n";
+  } else if (dropdown_direction==="right") {
+    Blockly.Arduino.definitions_['define_right'] = "void right()\n"+
+"{\n"+
+     "  analogWrite(9,"+speed+");//input a simulation value to set the speed\n"+
+     "  analogWrite(10,"+speed+");\n"+
+     "  digitalWrite(13,LOW);//turn DC Motor B move anticlockwise\n"+
+     "  digitalWrite(12,HIGH);\n"+
+     "  digitalWrite(11,LOW);//turn DC Motor A move anticlockwise\n"+
+     "  digitalWrite(8,HIGH);\n"+
+"}\n\n";
+    code="right();\n";
+  } else if (dropdown_direction==="left") {
+    Blockly.Arduino.definitions_['define_left'] = "void left()\n"+
+"{\n"+
+     "  analogWrite(9,"+speed+");//input a simulation value to set the speed\n"+
+     "  analogWrite(10,"+speed+");\n"+
+     "  digitalWrite(13,HIGH);//turn DC Motor B move clockwise\n"+
+     "  digitalWrite(12,LOW);\n"+
+     "  digitalWrite(11,HIGH);//turn DC Motor A move clockwise\n"+
+     "  digitalWrite(8,LOW);\n"+
+"}\n\n";
+    code="left();\n";
+  } else if (dropdown_direction==="backward"){
+    Blockly.Arduino.definitions_['define_backward'] = "void backward()\n"+
+"{\n"+
+     "  analogWrite(9,"+speed+");//input a simulation value to set the speed\n"+
+     "  analogWrite(10,"+speed+");\n"+
+     "  digitalWrite(13,LOW);//turn DC Motor B move anticlockwise\n"+
+     "  digitalWrite(12,HIGH);\n"+
+     "  digitalWrite(11,HIGH);//turn DC Motor A move clockwise\n"+
+     "  digitalWrite(8,LOW);\n"+
+"}\n\n";
+    code="backward();\n";
+  } else if (dropdown_direction==="stop"){
+    Blockly.Arduino.definitions_['define_stop'] = "void stop()\n"+
+"{\n"+
+     "digitalWrite(9,LOW);// Unenble the pin, to stop the motor. this should be done to avid damaging the motor.\n"+
+     "digitalWrite(10,LOW);\n"+
+     "delay(1000);\n"+
+"}\n\n"
+    code="stop();\n";
+  }
+  return code;
 };

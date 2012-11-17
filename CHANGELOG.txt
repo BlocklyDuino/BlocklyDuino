@@ -10,6 +10,7 @@ Feature:
 * add procedure support with return add logic null blocks, contribute back to blokly
 * add blocks:
   Grove Ultrasonic Ranger
+  Grove Motor Shield
 
 Change:
 * clean blocks internal
