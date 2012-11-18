@@ -181,8 +181,8 @@ Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
     blocks.push(block);
     gaps.push(margin * 2);
   }
-  if (Blockly.Language.procedures_return) {
-    var block = new Blockly.Block(workspace, 'procedures_return');
+  if (Blockly.Language.procedures_ifreturn) {
+    var block = new Blockly.Block(workspace, 'procedures_ifreturn');
     block.initSvg();
     blocks.push(block);
     gaps.push(margin * 2);

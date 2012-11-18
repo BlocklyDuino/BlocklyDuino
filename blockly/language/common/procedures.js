@@ -38,7 +38,7 @@ Blockly.Language.procedures_defnoreturn = {
     this.appendStatementInput('STACK')
         .appendTitle(Blockly.LANG_PROCEDURES_DEFNORETURN_DO);
     this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
-    this.setTooltip(Blockly.LANG_PROCEDURES_DEFNORETURN_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_PROCEDURES_DEFNORETURN_TOOLTIP);
     this.arguments_ = [];
   },
   updateParams_: function() {
@@ -174,7 +174,7 @@ Blockly.Language.procedures_defreturn = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendTitle(Blockly.LANG_PROCEDURES_DEFRETURN_RETURN);
     this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
-    this.setTooltip(Blockly.LANG_PROCEDURES_DEFRETURN_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_PROCEDURES_DEFRETURN_TOOLTIP);
     this.arguments_ = [];
   },
   updateParams_: Blockly.Language.procedures_defnoreturn.updateParams_,
@@ -238,7 +238,7 @@ Blockly.Language.procedures_callnoreturn = {
         .appendTitle(Blockly.LANG_PROCEDURES_CALLNORETURN_PROCEDURE, 'NAME');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.LANG_PROCEDURES_CALLNORETURN_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_PROCEDURES_CALLNORETURN_TOOLTIP);
     this.arguments_ = [];
     this.quarkConnections_ = null;
     this.quarkArguments_ = null;
@@ -390,7 +390,7 @@ Blockly.Language.procedures_callreturn = {
         .appendTitle(Blockly.LANG_PROCEDURES_CALLRETURN_CALL)
         .appendTitle(Blockly.LANG_PROCEDURES_CALLRETURN_PROCEDURE, 'NAME');
     this.setOutput(true, null);
-    this.setTooltip(Blockly.LANG_PROCEDURES_CALLRETURN_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_PROCEDURES_CALLRETURN_TOOLTIP);
     this.arguments_ = [];
     this.quarkConnections_ = null;
     this.quarkArguments_ = null;
@@ -405,16 +405,67 @@ Blockly.Language.procedures_callreturn = {
   customContextMenu: Blockly.Language.procedures_callnoreturn.customContextMenu
 };
 
-Blockly.Language.procedures_return = {
-  // Return value in a procedure 
+Blockly.Language.procedures_ifreturn = {
+  // Conditionally return value from a procedure.
   category: null,
-  helpUrl: null,
+  helpUrl: 'http://c2.com/cgi/wiki?GuardClause',
   init: function() {
     this.setColour(290);
-    this.appendValueInput("VALUE", Number)
-      .appendTitle(Blockly.LANG_PROCEDURES_DEFRETURN_RETURN);
-    this.setPreviousStatement(true, null);
-    this.setTooltip("return in procedure");
+    this.appendValueInput('CONDITION')
+        .setCheck(Boolean)
+        .appendTitle(Blockly.LANG_CONTROLS_IF_MSG_IF);
+    this.appendDummyInput()
+        .appendTitle(Blockly.LANG_PROCEDURES_DEFRETURN_RETURN);
+    this.appendValueInput('VALUE');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.LANG_PROCEDURES_IFRETURN_TOOLTIP);
+    this.hasReturnValue_ = true;
+  },
+  mutationToDom: function() {
+    // Save whether this block has a return value.
+    var container = document.createElement('mutation');
+    container.setAttribute('value', Number(this.hasReturnValue_));
+    return container;
+  },
+  domToMutation: function(xmlElement) {
+    // Restore whether this block has a return value.
+    var value = xmlElement.getAttribute('value');
+    this.hasReturnValue_ = (value == 1);
+    if (!this.hasReturnValue_) {
+      this.removeInput('VALUE');
+    }
+  },
+  onchange: function() {
+    if (!this.workspace) {
+      // Block has been deleted.
+      return;
+    }
+    var legal = false;
+    // Is the block nested in a procedure?
+    var block = this;
+    do {
+      if (block.type == 'procedures_defnoreturn' ||
+          block.type == 'procedures_defreturn') {
+        legal = true;
+        break;
+      }
+      block = block.getSurroundParent();
+    } while (block);
+    if (legal) {
+      // If needed, toggle whether this block has a return value.
+      if (block.type == 'procedures_defnoreturn' && this.hasReturnValue_) {
+        this.removeInput('VALUE');
+        this.hasReturnValue_ = false;
+      } else if (block.type == 'procedures_defreturn' &&
+                 !this.hasReturnValue_) {
+        this.appendValueInput('VALUE');
+        this.hasReturnValue_ = true;
+      }
+      this.setWarningText(null);
+    } else {
+      this.setWarningText(Blockly.LANG_PROCEDURES_IFRETURN_WARNING);
+    }
   }
 };
-

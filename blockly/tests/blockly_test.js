@@ -93,24 +93,6 @@ function test_DB_removeConnection() {
   verify_DB_('Removing connection #3b', [], db);
 }
 
-function test_removeChildren() {
-  var p = document.createElement('p');
-  var span = document.createElement('span');
-  var text = document.createTextNode('Hello World');
-  var hr = document.createElement('hr');
-  p.appendChild(span);
-  span.appendChild(text);
-  p.appendChild(hr);
-  assertTrue(p.hasChildNodes());
-  Blockly.removeChildren_(p);  // Remove two children.
-  assertFalse(p.hasChildNodes());
-  assertTrue(span.hasChildNodes());
-  Blockly.removeChildren_(span);  // Remove one child.
-  assertFalse(span.hasChildNodes());
-  Blockly.removeChildren_(span);  // Remove zero children.
-  assertFalse(span.hasChildNodes());
-}
-
 function test_addClass() {
   var p = document.createElement('p');
   Blockly.addClass_(p, 'one');
@@ -140,20 +122,4 @@ function test_removeClass() {
   assertEquals('Removing "one"', '', p.className);
   Blockly.removeClass_(p, 'zero');
   assertEquals('Removing "zero"', '', p.className);
-}
-
-function testCaseInsensitiveComparator() {
-  var abc = ['cat', 'BAT', 'ant'];
-  abc.sort();
-  assertEquals('Case senstive sort', 'BAT,ant,cat', abc.toString());
-  abc.sort(Blockly.caseInsensitiveComparator);
-  assertEquals('Case insenstive sort', 'ant,BAT,cat', abc.toString());
-}
-
-function testUniqueId() {
-  // Test length
-  assertEquals(8, Blockly.uniqueId().length);
-  // Two IDs should not be the same.
-  // There's a 1 in 4 trillion chance this test could fail normally.
-  assertEquals(false, Blockly.uniqueId() == Blockly.uniqueId());
 }

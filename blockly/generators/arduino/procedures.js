@@ -78,10 +78,18 @@ Blockly.Arduino.procedures_callnoreturn = function() {
   return code;
 };
 
-Blockly.Arduino.procedures_return = function() {
-  var value = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ATOMIC);
-  var code = "return "+value+";\n";
+Blockly.Arduino.procedures_ifreturn = function() {
+  // Conditionally return value from a procedure.
+  var condition = Blockly.Arduino.valueToCode(this, 'CONDITION',
+      Blockly.Arduino.ORDER_NONE) || 'false';
+  var code = 'if (' + condition + ') {\n';
+  if (this.hasReturnValue_) {
+    var value = Blockly.Arduino.valueToCode(this, 'VALUE',
+        Blockly.Arduino.ORDER_NONE) || 'null';
+    code += '  return ' + value + ';\n';
+  } else {
+    code += '  return;\n';
+  }
+  code += '}\n';
   return code;
 };
-
-

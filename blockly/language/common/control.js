@@ -183,7 +183,7 @@ Blockly.Language.controls_if_if = {
     this.appendDummyInput()
         .appendTitle(Blockly.LANG_CONTROLS_IF_IF_TITLE_IF);
     this.appendStatementInput('STACK');
-    this.setTooltip(Blockly.LANG_CONTROLS_IF_IF_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_CONTROLS_IF_IF_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -196,7 +196,7 @@ Blockly.Language.controls_if_elseif = {
         .appendTitle(Blockly.LANG_CONTROLS_IF_ELSEIF_TITLE_ELSEIF);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.LANG_CONTROLS_IF_ELSEIF_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_CONTROLS_IF_ELSEIF_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -208,7 +208,7 @@ Blockly.Language.controls_if_else = {
     this.appendDummyInput()
         .appendTitle(Blockly.LANG_CONTROLS_IF_ELSE_TITLE_ELSE);
     this.setPreviousStatement(true);
-    this.setTooltip(Blockly.LANG_CONTROLS_IF_ELSE_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_CONTROLS_IF_ELSE_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -270,7 +270,7 @@ Blockly.Language.controls_for = {
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.LANG_CONTROLS_FOR_TOOLTIP_1.replace('%1',
+      return Blockly.LANG_CONTROLS_FOR_TOOLTIP.replace('%1',
           thisBlock.getTitleValue('VAR'));
     });
   },
@@ -302,7 +302,7 @@ Blockly.Language.controls_forEach = {
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.LANG_CONTROLS_FOREACH_TOOLTIP_1.replace('%1',
+      return Blockly.LANG_CONTROLS_FOREACH_TOOLTIP.replace('%1',
           thisBlock.getTitleValue('VAR'));
     });
   },

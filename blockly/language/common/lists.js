@@ -31,8 +31,8 @@ Blockly.Language.lists_create_empty = {
     this.setColour(210);
     this.setOutput(true, Array);
     this.appendDummyInput()
-        .appendTitle(Blockly.LANG_LISTS_CREATE_EMPTY_TITLE_1);
-    this.setTooltip(Blockly.LANG_LISTS_CREATE_EMPTY_TOOLTIP_1);
+        .appendTitle(Blockly.LANG_LISTS_CREATE_EMPTY_TITLE);
+    this.setTooltip(Blockly.LANG_LISTS_CREATE_EMPTY_TOOLTIP);
   }
 };
 
@@ -48,7 +48,7 @@ Blockly.Language.lists_create_with = {
     this.appendValueInput('ADD2');
     this.setOutput(true, Array);
     this.setMutator(new Blockly.Mutator(['lists_create_with_item']));
-    this.setTooltip(Blockly.LANG_LISTS_CREATE_WITH_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LISTS_CREATE_WITH_TOOLTIP);
     this.itemCount_ = 3;
   },
   mutationToDom: function(workspace) {
@@ -69,7 +69,7 @@ Blockly.Language.lists_create_with = {
     }
     if (this.itemCount_ == 0) {
       this.appendDummyInput('EMPTY')
-          .appendTitle(Blockly.LANG_LISTS_CREATE_EMPTY_TITLE_1);
+          .appendTitle(Blockly.LANG_LISTS_CREATE_EMPTY_TITLE);
     }
   },
   decompose: function(workspace) {
@@ -112,7 +112,7 @@ Blockly.Language.lists_create_with = {
     }
     if (this.itemCount_ == 0) {
       this.appendDummyInput('EMPTY')
-          .appendTitle(Blockly.LANG_LISTS_CREATE_EMPTY_TITLE_1);
+          .appendTitle(Blockly.LANG_LISTS_CREATE_EMPTY_TITLE);
     }
   },
   saveConnections: function(containerBlock) {
@@ -136,7 +136,7 @@ Blockly.Language.lists_create_with_container = {
     this.appendDummyInput()
         .appendTitle(Blockly.LANG_LISTS_CREATE_WITH_CONTAINER_TITLE_ADD);
     this.appendStatementInput('STACK');
-    this.setTooltip(Blockly.LANG_LISTS_CREATE_WITH_CONTAINER_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LISTS_CREATE_WITH_CONTAINER_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -149,7 +149,7 @@ Blockly.Language.lists_create_with_item = {
         .appendTitle(Blockly.LANG_LISTS_CREATE_WITH_ITEM_TITLE);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.LANG_LISTS_CREATE_WITH_ITEM_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LISTS_CREATE_WITH_ITEM_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -169,7 +169,7 @@ Blockly.Language.lists_repeat = {
     this.appendDummyInput()
         .appendTitle(Blockly.LANG_LISTS_REPEAT_INPUT_TIMES);
     this.setInputsInline(true);
-    this.setTooltip(Blockly.LANG_LISTS_REPEAT_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LISTS_REPEAT_TOOLTIP);
   }
 };
 
@@ -183,7 +183,7 @@ Blockly.Language.lists_length = {
         .setCheck([Array, String])
         .appendTitle(Blockly.LANG_LISTS_LENGTH_INPUT_LENGTH);
     this.setOutput(true, Number);
-    this.setTooltip(Blockly.LANG_LISTS_LENGTH_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LISTS_LENGTH_TOOLTIP);
   }
 };
 
@@ -197,7 +197,7 @@ Blockly.Language.lists_isEmpty = {
         .setCheck([Array, String])
         .appendTitle(Blockly.LANG_LISTS_INPUT_IS_EMPTY);
     this.setOutput(true, Boolean);
-    this.setTooltip(Blockly.LANG_LISTS_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LISTS_TOOLTIP);
   }
 };
 
@@ -216,7 +216,7 @@ Blockly.Language.lists_indexOf = {
         .setCheck(Array)
         .appendTitle(Blockly.LANG_LISTS_INDEX_OF_INPUT_IN_LIST);
     this.setInputsInline(true);
-    this.setTooltip(Blockly.LANG_LISTS_INDEX_OF_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LISTS_INDEX_OF_TOOLTIP);
   }
 };
 
@@ -238,7 +238,7 @@ Blockly.Language.lists_getIndex = {
         .setCheck(Array)
         .appendTitle(Blockly.LANG_LISTS_GET_INDEX_INPUT_IN_LIST);
     this.setInputsInline(true);
-    this.setTooltip(Blockly.LANG_LISTS_GET_INDEX_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LISTS_GET_INDEX_TOOLTIP);
   }
 };
 
@@ -259,6 +259,6 @@ Blockly.Language.lists_setIndex = {
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.LANG_LISTS_SET_INDEX_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LISTS_SET_INDEX_TOOLTIP);
   }
 };

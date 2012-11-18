@@ -161,7 +161,8 @@ Blockly.CodeGenerator.prototype.blockToCode = function(block) {
  * @param {string} name The name of the input.
  * @param {number} order The maximum binding strength (minimum order value)
  *     of any operators adjacent to "block".
- * @return {string} Generated code or '' if no blocks are connected.
+ * @return {string} Generated code or '' if no blocks are connected or the
+ *     specified input does not exist.
  */
 Blockly.CodeGenerator.prototype.valueToCode = function(block, name, order) {
   var targetBlock = block.getInputTargetBlock(name);

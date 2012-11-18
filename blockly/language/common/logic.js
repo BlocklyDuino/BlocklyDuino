@@ -101,7 +101,7 @@ Blockly.Language.logic_negate = {
     this.appendValueInput('BOOL')
         .setCheck(Boolean)
         .appendTitle(Blockly.LANG_LOGIC_NEGATE_INPUT_NOT);
-    this.setTooltip(Blockly.LANG_LOGIC_NEGATE_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LOGIC_NEGATE_TOOLTIP);
   }
 };
 
@@ -114,7 +114,7 @@ Blockly.Language.logic_boolean = {
     this.setOutput(true, Boolean);
     this.appendDummyInput()
         .appendTitle(new Blockly.FieldDropdown(this.OPERATORS), 'BOOL');
-    this.setTooltip(Blockly.LANG_LOGIC_BOOLEAN_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LOGIC_BOOLEAN_TOOLTIP);
   }
 };
 
@@ -131,6 +131,6 @@ Blockly.Language.logic_null = {
     this.setOutput(true, null);
     this.appendDummyInput()
         .appendTitle(Blockly.LANG_LOGIC_NULL);
-    this.setTooltip(Blockly.LANG_LOGIC_NULL_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_LOGIC_NULL_TOOLTIP);
   }
 };

@@ -33,7 +33,7 @@ Blockly.Language.math_number = {
         .appendTitle(new Blockly.FieldTextInput('0',
         Blockly.Language.math_number.validator), 'NUM');
     this.setOutput(true, Number);
-    this.setTooltip(Blockly.LANG_MATH_NUMBER_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_MATH_NUMBER_TOOLTIP);
   }
 };
 
@@ -98,7 +98,7 @@ Blockly.Language.math_change = {
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.LANG_MATH_CHANGE_TOOLTIP_1.replace('%1',
+      return Blockly.LANG_MATH_CHANGE_TOOLTIP.replace('%1',
           thisBlock.getTitleValue('VAR'));
     });
   },
@@ -162,7 +162,7 @@ Blockly.Language.math_round = {
     this.appendValueInput('NUM')
         .setCheck(Number)
         .appendTitle(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
-    this.setTooltip(Blockly.LANG_MATH_ROUND_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_MATH_ROUND_TOOLTIP);
   }
 };
 
@@ -274,7 +274,7 @@ Blockly.Language.math_constrain = {
         .setCheck(Number)
         .appendTitle(Blockly.LANG_MATH_CONSTRAIN_INPUT_HIGH);
     this.setInputsInline(true);
-    this.setTooltip(Blockly.LANG_MATH_CONSTRAIN_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_MATH_CONSTRAIN_TOOLTIP);
   }
 };
 
@@ -293,7 +293,7 @@ Blockly.Language.math_modulo = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendTitle('\u00F7');
     this.setInputsInline(true);
-    this.setTooltip(Blockly.LANG_MATH_MODULO_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_MATH_MODULO_TOOLTIP);
   }
 };
 
@@ -312,7 +312,7 @@ Blockly.Language.math_random_int = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendTitle(Blockly.LANG_MATH_RANDOM_INT_INPUT_TO);
     this.setInputsInline(true);
-    this.setTooltip(Blockly.LANG_MATH_RANDOM_INT_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_MATH_RANDOM_INT_TOOLTIP);
   }
 };
 
@@ -325,6 +325,6 @@ Blockly.Language.math_random_float = {
     this.setOutput(true, Number);
     this.appendDummyInput()
         .appendTitle(Blockly.LANG_MATH_RANDOM_FLOAT_TITLE_RANDOM);
-    this.setTooltip(Blockly.LANG_MATH_RANDOM_FLOAT_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_MATH_RANDOM_FLOAT_TOOLTIP);
   }
 };

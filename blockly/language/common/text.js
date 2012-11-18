@@ -36,7 +36,7 @@ Blockly.Language.text = {
         .appendTitle(new Blockly.FieldImage(Blockly.pathToBlockly +
         'media/quote1.png', 12, 12));
     this.setOutput(true, String);
-    this.setTooltip(Blockly.LANG_TEXT_TEXT_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_TEXT_TOOLTIP);
   }
 };
 
@@ -51,7 +51,7 @@ Blockly.Language.text_join = {
     this.appendValueInput('ADD1');
     this.setOutput(true, String);
     this.setMutator(new Blockly.Mutator(['text_create_join_item']));
-    this.setTooltip(Blockly.LANG_TEXT_JOIN_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_JOIN_TOOLTIP);
     this.itemCount_ = 2;
   },
   mutationToDom: function() {
@@ -145,7 +145,7 @@ Blockly.Language.text_create_join_container = {
     this.appendDummyInput()
         .appendTitle(Blockly.LANG_TEXT_CREATE_JOIN_TITLE_JOIN);
     this.appendStatementInput('STACK');
-    this.setTooltip(Blockly.LANG_TEXT_CREATE_JOIN_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_CREATE_JOIN_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -158,7 +158,7 @@ Blockly.Language.text_create_join_item = {
         .appendTitle(Blockly.LANG_TEXT_CREATE_JOIN_ITEM_TITLE_ITEM);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.LANG_TEXT_CREATE_JOIN_ITEM_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_CREATE_JOIN_ITEM_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -179,7 +179,7 @@ Blockly.Language.text_append = {
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.LANG_TEXT_APPEND_TOOLTIP_1.replace('%1',
+      return Blockly.LANG_TEXT_APPEND_TOOLTIP.replace('%1',
           thisBlock.getTitleValue('VAR'));
     });
   },
@@ -203,7 +203,7 @@ Blockly.Language.text_length = {
         .setCheck([String, Array])
         .appendTitle(Blockly.LANG_TEXT_LENGTH_INPUT_LENGTH);
     this.setOutput(true, Number);
-    this.setTooltip(Blockly.LANG_TEXT_LENGTH_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_LENGTH_TOOLTIP);
   }
 };
 
@@ -217,7 +217,7 @@ Blockly.Language.text_isEmpty = {
         .setCheck([String, Array])
         .appendTitle(Blockly.LANG_TEXT_ISEMPTY_INPUT_ISEMPTY);
     this.setOutput(true, Boolean);
-    this.setTooltip(Blockly.LANG_TEXT_ISEMPTY_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_ISEMPTY_TOOLTIP);
   }
 };
 
@@ -236,7 +236,7 @@ Blockly.Language.text_endString = {
         .setCheck(String)
         .appendTitle(Blockly.LANG_TEXT_ENDSTRING_INPUT);
     this.setInputsInline(true);
-    this.setTooltip(Blockly.LANG_TEXT_ENDSTRING_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_ENDSTRING_TOOLTIP);
   }
 };
 
@@ -260,7 +260,7 @@ Blockly.Language.text_indexOf = {
         .setCheck(String)
         .appendTitle(Blockly.LANG_TEXT_INDEXOF_INPUT_INTEXT);
     this.setInputsInline(true);
-    this.setTooltip(Blockly.LANG_TEXT_INDEXOF_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_INDEXOF_TOOLTIP);
   }
 };
 
@@ -282,7 +282,7 @@ Blockly.Language.text_charAt = {
         .setCheck(String)
         .appendTitle(Blockly.LANG_TEXT_CHARAT_INPUT_INTEXT);
     this.setInputsInline(true);
-    this.setTooltip(Blockly.LANG_TEXT_CHARAT_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_CHARAT_TOOLTIP);
   }
 };
 
@@ -297,7 +297,7 @@ Blockly.Language.text_changeCase = {
         .appendTitle(Blockly.LANG_TEXT_CHANGECASE_TITLE_TO)
         .appendTitle(new Blockly.FieldDropdown(this.OPERATORS), 'CASE');
     this.setOutput(true, String);
-    this.setTooltip(Blockly.LANG_TEXT_CHANGECASE_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_CHANGECASE_TOOLTIP);
   }
 };
 
@@ -325,7 +325,7 @@ Blockly.Language.text_trim = {
         .appendTitle(menu, 'MODE')
         .appendTitle(Blockly.LANG_TEXT_TRIM_TITLE_SIDES, 'SIDES');
     this.setOutput(true, String);
-    this.setTooltip(Blockly.LANG_TEXT_TRIM_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_TRIM_TOOLTIP);
   },
   mutationToDom: function() {
     // Save whether the 'sides' title should be plural or singular.
@@ -357,7 +357,7 @@ Blockly.Language.text_print = {
         .appendTitle(Blockly.LANG_TEXT_PRINT_TITLE_PRINT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.LANG_TEXT_PRINT_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_PRINT_TOOLTIP);
   }
 };
 
@@ -377,7 +377,7 @@ Blockly.Language.text_prompt = {
         .appendTitle(new Blockly.FieldImage(Blockly.pathToBlockly +
         'media/quote1.png', 12, 12));
     this.setOutput(true, [Number, String]);
-    this.setTooltip(Blockly.LANG_TEXT_PROMPT_TOOLTIP_1);
+    this.setTooltip(Blockly.LANG_TEXT_PROMPT_TOOLTIP);
   }
 };
 

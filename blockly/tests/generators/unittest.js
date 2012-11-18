@@ -23,8 +23,6 @@
  */
 'use strict';
 
-if (!Blockly.Language) Blockly.Language = {};
-
 Blockly.Language.unittest_main = {
   // Container for unit tests.
   category: 'Unit test',
@@ -66,7 +64,7 @@ Blockly.Language.unittest_asserttrue = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.appendDummyInput()
-        .appendTitle(new Blockly.FieldTextInput('test name'), 'MESSAGE')
+        .appendTitle(new Blockly.FieldTextInput('test name'), 'MESSAGE');
     this.appendValueInput('ACTUAL', Boolean)
         .appendTitle('assert true');
     this.setTooltip('Tests that the value is true.');
@@ -81,7 +79,7 @@ Blockly.Language.unittest_assertfalse = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.appendDummyInput()
-        .appendTitle(new Blockly.FieldTextInput('test name'), 'MESSAGE')
+        .appendTitle(new Blockly.FieldTextInput('test name'), 'MESSAGE');
     this.appendValueInput('ACTUAL', Boolean)
         .appendTitle('assert false');
     this.setTooltip('Tests that the value is false.');
