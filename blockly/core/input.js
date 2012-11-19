@@ -56,7 +56,11 @@ Blockly.Input.prototype.appendTitle = function(title, opt_name) {
   if (this.sourceBlock_.svg_) {
     title.init(this.sourceBlock_);
   }
-  title.name = opt_name;
+  if(typeof(title) === Object){
+    title.name = opt_name;
+  } else if (typeof(title) === undefined){
+    title = opt_name;
+  }
 
   // Add the title to the title row.
   this.titleRow.push(title);

@@ -7,7 +7,7 @@ code name: Mindstorms
 
 Feature: 
 
-* add procedure support with return add logic null blocks, contribute back to blokly
+* add procedure support with return add logic null blocks, contribute back to blockly
 * add blocks:
   Grove Ultrasonic Ranger
   Grove Motor Shield
