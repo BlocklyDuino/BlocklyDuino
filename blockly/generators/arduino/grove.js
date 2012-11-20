@@ -294,11 +294,25 @@ Blockly.Language.grove_motor_shield = {
   }
 };
 
+Blockly.Language.grove_thumb_joystick = {
+  category: 'Grove Analog',
+  helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Thumb_Joystick',
+  init: function() {
+    this.setColour(10);
+    this.appendDummyInput("")
+	.appendTitle("Thumb Joystick")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/e0/Twig_-_Thumb_Joystick_v0.9b.jpg/200px-Twig_-_Thumb_Joystick_v0.9b.jpg", 64, 64))
+	.appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN")
+        .appendTitle("axis")
+        .appendTitle(new Blockly.FieldDropdown([["x", "x"],  ["y", "y"]]), "AXIS");
+    this.setOutput(true, Number);
+this.setTooltip('output two analog values(200~800) representing two directions');
+  }
+};
+
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
-
-//http://www.seeedstudio.com/wiki/images/thumb/e/e0/Twig_-_Thumb_Joystick_v0.9b.jpg/200px-Twig_-_Thumb_Joystick_v0.9b.jpg
-//http://www.seeedstudio.com/wiki/Grove_-_Thumb_Joystick
 
 //http://www.seeedstudio.com/wiki/File:Grove_-_125KHz_RFID_Reader.jpg
 //http://www.seeedstudio.com/wiki/Grove_-_125KHz_RFID_Reader
@@ -472,7 +486,7 @@ var _get_next_pin = function(dropdown_pin) {
     } 
   }
   if(notExist){
-    alert("Serial LCD needs PIN#+1 port, current setting is out of bound.");
+    alert("Grove Sensor needs PIN#+1 port, current setting is out of bound.");
     return null;
   } else {
     return NextPIN;
@@ -643,4 +657,17 @@ Blockly.Arduino.grove_motor_shield = function() {
     code="stop();\n";
   }
   return code;
+};
+
+Blockly.Arduino.grove_thumb_joystick =  function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_axis = this.getTitleValue('AXIS');
+  var stickPIN = "0"
+  if(dropdown_axis==="y"){
+    stickPIN = _get_next_pin(dropdown_pin);
+  } else {
+    stickPIN = dropdown_pin
+  }
+  var code = 'analogRead('+stickPIN+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };

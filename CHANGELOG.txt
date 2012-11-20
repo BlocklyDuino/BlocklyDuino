@@ -7,20 +7,22 @@ code name: Mindstorms
 
 Feature: 
 
-* add procedure support with return add logic null blocks, contribute back to blockly
+* add procedure support with return and logic null blocks, contribute back to blockly
 * add blocks:
   Grove Ultrasonic Ranger
   Grove Motor Shield
+  Grove Thumb JoyStick
 
 Change:
 * clean blocks internal
 * update blockly till r509, pretty print xml
+* change procedure return to ifreturn block via blockly
 
 Fix:
 * names with object
 * variable dropdown with object
 
-Credit: gasolin
+Credit: gasolin, neil fraser(blockly)
 
 0.9 2012/11/11
 ------------------
