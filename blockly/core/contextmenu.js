@@ -139,7 +139,7 @@ Blockly.ContextMenu.show = function(anchorX, anchorY, options) {
       options.length * Blockly.ContextMenu.Y_HEIGHT + 10);
 
   // Convert the mouse coordinates into SVG coordinates.
-  var xy = Blockly.mouseToSvg(anchorX, anchorY);
+  var xy = Blockly.convertCoordinates(anchorX, anchorY, true);
   anchorX = xy.x;
   anchorY = xy.y;
 

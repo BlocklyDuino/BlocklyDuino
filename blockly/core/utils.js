@@ -267,15 +267,20 @@ Blockly.isRightButton = function(e) {
 };
 
 /**
- * Convert the mouse coordinates into SVG coordinates.
- * @param {number} x X mouse coordinate.
- * @param {number} y Y mouse coordinate.
- * @return {!Object} Object with x and y properties in SVG coordinates.
+ * Convert between mouse/HTML coordinates and SVG coordinates.
+ * @param {number} x X input coordinate.
+ * @param {number} y Y input coordinate.
+ * @param {boolean} toSvg True to convert to SVG coordinates.
+ *     False to convert to mouse/HTML coordinates.
+ * @return {!Object} Object with x and y properties in output coordinates.
  */
-Blockly.mouseToSvg = function(x, y) {
+Blockly.convertCoordinates = function(x, y, toSvg) {
   var svgPoint = Blockly.svg.createSVGPoint();
   svgPoint.x = x;
   svgPoint.y = y;
-  var matrix = Blockly.svg.getScreenCTM().inverse();
+  var matrix = Blockly.svg.getScreenCTM();
+  if (toSvg) {
+    matrix = matrix.inverse();
+  }
   return svgPoint.matrixTransform(matrix);
 };

@@ -77,7 +77,7 @@ Blockly.FieldDropdown.createDom = function() {
  */
 Blockly.FieldDropdown.prototype.dispose = function() {
   if (Blockly.FieldDropdown.openDropdown_ == this) {
-    Blockly.FieldDropdown.hideMenu();
+    Blockly.FieldDropdown.hide();
   }
   // Call parent's destructor.
   Blockly.Field.prototype.dispose.call(this);
@@ -155,7 +155,7 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
     Blockly.bindEvent_(gElement, 'mousedown', null, Blockly.noEvent);
     Blockly.bindEvent_(gElement, 'mouseup', this, callbackFactory(text));
     Blockly.bindEvent_(gElement, 'mouseup', null,
-                       Blockly.FieldDropdown.hideMenu);
+                       Blockly.FieldDropdown.hide);
     // Compute the length of the longest text length.
     maxWidth = Math.max(maxWidth, textElement.getComputedTextLength());
   }
@@ -256,7 +256,7 @@ Blockly.FieldDropdown.prototype.setValue = function(newValue) {
 /**
  * Hide the dropdown menu.
  */
-Blockly.FieldDropdown.hideMenu = function() {
+Blockly.FieldDropdown.hide = function() {
   Blockly.FieldDropdown.svgGroup_.style.display = 'none';
   Blockly.FieldDropdown.openDropdown_ = null;
 };

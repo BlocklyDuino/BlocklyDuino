@@ -213,7 +213,7 @@ Blockly.Trashcan.prototype.onMouseMove = function(e) {
   var top = xy.y;
 
   // Convert the mouse coordinates into SVG coordinates.
-  xy = Blockly.mouseToSvg(e.clientX, e.clientY);
+  xy = Blockly.convertCoordinates(e.clientX, e.clientY, true);
   var mouseX = xy.x;
   var mouseY = xy.y;
 
