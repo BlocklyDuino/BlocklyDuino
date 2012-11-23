@@ -31,7 +31,9 @@ if (!window.goog) {
 // Closure dependencies.
 goog.require('goog.dom');
 goog.require('goog.color');
+goog.require('goog.events');
 goog.require('goog.string');
+goog.require('goog.ui.ColorPicker');
 goog.require('goog.userAgent');
 
 // Top level object for Blockly.
@@ -389,7 +391,8 @@ Blockly.onContextMenu_ = function(e) {
 Blockly.hideChaff = function(opt_allowToolbox) {
   Blockly.Tooltip && Blockly.Tooltip.hide();
   Blockly.ContextMenu && Blockly.ContextMenu.hide();
-  Blockly.FieldDropdown.hideMenu();
+  Blockly.FieldDropdown && Blockly.FieldDropdown.hide();
+  Blockly.FieldColour && Blockly.FieldColour.hide();
   if (Blockly.Toolbox && !opt_allowToolbox &&
       Blockly.Toolbox.flyout_.autoClose) {
     Blockly.Toolbox.clearSelection();

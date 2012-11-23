@@ -65,7 +65,7 @@ Blockly.FieldTextInput.prototype.setText = function(text) {
  */
 Blockly.FieldTextInput.injectDom_ = function(workspaceSvg) {
   /*
-  <foreignObject class="blocklyHidden" height="22">
+  <foreignObject height="22">
     <body xmlns="http://www.w3.org/1999/xhtml" class="blocklyMinimalBody">
       <input class="blocklyHtmlInput" xmlns="http://www.w3.org/1999/xhtml"/>
     </body>

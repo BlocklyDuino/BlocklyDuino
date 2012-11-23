@@ -295,7 +295,7 @@ Blockly.Tooltip.show_ = function() {
   var anchorY = Blockly.Tooltip.lastY_ + Blockly.Tooltip.OFFSET_Y;
 
   // Convert the mouse coordinates into SVG coordinates.
-  var xy = Blockly.mouseToSvg(anchorX, anchorY);
+  var xy = Blockly.convertCoordinates(anchorX, anchorY, true);
   anchorX = xy.x;
   anchorY = xy.y;
 

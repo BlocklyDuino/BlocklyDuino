@@ -15,7 +15,7 @@ Feature:
 
 Change:
 * clean blocks internal
-* update blockly till r509, pretty print xml
+* update blockly till r518, pretty print xml
 * change procedure return to ifreturn block via blockly
 
 Fix:

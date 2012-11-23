@@ -182,6 +182,11 @@ Blockly.createDom_ = function(container) {
   container.appendChild(svg);
   Blockly.svg = svg;
   Blockly.svgResize();
+
+  // Create an HTML container for popup overlays (e.g. editor widgets).
+  Blockly.widgetDiv = goog.dom.createDom('div', {
+      'class': 'blocklyWidgetDiv'});
+  container.appendChild(Blockly.widgetDiv);
 };
 
 

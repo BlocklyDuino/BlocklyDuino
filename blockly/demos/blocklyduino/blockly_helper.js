@@ -46,7 +46,6 @@ function save() {
 
 /**
  * Load blocks from local file.
- * @param {!Event} event Upload event.
  */
 function load(event) {
   var files = event.target.files;
