@@ -283,7 +283,7 @@ Blockly.Language.grove_motor_shield = {
     this.appendDummyInput("")
         .appendTitle("Motor")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/4/4d/Smotoshield2.jpg/400px-Smotoshield2.jpg", 64, 64))
-        .appendTitle(new Blockly.FieldDropdown([["Forward", "forward"], ["Stop", "stop"], ["Right", "right"], ["Left", "left"], ["Backward", "backward"]]), "DIRECTION");
+        .appendTitle(new Blockly.FieldDropdown([["Stop", "stop"], ["Forward", "forward"], ["Right", "right"], ["Left", "left"], ["Backward", "backward"]]), "DIRECTION");
     /*this.appendValueInput("SPEED", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
