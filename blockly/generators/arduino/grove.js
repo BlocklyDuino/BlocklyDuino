@@ -311,6 +311,24 @@ this.setTooltip('output two analog values(200~800) representing two directions')
   }
 };
 
+Blockly.Language.grove_rgb_led = {
+  category: 'Grove',
+  helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=Twig_-_Chainable_RGB_LED',
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput("")
+  .appendTitle("Chainable RGB LED")
+        .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/chanbalelednb1.jpg", 64, 64))
+  .appendTitle("PIN#")
+        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+        .appendTitle("color")
+        .appendTitle(new Blockly.FieldColour("#00ff00"), "RGB");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('256 color LED, currently Chainable feature is not support');
+  }
+};
+
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
 
@@ -670,4 +688,87 @@ Blockly.Arduino.grove_thumb_joystick =  function() {
   }
   var code = 'analogRead('+stickPIN+')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+function hexToR(h) {return parseInt((cutHex(h)).substring(0,2),16)}
+function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
+function hexToB(h) {return parseInt((cutHex(h)).substring(4,6),16)}
+function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
+
+Blockly.Arduino.grove_rgb_led = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var NextPIN = _get_next_pin(dropdown_pin);
+  var colour_rgb = this.getTitleValue('RGB');
+  Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
+  Blockly.Arduino.setups_['setup_input_'+NextPIN] = 'pinMode('+NextPIN+', OUTPUT);';
+  Blockly.Arduino.definitions_['define_uint8'] = "#define uint8 unsigned char";
+  Blockly.Arduino.definitions_['define_uint16'] = "#define uint16 unsigned int";
+  Blockly.Arduino.definitions_['define_uint32'] = "#define uint32 unsigned long int";
+  Blockly.Arduino.definitions_['define_clkproduce_'+dropdown_pin] = "void ClkProduce_"+dropdown_pin+"(void)\n"+
+  "{\n"+
+  "  digitalWrite("+dropdown_pin+", LOW);\n"+
+  "  delayMicroseconds(20);\n"+
+  "  digitalWrite("+dropdown_pin+", HIGH);\n"+
+  "  delayMicroseconds(20);\n"+
+  "}\n";
+  Blockly.Arduino.definitions_['define_send32zero_'+dropdown_pin] = "void Send32Zero_"+dropdown_pin+"(void)\n"+
+  "{\n"+
+  "  uint8 i;\n"+
+  "  for (i=0; i<32; i++)\n"+
+  "  {\n"+
+  "    digitalWrite("+NextPIN+", LOW);\n"+
+  "    ClkProduce_"+dropdown_pin+"();\n"+
+  "  }\n"+
+  "}\n";
+  Blockly.Arduino.definitions_['define_taskanticode'] = "uint8 TakeAntiCode(uint8 dat)\n"+
+  "{\n"+
+  "  uint8 tmp = 0;\n"+
+  "  if ((dat & 0x80) == 0)\n"+
+  "  {\n"+
+  "    tmp |= 0x02;\n"+
+  "  }\n"+
+  "  \n"+
+  "  if ((dat & 0x40) == 0)\n"+
+  "  {\n"+
+  "    tmp |= 0x01;\n"+
+  "  }\n"+
+  "  return tmp;\n"+
+  "}\n";
+  Blockly.Arduino.definitions_['define_datasend_'+dropdown_pin] = "// gray data\n"+
+  "void DatSend_"+dropdown_pin+"(uint32 dx)\n"+
+  "{\n"+
+  "  uint8 i;\n"+
+  "  for (i=0; i<32; i++)\n"+
+  "  {\n"+
+  "    if ((dx & 0x80000000) != 0)\n"+
+  "    {\n"+
+  "      digitalWrite("+NextPIN+", HIGH);\n"+
+  "    }\n"+
+  "    else\n"+
+  "    {\n"+
+  "      digitalWrite("+NextPIN+", LOW);\n"+
+  "    }\n"+
+  "  dx <<= 1;\n"+
+  "  ClkProduce_"+dropdown_pin+"();\n"+
+  "  }\n"+
+  "}\n";
+  Blockly.Arduino.definitions_['define_datadealwithsend_'+dropdown_pin] = "// data processing\n"+
+"void DataDealWithAndSend_"+dropdown_pin+"(uint8 r, uint8 g, uint8 b)\n"+
+"{\n"+
+  "  uint32 dx = 0;\n"+
+  "  dx |= (uint32)0x03 << 30;             // highest two bits 1，flag bits\n"+
+  "  dx |= (uint32)TakeAntiCode(b) << 28;\n"+
+  "  dx |= (uint32)TakeAntiCode(g) << 26;\n"+
+  "  dx |= (uint32)TakeAntiCode(r) << 24;\n"+
+ "\n"+
+  "  dx |= (uint32)b << 16;\n"+
+  "  dx |= (uint32)g << 8;\n"+
+  "  dx |= r;\n"+
+ "\n"+
+  "  DatSend_"+dropdown_pin+"(dx);\n"+
+"}\n";
+  var code = "Send32Zero_"+dropdown_pin+"(); // begin\n"+
+    "DataDealWithAndSend_"+dropdown_pin+"("+hexToR(colour_rgb)+", "+hexToG(colour_rgb)+", "+hexToB(colour_rgb)+"); // first node data\n"+
+    "Send32Zero_"+dropdown_pin+"();  // send to update data\n";
+  return code;
 };

@@ -12,6 +12,7 @@ Feature:
   Grove Ultrasonic Ranger
   Grove Motor Shield
   Grove Thumb JoyStick
+  Grove Chained RGB LED (not support chained feature)
 
 Change:
 * clean blocks internal
