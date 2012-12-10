@@ -321,11 +321,146 @@ Blockly.Language.grove_rgb_led = {
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/chanbalelednb1.jpg", 64, 64))
   .appendTitle("PIN#")
         .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
-        .appendTitle("color")
-        .appendTitle(new Blockly.FieldColour("#00ff00"), "RGB");
+    this.appendDummyInput("COLOR0")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendTitle("Color")
+        .appendTitle(new Blockly.FieldColour("#00ff00"), "RGB0");
+    //this.setMutator(new Blockly.Mutator(['grove_rgb_led_item']));
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('256 color LED, currently Chainable feature is not support');
+    this.itemCount_ = 1;
+  },
+  mutationToDom: function() {
+    var container = document.createElement('mutation');
+    container.setAttribute('items', this.itemCount_);
+    for (var x = 0; x < this.itemCount_; x++) {
+      var colour_rgb = this.getTitleValue('RGB0');
+      //alert(colour_rgb);
+      container.setAttribute('RGB' + x, colour_rgb);
+    }
+    return container;
+  },
+  domToMutation: function(xmlElement) {
+    for (var x = 0; x < this.itemCount_; x++) {
+      this.removeInput('COLOR' + x);
+    }
+    this.itemCount_ = window.parseInt(xmlElement.getAttribute('items'), 10);
+    for (var x = 0; x < this.itemCount_; x++) {
+      var color = window.parseInt(xmlElement.getAttribute('RGB'+x), "#00ff00");
+      var input = this.appendDummyInput('COLOR' + x);
+      //if (x == 0) {
+        input.setAlign(Blockly.ALIGN_RIGHT)
+             .appendTitle("Color")
+             .appendTitle(new Blockly.FieldColour(color), "RGB" + x);
+      //}
+    }
+    if (this.itemCount_ == 0) {
+      this.appendDummyInput('COLOR0')
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendTitle("Color")
+          .appendTitle(new Blockly.FieldColour("#00ff00"), "RGB0");
+    }
+  },
+  decompose: function(workspace) {
+    var containerBlock = new Blockly.Block(workspace,
+                                           'grove_rgb_led_container');
+    containerBlock.initSvg();
+    var connection = containerBlock.getInput('STACK').connection;
+    for (var x = 0; x < this.itemCount_; x++) {
+      var itemBlock = new Blockly.Block(workspace, 'grove_rgb_led_item');
+      itemBlock.initSvg();
+      connection.connect(itemBlock.previousConnection);
+      connection = itemBlock.nextConnection;
+    }
+    return containerBlock;
+  },
+  compose: function(containerBlock) {
+    // Disconnect all input blocks and remove all inputs.
+    if (this.itemCount_ == 0) {
+      this.removeInput('COLOR0');
+    } else {
+      for (var x = this.itemCount_ - 1; x >= 0; x--) {
+        //console.log("cnt:"+x);
+        this.removeInput('COLOR' + x);
+      }
+    }
+    /*var top;
+    if(this.itemCount_ > 0){
+      top = this.itemCount_-1;
+    } else {
+      top = 0;
+    }
+    console.log("top:"+top);*/
+    this.itemCount_ = 0;
+    // Rebuild the block's inputs.
+    var itemBlock = containerBlock.getInputTargetBlock('STACK');
+    while (itemBlock) {
+      var colour_rgb = this.getTitleValue('RGB' + this.itemCount_);
+      if(colour_rgb==null){
+          colour_rgb = "00ff00";
+      }
+      //console.log("blk:"+this.itemCount_);
+      /*if(top>this.itemCount_){
+        this.removeInput('COLOR' + this.itemCount_);
+      }*/
+      var input = this.appendDummyInput('COLOR' + this.itemCount_);
+      //if (this.itemCount_ == 0) {
+        input.setAlign(Blockly.ALIGN_RIGHT)
+             .appendTitle("Color")
+             .appendTitle(new Blockly.FieldColour(colour_rgb), "RGB" + this.itemCount_);
+      //}
+      // Reconnect any child blocks.
+      if (itemBlock.valueConnection_) {
+        input.connection.connect(itemBlock.valueConnection_);
+      }
+      this.itemCount_++;
+      itemBlock = itemBlock.nextConnection &&
+          itemBlock.nextConnection.targetBlock();
+    }
+    if (this.itemCount_ == 0) {
+      this.appendDummyInput('COLOR0')
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendTitle("Color")
+          .appendTitle(new Blockly.FieldColour("#00ff00"), "RGB0");
+    }
+  },
+  /*saveConnections: function(containerBlock) {
+    // Store a pointer to any connected child blocks.
+    var itemBlock = containerBlock.getInputTargetBlock('STACK');
+    var x = 0;
+    while (itemBlock) {
+      var input = this.getInput('COLOR' + x);
+      itemBlock.valueConnection_ = input && input.connection.targetConnection;
+      x++;
+      itemBlock = itemBlock.nextConnection &&
+          itemBlock.nextConnection.targetBlock();
+    }
+  }*/
+};
+
+Blockly.Language.grove_rgb_led_container = {
+  // Container.
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput()
+        .appendTitle("Container");
+    this.appendStatementInput('STACK');
+    this.setTooltip("Add, remove items to reconfigure this chain");
+    this.contextMenu = false;
+  }
+};
+
+Blockly.Language.grove_rgb_led_item = {
+  // Add items.
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput()
+        .appendTitle("Item");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip("Add an item to the chain");
+    this.contextMenu = false;
   }
 };
 
@@ -698,7 +833,7 @@ function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
 Blockly.Arduino.grove_rgb_led = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var NextPIN = _get_next_pin(dropdown_pin);
-  var colour_rgb = this.getTitleValue('RGB');
+  var colour_rgb = this.getTitleValue('RGB0');
   Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
   Blockly.Arduino.setups_['setup_input_'+NextPIN] = 'pinMode('+NextPIN+', OUTPUT);';
   Blockly.Arduino.definitions_['define_uint8'] = "#define uint8 unsigned char";
