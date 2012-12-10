@@ -323,7 +323,7 @@ Blockly.Language.grove_rgb_led = {
         .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
     this.appendDummyInput("COLOR0")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("Color")
+        .appendTitle("Color 1")
         .appendTitle(new Blockly.FieldColour("#00ff00"), "RGB0");
     //this.setMutator(new Blockly.Mutator(['grove_rgb_led_item']));
     this.setPreviousStatement(true, null);
@@ -351,14 +351,14 @@ Blockly.Language.grove_rgb_led = {
       var input = this.appendDummyInput('COLOR' + x);
       //if (x == 0) {
         input.setAlign(Blockly.ALIGN_RIGHT)
-             .appendTitle("Color")
+             .appendTitle("Color "+(x+1))
              .appendTitle(new Blockly.FieldColour(color), "RGB" + x);
       //}
     }
     if (this.itemCount_ == 0) {
       this.appendDummyInput('COLOR0')
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendTitle("Color")
+          .appendTitle("Color 1")
           .appendTitle(new Blockly.FieldColour("#00ff00"), "RGB0");
     }
   },
@@ -407,7 +407,7 @@ Blockly.Language.grove_rgb_led = {
       var input = this.appendDummyInput('COLOR' + this.itemCount_);
       //if (this.itemCount_ == 0) {
         input.setAlign(Blockly.ALIGN_RIGHT)
-             .appendTitle("Color")
+             .appendTitle("Color " + (this.itemCount_+1))
              .appendTitle(new Blockly.FieldColour(colour_rgb), "RGB" + this.itemCount_);
       //}
       // Reconnect any child blocks.
@@ -421,7 +421,7 @@ Blockly.Language.grove_rgb_led = {
     if (this.itemCount_ == 0) {
       this.appendDummyInput('COLOR0')
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendTitle("Color")
+          .appendTitle("Color 1")
           .appendTitle(new Blockly.FieldColour("#00ff00"), "RGB0");
     }
   },
