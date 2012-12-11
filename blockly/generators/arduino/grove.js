@@ -325,7 +325,7 @@ Blockly.Language.grove_rgb_led = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendTitle("Color 1")
         .appendTitle(new Blockly.FieldColour("#00ff00"), "RGB0");
-    //this.setMutator(new Blockly.Mutator(['grove_rgb_led_item']));
+    this.setMutator(new Blockly.Mutator(['grove_rgb_led_item']));
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('256 color LED, currently Chainable feature is not support');
@@ -833,7 +833,7 @@ function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
 Blockly.Arduino.grove_rgb_led = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var NextPIN = _get_next_pin(dropdown_pin);
-  var colour_rgb = this.getTitleValue('RGB0');
+  
   Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
   Blockly.Arduino.setups_['setup_input_'+NextPIN] = 'pinMode('+NextPIN+', OUTPUT);';
   Blockly.Arduino.definitions_['define_uint8'] = "#define uint8 unsigned char";
@@ -902,8 +902,17 @@ Blockly.Arduino.grove_rgb_led = function() {
  "\n"+
   "  DatSend_"+dropdown_pin+"(dx);\n"+
 "}\n";
-  var code = "Send32Zero_"+dropdown_pin+"(); // begin\n"+
-    "DataDealWithAndSend_"+dropdown_pin+"("+hexToR(colour_rgb)+", "+hexToG(colour_rgb)+", "+hexToB(colour_rgb)+"); // first node data\n"+
-    "Send32Zero_"+dropdown_pin+"();  // send to update data\n";
+  var code = "Send32Zero_"+dropdown_pin+"(); // begin\n";
+  //console.log(this.itemCount_);
+  if (this.itemCount_ == 0) {
+    return '';
+  } else {
+    for (var n = 0; n < this.itemCount_; n++) {
+      var colour_rgb = this.getTitleValue('RGB'+n);
+      //console.log(colour_rgb);
+      code += "DataDealWithAndSend_"+dropdown_pin+"("+hexToR(colour_rgb)+", "+hexToG(colour_rgb)+", "+hexToB(colour_rgb)+"); // first node data\n";
+    }
+  }
+  code += "Send32Zero_"+dropdown_pin+"();  // send to update data\n";
   return code;
 };
