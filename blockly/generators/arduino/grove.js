@@ -467,7 +467,6 @@ Blockly.Language.grove_rgb_led_item = {
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
 
-//http://www.seeedstudio.com/wiki/File:Grove_-_125KHz_RFID_Reader.jpg
 //http://www.seeedstudio.com/wiki/Grove_-_125KHz_RFID_Reader
 
 /*
@@ -656,11 +655,12 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
   /*if(text.length>16||text2.length>16){
       alert("string is too long");
   }*/
-  Blockly.Arduino.definitions_['define_lcd'] = '#include <SerialLCD.h>\n#include <SoftwareSerial.h>\n';
+  Blockly.Arduino.definitions_['define_seriallcd'] = '#include <SerialLCD.h>\n';
+  Blockly.Arduino.definitions_['define_softwareserial'] = '#include <SoftwareSerial.h>\n';
   //generate PIN#+1 port
   var NextPIN = _get_next_pin(dropdown_pin);
 
-  Blockly.Arduino.definitions_['var_lcd'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
+  Blockly.Arduino.definitions_['var_lcd_'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
   
   Blockly.Arduino.setups_['setup_lcd_'+dropdown_pin] = 'slcd_'+dropdown_pin+'.begin();\n';
   var code = 'slcd_'+dropdown_pin+'.backlight();\n';
