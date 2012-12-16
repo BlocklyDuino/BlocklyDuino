@@ -464,6 +464,29 @@ Blockly.Language.grove_rgb_led_item = {
   }
 };
 
+Blockly.Language.grove_bluetooth_slave = {
+  category: 'Network',
+  helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Serial_Bluetooth',
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput("")
+      .appendTitle("Bluetooth Slave")
+      .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/File:Twigbt00.jpg", 64, 64))
+      .appendTitle("PIN#")
+      .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+    this.appendDummyInput("")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendTitle("Name")
+      .appendTitle(new Blockly.FieldTextInput('blocklyduino'), 'NAME');
+    this.appendDummyInput("")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendTitle("Pincode")
+      .appendTitle(new Blockly.FieldTextInput('0000'), 'PINCODE');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Bluetooth V2.0+EDR slave. Support single slave per board');
+  }
+};
 //http://www.seeedstudio.com/wiki/File:Twig-Temp%26Humi.jpg
 //http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor
 
@@ -916,5 +939,49 @@ Blockly.Arduino.grove_rgb_led = function() {
     }
   }
   code += "Send32Zero_"+dropdown_pin+"();  // send to update data\n";
+  return code;
+};
+
+Blockly.Arduino.grove_bluetooth_slave = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var NextPIN = _get_next_pin(dropdown_pin);
+  var name = this.getTitleValue('NAME')
+  var pincode = this.getTitleValue('PINCODE');
+  /* if(pincode.length != 4){
+    alert("pincode length should be 4");
+  } */
+  Blockly.Arduino.definitions_['define_softwareserial'] = '#include <SoftwareSerial.h>\n';
+  Blockly.Arduino.definitions_['var_bluetooth_'+dropdown_pin] = 'SoftwareSerial blueToothSerial_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
+
+  Blockly.Arduino.setups_['setup_bluetooth_'+dropdown_pin] = 'Serial.begin(9600);\n';
+  Blockly.Arduino.setups_['setup_bluetooth_'+dropdown_pin] += '  pinMode('+dropdown_pin+', INPUT);\n';
+  Blockly.Arduino.setups_['setup_bluetooth_'+dropdown_pin] += '  pinMode('+NextPIN+', OUTPUT);\n';
+  Blockly.Arduino.setups_['setup_bluetooth_'+dropdown_pin] += '  setupBlueToothConnection_'+dropdown_pin+'();\n';
+
+  Blockly.Arduino.definitions_['define_setupBlueToothConnection_'+dropdown_pin] = 'void setupBlueToothConnection_'+dropdown_pin+'()\n'+
+  '{\n'+
+  '  blueToothSerial_'+dropdown_pin+'.begin(38400); //Set BluetoothBee BaudRate to default baud rate 38400\n'+
+  '  blueToothSerial_'+dropdown_pin+'.print("\\r\\n+STWMOD=0\\r\\n"); //set the bluetooth work in slave mode\n'+
+  '  blueToothSerial_'+dropdown_pin+'.print("\\r\\n+STNA='+name+'\\r\\n"); //set the bluetooth name as "'+name+'"\n'+
+  '  blueToothSerial_'+dropdown_pin+'.print("\\r\\n+STPIN=0000\\r\\n");//Set SLAVE pincode"0000"\n'+
+  '  blueToothSerial_'+dropdown_pin+'.print("\\r\\n+STOAUT=1\\r\\n"); // Permit Paired device to connect me\n'+
+  '  blueToothSerial_'+dropdown_pin+'.print("\\r\\n+STAUTO=0\\r\\n"); // Auto-connection should be forbidden here\n'+
+  '  delay(2000); // This delay is required.\n'+
+  '  blueToothSerial_'+dropdown_pin+'.print("\\r\\n+INQ=1\\r\\n"); //make the slave bluetooth inquirable \n'+
+  '  Serial.println("The slave bluetooth is inquirable!");\n'+
+  '  delay(2000); // This delay is required.\n'+
+  '  blueToothSerial_'+dropdown_pin+'.flush();\n'+
+  '}\n';
+  var code = 'char recvChar_'+dropdown_pin+';\n'+
+  'while(1) {\n'+
+  '  if(blueToothSerial_'+dropdown_pin+'.available()) {//check if there is any data sent from the remote bluetooth shield\n'+
+  '    recvChar_'+dropdown_pin+' = blueToothSerial_'+dropdown_pin+'.read();\n'+
+  '    Serial.print(recvChar_'+dropdown_pin+');\n'+
+  '  }\n'+
+  '  if(Serial.available()){//check if there is any data sent from the local serial terminal, you can add the other applications here\n'+
+  '    recvChar_'+dropdown_pin+' = Serial.read();\n'+
+  '    blueToothSerial_'+dropdown_pin+'.print(recvChar_'+dropdown_pin+');\n'+
+  '  }\n'+
+  '}\n';
   return code;
 };
