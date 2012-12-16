@@ -676,7 +676,8 @@ Blockly.Arduino.grove_serial_lcd_power = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var dropdown_stat = this.getTitleValue('STAT');
 
-  Blockly.Arduino.definitions_['define_lcd'] = '#include <SerialLCD.h>\n#include <SoftwareSerial.h>\n';
+  Blockly.Arduino.definitions_['define_seriallcd'] = '#include <SerialLCD.h>\n';
+  Blockly.Arduino.definitions_['define_softwareserial'] = '#include <SoftwareSerial.h>\n';
   //generate PIN#+1 port
   var NextPIN = _get_next_pin(dropdown_pin);
 
@@ -694,7 +695,8 @@ Blockly.Arduino.grove_serial_lcd_effect = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var dropdown_stat = this.getTitleValue('STAT');
   
-  Blockly.Arduino.definitions_['define_lcd'] = '#include <SerialLCD.h>\n#include <SoftwareSerial.h>\n';
+  Blockly.Arduino.definitions_['define_seriallcd'] = '#include <SerialLCD.h>\n';
+  Blockly.Arduino.definitions_['define_softwareserial'] = '#include <SoftwareSerial.h>\n';
   //generate PIN#+1 port
   var NextPIN = _get_next_pin(dropdown_pin);
 

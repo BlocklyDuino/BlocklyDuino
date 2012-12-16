@@ -1,6 +1,19 @@
 BlocklyDuino
 =======================
 
+1.0.1 2012/
+------------------
+code name:
+
+Feature: 
+
+Change:
+* separate lcd include statement
+
+Fix:
+
+Credit: gasolin
+
 1.0 2012/12/11
 ------------------
 code name: Mindstorms
