@@ -2,7 +2,7 @@
  * Visual Blocks Language
  *
  * Copyright 2012 Google Inc.
- * http://code.google.com/p/blockly/
+ * http://blockly.googlecode.com/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,10 @@ Blockly.Arduino.procedures_defreturn = function() {
   var funcName = Blockly.Arduino.variableDB_.getName(this.getTitleValue('NAME'),
       Blockly.Procedures.NAME_TYPE);
   var branch = Blockly.Arduino.statementToCode(this, 'STACK');
+  if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+    branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
+        '\'' + this.id + '\'') + branch;
+  }
   var returnValue = Blockly.Arduino.valueToCode(this, 'RETURN',
       Blockly.Arduino.ORDER_NONE) || '';
   if (returnValue) {

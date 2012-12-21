@@ -2,7 +2,7 @@
  * Visual Blocks Editor
  *
  * Copyright 2011 Google Inc.
- * http://code.google.com/p/blockly/
+ * http://blockly.googlecode.com/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -160,9 +160,9 @@ Blockly.Tooltip.bindMouseEvents = function(element) {
  */
 Blockly.Tooltip.onMouseOver_ = function(e) {
   // If the tooltip is an object, treat it as a pointer to the next object in
-  // the chain to look at.  Terminate when a string is found.
+  // the chain to look at.  Terminate when a string or function is found.
   var element = e.target;
-  while (goog.isObject(element.tooltip)) {
+  while (!goog.isString(element.tooltip) && !goog.isFunction(element.tooltip)) {
     element = element.tooltip;
   }
   if (Blockly.Tooltip.element_ != element) {

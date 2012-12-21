@@ -5,8 +5,8 @@
 /**
  * Visual Blocks Language
  *
- * Copyright 2012 Google Inc.
- * http://code.google.com/p/blockly/
+ * Copyright 2012 Fred Lin.
+ * https://github.com/gasolin/BlocklyDuino
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

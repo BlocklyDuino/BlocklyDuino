@@ -2,7 +2,7 @@
  * Visual Blocks Language
  *
  * Copyright 2012 Google Inc.
- * http://code.google.com/p/blockly/
+ * http://blockly.googlecode.com/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,11 +24,6 @@
 'use strict';
 
 Blockly.Arduino = Blockly.Generator.get('Arduino');
-
-if (!Blockly.Arduino.RESERVED_WORDS_) {
-  Blockly.Arduino.RESERVED_WORDS_ = '';
-}
-//Blockly.Arduino.RESERVED_WORDS_ += 'Html,Math,';
 
 Blockly.Arduino.text = function() {
   // Text value.

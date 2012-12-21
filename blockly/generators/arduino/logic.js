@@ -2,7 +2,7 @@
  * Visual Blocks Language
  *
  * Copyright 2012 Google Inc.
- * http://code.google.com/p/blockly/
+ * http://blockly.googlecode.com/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,5 +73,5 @@ Blockly.Arduino.logic_boolean = function() {
 
 Blockly.Arduino.logic_null = function() {
   var code = 'NULL';
-  return [code ,Blockly.Arduino.ORDER_NONE];
+  return [code ,Blockly.Arduino.ORDER_ATOMIC];
 };

@@ -2,7 +2,7 @@
  * Visual Blocks Language
  *
  * Copyright 2012 Google Inc.
- * http://code.google.com/p/blockly/
+ * http://blockly.googlecode.com/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,14 +49,18 @@ Blockly.Arduino.controls_whileUntil = function() {
   // Do while/until loop.
   var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL',
       Blockly.Arduino.ORDER_NONE) || 'false';
-  var branch0 = Blockly.Arduino.statementToCode(this, 'DO');
+  var branch = Blockly.Arduino.statementToCode(this, 'DO');
+  if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+    branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
+        '\'' + this.id + '\'') + branch;
+  }
   if (this.getTitleValue('MODE') == 'UNTIL') {
     if (!argument0.match(/^\w+$/)) {
       argument0 = '(' + argument0 + ')';
     }
     argument0 = '!' + argument0;
   }
-  return 'while (' + argument0 + ') {\n' + branch0 + '}\n';
+  return 'while (' + argument0 + ') {\n' + branch + '}\n';
 };
 
 Blockly.Arduino.controls_for = function() {
@@ -67,7 +71,11 @@ Blockly.Arduino.controls_for = function() {
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var argument1 = Blockly.Arduino.valueToCode(this, 'TO',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var branch0 = Blockly.Arduino.statementToCode(this, 'DO');
+  var branch = Blockly.Arduino.statementToCode(this, 'DO');
+  if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+    branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
+        '\'' + this.id + '\'') + branch;
+  }
   var code;
   if (argument0.match(/^-?\d+(\.\d+)?$/) &&
       argument1.match(/^-?\d+(\.\d+)?$/)) {
@@ -76,7 +84,7 @@ Blockly.Arduino.controls_for = function() {
     code = 'for (' + variable0 + ' = ' + argument0 + '; ' +
         variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' +
         variable0 + (up ? '++' : '--') + ') {\n' +
-        branch0 + '}\n';
+        branch + '}\n';
   } else {
     code = '';
     // Cache non-trivial values to variables to prevent repeated look-ups.
@@ -109,9 +117,13 @@ Blockly.Arduino.controls_forEach = function() {
       this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Arduino.valueToCode(this, 'LIST',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '[]';
-  var branch0 = Blockly.Arduino.statementToCode(this, 'DO');
+  var branch = Blockly.Arduino.statementToCode(this, 'DO');
+  if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+    branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
+        '\'' + this.id + '\'') + branch;
+  }
   var code = 'for (var ' + variable0 + ' in  ' + argument0 + ') {\n' +
-      branch0 + '}\n';
+      branch + '}\n';
   return code;
 };
 

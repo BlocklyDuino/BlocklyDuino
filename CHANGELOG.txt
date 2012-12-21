@@ -1,7 +1,7 @@
 BlocklyDuino
 =======================
 
-1.0.1 2012/
+1.0.1 2013/
 ------------------
 code name:
 
@@ -9,6 +9,7 @@ Feature:
 
 Change:
 * separate lcd include statement
+* update blockly till r540
 
 Fix:
 

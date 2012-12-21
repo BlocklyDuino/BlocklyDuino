@@ -2,7 +2,7 @@
  * Visual Blocks Editor
  *
  * Copyright 2012 Google Inc.
- * http://code.google.com/p/blockly/
+ * http://blockly.googlecode.com/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -129,8 +129,10 @@ Blockly.Field.prototype.render_ = function() {
     var width = Blockly.Field.textLengthCache[this.text_];
   } else {
     var width = this.textElement_.getComputedTextLength();
-    // Cache the current width.
-    Blockly.Field.textLengthCache[this.text_] = width;
+    // If a valid width was obtained, cache the current width.
+    if (width) {
+      Blockly.Field.textLengthCache[this.text_] = width;
+    }
   }
   if (this.borderRect_) {
     this.borderRect_.setAttribute('width',
