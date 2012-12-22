@@ -53,7 +53,26 @@ Blockly.MSG_RENAME_VARIABLE_TITLE = 'Rename all "%1" variables to:';
 Blockly.MSG_VARIABLE_CATEGORY = 'Variables';
 Blockly.MSG_PROCEDURE_CATEGORY = 'Procedures';
 
-// Control Blocks
+// Colour Blocks.
+Blockly.LANG_CATEGORY_COLOUR = 'Colour';
+Blockly.LANG_COLOUR_PICKER_HELPURL = 'http://en.wikipedia.org/wiki/Color';
+Blockly.LANG_COLOUR_PICKER_TOOLTIP = 'Choose a colour form the palette.';
+
+Blockly.LANG_COLOUR_RGB_HELPURL = 'http://en.wikipedia.org/wiki/RGB_color_model';
+Blockly.LANG_COLOUR_RGB_TITLE = 'colour with';
+Blockly.LANG_COLOUR_RGB_RED = 'red';
+Blockly.LANG_COLOUR_RGB_GREEN = 'green';
+Blockly.LANG_COLOUR_RGB_BLUE = 'blue';
+Blockly.LANG_COLOUR_RGB_TOOLTIP = 'Create a colour with the specified amount of red, green,\n' +
+    'and blue.  All values must be between 0.0 and 1.0.';
+
+Blockly.LANG_COLOUR_BLEND_TITLE = 'blend';
+Blockly.LANG_COLOUR_BLEND_COLOUR1 = 'colour 1';
+Blockly.LANG_COLOUR_BLEND_COLOUR2 = 'colour 2';
+Blockly.LANG_COLOUR_BLEND_RATIO = 'ratio';
+Blockly.LANG_COLOUR_BLEND_TOOLTIP = 'Blends two colours together with a given ratio (0.0 - 1.0).';
+
+// Control Blocks.
 Blockly.LANG_CATEGORY_CONTROLS = 'Control';
 Blockly.LANG_CONTROLS_IF_HELPURL = 'http://code.google.com/p/blockly/wiki/If_Then';
 Blockly.LANG_CONTROLS_IF_TOOLTIP_1 = 'If a value is true, then do some statements.';
@@ -78,6 +97,12 @@ Blockly.LANG_CONTROLS_IF_ELSEIF_TOOLTIP = 'Add a condition to the if block.';
 
 Blockly.LANG_CONTROLS_IF_ELSE_TITLE_ELSE = 'else';
 Blockly.LANG_CONTROLS_IF_ELSE_TOOLTIP = 'Add a final, catch-all condition to the if block.';
+
+Blockly.LANG_CONTROLS_REPEAT_HELPURL = 'http://en.wikipedia.org/wiki/For_loop';
+Blockly.LANG_CONTROLS_REPEAT_TITLE_REPEAT = 'repeat';
+Blockly.LANG_CONTROLS_REPEAT_TITLE_TIMES = 'times';
+Blockly.LANG_CONTROLS_REPEAT_INPUT_DO = 'do';
+Blockly.LANG_CONTROLS_REPEAT_TOOLTIP = 'Do some statements several times.';
 
 Blockly.LANG_CONTROLS_WHILEUNTIL_HELPURL = 'http://code.google.com/p/blockly/wiki/Repeat';
 Blockly.LANG_CONTROLS_WHILEUNTIL_TITLE_REPEAT = 'repeat';

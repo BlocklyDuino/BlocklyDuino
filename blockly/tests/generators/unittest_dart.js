@@ -91,7 +91,7 @@ Blockly.Dart.unittest_assertequals = function() {
     Blockly.Dart.unittest_assertequals.assert = functionName;
     var func = [];
     func.push('void ' + functionName +
-        '(Dynamic actual, Dynamic expected, String message) {');
+        '(dynamic actual, dynamic expected, String message) {');
     func.push('  // Asserts that a value equals another value.');
     func.push('  if (' + resultsVar + ' == null) {');
     func.push('    throw "Orphaned assert equals: ' + message + '";');

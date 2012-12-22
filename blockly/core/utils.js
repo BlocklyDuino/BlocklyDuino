@@ -73,47 +73,37 @@ Blockly.removeClass_ = function(element, className) {
  * @param {string} name Event name to listen to (e.g. 'mousedown').
  * @param {Object} thisObject The value of 'this' in the function.
  * @param {!Function} func Function to call when event is triggered.
- *     W3 browsers will call the function with the event object as a parameter,
- *     MSIE will not.
  * @return {!Array.<!Array>} Opaque data that can be passed to unbindEvent_.
  * @private
  */
 Blockly.bindEvent_ = function(element, name, thisObject, func) {
   var bindData = [];
   var wrapFunc;
-  if (element.addEventListener) {  // W3C
+  if (!element.addEventListener) {
+    throw 'Element is not a DOM node with addEventListener.';
+  }
+  wrapFunc = function(e) {
+    func.apply(thisObject, arguments);
+  };
+  element.addEventListener(name, wrapFunc, false);
+  bindData.push([element, name, wrapFunc]);
+  // Add equivalent touch event.
+  if (name in Blockly.bindEvent_.TOUCH_MAP) {
     wrapFunc = function(e) {
+      // Punt on multitouch events.
+      if (e.changedTouches.length == 1) {
+        // Map the touch event's properties to the event.
+        var touchPoint = e.changedTouches[0];
+        e.clientX = touchPoint.clientX;
+        e.clientY = touchPoint.clientY;
+      }
       func.apply(thisObject, arguments);
+      // Stop the browser from scrolling/zooming the page
+      e.preventDefault();
     };
-    element.addEventListener(name, wrapFunc, false);
-    bindData.push([element, name, wrapFunc]);
-    // Add equivalent touch event.
-    if (name in Blockly.bindEvent_.TOUCH_MAP) {
-      wrapFunc = function(e) {
-        // Punt on multitouch events.
-        if (e.changedTouches.length == 1) {
-          // Map the touch event's properties to the event.
-          var touchPoint = e.changedTouches[0];
-          e.clientX = touchPoint.clientX;
-          e.clientY = touchPoint.clientY;
-        }
-        func.apply(thisObject, arguments);
-        // Stop the browser from scrolling/zooming the page
-        e.preventDefault();
-      };
-      element.addEventListener(Blockly.bindEvent_.TOUCH_MAP[name],
-                               wrapFunc, false);
-      bindData.push([element, Blockly.bindEvent_.TOUCH_MAP[name], wrapFunc]);
-    }
-  } else if (element.attachEvent) {  // IE
-    wrapFunc = function(e) {
-      func.apply(thisObject, arguments);
-      e.stopPropagation();
-    };
-    element.attachEvent('on' + name, wrapFunc);
-    bindData.push([element, name, wrapFunc]);
-  } else {
-    throw 'Element is not a DOM node.';
+    element.addEventListener(Blockly.bindEvent_.TOUCH_MAP[name],
+                             wrapFunc, false);
+    bindData.push([element, Blockly.bindEvent_.TOUCH_MAP[name], wrapFunc]);
   }
   return bindData;
 };
@@ -147,11 +137,7 @@ Blockly.unbindEvent_ = function(bindData) {
     var element = bindDatum[0];
     var name = bindDatum[1];
     var func = bindDatum[2];
-    if (element.removeEventListener) {  // W3C
-      element.removeEventListener(name, func, false);
-    } else {  // IE
-      element.detachEvent('on' + name, func);
-    }
+    element.removeEventListener(name, func, false);
   }
   return func;
 };

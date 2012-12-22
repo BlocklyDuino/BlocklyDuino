@@ -45,6 +45,23 @@ Blockly.Arduino.controls_if = function() {
   return code + '\n';
 };
 
+Blockly.Arduino.controls_repeat = function() {
+  // Repeat n times.
+  var repeats = Number(this.getTitleValue('TIMES'));
+  var branch = Blockly.Arduino.statementToCode(this, 'DO');
+  if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+    branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
+        '\'' + this.id + '\'') + branch;
+  }
+  var loopVar = Blockly.Arduino.variableDB_.getDistinctName(
+      'count', Blockly.Variables.NAME_TYPE);
+  var code = 'for (' + loopVar + ' = 0; ' +
+      loopVar + ' < ' + repeats + '; ' +
+      loopVar + '++) {\n' +
+      branch + '}\n';
+  return code;
+};
+
 Blockly.Arduino.controls_whileUntil = function() {
   // Do while/until loop.
   var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL',

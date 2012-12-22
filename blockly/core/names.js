@@ -77,9 +77,10 @@ Blockly.Names.prototype.getName = function(name, type) {
   var normalized = Blockly.Names.PREFIX_ + name.toLowerCase() + 'X' + type;
   if (normalized in this.db_) {
     return this.db_[normalized];
-  } else {
-    return this.getDistinctName(name, type);
   }
+  var safeName = this.getDistinctName(name, type);
+  this.db_[normalized] = safeName;
+  return safeName;
 };
 
 /**
