@@ -482,6 +482,12 @@ Blockly.Language.grove_bluetooth_slave = {
       .setAlign(Blockly.ALIGN_RIGHT)
       .appendTitle("Pincode")
       .appendTitle(new Blockly.FieldTextInput('0000'), 'PINCODE');
+    this.appendStatementInput("RCV")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendTitle("Receive");
+    this.appendStatementInput("SNT")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendTitle("Send");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Bluetooth V2.0+EDR slave. Support single slave per board');
@@ -947,6 +953,8 @@ Blockly.Arduino.grove_bluetooth_slave = function() {
   var NextPIN = _get_next_pin(dropdown_pin);
   var name = this.getTitleValue('NAME')
   var pincode = this.getTitleValue('PINCODE');
+  var statement_receive = Blockly.Arduino.statementToCode(this, "RCV")
+  var statement_send = Blockly.Arduino.statementToCode(this, "SNT")
   /* if(pincode.length != 4){
     alert("pincode length should be 4");
   } */
@@ -977,10 +985,12 @@ Blockly.Arduino.grove_bluetooth_slave = function() {
   '  if(blueToothSerial_'+dropdown_pin+'.available()) {//check if there is any data sent from the remote bluetooth shield\n'+
   '    recvChar_'+dropdown_pin+' = blueToothSerial_'+dropdown_pin+'.read();\n'+
   '    Serial.print(recvChar_'+dropdown_pin+');\n'+
+       statement_receive+
   '  }\n'+
   '  if(Serial.available()){//check if there is any data sent from the local serial terminal, you can add the other applications here\n'+
   '    recvChar_'+dropdown_pin+' = Serial.read();\n'+
   '    blueToothSerial_'+dropdown_pin+'.print(recvChar_'+dropdown_pin+');\n'+
+       statement_send+
   '  }\n'+
   '}\n';
   return code;
