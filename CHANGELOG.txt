@@ -10,6 +10,7 @@ Feature:
 Change:
 * separate lcd include statement
 * update blockly till r546
+* rename package demos to apps
 
 Fix:
 
