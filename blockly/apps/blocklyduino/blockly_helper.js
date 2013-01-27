@@ -33,15 +33,19 @@ function restore_blocks() {
 
 /**
  * Save blocks to local file.
+ * better include Blob and FileSaver for browser compatibility
  */
 function save() {
   var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
   var data = Blockly.Xml.domToText(xml);
 
   // Store data in blob.
-  var builder = new BlobBuilder();
-  builder.append(data);
-  saveAs(builder.getBlob('text/plain;charset=utf-8'), 'blockduino.xml');
+  // var builder = new BlobBuilder();
+  // builder.append(data);
+  // saveAs(builder.getBlob('text/plain;charset=utf-8'), 'blockduino.xml');
+  console.log("saving blob");
+  var blob = new Blob(data, {type: 'text/xml'});
+  saveAs(blob, 'blockduino.xml');
 }
 
 /**
@@ -92,7 +96,6 @@ function discard() {
 
 /*
  * auto save and restore blocks
- * better include BlobBuilder and FileSaver for browser compatibility
  */
 function auto_save_and_restore_blocks() {
   // Restore saved blocks in a separate thread so that subsequent
