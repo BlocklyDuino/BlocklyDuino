@@ -44,7 +44,7 @@ function save() {
   // builder.append(data);
   // saveAs(builder.getBlob('text/plain;charset=utf-8'), 'blockduino.xml');
   console.log("saving blob");
-  var blob = new Blob(data, {type: 'text/xml'});
+  var blob = new Blob([data], {type: 'text/xml'});
   saveAs(blob, 'blockduino.xml');
 }
 
