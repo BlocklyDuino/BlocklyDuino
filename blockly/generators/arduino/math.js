@@ -39,7 +39,7 @@ Blockly.Arduino.math_number = function() {
 Blockly.Arduino.math_arithmetic = function() {
   // Basic arithmetic operators, and power.
   var mode = this.getTitleValue('OP');
-  var tuple = Blockly.JavaScript.math_arithmetic.OPERATORS[mode];
+  var tuple = Blockly.Arduino.math_arithmetic.OPERATORS[mode];
   var operator = tuple[0];
   var order = tuple[1];
   var argument0 = Blockly.Arduino.valueToCode(this, 'A', order) || '0';
