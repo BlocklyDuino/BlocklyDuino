@@ -44,7 +44,6 @@ Blockly.Language.custom_write = {
 Blockly.Arduino.custom_write = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
-  value_num = value_num.replace('(','').replace(')','');
 
   var code = 'analogWrite('+dropdown_pin+','+value_num+');\n';
   return code;

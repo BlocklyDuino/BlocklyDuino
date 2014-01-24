@@ -210,7 +210,6 @@ Blockly.Arduino = Blockly.Generator.get('Arduino');
 
 Blockly.Arduino.base_delay = function() {
   var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000'
-  delay_time = delay_time.replace('(','').replace(')','');
   var code = 'delay(' + delay_time + ');\n';
   return code;
 };
@@ -218,8 +217,6 @@ Blockly.Arduino.base_delay = function() {
 Blockly.Arduino.base_map = function() {
   var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
   var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
-  //value_num = value_num.replace('(','').replace(')','');
-  value_dmax = value_dmax.replace('(','').replace(')','');
   var code = 'map('+value_num+', 0, 1024, 0, '+value_dmax+')';
   return [code, Blockly.Arduino.ORDER_NONE];
 };
@@ -250,7 +247,6 @@ Blockly.Arduino.inout_analog_write = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   //var dropdown_stat = this.getTitleValue('STAT');
   var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
-  value_num = value_num.replace('(','').replace(')','');
   //Blockly.Arduino.setups_['setup_output'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
   var code = 'analogWrite('+dropdown_pin+','+value_num+');\n';
   return code;
