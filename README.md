@@ -1,5 +1,6 @@
-### Welcome to BlocklyDuino.
-BlocklyDuino is a web-based visual programming editor for [Arduino](http://www.arduino.cc/).
+### Welcome to BlocklyDuino
+
+BlocklyDuino is a **web-based visual programming editor for [Arduino](http://www.arduino.cc/)**.
 
 BlocklyDuino is based on [Blockly](http://code.google.com/p/blockly/), the web-based, graphical programming editor. Provide static type language blocks and code generators for arduino programming.
 
@@ -27,7 +28,7 @@ Or watch the [video demo](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
 ### Run locally on your web browser
 
-If you want to install it locally. Get code from github and open blockly/demos/blocklyduino/index.html in your browser.
+If you want to install it locally. Get code from github and open `blockly/demos/blocklyduino/index.html` in your browser.
 
 The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/demos/blocklyduino/index.html for use.
 
