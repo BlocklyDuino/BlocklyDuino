@@ -10,7 +10,7 @@ BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) 
 ### Features
 
 * Programming Arduino with visually drag and drop code blocks
-* Generate fully compatible arduino source code
+* Generate fully compatible Arduino source code
 * Interacive Arduino board with 10+ predefined Grove sensor blocks
 * Load different on-site examples with url parameters
 
@@ -31,7 +31,7 @@ If you want to install it locally. Get code from github and open blockly/demos/b
 
 The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/demos/blocklyduino/index.html for use.
 
-### Usage (3 Step)
+### Usage (3 Steps)
 
 1. Open browser to BlocklyDuino, Drag and Drop blocks to make arduino program. 
 2. Select 'Arduino' tab to copy source code to Arduino IDE
@@ -47,11 +47,11 @@ Fred Lin (@gasolin) .
 Thanks Neil Fraser, Q.Neutron from Blockly http://code.google.com/p/blockly/
 Thanks Arduino and Seeeduino guys for Arduino and Grove blocks.
 
-The project is also inspired by arduiblock https://github.com/taweili/ardublock and modkit http://www.modk.it/
+The project is also inspired by [arduiblock](https://github.com/taweili/ardublock) and [modkit](http://www.modk.it/)
 
 ### License
 
-Copyright (C) 2012 Fred Lin gasolin+blockly@gmail.com
+Copyright (C) 2012~2014 Fred Lin gasolin+blockly@gmail.com
 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
