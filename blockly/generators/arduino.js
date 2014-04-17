@@ -68,16 +68,13 @@ Blockly.Arduino.ORDER_NONE = 99;          // (...)
  */
 var profile = {
 	arduino: {
-		description: "Arduino standard-compatible board",
-		digital : [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["A0", "A0"], ["A1", "A1"], ["A2", "A2"], ["A3", "A3"], ["A4", "A4"], ["A5", "A5"]],
-		analog : [["A0", "A0"], ["A1", "A1"], ["A2", "A2"], ["A3", "A3"], ["A4", "A4"], ["A5", "A5"]],
+		description: "LightUp",
+		digital : [["INPUT_1", "INPUT_1"], ["INPUT_2", "INPUT_2"], ["INPUT_3", "INPUT_3"], ["INPUT_4", "INPUT_4"], ["INPUT_5", "INPUT_5"], ["INPUT_6", "INPUT_6"], ["OUTPUT_A", "OUTPUT_A"], ["OUTPUT_B", "OUTPUT_B"], ["OUTPUT_C", "OUTPUT_C"], ["OUTPUT_D", "OUTPUT_D"], ["OUTPUT_E", "OUTPUT_E"], ["OUTPUT_F", "OUTPUT_F"]],
+		analog : [["INPUT_1", "INPUT_1"], ["INPUT_2", "INPUT_2"], ["INPUT_3", "INPUT_3"], ["INPUT_4", "INPUT_4"], ["INPUT_5", "INPUT_5"], ["INPUT_6", "INPUT_6"]],
+		input : [["INPUT_1", "INPUT_1"], ["INPUT_2", "INPUT_2"], ["INPUT_3", "INPUT_3"], ["INPUT_4", "INPUT_4"], ["INPUT_5", "INPUT_5"], ["INPUT_6", "INPUT_6"]],
+		output : [["OUTPUT_A", "OUTPUT_A"], ["OUTPUT_B", "OUTPUT_B"], ["OUTPUT_C", "OUTPUT_C"], ["OUTPUT_D", "OUTPUT_D"], ["OUTPUT_E", "OUTPUT_E"], ["OUTPUT_F", "OUTPUT_F"]],
         serial : 9600,
-	},
-	arduino_mega:{
-		description: "Arduino Mega-compatible board",
-		//53 digital
-		//15 analog
-	},
+	}
 }
 //set default profile to arduino standard-compatible board
 profile["default"] = profile["arduino"];
@@ -140,7 +137,7 @@ Blockly.Arduino.finish = function(code) {
     setups.push(Blockly.Arduino.setups_[name]);
   }
   
-  var allDefs = imports.join('\n') + '\n\n' + definitions.join('\n') + '\nvoid setup() \n{\n  '+setups.join('\n  ') + '\n}'+ '\n\n';
+  var allDefs = imports.join('\n') + '\n\n' + definitions.join('\n') + '\n#include <LightUp.h>\n\nvoid setup() \n{\n  '+setups.join('\n  ') + '\n}'+ '\n\n';
   return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code;
 };
 
