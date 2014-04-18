@@ -266,6 +266,13 @@ Blockly.Arduino.inout_analog_write = function() {
   return code;
 };
 
+Blockly.Arduino.inout_tone = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
+  var code = 'tone('+dropdown_pin+','+value_num+');\n';
+  return code;
+};
+
 Blockly.Arduino.inout_analog_read = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var code = 'analogRead('+dropdown_pin+')';
