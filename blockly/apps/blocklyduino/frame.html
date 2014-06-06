@@ -21,7 +21,6 @@
   <script type="text/javascript" src="../../language/common/procedures.js"></script>
   <!-- define blocks -->
   <script type="text/javascript" src="../../generators/arduino/base.js"></script>
-  <script type="text/javascript" src="../../generators/arduino/grove.js"></script>
   <!-- custom block -->
   <script type="text/javascript" src="../../generators/arduino/custom.js"></script>
   
@@ -44,25 +43,12 @@
       var keepers = [
           //io
           'inout_highlow',
-          'inout_digital_write', 'inout_digital_read',
-          'inout_analog_write', 'inout_analog_read',
-          'serial_print', 'inout_buildin_led',
-          //servo
-          'servo_move', 'servo_read_degrees',
-          //grove analog
-          'grove_rotary_angle', 'grove_temporature_sensor', 'grove_sound_sensor', 'grove_thumb_joystick',
-          //grove
-          'grove_led', 'grove_button', 'grove_relay',
-          'grove_tilt_switch', 'grove_piezo_buzzer',
-          'grove_pir_motion_sensor', 'grove_line_finder',
-          'grove_rgb_led', 'grove_rgb_led_container', 'grove_rgb_led_item',
-          //grove LCD
-          'grove_serial_lcd_print', 'grove_serial_lcd_power',
-          'grove_serial_lcd_effect', 'grove_ultrasonic_ranger',
-          //grove motor
-          'grove_motor_shield',
-          //grove bluetooth
-          //'grove_bluetooth_slave',
+          'inout_digital_write',
+          'inout_digital_read',
+          'inout_analog_write',
+          'inout_analog_read',
+          'inout_tone', 'inout_tone',
+          'serial_print',
           //control
           'base_delay', 'controls_if', 'controls_if_if', 'controls_if_elseif', 'controls_if_else', 'controls_for',
           //'controls_whileUntil', 'controls_flow_statements',
