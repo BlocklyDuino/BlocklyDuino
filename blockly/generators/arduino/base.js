@@ -112,7 +112,7 @@ Blockly.Language.inout_analog_write = {
     this.setColour(230);
     this.appendDummyInput("")
         .appendTitle("AnalogWrite PIN#")
-        .appendTitle(new Blockly.FieldDropdown(profile.default.analog), "PIN");
+        .appendTitle(new Blockly.FieldDropdown(profile.default.PWMDigitalANDAnalog), "PIN");
     this.appendValueInput("NUM", Number)
         .appendTitle("value")
         .setCheck(Number);
