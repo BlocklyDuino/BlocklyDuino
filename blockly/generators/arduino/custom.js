@@ -73,3 +73,10 @@ Blockly.Arduino.custom_read = function() {
   var code = 'analogRead('+dropdown_pin+')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
+
+Blockly.Arduino.curson_lcdSetp = function(){
+	var dropdown_pin = this.getTitleValue('PIN');
+//this is where the code for the arduino goes.
+	var code = ''
+	return code;
+}
