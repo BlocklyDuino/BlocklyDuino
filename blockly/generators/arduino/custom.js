@@ -19,7 +19,7 @@ Blockly.Language.lcd_setup = {
 		this.setOutput(true, Boolean);
 		this.setTooltip('follow instructions given in Lesson');
 	}
-}
+};
 
 //define read block
 Blockly.Language.custom_read = {
