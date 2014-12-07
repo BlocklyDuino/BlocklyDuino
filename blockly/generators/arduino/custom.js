@@ -8,18 +8,18 @@
 if (!Blockly.Language) Blockly.Language = {};
 
 //define LCD block
-Blockly.Language.lcd_setup = {
-	category: 'Custom',
-	helpUrl: '',
-	init: function{
-		this.setColour(230);
-			this.appendDummyInput("")
-			.appendTitle("LCD Setup Pin #'s:")
-			.appendTitle(new Blockly.fieldDropdown(profile.deault.digital), "PIN");
-		this.setOutput(true, Boolean);
-		this.setTooltip('follow instructions given in Lesson');
-	}
-};
+//Blockly.Language.lcd_setup = {
+//	category: 'Custom',
+//	helpUrl: '',
+//	init: function{
+//		this.setColour(230);
+//			this.appendDummyInput("")
+//			.appendTitle("LCD Setup Pin #'s:")
+//			.appendTitle(new Blockly.fieldDropdown(profile.deault.digital), "PIN");
+//		this.setOutput(true, Boolean);
+//		this.setTooltip('follow instructions given in Lesson');
+//	}
+//};
 
 //define read block
 Blockly.Language.custom_read = {
