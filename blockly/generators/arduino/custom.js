@@ -10,15 +10,20 @@ if (!Blockly.Language) Blockly.Language = {};
 //define LCD block
 Blockly.Language.custom_lcdSetup = {
 	category: 'Custom',
-	helpUrl: '',
-	init: function() {
-		this.setColour(230);
+  	helpUrl: '',
+  	init: function() {
+		 this.setColour(230);
 			this.appendDummyInput("")
-			.appendTitle("LCD Setup Pin #'s:")
-			.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
-		this.setOutput(true, Boolean);
-		this.setTooltip('input block');
-	}
+	    		.appendTitle("LCD PIN#")
+	    		.appendTitle(new Blockly.FieldImage("https://c1.staticflickr.com/9/8305/7804378078_4cca315e83.jpg", 64, 64))
+	    		.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+			 .appendTitle("value");
+		this.appendValueInput("NUM", Number);
+		this.setInputsInline(true);
+	 	this.setPreviousStatement(true, null);
+    		this.setNextStatement(true, null);
+		this.setTooltip('Setup block');
+  }
 };
 
 //define read block
@@ -76,7 +81,8 @@ Blockly.Arduino.custom_read = function() {
 
 Blockly.Arduino.custom_lcdSetup = function(){
 	var dropdown_pin = this.getTitleValue('PIN');
-//this is where the code for the arduino goes.
-	var code = 'analogRead('+dropdown_pin+')';
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+  	var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
+
+  	var code = 'analogWrite('+dropdown_pin+','+value_num+');\n';
+  	return code;
 };
