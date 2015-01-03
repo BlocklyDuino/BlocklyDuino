@@ -38,11 +38,63 @@ var TABS_ = ['blocks', 'arduino', 'xml'];
 
 var selected = 'blocks';
 
+function downloadClick() {
+    var code = document.getElementById('textarea_arduino').value;
+
+    alert("Ready to download to Arduino");
+
+    var url = "http://127.0.0.1:8080/";
+    var method = "POST";
+
+    // You REALLY want async = true.
+    // Otherwise, it'll block ALL execution waiting for server response.
+    var async = true;
+
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+        var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
+
+        if (parseInt(status) == 200) {
+            alert("Program downloaded ok");
+        } else {
+            alert("Error downloading program: " + status);
+        }
+    }
+
+    request.open(method, url, async);
+    request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+    request.send(code);	     
+}
+
+function resetClick() {
+    var code = "void setup() {} void loop() {}"
+
+    var url = "http://127.0.0.1:8080/";
+    var method = "POST";
+
+    // You REALLY want async = true.
+    // Otherwise, it'll block ALL execution waiting for server response.
+    var async = true;
+
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+        var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
+
+        if (parseInt(status) != 200) {
+            alert("Error resetting program: " + status);
+        }
+    }
+
+    request.open(method, url, async);
+    request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+    request.send(code);	     
+}
+
 /**
  * Switch the visible pane when a tab is clicked.
  * @param {string} id ID of tab clicked.
  */
-function tabClick(id) {
+function tabClick(id) {  
   // If the XML tab was open, save and render the content.
   if (document.getElementById('tab_xml').className == 'tabon') {
     var xmlTextarea = document.getElementById('textarea_xml');
@@ -286,6 +338,8 @@ function init(blockly) {
         <!--pre id="content_javascript"></pre>
         <pre id="content_dart"></pre-->
         <div id="content_arduino">
+          <button type="button" onclick="downloadClick()">Download</button>
+          <button type="button" onclick="resetClick()">Reset</button>
           <textarea id="textarea_arduino" readonly></textarea>
         </div>
         <!--pre id="content_python"></pre-->
