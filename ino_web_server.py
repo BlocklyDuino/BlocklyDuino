@@ -46,7 +46,8 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
             print "created src/sketch.ino"
             
             # invoke ino to build/download
-            os.system("ino build")
+            # skip_lib_includes is used to avoid "line too long" errors with IDE 1.5.8+
+            os.system("ino build --skip_lib_includes")
             os.system("ino upload")
             
         self.do_GET()
