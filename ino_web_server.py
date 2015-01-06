@@ -47,10 +47,17 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
             
             # invoke ino to build/download
             # skip_lib_includes is used to avoid "line too long" errors with IDE 1.5.8+
-            os.system("ino build --skip_lib_includes")
-            os.system("ino upload")
-            
-        self.do_GET()
+            rc = os.system("ino build --skip_lib_includes")
+            if not rc == 0:
+                print "ino build returned " + `rc`            
+                self.send_response(500)
+            else:
+                rc = os.system("ino upload")
+                if not rc == 0:
+                    print "ino upload returned " + `rc`            
+                    self.send_response(500)
+                else:
+                    self.send_response(200)
 
 if __name__ == '__main__':
     print "running local web server at 127.0.0.1:8080..."
