@@ -4,6 +4,7 @@
   <title>Blockly Demo: Arduino</title>
   <!--script type="text/javascript" src="../blockly_compressed.js"></script-->
   <script type="text/javascript" src="Blob.js"></script>
+  <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
   <script>
@@ -38,10 +39,9 @@ var TABS_ = ['blocks', 'arduino', 'xml'];
 
 var selected = 'blocks';
 
-function downloadClick() {
-    var code = document.getElementById('textarea_arduino').value;
-
-    alert("Ready to download to Arduino");
+function downloadCode(code, callback) {
+    var target = document.getElementById('content_arduino');
+    var spinner = new Spinner().spin(target);
 
     var url = "http://127.0.0.1:8080/";
     var method = "POST";
@@ -51,43 +51,60 @@ function downloadClick() {
     var async = true;
 
     var request = new XMLHttpRequest();
-    request.onload = function () {
-        var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-
-        if (parseInt(status) == 200) {
-            alert("Program downloaded ok");
-        } else {
-            alert("Error downloading program: " + status);
+    
+    request.onreadystatechange = function() {
+        if (request.readyState != 4) { 
+            return; 
         }
-    }
+        
+        spinner.stop();
+        
+        var status = parseInt(request.status); // HTTP response status, e.g., 200 for "200 OK"
+        var errorInfo = null;
+        switch (status) {
+        case 200:
+            break;
+        case 0:
+            errorInfo = "0 (local web server not running?)";
+            break;
+        case 500:
+            errorInfo = "500 (Arduino not connected to USB port?)";
+            break;
+        default:
+            errorInfo = status + " (Unknown error)";
+            break;
+        };
+        
+        callback(status, errorInfo);
+    };
 
     request.open(method, url, async);
     request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     request.send(code);	     
 }
 
-function resetClick() {
-    var code = "void setup() {} void loop() {}"
+function downloadClick() {
+    var code = document.getElementById('textarea_arduino').value;
 
-    var url = "http://127.0.0.1:8080/";
-    var method = "POST";
-
-    // You REALLY want async = true.
-    // Otherwise, it'll block ALL execution waiting for server response.
-    var async = true;
-
-    var request = new XMLHttpRequest();
-    request.onload = function () {
-        var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-
-        if (parseInt(status) != 200) {
-            alert("Error resetting program: " + status);
+    alert("Ready to download to Arduino");
+    
+    downloadCode(code, function(status, errorInfo) {
+        if (status == 200) {
+            alert("Program downloaded ok");
+        } else {
+            alert("Error downloading program: " + errorInfo);
         }
-    }
+    });
+}
 
-    request.open(method, url, async);
-    request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-    request.send(code);	     
+function resetClick() {
+    var code = "void setup() {} void loop() {}";
+
+    downloadCode(code, function(status, errorInfo) {
+        if (status != 200) {
+            alert("Error resetting program: " + errorInfo);
+        }
+    });
 }
 
 /**
