@@ -50,7 +50,7 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
             rc = os.system("ino build --skip_lib_includes")
             if not rc == 0:
                 print "ino build returned " + `rc`            
-                self.send_response(500)
+                self.send_response(400)
             else:
                 rc = os.system("ino upload")
                 if not rc == 0:

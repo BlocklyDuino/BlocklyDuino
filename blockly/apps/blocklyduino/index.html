@@ -65,13 +65,16 @@ function downloadCode(code, callback) {
         case 200:
             break;
         case 0:
-            errorInfo = "0 (local web server not running?)";
+            errorInfo = "code 0\n\nCould not connect to server at " + url + ".  Is the local web server running?";
+            break;
+        case 400:
+            errorInfo = "code 400\n\nBuild failed - probably due to invalid source code.  Make sure that there are no missing connections in the blocks.";
             break;
         case 500:
-            errorInfo = "500 (Arduino not connected to USB port?)";
+            errorInfo = "code 500\n\nDownload failed.  Is the Arduino connected to USB port?";
             break;
         default:
-            errorInfo = status + " (Unknown error)";
+            errorInfo = "code " + status + "\n\nUnknown error.";
             break;
         };
         
