@@ -43,6 +43,27 @@ Blockly.Language.base_delay = {
   }
 };
 
+Blockly.Language.base_delaytwo = {
+  category: 'Control',
+  helpUrl: 'http://arduino.cc/en/Reference/delay',
+  init: function() {
+    this.setColour(120);
+    
+    this.setOutput(true, 'Number');
+    this.interpolateMsg(Blockly.Msg.MATH_RANDOM_INT_TITLE,
+                        ['FROM', 'Number', Blockly.ALIGN_RIGHT],
+                        ['TO', 'Number', Blockly.ALIGN_RIGHT],
+                        Blockly.ALIGN_RIGHT);
+    // this.appendValueInput("DELAY_TIME", Number)
+        // .appendTitle("Delaytwo")
+        // .setCheck(Number);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Delay specific time');
+  }
+};
+
 Blockly.Language.base_map = {
   category: 'Math',
   helpUrl: 'http://arduino.cc/en/Reference/map',
