@@ -144,15 +144,15 @@ Blockly.Language.grove_temporature_sensor = {
 };
 
 Blockly.Language.grove_serial_lcd_print = {
-  category: 'Grove LCD',
-  helpUrl: 'http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Serial_LCD',
+  category: 'LCD',
+  helpUrl: '',
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-        .appendTitle("Serial LCD")
+        .appendTitle("LCD")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
-        .appendTitle("PIN#")
-        .appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+        //.appendTitle("PIN#")
+        //.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendValueInput("TEXT", String)
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
@@ -161,13 +161,60 @@ Blockly.Language.grove_serial_lcd_print = {
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendTitle("print line2")
-    this.appendValueInput("DELAY_TIME", Number)
-        .setCheck(Number)
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("Delay");
+    //this.appendValueInput("DELAY_TIME", Number)
+    //    .setCheck(Number)
+    //    .setAlign(Blockly.ALIGN_RIGHT)
+    //    .appendTitle("Delay");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('print text on an 16 character by 2 line LCD.');
+  }
+};
+
+
+Blockly.Language.set_cursor = {
+  category: 'LCD',
+  helpUrl: '',
+  init: function() {
+    this.setColour(190);
+	this.appendDummyInput("")
+        .appendTitle("Set position of cursor to ")
+    this.appendValueInput("CURSOR_ROW", Number)
+        .appendTitle("Row")
+        .setCheck(Number);
+	this.appendValueInput("CURSOR_COLUMN", Number)
+        .appendTitle("Column")
+        .setCheck(Number);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Set Cursor Position');
+  }
+};
+
+Blockly.Language.basic_lcd_print_string = {
+  category: 'LCD',
+  helpUrl: 'http://www.arduino.cc/en/Serial/Print',
+  init: function() {
+    this.setColour(190);
+    this.appendValueInput("CONTENT", String)
+        .appendTitle("LCD Print a String");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Prints data to the LCD.');
+  }
+};
+
+Blockly.Language.basic_lcd_print_number = {
+  category: 'LCD',
+  helpUrl: 'http://www.arduino.cc/en/Serial/Print',
+  init: function() {
+    this.setColour(190);
+    this.appendValueInput("CONTENT", Number)
+        .appendTitle("LCD Print a number");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Prints data to the LCD.');
   }
 };
 
@@ -675,29 +722,62 @@ var _get_next_pin = function(dropdown_pin) {
 }
 
 Blockly.Arduino.grove_serial_lcd_print = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  //var dropdown_pin = this.getTitleValue('PIN');
   var text = Blockly.Arduino.valueToCode(this, 'TEXT',
       Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
   var text2 = Blockly.Arduino.valueToCode(this, 'TEXT2',
       Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
-  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000';
+ // var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000';
   /*if(text.length>16||text2.length>16){
       alert("string is too long");
   }*/
-  Blockly.Arduino.definitions_['define_seriallcd'] = '#include <SerialLCD.h>\n';
-  Blockly.Arduino.definitions_['define_softwareserial'] = '#include <SoftwareSerial.h>\n';
-  //generate PIN#+1 port
-  var NextPIN = _get_next_pin(dropdown_pin);
 
-  Blockly.Arduino.definitions_['var_lcd_'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
+ 
+
+
+
+
+  Blockly.Arduino.definitions_['define_liquidcrystal'] = '// include the library code:\n#include <LiquidCrystal.h>\n';
+  Blockly.Arduino.definitions_['create_lcd_object'] = '// Get the display ready: tell it which pins are being used\nLiquidCrystal lcd(12, 11, 5, 4, 3, 2);\n';
+  //generate PIN#+1 port
+  // var NextPIN = _get_next_pin(dropdown_pin);
+
+  //Blockly.Arduino.definitions_['var_lcd_'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
   
-  Blockly.Arduino.setups_['setup_lcd_'+dropdown_pin] = 'slcd_'+dropdown_pin+'.begin();\n';
-  var code = 'slcd_'+dropdown_pin+'.backlight();\n';
-  code    += 'slcd_'+dropdown_pin+'.setCursor(0,0);\n';
-  code    += 'slcd_'+dropdown_pin+'.print('+text+');\n';//text.replace(new RegExp('\'',"gm"),'')
-  code    += 'slcd_'+dropdown_pin+'.setCursor(0,1);\n';
-  code    += 'slcd_'+dropdown_pin+'.print('+text2+');\n';
-  code    += 'delay('+delay_time+');\n';
+  Blockly.Arduino.setups_['setup_lcd'] = 'lcd.begin(16, 2);\n';
+  var code = 'lcd.setCursor(0,0);\n';
+  code    += 'lcd.print('+text+');\n';//text.replace(new RegExp('\'',"gm"),'')
+  code    += 'lcd.setCursor(0,1);\n';
+  code    += 'lcd.print('+text2+');\n';
+  //code    += 'delay('+delay_time+');\n';
+  return code;
+};
+
+
+Blockly.Arduino.set_cursor = function() {
+  var row = Blockly.Arduino.valueToCode(this, 'CURSOR_ROW', Blockly.Arduino.ORDER_ATOMIC) 
+  var column = Blockly.Arduino.valueToCode(this, 'CURSOR_COLUMN', Blockly.Arduino.ORDER_ATOMIC)
+  var code = 'setCursor(' +column+ ',' +row+ ');\n';
+  return code;
+};
+
+Blockly.Arduino.basic_lcd_print_string = function() {
+  var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
+  //content = content.replace('(','').replace(')','');
+  
+  // Blockly.Arduino.setups_['setup_serial_'+profile.default.serial] = 'Serial.begin('+profile.default.serial+');\n';
+  
+  var code = 'lcd.print('+content+');\n';
+  return code;
+};
+
+Blockly.Arduino.basic_lcd_print_number = function() {
+  var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
+  //content = content.replace('(','').replace(')','');
+  
+  // Blockly.Arduino.setups_['setup_serial_'+profile.default.serial] = 'Serial.begin('+profile.default.serial+');\n';
+  
+  var code = 'lcd.print('+content+');\n';
   return code;
 };
 
