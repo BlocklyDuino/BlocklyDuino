@@ -43,13 +43,13 @@
       var newLanguage = {}
       var keepers = [
           //io
-          'inout_highlow',
-          'inout_digital_write', 
+          //'inout_highlow',
+          //'inout_digital_write', 
           'inout_digital_write_on', 
           'inout_digital_write_off', 
           'inout_digital_read',
           'inout_analog_write', 'inout_analog_read',
-          'serial_print', 'inout_buildin_led',
+          'serial_print', //'inout_buildin_led',
           //servo
           'servo_move', 'servo_read_degrees',
           //grove analog
@@ -60,7 +60,10 @@
           //'grove_pir_motion_sensor', 'grove_line_finder',
           //'grove_rgb_led', 'grove_rgb_led_container', 'grove_rgb_led_item',
           //grove LCD
-          //'grove_serial_lcd_print', 'grove_serial_lcd_power',
+          'grove_serial_lcd_print', // 'grove_serial_lcd_power',
+		  'set_cursor',
+		  'basic_lcd_print_string',
+		  'basic_lcd_print_number',
           //'grove_serial_lcd_effect', 'grove_ultrasonic_ranger',
           //grove motor
          // 'grove_motor_shield',
