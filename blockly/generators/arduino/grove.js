@@ -149,18 +149,18 @@ Blockly.Language.grove_serial_lcd_print = {
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-        .appendTitle("LCD")
+        .appendTitle("LCD Initialize")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
         //.appendTitle("PIN#")
         //.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendValueInput("TEXT", String)
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("print line1");
+        .appendTitle("print once on row 0");
     this.appendValueInput("TEXT2", String)
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("print line2")
+        .appendTitle("print once on row 1")
     //this.appendValueInput("DELAY_TIME", Number)
     //    .setCheck(Number)
     //    .setAlign(Blockly.ALIGN_RIGHT)
@@ -744,12 +744,17 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
 
   //Blockly.Arduino.definitions_['var_lcd_'+dropdown_pin] = 'SerialLCD slcd_'+dropdown_pin+'('+dropdown_pin+','+NextPIN+');\n';
   
-  Blockly.Arduino.setups_['setup_lcd'] = 'lcd.begin(16, 2);\n';
-  var code = 'lcd.setCursor(0,0);\n';
-  code    += 'lcd.print('+text+');\n';//text.replace(new RegExp('\'',"gm"),'')
-  code    += 'lcd.setCursor(0,1);\n';
-  code    += 'lcd.print('+text2+');\n';
-  //code    += 'delay('+delay_time+');\n';
+  var tempVar = 'lcd.begin(16, 2);\n\n';
+  tempVar += '  lcd.setCursor(0,0);\n';
+   
+  
+  tempVar    += '  lcd.print('+text+');\n';//text.replace(new RegExp('\'',"gm"),'')
+  tempVar    += '  lcd.setCursor(0,1);\n';
+  tempVar    += '  lcd.print('+text2+');\n';
+  Blockly.Arduino.setups_['setup_lcd'] = tempVar;
+  // var code = 
+  // code    += 'delay('+delay_time+');\n';
+  var code = "";
   return code;
 };
 
