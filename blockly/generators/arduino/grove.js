@@ -762,7 +762,7 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
 Blockly.Arduino.set_cursor = function() {
   var row = Blockly.Arduino.valueToCode(this, 'CURSOR_ROW', Blockly.Arduino.ORDER_ATOMIC) 
   var column = Blockly.Arduino.valueToCode(this, 'CURSOR_COLUMN', Blockly.Arduino.ORDER_ATOMIC)
-  var code = 'setCursor(' +column+ ',' +row+ ');\n';
+  var code = 'lcd.setCursor(' +column+ ',' +row+ ');\n';
   return code;
 };
 
