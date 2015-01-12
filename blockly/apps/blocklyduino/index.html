@@ -39,7 +39,7 @@ var TABS_ = ['blocks', 'arduino', 'xml'];
 
 var selected = 'blocks';
 
-function downloadCode(code, callback) {
+function uploadCode(code, callback) {
     var target = document.getElementById('content_arduino');
     var spinner = new Spinner().spin(target);
 
@@ -71,10 +71,10 @@ function downloadCode(code, callback) {
             errorInfo = "code 400\n\nBuild failed - probably due to invalid source code.  Make sure that there are no missing connections in the blocks.";
             break;
         case 500:
-            errorInfo = "code 500\n\nDownload failed.  Is the Arduino connected to USB port?";
+            errorInfo = "code 500\n\nUpload failed.  Is the Arduino connected to USB port?";
             break;
         case 501:
-            errorInfo = "code 501\n\nDownload failed.  Is 'ino' installed and in your path?  This only works on Mac OS X and Linux at this time.";
+            errorInfo = "code 501\n\nUpload failed.  Is 'ino' installed and in your path?  This only works on Mac OS X and Linux at this time.";
             break;
         default:
             errorInfo = "code " + status + "\n\nUnknown error.";
@@ -89,16 +89,16 @@ function downloadCode(code, callback) {
     request.send(code);	     
 }
 
-function downloadClick() {
+function uploadClick() {
     var code = document.getElementById('textarea_arduino').value;
 
-    alert("Ready to download to Arduino");
+    alert("Ready to upload to Arduino.\n\nNote: this only works on Mac OS X and Linux at this time.");
     
-    downloadCode(code, function(status, errorInfo) {
+    uploadCode(code, function(status, errorInfo) {
         if (status == 200) {
-            alert("Program downloaded ok");
+            alert("Program uploaded ok");
         } else {
-            alert("Error downloading program: " + errorInfo);
+            alert("Error uploading program: " + errorInfo);
         }
     });
 }
@@ -106,7 +106,7 @@ function downloadClick() {
 function resetClick() {
     var code = "void setup() {} void loop() {}";
 
-    downloadCode(code, function(status, errorInfo) {
+    uploadCode(code, function(status, errorInfo) {
         if (status != 200) {
             alert("Error resetting program: " + errorInfo);
         }
@@ -361,7 +361,7 @@ function init(blockly) {
         <!--pre id="content_javascript"></pre>
         <pre id="content_dart"></pre-->
         <div id="content_arduino">
-          <button type="button" onclick="downloadClick()">Download</button>
+          <button type="button" onclick="uploadClick()">Upload</button>
           <button type="button" onclick="resetClick()">Reset</button>
           <textarea id="textarea_arduino" readonly></textarea>
         </div>

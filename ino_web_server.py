@@ -7,7 +7,7 @@ import BaseHTTPServer, urllib, re, os
 
 class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
     template = u"""<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd"><html><body><h1>Arduino INO web server</h1>To download to an Arduino board connected to this computer, POST to /.</body></html>"""
+"http://www.w3.org/TR/html4/strict.dtd"><html><body><h1>Arduino INO web server</h1>To upload to an Arduino board connected to this computer, POST to /.</body></html>"""
 
     def escape_html(self, text):
         """Replace special HTML characters with HTML entities"""
@@ -31,7 +31,7 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
         if length:
             text = self.rfile.read(length)
                         
-            print "sketch to download: " + text
+            print "sketch to upload: " + text
 
             # create ino project (if it doesn't exist already)
             os.system("mkdir ino_project")
@@ -50,7 +50,7 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
 
                 print "created src/sketch.ino"
             
-                # invoke ino to build/download
+                # invoke ino to build/upload
                 # skip_lib_includes is used to avoid "line too long" errors with IDE 1.5.8+
                 rc = os.system("ino build --skip_lib_includes")
 
