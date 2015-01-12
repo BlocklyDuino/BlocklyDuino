@@ -73,6 +73,9 @@ function downloadCode(code, callback) {
         case 500:
             errorInfo = "code 500\n\nDownload failed.  Is the Arduino connected to USB port?";
             break;
+        case 501:
+            errorInfo = "code 501\n\nDownload failed.  Is 'ino' installed and in your path?  This only works on Mac OS X and Linux at this time.";
+            break;
         default:
             errorInfo = "code " + status + "\n\nUnknown error.";
             break;

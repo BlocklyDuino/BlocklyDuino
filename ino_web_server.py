@@ -36,28 +36,39 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
             # create ino project (if it doesn't exist already)
             os.system("mkdir ino_project")
             os.chdir("ino_project")
-            os.system("ino init")
+            rc = os.system("ino init")
             
-            # write to file
-            fo = open("src/sketch.ino", "wb")
-            fo.write(text + "\n");
-            fo.close()
+            # 32512 probably means ino is not installed
+            if rc == 32512:
+                print "ino init returned " + `rc`            
+                self.send_response(501)
+            else:            
+                # write to file
+                fo = open("src/sketch.ino", "wb")
+                fo.write(text + "\n");
+                fo.close()
 
-            print "created src/sketch.ino"
+                print "created src/sketch.ino"
             
-            # invoke ino to build/download
-            # skip_lib_includes is used to avoid "line too long" errors with IDE 1.5.8+
-            rc = os.system("ino build --skip_lib_includes")
-            if not rc == 0:
-                print "ino build returned " + `rc`            
-                self.send_response(400)
-            else:
-                rc = os.system("ino upload")
+                # invoke ino to build/download
+                # skip_lib_includes is used to avoid "line too long" errors with IDE 1.5.8+
+                rc = os.system("ino build --skip_lib_includes")
+
+                # 512 probably means invalid option (skip_lib_includes)
+                if rc == 512:
+                    print "ino build returned " + `rc` + " - trying again without skip_lib_includes"
+                    rc = os.system("ino build")
+                
                 if not rc == 0:
-                    print "ino upload returned " + `rc`            
-                    self.send_response(500)
+                    print "ino build returned " + `rc`                            
+                    self.send_response(400)
                 else:
-                    self.send_response(200)
+                    rc = os.system("ino upload")
+                    if not rc == 0:
+                        print "ino upload returned " + `rc`            
+                        self.send_response(500)
+                    else:
+                        self.send_response(200)
 
 if __name__ == '__main__':
     print "running local web server at 127.0.0.1:8080..."
