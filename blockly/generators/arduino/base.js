@@ -83,6 +83,22 @@ Blockly.Language.base_map = {
   }
 };
 
+
+Blockly.Language.convert_to_temp = {
+  category: 'Math',
+  helpUrl: '',
+  init: function() {
+    this.setColour(230);
+    this.appendValueInput("NUM", Number)
+        .appendTitle("Convert to temperature ")
+        .setCheck(Number);
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setTooltip('Re-maps a number from [0-1024] to another.');
+  }
+};
+
+
 Blockly.Language.inout_buildin_led = {
    category: 'In/Out',
    helpUrl: 'http://arduino.cc/en/Reference/DigitalWrite',
@@ -272,6 +288,13 @@ Blockly.Arduino.base_map = function() {
   var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
   var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
   var code = 'map('+value_num+', 0, 1024, 0, '+value_dmax+')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+Blockly.Arduino.convert_to_temp = function() {
+  var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+  
+  var code = '(5.0 *' + value_num + '* 100.0) / 1024';
   return [code, Blockly.Arduino.ORDER_NONE];
 };
 
