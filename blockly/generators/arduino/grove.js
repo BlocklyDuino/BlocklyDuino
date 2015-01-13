@@ -149,7 +149,7 @@ Blockly.Language.grove_serial_lcd_print = {
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-        .appendTitle("LCD Initialize")
+        .appendTitle("LCD Initialize (This only runs once!)")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
         //.appendTitle("PIN#")
         //.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
