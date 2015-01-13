@@ -149,11 +149,11 @@ Blockly.Language.grove_serial_lcd_print = {
   init: function() {
     this.setColour(190);
     this.appendDummyInput("")
-        .appendTitle("LCD Initialize (This only runs once!)")
+        .appendTitle("LCD Initialize")
         .appendTitle(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
         //.appendTitle("PIN#")
         //.appendTitle(new Blockly.FieldDropdown(profile.default.digital), "PIN");
-    this.appendValueInput("TEXT", String)
+    /*this.appendValueInput("TEXT", String)
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendTitle("print once on row 0");
@@ -161,6 +161,7 @@ Blockly.Language.grove_serial_lcd_print = {
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendTitle("print once on row 1")
+        */
     //this.appendValueInput("DELAY_TIME", Number)
     //    .setCheck(Number)
     //    .setAlign(Blockly.ALIGN_RIGHT)
@@ -723,10 +724,13 @@ var _get_next_pin = function(dropdown_pin) {
 
 Blockly.Arduino.grove_serial_lcd_print = function() {
   //var dropdown_pin = this.getTitleValue('PIN');
-  var text = Blockly.Arduino.valueToCode(this, 'TEXT',
+  
+  /* var text = Blockly.Arduino.valueToCode(this, 'TEXT',
       Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
   var text2 = Blockly.Arduino.valueToCode(this, 'TEXT2',
       Blockly.Arduino.ORDER_UNARY_POSTFIX) || '\'\'';
+      */
+      
  // var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000';
   /*if(text.length>16||text2.length>16){
       alert("string is too long");
@@ -739,6 +743,7 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
 
   Blockly.Arduino.definitions_['define_liquidcrystal'] = '// include the library code:\n#include <LiquidCrystal.h>\n';
   Blockly.Arduino.definitions_['create_lcd_object'] = '// Get the display ready: tell it which pins are being used\nLiquidCrystal lcd(7, 8, 9, 10, 11, 12);\n';
+  
   //generate PIN#+1 port
   // var NextPIN = _get_next_pin(dropdown_pin);
 
@@ -748,10 +753,15 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
   tempVar += '  lcd.setCursor(0,0);\n';
    
   
+  /*
   tempVar    += '  lcd.print('+text+');\n';//text.replace(new RegExp('\'',"gm"),'')
   tempVar    += '  lcd.setCursor(0,1);\n';
   tempVar    += '  lcd.print('+text2+');\n';
+  */
+  
   Blockly.Arduino.setups_['setup_lcd'] = tempVar;
+  
+  
   // var code = 
   // code    += 'delay('+delay_time+');\n';
   var code = "";
