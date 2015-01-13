@@ -738,7 +738,7 @@ Blockly.Arduino.grove_serial_lcd_print = function() {
 
 
   Blockly.Arduino.definitions_['define_liquidcrystal'] = '// include the library code:\n#include <LiquidCrystal.h>\n';
-  Blockly.Arduino.definitions_['create_lcd_object'] = '// Get the display ready: tell it which pins are being used\nLiquidCrystal lcd(12, 11, 5, 4, 3, 2);\n';
+  Blockly.Arduino.definitions_['create_lcd_object'] = '// Get the display ready: tell it which pins are being used\nLiquidCrystal lcd(7, 8, 9, 10, 11, 12);\n';
   //generate PIN#+1 port
   // var NextPIN = _get_next_pin(dropdown_pin);
 
