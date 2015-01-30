@@ -195,19 +195,19 @@ Blockly.Language.set_cursor = {
   }
 };
 
-Blockly.Language.basic_lcd_print_string = {
+Blockly.Language.basic_lcd_print = {
   category: 'Character LCD',
   helpUrl: 'http://www.arduino.cc/en/Serial/Print',
   init: function() {
     this.setColour(190);
     this.appendValueInput("CONTENT", String)
-        .appendTitle("LCD Print a String");
+        .appendTitle("LCD Print ");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Prints data to the LCD.');
   }
 };
-
+/*
 Blockly.Language.basic_lcd_print_number = {
   category: 'Character LCD',
   helpUrl: 'http://www.arduino.cc/en/Serial/Print',
@@ -220,7 +220,7 @@ Blockly.Language.basic_lcd_print_number = {
     this.setTooltip('Prints data to the LCD.');
   }
 };
-
+*/
 //grove lcd power on/off
 Blockly.Language.grove_serial_lcd_power = {
   category: 'Grove LCD',
@@ -772,7 +772,8 @@ Blockly.Arduino.set_cursor = function() {
   return code;
 };
 
-Blockly.Arduino.basic_lcd_print_string = function() {
+
+Blockly.Arduino.basic_lcd_print = function() {
   var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
   //content = content.replace('(','').replace(')','');
   
@@ -782,6 +783,8 @@ Blockly.Arduino.basic_lcd_print_string = function() {
   return code;
 };
 
+
+/*
 Blockly.Arduino.basic_lcd_print_number = function() {
   var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
   //content = content.replace('(','').replace(')','');
@@ -791,6 +794,7 @@ Blockly.Arduino.basic_lcd_print_number = function() {
   var code = 'lcd.print('+content+');\n';
   return code;
 };
+*/
 
 Blockly.Arduino.grove_serial_lcd_power = function() {
   var dropdown_pin = this.getTitleValue('PIN');
