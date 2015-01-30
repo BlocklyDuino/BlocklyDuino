@@ -110,6 +110,9 @@ Blockly.Language.grove_piezo_buzzer = {
   }
 };
 
+
+
+
 Blockly.Language.grove_relay = {
   category: 'Grove',
   helpUrl: 'http://www.seeedstudio.com/wiki/Grove_-_Relay',
@@ -144,7 +147,7 @@ Blockly.Language.grove_temporature_sensor = {
 };
 
 Blockly.Language.grove_serial_lcd_print = {
-  category: 'LCD',
+  category: 'Character LCD',
   helpUrl: '',
   init: function() {
     this.setColour(190);
@@ -173,7 +176,7 @@ Blockly.Language.grove_serial_lcd_print = {
 
 
 Blockly.Language.set_cursor = {
-  category: 'LCD',
+  category: 'Character LCD',
   helpUrl: '',
   init: function() {
     this.setColour(190);
@@ -193,7 +196,7 @@ Blockly.Language.set_cursor = {
 };
 
 Blockly.Language.basic_lcd_print_string = {
-  category: 'LCD',
+  category: 'Character LCD',
   helpUrl: 'http://www.arduino.cc/en/Serial/Print',
   init: function() {
     this.setColour(190);
@@ -206,7 +209,7 @@ Blockly.Language.basic_lcd_print_string = {
 };
 
 Blockly.Language.basic_lcd_print_number = {
-  category: 'LCD',
+  category: 'Character LCD',
   helpUrl: 'http://www.arduino.cc/en/Serial/Print',
   init: function() {
     this.setColour(190);
@@ -654,6 +657,9 @@ Blockly.Arduino.grove_piezo_buzzer = function() {
   var code = 'digitalWrite('+dropdown_pin+','+dropdown_stat+');\n'
   return code;
 };
+
+
+
 
 Blockly.Arduino.grove_relay = function() {
   var dropdown_pin = this.getTitleValue('PIN');
