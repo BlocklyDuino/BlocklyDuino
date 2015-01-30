@@ -34,6 +34,41 @@ Blockly.Language.nokiaGetReady = {
     this.appendDummyInput("")
         .appendTitle("Initialize LCD")
         .appendTitle(new Blockly.FieldImage("https://cdn.sparkfun.com//assets/parts/4/4/7/3/10168-01.jpg", 64, 64))
+		
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('');
+  }
+};
+
+Blockly.Language.nokia_lcd_print = {
+  category: 'Graphic LCD',
+  helpUrl: 'http://www.arduino.cc/en/Serial/Print',
+  init: function() {
+    this.setColour(0);
+    this.appendValueInput("CONTENT", String)
+        .appendTitle("LCD Print");
+	this.appendValueInput("CURSOR_ROW", String)
+        .setCheck(Number)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendTitle("Row");
+    this.appendValueInput("CURSOR_COLUMN", String)
+        .setCheck(Number)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendTitle("Column");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Prints data to the LCD.');
+  }
+};
+
+Blockly.Language.nokia_lcd_clear = {
+  category: 'Graphic LCD',
+  helpUrl: '',
+  init: function() {
+    this.setColour(0);
+    this.appendDummyInput("")
+        .appendTitle("LCD Clear")
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('');
@@ -100,6 +135,37 @@ Blockly.Arduino.nokiaGetReady = function() {
 	var code = ''
 	return code;
 };
+
+
+
+
+Blockly.Arduino.nokia_lcd_clear = function() {
+  var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
+  //content = content.replace('(','').replace(')','');
+  
+  // Blockly.Arduino.setups_['setup_serial_'+profile.default.serial] = 'Serial.begin('+profile.default.serial+');\n';
+  
+  var code = '\nclearDisplay(WHITE);\nupdateDisplay();\n\n';
+  return code;
+};
+
+Blockly.Arduino.nokia_lcd_print = function() {
+  var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
+  //content = content.replace('(','').replace(')','');
+  var row = Blockly.Arduino.valueToCode(this, 'CURSOR_ROW', Blockly.Arduino.ORDER_ATOMIC) 
+  var column = Blockly.Arduino.valueToCode(this, 'CURSOR_COLUMN', Blockly.Arduino.ORDER_ATOMIC)
+
+  // Blockly.Arduino.setups_['setup_serial_'+profile.default.serial] = 'Serial.begin('+profile.default.serial+');\n';
+  
+  var code = 'setStr('+content+',6*'+column+',8*'+row+', BLACK);\n';
+  return code;
+  
+  
+};
+
+//  var code = 'lcd.setCursor(' +column+ ',' +row+ ');\n';
+ // return code;
+
 
 
 /*
