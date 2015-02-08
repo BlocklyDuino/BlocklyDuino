@@ -4,6 +4,7 @@
   <title>Blockly Demo: Arduino</title>
   <!--script type="text/javascript" src="../blockly_compressed.js"></script-->
   <script type="text/javascript" src="Blob.js"></script>
+  <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
   <script>
@@ -286,6 +287,8 @@ function init(blockly) {
         <!--pre id="content_javascript"></pre>
         <pre id="content_dart"></pre-->
         <div id="content_arduino">
+          <button type="button" onclick="uploadClick()">Upload</button>
+          <button type="button" onclick="resetClick()">Reset</button>
           <textarea id="textarea_arduino" readonly></textarea>
         </div>
         <!--pre id="content_python"></pre-->

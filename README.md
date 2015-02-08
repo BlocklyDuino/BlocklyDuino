@@ -2,7 +2,7 @@
 
 BlocklyDuino is a **web-based visual programming editor for [Arduino](http://www.arduino.cc/)**.
 
-BlocklyDuino is based on [Blockly](http://code.google.com/p/blockly/), the web-based, graphical programming editor. Provide static type language blocks and code generators for arduino programming.
+BlocklyDuino is based on [Blockly](http://code.google.com/p/blockly/), the web-based, graphical programming editor. Provide static type language blocks and code generators for Arduino programming.
 
 BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) blocks to easily get started with microcontroller-based experimentation and learning.
 
@@ -32,11 +32,26 @@ If you want to install it locally. Get code from github and open `blockly/demos/
 
 The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/demos/blocklyduino/index.html for use.
 
-### Usage (3 Steps)
+### Integrated Arduino upload
 
-1. Open browser to BlocklyDuino, Drag and Drop blocks to make arduino program. 
-2. Select 'Arduino' tab to copy source code to Arduino IDE
-3. press 'upload' button to burn the code into arduino
+To avoid the tedious step of manually pasting code to the Arduino IDE, you can run a mini webserver that uses 
+[ino](https://github.com/gumbypp/ino) to upload the code to a connected Arduino board on Mac OS X and Linux systems.
+Invoke this command from the BlocklyDuino root folder:
+
+```
+python ino_web_server.py
+```
+
+### Usage
+
+1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program
+2. Select the 'Arduino' tab and copy all of the source code into an existing or new project in the Arduino IDE
+3. Press the 'Upload' button in the Arduino IDE to burn the code into a connected Arduino board
+
+OR (if running `ino_web_server.py`):
+
+1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program
+2. Select the 'Arduino' tab and press the 'Upload' button (press the 'Reset' button to upload an empty program)
 
 ### ChangeLog
 
