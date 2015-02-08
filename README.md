@@ -2,7 +2,7 @@
 
 BlocklyDuino is a **web-based visual programming editor for [Arduino](http://www.arduino.cc/)**.
 
-BlocklyDuino is based on [Blockly](http://code.google.com/p/blockly/), the web-based, graphical programming editor. Provide static type language blocks and code generators for Arduino programming.
+BlocklyDuino is based on [Blockly](https://developers.google.com/blockly/), the web-based, graphical programming editor. Provide static type language blocks and code generators for Arduino programming.
 
 BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) blocks to easily get started with microcontroller-based experimentation and learning.
 
@@ -28,7 +28,7 @@ Or watch the [video demo](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
 ### Run locally on your web browser
 
-If you want to install it locally. Get code from github and open `blockly/demos/blocklyduino/index.html` in your browser.
+If you want to install it locally. Get code from github and open `blockly/apps/blocklyduino/index.html` in your browser.
 
 The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/demos/blocklyduino/index.html for use.
 
@@ -50,8 +50,8 @@ python ino_web_server.py
 
 OR (if running `ino_web_server.py`):
 
-1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program
-2. Select the 'Arduino' tab and press the 'Upload' button (press the 'Reset' button to upload an empty program)
+1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program.
+2. Select the 'Arduino' tab and press the 'Upload' button. (press the 'Reset' button to upload an empty program)
 
 ### ChangeLog
 
@@ -60,14 +60,15 @@ Check changelog [here](https://github.com/gasolin/BlocklyDuino/blob/master/CHANG
 ### Authors and Contributors
 Fred Lin (@gasolin) .
 
-Thanks Neil Fraser, Q.Neutron from Blockly http://code.google.com/p/blockly/
+Thanks Neil Fraser, Q.Neutron from Blockly https://developers.google.com/blockly/
+Thanks Dale Low (gumbypp) for contribute the python server to pipe BlocklyDuino source to arduino board.
 Thanks Arduino and Seeeduino guys for Arduino and Grove blocks.
 
 The project is also inspired by [arduiblock](https://github.com/taweili/ardublock) and [modkit](http://www.modk.it/)
 
 ### License
 
-Copyright (C) 2012~2014 Fred Lin gasolin+blockly@gmail.com
+Copyright (C) 2012~2015 Fred Lin gasolin+blockly@gmail.com
 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

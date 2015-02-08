@@ -1,20 +1,20 @@
 BlocklyDuino
 =======================
 
-1.0.1 2013/
+1.1 2015/2/8
 ------------------
-code name:
+code name: Dinosaurs
 
 Feature: 
+* python server to upload code to Arduino directly (only work on Linux and Mac)
 
 Change:
 * separate lcd include statement
 * update blockly till r546
 * rename package demos to apps
+* replaced to new Blob API
 
-Fix:
-
-Credit: gasolin
+Credit: gumbypp, gasolin, mjhoy, meln1k, Grahack
 
 1.0 2012/12/11
 ------------------
