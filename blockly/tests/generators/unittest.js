@@ -1,8 +1,9 @@
 /**
+ * @license
  * Visual Blocks Language
  *
  * Copyright 2012 Google Inc.
- * http://blockly.googlecode.com/
+ * https://developers.google.com/blockly/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,13 +24,12 @@
  */
 'use strict';
 
-Blockly.Language.unittest_main = {
+Blockly.Blocks['unittest_main'] = {
   // Container for unit tests.
-  category: 'Unit test',
   init: function() {
     this.setColour(65);
     this.appendDummyInput()
-        .appendTitle('run tests');
+        .appendField('run tests');
     this.appendStatementInput('DO');
     this.setTooltip('Executes the enclosed unit tests,\n' +
                     'then prints a summary.');
@@ -39,63 +39,56 @@ Blockly.Language.unittest_main = {
   }
 };
 
-Blockly.Language.unittest_assertequals = {
+Blockly.Blocks['unittest_assertequals'] = {
   // Asserts that a value equals another value.
-  category: 'Unit test',
   init: function() {
     this.setColour(65);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.appendDummyInput()
-        .appendTitle(new Blockly.FieldTextInput('test name'), 'MESSAGE');
+        .appendField(new Blockly.FieldTextInput('test name'), 'MESSAGE');
     this.appendValueInput('ACTUAL', null)
-        .appendTitle('actual');
+        .appendField('actual');
     this.appendValueInput('EXPECTED', null)
-        .appendTitle('expected');
+        .appendField('expected');
     this.setTooltip('Tests that "actual == expected".');
+  },
+  getVars: function() {
+    return ['unittestResults'];
   }
 };
 
-Blockly.Language.unittest_asserttrue = {
-  // Asserts that a value is true.
-  category: 'Unit test',
+Blockly.Blocks['unittest_assertvalue'] = {
+  // Asserts that a value is true, false, or null.
   init: function() {
     this.setColour(65);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.appendDummyInput()
-        .appendTitle(new Blockly.FieldTextInput('test name'), 'MESSAGE');
+        .appendField(new Blockly.FieldTextInput('test name'), 'MESSAGE');
     this.appendValueInput('ACTUAL', Boolean)
-        .appendTitle('assert true');
-    this.setTooltip('Tests that the value is true.');
+        .appendField('assert')
+        .appendField(new Blockly.FieldDropdown(
+        [['true', 'TRUE'], ['false', 'FALSE'], ['null', 'NULL']]), 'EXPECTED');
+    this.setTooltip('Tests that the value is true, false, or null.');
+  },
+  getVars: function() {
+    return ['unittestResults'];
   }
 };
 
-Blockly.Language.unittest_assertfalse = {
-  // Asserts that a value is false.
-  category: 'Unit test',
-  init: function() {
-    this.setColour(65);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.appendDummyInput()
-        .appendTitle(new Blockly.FieldTextInput('test name'), 'MESSAGE');
-    this.appendValueInput('ACTUAL', Boolean)
-        .appendTitle('assert false');
-    this.setTooltip('Tests that the value is false.');
-  }
-};
-
-Blockly.Language.unittest_fail = {
+Blockly.Blocks['unittest_fail'] = {
   // Always assert an error.
-  category: 'Unit test',
   init: function() {
     this.setColour(65);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.appendDummyInput()
-        .appendTitle(new Blockly.FieldTextInput('test name'), 'MESSAGE')
-        .appendTitle('fail');
+        .appendField(new Blockly.FieldTextInput('test name'), 'MESSAGE')
+        .appendField('fail');
     this.setTooltip('Records an error.');
+  },
+  getVars: function() {
+    return ['unittestResults'];
   }
 };

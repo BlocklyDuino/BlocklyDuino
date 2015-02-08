@@ -1,36 +1,17 @@
 <html manifest=node.manifest>
 <head>
   <meta charset="utf-8">
-  <title>Blockly Demo: Arduino</title>
-  <!--script type="text/javascript" src="../blockly_compressed.js"></script-->
+  <title>BlocklyDuino</title>
+  <script type="text/javascript" src="../../blockly_compressed.js"></script>
+  <script type="text/javascript" src="../../blocks_compressed.js"></script>
+  <script type="text/javascript" src="../../arduino_compressed.js"></script>
+  <script type="text/javascript" src="../../msg/js/en.js"></script>
   <script type="text/javascript" src="Blob.js"></script>
   <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
   <script>
-  // Whitelist of blocks to keep.
-  /*var newLanguage = {}
-  var keepers = ['controls_loop', 'controls_delay', 'control_map',
-      //'setup_pinmode', 'output_digital_write', 'output_analog_write',
-      //'controls_if', 'controls_if_if', 'controls_if_elseif',
-      //'controls_if_else', 'controls_whileUntil', 'controls_for',
-      //'controls_flow_statements',
-      //'math_number','math_arithmetic',//'math_modulo',
-      //'logic_compare', 'logic_operation', 'logic_negate', 'logic_boolean',
-      //'variables_get','variables_set',
-      //'procedures_defnoreturn', 'procedures_defreturn', 'procedures_callnoreturn', 'procedures_callreturn'
-      ];
-  for (var x = 0; x < keepers.length; x++) {
-    newLanguage[keepers[x]] = Blockly.Language[keepers[x]];
-  }
-  // Fold control category into logic category.
-  for (var name in newLanguage) {
-    if (newLanguage[name].category == 'Math') {
-      newLanguage[name].category = 'Logic';
-    }
-  }
-  Blockly.Language = newLanguage;*/
-  
+
 /**
  * List of tab names.
  * @private
@@ -41,12 +22,12 @@ var selected = 'blocks';
 
 /**
  * Switch the visible pane when a tab is clicked.
- * @param {string} id ID of tab clicked.
+ * @param {string} clickedName Name of tab clicked.
  */
-function tabClick(id) {
+function tabClick(clickedName) {
   // If the XML tab was open, save and render the content.
   if (document.getElementById('tab_xml').className == 'tabon') {
-    var xmlTextarea = document.getElementById('textarea_xml');
+    var xmlTextarea = document.getElementById('content_xml');
     var xmlText = xmlTextarea.value;
     var xmlDom = null;
     try {
@@ -66,18 +47,20 @@ function tabClick(id) {
   }
 
   // Deselect all tabs and hide all panes.
-  for (var x in TABS_) {
-    document.getElementById('tab_' + TABS_[x]).className = 'taboff';
-    document.getElementById('content_' + TABS_[x]).style.display = 'none';
+  for (var i = 0; i < TABS_.length; i++) {
+    var name = TABS_[i];
+    document.getElementById('tab_' + name).className = 'taboff';
+    document.getElementById('content_' + name).style.visibility = 'hidden';
   }
 
-  // Select the active tab.
-  selected = id.replace('tab_', '');
-  document.getElementById(id).className = 'tabon';
+ // Select the active tab.
+  selected = clickedName;
+  document.getElementById('tab_' + clickedName).className = 'tabon';
   // Show the selected pane.
-  var content = document.getElementById('content_' + selected);
-  content.style.display = 'block';
+  document.getElementById('content_' + clickedName).style.visibility =
+      'visible';
   renderContent();
+  Blockly.fireUiEvent(window, 'resize');
 }
 
 /**
@@ -91,47 +74,84 @@ function renderContent() {
     // an incomplete rendering due to Blockly being invisible.  Rerender.
     Blockly.mainWorkspace.render();
   } else if (content.id == 'content_xml') {
-    var xmlTextarea = document.getElementById('textarea_xml');
+    var xmlTextarea = document.getElementById('content_xml');
     var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
     var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
     xmlTextarea.value = xmlText;
     xmlTextarea.focus();
   /*} else if (content.id == 'content_javascript') {
-    content.innerHTML = Blockly.Generator.workspaceToCode('JavaScript');
+    content.innerHTML = Blockly.JavaScript.workspaceToCode();
   } else if (content.id == 'content_dart') {
-    content.innerHTML = Blockly.Generator.workspaceToCode('Dart');
+    content.innerHTML = Blockly.Dart.workspaceToCode();
   } else if (content.id == 'content_python') {
-    content.innerHTML = Blockly.Generator.workspaceToCode('Python');*/
+    content.innerHTML = Blockly.Python.workspaceToCode();*/
   } else if (content.id == 'content_arduino') {
-    //content.innerHTML = Blockly.Generator.workspaceToCode('Arduino');
-    var arduinoTextarea = document.getElementById('textarea_arduino');
-    arduinoTextarea.value = Blockly.Generator.workspaceToCode('Arduino');
+    //content.innerHTML = Blockly.Arduino.workspaceToCode();
+    var arduinoTextarea = document.getElementById('content_arduino');
+    arduinoTextarea.value = Blockly.Arduino.workspaceToCode();
     arduinoTextarea.focus();
   }
 }
 
 /**
- * Initialize Blockly.  Called on page load.
- * @param {!Blockly} blockly Instance of Blockly from iframe.
+ * Compute the absolute coordinates and dimensions of an HTML element.
+ * @param {!Element} element Element to match.
+ * @return {!Object} Contains height, width, x, and y properties.
+ * @private
  */
-function init(blockly) {
+function getBBox_(element) {
+  var height = element.offsetHeight;
+  var width = element.offsetWidth;
+  var x = 0;
+  var y = 0;
+  do {
+    x += element.offsetLeft;
+    y += element.offsetTop;
+    element = element.offsetParent;
+  } while (element);
+  return {
+    height: height,
+    width: width,
+    x: x,
+    y: y
+  };
+}
+
+/**
+ * Initialize Blockly.  Called on page load.
+ */
+function init() {
   //window.onbeforeunload = function() {
   //  return 'Leaving this page will result in the loss of your work.';
   //};
 
-  window.Blockly = blockly;
-  
-  // var blockly_frame = document.getElementById("content_blocks");
-  // Blockly.inject(blockly_frame, {path: '../../'});
+  var container = document.getElementById('content_area');
+  var onresize = function(e) {
+    var bBox = getBBox_(container);
+    for (var i = 0; i < TABS_.length; i++) {
+      var el = document.getElementById('content_' + TABS_[i]);
+      el.style.top = bBox.y + 'px';
+      el.style.left = bBox.x + 'px';
+      // Height and width need to be set, read back, then set again to
+      // compensate for scrollbars.
+      el.style.height = bBox.height + 'px';
+      el.style.height = (2 * bBox.height - el.offsetHeight) + 'px';
+      el.style.width = bBox.width + 'px';
+      el.style.width = (2 * bBox.width - el.offsetWidth) + 'px';
+    }
+    // Make the 'Blocks' tab line up with the toolbox.
+    if (Blockly.mainWorkspace.toolbox_.width) {
+      document.getElementById('tab_blocks').style.minWidth =
+          (Blockly.mainWorkspace.toolbox_.width - 38) + 'px';
+          // Account for the 19 pixel margin and on each side.
+    }
+  };
+  window.addEventListener('resize', onresize, false);
 
-  // Make the 'Blocks' tab line up with the toolbox.
-  if (Blockly.Toolbox) {
-    window.setTimeout(function() {
-        document.getElementById('tab_blocks').style.minWidth =
-            (Blockly.Toolbox.width - 38) + 'px';
-            // Account for the 19 pixel margin and on each side.
-      }, 1);
-  }
+  var toolbox = document.getElementById('toolbox');
+  Blockly.inject(document.getElementById('content_blocks'),
+      {media: '../../media/',
+       toolbox: toolbox});
 
   auto_save_and_restore_blocks();
 
@@ -144,23 +164,20 @@ function init(blockly) {
 }
   </script>
   <style>
+    html, body {
+      height: 100%;
+    }
     body {
-      background-color: white;
+      background-color: #fff;
       font-family: sans-serif;
       margin: 0;
-      padding:0;
       overflow: hidden;
-    }
-    .blocklySvg {
-      height: 100%;
-      width: 100%;
     }
     h1 {
       font-weight: normal;
       font-size: 140%;
-    }
-    td {
-      vertical-align: top;
+      margin-left: 5px;
+      margin-right: 5px;
     }
 
     /* Tabs */
@@ -200,31 +217,30 @@ function init(blockly) {
     }
     td {
       padding: 0;
+      vertical-align: top;
     }
-    pre,
-    #content_xml,
-    #content_arduino {
-      width: 100%;
-      height: 100%;
-      padding: 0;
+    .content {
+      visibility: hidden;
       margin: 0;
-      border: 1px solid #ccc;
-      border-top-style: none;
-      overflow: hidden;
-      display: none;
+      padding: 1ex;
+      position: absolute;
+      direction: ltr;
     }
-    #textarea_xml,
-    #textarea_arduino {
-      width: 100%;
-      height: 100%;
-      border: none;
+    pre.content {
+      overflow: scroll;
+    }
+    #content_blocks {
+      padding: 0;
+    }
+    .blocklySvg {
+      border-top: none !important;
+    }
+    #content_xml {
       resize: none;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 1px solid #ccc;
-      border-top-style: none;
+      outline: none;
+      border: none;
+      font-family: monospace;
+      overflow: scroll;
     }
     button {
       padding: 1px 1em;
@@ -247,7 +263,7 @@ function init(blockly) {
     }
   </style>
 </head>
-<body>
+<body onload="init()">
   <table height="100%" width="100%">
     <tr>
       <td>
@@ -256,9 +272,9 @@ function init(blockly) {
     </tr>
     <tr>
       <td>
-        <table>
+        <table width="100%">
           <tr id="tabRow" height="1em">
-            <td id="tab_blocks" class="tabon" onclick="tabClick(this.id)">Blocks</td>
+            <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')">Blocks</td>
             <td class="tabmin">&nbsp;</td>
             <!--td id="tab_javascript" class="taboff" onclick="tabClick(this.id)">JavaScript</td>
             <td class="tabmin">&nbsp;</td-->
@@ -266,10 +282,12 @@ function init(blockly) {
             <td class="tabmin">&nbsp;</td>
             <td id="tab_python" class="taboff" onclick="tabClick(this.id)">Python</td>
             <td class="tabmin">&nbsp;</td-->
-            <td id="tab_arduino" class="taboff" onclick="tabClick(this.id)">Arduino</td>
+            <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
             <td class="tabmin">&nbsp;</td>
-            <td id="tab_xml" class="taboff" onclick="tabClick(this.id)">XML</td>
+            <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
             <td class="tabmax">
+              <button type="button" onclick="uploadClick()">Upload</button>
+              <button type="button" onclick="resetClick()">Reset</button>
               <button onclick="discard()">Discard</button>
               <button onclick="save()">Save XML</button>
               <button id="fakeload">Load XML</button>
@@ -281,22 +299,88 @@ function init(blockly) {
       </td>
     </tr>
     <tr>
-      <td height="99%">
-        <iframe id="content_blocks" src="frame.html"></iframe>
-		<!--div id="content_blocks" style="height:auto !important;height:400px; min-height:400px;"></div-->
-        <!--pre id="content_javascript"></pre>
-        <pre id="content_dart"></pre-->
-        <div id="content_arduino">
-          <button type="button" onclick="uploadClick()">Upload</button>
-          <button type="button" onclick="resetClick()">Reset</button>
-          <textarea id="textarea_arduino" readonly></textarea>
-        </div>
-        <!--pre id="content_python"></pre-->
-        <div id="content_xml">
-          <textarea id="textarea_xml" readonly></textarea>
-        </div>
-      </td>
+      <td height="99%" id="content_area"></td>
     </tr>
   </table>
+  <div id="content_blocks" class="content"></div>
+  <textarea id="content_arduino" class="content" readonly wrap="off"></textarea>
+  <textarea id="content_xml" class="content" wrap="off"></textarea>
+
+  <xml id="toolbox" style="display: none">
+    <category name="In/Out">
+      <block type="inout_highlow"></block>
+      <block type="inout_digital_write"></block>
+      <block type="inout_digital_read"></block>
+      <block type="inout_analog_write"></block>
+      <block type="inout_analog_read"></block>
+      <block type="serial_print"></block>
+      <block type="inout_buildin_led"></block>
+    </category>
+    <category name="Servo">
+      <block type="servo_move"></block>
+      <block type="servo_read_degrees"></block>
+    </category>
+    <category name="Grove Analog">
+      <block type="grove_rotary_angle"></block>
+      <block type="grove_temporature_sensor"></block>
+      <block type="grove_sound_sensor"></block>
+      <block type="grove_thumb_joystick"></block>
+    </category>
+    <category name="Grove">
+      <block type="grove_led"></block>
+      <block type="grove_button"></block>
+      <block type="grove_relay"></block>
+      <block type="grove_tilt_switch"></block>
+      <block type="grove_piezo_buzzer"></block>
+      <block type="grove_pir_motion_sensor"></block>
+      <block type="grove_line_finder"></block>
+      <block type="grove_rgb_led"></block>
+      <block type="grove_rgb_led_container"></block>
+      <block type="grove_rgb_led_item"></block>
+    </category>
+    <category name="Grove LCD">
+      <block type="grove_serial_lcd_print"></block>
+      <block type="grove_serial_lcd_power"></block>
+      <block type="grove_serial_lcd_effect"></block>
+      <block type="grove_ultrasonic_ranger"></block>
+    </category>
+    <category name="Grove Motor">
+      <block type="grove_motor_shield"></block>
+    </category>
+    <sep></sep>
+    <category name="Logic">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_null"></block>
+    </category>
+    <category name="Control">
+      <block type="base_delay"></block>
+      <block type="controls_for">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+    </category>
+    <category name="Math">
+      <block type="base_map"></block>
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+    </category>
+    <category name="Text">
+      <block type="text"></block>
+    </category>
+    <sep></sep>
+    <category name="Variables" custom="VARIABLE"></category>
+    <category name="Functions" custom="PROCEDURE"></category>
+  </xml>
 </body>
 </html>

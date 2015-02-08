@@ -1,8 +1,9 @@
 /**
+ * @license
  * Visual Blocks Language
  *
  * Copyright 2012 Google Inc.
- * http://blockly.googlecode.com/
+ * https://developers.google.com/blockly/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,51 +24,44 @@
  */
 'use strict';
 
-Blockly.Python = Blockly.Generator.get('Python');
-
-Blockly.Python.unittest_main = function() {
+Blockly.Python['unittest_main'] = function(block) {
   // Container for unit tests.
   var resultsVar = Blockly.Python.variableDB_.getName('unittestResults',
       Blockly.Variables.NAME_TYPE);
-  if (!Blockly.Python.definitions_['unittest_report']) {
-    var functionName = Blockly.Python.variableDB_.getDistinctName(
-        'testReport', Blockly.Generator.NAME_TYPE);
-    Blockly.Python.unittest_main.report = functionName;
-    var func = [];
-    func.push('def ' + functionName + '():');
-    func.push('  # Create test report.');
-    func.push('  report = []');
-    func.push('  summary = []');
-    func.push('  fails = 0');
-    func.push('  for (success, title, log) in ' + resultsVar + ':');
-    func.push('    if success:');
-    func.push('      summary.append(".")');
-    func.push('    else:');
-    func.push('      summary.append("F")');
-    func.push('      fails += 1');
-    func.push('      report.append("")');
-    func.push('      report.append("FAIL: " + title)');
-    func.push('      report.append(log)');
-    func.push('  report.insert(0, "".join(summary))');
-    func.push('  report.append("")');
-    func.push('  report.append("Ran %d test." % len(' + resultsVar + '))');
-    func.push('  report.append("")');
-    func.push('  if fails:');
-    func.push('    report.append("FAILED (failures=%d)" % fails)');
-    func.push('  else:');
-    func.push('    report.append("OK")');
-    func.push('  return "\\n".join(report)');
-    func.push('');
-    Blockly.Python.definitions_['unittest_report'] = func.join('\n');
-  }
+  var functionName = Blockly.Python.provideFunction_(
+      'unittest_report',
+      ['def ' + Blockly.Python.FUNCTION_NAME_PLACEHOLDER_ + '():',
+       '  # Create test report.',
+       '  report = []',
+       '  summary = []',
+       '  fails = 0',
+       '  for (success, log, message) in ' + resultsVar + ':',
+       '    if success:',
+       '      summary.append(".")',
+       '    else:',
+       '      summary.append("F")',
+       '      fails += 1',
+       '      report.append("")',
+       '      report.append("FAIL: " + message)',
+       '      report.append(log)',
+       '  report.insert(0, "".join(summary))',
+       '  report.append("")',
+       '  report.append("Number of tests run: %d" % len(' + resultsVar + '))',
+       '  report.append("")',
+       '  if fails:',
+       '    report.append("FAILED (failures=%d)" % fails)',
+       '  else:',
+       '    report.append("OK")',
+       '  return "\\n".join(report)']);
+
   // Setup global to hold test results.
   var code = resultsVar + ' = []\n';
   // Run tests (unindented).
-  code += Blockly.Python.statementToCode(this, 'DO')
+  code += Blockly.Python.statementToCode(block, 'DO')
       .replace(/^  /, '').replace(/\n  /g, '\n');
   var reportVar = Blockly.Python.variableDB_.getDistinctName(
       'report', Blockly.Variables.NAME_TYPE);
-  code += reportVar + ' = ' + Blockly.Python.unittest_main.report + '()\n';
+  code += reportVar + ' = ' + functionName + '()\n';
   // Destroy results.
   code += resultsVar + ' = None\n';
   // Print the report.
@@ -75,109 +69,63 @@ Blockly.Python.unittest_main = function() {
   return code;
 };
 
-Blockly.Python.unittest_assertequals = function() {
+Blockly.Python['unittest_main'].defineAssert_ = function() {
   var resultsVar = Blockly.Python.variableDB_.getName('unittestResults',
       Blockly.Variables.NAME_TYPE);
+  var functionName = Blockly.Python.provideFunction_(
+      'assertEquals',
+      ['def ' + Blockly.Python.FUNCTION_NAME_PLACEHOLDER_ +
+          '(actual, expected, message):',
+       '  # Asserts that a value equals another value.',
+       '  if ' + resultsVar + ' == None:',
+       '    raise Exception("Orphaned assert equals: " + message)',
+       '  if actual == expected:',
+       '    ' + resultsVar + '.append((True, "OK", message))',
+       '  else:',
+       '    ' + resultsVar + '.append((False, ' +
+           '"Expected: %s\\nActual: %s" % (expected, actual), message))']);
+  return functionName;
+};
+
+Blockly.Python['unittest_assertequals'] = function(block) {
   // Asserts that a value equals another value.
-  var message = Blockly.Python.quote_(this.getTitleValue('MESSAGE'));
-  if (!Blockly.Python.definitions_['unittest_assertequals']) {
-    var functionName = Blockly.Python.variableDB_.getDistinctName(
-        'assertEquals', Blockly.Generator.NAME_TYPE);
-    Blockly.Python.unittest_assertequals.assert = functionName;
-    var func = [];
-    func.push('def ' + functionName + '(actual, expected, message):');
-    func.push('  # Asserts that a value equals another value.');
-    func.push('  if ' + resultsVar + ' == None:');
-    func.push('    raise Exception("Orphaned assert equals: ' + message + '")');
-    func.push('  if actual == expected:');
-    func.push('    ' + resultsVar + '.append((True, "OK", message))');
-    func.push('  else:');
-    func.push('    ' + resultsVar + '.append((False, ' +
-        '"Expected: %s\\nActual: %s" % (expected, actual), message))');
-    func.push('');
-    Blockly.Python.definitions_['unittest_assertequals'] = func.join('\n');
-  }
-  var actual = Blockly.Python.valueToCode(this, 'ACTUAL',
-      Blockly.Python.ORDER_COMMA) || 'None';
-  var expected = Blockly.Python.valueToCode(this, 'EXPECTED',
-      Blockly.Python.ORDER_COMMA) || 'None';
-  return Blockly.Python.unittest_assertequals.assert + '(' +
-      actual + ', ' + expected + ', ' + message + ')\n';
+  var message = Blockly.Python.quote_(block.getFieldValue('MESSAGE'));
+  var actual = Blockly.Python.valueToCode(block, 'ACTUAL',
+      Blockly.Python.ORDER_NONE) || 'None';
+  var expected = Blockly.Python.valueToCode(block, 'EXPECTED',
+      Blockly.Python.ORDER_NONE) || 'None';
+  return Blockly.Python['unittest_main'].defineAssert_() +
+      '(' + actual + ', ' + expected + ', ' + message + ')\n';
 };
 
-Blockly.Python.unittest_asserttrue = function() {
-  var resultsVar = Blockly.Python.variableDB_.getName('unittestResults',
-      Blockly.Variables.NAME_TYPE);
-  // Asserts that a value is true.
-  var message = Blockly.Python.quote_(this.getTitleValue('MESSAGE'));
-  if (!Blockly.Python.definitions_['unittest_asserttrue']) {
-    var functionName = Blockly.Python.variableDB_.getDistinctName(
-        'assertTrue', Blockly.Generator.NAME_TYPE);
-    Blockly.Python.unittest_asserttrue.assert = functionName;
-    var func = [];
-    func.push('def ' + functionName + '(actual, message):');
-    func.push('  # Asserts that a value is true.');
-    func.push('  if ' + resultsVar + ' == None:');
-    func.push('    raise Exception("Orphaned assert equals: ' + message + '")');
-    func.push('  if actual == True:');
-    func.push('    ' + resultsVar + '.append((True, "OK", message))');
-    func.push('  else:');
-    func.push('    ' + resultsVar + '.append((False, ' +
-              '"Expected: true\\nActual: %s" % actual, message))');
-    func.push('');
-    Blockly.Python.definitions_['unittest_asserttrue'] = func.join('\n');
+Blockly.Python['unittest_assertvalue'] = function(block) {
+  // Asserts that a value is true, false, or null.
+  var message = Blockly.Python.quote_(block.getFieldValue('MESSAGE'));
+  var actual = Blockly.Python.valueToCode(block, 'ACTUAL',
+      Blockly.Python.ORDER_NONE) || 'None';
+  var expected = block.getFieldValue('EXPECTED');
+  if (expected == 'TRUE') {
+    expected = 'True';
+  } else if (expected == 'FALSE') {
+    expected = 'False';
+  } else if (expected == 'NULL') {
+    expected = 'None';
   }
-  var actual = Blockly.Python.valueToCode(this, 'ACTUAL',
-      Blockly.Python.ORDER_COMMA) || 'True';
-  return Blockly.Python.unittest_asserttrue.assert +
-      '(' + actual + ', ' + message + ')\n';
+  return Blockly.Python['unittest_main'].defineAssert_() +
+      '(' + actual + ', ' + expected + ', ' + message + ')\n';
 };
 
-Blockly.Python.unittest_assertfalse = function() {
-  var resultsVar = Blockly.Python.variableDB_.getName('unittestResults',
-      Blockly.Variables.NAME_TYPE);
-  // Asserts that a value is false.
-  var message = Blockly.Python.quote_(this.getTitleValue('MESSAGE'));
-  if (!Blockly.Python.definitions_['unittest_assertfalse']) {
-    var functionName = Blockly.Python.variableDB_.getDistinctName(
-        'assertFalse', Blockly.Generator.NAME_TYPE);
-    Blockly.Python.unittest_assertfalse.assert = functionName;
-    var func = [];
-    func.push('def ' + functionName + '(actual, message):');
-    func.push('  # Asserts that a value is false.');
-    func.push('  if ' + resultsVar + ' == None:');
-    func.push('    raise Exception("Orphaned assert equals: ' + message + '")');
-    func.push('  if actual == False:');
-    func.push('    ' + resultsVar + '.append((True, "OK", message))');
-    func.push('  else:');
-    func.push('    ' + resultsVar + '.append((False, ' +
-              '"Expected: false\\nActual: %s" % actual, message))');
-    func.push('');
-    Blockly.Python.definitions_['unittest_assertfalse'] = func.join('\n');
-  }
-  var actual = Blockly.Python.valueToCode(this, 'ACTUAL',
-      Blockly.Python.ORDER_COMMA) || 'False';
-  return Blockly.Python.unittest_assertfalse.assert +
-      '(' + actual + ', ' + message + ')\n';
-};
-
-Blockly.Python.unittest_fail = function() {
+Blockly.Python['unittest_fail'] = function(block) {
   // Always assert an error.
   var resultsVar = Blockly.Python.variableDB_.getName('unittestResults',
       Blockly.Variables.NAME_TYPE);
-  var message = Blockly.Python.quote_(this.getTitleValue('MESSAGE'));
-  if (!Blockly.Python.definitions_['unittest_fail']) {
-    var functionName = Blockly.Python.variableDB_.getDistinctName(
-        'fail', Blockly.Generator.NAME_TYPE);
-    Blockly.Python.unittest_fail.assert = functionName;
-    var func = [];
-    func.push('def ' + functionName + '(message):');
-    func.push('  # Always assert an error.');
-    func.push('  if ' + resultsVar + ' == None:');
-    func.push('    raise Exception("Orphaned assert equals: ' + message + '")');
-    func.push('  ' + resultsVar + '.append((False, "Fail.", message))');
-    func.push('');
-    Blockly.Python.definitions_['unittest_fail'] = func.join('\n');
-  }
-  return Blockly.Python.unittest_fail.assert + '(' + message + ')\n';
+  var message = Blockly.Python.quote_(block.getFieldValue('MESSAGE'));
+  var functionName = Blockly.Python.provideFunction_(
+      'fail',
+      ['def ' + Blockly.Python.FUNCTION_NAME_PLACEHOLDER_ + '(message):',
+       '  # Always assert an error.',
+       '  if ' + resultsVar + ' == None:',
+       '    raise Exception("Orphaned assert equals: " + message)',
+       '  ' + resultsVar + '.append((False, "Fail.", message))']);
+  return functionName + '(' + message + ')\n';
 };

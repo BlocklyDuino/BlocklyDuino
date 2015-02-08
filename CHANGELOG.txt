@@ -1,11 +1,25 @@
 BlocklyDuino
 =======================
 
+1.2 2015/2/25
+------------------
+code name: Fabuland
+
+Feature:
+
+Change:
+* update Blockly to latest (two year gap)
+* enable frameless code editor (Chrome now works locally)
+
+Fix:
+
+Credit: fraser
+
 1.1 2015/2/8
 ------------------
 code name: Dinosaurs
 
-Feature: 
+Feature:
 * python server to upload code to Arduino directly (only work on Linux and Mac)
 
 Change:
@@ -20,7 +34,7 @@ Credit: gumbypp, gasolin, mjhoy, meln1k, Grahack
 ------------------
 code name: Mindstorms
 
-Feature: 
+Feature:
 
 * add procedure support with return and logic null blocks, contribute back to blockly
 * add blocks:
@@ -46,7 +60,7 @@ code name: TECHNIC
 
 Refactor blocks, rearrange import blocks and blocks with type checking
 
-Feature: 
+Feature:
 
 * add text blocks
 * add blocks:
@@ -74,7 +88,7 @@ code name: DUPLO
 
 make editor more friendly
 
-Feature: 
+Feature:
 
 * generate arduino code in textarea, easier to copy source
 * auto focus to arduino code area, can use ctrl+a to select correct source
@@ -101,7 +115,7 @@ code name: SPACE
 
 refine bootstraping process
 
-Feature: 
+Feature:
 
 * promotion video http://www.youtube.com/watch?v=_swiyXcUvNY
 * bootstraping sample blocks and document to easily custom blocks.
@@ -115,7 +129,7 @@ Change:
 
 fix:
 
-* fix servo move block cascade input issue 
+* fix servo move block cascade input issue
 
 Credit: gasolin
 
@@ -179,7 +193,7 @@ Feature:
 * Compact Digital/Analog Read/Write syntax
 * Auto setup pinMode
 * delay and map function
-* 2 Standard blocks: Build-in LED, Servo 
+* 2 Standard blocks: Build-in LED, Servo
 * 6 Grove blocks: LED, Potentiometer, Tilt switch, Piezo Buzzer, Relay
 
 Credit: gasolin

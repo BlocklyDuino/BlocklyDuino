@@ -103,7 +103,7 @@ function auto_save_and_restore_blocks() {
   window.setTimeout(restore_blocks, 0);
   // Hook a save function onto unload.
   bindEvent(window, 'unload', backup_blocks);
-  tabClick('tab_' + selected);
+  tabClick(selected);
 
   // Init load event.
   var loadInput = document.getElementById('load');
@@ -149,7 +149,7 @@ function createAJAX() {
   }
 }
 
-function onSuccess () {
+function onSuccess() {
   if (ajax.readyState == 4) {
     if (ajax.status == 200) {
       try {

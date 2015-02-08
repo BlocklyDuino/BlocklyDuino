@@ -1,8 +1,9 @@
 /**
+ * @license
  * Visual Blocks Editor
  *
  * Copyright 2012 Google Inc.
- * http://blockly.googlecode.com/
+ * https://developers.google.com/blockly/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,29 +26,45 @@
  */
 'use strict';
 
+goog.provide('Blockly.Field');
+
+goog.require('goog.asserts');
+goog.require('goog.dom');
+goog.require('goog.math.Size');
+goog.require('goog.userAgent');
+
+
 /**
  * Class for an editable field.
  * @param {string} text The initial content of the field.
  * @constructor
  */
 Blockly.Field = function(text) {
-  this.sourceBlock_ = null;
-  // Build the DOM.
-  this.group_ = Blockly.createSvgElement('g', {}, null);
-  this.borderRect_ = Blockly.createSvgElement('rect',
-      {'rx': 4,
-       'ry': 4,
-       'x': -Blockly.BlockSvg.SEP_SPACE_X / 2,
-       'y': -12,
-       'height': 16}, this.group_);
-  this.textElement_ = Blockly.createSvgElement('text',
-      {'class': 'blocklyText'}, this.group_);
-  if (this.CURSOR) {
-    // Different field types show different cursor hints.
-    this.group_.style.cursor = this.CURSOR;
-  }
-  this.size_ = {height: 25, width: 0};
+  this.size_ = new goog.math.Size(0, 25);
   this.setText(text);
+};
+
+/**
+ * Block this field is attached to.  Starts as null, then in set in init.
+ * @private
+ */
+Blockly.Field.prototype.sourceBlock_ = null;
+
+/**
+ * Is the field visible, or hidden due to the block being collapsed?
+ * @private
+ */
+Blockly.Field.prototype.visible_ = true;
+
+/**
+ * Clone this Field.  This must be implemented by all classes derived from
+ * Field.  Since this class should not be instantiated, calling this method
+ * throws an exception.
+ * @throws {goog.assert.AssertionError}
+ */
+Blockly.Field.prototype.clone = function() {
+  goog.asserts.fail('There should never be an instance of Field, ' +
+      'only its derived classes.');
 };
 
 /**
@@ -66,16 +83,30 @@ Blockly.Field.prototype.EDITABLE = true;
  */
 Blockly.Field.prototype.init = function(block) {
   if (this.sourceBlock_) {
-    throw 'Field has already been initialized once.';
+    // Field has already been initialized once.
+    return;
   }
   this.sourceBlock_ = block;
-  this.group_.setAttribute('class',
-      block.editable ? 'blocklyEditableText' : 'blocklyNonEditableText');
-  block.getSvgRoot().appendChild(this.group_);
-  if (block.editable) {
-    this.mouseUpWrapper_ =
-        Blockly.bindEvent_(this.group_, 'mouseup', this, this.onMouseUp_);
+  // Build the DOM.
+  this.fieldGroup_ = Blockly.createSvgElement('g', {}, null);
+  if (!this.visible_) {
+    this.fieldGroup_.style.display = 'none';
   }
+  this.borderRect_ = Blockly.createSvgElement('rect',
+      {'rx': 4,
+       'ry': 4,
+       'x': -Blockly.BlockSvg.SEP_SPACE_X / 2,
+       'y': -12,
+       'height': 16}, this.fieldGroup_);
+  this.textElement_ = Blockly.createSvgElement('text',
+      {'class': 'blocklyText'}, this.fieldGroup_);
+
+  this.updateEditable();
+  block.getSvgRoot().appendChild(this.fieldGroup_);
+  this.mouseUpWrapper_ =
+      Blockly.bindEvent_(this.fieldGroup_, 'mouseup', this, this.onMouseUp_);
+  // Force a render.
+  this.updateTextNode_();
 };
 
 /**
@@ -87,10 +118,40 @@ Blockly.Field.prototype.dispose = function() {
     this.mouseUpWrapper_ = null;
   }
   this.sourceBlock_ = null;
-  goog.dom.removeNode(this.group_);
-  this.group_ = null;
+  goog.dom.removeNode(this.fieldGroup_);
+  this.fieldGroup_ = null;
   this.textElement_ = null;
   this.borderRect_ = null;
+};
+
+/**
+ * Add or remove the UI indicating if this field is editable or not.
+ */
+Blockly.Field.prototype.updateEditable = function() {
+  if (!this.EDITABLE) {
+    return;
+  }
+  if (this.sourceBlock_.isEditable()) {
+    Blockly.addClass_(/** @type {!Element} */ (this.fieldGroup_),
+                      'blocklyEditableText');
+    Blockly.removeClass_(/** @type {!Element} */ (this.fieldGroup_),
+                         'blocklyNoNEditableText');
+    this.fieldGroup_.style.cursor = this.CURSOR;
+  } else {
+    Blockly.addClass_(/** @type {!Element} */ (this.fieldGroup_),
+                      'blocklyNonEditableText');
+    Blockly.removeClass_(/** @type {!Element} */ (this.fieldGroup_),
+                         'blocklyEditableText');
+    this.fieldGroup_.style.cursor = '';
+  }
+};
+
+/**
+ * Gets whether this editable field is visible or not.
+ * @return {boolean} True if visible.
+ */
+Blockly.Field.prototype.isVisible = function() {
+  return this.visible_;
 };
 
 /**
@@ -98,7 +159,15 @@ Blockly.Field.prototype.dispose = function() {
  * @param {boolean} visible True if visible.
  */
 Blockly.Field.prototype.setVisible = function(visible) {
-  this.getRootElement().style.display = visible ? 'block' : 'none';
+  if (this.visible_ == visible) {
+    return;
+  }
+  this.visible_ = visible;
+  var root = this.getSvgRoot();
+  if (root) {
+    root.style.display = visible ? 'block' : 'none';
+    this.render_();
+  }
 };
 
 /**
@@ -106,16 +175,9 @@ Blockly.Field.prototype.setVisible = function(visible) {
  * Used for measuring the size and for positioning.
  * @return {!Element} The group element.
  */
-Blockly.Field.prototype.getRootElement = function() {
-  return /** @type {!Element} */ (this.group_);
+Blockly.Field.prototype.getSvgRoot = function() {
+  return /** @type {!Element} */ (this.fieldGroup_);
 };
-
-/**
- * Cache of text lengths.
- * Blockly has a lot of repeating strings (if, then, do, etc).  Only measure
- * their lengths once.  Subsequent instances can be looked up in this cache.
- */
-Blockly.Field.textLengthCache = {};
 
 /**
  * Draws the border with the correct width.
@@ -123,27 +185,27 @@ Blockly.Field.textLengthCache = {};
  * @private
  */
 Blockly.Field.prototype.render_ = function() {
-  // This function is called a lot.  Optimizations help.
-  if (Blockly.Field.textLengthCache.hasOwnProperty(this.text_)) {
-    // Length found in cache.
-    var width = Blockly.Field.textLengthCache[this.text_];
-  } else {
-    var width = this.textElement_.getComputedTextLength();
-    // If a valid width was obtained, cache the current width.
-    if (width) {
-      Blockly.Field.textLengthCache[this.text_] = width;
+  if (this.visible_ && this.textElement_) {
+    try {
+      var width = this.textElement_.getComputedTextLength();
+    } catch (e) {
+      // MSIE 11 is known to throw "Unexpected call to method or property
+      // access." if Blockly is hidden.
+      var width = this.textElement_.textContent.length * 8;
     }
-  }
-  if (this.borderRect_) {
-    this.borderRect_.setAttribute('width',
-        width + Blockly.BlockSvg.SEP_SPACE_X);
+    if (this.borderRect_) {
+      this.borderRect_.setAttribute('width',
+          width + Blockly.BlockSvg.SEP_SPACE_X);
+    }
+  } else {
+    var width = 0;
   }
   this.size_.width = width;
 };
 
 /**
- * Returns the height and width of the title.
- * @return {!Object} Height and width.
+ * Returns the height and width of the field.
+ * @return {!goog.math.Size} Height and width.
  */
 Blockly.Field.prototype.getSize = function() {
   if (!this.size_.width) {
@@ -162,33 +224,50 @@ Blockly.Field.prototype.getText = function() {
 
 /**
  * Set the text in this field.  Trigger a rerender of the source block.
- * @param {string} text New text.
+ * @param {?string} text New text.
  */
 Blockly.Field.prototype.setText = function(text) {
+  if (text === null || text === this.text_) {
+    // No change if null.
+    return;
+  }
   this.text_ = text;
-  // Empty the text element.
-  goog.dom.removeChildren(/** @type {!Element} */ (this.textElement_));
-  // Replace whitespace with non-breaking spaces so the text doesn't collapse.
-  text = text.replace(/\s/g, Blockly.Field.NBSP);
-  if (!text) {
-    // Prevent the field from disappearing if empty.
-    text = Blockly.Field.NBSP;
-  }
-  if(typeof(text)==="string"){
-    var textNode = document.createTextNode(text);
-  } else {
-    var textNode = document.createTextNode(text.name);
-  }
-  this.textElement_.appendChild(textNode);
-
-  // Cached width is obsolete.  Clear it.
-  this.size_.width = 0;
+  this.updateTextNode_();
 
   if (this.sourceBlock_ && this.sourceBlock_.rendered) {
     this.sourceBlock_.render();
     this.sourceBlock_.bumpNeighbours_();
     this.sourceBlock_.workspace.fireChangeEvent();
   }
+};
+
+/**
+ * Update the text node of this field to display the current text.
+ * @private
+ */
+Blockly.Field.prototype.updateTextNode_ = function() {
+  if (!this.textElement_) {
+    // Not rendered yet.
+    return;
+  }
+  var text = this.text_;
+  // Empty the text element.
+  goog.dom.removeChildren(/** @type {!Element} */ (this.textElement_));
+  // Replace whitespace with non-breaking spaces so the text doesn't collapse.
+  text = text.replace(/\s/g, Blockly.Field.NBSP);
+  if (Blockly.RTL && text) {
+    // The SVG is LTR, force text to be RTL.
+    text += '\u200F';
+  }
+  if (!text) {
+    // Prevent the field from disappearing if empty.
+    text = Blockly.Field.NBSP;
+  }
+  var textNode = document.createTextNode(text);
+  this.textElement_.appendChild(textNode);
+
+  // Cached width is obsolete.  Clear it.
+  this.size_.width = 0;
 };
 
 /**
@@ -215,15 +294,22 @@ Blockly.Field.prototype.setValue = function(text) {
  * @private
  */
 Blockly.Field.prototype.onMouseUp_ = function(e) {
-  if (Blockly.isRightButton(e)) {
+  if ((goog.userAgent.IPHONE || goog.userAgent.IPAD) &&
+      !goog.userAgent.isVersionOrHigher('537.51.2') &&
+      e.layerX !== 0 && e.layerY !== 0) {
+    // Old iOS spawns a bogus event on the next touch after a 'prompt()' edit.
+    // Unlike the real events, these have a layerX and layerY set.
+    return;
+  } else if (Blockly.isRightButton(e)) {
     // Right-click.
     return;
-  } else if (Blockly.Block.dragMode_ == 2) {
+  } else if (Blockly.dragMode_ == 2) {
     // Drag operation is concluding.  Don't open the editor.
     return;
+  } else if (this.sourceBlock_.isEditable()) {
+    // Non-abstract sub-classes must define a showEditor_ method.
+    this.showEditor_();
   }
-  // Non-abstract sub-classes must define a showEditor_ method.
-  this.showEditor_();
 };
 
 /**

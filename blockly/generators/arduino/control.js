@@ -23,67 +23,15 @@
  */
 'use strict';
 
-Blockly.Arduino = Blockly.Generator.get('Arduino');
+goog.provide('Blockly.Arduino.loops');
 
-Blockly.Arduino.controls_if = function() {
-  // If/elseif/else condition.
-  var n = 0;
-  var argument = Blockly.Arduino.valueToCode(this, 'IF' + n,
-      Blockly.Arduino.ORDER_NONE) || 'false';
-  var branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-  var code = 'if (' + argument + ') {\n' + branch + '\n}';
-  for (n = 1; n <= this.elseifCount_; n++) {
-    argument = Blockly.Arduino.valueToCode(this, 'IF' + n,
-      Blockly.Arduino.ORDER_NONE) || 'false';
-    branch = Blockly.Arduino.statementToCode(this, 'DO' + n);
-    code += ' else if (' + argument + ') {\n' + branch + '}';
-  }
-  if (this.elseCount_) {
-    branch = Blockly.Arduino.statementToCode(this, 'ELSE');
-    code += ' else {\n' + branch + '\n}';
-  }
-  return code + '\n';
-};
+goog.require('Blockly.Arduino');
 
-Blockly.Arduino.controls_repeat = function() {
-  // Repeat n times.
-  var repeats = Number(this.getTitleValue('TIMES'));
-  var branch = Blockly.Arduino.statementToCode(this, 'DO');
-  if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
-    branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + this.id + '\'') + branch;
-  }
-  var loopVar = Blockly.Arduino.variableDB_.getDistinctName(
-      'count', Blockly.Variables.NAME_TYPE);
-  var code = 'for (' + loopVar + ' = 0; ' +
-      loopVar + ' < ' + repeats + '; ' +
-      loopVar + '++) {\n' +
-      branch + '}\n';
-  return code;
-};
-
-Blockly.Arduino.controls_whileUntil = function() {
-  // Do while/until loop.
-  var argument0 = Blockly.Arduino.valueToCode(this, 'BOOL',
-      Blockly.Arduino.ORDER_NONE) || 'false';
-  var branch = Blockly.Arduino.statementToCode(this, 'DO');
-  if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
-    branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + this.id + '\'') + branch;
-  }
-  if (this.getTitleValue('MODE') == 'UNTIL') {
-    if (!argument0.match(/^\w+$/)) {
-      argument0 = '(' + argument0 + ')';
-    }
-    argument0 = '!' + argument0;
-  }
-  return 'while (' + argument0 + ') {\n' + branch + '}\n';
-};
 
 Blockly.Arduino.controls_for = function() {
   // For loop.
   var variable0 = Blockly.Arduino.variableDB_.getName(
-      this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
+      this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Arduino.valueToCode(this, 'FROM',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var argument1 = Blockly.Arduino.valueToCode(this, 'TO',
@@ -126,31 +74,4 @@ Blockly.Arduino.controls_for = function() {
         branch0 + '}\n';
   }
   return code;
-};
-
-Blockly.Arduino.controls_forEach = function() {
-  // For each loop.
-  var variable0 = Blockly.Arduino.variableDB_.getName(
-      this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
-  var argument0 = Blockly.Arduino.valueToCode(this, 'LIST',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '[]';
-  var branch = Blockly.Arduino.statementToCode(this, 'DO');
-  if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
-    branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + this.id + '\'') + branch;
-  }
-  var code = 'for (var ' + variable0 + ' in  ' + argument0 + ') {\n' +
-      branch + '}\n';
-  return code;
-};
-
-Blockly.Arduino.controls_flow_statements = function() {
-  // Flow statements: continue, break.
-  switch (this.getTitleValue('FLOW')) {
-    case 'BREAK':
-      return 'break;\n';
-    case 'CONTINUE':
-      return 'continue;\n';
-  }
-  throw 'Unknown flow statement.';
 };
