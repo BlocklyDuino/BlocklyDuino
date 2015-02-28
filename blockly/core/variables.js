@@ -109,13 +109,17 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
   variableList.unshift(null);
   var defaultVariable = undefined;
 
-  //add declareBlock into variables flyout //TOOD: add a flag to enable this block
+  // ************************************************************************
+  // THIS SECTION IS INSERTED INTO BLOCKLY BY BLOCKLYDUINO.
+  // Add declareBlock into variables flyout.
+  // TOOD: Add a flag to enable this block.
   if (Blockly.Blocks['variables_declare']) {
     var block = Blockly.Block.obtain(workspace, 'variables_declare');
     block.initSvg();
     blocks.push(block);
     gaps.push(margin * 2);
   }
+  // ************************************************************************
 
   for (var i = 0; i < variableList.length; i++) {
     if (variableList[i] === defaultVariable) {
