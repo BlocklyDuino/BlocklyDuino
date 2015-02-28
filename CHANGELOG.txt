@@ -6,14 +6,15 @@ BlocklyDuino
 code name: Fabuland
 
 Feature:
+* update Blockly to latest (two year gap), can reuse l10n and new blockly features.
 
 Change:
-* update Blockly to latest (two year gap)
 * enable frameless code editor (Chrome now works locally)
 
 Fix:
+* improve digital write readness
 
-Credit: fraser
+Credit: fraser, fred
 
 1.1 2015/2/8
 ------------------

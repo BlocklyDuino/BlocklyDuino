@@ -18,11 +18,11 @@ BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) 
 ### Demo
 
 BlocklyDuino is a web tool. You can give it a try at
-[Web](http://www.gasolin.idv.tw/public/blockly/demos/blocklyduino/index.html) to see the working BlocklyDuino.
+[Web](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html) to see the working BlocklyDuino.
 
 You can link directly to examples
-* [demo 1](http://www.gasolin.idv.tw/public/blockly/demos/blocklyduino/index.html?url=/public/blockly/demos/blocklyduino/examples/blink.xml)
-* [demo 2](http://www.gasolin.idv.tw/public/blockly/demos/blocklyduino/index.html?url=/public/blockly/demos/blocklyduino/examples/servo_potentio.xml)
+* [demo 1](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html?url=/public/blockly/demos/blocklyduino/examples/blink.xml)
+* [demo 2](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html?url=/public/blockly/demos/blocklyduino/examples/servo_potentio.xml)
 
 Or watch the [video demo](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
