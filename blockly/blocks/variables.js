@@ -31,6 +31,8 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks.variables.HUE = 330;
 
+// ************************************************************************
+// THIS SECTION IS INSERTED INTO BLOCKLY BY BLOCKLYDUINO.
 Blockly.Blocks['variables_declare'] = {
   // Variable setter.
   helpUrl: Blockly.LANG_VARIABLES_SET_HELPURL,
@@ -56,6 +58,7 @@ Blockly.Blocks['variables_declare'] = {
     }
   }
 };
+// ************************************************************************
 
 Blockly.Blocks['variables_get'] = {
   /**
