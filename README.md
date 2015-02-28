@@ -34,7 +34,7 @@ The preffered way is to put the BlocklyDuino/web folder into a web server and op
 
 ### Integrated Arduino upload
 
-To avoid the tedious step of manually pasting code to the Arduino IDE, you can run a mini webserver that uses 
+To avoid the tedious step of manually pasting code to the Arduino IDE, you can run a mini webserver that uses
 [ino](https://github.com/gumbypp/ino) to upload the code to a connected Arduino board on Mac OS X and Linux systems.
 Invoke this command from the BlocklyDuino root folder:
 

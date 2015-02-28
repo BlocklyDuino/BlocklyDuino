@@ -1,8 +1,9 @@
 /**
- * Visual Blocks Language
+ * @license
+ * Visual Blocks Editor
  *
  * Copyright 2012 Google Inc.
- * http://blockly.googlecode.com/
+ * https://developers.google.com/blockly/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,25 +24,30 @@
  */
 'use strict';
 
-/**
- * Name space for the procedures singleton.
- */
-Blockly.Procedures = {};
+goog.provide('Blockly.Procedures');
+
+// TODO(scr): Fix circular dependencies
+// goog.require('Blockly.Block');
+goog.require('Blockly.Field');
+goog.require('Blockly.Names');
+goog.require('Blockly.Workspace');
+
 
 /**
  * Category to separate procedure names from variables and generated functions.
  */
-Blockly.Procedures.NAME_TYPE = 'procedure';
+Blockly.Procedures.NAME_TYPE = 'PROCEDURE';
 
 /**
- * Find all user-created procedure definitions.
+ * Find all user-created procedure definitions in a workspace.
+ * @param {!Blockly.Workspace} root Root workspace.
  * @return {!Array.<!Array.<!Array>>} Pair of arrays, the
  *     first contains procedures without return variables, the second with.
  *     Each procedure is defined by a three-element list of name, parameter
  *     list, and return value boolean.
  */
-Blockly.Procedures.allProcedures = function() {
-  var blocks = Blockly.mainWorkspace.getAllBlocks();
+Blockly.Procedures.allProcedures = function(root) {
+  var blocks = root.getAllBlocks();
   var proceduresReturn = [];
   var proceduresNoReturn = [];
   for (var x = 0; x < blocks.length; x++) {
@@ -90,7 +96,8 @@ Blockly.Procedures.procTupleComparator_ = function(ta, tb) {
  * @return {string} Non-colliding name.
  */
 Blockly.Procedures.findLegalName = function(name, block) {
-  if (!block.workspace.editable) {
+  if (block.isInFlyout) {
+    // Flyouts can have multiple procedures called 'procedure'.
     return name;
   }
   while (!Blockly.Procedures.isLegalName(name, block.workspace, block)) {
@@ -135,18 +142,13 @@ Blockly.Procedures.isLegalName = function(name, workspace, opt_exclude) {
 /**
  * Rename a procedure.  Called by the editable field.
  * @param {string} text The proposed new name.
- * @return {?string} The accepted name, or null if rejected.
- * @this {!Blockly.FieldVariable}
+ * @return {string} The accepted name.
+ * @this {!Blockly.Field}
  */
 Blockly.Procedures.rename = function(text) {
-  if (!this.sourceBlock_.editable) {
-    return text;
-  }
   // Strip leading and trailing whitespace.  Beyond this, all names are legal.
   text = text.replace(/^[\s\xa0]+|[\s\xa0]+$/g, '');
-  if (!text) {
-    return null;
-  }
+
   // Ensure two identically-named procedures don't exist.
   text = Blockly.Procedures.findLegalName(text, this.sourceBlock_);
   // Rename any callers.
@@ -157,7 +159,6 @@ Blockly.Procedures.rename = function(text) {
       func.call(blocks[x], this.text_, text);
     }
   }
-  window.setTimeout(Blockly.Procedures.refreshFlyoutCategory, 1);
   return text;
 };
 
@@ -169,29 +170,33 @@ Blockly.Procedures.rename = function(text) {
  * @param {!Blockly.Workspace} workspace The flyout's workspace.
  */
 Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
-  if (Blockly.Language.procedures_defnoreturn) {
-    var block = new Blockly.Block(workspace, 'procedures_defnoreturn');
+  if (Blockly.Blocks['procedures_defnoreturn']) {
+    var block = Blockly.Block.obtain(workspace, 'procedures_defnoreturn');
     block.initSvg();
     blocks.push(block);
     gaps.push(margin * 2);
   }
-  if (Blockly.Language.procedures_defreturn) {
-    var block = new Blockly.Block(workspace, 'procedures_defreturn');
+  if (Blockly.Blocks['procedures_defreturn']) {
+    var block = Blockly.Block.obtain(workspace, 'procedures_defreturn');
     block.initSvg();
     blocks.push(block);
     gaps.push(margin * 2);
   }
-  if (Blockly.Language.procedures_ifreturn) {
-    var block = new Blockly.Block(workspace, 'procedures_ifreturn');
+  if (Blockly.Blocks['procedures_ifreturn']) {
+    var block = Blockly.Block.obtain(workspace, 'procedures_ifreturn');
     block.initSvg();
     blocks.push(block);
     gaps.push(margin * 2);
+  }
+  if (gaps.length) {
+    // Add slightly larger gap between system blocks and user calls.
+    gaps[gaps.length - 1] = margin * 3;
   }
 
   function populateProcedures(procedureList, templateName) {
     for (var x = 0; x < procedureList.length; x++) {
-      var block = new Blockly.Block(workspace, templateName);
-      block.setTitleValue(procedureList[x][0], 'NAME');
+      var block = Blockly.Block.obtain(workspace, templateName);
+      block.setFieldValue(procedureList[x][0], 'NAME');
       var tempIds = [];
       for (var t = 0; t < procedureList[x][1].length; t++) {
         tempIds[t] = 'ARG' + t;
@@ -203,21 +208,9 @@ Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
     }
   }
 
-  var tuple = Blockly.Procedures.allProcedures();
+  var tuple = Blockly.Procedures.allProcedures(workspace.targetWorkspace);
   populateProcedures(tuple[0], 'procedures_callnoreturn');
   populateProcedures(tuple[1], 'procedures_callreturn');
-};
-
-/**
- * Refresh the procedure flyout if it is open.
- * Only used if the flyout's autoClose is false.
- */
-Blockly.Procedures.refreshFlyoutCategory = function() {
-  if (Blockly.Toolbox && Blockly.Toolbox.flyout_.isVisible() &&
-      Blockly.Toolbox.selectedOption_.cat == Blockly.MSG_PROCEDURE_CATEGORY) {
-    Blockly.Toolbox.flyout_.hide();
-    Blockly.Toolbox.flyout_.show(Blockly.MSG_PROCEDURE_CATEGORY);
-  }
 };
 
 /**
@@ -254,7 +247,6 @@ Blockly.Procedures.disposeCallers = function(name, workspace) {
   for (var x = 0; x < callers.length; x++) {
     callers[x].dispose(true, false);
   }
-  window.setTimeout(Blockly.Procedures.refreshFlyoutCategory, 1);
 };
 
 /**

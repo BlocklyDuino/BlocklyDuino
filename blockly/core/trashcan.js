@@ -1,8 +1,9 @@
 /**
+ * @license
  * Visual Blocks Editor
  *
  * Copyright 2011 Google Inc.
- * http://blockly.googlecode.com/
+ * https://developers.google.com/blockly/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,53 +24,82 @@
  */
 'use strict';
 
+goog.provide('Blockly.Trashcan');
+
+goog.require('goog.Timer');
+goog.require('goog.dom');
+goog.require('goog.math');
+goog.require('goog.math.Rect');
+
+
 /**
  * Class for a trash can.
- * @param {!Function} getMetrics A function that returns workspace's metrics.
+ * @param {!Blockly.Workspace} workspace The workspace to sit in.
  * @constructor
  */
-Blockly.Trashcan = function(getMetrics) {
-  this.getMetrics_ = getMetrics;
+Blockly.Trashcan = function(workspace) {
+  this.workspace_ = workspace;
 };
 
 /**
- * URL of the trashcan image (minus lid).
+ * URL of the sprite image.
+ * @type {string}
  * @private
  */
-Blockly.Trashcan.prototype.BODY_URL_ = 'media/trashbody.png';
+Blockly.Trashcan.prototype.SPRITE_URL_ = 'media/sprites.png';
+
 /**
  * URL of the lid image.
+ * @type {string}
  * @private
  */
 Blockly.Trashcan.prototype.LID_URL_ = 'media/trashlid.png';
+
 /**
  * Width of both the trash can and lid images.
+ * @type {number}
  * @private
  */
 Blockly.Trashcan.prototype.WIDTH_ = 47;
+
 /**
  * Height of the trashcan image (minus lid).
+ * @type {number}
  * @private
  */
 Blockly.Trashcan.prototype.BODY_HEIGHT_ = 45;
+
 /**
  * Height of the lid image.
+ * @type {number}
  * @private
  */
 Blockly.Trashcan.prototype.LID_HEIGHT_ = 15;
+
 /**
  * Distance between trashcan and bottom edge of workspace.
+ * @type {number}
  * @private
  */
 Blockly.Trashcan.prototype.MARGIN_BOTTOM_ = 35;
+
 /**
  * Distance between trashcan and right edge of workspace.
+ * @type {number}
  * @private
  */
 Blockly.Trashcan.prototype.MARGIN_SIDE_ = 35;
 
 /**
+ * Extent of hotspot on all sides beyond the size of the image.
+ * @type {number}
+ * @private
+ */
+Blockly.Trashcan.prototype.MARGIN_HOTSPOT_ = 25;
+
+/**
  * Current open/close state of the lid.
+ * @type {boolean}
  */
 Blockly.Trashcan.prototype.isOpen = false;
 
@@ -81,13 +111,6 @@ Blockly.Trashcan.prototype.isOpen = false;
 Blockly.Trashcan.prototype.svgGroup_ = null;
 
 /**
- * The SVG image element of the trash can body.
- * @type {Element}
- * @private
- */
-Blockly.Trashcan.prototype.svgBody_ = null;
-
-/**
  * The SVG image element of the trash can lid.
  * @type {Element}
  * @private
@@ -96,24 +119,28 @@ Blockly.Trashcan.prototype.svgLid_ = null;
 
 /**
  * Task ID of opening/closing animation.
+ * @type {number}
  * @private
  */
 Blockly.Trashcan.prototype.lidTask_ = 0;
 
 /**
- * Current angle of the lid.
+ * Current state of lid opening (0.0 = closed, 1.0 = open).
+ * @type {number}
  * @private
  */
-Blockly.Trashcan.prototype.lidAngle_ = 0;
+Blockly.Trashcan.prototype.lidOpen_ = 0;
 
 /**
  * Left coordinate of the trash can.
+ * @type {number}
  * @private
  */
 Blockly.Trashcan.prototype.left_ = 0;
 
 /**
  * Top coordinate of the trash can.
+ * @type {number}
  * @private
  */
 Blockly.Trashcan.prototype.top_ = 0;
@@ -125,23 +152,44 @@ Blockly.Trashcan.prototype.top_ = 0;
 Blockly.Trashcan.prototype.createDom = function() {
   /*
   <g filter="url(#blocklyTrashcanShadowFilter)">
-    <image width="47" height="45" y="15" href="media/trashbody.png"></image>
+    <clippath id="blocklyTrashBodyClipPath">
+      <rect width="47" height="45" y="15"></rect>
+    </clippath>
+    <image width="64" height="92" y="15" href="media/trashbody.png"
+        clip-path="url(#blocklyTrashBodyClipPath)"></image>
     <image width="47" height="15" href="media/trashlid.png"></image>
   </g>
   */
   this.svgGroup_ = Blockly.createSvgElement('g',
       {'filter': 'url(#blocklyTrashcanShadowFilter)'}, null);
-  this.svgBody_ = Blockly.createSvgElement('image',
-      {'width': this.WIDTH_, 'height': this.BODY_HEIGHT_},
+
+  var clip = Blockly.createSvgElement('clipPath',
+      {'id': 'blocklyTrashBodyClipPath'},
       this.svgGroup_);
-  this.svgBody_.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
-      Blockly.pathToBlockly + this.BODY_URL_);
-  this.svgBody_.setAttribute('y', this.LID_HEIGHT_);
+  Blockly.createSvgElement('rect',
+      {'width': this.WIDTH_, 'height': this.BODY_HEIGHT_,
+       'y': this.LID_HEIGHT_},
+      clip);
+  var body = Blockly.createSvgElement('image',
+      {'width': Blockly.SPRITE.width, 'height': Blockly.SPRITE.height, 'y': -32,
+       'clip-path': 'url(#blocklyTrashBodyClipPath)'},
+      this.svgGroup_);
+  body.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
+      Blockly.pathToMedia + Blockly.SPRITE.url);
+
+  var clip = Blockly.createSvgElement('clipPath',
+      {'id': 'blocklyTrashLidClipPath'},
+      this.svgGroup_);
+  Blockly.createSvgElement('rect',
+      {'width': this.WIDTH_, 'height': this.LID_HEIGHT_}, clip);
   this.svgLid_ = Blockly.createSvgElement('image',
-      {'width': this.WIDTH_, 'height': this.LID_HEIGHT_},
+      {'width': Blockly.SPRITE.width, 'height': Blockly.SPRITE.height, 'y': -32,
+       'clip-path': 'url(#blocklyTrashLidClipPath)'},
       this.svgGroup_);
   this.svgLid_.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
-      Blockly.pathToBlockly + this.LID_URL_);
+      Blockly.pathToMedia + Blockly.SPRITE.url);
+
+  this.animateLid_();
   return this.svgGroup_;
 };
 
@@ -164,10 +212,9 @@ Blockly.Trashcan.prototype.dispose = function() {
     goog.dom.removeNode(this.svgGroup_);
     this.svgGroup_ = null;
   }
-  this.svgBody_ = null;
   this.svgLid_ = null;
-  this.getMetrics_ = null;
-  window.clearTimeout(this.lidTask_);
+  this.workspace_ = null;
+  goog.Timer.clear(this.lidTask_);
 };
 
 /**
@@ -175,7 +222,7 @@ Blockly.Trashcan.prototype.dispose = function() {
  * @private
  */
 Blockly.Trashcan.prototype.position_ = function() {
-  var metrics = this.getMetrics_();
+  var metrics = this.workspace_.getMetrics();
   if (!metrics) {
     // There are no metrics available (workspace is probably not visible).
     return;
@@ -193,38 +240,16 @@ Blockly.Trashcan.prototype.position_ = function() {
 };
 
 /**
- * Determines if the mouse is currently over the trash can.
- * Opens/closes the lid and sets the isOpen flag.
- * @param {!Event} e Mouse move event.
+ * Return the deletion rectangle for this trashcan.
+ * @return {goog.math.Rect} Rectangle in which to delete.
  */
-Blockly.Trashcan.prototype.onMouseMove = function(e) {
-  /*
-  An alternative approach would be to use onMouseOver and onMouseOut events.
-  However the selected block will be between the mouse and the trash can,
-  thus these events won't fire.
-  Another approach is to use HTML5's drag & drop API, but it's widely hated.
-  Instead, we'll just have the block's drag_ function call us.
-  */
-  if (!this.svgGroup_) {
-    return;
-  }
-  var xy = Blockly.getAbsoluteXY_(this.svgGroup_);
-  var left = xy.x;
-  var top = xy.y;
-
-  // Convert the mouse coordinates into SVG coordinates.
-  xy = Blockly.convertCoordinates(e.clientX, e.clientY, true);
-  var mouseX = xy.x;
-  var mouseY = xy.y;
-
-  var over = (mouseX > left) &&
-             (mouseX < left + this.WIDTH_) &&
-             (mouseY > top) &&
-             (mouseY < top + this.BODY_HEIGHT_ + this.LID_HEIGHT_);
-  // For bonus points we might want to match the trapezoidal outline.
-  if (this.isOpen != over) {
-    this.setOpen_(over);
-  }
+Blockly.Trashcan.prototype.getRect = function() {
+  var trashXY = Blockly.getSvgXY_(this.svgGroup_);
+  return new goog.math.Rect(
+      trashXY.x - this.MARGIN_HOTSPOT_,
+      trashXY.y - this.MARGIN_HOTSPOT_,
+      this.WIDTH_ + 2 * this.MARGIN_HOTSPOT_,
+      this.BODY_HEIGHT_ + this.LID_HEIGHT_ + 2 * this.MARGIN_HOTSPOT_);
 };
 
 /**
@@ -236,36 +261,34 @@ Blockly.Trashcan.prototype.setOpen_ = function(state) {
   if (this.isOpen == state) {
     return;
   }
-  window.clearTimeout(this.lidTask_);
+  goog.Timer.clear(this.lidTask_);
   this.isOpen = state;
-  Blockly.Trashcan.animateLid_(this);
+  this.animateLid_();
 };
 
 /**
  * Rotate the lid open or closed by one step.  Then wait and recurse.
- * @param {!Blockly.Trashcan} trashcan The instance of a trashcan to animate.
  * @private
  */
-Blockly.Trashcan.animateLid_ = function(trashcan) {
-  trashcan.lidAngle_ += trashcan.isOpen ? 10 : -10;
-  trashcan.lidAngle_ = Math.max(0, trashcan.lidAngle_);
-  trashcan.svgLid_.setAttribute('transform', 'rotate(' +
-      (Blockly.RTL ? -trashcan.lidAngle_ : trashcan.lidAngle_) + ', ' +
-      (Blockly.RTL ? 4 : trashcan.WIDTH_ - 4) + ', ' +
-      (trashcan.LID_HEIGHT_ - 2) + ')');
-  if (trashcan.isOpen ? (trashcan.lidAngle_ < 45) : (trashcan.lidAngle_ > 0)) {
-    var closure = function() {
-      Blockly.Trashcan.animateLid_(trashcan);
-    };
-    trashcan.lidTask_ = window.setTimeout(closure, 5);
+Blockly.Trashcan.prototype.animateLid_ = function() {
+  this.lidOpen_ += this.isOpen ? 0.2 : -0.2;
+  this.lidOpen_ = goog.math.clamp(this.lidOpen_, 0, 1);
+  var lidAngle = this.lidOpen_ * 45;
+  this.svgLid_.setAttribute('transform', 'rotate(' +
+      (Blockly.RTL ? -lidAngle : lidAngle) + ', ' +
+      (Blockly.RTL ? 4 : this.WIDTH_ - 4) + ', ' +
+      (this.LID_HEIGHT_ - 2) + ')');
+  var opacity = goog.math.lerp(0.2, 0.4, this.lidOpen_);
+  this.svgGroup_.style.opacity = opacity;
+  if (this.lidOpen_ > 0 && this.lidOpen_ < 1) {
+    this.lidTask_ = goog.Timer.callOnce(this.animateLid_, 20, this);
   }
 };
 
 /**
  * Flip the lid shut.
- * @param {!Blockly.Trashcan} trashcan The instance of a trashcan to animate.
  * Called externally after a drag.
  */
-Blockly.Trashcan.close = function(trashcan) {
-  trashcan.setOpen_(false);
+Blockly.Trashcan.prototype.close = function() {
+  this.setOpen_(false);
 };
