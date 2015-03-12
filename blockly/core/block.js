@@ -295,14 +295,15 @@ Blockly.Block.prototype.getConnections_ = function(all) {
  * @private
  */
 Blockly.Block.prototype.bumpNeighbours_ = function() {
+  if (!this.workspace) {
+    return;  // Deleted block.
+  }
   if (Blockly.dragMode_ != 0) {
-    // Don't bump blocks during a drag.
-    return;
+    return;  // Don't bump blocks during a drag.
   }
   var rootBlock = this.getRootBlock();
   if (rootBlock.isInFlyout) {
-    // Don't move blocks around in a flyout.
-    return;
+    return;  // Don't move blocks around in a flyout.
   }
   // Loop though every connection on this block.
   var myConnections = this.getConnections_(false);
@@ -807,16 +808,20 @@ Blockly.Block.prototype.setCollapsed = function(collapsed) {
  */
 Blockly.Block.prototype.toString = function(opt_maxLength) {
   var text = [];
-  for (var i = 0, input; input = this.inputList[i]; i++) {
-    for (var j = 0, field; field = input.fieldRow[j]; j++) {
-      text.push(field.getText());
-    }
-    if (input.connection) {
-      var child = input.connection.targetBlock();
-      if (child) {
-        text.push(child.toString());
-      } else {
-        text.push('?');
+  if (this.collapsed_) {
+    text.push(this.getInput('_TEMP_COLLAPSED_INPUT').fieldRow[0].text_);
+  } else {
+    for (var i = 0, input; input = this.inputList[i]; i++) {
+      for (var j = 0, field; field = input.fieldRow[j]; j++) {
+        text.push(field.getText());
+      }
+      if (input.connection) {
+        var child = input.connection.targetBlock();
+        if (child) {
+          text.push(child.toString());
+        } else {
+          text.push('?');
+        }
       }
     }
   }
