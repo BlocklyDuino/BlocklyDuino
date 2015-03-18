@@ -142,3 +142,102 @@ Blockly.Blocks['ardu_motor_s'] = {
     this.setTooltip('ArduMotor Sparkfun Shield A=left B=right');
   }
 };
+
+Blockly.Blocks['zumo_motors_FBs'] = {
+  helpUrl: 'https://www.pololu.com/docs/0J57/5',
+  init: function() {
+    this.setColour(190);
+    this.appendDummyInput()
+        .appendField("Zumo -Both Flipped & Speed")
+        .appendField(new Blockly.FieldImage("https://a.pololu-files.com/picture/0J4110.250.jpg", 64, 64))
+     this.appendDummyInput()    
+		.appendField(new Blockly.FieldDropdown([["Stop", "stop"], ["Forward", "forward"], ["Right", "right"], ["Left", "left"], ["Backward", "backward"]]), "DIRECTION");
+   this.setInputsInline(true) ; 
+   this.appendValueInput("SPEEDA", 'Number')
+       .setCheck('Number')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SpeedL")
+	this.appendValueInput("SPEEDB", 'Number')
+        .setCheck('Number')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SpeedR")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Drive Pololu Zumo (flipped both motors)');
+  }
+};
+
+Blockly.Blocks['zumo_motors_FLs'] = {
+  helpUrl: 'https://www.pololu.com/docs/0J57/5',
+  init: function() {
+    this.setColour(190);
+	this.setInputsInline(false) ; 
+    this.appendDummyInput()
+        .appendField("Zumo -Flip L & Speed")
+        .appendField(new Blockly.FieldImage("https://a.pololu-files.com/picture/0J4110.250.jpg", 64, 64))
+     this.appendDummyInput()    
+		.appendField(new Blockly.FieldDropdown([["Stop", "stop"], ["Forward", "forward"], ["Right", "right"], ["Left", "left"], ["Backward", "backward"]]), "DIRECTION");
+   this.setInputsInline(true) ; 
+   this.appendValueInput("SPEEDA", 'Number')
+       .setCheck('Number')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SpeedL")
+	this.appendValueInput("SPEEDB", 'Number')
+        .setCheck('Number')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SpeedR")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Drive Pololu Zumo (flipped left motor) & Speed');
+  }
+};
+
+Blockly.Blocks['zumo_motors_FNs'] = {
+  helpUrl: 'https://www.pololu.com/docs/0J57/5',
+  init: function() {
+    this.setColour(190);
+	this.setInputsInline(false) ; 
+    this.appendDummyInput()
+        .appendField("Zumo -No flip & Speed")
+        .appendField(new Blockly.FieldImage("https://a.pololu-files.com/picture/0J4110.250.jpg", 64, 64))
+	this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["Stop", "stop"], ["Forward", "forward"], ["Right", "right"], ["Left", "left"], ["Backward", "backward"]]), "DIRECTION");
+   this.setInputsInline(true) ;
+   this.appendValueInput("SPEEDA", 'Number')
+       .setCheck('Number')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SpeedL")
+	this.appendValueInput("SPEEDB", 'Number')
+        .setCheck('Number')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SpeedR")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Drive Pololu Zumo (wired correctly) & Speed');
+  }
+};
+
+Blockly.Blocks['zumo_motors_FRs'] = {
+  helpUrl: 'https://www.pololu.com/docs/0J57/5',
+  init: function() {
+    this.setColour(190);
+	this.setInputsInline(false) ; 
+    this.appendDummyInput()
+        .appendField("Zumo -Flip R & Speed")
+        .appendField(new Blockly.FieldImage("https://a.pololu-files.com/picture/0J4110.250.jpg", 64, 64))
+    this.appendDummyInput()    
+		.appendField(new Blockly.FieldDropdown([["Stop", "stop"], ["Forward", "forward"], ["Right", "right"], ["Left", "left"], ["Backward", "backward"]]), "DIRECTION");
+	this.setInputsInline(true) ;   
+  this.appendValueInput("SPEEDA", 'Number')
+       .setCheck('Number')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SpeedL")
+	this.appendValueInput("SPEEDB", 'Number')
+        .setCheck('Number')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("SpeedR")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Drive Pololu Zumo (flipped right motor) & Speed');
+  }
+};
