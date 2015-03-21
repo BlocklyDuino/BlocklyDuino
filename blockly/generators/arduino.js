@@ -98,23 +98,21 @@ Blockly.Arduino.init = function(workspace) {
   // Create a dictionary of setups to be printed before the code.
   Blockly.Arduino.setups_ = Object.create(null);
 
-  if (Blockly.Variables) {
-    if (!Blockly.Arduino.variableDB_) {
-      Blockly.Arduino.variableDB_ =
-          new Blockly.Names(Blockly.Arduino.RESERVED_WORDS_);
-    } else {
-      Blockly.Arduino.variableDB_.reset();
-    }
+	if (!Blockly.Arduino.variableDB_) {
+		Blockly.Arduino.variableDB_ =
+				new Blockly.Names(Blockly.Arduino.RESERVED_WORDS_);
+	} else {
+		Blockly.Arduino.variableDB_.reset();
+	}
 
-    var defvars = [];
-    var variables = Blockly.Variables.allVariables(workspace);
-    for (var x = 0; x < variables.length; x++) {
-      defvars[x] = 'int ' +
-          Blockly.Arduino.variableDB_.getDistinctName(variables[x],
-          Blockly.Variables.NAME_TYPE) + ';\n';
-    }
-    Blockly.Arduino.definitions_['variables'] = defvars.join('\n');
-  }
+	var defvars = [];
+	var variables = Blockly.Variables.allVariables(workspace);
+	for (var x = 0; x < variables.length; x++) {
+		defvars[x] = 'int ' +
+				Blockly.Arduino.variableDB_.getName(variables[x],
+				Blockly.Variables.NAME_TYPE) + ';\n';
+	}
+	Blockly.Arduino.definitions_['variables'] = defvars.join('\n');
 };
 
 /**

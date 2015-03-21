@@ -150,7 +150,12 @@ function init() {
 
   var toolbox = document.getElementById('toolbox');
   Blockly.inject(document.getElementById('content_blocks'),
-      {media: '../../media/',
+      {grid:
+          {spacing: 25,
+           length: 3,
+           colour: '#ccc',
+           snap: true},
+       media: '../../media/',
        toolbox: toolbox});
 
   auto_save_and_restore_blocks();
