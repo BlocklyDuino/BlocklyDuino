@@ -316,13 +316,36 @@ function init() {
       <block type="inout_highlow"></block>
       <block type="inout_digital_write"></block>
       <block type="inout_digital_read"></block>
-      <block type="inout_analog_write"></block>
+      <block type="inout_analog_write">
+        <value name="NUM">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
       <block type="inout_analog_read"></block>
-      <block type="serial_print"></block>
+      <block type="serial_print">
+        <value name="CONTENT">
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+      </block>
       <block type="inout_buildin_led"></block>
     </category>
     <category name="Servo">
-      <block type="servo_move"></block>
+      <block type="servo_move">
+        <value name="DEGREE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="DELAY_TIME">
+          <block type="math_number">
+            <field name="NUM">1000</field>
+          </block>
+        </value>
+      </block>
       <block type="servo_read_degrees"></block>
     </category>
     <category name="Grove Analog">
@@ -344,7 +367,23 @@ function init() {
       <block type="grove_rgb_led_item"></block>
     </category>
     <category name="Grove LCD">
-      <block type="grove_serial_lcd_print"></block>
+      <block type="grove_serial_lcd_print">
+        <value name="TEXT">
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <value name="TEXT2">
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <value name="DELAY_TIME">
+          <block type="math_number">
+            <field name="NUM">1000</field>
+          </block>
+        </value>
+      </block>
       <block type="grove_serial_lcd_power"></block>
       <block type="grove_serial_lcd_effect"></block>
       <block type="grove_ultrasonic_ranger"></block>
@@ -361,7 +400,13 @@ function init() {
       <block type="logic_null"></block>
     </category>
     <category name="Control">
-      <block type="base_delay"></block>
+      <block type="base_delay">
+        <value name="DELAY_TIME">
+          <block type="math_number">
+            <field name="NUM">1000</field>
+          </block>
+        </value>
+      </block>
       <block type="controls_for">
         <value name="FROM">
           <block type="math_number">
