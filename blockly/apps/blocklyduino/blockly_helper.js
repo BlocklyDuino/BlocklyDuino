@@ -257,3 +257,61 @@ function resetClick() {
         }
     });
 }
+
+
+function renderBlocks() {
+  var container = '';
+  for (var i = 0, len = BLOCKS.length; i < len; i++) {
+    var itemStart = '';
+    var itemEnd = '</category>';
+    var item = BLOCKS[i];
+    if ('category' in item) {
+      var passFlag = false;
+      if ('name' in item.category) {
+        itemStart += '<category name="' + item.category.name + '"';
+        if ('custom' in item.category) {
+          itemStart += ' custom="' + item.category.custom + '"';
+          passFlag = true;
+        }
+        itemStart += '>';
+        if ('blocks' in item.category) {
+          for (var j = 0, jlen = item.category.blocks.length; j < jlen; j++) {
+            if ('controls_for' !== item.category.blocks[j]) {
+              itemStart += '<block type="' + item.category.blocks[j] + '">';
+            } else { // wildcard
+              itemStart += '<block type="controls_for">' +
+                '<value name="FROM">' +
+                  '<block type="math_number">' +
+                    '<field name="NUM">1</field>' +
+                  '</block>' +
+                '</value>' +
+                '<value name="TO">' +
+                  '<block type="math_number">' +
+                    '<field name="NUM">10</field>' +
+                  '</block>' +
+                '</value>';
+            }
+            itemStart += '</block>';
+          }
+        } else {
+          if (!passFlag) {
+            alert("Broken BLOCK block syntax in config.js");
+          }
+        }
+      } else {
+        alert("Broken BLOCK category syntax in config.js");
+      }
+      itemStart += itemEnd;
+    }
+    if ('sep' in item) {
+      if (item.sep) {
+        itemStart += '<sep></sep>';
+      }
+    }
+//    console.log(itemStart);
+//    var xml = Blockly.Xml.textToDom(itemStart);
+//    container.appendChild(xml);
+    container += itemStart;
+  }
+  return '<xml>' + container + '</xml>';
+}

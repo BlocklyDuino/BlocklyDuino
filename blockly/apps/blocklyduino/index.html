@@ -9,6 +9,7 @@
   <script type="text/javascript" src="Blob.js"></script>
   <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
+  <script type="text/javascript" src="config.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
   <script>
 
@@ -148,7 +149,7 @@ function init() {
   };
   window.addEventListener('resize', onresize, false);
 
-  var toolbox = document.getElementById('toolbox');
+  var toolbox = renderBlocks(toolbox);
   Blockly.inject(document.getElementById('content_blocks'),
       {grid:
           {spacing: 25,
@@ -310,82 +311,5 @@ function init() {
   <div id="content_blocks" class="content"></div>
   <textarea id="content_arduino" class="content" readonly wrap="off"></textarea>
   <textarea id="content_xml" class="content" wrap="off"></textarea>
-
-  <xml id="toolbox" style="display: none">
-    <category name="In/Out">
-      <block type="inout_highlow"></block>
-      <block type="inout_digital_write"></block>
-      <block type="inout_digital_read"></block>
-      <block type="inout_analog_write"></block>
-      <block type="inout_analog_read"></block>
-      <block type="serial_print"></block>
-      <block type="inout_buildin_led"></block>
-    </category>
-    <category name="Servo">
-      <block type="servo_move"></block>
-      <block type="servo_read_degrees"></block>
-    </category>
-    <category name="Grove Analog">
-      <block type="grove_rotary_angle"></block>
-      <block type="grove_temporature_sensor"></block>
-      <block type="grove_sound_sensor"></block>
-      <block type="grove_thumb_joystick"></block>
-    </category>
-    <category name="Grove">
-      <block type="grove_led"></block>
-      <block type="grove_button"></block>
-      <block type="grove_relay"></block>
-      <block type="grove_tilt_switch"></block>
-      <block type="grove_piezo_buzzer"></block>
-      <block type="grove_pir_motion_sensor"></block>
-      <block type="grove_line_finder"></block>
-      <block type="grove_rgb_led"></block>
-      <block type="grove_rgb_led_container"></block>
-      <block type="grove_rgb_led_item"></block>
-    </category>
-    <category name="Grove LCD">
-      <block type="grove_serial_lcd_print"></block>
-      <block type="grove_serial_lcd_power"></block>
-      <block type="grove_serial_lcd_effect"></block>
-      <block type="grove_ultrasonic_ranger"></block>
-    </category>
-    <category name="Grove Motor">
-      <block type="grove_motor_shield"></block>
-    </category>
-    <sep></sep>
-    <category name="Logic">
-      <block type="controls_if"></block>
-      <block type="logic_compare"></block>
-      <block type="logic_operation"></block>
-      <block type="logic_negate"></block>
-      <block type="logic_null"></block>
-    </category>
-    <category name="Control">
-      <block type="base_delay"></block>
-      <block type="controls_for">
-        <value name="FROM">
-          <block type="math_number">
-            <field name="NUM">1</field>
-          </block>
-        </value>
-        <value name="TO">
-          <block type="math_number">
-            <field name="NUM">10</field>
-          </block>
-        </value>
-      </block>
-    </category>
-    <category name="Math">
-      <block type="base_map"></block>
-      <block type="math_number"></block>
-      <block type="math_arithmetic"></block>
-    </category>
-    <category name="Text">
-      <block type="text"></block>
-    </category>
-    <sep></sep>
-    <category name="Variables" custom="VARIABLE"></category>
-    <category name="Functions" custom="PROCEDURE"></category>
-  </xml>
 </body>
 </html>
