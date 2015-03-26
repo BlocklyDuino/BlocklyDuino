@@ -7,6 +7,10 @@
   <script type="text/javascript" src="../../arduino_compressed.js"></script>
   <script type="text/javascript" src="../../msg/js/en.js"></script>
   <script type="text/javascript" src="Blob.js"></script>
+  <script type="text/javascript" src="../../blocks/motors.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/motors.js"></script>
+  <script type="text/javascript" src="../../blocks/robotmisc.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/robotmisc.js"></script>
   <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
@@ -347,19 +351,27 @@ function init() {
     <category name="Grove Motor">
       <block type="grove_motor_shield"></block>
     </category>
-    	 <category name="Motors">
-       <block type="ardu_motor"></block>
+    <category name="Motors">
+	   <block type="arduino_s"></block>
 	   <block type="ardu_motor_s"></block>
+	   <block type="dfrobot_s"></block>
+	   <block type="pololu_drv8835_s"></block>
+	   <block type="radio_shack_s"></block>
+	   <block type="zumo_motors_FNs"></block>
+	   <block type="zumo_motors_FRs"></block>
+	   <block type="zumo_motors_FLs"></block>
+	   <block type="zumo_motors_FBs"></block>
+	   <block type="ardu_motor"></block>
 	   <block type="zumo_motors_FN"></block>
 	   <block type="zumo_motors_FR"></block>
 	   <block type="zumo_motors_FL"></block>
 	   <block type="zumo_motors_FB"></block>
 	 </category>
-	 </category>
-	   <category name="Sensors">
+	 <category name="Robot Misc">
 	   <block type="setup_button_wait_il"></block>
 	   <block type="setup_button_wait_iph"></block>
 	   <block type="fourpin_ranger"></block>
+	   <block type="play_notes_z"></block>
 	</category>
     <sep></sep>
     <category name="Logic">
