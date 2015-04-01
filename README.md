@@ -21,8 +21,8 @@ BlocklyDuino is a web tool. You can give it a try at
 [Web](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html) to see the working BlocklyDuino.
 
 You can link directly to examples
-* [demo 1](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html?url=/public/blockly/demos/blocklyduino/examples/blink.xml)
-* [demo 2](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html?url=/public/blockly/demos/blocklyduino/examples/servo_potentio.xml)
+* [demo 1](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html?url=/public/blockly/apps/blocklyduino/examples/blink.xml)
+* [demo 2](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html?url=/public/blockly/apps/blocklyduino/examples/servo_potentio.xml)
 
 Or watch the [video demo](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
@@ -30,7 +30,7 @@ Or watch the [video demo](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
 If you want to install it locally. Get code from github and open `blockly/apps/blocklyduino/index.html` in your browser.
 
-The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/demos/blocklyduino/index.html for use.
+The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/apps/blocklyduino/index.html for use.
 
 ### Integrated Arduino upload
 
