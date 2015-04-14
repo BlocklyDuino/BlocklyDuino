@@ -43,8 +43,13 @@ Blockly.Blocks['variables_declare'] = {
         .appendField(new Blockly.FieldVariable(
         Blockly.LANG_VARIABLES_SET_ITEM), 'VAR')
         .appendField("as")
-      .appendField(new Blockly.FieldDropdown([["Number", "int"]]), "TYPE")
-      .appendField("value");
+        .appendField(new Blockly.FieldDropdown([
+          ["Number", "int"],
+          ["Float", "float"],
+          ["Double", "double"],
+          ["Char", "char"]
+        ]), "TYPE")
+        .appendField("value");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip('');

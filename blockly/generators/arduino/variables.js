@@ -38,12 +38,13 @@ Blockly.Arduino.variables_get = function() {
 Blockly.Arduino.variables_declare = function() {
   // Variable setter.
   var dropdown_type = this.getFieldValue('TYPE');
-  //TODO: settype to variable
   var argument0 = Blockly.Arduino.valueToCode(this, 'VALUE',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'),
       Blockly.Variables.NAME_TYPE);
   Blockly.Arduino.setups_['setup_var' + varName] = varName + ' = ' + argument0 + ';\n';
+  // Set type to variable
+  Blockly.Arduino.variableTypes_[varName] = dropdown_type;
   return '';
 };
 

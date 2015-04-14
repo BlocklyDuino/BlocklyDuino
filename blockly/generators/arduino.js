@@ -97,6 +97,8 @@ Blockly.Arduino.init = function(workspace) {
   Blockly.Arduino.definitions_ = Object.create(null);
   // Create a dictionary of setups to be printed before the code.
   Blockly.Arduino.setups_ = Object.create(null);
+  // Create a dictionary of types for variables.
+  Blockly.Arduino.variableTypes_ = Object.create(null);
 
 	if (!Blockly.Arduino.variableDB_) {
 		Blockly.Arduino.variableDB_ =
@@ -134,6 +136,14 @@ Blockly.Arduino.finish = function(code) {
     if (def.match(/^#include/)) {
       imports.push(def);
     } else {
+      if (name === 'variables') {
+        // Replace real types of variables if given, other than the default 'int'.
+        def = def.replace(/int (\w+);/g, function (s, v) {
+          var type = Blockly.Arduino.variableTypes_[v];
+          if (type && type != 'int') return type + ' ' + v + ';';
+          else return s;
+        });
+      }
       definitions.push(def);
     }
   }
