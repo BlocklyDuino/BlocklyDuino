@@ -1,0 +1,581 @@
+<html manifest=node.manifest>
+<head>
+  <meta charset="utf-8">
+  <title>EasyArduino</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <script type="text/javascript" src="../../blockly_compressed.js"></script>
+  <script type="text/javascript" src="../../core/css.js"></script>
+  <script type="text/javascript" src="../../generators/arduino.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/actuadores.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/sensores.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/grove.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/loops.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/logic.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/math.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/text.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/servos.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/variables.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/procedures.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/threads.js"></script>
+  <script type="text/javascript" src="../../blocks/actuadores.js"></script>
+  <script type="text/javascript" src="../../blocks/sensores.js"></script>
+  <script type="text/javascript" src="../../blocks/servos.js"></script>
+  <script type="text/javascript" src="../../blocks/logic.js"></script>
+  <script type="text/javascript" src="../../blocks/math.js"></script>
+  <script type="text/javascript" src="../../blocks/text.js"></script>
+  <script type="text/javascript" src="../../blocks/lists.js"></script>
+  <script type="text/javascript" src="../../blocks/colour.js"></script>
+  <script type="text/javascript" src="../../blocks/grove.js"></script>
+  <script type="text/javascript" src="../../blocks/loops.js"></script>
+  <script type="text/javascript" src="../../blocks/procedures.js"></script>
+  <script type="text/javascript" src="../../blocks/variables.js"></script> 
+  <script type="text/javascript" src="../../blocks/threads.js"></script>
+  <script type="text/javascript" src="../../msg/js/es.js"></script>
+  <script type="text/javascript" src="Blob.js"></script>
+  <script type="text/javascript" src="spin.js"></script>
+  <script type="text/javascript" src="FileSaver.min.js"></script>
+  <script type="text/javascript" src="blockly_helper.js"></script>
+  <script>
+
+/**
+ * Lista de pestañas.
+ */
+var TABS_ = ['blocks', 'arduino', 'xml'];
+
+var selected = 'blocks';
+
+/**
+ * Hace visible el panel correspondiente cuando una pestaña es seleccioanda.
+ * @param {string} clickedName Nombre de la pestaña seleccionada al hacer clic.
+ */
+function tabClick(clickedName) {
+
+  // Desselecciona todas las pestañas y oculta los paneles.
+  for (var i = 0; i < TABS_.length; i++) {
+    var name = TABS_[i];
+    document.getElementById('tab_' + name).className = 'taboff';
+    document.getElementById('content_' + name).style.visibility = 'hidden';
+  }
+
+  // Selecciona la pestaña activa.
+  selected = clickedName;
+  document.getElementById('tab_' + clickedName).className = 'tabon';
+  
+  // Muestra el panel seleccionado.
+  document.getElementById('content_' + clickedName).style.visibility = 'visible';
+  renderContent();
+  Blockly.fireUiEvent(window, 'resize');
+}
+ 
+
+/**
+ * Rellena el panel seleccionado actualmente con el contenido generado por los bloques.
+ */
+function renderContent() {
+  var content = document.getElementById('content_' + selected);
+  // Inicializa el panel.
+  if (content.id == 'content_blocks') {
+	    Blockly.mainWorkspace.render();
+  } else if (content.id == 'content_arduino') {
+	    var arduinoTextarea = document.getElementById('content_arduino');
+	    arduinoTextarea.value = Blockly.Arduino.workspaceToCode();
+	    arduinoTextarea.focus();
+  }
+}
+
+
+/**
+ * Calcula las coordenadas absolutas y dimensiones de un elemento HTML.
+ * @param {!Element} element Elemento a concordar.
+ * @return {!Object} Contiene height, width, x, y
+ */
+function getBBox_(element) {
+	  var height = element.offsetHeight;
+	  var width = element.offsetWidth;
+	  var x = 0;
+	  var y = 0;
+	  do {
+	    x += element.offsetLeft;
+	    y += element.offsetTop;
+	    element = element.offsetParent;
+	  } while (element);
+	  return {
+	    height: height,
+	    width: width,
+	    x: x,
+	    y: y
+	  };
+}
+ 
+
+/**
+ * Inicialiaza Blockly. Funcion llamada al cargar la página.
+ */
+function init() {
+  var container = document.getElementById('content_area');
+  var onresize = function(e) {
+    var bBox = getBBox_(container);
+    for (var i = 0; i < TABS_.length; i++) {
+      var el = document.getElementById('content_' + TABS_[i]);
+      el.style.top = bBox.y + 'px';
+      el.style.left = bBox.x + 'px';
+      // Height y width necesitan ser establecidas, volver a leer, a continuacion 
+      // establecer otra vez para compensar las barras de desplazamiento.
+      el.style.height = bBox.height + 'px';
+      el.style.height = (2 * bBox.height - el.offsetHeight) + 'px';
+      el.style.width = bBox.width + 'px';
+      el.style.width = (2 * bBox.width - el.offsetWidth) + 'px';
+    }
+    
+    // Crea la pestaña 'Bloques' con el mismo ancho que el toolbox.
+    if (Blockly.mainWorkspace.toolbox_.width) {
+      document.getElementById('tab_blocks').style.minWidth =
+          (Blockly.mainWorkspace.toolbox_.width - 36) + 'px';
+          // Contador para el margen de 19 píxeles en cada lado.
+    }    
+  };
+  window.addEventListener('resize', onresize, false);
+
+  var toolbox = document.getElementById('toolbox');
+  Blockly.inject(document.getElementById('content_blocks'),
+      {media: '../../media/',
+       toolbox: toolbox});
+
+  auto_save_and_restore_blocks();
+
+  //Cargar desde paramatro url (single param)
+  //http://stackoverflow.com/questions/2090551/parse-query-string-in-javascript
+  var dest = unescape(location.search.replace(/^.*\=/, '')).replace(/\+/g, " ");
+  if(dest){
+    load_by_url(dest);
+  }
+}
+
+
+//Guarda el codigo Arduino en un archivo
+function download() { 
+	var newtext = document.getElementById('content_arduino').value;
+	var pom = document.createElement('a'); 
+	pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(newtext)); 
+	pom.download = 'archivo.ino';
+	//pom.setAttribute('download', filename); 
+	pom.click(); 
+}
+</script>
+
+ <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+      margin: 0;
+	  padding:0;
+      overflow: hidden;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    /* Tabs */
+    #tabRow>td {
+    	border-radius: 10px 10px 0 0;
+    }
+    td.tabon {
+      cursor: pointer;
+      border-color: #111 !important;
+      background-color: #bbb;
+      background-image: url("m5.png");
+      padding: 10px 19px;  
+      text-align: center;   
+    }
+    td.tabon:hover {
+      cursor: pointer;  
+      background-color: #aaa;   
+      text-align: center;   
+    }
+    td.taboff {
+      cursor: pointer; 
+      background-image: url("m1-act.png");  
+      padding: 5px 19px;
+      text-align: center;
+    }
+    td.taboff:hover {
+      cursor: pointer; 
+      background-image: url("m5.png");  
+      background-color: #aaa;   
+      text-align: center;   
+    }
+    td.tabmin {
+      border-top-style: none !important;
+      border-left-style: none !important;
+      border-right-style: none !important;
+      border-bottom-style: none !important;
+    }
+    td.tabmax {
+      border-top-style: none !important;
+      border-left-style: none !important;
+      border-right-style: none !important;
+      width: 99%;
+      text-align: right;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    td {
+      padding: 0;    
+	  vertical-align: middle;	  
+    }
+	
+    .content {
+      visibility: hidden;
+      margin: 0;
+      padding: 1ex;
+      position: absolute;
+      direction: ltr;
+    }
+    pre.content {
+      overflow: scroll;
+    }
+    #content_blocks {
+      padding: 0;
+    }
+    .blocklySvg {
+      border-top: none !important;
+	  height: 100%;
+      width: 100%;
+    }
+    #content_xml {
+      resize: none;
+      outline: none;
+      border: none;
+      font-family: monospace;
+      overflow: scroll;
+    }
+
+	
+
+	.h1 {
+	  font-weight: bold;
+	  font-size: 52px;
+	  font-family: "Arial";
+	  text-shadow: 0 1px 0 #ccc, 
+	               0 2px 0 #c9c9c9,
+	               0 3px 0 #bbb,
+	               0 4px 0 #b9b9b9,
+	               0 5px 0 #aaa,
+	               0 6px 1px rgba(0,0,0,.1),
+	               0 0 5px rgba(0,0,0,.1),
+	               0 1px 3px rgba(0,0,0,.3),
+	               0 3px 5px rgba(0,0,0,.2),
+	               0 5px 10px rgba(0,0,0,.25),
+	               0 10px 10px rgba(0,0,0,.2),
+	               0 20px 20px rgba(0,0,0,.15);
+	  color: #FFF;
+	  text-align: center;
+	} 
+    
+	.boton {
+		text-decoration: none;
+		color: #fff;
+		font-weight: bold;
+		padding: 12px 20px;
+		font-size: 15px;
+		border-radius: 10px;
+		background-color: #666666;	
+		box-shadow: 0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+		position: relative;
+		border-top: 1px solid rgba(255,255,255,0.2);
+		border-right: 1px solid rgba(255,255,255,0.2);
+		border-left: 1px solid rgba(255,255,255,0.2);
+		border-bottom: 1px solid rgba(255,255,255,0.2);
+		display: inline-block;
+		font-family: Arial, Helvetica, sans;
+		text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
+	}
+	
+	.boton:hover {
+		box-shadow: 0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+		color: #fff !important;
+	}
+	
+	.boton:active {
+		top: 7px;
+		box-shadow: 0 2px 0 #393939, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);	
+		color: #fff !important;
+	}
+	
+	.formaBoton {
+		border-radius: 5px;	
+		padding-left: 15px;
+		padding-right: 15px;    
+	}
+    
+    /*ANARANJADO*/
+	.anaranjado {	
+		background-color: #c37846;	
+		box-shadow: 0 5px 5px #855031, 0 9px 0 #5e3a25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.anaranjado:hover {
+		box-shadow: 0 5px 5px #855031, 0 9px 0 #5e3a25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);	
+	}
+	
+	.anaranjado:active {
+		box-shadow: 0 2px 0 #5e3a25, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);
+	}
+	
+	/*Rojo*/
+	.colorRojo {	
+	background-color: #c34747;	
+	box-shadow: 0 5px 5px #853232, 0 9px 0 #5e2525, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.colorRojo:hover {
+		box-shadow: 0 5px 5px #853232, 0 9px 0 #5e2525, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.colorRojo:active {
+		box-shadow: 0 2px 0 #5e2525, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);
+	}
+	
+	/*VERDE*/
+	.verde {	
+		background-color: #7fc345;	
+		box-shadow: 0 5px 5px #508530, 0 9px 0 #385e25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.verde:hover {
+		box-shadow: 0 5px 5px #508530, 0 9px 0 #385e25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.verde:active {
+		box-shadow: 0 2px 0 #385e25, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);	
+	}
+	
+	/*AZUL*/
+	.azul {
+		background: #2a8ad8;
+		box-shadow: 0 5px 5px #364a8e, 0 9px 0 #25325e, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.azul:hover {
+		box-shadow: 0 5px 5px #364a8e, 0 9px 0 #25325e, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	.azul:active {
+		box-shadow: 0 2px 0 #25325e, 0px 4px 4px rgba(0,0,0,0.3), inset 0px 2px 5px rgba(0,0,0,0.2);
+	}	
+	
+ </style>
+</head>
+
+
+<body background="header.jpg" onload="init()">
+  <table height="100%" width="100%">
+    <tr height="80px">
+      <td>
+      	<table>
+      		<tr height="80px">
+      			<td class="tabmin">&nbsp;</td>
+      			<td class="tabmin">&nbsp;</td>
+      			<td>
+      				<a href="../../../../../home.html" style="text-decoration:none" target="_blank"><FONT class="h1"><I>EasyArduino</I></FONT></a>         			
+         		</td>         		
+         		<td class="tabmax">
+         			<button onclick="discard()" class="boton colorRojo formaBoton">Borrar</button> 
+         		</td>
+         		<td class="tabmin">&nbsp;</td>
+         		<td class="tabmax">
+              		<button type="button" onclick="tabClick('arduino'); download()" class="boton anaranjado formaBoton">Guardar Arduino</button>          
+          	  	</td>
+          	  	<td class="tabmin">&nbsp;</td>
+         		<td class="tabmax">	
+          	  		<button onclick="save()" class="boton verde formaBoton">Guardar Proyecto</button>
+         		</td>
+         		<td class="tabmin">&nbsp;</td>
+         		<td class="tabmax">	
+         			<button id="fakeload" class="boton verde formaBoton">Cargar Proyecto</button>  
+         			<input type="file" id="load" style="display: none;"/>  
+         		</td>	     			    		       			      			
+         		<td class="tabmin">&nbsp;</td>
+         		<td class="tabmin">&nbsp;</td>
+         		<td class="tabmin">&nbsp;</td>    	        		
+         	</tr>
+      	</table> 
+	  <td>
+    </tr>
+    <tr>
+      <td>
+        <table>
+          <tr id="tabRow" height="1em">
+            <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')"><FONT color="white" SIZE=4>Bloques</FONT></td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')"><FONT color="white" SIZE=4>Codigo</FONT></td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_xml" class="taboff" style="display: none" onclick="tabClick('xml')"><FONT SIZE=4>XML</FONT></td>
+            <td class="tabmin">&nbsp;</td> 
+            <td class="tabmax"><a href="../../../../../Manual.html" target="_blank"><FONT color="white" SIZE=3>Manual de Ayuda</FONT></a></td>        
+            <td style="display: none" class="tabmax">
+            	<a href="http://www.serbice.net/count" target="_blank"><img  style="border: 0px solid; display: inline;" alt="Contador de visitas" src="http://www.serbice.net/count/id/7282"/></a>         
+            </td>            
+            <td class="tabmin">&nbsp;</td>
+            <td class="tabmin">&nbsp;</td>  
+            <td class="tabmin">&nbsp;</td>             
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="100%" id="content_area">
+        <div id="content_blocks" class="content"></div>
+  		<textarea id="content_arduino" class="content" readonly wrap="off"></textarea>
+  		<textarea id="content_xml" class="content" wrap="off"></textarea>
+      </td>
+    </tr>
+  </table>
+
+
+  <xml id="toolbox" style="display: none">
+    <category name="Inicio Programa">
+		<block type="inicio"></block>     
+    </category>
+	<sep></sep>
+    <category name="Servo">
+      <block type="servo_move"></block>
+      <block type="servo_continua"></block>
+    </category>
+	<sep></sep>	
+	<category name="Robot 2 Servos">
+		<block type="servo_up"></block>
+		<block type="servo_down"></block>
+		<block type="servo_right"></block>
+		<block type="servo_left"></block>
+		<block type="levantar_brazos"></block>
+		<block type="bajar_brazos"></block>
+	</category>
+	<sep></sep>
+	<category name="Actuadores">
+		  <block type="led"></block>
+		  <block type="bocina"></block>
+	      <block type="serial_LCD"></block>
+	      <block type="serial_lcd_print">
+	        <value name="TEXT">
+	          <block type="text">
+	            <field name="TEXT"></field>
+	          </block>
+	        </value>
+	      </block> 
+	      <block type="serial_lcd_borrar"></block>
+	      <block type="motor_DC"></block>
+      	  <block type="motor_Controller"></block>
+      	  <block type="motor_adelante"></block>
+      	  <block type="motor_atras"></block>
+      	  <block type="motor_parar"></block>	      
+          <block type="digital_write"></block>
+          <block type="analog_write"></block>
+      	  <block type="serial_print">
+          	<value name="CONTENT">
+          		<block type="text">
+            		<field name="TEXT"></field>
+          		</block>
+        	</value>
+          </block>       
+          <block type="highlow"></block>   
+	      <block type="buildin_led"></block>
+	</category>
+	<sep></sep>	
+    <category name="Sensores">
+      <block type="button"></block>  
+      <block type="ultrasonic_ranger"></block>
+      <block type="sensor_movimiento"></block>
+      <block type="sigue_lineas"></block>
+      <block type="sensor_luz"></block>
+      <block type="sensor_temperatura"></block>
+      <block type="potenciometro"></block>   
+      <block type="digital_read"></block>     
+      <block type="analog_read"></block>      
+    </category>
+	<sep></sep>
+    <category name="Logica">     
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_null"></block>
+      <block type="logic_boolean"></block>
+    </category>
+	<sep></sep>
+    <category name="Control">
+      <block type="delay">
+        <value name="DELAY_TIME">
+          <block type="math_number">
+            <field name="NUM">1000</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_if"></block>
+      <block type="controls_forMe"></block>
+      <block type="whileUntil"></block>
+      <block type="iniciar_Programa_Si"></block>
+      <block type="repetir_Siempre"></block>
+    </category>
+	<sep></sep>
+    <category name="Matematicas">
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="random"></block>
+      <block type="base_map"></block>
+    </category>
+	<sep></sep>
+    <category name="Texto">
+      <block type="text"></block>
+    </category>
+    <sep></sep>
+    <category name="Variables" custom="VARIABLE"></category>
+	<sep></sep>
+    <category name="Funciones" custom="PROCEDURE"></category>
+	<sep></sep>
+	<!--category name="Threads">
+      <block type="thread_Controller">
+       <value name="DO">
+        <block type="thread">
+        	<value name="STAT">
+          		<block type="math_number">
+            		<field name="NUM">0</field>
+          		</block>
+        	</value>
+      	</block>
+       </value>	
+      </block>
+      <block type="thread">
+        <value name="STAT">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="shouldRun"></block>
+      <block type="thread_run"></block>
+      <block type="setInterval">
+        <value name="STAT">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>      
+      <block type="controller_addT"></block>
+      <block type="controller_remove"></block>
+      <block type="controller_clear"></block>
+      <block type="thread_size"></block>
+    </category>
+    <sep></sep-->
+  </xml>
+</body>
+</html>
