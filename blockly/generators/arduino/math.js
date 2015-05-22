@@ -19,7 +19,8 @@
 
 /**
  * @fileoverview Generating Arduino for math blocks.
- * @author gasolin@gmail.com  (Fred Lin)
+ * @author fraser@google.com (Neil Fraser)
+ * @author Jesús Lens Costa (Bloques: random, base_map)
  */
 'use strict';
 
@@ -37,6 +38,25 @@ Blockly.Arduino.math_number = function() {
       Blockly.Arduino.ORDER_UNARY_PREFIX : Blockly.Arduino.ORDER_ATOMIC;
   return [code, order];
 };
+
+
+// Random
+Blockly.Arduino.random = function() {
+	  var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+	  var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
+	  var code = 'random(' + value_num + ', ' + value_dmax + ')';
+	  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+
+// Mapear rango de valores
+Blockly.Arduino.base_map = function() {
+	var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+	var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
+	var code = 'map(' + value_num + ', 0, 1023, 0, ' + value_dmax + ')';
+	return [code, Blockly.Arduino.ORDER_NONE];
+};
+
 
 Blockly.Arduino.math_arithmetic = function() {
   // Basic arithmetic operators, and power.

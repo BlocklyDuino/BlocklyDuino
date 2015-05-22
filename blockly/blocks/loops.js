@@ -21,6 +21,7 @@
 /**
  * @fileoverview Loop blocks for Blockly.
  * @author fraser@google.com (Neil Fraser)
+ * @author2 Jesús Lens Costa
  */
 'use strict';
 
@@ -30,6 +31,120 @@ goog.require('Blockly.Blocks');
 
 
 Blockly.Blocks.loops.HUE = 120;
+
+// Esperar
+Blockly.Blocks['delay'] = {
+  helpUrl: 'http://arduino.cc/en/Reference/delay',
+  init: function() {
+    this.setColour(190);
+    this.appendValueInput("DELAY_TIME", 'Number')
+        .appendField("Esperar ")
+        .setCheck('Number');
+    this.appendDummyInput('')    
+    	.appendTitle("milisegundos");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Retrasa el tiempo indicado');
+  }
+};
+
+
+// Iniciar Programa Si Condicion
+Blockly.Blocks['iniciar_Programa_Si'] = {
+		  helpUrl: '',		  
+		  init: function() {
+			    this.setColour(120);
+			    this.appendValueInput('BOOL')
+			        .appendField("Iniciar Programa Si") 
+			        .setCheck('Boolean')
+			    this.appendStatementInput('DO')
+			    	//.appendField("hacer") 
+			    this.setPreviousStatement(true);
+		        this.setNextStatement(true);		        
+			    this.setTooltip('Inicia un programa si se cumple la condicion');
+		  }
+};
+
+
+// Repetir siempre
+Blockly.Blocks['repetir_Siempre'] = {
+		  helpUrl: '',		  
+		  init: function() {
+			    this.setColour(90);
+			    this.appendDummyInput()
+			        .appendField("Repetir Siempre") 
+			        .appendField(new Blockly.FieldImage("../../media/cycle.png", 34, 34))
+			    this.appendStatementInput('DO')
+			    	//.appendField("hacer") 
+			    this.setPreviousStatement(true);
+		        this.setNextStatement(true);		        
+			    this.setTooltip('Ejecuta continuamente el programa');
+		  }
+};
+
+// Do while/until loop.
+Blockly.Blocks['whileUntil'] = {		    
+		  helpUrl: '',
+		  init: function() {
+		    this.setColour(90);
+		    this.appendValueInput('BOOL')
+		        .setCheck('Boolean')		        
+		        .appendTitle("Repetir")
+		        .appendTitle(new Blockly.FieldDropdown(this.OPERATORS), 'MODE');
+		    this.appendStatementInput('DO')
+		    	.appendTitle("hacer");		        
+		    this.setPreviousStatement(true);
+		    this.setNextStatement(true);
+		    // Assign 'this' to a variable for use in the tooltip closure below.
+		    var thisBlock = this;
+		    this.setTooltip(function() {
+		      var op = thisBlock.getTitleValue('MODE');
+		      return Blockly.Blocks.whileUntil.TOOLTIPS[op];
+		    });
+		  }
+		};
+
+		Blockly.Blocks.whileUntil.OPERATORS =
+		    [['mientras', 'WHILE'],
+		     ['hasta', 'UNTIL']];
+
+		Blockly.Blocks.whileUntil.TOOLTIPS = {
+		  WHILE: 'Repetir mientras el valor es verdadero',
+		  UNTIL: 'Repetir hasta que el valor es verdadero'
+};
+
+//Bucle for
+Blockly.Blocks['controls_forMe'] = {
+  helpUrl: Blockly.LANG_CONTROLS_FOR_HELPURL,
+  init: function() {
+    this.setColour(150);
+    this.appendDummyInput()
+    	.appendTitle('Hacer')
+        .appendTitle('esto ', 'VAR')
+        .appendTitle(new Blockly.FieldTextInput('0', Blockly.FieldTextInput.nonnegativeIntegerValidator), 'TO')
+        .appendTitle('veces');
+    this.appendStatementInput('DO');      
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setInputsInline(true);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.LANG_CONTROLS_FOR_TOOLTIP.replace('%1',
+          thisBlock.getTitleValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getTitleValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getTitleValue('VAR'))) {
+      this.setTitleValue(newName, 'VAR');
+    }
+  }
+};
+
 
 Blockly.Blocks['controls_repeat'] = {
   /**
@@ -41,8 +156,7 @@ Blockly.Blocks['controls_repeat'] = {
     this.setColour(Blockly.Blocks.loops.HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.CONTROLS_REPEAT_TITLE_REPEAT)
-        .appendField(new Blockly.FieldTextInput('10',
-            Blockly.FieldTextInput.nonnegativeIntegerValidator), 'TIMES')
+        .appendField(new Blockly.FieldTextInput('10', Blockly.FieldTextInput.nonnegativeIntegerValidator), 'TIMES')
         .appendField(Blockly.Msg.CONTROLS_REPEAT_TITLE_TIMES);
     this.appendStatementInput('DO')
         .appendField(Blockly.Msg.CONTROLS_REPEAT_INPUT_DO);
@@ -51,6 +165,8 @@ Blockly.Blocks['controls_repeat'] = {
     this.setTooltip(Blockly.Msg.CONTROLS_REPEAT_TOOLTIP);
   }
 };
+
+
 
 Blockly.Blocks['controls_repeat_ext'] = {
   /**

@@ -29,7 +29,7 @@ goog.provide('Blockly.Blocks.variables');
 goog.require('Blockly.Blocks');
 
 
-Blockly.Blocks.variables.HUE = 330;
+Blockly.Blocks.variables.HUE = 310;
 
 // ************************************************************************
 // THIS SECTION IS INSERTED INTO BLOCKLY BY BLOCKLYDUINO.
@@ -39,12 +39,11 @@ Blockly.Blocks['variables_declare'] = {
   init: function() {
     this.setColour(Blockly.Blocks.variables.HUE);
     this.appendValueInput('VALUE', null)
-        .appendField('Declare')
-        .appendField(new Blockly.FieldVariable(
-        Blockly.LANG_VARIABLES_SET_ITEM), 'VAR')
-        .appendField("as")
-      .appendField(new Blockly.FieldDropdown([["Number", "int"]]), "TYPE")
-      .appendField("value");
+        .appendField('Declarar variable ')
+        .appendField(new Blockly.FieldVariable('var1'), 'VAR')
+        //.appendField("as")
+        //.appendField(new Blockly.FieldDropdown([["Number", "int"]]), "TYPE")
+        .appendField("=");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip('');
@@ -70,8 +69,7 @@ Blockly.Blocks['variables_get'] = {
     this.setColour(Blockly.Blocks.variables.HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
-        .appendField(new Blockly.FieldVariable(
-        Blockly.Msg.VARIABLES_GET_ITEM), 'VAR')
+        .appendField(new Blockly.FieldVariable('var1'), 'VAR')
         .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
@@ -128,7 +126,7 @@ Blockly.Blocks['variables_set'] = {
         // TODO: Combine these messages instead of using concatenation.
         Blockly.Msg.VARIABLES_SET_TITLE + ' %1 ' +
         Blockly.Msg.VARIABLES_SET_TAIL + ' %2',
-        ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM)],
+        ['VAR', new Blockly.FieldVariable('var1')],
         ['VALUE', null, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);

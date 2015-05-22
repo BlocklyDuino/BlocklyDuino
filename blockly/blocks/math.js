@@ -21,6 +21,7 @@
 /**
  * @fileoverview Math blocks for Blockly.
  * @author q.neutron@gmail.com (Quynh Neutron)
+ * @author Jesús Lens Costa (Bloques: random, base_map)
  */
 'use strict';
 
@@ -40,12 +41,51 @@ Blockly.Blocks['math_number'] = {
     this.setHelpUrl(Blockly.Msg.MATH_NUMBER_HELPURL);
     this.setColour(Blockly.Blocks.math.HUE);
     this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput('0',
-        Blockly.FieldTextInput.numberValidator), 'NUM');
+        .appendField(new Blockly.FieldTextInput('0', Blockly.FieldTextInput.numberValidator), 'NUM');
     this.setOutput(true, 'Number');
     this.setTooltip(Blockly.Msg.MATH_NUMBER_TOOLTIP);
   }
 };
+
+
+// Random
+Blockly.Blocks['random'] = {
+		  helpUrl: '',
+		  init: function() {
+		    this.setColour(230);
+		    this.appendValueInput("NUM", 'Number')
+		        .appendField("Aleatorio entre ")
+		        .setCheck('Number');
+		    this.appendValueInput("DMAX", 'Number')
+		        .appendField("y ")
+		        .setCheck('Number');
+		    this.setInputsInline(true);
+		    this.setOutput(true);
+		    this.setTooltip('Genera un numero aleatorio en el rango que deseamos');
+		  }
+};
+
+
+// Mapear rango de valores
+Blockly.Blocks['base_map'] = {
+  helpUrl: 'http://arduino.cc/en/Reference/map',
+  init: function() {
+    this.setColour(230);
+    this.appendValueInput("NUM", 'Number')
+        .appendField("Mapear ")
+        .setCheck('Number');
+    this.appendValueInput("DMAX", 'Number')
+        .appendField("valores [0-")
+        .setCheck('Number');
+    this.appendDummyInput()
+	      .appendField("]");
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setTooltip('Permite mapear una variable que vaya de 0 a 1023 al rango que deseamos');
+  }
+};
+
+
 
 Blockly.Blocks['math_arithmetic'] = {
   /**

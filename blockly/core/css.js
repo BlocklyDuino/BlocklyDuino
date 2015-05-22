@@ -391,7 +391,7 @@ Blockly.Css.CONTENT = [
 
   /* Category tree in Toolbox. */
   '.blocklyToolboxDiv {',
-  '  background-color: #ddd;',
+  '  background-color: #CFD4CF;',
   '  display: none;',
   '  overflow-x: visible;',
   '  overflow-y: auto;',
@@ -407,8 +407,8 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyTreeRow {',
-  '  line-height: 22px;',
-  '  height: 22px;',
+  '  line-height: 27px;',
+  '  height: 27px;',
   '  padding-right: 1em;',
   '  white-space: nowrap;',
   '}',
@@ -423,7 +423,7 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyTreeSeparator {',
-  '  border-bottom: solid #e5e5e5 1px;',
+  '  border-bottom: solid #888 1px;',
   '  height: 0px;',
   '  margin: 5px 0;',
   '}',
@@ -467,13 +467,13 @@ Blockly.Css.CONTENT = [
   '.blocklyTreeLabel {',
   '  cursor: default;',
   '  font-family: sans-serif;',
-  '  font-size: 16px;',
+  '  font-size: 17px;',
   '  padding: 0 3px;',
   '  vertical-align: middle;',
   '}',
 
   '.blocklyTreeSelected  {',
-  '  background-color: #57e !important;',
+  '  background-color: #57a !important;',
   '}',
 
   '.blocklyTreeSelected .blocklyTreeLabel {',

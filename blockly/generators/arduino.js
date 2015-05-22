@@ -20,6 +20,7 @@
 /**
  * @fileoverview Helper functions for generating Arduino for blocks.
  * @author gasolin@gmail.com (Fred Lin)
+ * @author2 Jesús Lens Costa
  */
 'use strict';
 
@@ -66,6 +67,9 @@ Blockly.Arduino.ORDER_LOGICAL_OR = 12;    // ||
 Blockly.Arduino.ORDER_CONDITIONAL = 13;   // expr ? expr : expr
 Blockly.Arduino.ORDER_ASSIGNMENT = 14;    // = *= /= ~/= %= += -= <<= >>= &= ^= |=
 Blockly.Arduino.ORDER_NONE = 99;          // (...)
+
+Blockly.Arduino.CONTADOR = 1;
+Blockly.Arduino.TH = false;
 
 /*
  * Arduino Board profiles
@@ -124,7 +128,16 @@ Blockly.Arduino.finish = function(code) {
   // Indent every line.
   code = '  ' + code.replace(/\n/g, '\n  ');
   code = code.replace(/\n\s+$/, '\n');
-  code = 'void loop() \n{\n' + code + '\n}';
+  
+  if(Blockly.Arduino.TH == true){
+	  code = 'void loop() \n{\n' + '  controlador.run();' + '\n}';
+  }
+  else{
+	  code = 'void loop() \n{\n' + code + '\n}';
+  }  
+  
+  Blockly.Arduino.CONTADOR = 1;
+  Blockly.Arduino.TH == false;
 
   // Convert the definitions dictionary into a list.
   var imports = [];

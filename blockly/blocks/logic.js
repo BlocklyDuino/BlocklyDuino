@@ -21,6 +21,7 @@
 /**
  * @fileoverview Logic blocks for Blockly.
  * @author q.neutron@gmail.com (Quynh Neutron)
+ * @author2 Jesús Lens Costa
  */
 'use strict';
 
@@ -29,7 +30,7 @@ goog.provide('Blockly.Blocks.logic');
 goog.require('Blockly.Blocks');
 
 
-Blockly.Blocks.logic.HUE = 210;
+Blockly.Blocks.logic.HUE = 120; //280
 
 Blockly.Blocks['controls_if'] = {
   /**
