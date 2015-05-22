@@ -1,5 +1,5 @@
 # EasyArduino
-EasyArduino: programación por bloques para Arduino. Trabajo Fin de Grado 2015 - Grado en Ingeniería Informatíca - UNED
+EasyArduino: programación por bloques para Arduino. Trabajo Fin de Grado 2015 - Grado en Ingeniería Informática - UNED
 
 http://www.easyarduino.es/
 
