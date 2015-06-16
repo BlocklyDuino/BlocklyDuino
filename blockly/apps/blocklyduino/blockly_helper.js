@@ -235,7 +235,7 @@ function uploadCode(code, callback) {
 }
 
 function uploadClick() {
-    var code = document.getElementById('textarea_arduino').value;
+    var code = document.getElementById('content_arduino').value;
 
     alert("Ready to upload to Arduino.\n\nNote: this only works on Mac OS X and Linux at this time.");
     
