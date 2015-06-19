@@ -1,19 +1,21 @@
 BlocklyDuino
 =======================
 
-1.3 Not Released yet
+1.3 2015/6/19
 ---------------------
-code name:
+code name: TOWN
 
 Feature:
 * Grid background
 * prefill default combined blocks
 
 Fix:
-* update Blockly to latest
+* update Blockly to Mar 12
 * Fix recursive creation of ino_project subdirectories
+* fix server upload function
+* fix LED module
 
-Credit: fraser, fred, gumbypp
+Credit: fred, fraser, gumbypp
 
 1.2 2015/2/25
 ------------------
