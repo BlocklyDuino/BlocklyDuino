@@ -237,7 +237,7 @@ function uploadCode(code, callback) {
 function uploadClick() {
     var code = document.getElementById('content_arduino').value;
 
-    alert("Ready to upload to Arduino.\n\nNote: this only works on Mac OS X and Linux at this time.");
+    alert("Ready to upload to Arduino.");
     
     uploadCode(code, function(status, errorInfo) {
         if (status == 200) {
