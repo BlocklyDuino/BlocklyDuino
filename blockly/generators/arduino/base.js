@@ -129,6 +129,30 @@ Blockly.Arduino.servo_read_degrees = function() {
   return code;
 };
 
+Blockly.Arduino['stepper_setup'] = function(){
+  var pin1 = this.getFieldValue('PIN1');
+  var pin2 = this.getFieldValue('PIN2');
+  var pin3 = this.getFieldValue('PIN3');
+  var pin4 = this.getFieldValue('PIN4');
+  var steps = Blockly.Arduino.valueToCode(this, 'stepNum', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '1';
+  Blockly.Arduino.definitions_['define_stepper'] =  '#include <Stepper.h>\n';
+  Blockly.Arduino.definitions_['var_lcd'] = 'Stepper myStepper('+steps+','+pin1+','+pin2+','+pin3+','+pin4+');\n';
+  var code = '';
+  return code;
+};
+
+Blockly.Arduino['stepper_set_speed'] = function(){
+  var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '1';
+  var code = 'myStepper.setSpeed('+speed+');\n';
+  return code;
+};
+
+Blockly.Arduino['stepper_step'] = function(){
+  var step = Blockly.Arduino.valueToCode(this, 'STEP', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '1';
+  var code = 'myStepper.step('+step+');\n';
+  return code;
+};
+
 Blockly.Arduino.serial_print = function() {
   var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
   //content = content.replace('(','').replace(')','');

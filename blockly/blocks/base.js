@@ -185,6 +185,59 @@ Blockly.Blocks['servo_read_degrees'] = {
   }
 };
 
+//Setup a Stepper Motor
+Blockly.Blocks['stepper_setup'] = {
+  init:function(){
+    this.setColour (257);
+    this.appendDummyInput("")
+    .appendField("Set up a Stepper Motor")
+    .appendField("PIN# 1")
+    .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN1")
+    .appendField("PIN# 2")
+    .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN2")
+    .appendField("PIN# 3")
+    .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN3")
+    .appendField("PIN# 4")
+    .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN4");
+    this.appendValueInput("stepNum", Number)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("# of Steps: ");
+  this.setPreviousStatement(true,null);
+  this.setNextStatement(true,null);
+  this.setTooltip('Setup the Stepper Motor');
+  }
+};
+
+//Sets the speed of a stepper motor
+Blockly.Blocks['stepper_set_speed'] = {
+  init:function(){
+    this.setColour (257);
+    this.appendDummyInput("")
+    .appendField("Set Stepper Speed")
+    this.appendValueInput("SPEED", Number)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Speed:");
+    this.setPreviousStatement(true,null);
+    this.setNextStatement(true,null);
+    this.setTooltip('Sets the speed of the Stepper');
+  }
+};
+
+//Moves the stepper motor a specific number of steps
+Blockly.Blocks['stepper_step'] = {
+  init:function(){
+    this.setColour (257);
+    this.appendDummyInput("")
+    .appendField("Stepper Step")
+    this.appendValueInput("STEP", Number)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("# of Steps:");
+    this.setPreviousStatement(true,null);
+    this.setNextStatement(true,null);
+    this.setTooltip('Moves the Stepper');
+  }
+};
+
 Blockly.Blocks['serial_print'] = {
   helpUrl: 'http://www.arduino.cc/en/Serial/Print',
   init: function() {
