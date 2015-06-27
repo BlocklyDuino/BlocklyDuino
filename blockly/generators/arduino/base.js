@@ -191,3 +191,25 @@ Blockly.Arduino['lcd_clear'] = function(){
   var code = 'lcd.clear();\n';
   return code;
 };
+
+Blockly.Arduino['shiftOut'] = function(){
+  var data_pin = this.getTitleValue('DATA_PIN#') || '0';
+  var clock_pin = this.getTitleValue('CLOCK_PIN#') || '0';
+  var type = this.getTitleValue('BIT') || 'error';
+  var num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+  var code = 'shiftOut('+data_pin+', '+clock_pin+', '+type+', '+num+');\n';
+  Blockly.Arduino.setups_['setup_output_'+data_pin] = 'pinMode('+data_pin+', OUTPUT);';
+  Blockly.Arduino.setups_['setup_output_'+clock_pin] = 'pinMode('+clock_pin+', OUTPUT);';
+  return code;
+}
+
+Blockly.Arduino['shiftIn'] = function(block){
+  var data_pin = this.getTitleValue('DATA_PIN#') || '0';
+  var clock_pin = this.getTitleValue('CLOCK_PIN#') || '0';
+  var type = this.getTitleValue('BIT') || 'error';
+  var num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+  var code = 'shiftIn('+data_pin+', '+clock_pin+', '+type+', '+num+');\n';
+  Blockly.Arduino.setups_['setup_output_'+data_pin] = 'pinMode('+data_pin+', OUTPUT);';
+  Blockly.Arduino.setups_['setup_output_'+clock_pin] = 'pinMode('+clock_pin+', OUTPUT);';
+  return code;
+}

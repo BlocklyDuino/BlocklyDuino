@@ -302,3 +302,42 @@ Blockly.Blocks['lcd_clear'] = {
     this.setTooltip('Clears text from the lcd');
   }
 };
+
+Blockly.Blocks['shiftOut'] = {
+  init: function(){
+    this.setColour(134);
+    this.appendDummyInput("")
+    .appendField("Shift Out")
+    .appendField(new Blockly.FieldDropdown(profile.default.shift), "BIT")
+    .appendField("Data Pin #: ")
+    .appendField(new Blockly.FieldDropdown(profile.default.digital), "DATA_PIN#")
+    .appendField("Clock Pin #: ")
+    .appendField(new Blockly.FieldDropdown(profile.default.digital), "CLOCK_PIN#");
+    this.appendValueInput("NUM", Number)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Value: ");
+    this.setPreviousStatement(true,null);
+    this.setNextStatement(true,null);
+      this.setTooltip('Shift out Block');
+  }
+};
+
+Blockly.Blocks['shiftIn'] = {
+  init: function(){
+    this.setColour(134);
+    this.appendDummyInput("")
+    .appendField("Shift In")
+    .appendField(new Blockly.FieldDropdown(profile.default.shift), "BIT")
+    .appendField("Data Pin #: ")
+    .appendField(new Blockly.FieldDropdown(profile.default.digital), "DATA_PIN#")
+    .appendField("Clock Pin #: ")
+    .appendField(new Blockly.FieldDropdown(profile.default.digital), "CLOCK_PIN#");
+    this.appendValueInput("NUM", Number)
+      
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Value: ");
+    this.setPreviousStatement(true,null);
+    this.setNextStatement(true,null);
+      this.setTooltip('Shift in Block');
+  }
+};
