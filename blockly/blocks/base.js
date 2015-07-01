@@ -132,6 +132,37 @@ Blockly.Blocks['inout_analog_read'] = {
   }
 };
 
+Blockly.Blocks['inout_tone'] = {
+  helpUrl: 'http://www.arduino.cc/en/Reference/Tone',
+  init: function() {
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField("Tone PIN#")
+        .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+    this.appendValueInput("NUM", "Number")
+        .appendField("frequency")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip("Generate audio tones on a pin");
+  }
+};
+
+Blockly.Blocks['inout_notone'] = {
+  helpUrl: 'http://www.arduino.cc/en/Reference/NoTone',
+  init: function() {
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField("No tone PIN#")
+        .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip("Stop generating a tone on a pin");
+  }
+};
+
 Blockly.Blocks['inout_highlow'] = {
   helpUrl: 'http://arduino.cc/en/Reference/Constants',
   init: function() {

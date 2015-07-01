@@ -79,6 +79,21 @@ Blockly.Arduino.inout_analog_read = function() {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
+Blockly.Arduino.inout_tone = function() {
+  var dropdown_pin = this.getFieldValue("PIN");
+  var value_num = Blockly.Arduino.valueToCode(this, "NUM", Blockly.Arduino.ORDER_ATOMIC);
+  Blockly.Arduino.setups_['setup_output'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
+  var code = "tone(" + dropdown_pin + ", " + value_num + ");\n";
+  return code;
+};
+
+Blockly.Arduino.inout_notone = function() {
+  var dropdown_pin = this.getFieldValue("PIN");
+  Blockly.Arduino.setups_['setup_output'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
+  var code = "noTone(" + dropdown_pin + ");\n";
+  return code;
+};
+
 Blockly.Arduino.inout_highlow = function() {
   // Boolean values HIGH and LOW.
   var code = (this.getFieldValue('BOOL') == 'HIGH') ? 'HIGH' : 'LOW';
