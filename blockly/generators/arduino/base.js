@@ -144,12 +144,87 @@ Blockly.Arduino.servo_read_degrees = function() {
   return code;
 };
 
+Blockly.Arduino['stepper_setup'] = function(){
+  var pin1 = this.getFieldValue('PIN1');
+  var pin2 = this.getFieldValue('PIN2');
+  var pin3 = this.getFieldValue('PIN3');
+  var pin4 = this.getFieldValue('PIN4');
+  var steps = Blockly.Arduino.valueToCode(this, 'stepNum', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '1';
+  Blockly.Arduino.definitions_['define_stepper'] =  '#include <Stepper.h>\n';
+  Blockly.Arduino.definitions_['var_lcd'] = 'Stepper myStepper('+steps+','+pin1+','+pin2+','+pin3+','+pin4+');\n';
+  var code = '';
+  return code;
+};
+
+Blockly.Arduino['stepper_set_speed'] = function(){
+  var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '1';
+  var code = 'myStepper.setSpeed('+speed+');\n';
+  return code;
+};
+
+Blockly.Arduino['stepper_step'] = function(){
+  var step = Blockly.Arduino.valueToCode(this, 'STEP', Blockly.Arduino.ORDER_UNARY_POSTFIX) || '1';
+  var code = 'myStepper.step('+step+');\n';
+  return code;
+};
+
 Blockly.Arduino.serial_print = function() {
   var content = Blockly.Arduino.valueToCode(this, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0'
   //content = content.replace('(','').replace(')','');
 
   Blockly.Arduino.setups_['setup_serial_' + profile.default.serial] = 'Serial.begin(' + profile.default.serial + ');\n';
 
-  var code = 'Serial.print(' + content + ');\nSerial.print("\\t");\n';
+  var code = 'Serial.println(' + content + ');\n';
   return code;
 };
+
+Blockly.Arduino['lcd_setup'] = function(){
+  var rs_pin = this.getFieldValue('RS_PIN');
+  var enable_pin = this.getFieldValue('ENABLE_PIN');
+  var d4_pin = this.getFieldValue('D4_PIN');
+  var d5_pin = this.getFieldValue('D5_PIN');
+  var d6_pin = this.getFieldValue('D6_PIN');
+  var d7_pin = this.getFieldValue('D7_PIN');
+  var col_num = '16'
+  var row_num = '2';
+  Blockly.Arduino.definitions_['define_liquidcrystal'] =  '#include <LiquidCrystal.h>\n';
+  Blockly.Arduino.definitions_['var_lcd'] = 'LiquidCrystal lcd('+rs_pin+','+enable_pin+','+d4_pin+','+d5_pin+','+d6_pin+','+d7_pin+');\n';
+  Blockly.Arduino.setups_['setup_lcd'] =  'lcd.begin('+col_num+', '+row_num+');\n';
+  var code = '';
+  return code;
+};
+
+Blockly.Arduino['lcd_print'] = function(){
+  var curs_col = this.getFieldValue('CURSOR_COLUMN#') || '0';
+  var curs_row = this.getFieldValue('CURSOR_ROW#') || '0';
+  var output = Blockly.Arduino.valueToCode(this, 'STRINGOUTPUT', Blockly.Arduino.ORDER_UNARY_POSTFIX) || 'null';
+  var code = 'lcd.setCursor('+curs_col+', '+curs_row+');\nlcd.print('+output+');\n';
+  return code;
+};
+
+Blockly.Arduino['lcd_clear'] = function(){
+  var code = 'lcd.clear();\n';
+  return code;
+};
+
+Blockly.Arduino['shiftOut'] = function(){
+  var data_pin = this.getTitleValue('DATA_PIN#') || '0';
+  var clock_pin = this.getTitleValue('CLOCK_PIN#') || '0';
+  var type = this.getTitleValue('BIT') || 'error';
+  var num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+  var code = 'shiftOut('+data_pin+', '+clock_pin+', '+type+', '+num+');\n';
+  Blockly.Arduino.setups_['setup_output_'+data_pin] = 'pinMode('+data_pin+', OUTPUT);';
+  Blockly.Arduino.setups_['setup_output_'+clock_pin] = 'pinMode('+clock_pin+', OUTPUT);';
+  return code;
+}
+
+Blockly.Arduino['shiftIn'] = function(block){
+  var data_pin = this.getTitleValue('DATA_PIN#') || '0';
+  var clock_pin = this.getTitleValue('CLOCK_PIN#') || '0';
+  var type = this.getTitleValue('BIT') || 'error';
+  var num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
+  var code = 'shiftIn('+data_pin+', '+clock_pin+', '+type+', '+num+');\n';
+  Blockly.Arduino.setups_['setup_output_'+data_pin] = 'pinMode('+data_pin+', OUTPUT);';
+  Blockly.Arduino.setups_['setup_output_'+clock_pin] = 'pinMode('+clock_pin+', OUTPUT);';
+  return code;
+}
