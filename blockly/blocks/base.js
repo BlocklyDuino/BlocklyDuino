@@ -109,7 +109,7 @@ Blockly.Blocks['inout_analog_write'] = {
     this.setColour(230);
     this.appendDummyInput()
         .appendField("AnalogWrite PIN#")
-        .appendField(new Blockly.FieldDropdown(profile.default.analog), "PIN");
+        .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendValueInput("NUM", 'Number')
         .appendField("value")
         .setCheck('Number');
