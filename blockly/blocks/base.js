@@ -227,3 +227,64 @@ Blockly.Blocks['serial_print'] = {
     this.setTooltip('Prints data to the console/serial port as human-readable ASCII text.');
   }
 };
+
+Blockly.Blocks['lcd_setup'] = {
+  init: function() {
+    this.setColour (257);
+    this.appendDummyInput("")
+      .appendField("Setup LCD")
+      .appendField(new Blockly.FieldImage("https://c1.staticflickr.com/9/8305/7804378078_4cca315e83.jpg", 64, 64))
+      .appendField("RS PIN#")
+      .appendField(new Blockly.FieldDropdown(profile.default.digital), "RS_PIN")
+      .appendField("ENABLE PIN#")
+      .appendField(new Blockly.FieldDropdown(profile.default.digital), "ENABLE_PIN")
+      .appendField("D4 PIN#")
+      .appendField(new Blockly.FieldDropdown(profile.default.digital), "D4_PIN")
+      .appendField("D5 PIN#")
+      .appendField(new Blockly.FieldDropdown(profile.default.digital), "D5_PIN")
+      .appendField("D6 PIN#")
+      .appendField(new Blockly.FieldDropdown(profile.default.digital), "D6_PIN")
+      .appendField("D7 PIN#")
+      .appendField(new Blockly.FieldDropdown(profile.default.digital), "D7_PIN");
+  this.setPreviousStatement(true,null);
+  this.setNextStatement(true,null);
+  this.setTooltip('Turns on the LCD');
+  }
+};
+
+Blockly.Blocks['lcd_print'] = {
+  //generates array needed for columns
+  var columns = [];
+  for(int i = 0; i < 16;i++){
+    columns.append([(i + 1).toString(), i.toString()]);
+  }
+
+  init: function() {
+    this.setColour (257);
+    this.appendDummyInput("")
+      .appendField("LCD Print")
+      .appendField("Cursor Column #: ")
+      .appendField(new Blockly.FieldDropdown(columns), "CURSOR_COLUMN#")
+      .appendField("Cursor Row: ")
+      .appendField(new Blockly.FieldDropdown([["First Row","0"], ["Second Row", "1"]]), "CURSOR_ROW#");
+    this.appendValueInput("STRINGOUTPUT", String)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Text:");
+    this.setPreviousStatement(true,null);
+    this.setNextStatement(true,null);
+    this.setTooltip('Prints text to the LCD');
+  }
+};
+
+Blockly.Blocks['lcd_clear'] = {
+  init: function() {
+    this.setColour(257);
+    this.appendDummyInput("")
+      .appendField("LCD Clear")
+    this.setPreviousStatement(true,null);
+    this.setNextStatement(true,null);
+    this.setTooltip('Clears text from the lcd');
+  }
+};
+
+

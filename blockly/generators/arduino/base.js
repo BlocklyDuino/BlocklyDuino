@@ -153,3 +153,26 @@ Blockly.Arduino.serial_print = function() {
   var code = 'Serial.print(' + content + ');\nSerial.print("\\t");\n';
   return code;
 };
+
+Blockly.Arduino.lcd_setup = function(){
+  var rs_pin = this.getFieldValue('RS_PIN');
+  var enable_pin = this.getFieldValue('ENABLE_PIN');
+  var d4_pin = this.getFieldValue('D4_PIN');
+  var d5_pin = this.getFieldValue('D5_PIN');
+  var d6_pin = this.getFieldValue('D6_PIN');
+  var d7_pin = this.getFieldValue('D7_PIN');
+  var col_num = '16'
+  var row_num = '2';
+
+  Blockly.Arduino.definitions_['define_liquidcrystal'] =  '#include <LiquidCrystal.h>\n';
+  Blockly.Arduino.definitions_['var_lcd'] = 'LiquidCrystal lcd('+rs_pin+','+enable_pin+','+d4_pin+','+d5_pin+','+d6_pin+','+d7_pin+');\n';
+  Blockly.Arduino.setups_['setup_lcd'] =  'lcd.begin('+col_num+', '+row_num+');\n';
+  
+  var code = '';
+  return code;
+};
+
+Blockly.Arduino.lcd_clear = function(){
+  var code = 'lcd.clear();\n';
+  return code;
+};
