@@ -172,6 +172,15 @@ Blockly.Arduino.lcd_setup = function(){
   return code;
 };
 
+Blockly.Arduino['lcd_print'] = function(block){
+  var curs_col = this.getFieldValue('CURSOR_COLUMN#') || '0';
+  var curs_row = this.getFieldValue('CURSOR_ROW#') || '0';
+  var output = Blockly.Arduino.valueToCode(this, 'STRINGOUTPUT', Blockly.Arduino.ORDER_UNARY_POSTFIX) || 'null';
+  
+  var code = 'lcd.setCursor('+curs_col+', '+curs_row+');\nlcd.print('+output+');\n';
+  return code;
+};
+
 Blockly.Arduino.lcd_clear = function(){
   var code = 'lcd.clear();\n';
   return code;

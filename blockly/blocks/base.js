@@ -253,14 +253,14 @@ Blockly.Blocks['lcd_setup'] = {
 };
 
 Blockly.Blocks['lcd_print'] = {
-  //generates array needed for columns
-  var columns = [];
-  for(int i = 0; i < 16;i++){
-    columns.append([(i + 1).toString(), i.toString()]);
-  }
-
   init: function() {
     this.setColour (257);
+    //generates array needed for columns
+    var columns = [];
+    for(var i = 0; i < 16;i++){
+      columns.push([(i + 1).toString(), i.toString()]);
+    }
+    //
     this.appendDummyInput("")
       .appendField("LCD Print")
       .appendField("Cursor Column #: ")
