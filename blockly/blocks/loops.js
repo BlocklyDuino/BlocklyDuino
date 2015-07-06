@@ -26,6 +26,8 @@
 
 goog.provide('Blockly.Blocks.loops');
 
+goog.provide('Blockly.Blocks.controls');
+
 goog.require('Blockly.Blocks');
 
 
