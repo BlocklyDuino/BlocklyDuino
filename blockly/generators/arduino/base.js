@@ -150,6 +150,6 @@ Blockly.Arduino.serial_print = function() {
 
   Blockly.Arduino.setups_['setup_serial_' + profile.default.serial] = 'Serial.begin(' + profile.default.serial + ');\n';
 
-  var code = 'Serial.print(' + content + ');\nSerial.print("\\t");\n';
+  var code = 'Serial.println(' + content + ');\n';
   return code;
 };
