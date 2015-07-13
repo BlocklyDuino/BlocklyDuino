@@ -75,3 +75,20 @@ Blockly.Arduino.controls_for = function() {
   }
   return code;
 };
+
+Blockly.Arduino.controls_whileUntil = function(){
+  // Do while/until loop.
+  var until = block.getFieldValue('MODE') == 'UNTIL';
+  var argument0 = Blockly.Arduino.valueToCode(block, 'BOOL',
+      until ? Blockly.Arduino.ORDER_LOGICAL_NOT :
+      Blockly.Arduino.ORDER_NONE) || 'false';
+  var branch = Blockly.Arduino.statementToCode(block, 'DO');
+  if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
+    branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
+        '\'' + block.id + '\'') + branch;
+  }
+  if (until) {
+    argument0 = '!' + argument0;
+  }
+  return 'while (' + argument0 + ') {\n' + branch + '}\n';
+}
