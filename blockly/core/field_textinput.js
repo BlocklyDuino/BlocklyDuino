@@ -36,7 +36,7 @@ goog.require('goog.userAgent');
 /**
  * Class for an editable text field.
  * @param {string} text The initial content of the field.
- * @param {Function} opt_changeHandler An optional function that is called
+ * @param {Function=} opt_changeHandler An optional function that is called
  *     to validate any constraints on what the user entered.  Takes the new
  *     text as an argument and returns either the accepted text, a replacement
  *     text, or null to abort the change.
@@ -45,7 +45,7 @@ goog.require('goog.userAgent');
  */
 Blockly.FieldTextInput = function(text, opt_changeHandler) {
   Blockly.FieldTextInput.superClass_.constructor.call(this, text);
-  this.changeHandler_ = opt_changeHandler;
+  this.setChangeHandler(opt_changeHandler);
 };
 goog.inherits(Blockly.FieldTextInput, Blockly.Field);
 
@@ -130,7 +130,7 @@ Blockly.FieldTextInput.prototype.showEditor_ = function(opt_quietInput) {
     return;
   }
 
-  Blockly.WidgetDiv.show(this, this.widgetDispose_());
+  Blockly.WidgetDiv.show(this, this.sourceBlock_.RTL, this.widgetDispose_());
   var div = Blockly.WidgetDiv.DIV;
   // Create the input.
   var htmlInput = goog.dom.createDom('input', 'blocklyHtmlInput');
@@ -228,10 +228,10 @@ Blockly.FieldTextInput.prototype.resizeEditor_ = function() {
   var div = Blockly.WidgetDiv.DIV;
   var bBox = this.fieldGroup_.getBBox();
   div.style.width = bBox.width + 'px';
-  var xy = Blockly.getAbsoluteXY_(/** @type {!Element} */ (this.borderRect_));
+  var xy = this.getAbsoluteXY_();
   // In RTL mode block fields and LTR input fields the left edge moves,
   // whereas the right edge is fixed.  Reposition the editor.
-  if (Blockly.RTL) {
+  if (this.sourceBlock_.RTL) {
     var borderBBox = this.borderRect_.getBBox();
     xy.x += borderBBox.width;
     xy.x -= div.offsetWidth;
@@ -258,10 +258,13 @@ Blockly.FieldTextInput.prototype.widgetDispose_ = function() {
     // Save the edit (if it validates).
     var text = htmlInput.value;
     if (thisField.sourceBlock_ && thisField.changeHandler_) {
-      text = thisField.changeHandler_(text);
-      if (text === null) {
+      var text1 = thisField.changeHandler_(text);
+      if (text1 === null) {
         // Invalid edit.
         text = htmlInput.defaultValue;
+      } else if (text1 !== undefined) {
+        // Change handler has changed the text.
+        text = text1;
       }
     }
     thisField.setText(text);
@@ -285,6 +288,7 @@ Blockly.FieldTextInput.numberValidator = function(text) {
   if (text === null) {
     return null;
   }
+  text = String(text);
   // TODO: Handle cases like 'ten', '1.203,14', etc.
   // 'O' is sometimes mistaken for '0' by inexperienced users.
   text = text.replace(/O/ig, '0');

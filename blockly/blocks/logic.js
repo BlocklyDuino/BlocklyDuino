@@ -29,6 +29,9 @@ goog.provide('Blockly.Blocks.logic');
 goog.require('Blockly.Blocks');
 
 
+/**
+ * Common HSV hue for all blocks in this category.
+ */
 Blockly.Blocks.logic.HUE = 210;
 
 Blockly.Blocks['controls_if'] = {
@@ -89,8 +92,8 @@ Blockly.Blocks['controls_if'] = {
    * @this Blockly.Block
    */
   domToMutation: function(xmlElement) {
-    this.elseifCount_ = parseInt(xmlElement.getAttribute('elseif'), 10);
-    this.elseCount_ = parseInt(xmlElement.getAttribute('else'), 10);
+    this.elseifCount_ = parseInt(xmlElement.getAttribute('elseif'), 10) || 0;
+    this.elseCount_ = parseInt(xmlElement.getAttribute('else'), 10) || 0;
     for (var i = 1; i <= this.elseifCount_; i++) {
       this.appendValueInput('IF' + i)
           .setCheck('Boolean')
@@ -263,7 +266,7 @@ Blockly.Blocks['logic_compare'] = {
    * @this Blockly.Block
    */
   init: function() {
-    var OPERATORS = Blockly.RTL ? [
+    var OPERATORS = this.RTL ? [
           ['=', 'EQ'],
           ['\u2260', 'NEQ'],
           ['>', 'LT'],
@@ -307,13 +310,9 @@ Blockly.Blocks['logic_compare'] = {
    * @this Blockly.Block
    */
   onchange: function() {
-    if (!this.workspace) {
-      // Block has been deleted.
-      return;
-    }
     var blockA = this.getInputTargetBlock('A');
     var blockB = this.getInputTargetBlock('B');
-    // Kick blocks that existed prior to this change if they don't match.
+    // Disconnect blocks that existed prior to this change if they don't match.
     if (blockA && blockB &&
         !blockA.outputConnection.checkType_(blockB.outputConnection)) {
       // Mismatch between two inputs.  Disconnect previous and bump it away.
@@ -367,13 +366,20 @@ Blockly.Blocks['logic_negate'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.LOGIC_NEGATE_HELPURL);
-    this.setColour(Blockly.Blocks.logic.HUE);
-    this.setOutput(true, 'Boolean');
-    this.interpolateMsg(Blockly.Msg.LOGIC_NEGATE_TITLE,
-                        ['BOOL', 'Boolean', Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.setTooltip(Blockly.Msg.LOGIC_NEGATE_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.LOGIC_NEGATE_TITLE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "BOOL",
+          "check": "Boolean"
+        }
+      ],
+      "output": "Boolean",
+      "colour": Blockly.Blocks.logic.HUE,
+      "tooltip": Blockly.Msg.LOGIC_NEGATE_TOOLTIP,
+      "helpUrl": Blockly.Msg.LOGIC_NEGATE_HELPURL
+    });
   }
 };
 
@@ -427,5 +433,32 @@ Blockly.Blocks['logic_ternary'] = {
         .appendField(Blockly.Msg.LOGIC_TERNARY_IF_FALSE);
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.LOGIC_TERNARY_TOOLTIP);
+    this.prevParentConnection_ = null;
+  },
+  /**
+   * Called whenever anything on the workspace changes.
+   * Prevent mismatched types.
+   * @this Blockly.Block
+   */
+  onchange: function() {
+    var blockA = this.getInputTargetBlock('THEN');
+    var blockB = this.getInputTargetBlock('ELSE');
+    var parentConnection = this.outputConnection.targetConnection;
+    // Disconnect blocks that existed prior to this change if they don't match.
+    if ((blockA || blockB) && parentConnection) {
+      for (var i = 0; i < 2; i++) {
+        var block = (i == 1) ? blockA : blockB;
+        if (block && !block.outputConnection.checkType_(parentConnection)) {
+          if (parentConnection === this.prevParentConnection_) {
+            this.setParent(null);
+            parentConnection.sourceBlock_.bumpNeighbours_();
+          } else {
+            block.setParent(null);
+            block.bumpNeighbours_();
+          }
+        }
+      }
+    }
+    this.prevParentConnection_ = parentConnection;
   }
 };

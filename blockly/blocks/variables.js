@@ -29,36 +29,10 @@ goog.provide('Blockly.Blocks.variables');
 goog.require('Blockly.Blocks');
 
 
+/**
+ * Common HSV hue for all blocks in this category.
+ */
 Blockly.Blocks.variables.HUE = 330;
-
-// ************************************************************************
-// THIS SECTION IS INSERTED INTO BLOCKLY BY BLOCKLYDUINO.
-Blockly.Blocks['variables_declare'] = {
-  // Variable setter.
-  helpUrl: Blockly.LANG_VARIABLES_SET_HELPURL,
-  init: function() {
-    this.setColour(Blockly.Blocks.variables.HUE);
-    this.appendValueInput('VALUE', null)
-        .appendField('Declare')
-        .appendField(new Blockly.FieldVariable(
-        Blockly.LANG_VARIABLES_SET_ITEM), 'VAR')
-        .appendField("as")
-      .appendField(new Blockly.FieldDropdown([["Number", "int"]]), "TYPE")
-      .appendField("value");
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip('');
-  },
-  getVars: function() {
-    return [this.getFieldValue('VAR')];
-  },
-  renameVar: function(oldName, newName) {
-    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-      this.setTitleValue(newName, 'VAR');
-    }
-  }
-};
-// ************************************************************************
 
 Blockly.Blocks['variables_get'] = {
   /**
@@ -69,14 +43,11 @@ Blockly.Blocks['variables_get'] = {
     this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
     this.setColour(Blockly.Blocks.variables.HUE);
     this.appendDummyInput()
-        .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
         .appendField(new Blockly.FieldVariable(
-        Blockly.Msg.VARIABLES_GET_ITEM), 'VAR')
-        .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
+        Blockly.Msg.VARIABLES_DEFAULT_NAME), 'VAR');
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
-    this.contextMenuType_ = 'variables_set';
   },
   /**
    * Return all variables referenced by this block.
@@ -98,6 +69,7 @@ Blockly.Blocks['variables_get'] = {
       this.setFieldValue(newName, 'VAR');
     }
   },
+  contextMenuType_: 'variables_set',
   /**
    * Add menu option to create getter/setter block for this setter/getter.
    * @param {!Array} options List of menu options to add to.
@@ -122,20 +94,26 @@ Blockly.Blocks['variables_set'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.VARIABLES_SET_HELPURL);
-    this.setColour(Blockly.Blocks.variables.HUE);
-    this.interpolateMsg(
-        // TODO: Combine these messages instead of using concatenation.
-        Blockly.Msg.VARIABLES_SET_TITLE + ' %1 ' +
-        Blockly.Msg.VARIABLES_SET_TAIL + ' %2',
-        ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM)],
-        ['VALUE', null, Blockly.ALIGN_RIGHT],
-        Blockly.ALIGN_RIGHT);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.VARIABLES_SET,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "VAR",
+          "variable": Blockly.Msg.VARIABLES_DEFAULT_NAME
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": Blockly.Blocks.variables.HUE,
+      "tooltip": Blockly.Msg.VARIABLES_SET_TOOLTIP,
+      "helpUrl": Blockly.Msg.VARIABLES_SET_HELPURL
+    });
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
-    this.contextMenuType_ = 'variables_get';
   },
   /**
    * Return all variables referenced by this block.
@@ -157,5 +135,6 @@ Blockly.Blocks['variables_set'] = {
       this.setFieldValue(newName, 'VAR');
     }
   },
+  contextMenuType_: 'variables_get',
   customContextMenu: Blockly.Blocks['variables_get'].customContextMenu
 };

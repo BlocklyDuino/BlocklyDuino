@@ -38,10 +38,17 @@ goog.require('Blockly.Icon');
  */
 Blockly.Warning = function(block) {
   Blockly.Warning.superClass_.constructor.call(this, block);
-  this.createIcon_();
+  this.createIcon();
+  // The text_ object can contain multiple warnings
+  this.text_ = { default_: '' };
 };
 goog.inherits(Blockly.Warning, Blockly.Icon);
 
+/**
+ * Icon in base64 format.
+ * @private
+ */
+Blockly.Warning.prototype.png_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAANyAAADcgBffIlqAAAAAd0SU1FB98DGgApDBpIGrEAAAGfSURBVDjLnZM9S2NREIbfc2P8AF27BXshpIzK5g9ssUj8C2tnYyUoiBGSyk4sbCLs1vkRgoW1jYWFICwsMV2Se3JPboLe+FhcNCZcjXFgOMzHeec9M2ekDwTIAEUgo68IsOQczdNTIudoAksTg/g+5+UyDxKUyzz4PueTsvhZr+NmZkCC6Wmo1QiAX58FmLKWf4VCDPCiGxtgLf+B9FiQXo+9y0ucBIUCnJ3B+noMdHGBC0P2xrH4HoYEmUx8qVQCgMPD2F5ehjDEjTbZe2s4p5NKRenb2+Qid3dSpaK0tTp+j8VKq0VncXHQh2IxZrK/P/AtLECjQQf4McQEMNbq786O5qwdANfr8Xl/P/AFgbS7qzlr9Qcwr4EoYvPmBud5wxPJ5+HqCtbWhv3GwPU1Lor4/fKMeedo5vPDiRKsrsLWFuRyybFOhxbwTd0upWqVcDQpaTqjWq0SdruU5PvUkiol/ZNRzeXA96mp3aaRzSYnjdNsFtptGiYI2PY8HaVSmu33xWf3K5WS6ffVe3rSgXnzT+YlpSfY00djjJOkZ/wpr41bQMIsAAAAAElFTkSuQmCC';
 
 /**
  * Create the text for the warning's bubble.
@@ -66,34 +73,6 @@ Blockly.Warning.textToDom_ = function(text) {
 };
 
 /**
- * Warning text (if bubble is not visible).
- * @private
- */
-Blockly.Warning.prototype.text_ = '';
-
-/**
- * Create the icon on the block.
- * @private
- */
-Blockly.Warning.prototype.createIcon_ = function() {
-  Blockly.Icon.prototype.createIcon_.call(this);
-  /* Here's the markup that will be generated:
-  <path class="blocklyIconShield" d="..."/>
-  <text class="blocklyIconMark" x="8" y="13">!</text>
-  */
-  var iconShield = Blockly.createSvgElement('path',
-      {'class': 'blocklyIconShield',
-       'd': 'M 2,15 Q -1,15 0.5,12 L 6.5,1.7 Q 8,-1 9.5,1.7 L 15.5,12 ' +
-       'Q 17,15 14,15 z'},
-      this.iconGroup_);
-  this.iconMark_ = Blockly.createSvgElement('text',
-      {'class': 'blocklyIconMark',
-       'x': Blockly.Icon.RADIUS,
-       'y': 2 * Blockly.Icon.RADIUS - 3}, this.iconGroup_);
-  this.iconMark_.appendChild(document.createTextNode('!'));
-};
-
-/**
  * Show or hide the warning bubble.
  * @param {boolean} visible True if the bubble should be visible.
  */
@@ -103,13 +82,17 @@ Blockly.Warning.prototype.setVisible = function(visible) {
     return;
   }
   if (visible) {
-    // Create the bubble.
-    var paragraph = Blockly.Warning.textToDom_(this.text_);
+    // Create the bubble to display all warnings.
+    var allWarnings = [];
+    for (var id_ in this.text_) {
+      allWarnings.push(this.text_[id_]);
+    }
+    var paragraph = Blockly.Warning.textToDom_(allWarnings.join('\n'));
     this.bubble_ = new Blockly.Bubble(
         /** @type {!Blockly.Workspace} */ (this.block_.workspace),
         paragraph, this.block_.svgPath_,
         this.iconX_, this.iconY_, null, null);
-    if (Blockly.RTL) {
+    if (this.block_.RTL) {
       // Right-align the paragraph.
       // This cannot be done until the bubble is rendered on screen.
       var maxWidth = paragraph.getBBox().width;
@@ -142,15 +125,44 @@ Blockly.Warning.prototype.bodyFocus_ = function(e) {
 /**
  * Set this warning's text.
  * @param {string} text Warning text.
+ * @param {string=} opt_id An optional ID for this text entry to be able to
+ *     maintain multiple warnings.
  */
-Blockly.Warning.prototype.setText = function(text) {
-  if (this.text_ == text) {
-    return;
+Blockly.Warning.prototype.setText = function(text, opt_id) {
+  if (opt_id !== undefined) {
+    if (this.text_[opt_id] == text) {
+      return;
+    }
+    this.text_[opt_id] = text;
+  } else {
+    if (this.text_.default_ == text) {
+      return;
+    }
+    this.text_.default_ = text;
   }
-  this.text_ = text;
   if (this.isVisible()) {
     this.setVisible(false);
     this.setVisible(true);
+  }
+};
+
+/**
+ * Removes the specified warning text.
+ * @param {string} textId ID of the warning to be removed.
+ */
+Blockly.Warning.prototype.removeText = function(textId) {
+  if (this.text_[textId] === undefined) {
+    return;  // ID not found, no change.
+  }
+  delete this.text_[textId];
+  if (Object.keys(this.text_).length === 0 ||
+      (Object.keys(this.text_).length === 1 && !this.text_.default_)) {
+    this.dispose();
+  } else {
+    if (this.isVisible()) {
+      this.setVisible(false);
+      this.setVisible(true);
+    }
   }
 };
 
