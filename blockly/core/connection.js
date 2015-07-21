@@ -38,7 +38,9 @@ goog.require('goog.dom');
  */
 Blockly.Connection = function(source, type) {
   this.sourceBlock_ = source;
+  /** @type {Blockly.Connection} */
   this.targetConnection = null;
+  /** @type {number} */
   this.type = type;
   this.x_ = 0;
   this.y_ = 0;
@@ -305,7 +307,7 @@ Blockly.Connection.prototype.bumpAwayFrom_ = function(staticConnection) {
     // When reversing a bump due to an uneditable block, bump up.
     dy = -dy;
   }
-  if (Blockly.RTL) {
+  if (rootBlock.RTL) {
     dx = -dx;
   }
   rootBlock.moveBy(dx, dy);
@@ -344,12 +346,12 @@ Blockly.Connection.prototype.moveBy = function(dx, dy) {
 Blockly.Connection.prototype.highlight = function() {
   var steps;
   if (this.type == Blockly.INPUT_VALUE || this.type == Blockly.OUTPUT_VALUE) {
-    var tabWidth = Blockly.RTL ? -Blockly.BlockSvg.TAB_WIDTH :
-                                 Blockly.BlockSvg.TAB_WIDTH;
+    var tabWidth = this.sourceBlock_.RTL ? -Blockly.BlockSvg.TAB_WIDTH :
+        Blockly.BlockSvg.TAB_WIDTH;
     steps = 'm 0,0 v 5 c 0,10 ' + -tabWidth + ',-8 ' + -tabWidth + ',7.5 s ' +
             tabWidth + ',-2.5 ' + tabWidth + ',7.5 v 5';
   } else {
-    if (Blockly.RTL) {
+    if (this.sourceBlock_.RTL) {
       steps = 'm 20,0 h -5 ' + Blockly.BlockSvg.NOTCH_PATH_RIGHT + ' h -5';
     } else {
       steps = 'm -20,0 h 5 ' + Blockly.BlockSvg.NOTCH_PATH_LEFT + ' h 5';
@@ -378,8 +380,8 @@ Blockly.Connection.prototype.unhighlight = function() {
  * @private
  */
 Blockly.Connection.prototype.tighten_ = function() {
-  var dx = Math.round(this.targetConnection.x_ - this.x_);
-  var dy = Math.round(this.targetConnection.y_ - this.y_);
+  var dx = this.targetConnection.x_ - this.x_;
+  var dy = this.targetConnection.y_ - this.y_;
   if (dx != 0 || dy != 0) {
     var block = this.targetBlock();
     var svgRoot = block.getSvgRoot();

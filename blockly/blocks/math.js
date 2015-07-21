@@ -29,6 +29,9 @@ goog.provide('Blockly.Blocks.math');
 goog.require('Blockly.Blocks');
 
 
+/**
+ * Common HSV hue for all blocks in this category.
+ */
 Blockly.Blocks.math.HUE = 230;
 
 Blockly.Blocks['math_number'] = {
@@ -101,10 +104,9 @@ Blockly.Blocks['math_single'] = {
     this.setHelpUrl(Blockly.Msg.MATH_SINGLE_HELPURL);
     this.setColour(Blockly.Blocks.math.HUE);
     this.setOutput(true, 'Number');
-    this.interpolateMsg('%1 %2',
-        ['OP', new Blockly.FieldDropdown(OPERATORS)],
-        ['NUM', 'Number', Blockly.ALIGN_RIGHT],
-        Blockly.ALIGN_RIGHT);
+    this.appendValueInput('NUM')
+        .setCheck('Number')
+        .appendField(new Blockly.FieldDropdown(OPERATORS), 'OP');
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function() {
@@ -255,17 +257,25 @@ Blockly.Blocks['math_change'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.MATH_CHANGE_HELPURL);
-    this.setColour(Blockly.Blocks.math.HUE);
-    this.interpolateMsg(
-        // TODO: Combine these messages instead of using concatenation.
-        Blockly.Msg.MATH_CHANGE_TITLE_CHANGE + ' %1 ' +
-        Blockly.Msg.MATH_CHANGE_INPUT_BY + ' %2',
-        ['VAR', new Blockly.FieldVariable(Blockly.Msg.MATH_CHANGE_TITLE_ITEM)],
-        ['DELTA', 'Number', Blockly.ALIGN_RIGHT],
-        Blockly.ALIGN_RIGHT);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+    this.jsonInit({
+      "message0": Blockly.Msg.MATH_CHANGE_TITLE,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "VAR",
+          "variable": Blockly.Msg.MATH_CHANGE_TITLE_ITEM
+        },
+        {
+          "type": "input_value",
+          "name": "DELTA",
+          "check": "Number"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": Blockly.Blocks.math.HUE,
+      "helpUrl": Blockly.Msg.MATH_CHANGE_HELPURL
+    });
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function() {
@@ -369,15 +379,26 @@ Blockly.Blocks['math_modulo'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.MATH_MODULO_HELPURL);
-    this.setColour(Blockly.Blocks.math.HUE);
-    this.setOutput(true, 'Number');
-    this.interpolateMsg(Blockly.Msg.MATH_MODULO_TITLE,
-                        ['DIVIDEND', 'Number', Blockly.ALIGN_RIGHT],
-                        ['DIVISOR', 'Number', Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.setInputsInline(true);
-    this.setTooltip(Blockly.Msg.MATH_MODULO_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.MATH_MODULO_TITLE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "DIVIDEND",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "DIVISOR",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Number",
+      "colour": Blockly.Blocks.math.HUE,
+      "tooltip": Blockly.Msg.MATH_MODULO_TOOLTIP,
+      "helpUrl": Blockly.Msg.MATH_MODULO_HELPURL
+    });
   }
 };
 
@@ -387,16 +408,31 @@ Blockly.Blocks['math_constrain'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.MATH_CONSTRAIN_HELPURL);
-    this.setColour(Blockly.Blocks.math.HUE);
-    this.setOutput(true, 'Number');
-    this.interpolateMsg(Blockly.Msg.MATH_CONSTRAIN_TITLE,
-                        ['VALUE', 'Number', Blockly.ALIGN_RIGHT],
-                        ['LOW', 'Number', Blockly.ALIGN_RIGHT],
-                        ['HIGH', 'Number', Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.setInputsInline(true);
-    this.setTooltip(Blockly.Msg.MATH_CONSTRAIN_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.MATH_CONSTRAIN_TITLE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "LOW",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "HIGH",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Number",
+      "colour": Blockly.Blocks.math.HUE,
+      "tooltip": Blockly.Msg.MATH_CONSTRAIN_TOOLTIP,
+      "helpUrl": Blockly.Msg.MATH_CONSTRAIN_HELPURL
+    });
   }
 };
 
@@ -406,15 +442,26 @@ Blockly.Blocks['math_random_int'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.MATH_RANDOM_INT_HELPURL);
-    this.setColour(Blockly.Blocks.math.HUE);
-    this.setOutput(true, 'Number');
-    this.interpolateMsg(Blockly.Msg.MATH_RANDOM_INT_TITLE,
-                        ['FROM', 'Number', Blockly.ALIGN_RIGHT],
-                        ['TO', 'Number', Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.setInputsInline(true);
-    this.setTooltip(Blockly.Msg.MATH_RANDOM_INT_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.MATH_RANDOM_INT_TITLE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "FROM",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "TO",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Number",
+      "colour": Blockly.Blocks.math.HUE,
+      "tooltip": Blockly.Msg.MATH_RANDOM_INT_TOOLTIP,
+      "helpUrl": Blockly.Msg.MATH_RANDOM_INT_HELPURL
+    });
   }
 };
 

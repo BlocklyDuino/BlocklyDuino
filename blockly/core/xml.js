@@ -38,7 +38,7 @@ goog.require('goog.dom');
  */
 Blockly.Xml.workspaceToDom = function(workspace) {
   var width;  // Not used in LTR.
-  if (Blockly.RTL) {
+  if (workspace.RTL) {
     width = workspace.getWidth();
   }
   var xml = goog.dom.createDom('xml');
@@ -46,8 +46,8 @@ Blockly.Xml.workspaceToDom = function(workspace) {
   for (var i = 0, block; block = blocks[i]; i++) {
     var element = Blockly.Xml.blockToDom_(block);
     var xy = block.getRelativeToSurfaceXY();
-    element.setAttribute('x', Blockly.RTL ? width - xy.x : xy.x);
-    element.setAttribute('y', xy.y);
+    element.setAttribute('x', Math.round(workspace.RTL ? width - xy.x : xy.x));
+    element.setAttribute('y', Math.round(xy.y));
     xml.appendChild(element);
   }
   return xml;
@@ -102,7 +102,6 @@ Blockly.Xml.blockToDom_ = function(block) {
     element.appendChild(dataElement);
   }
 
-  var hasValues = false;
   for (var i = 0, input; input = block.inputList[i]; i++) {
     var container;
     var empty = true;
@@ -112,7 +111,6 @@ Blockly.Xml.blockToDom_ = function(block) {
       var childBlock = input.connection.targetBlock();
       if (input.type == Blockly.INPUT_VALUE) {
         container = goog.dom.createDom('value');
-        hasValues = true;
       } else if (input.type == Blockly.NEXT_STATEMENT) {
         container = goog.dom.createDom('statement');
       }
@@ -126,7 +124,7 @@ Blockly.Xml.blockToDom_ = function(block) {
       element.appendChild(container);
     }
   }
-  if (hasValues) {
+  if (block.inputsInlineDefault != block.inputsInline) {
     element.setAttribute('inline', block.inputsInline);
   }
   if (block.isCollapsed()) {
@@ -223,7 +221,7 @@ Blockly.Xml.textToDom = function(text) {
  */
 Blockly.Xml.domToWorkspace = function(workspace, xml) {
   var width;  // Not used in LTR.
-  if (Blockly.RTL) {
+  if (workspace.RTL) {
     width = workspace.getWidth();
   }
   // Safari 7.1.3 is known to provide node lists with extra references to
@@ -237,7 +235,7 @@ Blockly.Xml.domToWorkspace = function(workspace, xml) {
       var blockX = parseInt(xmlChild.getAttribute('x'), 10);
       var blockY = parseInt(xmlChild.getAttribute('y'), 10);
       if (!isNaN(blockX) && !isNaN(blockY)) {
-        block.moveBy(Blockly.RTL ? width - blockX : blockX, blockY);
+        block.moveBy(workspace.RTL ? width - blockX : blockX, blockY);
       }
     }
   }

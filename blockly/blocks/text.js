@@ -29,6 +29,9 @@ goog.provide('Blockly.Blocks.texts');
 goog.require('Blockly.Blocks');
 
 
+/**
+ * Common HSV hue for all blocks in this category.
+ */
 Blockly.Blocks.texts.HUE = 160;
 
 Blockly.Blocks['text'] = {
@@ -50,15 +53,16 @@ Blockly.Blocks['text'] = {
    * Create an image of an open or closed quote.
    * @param {boolean} open True if open quote, false if closed.
    * @return {!Blockly.FieldImage} The field image of the quote.
+   * @this Blockly.Block
    * @private
    */
   newQuote_: function(open) {
-    if (open == Blockly.RTL) {
-      var file = 'quote1.png';
+    if (open == this.RTL) {
+      var file = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAqUlEQVQI1z3KvUpCcRiA8ef9E4JNHhI0aFEacm1o0BsI0Slx8wa8gLauoDnoBhq7DcfWhggONDmJJgqCPA7neJ7p934EOOKOnM8Q7PDElo/4x4lFb2DmuUjcUzS3URnGib9qaPNbuXvBO3sGPHJDRG6fGVdMSeWDP2q99FQdFrz26Gu5Tq7dFMzUvbXy8KXeAj57cOklgA+u1B5AoslLtGIHQMaCVnwDnADZIFIrXsoXrgAAAABJRU5ErkJggg==';
     } else {
-      var file = 'quote0.png';
+      var file = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAn0lEQVQI1z3OMa5BURSF4f/cQhAKjUQhuQmFNwGJEUi0RKN5rU7FHKhpjEH3TEMtkdBSCY1EIv8r7nFX9e29V7EBAOvu7RPjwmWGH/VuF8CyN9/OAdvqIXYLvtRaNjx9mMTDyo+NjAN1HNcl9ZQ5oQMM3dgDUqDo1l8DzvwmtZN7mnD+PkmLa+4mhrxVA9fRowBWmVBhFy5gYEjKMfz9AylsaRRgGzvZAAAAAElFTkSuQmCC';
     }
-    return new Blockly.FieldImage(Blockly.pathToMedia + file, 12, 12, '"');
+    return new Blockly.FieldImage(file, 12, 12, '"');
   }
 };
 
@@ -174,10 +178,8 @@ Blockly.Blocks['text_join'] = {
     // Rebuild block.
     if (this.itemCount_ == 0) {
       this.appendDummyInput('EMPTY')
-          .appendField(new Blockly.FieldImage(Blockly.pathToMedia +
-          'quote0.png', 12, 12, '"'))
-          .appendField(new Blockly.FieldImage(Blockly.pathToMedia +
-          'quote1.png', 12, 12, '"'));
+          .appendField(this.newQuote_(true))
+          .appendField(this.newQuote_(false));
     } else {
       for (var i = 0; i < this.itemCount_; i++) {
         var input = this.appendValueInput('ADD' + i);
@@ -186,7 +188,8 @@ Blockly.Blocks['text_join'] = {
         }
       }
     }
-  }
+  },
+  newQuote_: Blockly.Blocks['text'].newQuote_
 };
 
 Blockly.Blocks['text_create_join_container'] = {
@@ -270,13 +273,20 @@ Blockly.Blocks['text_length'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.TEXT_LENGTH_HELPURL);
-    this.setColour(Blockly.Blocks.texts.HUE);
-    this.interpolateMsg(Blockly.Msg.TEXT_LENGTH_TITLE,
-                        ['VALUE', ['String', 'Array'], Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.setOutput(true, 'Number');
-    this.setTooltip(Blockly.Msg.TEXT_LENGTH_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.TEXT_LENGTH_TITLE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": ['String', 'Array']
+        }
+      ],
+      "output": 'Number',
+      "colour": Blockly.Blocks.texts.HUE,
+      "tooltip": Blockly.Msg.TEXT_LENGTH_TOOLTIP,
+      "helpUrl": Blockly.Msg.TEXT_LENGTH_HELPURL
+    });
   }
 };
 
@@ -286,13 +296,20 @@ Blockly.Blocks['text_isEmpty'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.TEXT_ISEMPTY_HELPURL);
-    this.setColour(Blockly.Blocks.texts.HUE);
-    this.interpolateMsg(Blockly.Msg.TEXT_ISEMPTY_TITLE,
-                        ['VALUE', ['String', 'Array'], Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.setOutput(true, 'Boolean');
-    this.setTooltip(Blockly.Msg.TEXT_ISEMPTY_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.TEXT_ISEMPTY_TITLE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": ['String', 'Array']
+        }
+      ],
+      "output": 'Boolean',
+      "colour": Blockly.Blocks.texts.HUE,
+      "tooltip": Blockly.Msg.TEXT_ISEMPTY_TOOLTIP,
+      "helpUrl": Blockly.Msg.TEXT_ISEMPTY_HELPURL
+    });
   }
 };
 
@@ -559,14 +576,20 @@ Blockly.Blocks['text_print'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.TEXT_PRINT_HELPURL);
-    this.setColour(Blockly.Blocks.texts.HUE);
-    this.interpolateMsg(Blockly.Msg.TEXT_PRINT_TITLE,
-                        ['TEXT', null, Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.TEXT_PRINT_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.TEXT_PRINT_TITLE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "TEXT"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": Blockly.Blocks.texts.HUE,
+      "tooltip": Blockly.Msg.TEXT_PRINT_TOOLTIP,
+      "helpUrl": Blockly.Msg.TEXT_PRINT_HELPURL
+    });
   }
 };
 

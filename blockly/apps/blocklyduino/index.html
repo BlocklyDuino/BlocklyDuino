@@ -46,6 +46,9 @@ function tabClick(clickedName) {
     }
   }
 
+  if (document.getElementById('tab_blocks').className == 'tabon') {
+    Blockly.mainWorkspace.setVisible(false);
+  }
   // Deselect all tabs and hide all panes.
   for (var i = 0; i < TABS_.length; i++) {
     var name = TABS_[i];
@@ -60,6 +63,9 @@ function tabClick(clickedName) {
   document.getElementById('content_' + clickedName).style.visibility =
       'visible';
   renderContent();
+  if (clickedName == 'blocks') {
+    Blockly.mainWorkspace.setVisible(true);
+  }
   Blockly.fireUiEvent(window, 'resize');
 }
 
