@@ -38,7 +38,7 @@ function saveCode() {
   var fileName = window.prompt("What would you like to name your file?", "BlocklyDuino")
   fileName = fileName + ".ino";
   //doesn't save if the user quits the save prompt
-  if(fileName == "null"){
+  if(fileName != "null"){
     var blob = new Blob([Blockly.Arduino.workspaceToCode()], {type: "text/plain;charset=utf-8"});
     saveAs(blob, fileName);
   }
