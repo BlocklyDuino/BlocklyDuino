@@ -38,15 +38,14 @@ function restore_blocks() {
 function save() {
   var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
   var data = Blockly.Xml.domToText(xml);
-  var fileName = window.prompt("What would you like to name your file?", "BlocklyDuino");
-  fileName = fileName + ".xml";
+  var fileName = window.prompt('What would you like to name your file?', 'BlocklyDuino');
   // Store data in blob.
   // var builder = new BlobBuilder();
   // builder.append(data);
   // saveAs(builder.getBlob('text/plain;charset=utf-8'), 'blockduino.xml');
-  if(fileName != "null"){
+  if(fileName){
     var blob = new Blob([data], {type: 'text/xml'});
-    saveAs(blob, fileName);
+    saveAs(blob, fileName + ".xml");
   } 
 }
 
