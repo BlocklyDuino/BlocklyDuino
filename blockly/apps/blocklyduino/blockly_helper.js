@@ -50,14 +50,15 @@ function saveCode() {
 function save() {
   var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
   var data = Blockly.Xml.domToText(xml);
-
+  var fileName = window.prompt('What would you like to name your file?', 'BlocklyDuino');
   // Store data in blob.
   // var builder = new BlobBuilder();
   // builder.append(data);
   // saveAs(builder.getBlob('text/plain;charset=utf-8'), 'blockduino.xml');
-  console.log("saving blob");
-  var blob = new Blob([data], {type: 'text/xml'});
-  saveAs(blob, 'blockduino.xml');
+  if(fileName){
+    var blob = new Blob([data], {type: 'text/xml'});
+    saveAs(blob, fileName + ".xml");
+  } 
 }
 
 /**
