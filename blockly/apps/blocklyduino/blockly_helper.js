@@ -32,6 +32,18 @@ function restore_blocks() {
 }
 
 /**
+* Save Arduino generated code to local file.
+*/
+function saveCode() {
+  var fileName = window.prompt('What would you like to name your file?', 'BlocklyDuino')
+  //doesn't save if the user quits the save prompt
+  if(fileName){
+    var blob = new Blob([Blockly.Arduino.workspaceToCode()], {type: 'text/plain;charset=utf-8'});
+    saveAs(blob, fileName + '.ino');
+  }
+}
+
+/**
  * Save blocks to local file.
  * better include Blob and FileSaver for browser compatibility
  */
