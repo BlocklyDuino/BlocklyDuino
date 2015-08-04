@@ -1,7 +1,7 @@
 BlocklyDuino
 =======================
 
-1.4 2015/7/21
+1.4 2015/8/4
 ---------------------
 code name: The Simpsons
 
@@ -9,11 +9,16 @@ Feature:
 * python server integrate with Arduino IDE console
 * Upload code to Arduino directly on windows, linux, mac
 * Added support for Arduino tone/notone
-* add while loop block
+* Add while loop block
+* Can save arduino code locally
 
 Fix:
 * analogWrite works on PWM pins, not analog pins
 * serial print to next line
+
+Project maintainance:
+* Move domain to https://github.com/BlocklyDuino/BlocklyDuino/
+* Self hosting BlocklyDuino at http://blocklyduino.github.io/BlocklyDuino/blockly/apps/blocklyduino/
 
 Credit: Arachnid, stevoleeto, carlosperate, gasolin
 
