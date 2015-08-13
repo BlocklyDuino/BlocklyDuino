@@ -38,7 +38,6 @@ Blockly.Blocks['grove_led'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("LED")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/e0/LED1.jpg/400px-LED1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
         .appendField("stat")
@@ -55,7 +54,6 @@ Blockly.Blocks['grove_button'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Button")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/93/Button1.jpg/400px-Button1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, 'Boolean');
@@ -69,7 +67,6 @@ Blockly.Blocks['grove_rotary_angle'] = {
     this.setColour(10);
     this.appendDummyInput()
         .appendField("Rotary Angle")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/5/59/Potentiometer1.jpg/400px-Potentiometer1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.analog), "PIN");
     this.setOutput(true, 'Number');
@@ -83,7 +80,6 @@ Blockly.Blocks['grove_tilt_switch'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Tilt Switch")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/9/95/Tilt1.jpg/400px-Tilt1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, 'Boolean');
@@ -97,7 +93,6 @@ Blockly.Blocks['grove_piezo_buzzer'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Piezo Buzzer")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/ed/Buzzer1.jpg/400px-Buzzer1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
         .appendField("stat")
@@ -114,7 +109,6 @@ Blockly.Blocks['grove_relay'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Relay")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/0/04/Twig-Relay1.jpg/400px-Twig-Relay1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
         .appendField("stat")
@@ -131,7 +125,6 @@ Blockly.Blocks['grove_temporature_sensor'] = {
     this.setColour(10);
     this.appendDummyInput()
         .appendField("Temporature Sensor")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Temperature1.jpg/400px-Temperature1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.analog), "PIN")
     this.setOutput(true, 'Number');
@@ -145,7 +138,6 @@ Blockly.Blocks['grove_serial_lcd_print'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Serial LCD")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendValueInput("TEXT", 'String')
@@ -173,7 +165,6 @@ Blockly.Blocks['grove_serial_lcd_power'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Serial LCD")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendDummyInput()
@@ -193,7 +184,6 @@ Blockly.Blocks['grove_serial_lcd_effect'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Serial LCD")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/6/6a/LCD1.jpg/400px-LCD1.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendDummyInput()
@@ -212,7 +202,6 @@ Blockly.Blocks['grove_sound_sensor'] = {
     this.setColour(10);
     this.appendDummyInput()
         .appendField("Sound Sensor")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/e3/Twig-Sound-sensor.jpg/400px-Twig-Sound-sensor.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.analog), "PIN")
     this.setOutput(true, 'Number');
@@ -226,7 +215,6 @@ Blockly.Blocks['grove_pir_motion_sensor'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("PIR Motion Sensor")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/f/fd/Twig-PIR_Motion_Sensor.jpg/400px-Twig-PIR_Motion_Sensor.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
     this.setOutput(true, 'Number');
@@ -240,7 +228,6 @@ Blockly.Blocks['grove_line_finder'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Line Finder")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/8/82/Grovelinefinder1.jpg/400px-Grovelinefinder1.jpg", 64, 64))
 	      .appendField("PIN#")
 	      .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, 'Boolean');
@@ -254,7 +241,6 @@ Blockly.Blocks['grove_ultrasonic_ranger'] = {
     this.setColour(190);
     this.appendDummyInput()
 	      .appendField("Ultrasonic Ranger")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/b/b0/Twig_-_Ultrasonic_Ranger2.jpg/200px-Twig_-_Ultrasonic_Ranger2.jpg", 64, 64))
 	      .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
         .appendField("unit")
@@ -270,7 +256,6 @@ Blockly.Blocks['grove_motor_shield'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Motor")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/4/4d/Smotoshield2.jpg/400px-Smotoshield2.jpg", 64, 64))
         .appendField(new Blockly.FieldDropdown([["Stop", "stop"], ["Forward", "forward"], ["Right", "right"], ["Left", "left"], ["Backward", "backward"]]), "DIRECTION");
     /*this.appendValueInput("SPEED", 'Number')
         .setCheck('Number')
@@ -288,7 +273,6 @@ Blockly.Blocks['grove_thumb_joystick'] = {
     this.setColour(10);
     this.appendDummyInput()
 	.appendField("Thumb Joystick")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/e0/Twig_-_Thumb_Joystick_v0.9b.jpg/200px-Twig_-_Thumb_Joystick_v0.9b.jpg", 64, 64))
 	.appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.analog), "PIN")
         .appendField("axis")
@@ -304,7 +288,6 @@ Blockly.Blocks['grove_rgb_led'] = {
     this.setColour(190);
     this.appendDummyInput()
   .appendField("Chainable RGB LED")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/chanbalelednb1.jpg", 64, 64))
   .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
     this.appendDummyInput("COLOR0")
@@ -457,7 +440,6 @@ Blockly.Blocks['grove_bluetooth_slave'] = {
     this.setColour(190);
     this.appendDummyInput()
       .appendField("Bluetooth Slave")
-      .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/File:Twigbt00.jpg", 64, 64))
       .appendField("PIN#")
       .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
     this.appendDummyInput()
