@@ -279,11 +279,9 @@ Blockly.Arduino.grove_ultrasonic_ranger = function() {
   Blockly.Arduino.definitions_['var_ultrasonic'+dropdown_pin] = 'Ultrasonic ultrasonic_'+dropdown_pin+'('+dropdown_pin+');\n';
   var code;
   if(dropdown_unit==="cm"){
-    Blockly.Arduino.setups_['setup_ultrasonic_'+dropdown_pin] = 'ultrasonic_'+dropdown_pin+'.MeasureInCentimeters();';
-    code = 'ultrasonic_'+dropdown_pin+'.RangeInCentimeters();';
+    code = 'ultrasonic_'+dropdown_pin+'.MeasureInCentimeters();';
   } else {
-    Blockly.Arduino.setups_['setup_ultrasonic_'+dropdown_pin] = 'ultrasonic_'+dropdown_pin+'.MeasureInInches();';
-    code = 'ultrasonic_'+dropdown_pin+'.RangeInInches();';
+    code = 'ultrasonic_'+dropdown_pin+'.MeasureInInches();';
   }
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
