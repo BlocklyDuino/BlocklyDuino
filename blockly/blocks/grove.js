@@ -259,7 +259,7 @@ Blockly.Blocks['grove_ultrasonic_ranger'] = {
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
         .appendField("unit")
         .appendField(new Blockly.FieldDropdown([["cm", "cm"],  ["inch", "inch"]]), "UNIT");
-    this.setOutput(true, 'Boolean');
+    this.setOutput(true, 'Number');
     this.setTooltip('Non-contact distance measurement module');
   }
 };
