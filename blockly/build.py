@@ -244,6 +244,7 @@ class Gen_compressed(threading.Thread):
 
   def do_compile(self, params, target_filename, filenames, remove):
     # Send the request to Google.
+    params.append(("language", "ECMASCRIPT5"))
     headers = {"Content-type": "application/x-www-form-urlencoded"}
     conn = httplib.HTTPConnection("closure-compiler.appspot.com")
     conn.request("POST", "/compile", urllib.urlencode(params), headers)
