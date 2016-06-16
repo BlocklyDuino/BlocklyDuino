@@ -1,22 +1,39 @@
+/*
+*Blockly generator code for SMAC robot control
+*STORM Lab, VUSE
+*/
+
 goog.provide('Blockly.Arduino.smac');
 
 goog.require('Blockly.Arduino');
 
-
+//run_bot provides the structure within which the robot commands are stacked.
+//It requires external input to start the command sequence. This is currently handled by
+//pulsing pin7 on the arduino board to HIGH (>3 V) by means of a wire.
+//When the command sequence is started by the input, the commands ordered in the RUN stacked
+//are passed to argument0 and then returned as arduino code.
 Blockly.Arduino.run_bot = function() {
-	Blockly.Arduino.setups_['setup_trigger'] = 'pinMode(7, INPUT);';
-	var argument0 = Blockly.Arduino.statementToCode(this, 'RUN');
-	return 'boolean check = digitalRead(7);\nif(check == HIGH) {\n' + argument0 + '}';
+	Blockly.Arduino.setups_['setup_trigger'] = 'pinMode(7, INPUT);';	//Setup pin7 for input to monitor its voltage for the trigger
+	var argument0 = Blockly.Arduino.statementToCode(this, 'RUN');		//Pass command stack in RUN into variable argument0
+	return 'boolean check = digitalRead(7);\nif(check == HIGH) {\n' + argument0 + '}';	//Check pin7's voltage and if HIGH, generate arduino command code
 };
 
+//turn_left provides the JSON strings to the robot motors.
+//Currently this is only a blinking sequence sent to the LED at pin13.
+//If the arduino is instructed to turn the robot left, LED blinks 3 times, 0.5 s each.
 Blockly.Arduino.turn_left = function() {
-	Blockly.Arduino.setups_['setup_output_13'] = 'pinMode(13, OUTPUT);';
+	Blockly.Arduino.setups_['setup_output_13'] = 'pinMode(13, OUTPUT);';	//Setup LED for output
+	//Turn on then off LED for 0.5 s, repeat 3 times
 	var code = 'digitalWrite(13, HIGH);\ndelay(500);\ndigitalWrite(13, LOW);\ndelay(500);\ndigitalWrite(13, HIGH);\ndelay(500);\ndigitalWrite(13, LOW);\ndelay(500);\ndigitalWrite(13, HIGH);\ndelay(500);\ndigitalWrite(13, LOW);\ndelay(500);\n'
 	return code;
 };
 
+//turn_right provides the JSON strings to the robot motors.
+//Currently this is only a blinking sequence sent to the LED at pin13.
+//If the arduino is instructed to turn the robot right, LED blinks 3 times, 1.0 s each.
 Blockly.Arduino.turn_right = function() {
-	Blockly.Arduino.setups_['setup_output_13'] = 'pinMode(13, OUTPUT);';
+	Blockly.Arduino.setups_['setup_output_13'] = 'pinMode(13, OUTPUT);';	//Setup LED for output
+	//Turn on then off LED for 1.0 s, repeat 3 times
 	var code = 'digitalWrite(13, HIGH);\ndelay(1000);\ndigitalWrite(13, LOW);\ndelay(1000);\ndigitalWrite(13, HIGH);\ndelay(1000);\ndigitalWrite(13, LOW);\ndelay(1000);\ndigitalWrite(13, HIGH);\ndelay(1000);\ndigitalWrite(13, LOW);\ndelay(1000);\n'
 	return code;
 };

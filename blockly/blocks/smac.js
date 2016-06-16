@@ -28,37 +28,40 @@ goog.provide('Blockly.Blocks.smac');
 
 goog.require('Blockly.Blocks');
 
+//Create a block run_bot that receives a stack of ordered commands to direct the robot
 Blockly.Blocks['run_bot'] = {
 	helpUrl: 'http://arduino.cc',
 	init: function() {
 		this.setColour(280);
 		this.appendDummyInput()
-		    .appendField('Stack Robot Commands');
-		this.appendStatementInput('RUN');
-		this.setTooltip('Robot instruction stack');
+		    .appendField('Stack Robot Commands');  //Create label for block
+		this.appendStatementInput('RUN');		   //Create location for block stack input
+		this.setTooltip('Robot instruction stack'); //Pop-up description on mouse-over
 	}
 };
 
+//Create a block turn_left that sends JSON strings to turn wheels such that robot turns left
 Blockly.Blocks['turn_left'] = {
 	helpUrl: 'http://arduino.cc',
 	init: function() {
 		this.setColour(280);
 		this.appendDummyInput()
-		    .appendField('Turn Left');
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setTooltip('Turn robot left one pulse');
+		    .appendField('Turn Left');			//Create label for block
+		this.setPreviousStatement(true, null);	//Allow block to nest after another block
+		this.setNextStatement(true, null);		//Block allows another block to nest after it
+		this.setTooltip('Turn robot left one pulse');  //Pop-up description on mouse-over
 	}
 };
 
+//Create a block turn_right that sends JSON strings to turn wheels such that robot turns right
 Blockly.Blocks['turn_right'] = {
 	helpUrl: 'http://arduino.cc',
 	init: function() {
 		this.setColour(280);
 		this.appendDummyInput()
-		    .appendField('Turn Right');
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setTooltip('Turn robot right one pulse');
+		    .appendField('Turn Right');			//Create label for block
+		this.setPreviousStatement(true, null);	//Allow block to nest after another block
+		this.setNextStatement(true, null);		//Block allows another block to nest after it
+		this.setTooltip('Turn robot right one pulse');	//Pop-up descriptionon mouse-over
 	}
 };
