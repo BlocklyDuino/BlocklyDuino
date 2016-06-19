@@ -8,7 +8,6 @@
 * 安装Arduino
 * 安装python
 * git clone https://github.com/osokay/BlocklyDuino.git
-* 运行
 
 ### 运行
 
