@@ -44,10 +44,12 @@ Blockly.Arduino.turn_right = function() {
 Blockly.Arduino.bot_tone = function() {
 	Blockly.Arduino.setups_['volume'] = 'toneVolume(2048);';
 	Blockly.Arduino.setups_['resolution'] = 'analogWriteResolution(12);';
+	var bank = this.getFieldValue('BANK');
+	var pin = this.getFieldValue('PIN');
 	var note = this.getFieldValue('NOTE');
 	var acc	= this.getFieldValue('ACCIDENTAL');
 	var oct = this.getFieldValue('OCTAVE');
 	var dur = this.getFieldValue('DURATION');
-	var code = 'tone(PA4,NOTE_' + note + acc + oct + ',' + dur + ');\n'
+	var code = 'tone(' + bank + pin + ',NOTE_' + note + acc + oct + ',' + dur + ');\n'
 	return code;	
 };
