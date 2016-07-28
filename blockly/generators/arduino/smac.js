@@ -37,3 +37,16 @@ Blockly.Arduino.turn_right = function() {
 	var code = 'digitalWrite(13, HIGH);\ndelay(1000);\ndigitalWrite(13, LOW);\ndelay(1000);\ndigitalWrite(13, HIGH);\ndelay(1000);\ndigitalWrite(13, LOW);\ndelay(1000);\ndigitalWrite(13, HIGH);\ndelay(1000);\ndigitalWrite(13, LOW);\ndelay(1000);\n'
 	return code;
 };
+
+//tone provides the note selection to the robot based on concatenated strings from block inputs
+Blockly.Arduino.bot_tone = function() {
+	Blockly.Arduino.setups_['volume'] = 'toneVolume(2048);';
+	Blockly.Arduino.setups_['resolution'] = 'analogWriteResolution(12);';
+	var argument0 = this.getFieldValue('NOTE');
+	var argument1 = this.getFieldValue('SHARP');
+	var argument2 = this.getFieldValue('OCTAVE');
+//	var argument3 = this.valueToCode(this, 'DURATION') || '0';
+//	var code = 'tone(PA4,NOTE_' + argument0 + argument1 + argument2 + ',' + argument3 + ');\n'
+	var code = 'tone(PA4,NOTE_' + argument0 + argument1 + argument2 + ',500);\n'
+	return code;	
+};

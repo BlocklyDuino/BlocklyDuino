@@ -65,3 +65,48 @@ Blockly.Blocks['turn_right'] = {
 		this.setTooltip('Turn robot right one pulse');	//Pop-up descriptionon mouse-over
 	}
 };
+
+//Create a block that sends a specified tone for a specified duration
+Blockly.Blocks['bot_tone'] = {
+	helpUrl: 'http://arduino.cc',
+	init: function() {
+		this.setColour(280);
+		this.appendDummyInput()
+			.appendField('Tone Note:')
+			.appendField(new Blockly.FieldDropdown([
+								['A', 'A'],
+								['B', 'B'],
+								['C', 'C'],
+								['D', 'D'],
+								['E', 'E'],
+								['F', 'F'],
+								['G', 'G']
+							]), 'NOTE');
+		this.appendDummyInput()
+			.appendField('Sharp?')
+			.appendField(new Blockly.FieldDropdown([
+								['Natural', ''],
+								['Sharp', 'S']
+							]), 'SHARP');
+		this.appendDummyInput()
+			.appendField('Octave')
+			.appendField(new Blockly.FieldDropdown([
+								['0', '0'],
+								['1', '1'],
+								['2', '2'],
+								['3', '3'],
+								['4', '4'],
+								['5', '5'],
+								['6', '6'],
+								['7', '7'],
+								['8', '8']
+							]), 'OCTAVE');
+		this.appendValueInput('DURATION')
+//			.setCheck('NUMBER')
+			.appendField('Duration');
+		this.setInputsInline(true);	
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setTooltip('Send designated tone to robot');
+	}
+};
