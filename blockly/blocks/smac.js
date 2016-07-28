@@ -72,7 +72,7 @@ Blockly.Blocks['bot_tone'] = {
 	init: function() {
 		this.setColour(280);
 		this.appendDummyInput()
-			.appendField('Tone Note:')
+			.appendField('Tone: Note')
 			.appendField(new Blockly.FieldDropdown([
 								['A', 'A'],
 								['B', 'B'],
@@ -83,11 +83,11 @@ Blockly.Blocks['bot_tone'] = {
 								['G', 'G']
 							]), 'NOTE');
 		this.appendDummyInput()
-			.appendField('Sharp?')
+			.appendField('Accidental')
 			.appendField(new Blockly.FieldDropdown([
 								['Natural', ''],
 								['Sharp', 'S']
-							]), 'SHARP');
+							]), 'ACCIDENTAL');
 		this.appendDummyInput()
 			.appendField('Octave')
 			.appendField(new Blockly.FieldDropdown([
@@ -101,9 +101,9 @@ Blockly.Blocks['bot_tone'] = {
 								['7', '7'],
 								['8', '8']
 							]), 'OCTAVE');
-		this.appendValueInput('DURATION')
-//			.setCheck('NUMBER')
-			.appendField('Duration');
+		this.appendDummyInput()
+			.appendField('Duration')
+			.appendField(new Blockly.FieldTextInput('0'),'DURATION');
 		this.setInputsInline(true);	
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);

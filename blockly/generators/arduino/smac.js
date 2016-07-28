@@ -42,11 +42,10 @@ Blockly.Arduino.turn_right = function() {
 Blockly.Arduino.bot_tone = function() {
 	Blockly.Arduino.setups_['volume'] = 'toneVolume(2048);';
 	Blockly.Arduino.setups_['resolution'] = 'analogWriteResolution(12);';
-	var argument0 = this.getFieldValue('NOTE');
-	var argument1 = this.getFieldValue('SHARP');
-	var argument2 = this.getFieldValue('OCTAVE');
-//	var argument3 = this.valueToCode(this, 'DURATION') || '0';
-//	var code = 'tone(PA4,NOTE_' + argument0 + argument1 + argument2 + ',' + argument3 + ');\n'
-	var code = 'tone(PA4,NOTE_' + argument0 + argument1 + argument2 + ',500);\n'
+	var note = this.getFieldValue('NOTE');
+	var acc	= this.getFieldValue('ACCIDENTAL');
+	var oct = this.getFieldValue('OCTAVE');
+	var dur = this.getFieldValue('DURATION');
+	var code = 'tone(PA4,NOTE_' + note + acc + oct + ',' + dur + ');\n'
 	return code;	
 };
