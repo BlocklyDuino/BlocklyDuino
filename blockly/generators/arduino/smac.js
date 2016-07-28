@@ -9,13 +9,15 @@ goog.require('Blockly.Arduino');
 
 //run_bot provides the structure within which the robot commands are stacked.
 //It requires external input to start the command sequence. This is currently handled by
-//pulsing pin7 on the arduino board to HIGH (>3 V) by means of a wire.
+//pulsing pin PIN on the arduino board to HIGH (>3 V) by means of a wire.
 //When the command sequence is started by the input, the commands ordered in the RUN stacked
-//are passed to argument0 and then returned as arduino code.
+//are passed to list and then returned as arduino code.
 Blockly.Arduino.run_bot = function() {
-	Blockly.Arduino.setups_['setup_trigger'] = 'pinMode(7, INPUT);';	//Setup pin7 for input to monitor its voltage for the trigger
-	var argument0 = Blockly.Arduino.statementToCode(this, 'RUN');		//Pass command stack in RUN into variable argument0
-	return 'boolean check = digitalRead(7);\nif(check == HIGH) {\n' + argument0 + '}';	//Check pin7's voltage and if HIGH, generate arduino command code
+	var bank = this.getFieldValue('BANK');
+	var pin = this.getFieldValue('PIN');
+	Blockly.Arduino.setups_['setup_trigger'] = 'pinMode(' + bank + pin + ', INPUT);';	//Setup pin PIN for input to monitor its voltage for the trigger
+	var list = Blockly.Arduino.statementToCode(this, 'RUN');		//Pass command stack in RUN into variable list
+	return 'boolean check = digitalRead(' + bank + pin + ');\nif(check == HIGH) {\n' + list + '}';	//Check pin7's voltage and if HIGH, generate arduino command code
 };
 
 //turn_left provides the JSON strings to the robot motors.
