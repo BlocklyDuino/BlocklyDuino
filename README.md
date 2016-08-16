@@ -1,12 +1,15 @@
-### Welcome to BlocklyDuino
+### Welcome to CyberDuino
 
-BlocklyDuino is a **web-based visual programming editor for [Arduino](http://www.arduino.cc/)**.
+CyberDuino is a **web-based visual programming editor for [Arduino](http://www.arduino.cc/)**.
+
+CyberDuino is originally a fork of [BlocklyDuino](https://github.com/BlocklyDuino/BlocklyDuino)
 
 BlocklyDuino is based on [Blockly](https://developers.google.com/blockly/), the web-based, graphical programming editor. Provide static type language blocks and code generators for Arduino programming.
 
-BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) blocks to easily get started with microcontroller-based experimentation and learning.
+### Why create a fork?
 
-[We also have Google+ Page](https://plus.google.com/111979846292233941175).
+I created this fork of the BlocklyDuino project because there were a number of personal improvements I wanted to make on the project.
+If the original author wants to merge them into their repository, they are of course very welcome to do so!
 
 ### Features
 
@@ -14,18 +17,6 @@ BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) 
 * Generate fully compatible Arduino source code
 * Interactive Arduino board with 10+ predefined Grove sensor blocks
 * Load different on-site examples with url parameters
-
-### Demo
-
-BlocklyDuino is a web tool. You can give it a try at
-[Web](http://blocklyduino.github.io/BlocklyDuino/blockly/apps/blocklyduino/) to see the working BlocklyDuino.
-
-You can link directly to examples
-* [demo 1](http://blocklyduino.github.io/BlocklyDuino/blockly/apps/blocklyduino/index.html?url=examples/blink.xml) make default LED blink
-* [demo 2](http://blocklyduino.github.io/BlocklyDuino/blockly/apps/blocklyduino/index.html?url=examples/servo_potentio.xml) control servo with potentio rotator
-* [demo 3](http://blocklyduino.github.io/BlocklyDuino/blockly/apps/blocklyduino/index.html?url=examples/click_color.xml) click button to change LED colors
-
-Or watch the [video demos](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
 ### Run locally on your web browser
 
@@ -60,10 +51,13 @@ OR (if running `ino_web_server.py`):
 
 ### ChangeLog
 
-Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino/blob/master/CHANGELOG.txt)
+Check changelog [here](https://github.com/Cyberlane/CyberDuino/blob/master/CHANGELOG.txt)
 
 ### Authors and Contributors
-Fred Lin (@gasolin) .
+
+Author of CyberDuino and all the changes in this fork: Justin Nel (@cyberlane) .
+
+Original author of BlocklyDuino: Fred Lin (@gasolin) .
 
 Thanks Neil Fraser, Q.Neutron from Blockly https://developers.google.com/blockly/
 Thanks Dale Low (gumbypp) for contribute the python server to pipe BlocklyDuino source to arduino board.
