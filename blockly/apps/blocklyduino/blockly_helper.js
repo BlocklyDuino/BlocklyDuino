@@ -248,7 +248,7 @@ function uploadCode(code, callback) {
 }
 
 function uploadClick() {
-    var code = document.getElementById('content_arduino').value;
+    var code = Blockly.Arduino.workspaceToCode();
 
     alert("Ready to upload to Arduino.");
     
