@@ -11,5 +11,8 @@
     "url": "https://github.com/Cyberlane/CyberDuino/"
   },
   "author": "Justin Nel",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
