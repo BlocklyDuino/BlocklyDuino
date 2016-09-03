@@ -12,6 +12,7 @@ const app = express();
 app.use(bodyParser.text());
 app.use('/blockly', express.static('../blockly'));
 app.use('/media', express.static('../blockly/media'));
+app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
 
 app.head('/', (req, res) => {
