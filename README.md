@@ -15,38 +15,16 @@ If the original author wants to merge them into their repository, they are of co
 
 * Programming Arduino with visually drag and drop code blocks
 * Generate fully compatible Arduino source code
-* Interactive Arduino board with 10+ predefined Grove sensor blocks
+* Interactive Arduino board with multiple sensor blocks
 * Load different on-site examples with url parameters
 
 ### Run locally on your web browser
 
-If you want to install it locally. Get code from github and open `blockly/apps/blocklyduino/index.html` in your browser.
-
-The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/apps/blocklyduino/index.html for use.
-
-### Integrated Arduino upload
-
-To avoid the tedious step of manually pasting code to the Arduino IDE, you can run a mini webserver that uses
-the [Arduino IDE](https://www.arduino.cc/en/Main/Software) to upload the code to a connected Arduino board on Windows, Mac OS X and Linux systems.
-Invoke this command from the BlocklyDuino root folder:
-
-```
-python arduino_web_server.py
-```
-
-You can optionally specify the port with `--port=COM3` (or `--port=/dev/tty.foo` on Linux and Mac); if you don't, it will try and guess which port to use.
-
-When the webserver is running, you can access BlocklyDuino itself on [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
+CyberDuino is built with NodeJS, so you need only run the command `npm start`, and then you can open your web browser to [http://localhost:8080/](http://localhost:8080/).
 
 ### Usage
 
-1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program
-2. Select the 'Arduino' tab and copy all of the source code into an existing or new project in the Arduino IDE
-3. Press the 'Upload' button in the Arduino IDE to burn the code into a connected Arduino board
-
-OR (if running `ino_web_server.py`):
-
-1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program.
+1. Open browser to CyberDuino, drag and drop blocks to make an Arduino program.
 2. Select the 'Arduino' tab and press the 'Upload' button. (press the 'Reset' button to upload an empty program)
 
 ### ChangeLog
@@ -66,8 +44,6 @@ Thanks Arduino and Seeeduino guys for Arduino and Grove blocks.
 The project is also inspired by [arduiblock](https://github.com/taweili/ardublock) and [modkit](http://www.modk.it/)
 
 ### License
-
-Copyright (C) 2012~2015 Fred Lin gasolin+blockly@gmail.com
 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
