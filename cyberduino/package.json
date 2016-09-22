@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "less": "node_modules\\.bin\\lessc css\\style.less css\\style.css",
+    "build": "npm run less"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,8 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "winreg": "^1.2.2"
+  },
+  "devDependencies": {
+    "less": "^2.7.1"
   }
 }

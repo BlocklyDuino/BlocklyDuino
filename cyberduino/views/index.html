@@ -1,131 +1,131 @@
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>CyberDuino</title>
-  <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <meta charset="utf-8">
+    <title>CyberDuino</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body onload="init()">
-  <table height="100%" width="100%">
+<table height="100%" width="100%">
     <tr>
-      <td>
-        <h1>CyberDuino &gt; web-based visual programming editor for arduino</h1>
-      </td>
+        <td>
+            <h1>CyberDuino &gt; web-based visual programming editor for arduino</h1>
+        </td>
     </tr>
     <tr>
-      <td>
-        <table width="100%">
-          <tr id="tabRow" height="1em">
-            <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')">Blocks</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
-            <td class="tabmax">
-              <button type="button" onclick="uploadClick()">Upload</button>
-              <button type="button" onclick="resetClick()">Reset</button>
-              <button onclick="discard()">Discard</button>
-              <button onclick="saveCode()">Save Arduino Code</button>
-              <button onclick="save()">Save XML</button>
-              <button id="fakeload">Load XML</button>
-              <input type="file" id="load" style="display: none;"/>
-            </td>
-          </tr>
-        </table>
-      </td>
+        <td>
+            <table width="100%">
+                <tr id="tabRow" height="1em">
+                    <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')">Blocks</td>
+                    <td class="tabmin">&nbsp;</td>
+                    <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
+                    <td class="tabmin">&nbsp;</td>
+                    <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
+                    <td class="tabmax">
+                        <button type="button" onclick="uploadClick()">Upload</button>
+                        <button type="button" onclick="resetClick()">Reset</button>
+                        <button onclick="discard()">Discard</button>
+                        <button onclick="saveCode()">Save Arduino Code</button>
+                        <button onclick="save()">Save XML</button>
+                        <button id="fakeload">Load XML</button>
+                        <input type="file" id="load" style="display: none;"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
     </tr>
     <tr>
-      <td height="99%" id="content_area"></td>
+        <td height="99%" id="content_area"></td>
     </tr>
-  </table>
-  <div id="content_blocks" class="content"></div>
-  <textarea id="content_arduino" class="content" readonly wrap="off"></textarea>
-  <textarea id="content_xml" class="content" wrap="off"></textarea>
+</table>
+<div id="content_blocks" class="content"></div>
+<textarea id="content_arduino" class="content" readonly wrap="off"></textarea>
+<textarea id="content_xml" class="content" wrap="off"></textarea>
 
-  <xml id="toolbox" style="display: none">
+<xml id="toolbox" style="display: none">
     <category name="Logic">
-      <block type="controls_if"></block>
-      <block type="logic_compare"></block>
-      <block type="logic_operation"></block>
-      <block type="logic_negate"></block>
-      <block type="logic_null"></block>
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_null"></block>
     </category>
     <category name="Control">
-      <block type="base_delay">
-        <value name="DELAY_TIME">
-          <block type="math_number">
-            <field name="NUM">1000</field>
-          </block>
-        </value>
-      </block>
-      <block type="controls_for">
-        <value name="FROM">
-          <block type="math_number">
-            <field name="NUM">1</field>
-          </block>
-        </value>
-        <value name="TO">
-          <block type="math_number">
-            <field name="NUM">10</field>
-          </block>
-        </value>
-      </block>
-      <block type="controls_whileUntil"></block>
+        <block type="base_delay">
+            <value name="DELAY_TIME">
+                <block type="math_number">
+                    <field name="NUM">1000</field>
+                </block>
+            </value>
+        </block>
+        <block type="controls_for">
+            <value name="FROM">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                </block>
+            </value>
+            <value name="TO">
+                <block type="math_number">
+                    <field name="NUM">10</field>
+                </block>
+            </value>
+        </block>
+        <block type="controls_whileUntil"></block>
     </category>
     <category name="Math">
-      <block type="math_number"></block>
-      <block type="math_arithmetic"></block>
-      <block type="base_map">
-        <value name="DMAX">
-          <block type="math_number">
-            <field name="NUM">180</field>
-          </block>
-        </value>
-      </block>
+        <block type="math_number"></block>
+        <block type="math_arithmetic"></block>
+        <block type="base_map">
+            <value name="DMAX">
+                <block type="math_number">
+                    <field name="NUM">180</field>
+                </block>
+            </value>
+        </block>
     </category>
     <category name="Text">
-      <block type="text"></block>
+        <block type="text"></block>
     </category>
     <category name="Variables" custom="VARIABLE"></category>
     <category name="Functions" custom="PROCEDURE"></category>
     <sep></sep>
     <category name="Input/Output">
-      <block type="inout_highlow"></block>
-      <block type="inout_digital_write"></block>
-      <block type="inout_digital_read"></block>
-      <block type="inout_analog_write">
-        <value name="NUM">
-          <block type="math_number">
-            <field name="NUM">0</field>
-          </block>
-        </value>
-      </block>
-      <block type="inout_analog_read"></block>
-      <block type="serial_print">
-        <value name="CONTENT">
-          <block type="text">
-            <field name="TEXT"></field>
-          </block>
-        </value>
-      </block>
-      <block type="inout_tone">
-        <value name="NUM">
-          <block type="math_number">
-            <field name="NUM">440</field>
-          </block>
-        </value>
-      </block>
-      <block type="inout_notone"></block>
-      <block type="inout_buildin_led"></block>
+        <block type="inout_highlow"></block>
+        <block type="inout_digital_write"></block>
+        <block type="inout_digital_read"></block>
+        <block type="inout_analog_write">
+            <value name="NUM">
+                <block type="math_number">
+                    <field name="NUM">0</field>
+                </block>
+            </value>
+        </block>
+        <block type="inout_analog_read"></block>
+        <block type="serial_print">
+            <value name="CONTENT">
+                <block type="text">
+                    <field name="TEXT"></field>
+                </block>
+            </value>
+        </block>
+        <block type="inout_tone">
+            <value name="NUM">
+                <block type="math_number">
+                    <field name="NUM">440</field>
+                </block>
+            </value>
+        </block>
+        <block type="inout_notone"></block>
+        <block type="inout_buildin_led"></block>
     </category>
-  </xml>
-  <script type="text/javascript" src="blockly/blockly_compressed.js"></script>
-  <script type="text/javascript" src="blockly/blocks_compressed.js"></script>
-  <script type="text/javascript" src="blockly/arduino_compressed.js"></script>
-  <script type="text/javascript" src="blockly/msg/js/en.js"></script>
-  <script type="text/javascript" src="js/Blob.js"></script>
-  <script type="text/javascript" src="js/spin.js"></script>
-  <script type="text/javascript" src="js/FileSaver.min.js"></script>
-  <script type="text/javascript" src="js/blockly_helper.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
+</xml>
+<script type="text/javascript" src="blockly/blockly_compressed.js"></script>
+<script type="text/javascript" src="blockly/blocks_compressed.js"></script>
+<script type="text/javascript" src="blockly/arduino_compressed.js"></script>
+<script type="text/javascript" src="blockly/msg/js/en.js"></script>
+<script type="text/javascript" src="js/Blob.js"></script>
+<script type="text/javascript" src="js/spin.js"></script>
+<script type="text/javascript" src="js/FileSaver.min.js"></script>
+<script type="text/javascript" src="js/blockly_helper.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

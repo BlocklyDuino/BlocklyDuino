@@ -1,0 +1,173 @@
+@font-face {
+  font-family: "Amatic";
+  src: url("fonts/Amatic-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Amatic";
+  src: url("fonts/AmaticSC-Regular.ttf");
+  font-weight: bold;
+}
+
+@font-family: "Amatic", "SansSerif";
+@tretton-green: #8cc63c;
+
+.trettonStyle {
+  background-color: @tretton-green;
+  color: #FFF;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: lighten(@tretton-green, 40%);
+  font-family: sans-serif;
+  margin: 0;
+  overflow: hidden;
+  font-family: @font-family;
+
+  .blocklyTreeLabel, input, textarea, select, button {
+    font-family: @font-family;
+  }
+
+  .blocklyToolboxDiv {
+    .trettonStyle;
+
+    .blocklyTreeRow {
+      padding-bottom: 0.4em;
+
+      .blocklyTreeLabel {
+        font-size: 1.6em;
+        cursor: pointer;
+      }
+    }
+
+    .blocklyTreeSeparator {
+      border-color: @tretton-green;
+    }
+  }
+
+  h1 {
+    font-weight: normal;
+    font-size: 3em;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  /* Tabs */
+  #tabRow > td {
+    border: 1px solid #000;
+    font-size: 1.4em;
+  }
+
+  td#tab_blocks {
+    .trettonStyle;
+    border-left: none;
+  }
+
+  td.tabon {
+    border-bottom-color: #FFF !important;
+    background-color: #ddd;
+    padding: 5px 19px;
+  }
+
+  td#tab_blocks.tabon {
+    border-bottom-color: lighten(@tretton-green, 20%) !important;
+  }
+
+  td.taboff {
+    cursor: pointer;
+    padding: 5px 19px;
+  }
+
+  td.taboff:hover {
+    background-color: #eee;
+  }
+
+  td#tab_arduino, td#tab_xml {
+    background-color: #fff;
+  }
+
+  td.tabmin {
+    border-top-style: none !important;
+    border-left-style: none !important;
+    border-right-style: none !important;
+  }
+
+  td.tabmax {
+    border-top-style: none !important;
+    border-left-style: none !important;
+    border-right-style: none !important;
+    width: 99%;
+    text-align: right;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 1.2em;
+  }
+
+  td {
+    padding: 0;
+    vertical-align: top;
+  }
+
+  .content {
+    visibility: hidden;
+    margin: 0;
+    padding: 1ex;
+    position: absolute;
+    direction: ltr;
+    font-size: 1.5em;
+  }
+
+  pre.content {
+    overflow: scroll;
+  }
+
+  #content_blocks {
+    padding: 0;
+  }
+
+  .blocklySvg {
+    border-top: none !important;
+  }
+
+  #content_xml {
+    resize: none;
+    outline: none;
+    border: none;
+    font-family: monospace;
+    overflow: scroll;
+  }
+
+  button {
+    padding: 0.1em 1em;
+    font-size: 90%;
+    border-radius: 4px;
+    border: 2px solid darken(@tretton-green, 40%);
+    background-color: @tretton-green;
+    color: #FFF;
+  }
+
+  button.launch {
+    border: 1px solid #d43;
+    background-color: #d43;
+    color: white;
+  }
+
+  button:active {
+    color: @tretton-green;
+    background-color: #FFF;
+  }
+
+  button:hover {
+    box-shadow: 2px 2px 3px #888;
+    cursor: pointer;
+  }
+}
