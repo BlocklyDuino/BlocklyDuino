@@ -662,3 +662,16 @@ Blockly.Blocks['text_prompt_ext'] = {
     });
   }
 };
+
+Blockly.Blocks['text_commentout'] = {
+  init: function() {
+    this.setColour(Blockly.Blocks.texts.HUE);
+    this.appendDummyInput()
+      .appendField("Comment out");
+    this.appendStatementInput("COMMENTOUT");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.TEXT_COMMENTOUT_TOOLTIP);
+  }
+};
