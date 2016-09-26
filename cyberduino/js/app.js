@@ -2,7 +2,7 @@
  * List of tab names.
  * @private
  */
-var TABS_ = ['blocks', 'arduino', 'xml'];
+var TABS_ = ['blocks', 'arduino'];
 
 var selected = 'blocks';
 
@@ -11,26 +11,6 @@ var selected = 'blocks';
  * @param {string} clickedName Name of tab clicked.
  */
 function tabClick(clickedName) {
-  // If the XML tab was open, save and render the content.
-  if (document.getElementById('tab_xml').className == 'tabon') {
-    var xmlTextarea = document.getElementById('content_xml');
-    var xmlText = xmlTextarea.value;
-    var xmlDom = null;
-    try {
-      xmlDom = Blockly.Xml.textToDom(xmlText);
-    } catch (e) {
-      var q =
-          window.confirm('Error parsing XML:\n' + e + '\n\nAbandon changes?');
-      if (!q) {
-        // Leave the user on the XML tab.
-        return;
-      }
-    }
-    if (xmlDom) {
-      Blockly.mainWorkspace.clear();
-      Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
-    }
-  }
 
   if (document.getElementById('tab_blocks').className == 'tabon') {
     Blockly.mainWorkspace.setVisible(false);
@@ -65,18 +45,6 @@ function renderContent() {
     // If the workspace was changed by the XML tab, Firefox will have performed
     // an incomplete rendering due to Blockly being invisible.  Rerender.
     Blockly.mainWorkspace.render();
-  } else if (content.id == 'content_xml') {
-    var xmlTextarea = document.getElementById('content_xml');
-    var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
-    var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-    xmlTextarea.value = xmlText;
-    xmlTextarea.focus();
-  /*} else if (content.id == 'content_javascript') {
-    content.innerHTML = Blockly.JavaScript.workspaceToCode();
-  } else if (content.id == 'content_dart') {
-    content.innerHTML = Blockly.Dart.workspaceToCode();
-  } else if (content.id == 'content_python') {
-    content.innerHTML = Blockly.Python.workspaceToCode();*/
   } else if (content.id == 'content_arduino') {
     //content.innerHTML = Blockly.Arduino.workspaceToCode();
     var arduinoTextarea = document.getElementById('content_arduino');
