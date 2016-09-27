@@ -88,33 +88,40 @@
     <category name="Functions" custom="PROCEDURE"></category>
     <sep></sep>
     <category name="Input/Output">
-        <block type="inout_highlow"></block>
-        <block type="inout_digital_write"></block>
-        <block type="inout_digital_read"></block>
-        <block type="inout_analog_write">
-            <value name="NUM">
-                <block type="math_number">
-                    <field name="NUM">0</field>
-                </block>
-            </value>
-        </block>
-        <block type="inout_analog_read"></block>
-        <block type="serial_print">
-            <value name="CONTENT">
-                <block type="text">
-                    <field name="TEXT"></field>
-                </block>
-            </value>
-        </block>
-        <block type="inout_tone">
-            <value name="NUM">
-                <block type="math_number">
-                    <field name="NUM">440</field>
-                </block>
-            </value>
-        </block>
-        <block type="inout_notone"></block>
-        <block type="inout_buildin_led"></block>
+        <category name="Digital">
+            <block type="inout_highlow"></block>
+            <block type="inout_digital_write"></block>
+            <block type="inout_digital_read"></block>
+        </category>
+        <category name="Analog">
+            <block type="inout_analog_write">
+                <value name="NUM">
+                    <block type="math_number">
+                        <field name="NUM">0</field>
+                    </block>
+                </value>
+            </block>
+            <block type="inout_analog_read"></block>
+        </category>
+        <category name="Serial">
+            <block type="serial_print">
+                <value name="CONTENT">
+                    <block type="text">
+                        <field name="TEXT"></field>
+                    </block>
+                </value>
+            </block>
+        </category>
+        <category name="Tone">
+            <block type="inout_tone">
+                <value name="NUM">
+                    <block type="math_number">
+                        <field name="NUM">440</field>
+                    </block>
+                </value>
+            </block>
+            <block type="inout_notone"></block>
+        </category>
     </category>
 </xml>
 <script type="text/javascript" src="blockly/blockly_compressed.js"></script>
