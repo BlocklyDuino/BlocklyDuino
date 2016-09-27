@@ -30,8 +30,8 @@ goog.provide('Blockly.Mutator');
 goog.require('Blockly.Bubble');
 goog.require('Blockly.Icon');
 goog.require('Blockly.WorkspaceSvg');
-goog.require('goog.Timer');
 goog.require('goog.dom');
+goog.require('goog.Timer');
 
 
 /**
@@ -47,12 +47,6 @@ Blockly.Mutator = function(quarkNames) {
 goog.inherits(Blockly.Mutator, Blockly.Icon);
 
 /**
- * Icon in base64 format.
- * @private
- */
-Blockly.Mutator.prototype.png_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAANyAAADcgBffIlqAAAAAd0SU1FB98DGhULOIajyb8AAAHMSURBVDjLnZS9SiRBFIXP/CQ9iIHgPoGBTo8vIAaivoKaKJr6DLuxYqKYKIqRgSCMrblmIxqsICgOmAriziIiRXWjYPdnUDvT2+PMsOyBoop7qk71vedWS5KAkrWsGUMjSYjpgSQhNoZGFLEKeGoKGMNttUpULkOhAFL3USiA70MQEBnDDeDJWtaqVaJeB7uNICAKQ1ZkDI1yufOm+XnY2YHl5c6874MxPClJiDulkMvBxYWrw/095POdU0sS4hxALqcWtreloSGpVJLGxtL49bX0+Ci9vUkzM2kcXGFbypUKxHHLBXZ3YW4ONjfh4yN1aGIiPQOQEenrg6MjR+zvZz99Y8PFT09hYCArktdfsFY6PHTr83NlUKu5+eREennJchmR/n5pYcGtJyezG6em3Dw7Kw0OZrlMOr6f1gTg4ACWlmBvz9WoifHxbDpf3Flfd+54njQ9ncYvL6WHB+n9XVpcbHOnW59IUKu5m+p11zftfLHo+qRorZ6Hh/Xt7k5fsLUl1evS1dWfG9swMiJZq9+KIlaD4P/eztkZNgz5LsAzhpvjY6JK5d9e8eioE3h95SdQbDrkhSErxvArjkl6/U/imMQYnsKQH02BT7vbZZfVOiWhAAAAAElFTkSuQmCC';
-
-/**
  * Width of workspace.
  * @private
  */
@@ -63,6 +57,33 @@ Blockly.Mutator.prototype.workspaceWidth_ = 0;
  * @private
  */
 Blockly.Mutator.prototype.workspaceHeight_ = 0;
+
+/**
+ * Create the icon on the block.
+ */
+Blockly.Mutator.prototype.createIcon = function() {
+  if (this.iconMark_) {
+    // Icon already exists.
+    return;
+  }
+  Blockly.Icon.prototype.createIcon_.call(this);
+  /* Here's the markup that will be generated:
+  <rect class="blocklyIconShield" width="16" height="16" rx="4" ry="4"/>
+  <text class="blocklyIconMark" x="8" y="12">★</text>
+  */
+  var quantum = Blockly.Icon.RADIUS / 2;
+  var iconShield = Blockly.createSvgElement('rect',
+      {'class': 'blocklyIconShield',
+       'width': 4 * quantum,
+       'height': 4 * quantum,
+       'rx': quantum,
+       'ry': quantum}, this.iconGroup_);
+  this.iconMark_ = Blockly.createSvgElement('text',
+      {'class': 'blocklyIconMark',
+       'x': Blockly.Icon.RADIUS,
+       'y': 2 * Blockly.Icon.RADIUS - 4}, this.iconGroup_);
+  this.iconMark_.appendChild(document.createTextNode('\u2605'));
+};
 
 /**
  * Clicking on the icon toggles if the mutator bubble is visible.
@@ -92,24 +113,15 @@ Blockly.Mutator.prototype.createEditor_ = function() {
   this.svgDialog_ = Blockly.createSvgElement('svg',
       {'x': Blockly.Bubble.BORDER_WIDTH, 'y': Blockly.Bubble.BORDER_WIDTH},
       null);
-  // Convert the list of names into a list of XML objects for the flyout.
-  var quarkXml = goog.dom.createDom('xml');
-  for (var i = 0, quarkName; quarkName = this.quarkNames_[i]; i++) {
-    quarkXml.appendChild(goog.dom.createDom('block', {'type': quarkName}));
-  }
+  Blockly.createSvgElement('rect',
+      {'class': 'blocklyMutatorBackground',
+       'height': '100%', 'width': '100%'}, this.svgDialog_);
   var mutator = this;
-  var workspaceOptions = {
-    languageTree: quarkXml,
-    parentWorkspace: this.block_.workspace,
-    pathToMedia: this.block_.workspace.options.pathToMedia,
-    RTL: this.block_.RTL,
-    getMetrics: function() {return mutator.getFlyoutMetrics_();},
-    setMetrics: null,
-    svg: this.svgDialog_
-  };
-  this.workspace_ = new Blockly.WorkspaceSvg(workspaceOptions);
+  this.workspace_ = new Blockly.WorkspaceSvg(
+      function() {return mutator.getFlyoutMetrics_();}, null);
   this.svgDialog_.appendChild(
       this.workspace_.createDom('blocklyMutatorBackground'));
+  this.workspace_.addFlyout();
   return this.svgDialog_;
 };
 
@@ -124,8 +136,8 @@ Blockly.Mutator.prototype.updateEditable = function() {
     // Close any mutator bubble.  Icon is not clickable.
     this.setVisible(false);
     if (this.iconGroup_) {
-      Blockly.addClass_(/** @type {!Element} */ (this.iconGroup_),
-                        'blocklyIconGroupReadonly');
+      Blockly.removeClass_(/** @type {!Element} */ (this.iconGroup_),
+                           'blocklyIconGroup');
     }
   }
 };
@@ -140,7 +152,7 @@ Blockly.Mutator.prototype.resizeBubble_ = function() {
   var workspaceSize = this.workspace_.getCanvas().getBBox();
   var flyoutMetrics = this.workspace_.flyout_.getMetrics_();
   var width;
-  if (this.block_.RTL) {
+  if (Blockly.RTL) {
     width = -workspaceSize.x;
   } else {
     width = workspaceSize.width + workspaceSize.x;
@@ -161,12 +173,11 @@ Blockly.Mutator.prototype.resizeBubble_ = function() {
     this.svgDialog_.setAttribute('height', this.workspaceHeight_);
   }
 
-  if (this.block_.RTL) {
+  if (Blockly.RTL) {
     // Scroll the workspace to always left-align.
     var translation = 'translate(' + this.workspaceWidth_ + ',0)';
     this.workspace_.getCanvas().setAttribute('transform', translation);
   }
-  this.workspace_.resize();
 };
 
 /**
@@ -185,8 +196,12 @@ Blockly.Mutator.prototype.setVisible = function(visible) {
         this.iconX_, this.iconY_, null, null);
     var thisObj = this;
     this.workspace_.flyout_.init(this.workspace_);
-    this.workspace_.flyout_.show(
-        this.workspace_.options.languageTree.childNodes);
+    // Convert the list of names into a list of XML objects for the flyout.
+    var quarkXml = [];
+    for (var i = 0, quarkName; quarkName = this.quarkNames_[i]; i++) {
+      quarkXml[i] = goog.dom.createDom('block', {'type': quarkName});
+    }
+    this.workspace_.flyout_.show(quarkXml);
 
     this.rootBlock_ = this.block_.decompose(this.workspace_);
     var blocks = this.rootBlock_.getDescendants();
@@ -198,7 +213,7 @@ Blockly.Mutator.prototype.setVisible = function(visible) {
     this.rootBlock_.setDeletable(false);
     var margin = this.workspace_.flyout_.CORNER_RADIUS * 2;
     var x = this.workspace_.flyout_.width_ + margin;
-    if (this.block_.RTL) {
+    if (Blockly.RTL) {
       x = -x;
     }
     this.rootBlock_.moveBy(x, margin);
@@ -278,7 +293,6 @@ Blockly.Mutator.prototype.workspaceChanged_ = function() {
  * Return an object with all the metrics required to size scrollbars for the
  * mutator flyout.  The following properties are computed:
  * .viewHeight: Height of the visible rectangle,
- * .viewWidth: Width of the visible rectangle,
  * .absoluteTop: Top-edge of view.
  * .absoluteLeft: Left-edge of view.
  * @return {!Object} Contains size and position metrics of mutator dialog's
@@ -286,11 +300,15 @@ Blockly.Mutator.prototype.workspaceChanged_ = function() {
  * @private
  */
 Blockly.Mutator.prototype.getFlyoutMetrics_ = function() {
+  var left = 0;
+  if (Blockly.RTL) {
+    left += this.workspaceWidth_;
+  }
   return {
     viewHeight: this.workspaceHeight_,
-    viewWidth: this.workspaceWidth_,
+    viewWidth: 0,  // This seem wrong, but results in correct RTL layout.
     absoluteTop: 0,
-    absoluteLeft: 0
+    absoluteLeft: left
   };
 };
 

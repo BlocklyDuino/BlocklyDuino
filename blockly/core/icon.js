@@ -39,15 +39,9 @@ Blockly.Icon = function(block) {
 };
 
 /**
- * Icon in base64 format.
- * @private
+ * Radius of icons.
  */
-Blockly.Icon.prototype.png_ = '';
-
-/**
- * Height and width of icons.
- */
-Blockly.Icon.prototype.SIZE = 17;
+Blockly.Icon.RADIUS = 8;
 
 /**
  * Bubble UI (if visible).
@@ -70,25 +64,17 @@ Blockly.Icon.prototype.iconY_ = 0;
 
 /**
  * Create the icon on the block.
+ * @private
  */
-Blockly.Icon.prototype.createIcon = function() {
+Blockly.Icon.prototype.createIcon_ = function() {
   if (this.iconGroup_) {
     // Icon already exists.
     return;
   }
   /* Here's the markup that will be generated:
-  <g class="blocklyIconGroup">
-    <image width="17" height="17"
-     xlink:href="data:image/png;base64,iVBOR..."></image>
-  </g>
+  <g class="blocklyIconGroup"></g>
   */
-  this.iconGroup_ = Blockly.createSvgElement('g',
-      {'class': 'blocklyIconGroup'}, null);
-  var img = Blockly.createSvgElement('image',
-      {'width': this.SIZE, 'height': this.SIZE},
-      this.iconGroup_);
-  img.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', this.png_);
-
+  this.iconGroup_ = Blockly.createSvgElement('g', {}, null);
   this.block_.getSvgRoot().appendChild(this.iconGroup_);
   Blockly.bindEvent_(this.iconGroup_, 'mouseup', this, this.iconClick_);
   this.updateEditable();
@@ -110,12 +96,12 @@ Blockly.Icon.prototype.dispose = function() {
  * Add or remove the UI indicating if this icon may be clicked or not.
  */
 Blockly.Icon.prototype.updateEditable = function() {
-  if (this.block_.isInFlyout || !this.block_.isEditable()) {
+  if (!this.block_.isInFlyout) {
     Blockly.addClass_(/** @type {!Element} */ (this.iconGroup_),
-                      'blocklyIconGroupReadonly');
+                      'blocklyIconGroup');
   } else {
     Blockly.removeClass_(/** @type {!Element} */ (this.iconGroup_),
-                         'blocklyIconGroupReadonly');
+                         'blocklyIconGroup');
   }
 };
 
@@ -133,7 +119,7 @@ Blockly.Icon.prototype.isVisible = function() {
  * @private
  */
 Blockly.Icon.prototype.iconClick_ = function(e) {
-  if (!this.block_.isInFlyout && !Blockly.isRightButton(e)) {
+  if (!this.block_.isInFlyout) {
     this.setVisible(!this.isVisible());
   }
 };
@@ -161,17 +147,17 @@ Blockly.Icon.prototype.renderIcon = function(cursorX) {
   this.iconGroup_.setAttribute('display', 'block');
 
   var TOP_MARGIN = 5;
-  var width = this.SIZE;
-  if (this.block_.RTL) {
-    cursorX -= width;
+  var diameter = 2 * Blockly.Icon.RADIUS;
+  if (Blockly.RTL) {
+    cursorX -= diameter;
   }
   this.iconGroup_.setAttribute('transform',
       'translate(' + cursorX + ', ' + TOP_MARGIN + ')');
   this.computeIconLocation();
-  if (this.block_.RTL) {
+  if (Blockly.RTL) {
     cursorX -= Blockly.BlockSvg.SEP_SPACE_X;
   } else {
-    cursorX += width + Blockly.BlockSvg.SEP_SPACE_X;
+    cursorX += diameter + Blockly.BlockSvg.SEP_SPACE_X;
   }
   return cursorX;
 };
@@ -197,8 +183,8 @@ Blockly.Icon.prototype.computeIconLocation = function() {
   // Find coordinates for the centre of the icon and update the arrow.
   var blockXY = this.block_.getRelativeToSurfaceXY();
   var iconXY = Blockly.getRelativeXY_(this.iconGroup_);
-  var newX = blockXY.x + iconXY.x + this.SIZE / 2;
-  var newY = blockXY.y + iconXY.y + this.SIZE / 2;
+  var newX = blockXY.x + iconXY.x + Blockly.Icon.RADIUS;
+  var newY = blockXY.y + iconXY.y + Blockly.Icon.RADIUS;
   if (newX !== this.iconX_ || newY !== this.iconY_) {
     this.setIconLocation(newX, newY);
   }

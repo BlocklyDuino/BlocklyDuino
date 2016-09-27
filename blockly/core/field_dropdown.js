@@ -39,9 +39,9 @@ goog.require('goog.userAgent');
 
 /**
  * Class for an editable dropdown field.
- * @param {(!Array.<!Array.<string>>|!Function)} menuGenerator An array of options
+ * @param {(!Array.<string>|!Function)} menuGenerator An array of options
  *     for a dropdown list, or a function which generates these options.
- * @param {Function=} opt_changeHandler A function that is executed when a new
+ * @param {Function} opt_changeHandler A function that is executed when a new
  *     option is selected, with the newly selected value as its sole argument.
  *     If it returns a value, that value (which must be one of the options) will
  *     become selected in place of the newly selected option, unless the return
@@ -51,7 +51,7 @@ goog.require('goog.userAgent');
  */
 Blockly.FieldDropdown = function(menuGenerator, opt_changeHandler) {
   this.menuGenerator_ = menuGenerator;
-  this.setChangeHandler(opt_changeHandler);
+  this.changeHandler_ = opt_changeHandler;
   this.trimOptions_();
   var firstTuple = this.getOptions_()[0];
   this.value_ = firstTuple[1];
@@ -98,8 +98,8 @@ Blockly.FieldDropdown.prototype.init = function(block) {
   // Add dropdown arrow: "option ▾" (LTR) or "▾ אופציה" (RTL)
   this.arrow_ = Blockly.createSvgElement('tspan', {}, null);
   this.arrow_.appendChild(document.createTextNode(
-      block.RTL ? Blockly.FieldDropdown.ARROW_CHAR + ' ' :
-          ' ' + Blockly.FieldDropdown.ARROW_CHAR));
+      Blockly.RTL ? Blockly.FieldDropdown.ARROW_CHAR + ' ' :
+                    ' ' + Blockly.FieldDropdown.ARROW_CHAR));
 
   Blockly.FieldDropdown.superClass_.init.call(this, block);
   // Force a reset of the text to add the arrow.
@@ -113,7 +113,7 @@ Blockly.FieldDropdown.prototype.init = function(block) {
  * @private
  */
 Blockly.FieldDropdown.prototype.showEditor_ = function() {
-  Blockly.WidgetDiv.show(this, this.sourceBlock_.RTL, null);
+  Blockly.WidgetDiv.show(this, null);
   var thisField = this;
 
   function callback(e) {
@@ -166,7 +166,7 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
   // Record windowSize and scrollOffset before adding menu.
   var windowSize = goog.dom.getViewportSize();
   var scrollOffset = goog.style.getViewportPageOffset(document);
-  var xy = this.getAbsoluteXY_();
+  var xy = Blockly.getAbsoluteXY_(/** @type {!Element} */ (this.borderRect_));
   var borderBBox = this.borderRect_.getBBox();
   var div = Blockly.WidgetDiv.DIV;
   menu.render(div);
@@ -183,7 +183,7 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
   } else {
     xy.y += borderBBox.height;
   }
-  if (this.sourceBlock_.RTL) {
+  if (Blockly.RTL) {
     xy.x += borderBBox.width;
     xy.x += Blockly.FieldDropdown.CHECKMARK_OVERHANG;
     // Don't go offscreen left.
@@ -197,8 +197,7 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
       xy.x = windowSize.width + scrollOffset.x - menuSize.width;
     }
   }
-  Blockly.WidgetDiv.position(xy.x, xy.y, windowSize, scrollOffset,
-                             this.sourceBlock_.RTL);
+  Blockly.WidgetDiv.position(xy.x, xy.y, windowSize, scrollOffset);
   menu.setAllowAutoFocus(true);
   menuDom.focus();
 };
@@ -302,7 +301,7 @@ Blockly.FieldDropdown.prototype.setText = function(text) {
 
   if (this.textElement_) {
     // Insert dropdown arrow.
-    if (this.sourceBlock_.RTL) {
+    if (Blockly.RTL) {
       this.textElement_.insertBefore(this.arrow_, this.textElement_.firstChild);
     } else {
       this.textElement_.appendChild(this.arrow_);

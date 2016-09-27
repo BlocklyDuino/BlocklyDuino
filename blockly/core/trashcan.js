@@ -150,25 +150,21 @@ Blockly.Trashcan.prototype.top_ = 0;
  * @return {!Element} The trash can's SVG group.
  */
 Blockly.Trashcan.prototype.createDom = function() {
-  /* Here's the markup that will be generated:
-  <g class="blocklyTrash">
-    <clippath id="blocklyTrashBodyClipPath837493">
+  /*
+  <g filter="url(#blocklyTrashcanShadowFilter)">
+    <clippath id="blocklyTrashBodyClipPath">
       <rect width="47" height="45" y="15"></rect>
     </clippath>
-    <image width="64" height="92" y="-32" xlink:href="media/sprites.png"
-        clip-path="url(#blocklyTrashBodyClipPath837493)"></image>
-    <clippath id="blocklyTrashLidClipPath837493">
-      <rect width="47" height="15"></rect>
-    </clippath>
-    <image width="84" height="92" y="-32" xlink:href="media/sprites.png"
-        clip-path="url(#blocklyTrashLidClipPath837493)"></image>
+    <image width="64" height="92" y="15" href="media/trashbody.png"
+        clip-path="url(#blocklyTrashBodyClipPath)"></image>
+    <image width="47" height="15" href="media/trashlid.png"></image>
   </g>
   */
   this.svgGroup_ = Blockly.createSvgElement('g',
-      {'class': 'blocklyTrash'}, null);
-  var rnd = String(Math.random()).substring(2);
+      {'filter': 'url(#blocklyTrashcanShadowFilter)'}, null);
+
   var clip = Blockly.createSvgElement('clipPath',
-      {'id': 'blocklyTrashBodyClipPath' + rnd},
+      {'id': 'blocklyTrashBodyClipPath'},
       this.svgGroup_);
   Blockly.createSvgElement('rect',
       {'width': this.WIDTH_, 'height': this.BODY_HEIGHT_,
@@ -176,22 +172,22 @@ Blockly.Trashcan.prototype.createDom = function() {
       clip);
   var body = Blockly.createSvgElement('image',
       {'width': Blockly.SPRITE.width, 'height': Blockly.SPRITE.height, 'y': -32,
-       'clip-path': 'url(#blocklyTrashBodyClipPath' + rnd + ')'},
+       'clip-path': 'url(#blocklyTrashBodyClipPath)'},
       this.svgGroup_);
   body.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
-      this.workspace_.options.pathToMedia + Blockly.SPRITE.url);
+      Blockly.pathToMedia + Blockly.SPRITE.url);
 
   var clip = Blockly.createSvgElement('clipPath',
-      {'id': 'blocklyTrashLidClipPath' + rnd},
+      {'id': 'blocklyTrashLidClipPath'},
       this.svgGroup_);
   Blockly.createSvgElement('rect',
       {'width': this.WIDTH_, 'height': this.LID_HEIGHT_}, clip);
   this.svgLid_ = Blockly.createSvgElement('image',
       {'width': Blockly.SPRITE.width, 'height': Blockly.SPRITE.height, 'y': -32,
-       'clip-path': 'url(#blocklyTrashLidClipPath' + rnd + ')'},
+       'clip-path': 'url(#blocklyTrashLidClipPath)'},
       this.svgGroup_);
   this.svgLid_.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
-      this.workspace_.options.pathToMedia + Blockly.SPRITE.url);
+      Blockly.pathToMedia + Blockly.SPRITE.url);
 
   this.animateLid_();
   return this.svgGroup_;
@@ -202,6 +198,9 @@ Blockly.Trashcan.prototype.createDom = function() {
  */
 Blockly.Trashcan.prototype.init = function() {
   this.setOpen_(false);
+  this.position_();
+  // If the document resizes, reposition the trash can.
+  Blockly.bindEvent_(window, 'resize', this, this.position_);
 };
 
 /**
@@ -220,14 +219,15 @@ Blockly.Trashcan.prototype.dispose = function() {
 
 /**
  * Move the trash can to the bottom-right corner.
+ * @private
  */
-Blockly.Trashcan.prototype.position = function() {
+Blockly.Trashcan.prototype.position_ = function() {
   var metrics = this.workspace_.getMetrics();
   if (!metrics) {
     // There are no metrics available (workspace is probably not visible).
     return;
   }
-  if (this.workspace_.RTL) {
+  if (Blockly.RTL) {
     this.left_ = this.MARGIN_SIDE_;
   } else {
     this.left_ = metrics.viewWidth + metrics.absoluteLeft -
@@ -240,7 +240,7 @@ Blockly.Trashcan.prototype.position = function() {
 };
 
 /**
- * Return the deletion rectangle for this trash can.
+ * Return the deletion rectangle for this trashcan.
  * @return {goog.math.Rect} Rectangle in which to delete.
  */
 Blockly.Trashcan.prototype.getRect = function() {
@@ -275,10 +275,10 @@ Blockly.Trashcan.prototype.animateLid_ = function() {
   this.lidOpen_ = goog.math.clamp(this.lidOpen_, 0, 1);
   var lidAngle = this.lidOpen_ * 45;
   this.svgLid_.setAttribute('transform', 'rotate(' +
-      (this.workspace_.RTL ? -lidAngle : lidAngle) + ', ' +
-      (this.workspace_.RTL ? 4 : this.WIDTH_ - 4) + ', ' +
+      (Blockly.RTL ? -lidAngle : lidAngle) + ', ' +
+      (Blockly.RTL ? 4 : this.WIDTH_ - 4) + ', ' +
       (this.LID_HEIGHT_ - 2) + ')');
-  var opacity = goog.math.lerp(0.4, 0.8, this.lidOpen_);
+  var opacity = goog.math.lerp(0.2, 0.4, this.lidOpen_);
   this.svgGroup_.style.opacity = opacity;
   if (this.lidOpen_ > 0 && this.lidOpen_ < 1) {
     this.lidTask_ = goog.Timer.callOnce(this.animateLid_, 20, this);

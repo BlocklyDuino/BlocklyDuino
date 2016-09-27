@@ -30,10 +30,7 @@
  */
 goog.provide('Blockly.Msg');
 
-/**
- * Back up original getMsg function.
- * @type {!Function}
- */
+// Back up original getMsg function.
 goog.getMsgOrig = goog.getMsg;
 
 /**
@@ -43,7 +40,6 @@ goog.getMsgOrig = goog.getMsg;
  * @param {string} str Translatable string, places holders in the form {$foo}.
  * @param {Object<string, string>=} opt_values Maps place holder name to value.
  * @return {string} message with placeholders filled.
- * @suppress {duplicate}
  */
 goog.getMsg = function(str, opt_values) {
   var key = goog.getMsg.blocklyMsgMap[str];

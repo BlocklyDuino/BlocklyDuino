@@ -31,11 +31,63 @@ goog.provide('Blockly.Variables');
 goog.require('Blockly.Workspace');
 goog.require('goog.string');
 
+Blockly.Variables.TYPE_ANY = '';
+Blockly.Variables.TYPE_NUMBER = 'Number'; //int
+Blockly.Variables.TYPE_FLOAT = 'Float';
+Blockly.Variables.TYPE_BOOLEAN = 'Boolean';
+Blockly.Variables.TYPE_STRING = 'String';
+Blockly.Variables.TYPE_ARRAY = 'Array';
+Blockly.Variables.TYPE_VOLATILE_INT = 'Volatile_Int';
+Blockly.Variables.TYPE_CHAR = 'Char';
+Blockly.Variables.TYPE_BYTE = 'Byte';
+Blockly.Variables.TYPE_WORD = 'Word';
+Blockly.Variables.TYPE_LONG = 'Long';
+Blockly.Variables.TYPE_UNSIGNED_INT = 'Unsigned_Int';
+Blockly.Variables.TYPE_UNSIGNED_LONG = 'Unsigned_Long';
+Blockly.Variables.TYPE_DOUBLE = 'Double';
+Blockly.Variables.TYPE_COLOUR = 'Colour';
+Blockly.Variables.NAME_TYPE = 'VARIABLE';
 
 /**
- * Category to separate variable names from procedures and generated functions.
+ * A Complete list of all variables types available.
+ * Contains a tuple of both the variables display name and
+ * it's definition name.
+ * @return {Array}
  */
-Blockly.Variables.NAME_TYPE = 'VARIABLE';
+Blockly.Variables.allTypes = function(){
+  return [
+//    [Blockly.Msg.VARIABLES_TYPE_ANY,
+//     Blockly.Variables.TYPE_ANY],
+    [Blockly.Msg.VARIABLES_TYPE_NUMBER,
+     Blockly.Variables.TYPE_NUMBER],
+    [Blockly.Msg.VARIABLES_TYPE_BOOLEAN,
+     Blockly.Variables.TYPE_BOOLEAN],
+    [Blockly.Msg.VARIABLES_TYPE_CHAR,
+    Blockly.Variables.TYPE_CHAR],
+    [Blockly.Msg.VARIABLES_TYPE_BYTE,
+     Blockly.Variables.TYPE_BYTE],
+    [Blockly.Msg.VARIABLES_TYPE_UNSIGNED_INT,
+     Blockly.Variables.TYPE_UNSIGNED_INT],
+    [Blockly.Msg.VARIABLES_TYPE_WORD,
+     Blockly.Variables.TYPE_WORD],
+    [Blockly.Msg.VARIABLES_TYPE_LONG,
+     Blockly.Variables.TYPE_LONG],
+    [Blockly.Msg.VARIABLES_TYPE_UNSIGNED_LONG,
+     Blockly.Variables.TYPE_UNSIGNED_LONG],
+    [Blockly.Msg.VARIABLES_TYPE_FLOAT,
+     Blockly.Variables.TYPE_FLOAT],
+    [Blockly.Msg.VARIABLES_TYPE_DOUBLE,
+     Blockly.Variables.TYPE_DOUBLE],
+    [Blockly.Msg.VARIABLES_TYPE_STRING,
+     Blockly.Variables.TYPE_STRING],
+//    [Blockly.Msg.VARIABLES_TYPE_COLOUR,
+//     Blockly.Variables.TYPE_COLOUR],
+    [Blockly.Msg.VARIABLES_TYPE_ARRAY,
+     Blockly.Variables.TYPE_ARRAY],
+    [Blockly.Msg.VARIABLES_TYPE_VOLATILE_INT,
+     Blockly.Variables.TYPE_VOLATILE_INT]
+  ];
+};
 
 /**
  * Find all user-created variables.
@@ -74,6 +126,83 @@ Blockly.Variables.allVariables = function(root) {
     variableList.push(variableHash[name]);
   }
   return variableList;
+};
+
+/**
+ * Finds all user-created variables and their types.
+ * @param {!Blockly.Block|!Blockly.Workspace} root Root block or workspace.
+ * @return {!Array<!Array<string>>}
+ */
+Blockly.Variables.allVariablesAndTypes = function(root){
+  var blocks, workspace;
+  if (root.getDescendants) {
+    // Root is Block.
+    blocks = root.getDescendants();
+    workspace = root.workspace;
+  } else if (root.getAllBlocks) {
+    // Root is Workspace.
+    blocks = root.getAllBlocks();
+    workspace = root;
+  } else {
+    throw 'Not Block or Workspace: ' + root;
+  }
+  var variableHash = Object.create(null);
+  // Iterate through every block and add each variable to the hash.
+  for (var x = 0; x < blocks.length; x++) {
+    var func = blocks[x].getVars;
+    if (func) {
+      var blockVariables = func.call(blocks[x]);
+      for (var y = 0; y < blockVariables.length; y++) {
+        var varName = blockVariables[y];
+        // Variable name may be null if the block is only half-built.
+        if (varName) {
+          variableHash[varName.toLowerCase()] = varName;
+        }
+      }
+    }
+  }
+  // Flatten the hash into a list.
+  var variableList = [];
+  for (var name in variableHash) {
+    var type = Blockly.Variables.typeOf(name,workspace)
+      || Blockly.Variables.TYPE_ANY;
+    variableList.push([variableHash[name], type]);
+  }
+  return variableList;
+};
+
+/**
+ * Sets the type of a variable with the given name
+ * @param {string} name The variable name
+ * @param {string} type The type to change to
+ * @param {!Blockly.Workspace} workspace Workspace edit variables in.
+ */
+Blockly.Variables.changeType = function(name, type, workspace){
+  var blocks = workspace.getAllBlocks();
+  // Iterate through every block.
+  for (var x = 0; x < blocks.length; x++) {
+    var func = blocks[x].changeType;
+    if (func) {
+      func.call(blocks[x], name, type);
+    }
+  }
+};
+
+/**
+ * Gets the type of a variable with the given name
+ * @param {string} name The name of the variable to test
+ * @param {!Blockly.Workspace} workspace Workspace query variables in.
+ */
+Blockly.Variables.typeOf = function(name, workspace){
+  var blocks = workspace.getAllBlocks();
+  // Iterate through every block.
+  for (var x = 0; x < blocks.length; x++) {
+    var func = blocks[x].typeOf;
+    if (func) {
+      var type =  func.call(blocks[x], name);
+      if (type) return type;
+    }
+  }
 };
 
 /**
@@ -131,6 +260,10 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
     } else {
       gaps.push(margin * 2);
     }
+    getBlock && typeof getBlock.postInit === 'function'
+      && getBlock.postInit.call(getBlock);
+    setBlock && typeof setBlock.postInit === 'function'
+      && setBlock.postInit.call(setBlock);
   }
 };
 

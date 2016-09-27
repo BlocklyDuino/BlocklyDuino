@@ -51,7 +51,7 @@ Blockly.Generator.NAME_TYPE = 'generated_function';
  * Arbitrary code to inject into locations that risk causing infinite loops.
  * Any instances of '%1' will be replaced by the block ID that failed.
  * E.g. '  checkTimeout(%1);\n'
- * @type {?string}
+ * @type ?string
  */
 Blockly.Generator.prototype.INFINITE_LOOP_TRAP = null;
 
@@ -59,21 +59,18 @@ Blockly.Generator.prototype.INFINITE_LOOP_TRAP = null;
  * Arbitrary code to inject before every statement.
  * Any instances of '%1' will be replaced by the block ID of the statement.
  * E.g. 'highlight(%1);\n'
- * @type {?string}
+ * @type ?string
  */
 Blockly.Generator.prototype.STATEMENT_PREFIX = null;
 
 /**
  * Generate code for all blocks in the workspace to the specified language.
- * @param {Blockly.Workspace} workspace Workspace to generate code from.
+ * @param {Blockly.Workspace=} opt_workspace Workspace to generate code from.
+ *     Defaults to main workspace.
  * @return {string} Generated code.
  */
-Blockly.Generator.prototype.workspaceToCode = function(workspace) {
-  if (!workspace) {
-    // Backwards compatability from before there could be multiple workspaces.
-    console.warn('No workspace specified in workspaceToCode call.  Guessing.');
-    workspace = Blockly.getMainWorkspace();
-  }
+Blockly.Generator.prototype.workspaceToCode = function(opt_workspace) {
+  var workspace = opt_workspace || Blockly.mainWorkspace;
   var code = [];
   this.init(workspace);
   var blocks = workspace.getTopBlocks(true);

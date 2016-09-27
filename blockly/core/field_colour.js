@@ -29,14 +29,14 @@ goog.provide('Blockly.FieldColour');
 goog.require('Blockly.Field');
 goog.require('goog.dom');
 goog.require('goog.events');
-goog.require('goog.style');
 goog.require('goog.ui.ColorPicker');
+goog.require('goog.style');
 
 
 /**
  * Class for a colour input field.
  * @param {string} colour The initial colour in '#rrggbb' format.
- * @param {Function=} opt_changeHandler A function that is executed when a new
+ * @param {Function} opt_changeHandler A function that is executed when a new
  *     colour is selected.  Its sole argument is the new colour value.  Its
  *     return value becomes the selected colour, unless it is undefined, in
  *     which case the new colour stands, or it is null, in which case the change
@@ -47,13 +47,9 @@ goog.require('goog.ui.ColorPicker');
 Blockly.FieldColour = function(colour, opt_changeHandler) {
   Blockly.FieldColour.superClass_.constructor.call(this, '\u00A0\u00A0\u00A0');
 
-  this.setChangeHandler(opt_changeHandler);
+  this.changeHandler_ = opt_changeHandler;
   // Set the initial state.
   this.setValue(colour);
-
-  // By default use the global constants for colours and columns.
-  this.colours_ = null;
-  this.columns_ = 0;
 };
 goog.inherits(Blockly.FieldColour, Blockly.Field);
 
@@ -141,44 +137,21 @@ Blockly.FieldColour.COLOURS = goog.ui.ColorPicker.SIMPLE_GRID_COLORS;
 Blockly.FieldColour.COLUMNS = 7;
 
 /**
- * Set a custom colour grid for this field.
- * @param {Array.<string>} colours Array of colours for this block,
- *     or null to use default (Blockly.FieldColour.COLOURS).
- * @return {!Blockly.FieldColour} Returns itself (for method chaining).
- */
-Blockly.FieldColour.prototype.setColours = function(colours) {
-  this.colours_ = colours;
-  return this;
-};
-
-/**
- * Set a custom grid size for this field.
- * @param {number} columns Number of columns for this block,
- *     or 0 to use default (Blockly.FieldColour.COLUMNS).
- * @return {!Blockly.FieldColour} Returns itself (for method chaining).
- */
-Blockly.FieldColour.prototype.setColumns = function(columns) {
-  this.columns_ = columns;
-  return this;
-};
-
-/**
  * Create a palette under the colour field.
  * @private
  */
 Blockly.FieldColour.prototype.showEditor_ = function() {
-  Blockly.WidgetDiv.show(this, this.sourceBlock_.RTL,
-      Blockly.FieldColour.widgetDispose_);
+  Blockly.WidgetDiv.show(this, Blockly.FieldColour.widgetDispose_);
   // Create the palette using Closure.
   var picker = new goog.ui.ColorPicker();
-  picker.setSize(this.columns_ || Blockly.FieldColour.COLUMNS);
-  picker.setColors(this.colours_ || Blockly.FieldColour.COLOURS);
+  picker.setSize(Blockly.FieldColour.COLUMNS);
+  picker.setColors(Blockly.FieldColour.COLOURS);
 
   // Position the palette to line up with the field.
   // Record windowSize and scrollOffset before adding the palette.
   var windowSize = goog.dom.getViewportSize();
   var scrollOffset = goog.style.getViewportPageOffset(document);
-  var xy = this.getAbsoluteXY_();
+  var xy = Blockly.getAbsoluteXY_(/** @type {!Element} */ (this.borderRect_));
   var borderBBox = this.borderRect_.getBBox();
   var div = Blockly.WidgetDiv.DIV;
   picker.render(div);
@@ -193,7 +166,7 @@ Blockly.FieldColour.prototype.showEditor_ = function() {
   } else {
     xy.y += borderBBox.height - 1;
   }
-  if (this.sourceBlock_.RTL) {
+  if (Blockly.RTL) {
     xy.x += borderBBox.width;
     xy.x -= paletteSize.width;
     // Don't go offscreen left.
@@ -206,8 +179,7 @@ Blockly.FieldColour.prototype.showEditor_ = function() {
       xy.x = windowSize.width + scrollOffset.x - paletteSize.width;
     }
   }
-  Blockly.WidgetDiv.position(xy.x, xy.y, windowSize, scrollOffset,
-                             this.sourceBlock_.RTL);
+  Blockly.WidgetDiv.position(xy.x, xy.y, windowSize, scrollOffset);
 
   // Configure event handler.
   var thisField = this;

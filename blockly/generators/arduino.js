@@ -72,10 +72,14 @@ Blockly.Arduino.ORDER_NONE = 99;          // (...)
  *
  */
 var profile = {
+  common:{
+    number_type: ["Number","Byte","Unsigned_Int","Long","Unsigned_Long","Word","Char","Float","Double","Volatile_Int"]
+  },
   arduino: {
     description: "Arduino standard-compatible board",
     digital: [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["A0", "A0"], ["A1", "A1"], ["A2", "A2"], ["A3", "A3"], ["A4", "A4"], ["A5", "A5"]],
     analog: [["A0", "A0"], ["A1", "A1"], ["A2", "A2"], ["A3", "A3"], ["A4", "A4"], ["A5", "A5"]],
+    pwm: [["3", "3"], ["5", "5"], ["6", "6"], ["9", "9"], ["10", "10"], ["11", "11"]],
     serial: 9600
   },
   arduino_mega: {
@@ -105,14 +109,26 @@ Blockly.Arduino.init = function(workspace) {
 		Blockly.Arduino.variableDB_.reset();
 	}
 
-	var defvars = [];
-	var variables = Blockly.Variables.allVariables(workspace);
-	for (var x = 0; x < variables.length; x++) {
-		defvars[x] = 'int ' +
-				Blockly.Arduino.variableDB_.getName(variables[x],
-				Blockly.Variables.NAME_TYPE) + ';\n';
-	}
-	Blockly.Arduino.definitions_['variables'] = defvars.join('\n');
+  var defvars = [];
+//  var variables = Blockly.Variables.allVariables(workspace);
+  var variables = Blockly.Variables.allVariablesAndTypes(workspace);
+  var datatype = {Number:'int',Long:'long',Float:'float',Byte:'byte',Boolean:'boolean',Char:'char',String:'String',Array:'int',Volatile_Int:'volatile int',Word:'word',Double:'double',Unsigned_Int:'unsigned int',Unsigned_Long:'unsigned long'};
+  for (var x = 0; x < variables.length; x++) {
+    if(variables[x][1] == ""){
+      defvars[x] = 'int ' + ' ' + variables[x][0] + ';\n';
+      //Blockly.Arduino.variableDB_.getName(variables[x],
+      //Blockly.Variables.NAME_TYPE) + ';\n';
+      Blockly.Arduino.definitions_[variables[x][0]] = defvars[x];
+    }else{
+      //defvars[x] = 'int ' +
+      defvars[x] = datatype[variables[x][1]]
+        + ' ' + variables[x][0] + ';\n';
+        //Blockly.Arduino.variableDB_.getName(variables[x],
+        //Blockly.Variables.NAME_TYPE) + ';\n';
+      Blockly.Arduino.definitions_[variables[x][0]] = defvars[x];
+    }
+  }
+  //Blockly.Arduino.definitions_['variables'] = defvars.join('\n');
 };
 
 /**

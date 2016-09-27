@@ -41,21 +41,21 @@ Blockly.Css.Cursor = {
 
 /**
  * Current cursor (cached value).
- * @type {string}
+ * @type string
  * @private
  */
 Blockly.Css.currentCursor_ = '';
 
 /**
  * Large stylesheet added by Blockly.Css.inject.
- * @type {Element}
+ * @type Element
  * @private
  */
 Blockly.Css.styleSheet_ = null;
 
 /**
  * Path to media directory, with any trailing slash removed.
- * @type {string}
+ * @type string
  * @private
  */
 Blockly.Css.mediaPath_ = '';
@@ -66,25 +66,15 @@ Blockly.Css.mediaPath_ = '';
  * a) It loads synchronously and doesn't force a redraw later.
  * b) It speeds up loading by not blocking on a separate HTTP transfer.
  * c) The CSS content may be made dynamic depending on init options.
- * @param {boolean} hasCss If false, don't inject CSS
- *     (providing CSS becomes the document's responsibility).
- * @param {string} pathToMedia Path from page to the Blockly media directory.
  */
-Blockly.Css.inject = function(hasCss, pathToMedia) {
-  // Only inject the CSS once.
-  if (Blockly.Css.styleSheet_) {
-    return;
-  }
+Blockly.Css.inject = function() {
   // Placeholder for cursor rule.  Must be first rule (index 0).
   var text = '.blocklyDraggable {}\n';
-  if (hasCss) {
+  if (Blockly.hasCss) {
     text += Blockly.Css.CONTENT.join('\n');
-    if (Blockly.FieldDate) {
-      text += Blockly.FieldDate.CSS.join('\n');
-    }
   }
   // Strip off any trailing slash (either Unix or Windows).
-  Blockly.Css.mediaPath_ = pathToMedia.replace(/[\\\/]$/, '');
+  Blockly.Css.mediaPath_ = Blockly.pathToMedia.replace(/[\\\/]$/, '');
   text = text.replace(/<<<PATH>>>/g, Blockly.Css.mediaPath_);
   Blockly.Css.styleSheet_ = goog.cssom.addCssText(text).sheet;
   Blockly.Css.setCursor(Blockly.Css.Cursor.OPEN);
@@ -95,7 +85,7 @@ Blockly.Css.inject = function(hasCss, pathToMedia) {
  * @param {Blockly.Cursor} cursor Enum.
  */
 Blockly.Css.setCursor = function(cursor) {
-  if (Blockly.Css.currentCursor_ == cursor) {
+  if (Blockly.readOnly || Blockly.Css.currentCursor_ == cursor) {
     return;
   }
   Blockly.Css.currentCursor_ = cursor;
@@ -124,13 +114,14 @@ Blockly.Css.setCursor = function(cursor) {
       toolbox.style.cursor = url;
     }
   }
-  // Set cursor on the whole document, so that rapid movements
+  // Set cursor on the SVG surface as well, so that rapid movements
   // don't result in cursor changing to an arrow momentarily.
-  var html = document.body.parentNode;
-  if (cursor == Blockly.Css.Cursor.OPEN) {
-    html.style.cursor = '';
-  } else {
-    html.style.cursor = url;
+  if (Blockly.svg) {
+    if (cursor == Blockly.Css.Cursor.OPEN) {
+      Blockly.svg.style.cursor = '';
+    } else {
+      Blockly.svg.style.cursor = url;
+    }
   }
 };
 
@@ -140,7 +131,7 @@ Blockly.Css.setCursor = function(cursor) {
 Blockly.Css.CONTENT = [
   '.blocklySvg {',
   '  background-color: #fff;',
-  '  outline: none;',
+  '  border: 1px solid #ddd;',
   '  overflow: hidden;',  /* IE overflows by default. */
   '}',
 
@@ -148,20 +139,6 @@ Blockly.Css.CONTENT = [
   '  display: none;',
   '  position: absolute;',
   '  z-index: 999;',
-  '}',
-
-  '.blocklyTooltipDiv {',
-  '  background-color: #ffffc7;',
-  '  border: 1px solid #ddc;',
-  '  box-shadow: 4px 4px 20px 1px rgba(0,0,0,.15);',
-  '  color: #000;',
-  '  display: none;',
-  '  font-family: sans-serif;',
-  '  font-size: 9pt;',
-  '  opacity: 0.9;',
-  '  padding: 2px;',
-  '  position: absolute;',
-  '  z-index: 1000;',
   '}',
 
   '.blocklyResizeSE {',
@@ -188,7 +165,7 @@ Blockly.Css.CONTENT = [
   '.blocklyPathLight {',
   '  fill: none;',
   '  stroke-linecap: round;',
-  '  stroke-width: 1;',
+  '  stroke-width: 2;',
   '}',
 
   '.blocklySelected>.blocklyPath {',
@@ -270,13 +247,50 @@ Blockly.Css.CONTENT = [
   '  display: block;',
   '}',
 
-  '.blocklyIconGroup {',
-  '  cursor: default;',
+  '.blocklyTooltipBackground {',
+  '  fill: #ffffc7;',
+  '  stroke: #d8d8d8;',
+  '  stroke-width: 1px;',
   '}',
 
-  '.blocklyIconGroup:not(:hover),',
-  '.blocklyIconGroupReadonly {',
-  '  opacity: .6;',
+  '.blocklyTooltipShadow,',
+  '.blocklyDropdownMenuShadow {',
+  '  fill: #bbb;',
+  '  filter: url(#blocklyShadowFilter);',
+  '}',
+
+  '.blocklyTooltipText {',
+  '  fill: #000;',
+  '  font-family: sans-serif;',
+  '  font-size: 9pt;',
+  '}',
+
+  '.blocklyIconShield {',
+  '  cursor: default;',
+  '  fill: #00c;',
+  '  stroke: #ccc;',
+  '  stroke-width: 1px;',
+  '}',
+
+  '.blocklyIconGroup:hover>.blocklyIconShield {',
+  '  fill: #00f;',
+  '  stroke: #fff;',
+  '}',
+
+  '.blocklyIconGroup:hover>.blocklyIconMark {',
+  '  fill: #fff;',
+  '}',
+
+  '.blocklyIconMark {',
+  '  cursor: default !important;',
+  '  fill: #ccc;',
+  '  font-family: sans-serif;',
+  '  font-size: 9pt;',
+  '  font-weight: bold;',
+  '  text-anchor: middle;',
+  '}',
+
+  '.blocklyWarningBody {',
   '}',
 
   '.blocklyMinimalBody {',
@@ -301,8 +315,7 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyMainBackground {',
-  '  stroke-width: 1;',
-  '  stroke: #c6c6c6;',  /* Equates to #ddd due to border being off-pixel. */
+  '  fill: url(#blocklyGridPattern);',
   '}',
 
   '.blocklyMutatorBackground {',
@@ -316,8 +329,14 @@ Blockly.Css.CONTENT = [
   '  fill-opacity: .8;',
   '}',
 
+  '.blocklyColourBackground {',
+  '  fill: #666;',
+  '}',
+
   '.blocklyScrollbarBackground {',
-  '  opacity: 0;',
+  '  fill: #fff;',
+  '  stroke: #e4e4e4;',
+  '  stroke-width: 1;',
   '}',
 
   '.blocklyScrollbarKnob {',
@@ -327,17 +346,6 @@ Blockly.Css.CONTENT = [
   '.blocklyScrollbarBackground:hover+.blocklyScrollbarKnob,',
   '.blocklyScrollbarKnob:hover {',
   '  fill: #bbb;',
-  '}',
-
-  /* Darken flyout scrollbars due to being on a grey background. */
-  /* By contrast, workspace scrollbars are on a white background. */
-  '.blocklyFlyout .blocklyScrollbarKnob {',
-  '  fill: #bbb;',
-  '}',
-
-  '.blocklyFlyout .blocklyScrollbarBackground:hover+.blocklyScrollbarKnob,',
-  '.blocklyFlyout .blocklyScrollbarKnob:hover {',
-  '  fill: #aaa;',
   '}',
 
   '.blocklyInvalidInput {',
@@ -384,6 +392,7 @@ Blockly.Css.CONTENT = [
   /* Category tree in Toolbox. */
   '.blocklyToolboxDiv {',
   '  background-color: #ddd;',
+  '  display: none;',
   '  overflow-x: visible;',
   '  overflow-y: auto;',
   '  position: absolute;',
@@ -519,6 +528,161 @@ Blockly.Css.CONTENT = [
 
   '.blocklyWidgetDiv .goog-palette-cell-selected .goog-palette-colorswatch {',
   '  border: 1px solid #000;',
+  '  color: #fff;',
+  '}',
+
+  /* Copied from: goog/css/datepicker.css */
+  /*
+   * Copyright 2009 The Closure Library Authors. All Rights Reserved.
+   *
+   * Use of this source code is governed by the Apache License, Version 2.0.
+   * See the COPYING file for details.
+   */
+
+  /*
+   * Standard styling for a goog.ui.DatePicker.
+   *
+   * @author arv@google.com (Erik Arvidsson)
+   */
+
+  '.blocklyWidgetDiv .goog-date-picker,',
+  '.blocklyWidgetDiv .goog-date-picker th,',
+  '.blocklyWidgetDiv .goog-date-picker td {',
+  '  font: 13px Arial, sans-serif;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker {',
+  '  -moz-user-focus: normal;',
+  '  -moz-user-select: none;',
+  '  position: relative;',
+  '  border: 1px solid #000;',
+  '  float: left;',
+  '  padding: 2px;',
+  '  color: #000;',
+  '  background: #c3d9ff;',
+  '  cursor: default;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker th {',
+  '  text-align: center;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker td {',
+  '  text-align: center;',
+  '  vertical-align: middle;',
+  '  padding: 1px 3px;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-menu {',
+  '  position: absolute;',
+  '  background: threedface;',
+  '  border: 1px solid gray;',
+  '  -moz-user-focus: normal;',
+  '  z-index: 1;',
+  '  outline: none;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-menu ul {',
+  '  list-style: none;',
+  '  margin: 0px;',
+  '  padding: 0px;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-menu ul li {',
+  '  cursor: default;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-menu-selected {',
+  '  background: #ccf;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker th {',
+  '  font-size: .9em;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker td div {',
+  '  float: left;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker button {',
+  '  padding: 0px;',
+  '  margin: 1px 0;',
+  '  border: 0;',
+  '  color: #20c;',
+  '  font-weight: bold;',
+  '  background: transparent;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-date {',
+  '  background: #fff;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-week,',
+  '.blocklyWidgetDiv .goog-date-picker-wday {',
+  '  padding: 1px 3px;',
+  '  border: 0;',
+  '  border-color: #a2bbdd;',
+  '  border-style: solid;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-week {',
+  '  border-right-width: 1px;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-wday {',
+  '  border-bottom-width: 1px;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-head td {',
+  '  text-align: center;',
+  '}',
+
+  /** Use td.className instead of !important */
+  '.blocklyWidgetDiv td.goog-date-picker-today-cont {',
+  '  text-align: center;',
+  '}',
+
+  /** Use td.className instead of !important */
+  '.blocklyWidgetDiv td.goog-date-picker-none-cont {',
+  '  text-align: center;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-month {',
+  '  min-width: 11ex;',
+  '  white-space: nowrap;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-year {',
+  '  min-width: 6ex;',
+  '  white-space: nowrap;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-monthyear {',
+  '  white-space: nowrap;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker table {',
+  '  border-collapse: collapse;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-other-month {',
+  '  color: #888;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-wkend-start,',
+  '.blocklyWidgetDiv .goog-date-picker-wkend-end {',
+  '  background: #eee;',
+  '}',
+
+  /** Use td.className instead of !important */
+  '.blocklyWidgetDiv td.goog-date-picker-selected {',
+  '  background: #c3d9ff;',
+  '}',
+
+  '.blocklyWidgetDiv .goog-date-picker-today {',
+  '  background: #9ab;',
+  '  font-weight: bold !important;',
+  '  border-color: #246 #9bd #9bd #246;',
   '  color: #fff;',
   '}',
 
