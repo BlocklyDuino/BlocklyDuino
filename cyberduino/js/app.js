@@ -45,7 +45,9 @@ function renderContent() {
   } else if (content.id == 'content_arduino') {
     //content.innerHTML = Blockly.Arduino.workspaceToCode();
     var arduinoTextarea = document.getElementById('content_arduino');
-    arduinoTextarea.value = Blockly.Arduino.workspaceToCode();
+    arduinoTextarea.innerHTML = Blockly.Arduino.workspaceToCode();
+
+  hljs.initHighlightingOnLoad(arduinoTextarea);
     //IEでフォーカスさせると、navバーが消えるため
     var ua = window.navigator.userAgent;
     var isIE = false;
