@@ -409,6 +409,12 @@
   "SERIAL_BYTE_NUMBER_TEXT1": "Byte code of",
   "SERIAL_BYTE_NUMBER_TEXT2": "",
 
+	"RGBLED_BEGIN_HELPURL": "",
+  "RGBLED_SETPIXELCOLOR_TARGET": "Target",
+  "RGBLED_SETPIXELCOLOR_TOOLTIP":"Set pixels.Color.",
+	"RGBLED_SIDES_LEFT":"Left",
+	"RGBLED_SIDES_RIGHT":"Right",
+
 	"PROCEDURES_DEFNORETURN_HELPURL": "https://en.wikipedia.org/wiki/Procedure_%28computer_science%29",
 	"PROCEDURES_DEFNORETURN_TITLE": "to",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "do something",

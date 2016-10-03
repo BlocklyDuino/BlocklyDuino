@@ -5,8 +5,6 @@
 
 'use strict';
 
-var filepath = { media: '/media/', msg_en: "/blockly/msg/js/en.js"};
-
 var TABS_ = ['blocks', 'arduino'];
 
 var selected = 'blocks';
