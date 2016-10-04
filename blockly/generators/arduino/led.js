@@ -10,7 +10,7 @@ function hexToB(h) {return parseInt((cutHex(h)).substring(4,6),16)}
 function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
 
 Blockly.Arduino.rgbled_setpixelcolor = function () {
-  Blockly.Arduino.definitions_['define_include_cyberlane_rgb'] = '#include <CyberLane-RGB.h>\n';
+  Blockly.Arduino.definitions_['define_include_cyberlane_rgb'] = '#include <CyberLane-RGB.h>';
   var target = this.getFieldValue('PIN');
   var colour_rgb = this.getFieldValue('RGB');
   var code = 'rgb_set_color('
