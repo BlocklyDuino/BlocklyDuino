@@ -55,13 +55,13 @@ var notify = (function(){
     };
 
     var DefaultOptions = {
-        fadeInDuration: 2000,
+        fadeInDuration: 300,
         fadeOutDuration: 2000,
         fadeInterval: 50,
-        visibleDuration: 50000,
+        visibleDuration: 5000,
         postHoverVisibleDuration: 500,
         position: positionOption.topRight,
-        sticky: true,
+        sticky: false,
         showClose: true,
         title: '',
         text: 'You obviously failed to pass a text to the notification. You are a failure and disgrace...'
@@ -86,6 +86,7 @@ var notify = (function(){
                 vNotify.warning(options);
                 break;
             case Type.error:
+                options.sticky = true; // Don't remove errors!
                 vNotify.error(options);
                 break;
             case Type.unknown:
