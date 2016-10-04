@@ -248,15 +248,14 @@ function uploadCode(code, callback) {
 }
 
 function uploadClick() {
+    notify.info('Uploading to device...');
     var code = document.getElementById('content_arduino').value;
 
-    alert("Ready to upload to Arduino.");
-    
     uploadCode(code, function(status, errorInfo) {
         if (status == 200) {
-            alert("Program uploaded ok");
+            notify.success('Upload successful!');
         } else {
-            alert("Error uploading program: " + errorInfo);
+            notify.error('Upload failed...');
         }
     });
 }
