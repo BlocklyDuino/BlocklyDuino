@@ -43,7 +43,12 @@ function renderContent() {
   } else if (content.id == 'content_arduino') {
     //content.innerHTML = Blockly.Arduino.workspaceToCode();
     var arduinoTextarea = document.getElementById('content_arduino');
-    arduinoTextarea.innerHTML = Blockly.Arduino.workspaceToCode();
+    
+    var output = Blockly.Arduino.workspaceToCode()
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+      
+    arduinoTextarea.innerHTML = output;
     hljs.highlightBlock(arduinoTextarea);
 
     //IEでフォーカスさせると、navバーが消えるため
