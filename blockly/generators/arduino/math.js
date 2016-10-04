@@ -60,5 +60,86 @@ Blockly.Arduino.math_arithmetic.OPERATORS = {
   MINUS: [' - ', Blockly.Arduino.ORDER_ADDITIVE],
   MULTIPLY: [' * ', Blockly.Arduino.ORDER_MULTIPLICATIVE],
   DIVIDE: [' / ', Blockly.Arduino.ORDER_MULTIPLICATIVE],
+  MODULO: [' % ', Blockly.Arduino.ORDER_MULTIPLICATIVE],
   POWER: [null, Blockly.Arduino.ORDER_NONE]  // Handle power separately.
+};
+
+Blockly.Arduino['math_random_max_min'] = function(block) {
+  // Random integer between [X] and [Y].
+  var code;
+  var max = Blockly.Arduino.valueToCode(block, 'MAX',
+                                              Blockly.Arduino.ORDER_ATOMIC) || '1';
+  var min = Blockly.Arduino.valueToCode(block, 'MIN',
+                                              Blockly.Arduino.ORDER_ATOMIC) || '0';
+  if(min > 0) code = 'random(' + min + ', ' + max + ')';
+  else        code = 'random(' + max + ')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+Blockly.Arduino['math_map'] = function() {
+  var value = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_NONE);
+  var tolow = this.getFieldValue('TOLOW') || '0';
+  var tohigh = this.getFieldValue('TOHIGH') || '255';
+  var code = 'map('+value+',0,1024,'+tolow+','+tohigh+')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+Blockly.Arduino['math_custom_map'] = function() {
+  var value = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_NONE);
+  var fromlow = this.getFieldValue('FROMLOW') || '0';
+  var fromhigh = this.getFieldValue('FROMHIGH') || '1024';
+  var tolow = this.getFieldValue('TOLOW') || '0';
+  var tohigh = this.getFieldValue('TOHIGH') || '255';
+  var code = 'map('+value+ ',' + fromlow + ',' + fromhigh + ','+tolow+','+tohigh+')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+Blockly.Arduino['math_constrain'] = function(block) {
+  // Constrain a number between two limits.
+  var argument0 = Blockly.Arduino.valueToCode(block, 'VALUE',
+                                             Blockly.Arduino.ORDER_NONE) || '0';
+  var argument1 = Blockly.Arduino.valueToCode(block, 'LOW',
+                                             Blockly.Arduino.ORDER_NONE) || '0';
+  var argument2 = Blockly.Arduino.valueToCode(block, 'HIGH',
+                                             Blockly.Arduino.ORDER_NONE) || '255';
+  var code = 'constrain(' + argument0 + ', ' + argument1 + ',' + argument2 + ')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+Blockly.Arduino['math_pow'] = function(block) {
+  // Constrain a number between two limits.
+  var argument0 = Blockly.Arduino.valueToCode(block, 'base',
+                                              Blockly.Arduino.ORDER_NONE) || '1';
+  var argument1 = Blockly.Arduino.valueToCode(block, 'exp',
+                                              Blockly.Arduino.ORDER_NONE) || '1';
+  var code = 'pow(' + argument0 + ', ' + argument1 + ')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+};
+
+Blockly.Arduino['math_single'] = function(block) {
+  // Math operators with single operand.
+  var operator = block.getFieldValue('OP');
+  var code;
+  var arg = Blockly.Arduino.valueToCode(block, 'NUM',
+                                        Blockly.Arduino.ORDER_NONE) || '1';
+  // First, handle cases which generate values that don't need parentheses
+  // wrapping the code.
+  switch (operator) {
+    case 'ABS':
+      code = 'abs(' + arg + ')';
+      break;
+    case 'ROOT':
+      code = 'sqrt(' + arg + ')';
+      break;
+    case 'SIN':
+      code = 'sin(' + arg + ')';
+      break;
+    case 'COS':
+      code = 'cos(' + arg + ')';
+      break;
+    case 'TAN':
+      code = 'tan(' + arg + ')';
+      break;
+  }
+  return [code, Blockly.Arduino.ORDER_NONE];
 };
