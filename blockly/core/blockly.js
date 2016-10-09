@@ -598,9 +598,14 @@ Blockly.loadAudio_ = function(filenames, name) {
 Blockly.preloadAudio_ = function() {
   for (var name in Blockly.SOUNDS_) {
     var sound = Blockly.SOUNDS_[name];
-    sound.volume = .01;
-    sound.play();
-    sound.pause();
+    sound.pause().then(function() {
+      sound.volume = .01;
+      sound.currentTime = 0;
+      sound.play();
+      sound.pause();
+    }, function() {
+    // Handle any pause() failures.
+    });
     // iOS can only process one sound at a time.  Trying to load more than one
     // corrupts the earlier ones.  Just load one and leave the others uncached.
     if (goog.userAgent.IPAD || goog.userAgent.IPHONE) {
