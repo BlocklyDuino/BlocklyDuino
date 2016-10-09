@@ -369,5 +369,8 @@ function bind() {
 
 $(document).ready(function () {
   bind();
-  setScript();
 });
+
+window.onload = function () {
+  setScript();
+};
