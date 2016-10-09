@@ -44,7 +44,7 @@ Blockly.Arduino['oled_print'] = function () {
 
 Blockly.Arduino['oled_draw_bitmap'] = function () {
   oledInit();
-  var image_stat = this.getFieldValue('image');
+  var image_stat = Blockly.Arduino.valueToCode(this, 'image', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var x_stat = this.getFieldValue('x');
   var y_stat = this.getFieldValue('y');
   var w_stat = this.getFieldValue('w');
@@ -52,3 +52,10 @@ Blockly.Arduino['oled_draw_bitmap'] = function () {
   Blockly.Arduino.definitions_['oled_image_' + image_stat] = 'extern uint8_t ' + image_stat + '[];';
   return 'myOLED.drawBitmap(' + x_stat + ', ' + y_stat + ', ' + image_stat + ', ' + w_stat + ', ' + h_stat + ');';
 };
+
+['kidspeak', 'tretton37'].forEach(function (img, index) {
+  var id = 'oled_image_' + img;
+  Blockly.Arduino[id] = function () {
+    return [img, Blockly.Arduino.ORDER_ATOMIC];
+  };
+});
