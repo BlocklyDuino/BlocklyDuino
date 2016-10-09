@@ -36,10 +36,10 @@ Blockly.Arduino['oled_invert'] = function () {
 
 Blockly.Arduino['oled_print'] = function () {
   oledInit(['smallFont']);
-  var text_stat = this.getFieldValue('text');
+  var text_stat = Blockly.Arduino.valueToCode(this, 'text', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var x_stat = this.getFieldValue('x');
   var y_stat = this.getFieldValue('y');
-  return 'myOLED.print("' + text_stat + '", ' + x_stat + ', ' + y_stat + ');\n';
+  return 'myOLED.print(' + text_stat + ', ' + x_stat + ', ' + y_stat + ');\n';
 };
 
 Blockly.Arduino['oled_draw_bitmap'] = function () {
