@@ -247,16 +247,14 @@ function setScript() {
   script.type = 'text/javascript';
   script.id = 'msg';
   var c = $.cookie("lang");
+
   var param;
-  if (c) param = c;
-  else {
-    param = getParam()["lang"];
-    if (typeof param === "undefined") param = "en";
-    param = param.replace("#", "");
+  if (c) {
+    param = c;
+  } else {
+    param = $('#languageSelect').val();
   }
   script.src = filepath["msg_" + param];
-  var str = "#select-lang-" + param;
-  $(str).prop('checked', true);
 
   var firstScript = document.getElementsByTagName('head')[0].appendChild(script);
   firstScript.parentNode.insertBefore(script, firstScript);
@@ -270,27 +268,20 @@ function setScript() {
 function setCharacter() {
   //setCategoryCharacter();
 
-  $("#tab_blocks").text(Blockly.Msg.BLOCKS);
-  $("#tab_arduino").text(Blockly.Msg.ARDUINO);
+  var table = [
+    {id: "tab_blocks", key: Blockly.Msg.CUSTOM_BLOCKS},
+    {id: "tab_arduino", key: Blockly.Msg.CUSTOM_ARDUINO},
+    {id: "upload_to_arduino", key: Blockly.Msg.CUSTOM_UPLOAD_TO_ARDUINO},
+    {id: "reset_arduino", key: Blockly.Msg.CUSTOM_RESET_ARDUINO},
+    {id: "reset_sketch", key: Blockly.Msg.CUSTOM_RESET_SKETCH},
+    {id: "save_arduino_code", key: Blockly.Msg.CUSTOM_SAVE_ARDUINO_CODE},
+    {id: "save_sketch", key: Blockly.Msg.CUSTOM_SAVE_SKETCH},
+    {id: "fakeload", key: Blockly.Msg.CUSTOM_FAKELOAD}
+  ];
 
-  $("#get-app").attr("data-tooltip", Blockly.Msg.DOWNLOAD_CHROME_APP);
-  $("#go-to-sample").attr("data-tooltip", Blockly.Msg.GO_TO_SAMPLE);
-  $("#change-lang").attr("data-tooltip", Blockly.Msg.CHANGE_LANG);
-  $("#dialog-lang-title").text(Blockly.Msg.DIALOG_LANG_TITLE);
-  $("#dialog-block-title").text(Blockly.Msg.DIALOG_BLOCK_TITLE);
-
-  $("#button_import").text(Blockly.Msg.BUTTON_IMPORT);
-  $("#button_export").text(Blockly.Msg.BUTTON_EXPORT);
-  $('#textarea_import_label').text(Blockly.Msg.TEXTAREA_IMPORT_LABEL);
-  $('#textarea_export_label').text(Blockly.Msg.TEXTAREA_EXPORT_LABEL);
-  $('#dialog_import_ok').text(Blockly.Msg.DIALOG_IMPORT_OK);
-  $('#dialog_import_cancel').text(Blockly.Msg.DIALOG_IMPORT_CANCEL);
-  $('#dialog_export_ok').text(Blockly.Msg.DIALOG_EXPORT_OK);
-
-  $("#copy-button").attr("data-tooltip", Blockly.Msg.COPY_BUTTON);
-  $("#discard").attr("data-tooltip", Blockly.Msg.DISCARD);
-  $("#save").attr("data-tooltip", Blockly.Msg.SAVE_XML);
-  $("#fakeload").attr("data-tooltip", Blockly.Msg.LOAD_XML);
+  table.forEach(function (t) {
+    $('#' + t.id).text(t.key);
+  })
 }
 
 function getFiles() {
@@ -363,14 +354,20 @@ function import_xml() {
   Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDoc);
 }
 
-window.onload = function () {
-  setScript();
-};
-
-$(document).ready(function () {
+function bind() {
   $('#textarea_export').focus(function () {
     $(this).select();
   });
   $('#textarea_import').val("");
+
   $('#languageSelect').msDropdown();
+  $('#languageSelect').on('change', function () {
+    console.log('change language!');
+    setScript();
+  });
+}
+
+$(document).ready(function () {
+  bind();
+  setScript();
 });

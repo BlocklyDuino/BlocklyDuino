@@ -19,7 +19,7 @@
                         data-image="assets/icons/flag-en.png"
                         data-title="English">English
                 </option>
-                <option value="se"
+                <option value="sv"
                         data-image="assets/icons/flag-se.png"
                         data-title="Swedish">Swedish
                 </option>
@@ -30,17 +30,17 @@
         <td>
             <table width="100%">
                 <tr id="tabRow" height="1em">
-                    <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')">Blocks</td>
+                    <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')"></td>
                     <td class="tabmin">&nbsp;</td>
-                    <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
+                    <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')"></td>
                     <td class="tabmin">&nbsp;</td>
                     <td class="tabmax">
-                        <button type="button" onclick="uploadClick()">Upload to Arduino</button>
-                        <button type="button" onclick="resetClick()">Reset Arduino</button>
-                        <button onclick="discard()">Reset Sketch</button>
-                        <button onclick="saveCode()">Save Arduino Code</button>
-                        <button onclick="save()">Save Sketch</button>
-                        <button id="fakeload">Load Sketch</button>
+                        <button id="upload_to_arduino" type="button" onclick="uploadClick()"></button>
+                        <button id="reset_arduino" type="button" onclick="resetClick()"></button>
+                        <button id="reset_sketch" onclick="discard()"></button>
+                        <button id="save_arduino_code" onclick="saveCode()"></button>
+                        <button id="save_sketch" onclick="save()"></button>
+                        <button id="fakeload"></button>
                         <input type="file" id="load" style="display: none;"/>
                     </td>
                 </tr>
@@ -192,7 +192,11 @@
     </category>
 </xml>
 <script type="text/javascript">
-    var filepath = {media: '/media/', msg_en: "/blockly/msg/js/en.js"};
+    var filepath = {
+        media: '/media/',
+        msg_en: "/blockly/msg/js/en.js",
+        msg_sv: "/blockly/msg/js/sv.js"
+    };
 </script>
 <script type="text/javascript" src="js/vendors/vanilla-notify/vanilla-notify.min.js"></script>
 <script type="text/javascript" src="js/notify.js"></script>

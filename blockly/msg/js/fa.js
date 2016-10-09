@@ -64,6 +64,14 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "تکرار تا زمانی ک�
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "تکرار در حالی که";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "تا زمانی که یک مقدار ناصحیح است، چند عبارت را انجام بده.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "تا زمانی که یک مقدار صحیح است، چند عبارت را انجام بده.";
+Blockly.Msg.CUSTOM_ARDUINO = "Arduino";  // untranslated
+Blockly.Msg.CUSTOM_BLOCKS = "Blocks";  // untranslated
+Blockly.Msg.CUSTOM_FAKELOAD = "Load Sketch";  // untranslated
+Blockly.Msg.CUSTOM_RESET_ARDUINO = "Reset Arduino";  // untranslated
+Blockly.Msg.CUSTOM_RESET_SKETCH = "Reset Sketch";  // untranslated
+Blockly.Msg.CUSTOM_SAVE_ARDUINO_CODE = "Save Arduino Code";  // untranslated
+Blockly.Msg.CUSTOM_SAVE_SKETCH = "Save Sketch";  // untranslated
+Blockly.Msg.CUSTOM_UPLOAD_TO_ARDUINO = "Upload to Arduino";  // untranslated
 Blockly.Msg.DELETE_BLOCK = "حذف بلوک";
 Blockly.Msg.DELETE_X_BLOCKS = "حذف بلوک‌های %1";
 Blockly.Msg.DISABLE_BLOCK = "غیرفعال‌سازی بلوک";
