@@ -249,7 +249,7 @@ function uploadCode(code, callback) {
 
 function uploadClick() {
     notify.info('Uploading to device...');
-    var code = document.getElementById('content_arduino').value;
+    var code = Blockly.Arduino.workspaceToCode();
 
     uploadCode(code, function(status, errorInfo) {
         if (status == 200) {
