@@ -20,18 +20,18 @@ function oledInit(params) {
 
 Blockly.Arduino['oled_clear'] = function () {
   oledInit();
-  return 'myOLED.clrScr();';
+  return 'myOLED.clrScr();\n';
 };
 
 Blockly.Arduino['oled_update'] = function () {
   oledInit();
-  return 'myOLED.update();';
+  return 'myOLED.update();\n';
 };
 
 Blockly.Arduino['oled_invert'] = function () {
   oledInit();
   var checkbox_stat = this.getFieldValue('invert').toLowerCase();
-  return 'myOLED.invert(' + checkbox_stat + ');';
+  return 'myOLED.invert(' + checkbox_stat + ');\n';
 };
 
 Blockly.Arduino['oled_print'] = function () {
@@ -39,7 +39,7 @@ Blockly.Arduino['oled_print'] = function () {
   var text_stat = this.getFieldValue('text');
   var x_stat = this.getFieldValue('x');
   var y_stat = this.getFieldValue('y');
-  return 'myOLED.print("' + text_stat + '", ' + x_stat + ', ' + y_stat + ');';
+  return 'myOLED.print("' + text_stat + '", ' + x_stat + ', ' + y_stat + ');\n';
 };
 
 Blockly.Arduino['oled_draw_bitmap'] = function () {
@@ -50,7 +50,7 @@ Blockly.Arduino['oled_draw_bitmap'] = function () {
   var w_stat = this.getFieldValue('w');
   var h_stat = this.getFieldValue('h');
   Blockly.Arduino.definitions_['oled_image_' + image_stat] = 'extern uint8_t ' + image_stat + '[];';
-  return 'myOLED.drawBitmap(' + x_stat + ', ' + y_stat + ', ' + image_stat + ', ' + w_stat + ', ' + h_stat + ');';
+  return 'myOLED.drawBitmap(' + x_stat + ', ' + y_stat + ', ' + image_stat + ', ' + w_stat + ', ' + h_stat + ');\n';
 };
 
 ['kidspeak', 'tretton37'].forEach(function (img, index) {
