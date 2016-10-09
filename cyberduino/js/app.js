@@ -342,5 +342,9 @@ window.onload = function () {
   translation.init(function () {
     init();
     loadxml();
+
+    setTimeout(function () {
+      translation.setCustomTranslation();
+    }, 100);
   });
 };

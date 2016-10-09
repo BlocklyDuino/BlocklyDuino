@@ -147,6 +147,7 @@ var translation = (function () {
 
   return {
     changeLanguage: changeLanguage,
+    setCustomTranslation: setCustomTranslation,
     init: init
   }
 }());
