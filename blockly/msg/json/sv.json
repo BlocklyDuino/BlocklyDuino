@@ -330,5 +330,18 @@
   "CUSTOM_RESET_SKETCH": "Återställ Sketch",
   "CUSTOM_SAVE_ARDUINO_CODE": "Spara Arduino-kod",
   "CUSTOM_SAVE_SKETCH": "Spara Sketch",
-  "CUSTOM_FAKELOAD": "Ladda Sketch"
+  "CUSTOM_FAKELOAD": "Ladda Sketch",
+
+  "TUNES_PLAY": "Play tune",
+  "OLED_CLEAR": "Clear",
+  "OLED_UPDATE": "Update",
+  "OLED_INVERT": "Invert",
+  "OLED_PRINT_TEXT": "Text",
+  "OLED_PRINT_X": "X",
+  "OLED_PRINT_Y": "Y",
+  "OLED_PRINT_WIDTH": "Width",
+  "OLED_PRINT_HEIGHT": "Height",
+  "OLED_PRINT_IMAGE": "Image",
+  "OLED_PRINT": "Print",
+  "OLED_DRAW_IMAGE": "Draw Image"
 }
