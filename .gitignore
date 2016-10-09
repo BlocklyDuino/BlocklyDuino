@@ -5,6 +5,7 @@ Desktop.ini
 
 # Project files
 ino_project
+cyberduino/upload/upload.ino
 
 # Closure library needed for uncompressed development
 /closure-library
