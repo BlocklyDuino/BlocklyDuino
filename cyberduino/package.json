@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "less": "node_modules\\.bin\\lessc css\\style.less css\\style.css",
+    "less": "node_modules/.bin/lessc css/style.less css/style.css",
     "build": "npm run less",
     "watch": "gulp watch",
     "all": "npm run build && npm run start"
