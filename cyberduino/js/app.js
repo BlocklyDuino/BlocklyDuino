@@ -262,6 +262,12 @@ function setScript() {
     setCharacter();
     init();
     loadxml();
+
+    // This is a horrible
+    if (document.getElementById(":1.label")) {
+      backup_blocks();
+      restore_blocks();
+    }
   };
 }
 
@@ -269,6 +275,7 @@ function setCharacter() {
   //setCategoryCharacter();
 
   var table = [
+    // Tab bar
     {id: "tab_blocks", key: Blockly.Msg.CUSTOM_BLOCKS},
     {id: "tab_arduino", key: Blockly.Msg.CUSTOM_ARDUINO},
     {id: "upload_to_arduino", key: Blockly.Msg.CUSTOM_UPLOAD_TO_ARDUINO},
@@ -276,12 +283,31 @@ function setCharacter() {
     {id: "reset_sketch", key: Blockly.Msg.CUSTOM_RESET_SKETCH},
     {id: "save_arduino_code", key: Blockly.Msg.CUSTOM_SAVE_ARDUINO_CODE},
     {id: "save_sketch", key: Blockly.Msg.CUSTOM_SAVE_SKETCH},
-    {id: "fakeload", key: Blockly.Msg.CUSTOM_FAKELOAD}
+    {id: "fakeload", key: Blockly.Msg.CUSTOM_FAKELOAD},
+
+    // Side bar
+    {id: ":1.label", key: Blockly.Msg.CUSTOM_LOGIC},
+    {id: ":2.label", key: Blockly.Msg.CUSTOM_CONTROL},
+    {id: ":3.label", key: Blockly.Msg.CUSTOM_MATH},
+    {id: ":4.label", key: Blockly.Msg.CUSTOM_TEXT},
+    {id: ":5.label", key: Blockly.Msg.CUSTOM_VARIABLES},
+    {id: ":6.label", key: Blockly.Msg.CUSTOM_FUNCTIONS},
+    {id: ":8.label", key: Blockly.Msg.CUSTOM_INPUT_OUTPUT},
+    {id: ":9.label", key: Blockly.Msg.CUSTOM_DIGITAL},
+    {id: ":a.label", key: Blockly.Msg.CUSTOM_ANALOG},
+    {id: ":b.label", key: Blockly.Msg.CUSTOM_SERIAL},
+    {id: ":c.label", key: Blockly.Msg.CUSTOM_TONE},
+    {id: ":d.label", key: Blockly.Msg.CUSTOM_LED},
+    {id: ":e.label", key: Blockly.Msg.CUSTOM_TUNES},
+    {id: ":f.label", key: Blockly.Msg.CUSTOM_OLED}
   ];
 
   table.forEach(function (t) {
-    $('#' + t.id).text(t.key);
-  })
+    var element = document.getElementById(t.id);
+    if (element) {
+      element.innerHTML = t.key;
+    }
+  });
 }
 
 function getFiles() {
