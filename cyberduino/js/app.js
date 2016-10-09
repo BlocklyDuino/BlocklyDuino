@@ -43,22 +43,22 @@ function renderContent() {
   } else if (content.id == 'content_arduino') {
     //content.innerHTML = Blockly.Arduino.workspaceToCode();
     var arduinoTextarea = document.getElementById('content_arduino');
-    
+
     var output = Blockly.Arduino.workspaceToCode()
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
-      
+
     arduinoTextarea.innerHTML = output;
     hljs.highlightBlock(arduinoTextarea);
 
     //IEでフォーカスさせると、navバーが消えるため
     var ua = window.navigator.userAgent;
     var isIE = false;
-    if(ua.match(/MSIE/) || ua.match(/Trident/)){
-        isIE = true;
+    if (ua.match(/MSIE/) || ua.match(/Trident/)) {
+      isIE = true;
     }
-    if(!isIE){
-        arduinoTextarea.focus();
+    if (!isIE) {
+      arduinoTextarea.focus();
     }
   }
 }
@@ -119,18 +119,20 @@ function init() {
 
   var toolbox = document.getElementById('toolbox');
   //var toolbox = buildtoolBox();
-  Blockly.inject(document.getElementById('content_blocks'),{
-    grid:
-    {spacing: 25,
-     length: 3,
-     colour: '#ccc',
-     snap: true},
+  Blockly.inject(document.getElementById('content_blocks'), {
+    grid: {
+      spacing: 25,
+      length: 3,
+      colour: '#ccc',
+      snap: true
+    },
     //media: 'media/',
     media: filepath.media,
-    toolbox: toolbox});
+    toolbox: toolbox
+  });
 
-    auto_save_and_restore_blocks();
-    setCheckbox();
+  auto_save_and_restore_blocks();
+  setCheckbox();
 
   //load from url parameter (single param)
   //http://stackoverflow.com/questions/2090551/parse-query-string-in-javascript
@@ -148,9 +150,9 @@ function buildtoolBox() {
 
   // set the default toolbox if none
   if (option === undefined || option === "") {
-      loadIds = base;
-  }else{
-      loadIds = base + ',' + option;
+    loadIds = base;
+  } else {
+    loadIds = base + ',' + option;
   }
 
   //window.localStorage.toolboxids = loadIds;
@@ -158,8 +160,8 @@ function buildtoolBox() {
   var xmlValue = '<xml id="toolbox">';
   var xmlids = loadIds.split(",");
   for (var i = 0; i < xmlids.length; i++) {
-    if ($('#'+xmlids[i]).length) {
-      xmlValue += $('#'+xmlids[i])[0].outerHTML;
+    if ($('#' + xmlids[i]).length) {
+      xmlValue += $('#' + xmlids[i])[0].outerHTML;
     }
   }
   xmlValue += '</xml>';
@@ -167,41 +169,41 @@ function buildtoolBox() {
   return xmlValue;
 };
 
-function setCheckbox(){
+function setCheckbox() {
   var option = window.localStorage.toolboxids;
-  if(option){
+  if (option) {
     var options = option.split(',');
     for (var i = 0; i < options.length; i++) {
-      $('#chbox_' + options[i]).prop('checked',true);
+      $('#chbox_' + options[i]).prop('checked', true);
     }
   }
 }
 
-function loadxml(){
+function loadxml() {
   var url = getParam()["url"];
-  if(typeof url === "undefined"){
+  if (typeof url === "undefined") {
     var id = getParam()["id"];
-    if(typeof id === "undefined") return;
-    id = id.replace("#","");
-    url = 'https://raw.githubusercontent.com/makewitharduino/ArduinoSample/master/' + id +'/' + id + '.xml';
-    if(!sendChrome(url)){
+    if (typeof id === "undefined") return;
+    id = id.replace("#", "");
+    url = 'https://raw.githubusercontent.com/makewitharduino/ArduinoSample/master/' + id + '/' + id + '.xml';
+    if (!sendChrome(url)) {
       setXmlContent(url);
     }
   }
   setXmlContent(url);
 }
 
-function setXmlContent(url){
+function setXmlContent(url) {
   $.ajax({
     url: url,
     type: "GET",
     dataType: 'text',
-    success: function(res) {
+    success: function (res) {
       var xml = res.responseText;
-      if(xml.length >0){
+      if (xml.length > 0) {
         Blockly.mainWorkspace.clear();
-        xml = xml.replace("<html><head/><body><xml>",'');
-        xml = xml.replace("</body></html>",'');
+        xml = xml.replace("<html><head/><body><xml>", '');
+        xml = xml.replace("</body></html>", '');
         xml = '<xml xmlns="http://www.w3.org/1999/xhtml">' + xml;
         var xmlDoc = Blockly.Xml.textToDom(xml);
         Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDoc);
@@ -210,14 +212,14 @@ function setXmlContent(url){
   });
 }
 
-function sendChrome(url){
+function sendChrome(url) {
   var userAgent = window.navigator.userAgent.toLowerCase();
-  if (userAgent.indexOf('chrome') != -1){
+  if (userAgent.indexOf('chrome') != -1) {
     // 確認ボタン付きのダイアログボックスを表示する
     var result = confirm("Send XML for ChromeApp.");
-    if(result){
+    if (result) {
       var extId = "ohncgafccgdbigbbikgkfbkiebahihmb";
-      chrome.runtime.sendMessage(extId, {url : url});
+      chrome.runtime.sendMessage(extId, {url: url});
       return true;
     }
   }
@@ -246,14 +248,14 @@ function setScript() {
   script.id = 'msg';
   var c = $.cookie("lang");
   var param;
-  if(c) param = c;
+  if (c) param = c;
   else {
     param = getParam()["lang"];
-    if(typeof param === "undefined") param = "en";
-    param = param.replace("#","");
+    if (typeof param === "undefined") param = "en";
+    param = param.replace("#", "");
   }
-  script.src = filepath["msg_"+param];
-  var str = "#select-lang-"+ param;
+  script.src = filepath["msg_" + param];
+  var str = "#select-lang-" + param;
   $(str).prop('checked', true);
 
   var firstScript = document.getElementsByTagName('head')[0].appendChild(script);
@@ -265,15 +267,15 @@ function setScript() {
   };
 }
 
-function setCharacter(){
+function setCharacter() {
   //setCategoryCharacter();
 
   $("#tab_blocks").text(Blockly.Msg.BLOCKS);
   $("#tab_arduino").text(Blockly.Msg.ARDUINO);
 
-  $("#get-app").attr("data-tooltip",Blockly.Msg.DOWNLOAD_CHROME_APP);
-  $("#go-to-sample").attr("data-tooltip",Blockly.Msg.GO_TO_SAMPLE);
-  $("#change-lang").attr("data-tooltip",Blockly.Msg.CHANGE_LANG);
+  $("#get-app").attr("data-tooltip", Blockly.Msg.DOWNLOAD_CHROME_APP);
+  $("#go-to-sample").attr("data-tooltip", Blockly.Msg.GO_TO_SAMPLE);
+  $("#change-lang").attr("data-tooltip", Blockly.Msg.CHANGE_LANG);
   $("#dialog-lang-title").text(Blockly.Msg.DIALOG_LANG_TITLE);
   $("#dialog-block-title").text(Blockly.Msg.DIALOG_BLOCK_TITLE);
 
@@ -285,10 +287,10 @@ function setCharacter(){
   $('#dialog_import_cancel').text(Blockly.Msg.DIALOG_IMPORT_CANCEL);
   $('#dialog_export_ok').text(Blockly.Msg.DIALOG_EXPORT_OK);
 
-  $("#copy-button").attr("data-tooltip",Blockly.Msg.COPY_BUTTON);
-  $("#discard").attr("data-tooltip",Blockly.Msg.DISCARD);
-  $("#save").attr("data-tooltip",Blockly.Msg.SAVE_XML);
-  $("#fakeload").attr("data-tooltip",Blockly.Msg.LOAD_XML);
+  $("#copy-button").attr("data-tooltip", Blockly.Msg.COPY_BUTTON);
+  $("#discard").attr("data-tooltip", Blockly.Msg.DISCARD);
+  $("#save").attr("data-tooltip", Blockly.Msg.SAVE_XML);
+  $("#fakeload").attr("data-tooltip", Blockly.Msg.LOAD_XML);
 }
 
 function getFiles() {
@@ -305,14 +307,14 @@ function getFiles() {
   };
 }
 
-function change_lang(){
-  var checkbox = $('.filled-in:checked').map(function() {
+function change_lang() {
+  var checkbox = $('.filled-in:checked').map(function () {
     return $(this).val();
   }).get();
   var str = checkbox.join(',');
   window.localStorage.toolboxids = str;
 
-  var val = $('.with-gap:checked').map(function(){
+  var val = $('.with-gap:checked').map(function () {
     //$(this)でjQueryオブジェクトが取得できる。val()で値をvalue値を取得。
     return $(this).val();
   }).get();
@@ -324,16 +326,16 @@ function change_lang(){
   window.location = loc.protocol + '//' + loc.host + loc.pathname + '?lang=' + val;
 }
 
-function set_variable(){
+function set_variable() {
   var input = document.getElementById('dialog_var_name');
   var newVar = input.value;
   if (newVar) {
     newVar = newVar.replace(/[\s\xa0]+/g, ' ').replace(/^ | $/g, '');
     if (newVar == Blockly.Msg.RENAME_VARIABLE ||
-        newVar == Blockly.Msg.NEW_VARIABLE) {
+      newVar == Blockly.Msg.NEW_VARIABLE) {
       // Ok, not ALL names are legal...
     }
-    else{
+    else {
       Blockly.Variables.renameVariable(Blockly.Msg.Valiable_text, newVar, Blockly.FieldVariable_workspace);
     }
   }
@@ -344,16 +346,16 @@ function upload() {
   arduinoTextarea.value = Blockly.Generator.workspaceToCode('Arduino');
 }
 
-function export_xml(){
+function export_xml() {
   var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
   var data = Blockly.Xml.domToText(xml);
-  data = data.replace(/\r?\n/g,'');
+  data = data.replace(/\r?\n/g, '');
   $('#textarea_export').val(data);
   $('#textarea_export').trigger('autoresize');
   $('#modal_export').openModal();
 }
 
-function import_xml(){
+function import_xml() {
   var xml = $('#textarea_import').val();
   $('#textarea_import').val("");
   var xmlDoc = Blockly.Xml.textToDom(xml);
@@ -365,9 +367,10 @@ window.onload = function () {
   setScript();
 };
 
-$(document).ready(function(){
-  $('#textarea_export').focus(function(){
+$(document).ready(function () {
+  $('#textarea_export').focus(function () {
     $(this).select();
   });
   $('#textarea_import').val("");
+  $('#languageSelect').msDropdown();
 });

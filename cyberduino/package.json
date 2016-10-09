@@ -7,7 +7,8 @@
     "start": "node .",
     "less": "node_modules\\.bin\\lessc css\\style.less css\\style.css",
     "build": "npm run less",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "all": "npm run build && npm run start"
   },
   "repository": {
     "type": "git",

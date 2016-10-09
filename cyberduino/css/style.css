@@ -1,4 +1,5 @@
 @import '../js/vendors/vanilla-notify/vanilla-notify.css';
+@import 'msdropdown.css';
 @font-face {
   font-family: "Amatic";
   src: url("fonts/Amatic-Bold.ttf");
@@ -11,6 +12,9 @@
 .trettonStyle {
   background-color: #8cc63c;
   color: #FFF;
+}
+*:focus {
+  outline: 0;
 }
 html,
 body {
@@ -50,6 +54,9 @@ body h1 {
   font-size: 3em;
   margin-left: 5px;
   margin-right: 5px;
+}
+body .topRow .dd img {
+  height: 1em;
 }
 body #tabRow > td {
   border: 1px solid #000;

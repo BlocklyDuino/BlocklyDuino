@@ -14,6 +14,7 @@ app.use('/blockly', express.static('../blockly'));
 app.use('/media', express.static('../blockly/media'));
 app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
+app.use('/assets', express.static('assets'));
 
 app.head('/', (req, res) => {
   res.status(200);
@@ -45,7 +46,7 @@ app.post('/', (req, res) => {
   ];
   const arduinoCommand = arduinoApp + ' ' + compileArgs.join(' ');
   console.log(arduinoCommand);
-  let uploadResult = exec(arduinoCommand, {stdio:[0,1,2]});
+  let uploadResult = exec(arduinoCommand, {stdio: [0, 1, 2]});
   console.log(uploadResult);
   res.status(200);
   res.set('Access-Control-Allow-Origin', '*');

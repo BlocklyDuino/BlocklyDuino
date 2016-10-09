@@ -2,14 +2,28 @@
 <head>
     <meta charset="utf-8">
     <title>CyberDuino</title>
-    <link rel="stylesheet" type="text/css" href="css/highlightjs-9.7.0.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlightjs-9.7.0.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body onload="init()">
 <table height="100%" width="100%">
-    <tr>
+    <tr class="topRow">
         <td>
-            <img src="https://leetspeak.se/2016/images/kidspeak/logo.png" alt="CyberDuino &gt; web-based visual programming editor for arduino" style="width:220px;" />
+            <img src="https://leetspeak.se/2016/images/kidspeak/logo.png"
+                 alt="CyberDuino &gt; web-based visual programming editor for arduino"
+                 style="width:220px;"/>
+        </td>
+        <td>
+            <select id="languageSelect" style="width: 10em">
+                <option value="en"
+                        data-image="assets/icons/flag-en.png"
+                        data-title="English">English
+                </option>
+                <option value="se"
+                        data-image="assets/icons/flag-se.png"
+                        data-title="Swedish">Swedish
+                </option>
+            </select>
         </td>
     </tr>
     <tr>
@@ -178,7 +192,7 @@
     </category>
 </xml>
 <script type="text/javascript">
-var filepath = { media: '/media/', msg_en: "/blockly/msg/js/en.js"};
+    var filepath = {media: '/media/', msg_en: "/blockly/msg/js/en.js"};
 </script>
 <script type="text/javascript" src="js/vendors/vanilla-notify/vanilla-notify.min.js"></script>
 <script type="text/javascript" src="js/notify.js"></script>
@@ -194,6 +208,7 @@ var filepath = { media: '/media/', msg_en: "/blockly/msg/js/en.js"};
 <script type="text/javascript" src="js/vendors/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="js/vendors/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/vendors/highlightjs-9.7.0.min.js"></script>
+<script type="text/javascript" src="js/vendors/jquery.dd.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
