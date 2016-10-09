@@ -83,6 +83,14 @@ var profile = {
     tone:[["C:Do","262"],["D:Re","294"],["E:Me","330"],["F:Fa","349"],["G:So","392"],["A:La","440"],["B:Ti","494"],["C:Do","523"]],
     serial: 9600
   },
+  arduino_nano: {
+    description: "Arduino Nano standard-compatible board",
+    digital: [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["A0", "A0"], ["A1", "A1"], ["A2", "A2"], ["A3", "A3"], ["A4", "A4"], ["A5", "A5"]],
+    analog: [["A0", "A0"], ["A1", "A1"], ["A2", "A2"], ["A3", "A3"], ["A4", "A4"], ["A5", "A5"],["A6", "A6"],["A7","A7"]],
+    pwm: [["3", "3"], ["5", "5"], ["6", "6"], ["9", "9"], ["10", "10"], ["11", "11"]],
+    tone:[["C:Do","262"],["D:Re","294"],["E:Me","330"],["F:Fa","349"],["G:So","392"],["A:La","440"],["B:Ti","494"],["C:Do","523"]],
+    serial: 9600
+  },
   arduino_mega: {
     description: "Arduino Mega-compatible board"
     //53 digital
@@ -90,7 +98,7 @@ var profile = {
   }
 };
 //set default profile to arduino standard-compatible board
-profile["default"] = profile["arduino"];
+profile["default"] = profile["arduino_nano"];
 //alert(profile.default.digital[0]);
 
 /**
