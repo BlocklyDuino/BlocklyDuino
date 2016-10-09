@@ -262,52 +262,7 @@ function setScript() {
     setCharacter();
     init();
     loadxml();
-
-    // This is a horrible
-    if (document.getElementById(":1.label")) {
-      backup_blocks();
-      restore_blocks();
-    }
   };
-}
-
-function setCharacter() {
-  //setCategoryCharacter();
-
-  var table = [
-    // Tab bar
-    {id: "tab_blocks", key: Blockly.Msg.CUSTOM_BLOCKS},
-    {id: "tab_arduino", key: Blockly.Msg.CUSTOM_ARDUINO},
-    {id: "upload_to_arduino", key: Blockly.Msg.CUSTOM_UPLOAD_TO_ARDUINO},
-    {id: "reset_arduino", key: Blockly.Msg.CUSTOM_RESET_ARDUINO},
-    {id: "reset_sketch", key: Blockly.Msg.CUSTOM_RESET_SKETCH},
-    {id: "save_arduino_code", key: Blockly.Msg.CUSTOM_SAVE_ARDUINO_CODE},
-    {id: "save_sketch", key: Blockly.Msg.CUSTOM_SAVE_SKETCH},
-    {id: "fakeload", key: Blockly.Msg.CUSTOM_FAKELOAD},
-
-    // Side bar
-    {id: ":1.label", key: Blockly.Msg.CUSTOM_LOGIC},
-    {id: ":2.label", key: Blockly.Msg.CUSTOM_CONTROL},
-    {id: ":3.label", key: Blockly.Msg.CUSTOM_MATH},
-    {id: ":4.label", key: Blockly.Msg.CUSTOM_TEXT},
-    {id: ":5.label", key: Blockly.Msg.CUSTOM_VARIABLES},
-    {id: ":6.label", key: Blockly.Msg.CUSTOM_FUNCTIONS},
-    {id: ":8.label", key: Blockly.Msg.CUSTOM_INPUT_OUTPUT},
-    {id: ":9.label", key: Blockly.Msg.CUSTOM_DIGITAL},
-    {id: ":a.label", key: Blockly.Msg.CUSTOM_ANALOG},
-    {id: ":b.label", key: Blockly.Msg.CUSTOM_SERIAL},
-    {id: ":c.label", key: Blockly.Msg.CUSTOM_TONE},
-    {id: ":d.label", key: Blockly.Msg.CUSTOM_LED},
-    {id: ":e.label", key: Blockly.Msg.CUSTOM_TUNES},
-    {id: ":f.label", key: Blockly.Msg.CUSTOM_OLED}
-  ];
-
-  table.forEach(function (t) {
-    var element = document.getElementById(t.id);
-    if (element) {
-      element.innerHTML = t.key;
-    }
-  });
 }
 
 function getFiles() {
@@ -322,25 +277,6 @@ function getFiles() {
   return {
     "sketch.ino": code
   };
-}
-
-function change_lang() {
-  var checkbox = $('.filled-in:checked').map(function () {
-    return $(this).val();
-  }).get();
-  var str = checkbox.join(',');
-  window.localStorage.toolboxids = str;
-
-  var val = $('.with-gap:checked').map(function () {
-    //$(this)でjQueryオブジェクトが取得できる。val()で値をvalue値を取得。
-    return $(this).val();
-  }).get();
-  //mapの結果がjQueryオブジェクトの配列で返ってくるので、get()で生配列を取得する。
-  $.cookie("lang", val, {
-    expires: 7
-  });
-  var loc = window.location;
-  window.location = loc.protocol + '//' + loc.host + loc.pathname + '?lang=' + val;
 }
 
 function set_variable() {
@@ -386,11 +322,16 @@ function bind() {
   });
   $('#textarea_import').val("");
 
-  $('#languageSelect').msDropdown();
-  $('#languageSelect').on('change', function () {
-    console.log('change language!');
-    setScript();
-  });
+  var currentLang = getStringParamFromUrl('lang', 'en');
+  console.log(currentLang);
+  $('#languageSelect')
+    .val(currentLang)
+    .on('change', function () {
+      var lang = $(this).val();
+      console.log('change language to', lang);
+      translation.changeLanguage(lang);
+    })
+    .msDropdown();
 }
 
 $(document).ready(function () {
@@ -398,5 +339,8 @@ $(document).ready(function () {
 });
 
 window.onload = function () {
-  setScript();
+  translation.init(function () {
+    init();
+    loadxml();
+  });
 };

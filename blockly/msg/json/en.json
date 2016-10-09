@@ -459,5 +459,19 @@
   "CUSTOM_RESET_SKETCH": "Reset Sketch",
   "CUSTOM_SAVE_ARDUINO_CODE": "Save Arduino Code",
   "CUSTOM_SAVE_SKETCH": "Save Sketch",
-  "CUSTOM_FAKELOAD": "Load Sketch"
+  "CUSTOM_FAKELOAD": "Load Sketch",
+  "CUSTOM_LOGIC": "Logic",
+  "CUSTOM_CONTROL": "Control",
+  "CUSTOM_MATH": "Math",
+  "CUSTOM_TEXT": "Text",
+  "CUSTOM_VARIABLES": "Variables",
+  "CUSTOM_FUNCTIONS": "Functions",
+  "CUSTOM_INPUT_OUTPUT": "Input/output",
+  "CUSTOM_DIGITAL": "Digital",
+  "CUSTOM_ANALOG": "Analog",
+  "CUSTOM_SERIAL": "Serial",
+  "CUSTOM_TONE": "Tone",
+  "CUSTOM_LED": "Led",
+  "CUSTOM_TUNES": "Tunes",
+  "CUSTOM_OLED": "Oled"
 }
