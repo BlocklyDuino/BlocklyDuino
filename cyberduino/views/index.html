@@ -6,6 +6,19 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body onload="init()">
+<!-- Special fancy stuff that nobody should ever bother looking at here -->
+<select id="languageSelect" style="width: 10em">
+    <option value="en"
+            data-image="assets/icons/flag-en.png"
+            data-title="English">English
+    </option>
+    <option value="sv"
+            data-image="assets/icons/flag-se.png"
+            data-title="Swedish">Swedish
+    </option>
+</select>
+<!-- Beat it!-->
+
 <table height="100%" width="100%">
     <tr class="topRow">
         <td>
@@ -14,16 +27,6 @@
                  style="width:220px;"/>
         </td>
         <td>
-            <select id="languageSelect" style="width: 10em">
-                <option value="en"
-                        data-image="assets/icons/flag-en.png"
-                        data-title="English">English
-                </option>
-                <option value="sv"
-                        data-image="assets/icons/flag-se.png"
-                        data-title="Swedish">Swedish
-                </option>
-            </select>
         </td>
     </tr>
     <tr>

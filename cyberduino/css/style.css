@@ -35,6 +35,14 @@ body select,
 body button {
   font-family: "Amatic", "SansSerif";
 }
+body #languageSelect_msdd {
+  position: absolute;
+  top: 0.2em;
+  right: 1em;
+}
+body #languageSelect_msdd img {
+  height: 1em;
+}
 body .blocklyToolboxDiv {
   background-color: #8cc63c;
   color: #FFF;
@@ -54,9 +62,6 @@ body h1 {
   font-size: 3em;
   margin-left: 5px;
   margin-right: 5px;
-}
-body .topRow .dd img {
-  height: 1em;
 }
 body #tabRow > td {
   border: 1px solid #000;
