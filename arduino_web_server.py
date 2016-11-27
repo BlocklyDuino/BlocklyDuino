@@ -29,7 +29,9 @@ def get_arduino_command():
             arduino_cmd_guesses = ["/Applications/Arduino.app/Contents/MacOS/Arduino"]
         elif platform.system() == "Windows":
             arduino_cmd_guesses = [
+                "c:\Program Files\Arduino\Arduino_debug.exe",
                 "c:\Program Files\Arduino\Arduino.exe",
+                "c:\Program Files (x86)\Arduino\Arduino_debug.exe",
                 "c:\Program Files (x86)\Arduino\Arduino.exe"
             ]
         else:
