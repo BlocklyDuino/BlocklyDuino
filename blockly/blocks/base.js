@@ -182,7 +182,7 @@ Blockly.Blocks['servo_move'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Servo")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/a991.jpg", 64, 64))
+        .appendField(new Blockly.FieldImage("https://statics3.seeedstudio.com/images/product/EMAX%20Servo.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
     this.appendValueInput("DEGREE", 'Number')
@@ -201,7 +201,7 @@ Blockly.Blocks['servo_read_degrees'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("Servo")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/a991.jpg", 64, 64))
+        .appendField(new Blockly.FieldImage("https://statics3.seeedstudio.com/images/product/EMAX%20Servo.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendDummyInput()
