@@ -82,10 +82,16 @@ var profile = {
     description: "Arduino Mega-compatible board"
     //53 digital
     //15 analog
+  },
+  ESP8266: {
+    description: "Generic ESP8266 Module",
+    digital: [["D0", "D0"],["D1", "D1"], ["D2", "D2"], ["D3", "D3"], ["D4", "D4"], ["D5", "D5"], ["D6", "D6"], ["D7", "D7"], ["D8", "D8"],["A0", "A0"]],
+    analog: [["A0", "A0"]],
+    serial: 115200
   }
 };
 //set default profile to arduino standard-compatible board
-profile["default"] = profile["arduino"];
+profile["default"] = profile["ESP8266"];
 //alert(profile.default.digital[0]);
 
 /**
