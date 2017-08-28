@@ -423,11 +423,61 @@ function init() {
 	  
     </category>
 	
-	 <category name="CG Robot">      
+	 <category name="CG Robot">  
+	 
+	 
 	  <block type="motorA_Direction"></block> 
-	  <block type="motorA_Speed"></block>
+	  <block type="motorA_Speed">
+	  <value name="motorASpeed">
+			<block type="math_number">
+				<field name="NUM">1023</field>
+			</block>
+		</value>
+	  </block>
 	  <block type="motorB_Direction"></block> 
-	  <block type="motorB_Speed"></block>	
+	  <block type="motorB_Speed">
+		<value name="motorBSpeed">
+			<block type="math_number">
+				<field name="NUM">1023</field>
+			</block>
+		</value>
+	  </block>	
+	  <block type="MoveForward">
+		<value name="forwardSpeed">
+          <block type="math_number">
+            <field name="NUM">1023</field>
+			
+          </block>
+        </value>
+	  </block>
+
+	<block type="MoveReverse">
+		<value name="reverseSpeed">
+          <block type="math_number">
+            <field name="NUM">1023</field>
+			
+          </block>
+        </value>
+	  </block>	
+	  
+	 <block type="TurnLeft">
+		<value name="leftSpeed">
+          <block type="math_number">
+            <field name="NUM">1023</field>
+			
+          </block>
+        </value>
+	  </block>	
+ <block type="TurnRight">
+		<value name="rightSpeed">
+          <block type="math_number">
+            <field name="NUM">1023</field>
+			
+          </block>
+        </value>
+	  </block>	 	  
+
+	  
 	  
       	  
     </category>
