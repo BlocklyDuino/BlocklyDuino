@@ -159,8 +159,7 @@ return code;
 
 Blockly.Arduino.Direction=function()
 {
-	var chosenDirection= this.getFieldValue('direction');
-	//alert(chosenDirection);
+	var chosenDirection= this.getFieldValue('direction');	
 	return[chosenDirection,Blockly.Arduino.ORDER_ATOMIC]
 };
 

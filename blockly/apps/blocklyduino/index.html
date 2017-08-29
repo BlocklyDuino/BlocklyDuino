@@ -17,10 +17,12 @@
    <!-- Arduino Specific Includes -->
    
    <!-- CuriosityGym Specific Includes -->
-    <script type="text/javascript" src="../../generators/CuriosityGymRobot/CGRobotBlocks.js"></script>
-	<script type="text/javascript" src="../../generators/CuriosityGymRobot/CGRobotGenerator.js"></script>
-	<script type="text/javascript" src="../../generators/CuriosityGymRobot/UltrasonicBlocks.js"></script>
-	<script type="text/javascript" src="../../generators/CuriosityGymRobot/UltrasonicGenerator.js"></script>
+    <script type="text/javascript" src="../../generators/CuriosityGym/RobotBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/RobotGenerator.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/UltrasonicBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/UltrasonicGenerator.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/ColorSensorBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/ColorSensorGenerator.js"></script>	 
    <!-- CuriosityGym Specific Includes -->
    
   <script type="text/javascript" src="../../msg/js/en.js"></script>
@@ -486,12 +488,22 @@ function init() {
       	  
     </category>
 	
-	<category name="Ultrasonic Distance">
-      <block type="ping_cm">
-		
+	<category name="Ultrasonic Distance Sensor">
+      <block type="ping_cm">	
       </block>
     </category>
     
+	
+	<category name="Color Sensor">
+	  <block type="Measure">	
+      </block>
+      <block type="getGreenComponent">	
+      </block>
+	  <block type="getBlueComponent">	
+      </block>
+	  <block type="getRedComponent">	
+      </block>
+    </category>
     
     
     

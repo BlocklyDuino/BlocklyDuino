@@ -201,7 +201,7 @@ function uploadCode(code, callback) {
     var target = document.getElementById('content_arduino');
     var spinner = new Spinner().spin(target);
 
-    var url = "http://127.0.0.1:8080/";
+    var url = "http://localhost:8080/";
     var method = "POST";
 
     // You REALLY want async = true.
