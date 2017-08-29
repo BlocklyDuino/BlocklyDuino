@@ -17,7 +17,10 @@
    <!-- Arduino Specific Includes -->
    
    <!-- CuriosityGym Specific Includes -->
-    <script type="text/javascript" src="../../generators/CuriosityGymRobot/CGRobot.js"></script>
+    <script type="text/javascript" src="../../generators/CuriosityGymRobot/CGRobotBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGymRobot/CGRobotGenerator.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGymRobot/UltrasonicBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGymRobot/UltrasonicGenerator.js"></script>
    <!-- CuriosityGym Specific Includes -->
    
   <script type="text/javascript" src="../../msg/js/en.js"></script>
@@ -424,6 +427,7 @@ function init() {
     </category>
 	
 	 <category name="CG Robot">  
+	 <block type="Direction"></block> 
 	 
 	 
 	  <block type="motorA_Direction"></block> 
@@ -480,6 +484,12 @@ function init() {
 	  
 	  
       	  
+    </category>
+	
+	<category name="Ultrasonic Distance">
+      <block type="ping_cm">
+		
+      </block>
     </category>
     
     
