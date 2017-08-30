@@ -270,3 +270,21 @@ function resetClick() {
         }
     });
 }
+
+function getPortNames(){
+	
+	//var target = document.getElementById('content_arduino');
+    //var spinner = new Spinner().spin(target);
+
+    
+    $.ajax({
+	url: "http://localhost:8080/getPorts",
+	success: function( result ) {
+		//alert(result.ports[0]);
+		$( "#portNames" ).empty();
+		jQuery.each( result.ports, function( i, val ) {
+			$( "#portNames" ).append("<option value='"+val+"'>"+val+"</option>");  
+			});
+	}
+	});
+}

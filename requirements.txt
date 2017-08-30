@@ -1,2 +1,5 @@
 requests
-Flask
+flask
+flask-cors
+argparse
+pyserial

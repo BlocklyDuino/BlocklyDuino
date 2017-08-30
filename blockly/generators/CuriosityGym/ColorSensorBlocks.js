@@ -1,11 +1,11 @@
 
-var sensorCount = [['ColorSensor0', '0'], ['ColorSensor1', '1']];
+var sensorCount = [['ColorSensor0', '0']];
 Blockly.Blocks.getGreenComponent={
 	init:function()
 	{
 		this.appendDummyInput()
 			.appendField("Green Value from")	
-			.appendField(new Blockly.FieldDropdown(sensorCount), 'sensorNumber');			
+			//.appendField(new Blockly.FieldDropdown(sensorCount), 'sensorNumber');			
 		this.setOutput(true);
 		this.setColour(120);
 		
@@ -18,7 +18,7 @@ Blockly.Blocks.getRedComponent={
 		
 		this.appendDummyInput()
 			.appendField("Red Value from")
-			.appendField(new Blockly.FieldDropdown(sensorCount), 'sensorNumber');			
+			//.appendField(new Blockly.FieldDropdown(sensorCount), 'sensorNumber');			
 		this.setOutput(true);
 		this.setColour(330);
 		
@@ -30,7 +30,7 @@ Blockly.Blocks.getBlueComponent={
 	{
 		this.appendDummyInput()
 			.appendField("Blue Value from")
-			.appendField(new Blockly.FieldDropdown(sensorCount), 'sensorNumber');		
+			//.appendField(new Blockly.FieldDropdown(sensorCount), 'sensorNumber');		
 		this.setOutput(true);
 		this.setColour(230);
 		
@@ -50,10 +50,10 @@ Blockly.Blocks.Measure={
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("SDA:")
 			.appendField(new Blockly.FieldDropdown(profile["default"].digital),"SDA");
-		this.appendDummyInput()
+		/*this.appendDummyInput()
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("Sensor Number:")
-			.appendField(new Blockly.FieldDropdown(sensorCount),"sensorNumber");
+			.appendField(new Blockly.FieldDropdown(sensorCount),"sensorNumber");*/
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
 		this.setColour(65);

@@ -26,10 +26,13 @@
    <!-- CuriosityGym Specific Includes -->
    
   <script type="text/javascript" src="../../msg/js/en.js"></script>
+  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="Blob.js"></script>
   <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
+
+  
   <script>
 
 /**
@@ -317,8 +320,12 @@ function init() {
             <td class="tabmin">&nbsp;</td>
             <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
             <td class="tabmax">
-              <button type="button" onclick="uploadClick()">Upload</button>
-              <button type="button" onclick="resetClick()">Reset</button>
+			 <!--<select id='portNames'>
+				
+			 </select>
+			  <button type="button" onclick="getPortNames()">Refresh Ports</button>-->
+              <!--<button type="button" onclick="uploadClick()">Upload</button>-->
+              <!--<button type="button" onclick="resetClick()">Reset</button>-->
               <button onclick="discard()">Discard</button>
               <button onclick="saveCode()">Save Arduino Code</button>
               <button onclick="save()">Save XML</button>
