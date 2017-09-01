@@ -8,11 +8,11 @@ Blockly.Blocks.ping_cm={
 		this.appendDummyInput()
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("Trigger Pin:")
-			.appendField(new Blockly.FieldDropdown(profile["default"].digital),"trig");
+			.appendField(new Blockly.FieldDropdown(profile["default"].residual),"trig");
 		this.appendDummyInput()
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("Echo Pin:")
-			.appendField(new Blockly.FieldDropdown(profile["default"].digital),"echo");
+			.appendField(new Blockly.FieldDropdown(profile["default"].residual),"echo");
 		this.setOutput(!0,"Number");
 		this.setColour(65);
 		this.setTooltip("Send a ping and return the distance in centimeters");

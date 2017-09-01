@@ -34,17 +34,17 @@ Blockly.Arduino.motorB_Speed = function() { return "abc"}
 Blockly.Arduino.motorA_Speed = function() { return "abc"}
 Blockly.Arduino.motorB_Direction = function() { 
 
-Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(2, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(D4, OUTPUT);';
 var value_num = Blockly.Arduino.valueToCode(this, 'motorBDirection', Blockly.Arduino.ORDER_ATOMIC);
 
 	if(value_num==0)
 	{
-		var code = 'digitalWrite(2,LOW);\n'
+		var code = 'digitalWrite(D4,LOW);\n'
 	}
 
 	if(value_num==1)
 	{
-		var code = 'digitalWrite(2,HIGH);\n'
+		var code = 'digitalWrite(D4,HIGH);\n'
 	}
 
 	return code;
@@ -52,17 +52,17 @@ var value_num = Blockly.Arduino.valueToCode(this, 'motorBDirection', Blockly.Ard
 
 Blockly.Arduino.motorA_Direction = function() { 
 
-Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(0, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(D3, OUTPUT);';
 var value_num = Blockly.Arduino.valueToCode(this, 'motorADirection', Blockly.Arduino.ORDER_ATOMIC);
 
 if(value_num==0)
 {
-	var code = 'digitalWrite(0,LOW);\n'
+	var code = 'digitalWrite(D3,LOW);\n'
 }
 
 if(value_num==1)
 {
-	var code = 'digitalWrite(0,HIGH);\n'
+	var code = 'digitalWrite(D3,HIGH);\n'
 }
 
 return code;
@@ -71,15 +71,15 @@ return code;
 
 Blockly.Arduino.MoveForward = function() { 
 
-Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(0, OUTPUT);';
-Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(2, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(D3, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(D4, OUTPUT);';
 var inputSpeed= Blockly.Arduino.valueToCode(this, 'forwardSpeed', Blockly.Arduino.ORDER_ATOMIC);
 var functionBody= "void moveForward(int lspeed)\n"
 functionBody=functionBody + "{\n"
-functionBody=functionBody + "\tdigitalWrite(0, HIGH);\n"
-functionBody=functionBody + "\tdigitalWrite(2, HIGH);\n"
-functionBody=functionBody + "\tanalogWrite(5, lspeed);\n"
-functionBody=functionBody + "\tanalogWrite(4, lspeed);\n"
+functionBody=functionBody + "\tdigitalWrite(D3, HIGH);\n"
+functionBody=functionBody + "\tdigitalWrite(D4, HIGH);\n"
+functionBody=functionBody + "\tanalogWrite(D1, lspeed);\n"
+functionBody=functionBody + "\tanalogWrite(D2, lspeed);\n"
 
 functionBody=functionBody + "}\n"
 Blockly.Arduino.definitions_['moveforwardFunction']=functionBody;
@@ -93,15 +93,15 @@ return code;
 
 Blockly.Arduino.MoveReverse = function() { 
 
-Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(0, OUTPUT);';
-Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(2, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(D3, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(D4, OUTPUT);';
 var inputSpeed= Blockly.Arduino.valueToCode(this, 'reverseSpeed', Blockly.Arduino.ORDER_ATOMIC);
 var functionBody= "void moveReverse(int lspeed)\n"
 functionBody=functionBody + "{\n"
-functionBody=functionBody + "\tdigitalWrite(0, LOW);\n"
-functionBody=functionBody + "\tdigitalWrite(2, LOW);\n"
-functionBody=functionBody + "\tanalogWrite(5, lspeed);\n"
-functionBody=functionBody + "\tanalogWrite(4, lspeed);\n"
+functionBody=functionBody + "\tdigitalWrite(D3, LOW);\n"
+functionBody=functionBody + "\tdigitalWrite(D4, LOW);\n"
+functionBody=functionBody + "\tanalogWrite(D1, lspeed);\n"
+functionBody=functionBody + "\tanalogWrite(D2, lspeed);\n"
 
 functionBody=functionBody + "}\n"
 Blockly.Arduino.definitions_['moveReverseFunction']=functionBody;
@@ -115,15 +115,15 @@ return code;
 
 Blockly.Arduino.TurnLeft = function() { 
 
-Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(0, OUTPUT);';
-Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(2, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(D3, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(D4, OUTPUT);';
 var inputSpeed= Blockly.Arduino.valueToCode(this, 'leftSpeed', Blockly.Arduino.ORDER_ATOMIC);
 var functionBody= "void turnLeft(int lspeed)\n"
 functionBody=functionBody + "{\n"
-functionBody=functionBody + "\tdigitalWrite(0, LOW);\n"
-functionBody=functionBody + "\tdigitalWrite(2, HIGH);\n"
-functionBody=functionBody + "\tanalogWrite(5, lspeed);\n"
-functionBody=functionBody + "\tanalogWrite(4, lspeed);\n"
+functionBody=functionBody + "\tdigitalWrite(D3, LOW);\n"
+functionBody=functionBody + "\tdigitalWrite(D4, HIGH);\n"
+functionBody=functionBody + "\tanalogWrite(D1, lspeed);\n"
+functionBody=functionBody + "\tanalogWrite(D2, lspeed);\n"
 
 functionBody=functionBody + "}\n"
 Blockly.Arduino.definitions_['moveLeftFunction']=functionBody;
@@ -137,21 +137,41 @@ return code;
 
 Blockly.Arduino.TurnRight = function() { 
 
-Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(0, OUTPUT);';
-Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(2, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(D3, OUTPUT);';
+Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(D4, OUTPUT);';
 var inputSpeed= Blockly.Arduino.valueToCode(this, 'rightSpeed', Blockly.Arduino.ORDER_ATOMIC);
 var functionBody= "void turnRight(int lspeed)\n"
 functionBody=functionBody + "{\n"
-functionBody=functionBody + "\tdigitalWrite(0, LOW);\n"
-functionBody=functionBody + "\tdigitalWrite(2, HIGH);\n"
-functionBody=functionBody + "\tanalogWrite(5, lspeed);\n"
-functionBody=functionBody + "\tanalogWrite(4, lspeed);\n"
+functionBody=functionBody + "\tdigitalWrite(D3, LOW);\n"
+functionBody=functionBody + "\tdigitalWrite(D4, HIGH);\n"
+functionBody=functionBody + "\tanalogWrite(D1, lspeed);\n"
+functionBody=functionBody + "\tanalogWrite(D2, lspeed);\n"
 
 functionBody=functionBody + "}\n"
 Blockly.Arduino.definitions_['moveRightFunction']=functionBody;
 
 
 var code= "turnRight("+inputSpeed+");\n"	
+
+
+return code;
+}
+
+Blockly.Arduino.Stop = function() { 
+
+
+
+var functionBody= "void stop()\n"
+functionBody=functionBody + "{\n"
+
+functionBody=functionBody + "\tanalogWrite(D1, 0);\n"
+functionBody=functionBody + "\tanalogWrite(D2, 0);\n"
+
+functionBody=functionBody + "}\n"
+Blockly.Arduino.definitions_['stopFunction']=functionBody;
+
+
+var code= "stop();\n"	
 
 
 return code;

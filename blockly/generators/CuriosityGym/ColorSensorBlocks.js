@@ -45,11 +45,11 @@ Blockly.Blocks.Measure={
 		this.appendDummyInput()
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("SCL:")
-			.appendField(new Blockly.FieldDropdown(profile["default"].digital),"SCL");
+			.appendField(new Blockly.FieldDropdown(profile["default"].residual),"SCL");
 		this.appendDummyInput()
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("SDA:")
-			.appendField(new Blockly.FieldDropdown(profile["default"].digital),"SDA");
+			.appendField(new Blockly.FieldDropdown(profile["default"].residual),"SDA");
 		/*this.appendDummyInput()
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("Sensor Number:")

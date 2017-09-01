@@ -162,6 +162,17 @@ Blockly.Blocks['TurnRight'] = {
   }
 };
 
+Blockly.Blocks['Stop'] = {
+  init: function() {
+	this.appendDummyInput().appendField("Stop Robot");  	
+    this.setPreviousStatement(true);
+	this.setNextStatement(true);
+    this.setColour(160);
+    this.setTooltip('Returns number of letters in the provided text.');
+    this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp');
+  }
+};
+
 
 
 
