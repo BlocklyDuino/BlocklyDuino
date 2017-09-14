@@ -120,8 +120,8 @@ Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(D4, OUTPUT);';
 var inputSpeed= Blockly.Arduino.valueToCode(this, 'leftSpeed', Blockly.Arduino.ORDER_ATOMIC);
 var functionBody= "void turnLeft(int lspeed)\n"
 functionBody=functionBody + "{\n"
-functionBody=functionBody + "\tdigitalWrite(D3, LOW);\n"
-functionBody=functionBody + "\tdigitalWrite(D4, HIGH);\n"
+functionBody=functionBody + "\tdigitalWrite(D3, HIGH);\n"
+functionBody=functionBody + "\tdigitalWrite(D4, LOW);\n"
 functionBody=functionBody + "\tanalogWrite(D1, lspeed);\n"
 functionBody=functionBody + "\tanalogWrite(D2, lspeed);\n"
 
