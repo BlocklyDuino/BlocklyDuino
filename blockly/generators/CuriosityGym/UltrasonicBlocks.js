@@ -3,6 +3,7 @@
 Blockly.Blocks.ping_cm={
 	init:function()
 	{
+		//	alert(profile["default"].residual);
 		this.appendDummyInput()
 			.appendField("Ping Distance (cm)");
 		this.appendDummyInput()

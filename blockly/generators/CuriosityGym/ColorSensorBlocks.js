@@ -45,11 +45,11 @@ Blockly.Blocks.Measure={
 		this.appendDummyInput()
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("SCL:")
-			.appendField(new Blockly.FieldDropdown(profile["default"].residual),"SCL");
+			.appendField(new Blockly.FieldDropdown(profile["default"].I2C_SCL),"SCL");
 		this.appendDummyInput()
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("SDA:")
-			.appendField(new Blockly.FieldDropdown(profile["default"].residual),"SDA");
+			.appendField(new Blockly.FieldDropdown(profile["default"].I2C_SDA),"SDA");
 		/*this.appendDummyInput()
 			.setAlign(Blockly.ALIGN_RIGHT)
 			.appendField("Sensor Number:")

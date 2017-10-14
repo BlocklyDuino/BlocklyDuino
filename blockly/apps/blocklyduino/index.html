@@ -17,8 +17,8 @@
    <!-- Arduino Specific Includes -->
    
    <!-- CuriosityGym Specific Includes -->
-    <script type="text/javascript" src="../../generators/CuriosityGym/RobotBlocks.js"></script>
-	<script type="text/javascript" src="../../generators/CuriosityGym/RobotGenerator.js"></script>
+    <script type="text/javascript" src="../../generators/CuriosityGym/ArduinoRobotBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/ArduinoRobotGenerator.js"></script>
 	<script type="text/javascript" src="../../generators/CuriosityGym/UltrasonicBlocks.js"></script>
 	<script type="text/javascript" src="../../generators/CuriosityGym/UltrasonicGenerator.js"></script>
 	<script type="text/javascript" src="../../generators/CuriosityGym/ColorSensorBlocks.js"></script>
@@ -436,7 +436,7 @@ function init() {
     </category>
 	
 	 <category name="CG Robot">  
-	 <block type="Direction"></block> 
+	 <!--<block type="Direction"></block> 
 	 
 	 
 	  <block type="motorA_Direction"></block> 
@@ -454,11 +454,11 @@ function init() {
 				<field name="NUM">1023</field>
 			</block>
 		</value>
-	  </block>	
+	  </block>	-->
 	  <block type="MoveForward">
 		<value name="forwardSpeed">
           <block type="math_number">
-            <field name="NUM">1023</field>
+            <field name="NUM">255</field>
 			
           </block>
         </value>
@@ -467,7 +467,7 @@ function init() {
 	<block type="MoveReverse">
 		<value name="reverseSpeed">
           <block type="math_number">
-            <field name="NUM">1023</field>
+            <field name="NUM">255</field>
 			
           </block>
         </value>
@@ -476,7 +476,7 @@ function init() {
 	 <block type="TurnLeft">
 		<value name="leftSpeed">
           <block type="math_number">
-            <field name="NUM">1023</field>
+            <field name="NUM">255</field>
 			
           </block>
         </value>
@@ -484,7 +484,7 @@ function init() {
 	 <block type="TurnRight">
 		<value name="rightSpeed">
           <block type="math_number">
-            <field name="NUM">1023</field>
+            <field name="NUM">255</field>
 			
           </block>
         </value>

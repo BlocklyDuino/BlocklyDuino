@@ -75,8 +75,12 @@ var profile = {
   arduino: {
     description: "Arduino standard-compatible board",
     digital: [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["A0", "A0"], ["A1", "A1"], ["A2", "A2"], ["A3", "A3"], ["A4", "A4"], ["A5", "A5"]],
+	motor: [["3", "3"],["4", "4"], ["5", "5"], ["6", "6"],["7","7"],["8","8"],["11","11"],["12","12"]],
+	residual: [["2","2"],["9", "9"],["10", "10"],["13", "13"], ["A0", "A0"], ["A1", "A1"], ["A2", "A2"], ["A3", "A3"], ["A4", "A4"], ["A5", "A5"]],
     analog: [["A0", "A0"], ["A1", "A1"], ["A2", "A2"], ["A3", "A3"], ["A4", "A4"], ["A5", "A5"]],
-    serial: 9600
+	I2C_SCL:[["A5","A5"]],
+	I2C_SDA:[["A4", "A4"]],
+    serial: 115200
   },
   arduino_mega: {
     description: "Arduino Mega-compatible board"
@@ -93,7 +97,7 @@ var profile = {
   }
 };
 //set default profile to arduino standard-compatible board
-profile["default"] = profile["ESP8266"];
+profile["default"] = profile["arduino"];
 //alert(profile.default.digital[0]);
 
 /**
