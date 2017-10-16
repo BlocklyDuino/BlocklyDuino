@@ -79,12 +79,12 @@ Blockly.Arduino.MoveForward = function() {
 	return code;
 }
 
-Blockly.Arduino.MoveReverse = function() { 
+Blockly.Arduino.MoveBACKWARD = function() { 
 	Blockly.Arduino.definitions_['include_motor_driver'] = '#include <MotorDriver.h>';
 	Blockly.Arduino.definitions_['motor_driver_object'] = 'MotorDriver m;';
-	var inputSpeed= Blockly.Arduino.valueToCode(this, 'reverseSpeed', Blockly.Arduino.ORDER_ATOMIC);
-	var code="m.motor(1,REVERSE,"+ inputSpeed+");\n"
-	code=code+"m.motor(4,REVERSE,"+ inputSpeed+");\n"
+	var inputSpeed= Blockly.Arduino.valueToCode(this, 'BACKWARDSpeed', Blockly.Arduino.ORDER_ATOMIC);
+	var code="m.motor(1,BACKWARD,"+ inputSpeed+");\n"
+	code=code+"m.motor(4,BACKWARD,"+ inputSpeed+");\n"
 
 	return code;
 
@@ -97,7 +97,7 @@ Blockly.Arduino.TurnLeft = function() {
 	Blockly.Arduino.definitions_['motor_driver_object'] = 'MotorDriver m;';
 	var inputSpeed= Blockly.Arduino.valueToCode(this, 'leftSpeed', Blockly.Arduino.ORDER_ATOMIC);
 	var code="m.motor(1,FORWARD,"+ inputSpeed+");\n"
-	code=code+"m.motor(4,REVERSE,"+ inputSpeed+");\n"
+	code=code+"m.motor(4,BACKWARD,"+ inputSpeed+");\n"
 
 	return code;
 
@@ -110,7 +110,7 @@ Blockly.Arduino.TurnRight = function() {
 	Blockly.Arduino.definitions_['include_motor_driver'] = '#include <MotorDriver.h>';
 	Blockly.Arduino.definitions_['motor_driver_object'] = 'MotorDriver m;';
 	var inputSpeed= Blockly.Arduino.valueToCode(this, 'rightSpeed', Blockly.Arduino.ORDER_ATOMIC)||0;
-	var code="m.motor(1,REVERSE,"+ inputSpeed+");\n"
+	var code="m.motor(1,BACKWARD,"+ inputSpeed+");\n"
 	code=code+"m.motor(4,FORWARD,"+ inputSpeed+");\n"
 
 	return code;
