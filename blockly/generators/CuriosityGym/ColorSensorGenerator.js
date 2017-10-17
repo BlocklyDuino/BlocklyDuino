@@ -32,7 +32,7 @@ Blockly.Arduino['Measure']=function()
 	Blockly.Arduino.definitions_['colorVariables' + colorSensorNumber]="uint16_t clear_"+colorSensorNumber+", red_"+colorSensorNumber+", green_"+colorSensorNumber+", blue_"+colorSensorNumber+";\n";
 	Blockly.Arduino.definitions_['tcs_lib_init' + colorSensorNumber]="Adafruit_TCS34725 tcs_"+colorSensorNumber+" = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X);\n";
 	
-	Blockly.Arduino.setups_['tcs_begin_'+colorSensorNumber]="Wire.begin("+SDAPin+", "+SCLPin+");\n tcs_"+colorSensorNumber+".begin();"
+	Blockly.Arduino.setups_['tcs_begin_'+colorSensorNumber]="\tWire.begin();\n\ttcs_"+colorSensorNumber+".begin();"
 	
 	
 	behaviourCode=behaviourCode+"tcs_"+colorSensorNumber+".setInterrupt(false);// turn on LED\n"
