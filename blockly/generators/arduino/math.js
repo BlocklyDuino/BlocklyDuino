@@ -60,5 +60,6 @@ Blockly.Arduino.math_arithmetic.OPERATORS = {
   MINUS: [' - ', Blockly.Arduino.ORDER_ADDITIVE],
   MULTIPLY: [' * ', Blockly.Arduino.ORDER_MULTIPLICATIVE],
   DIVIDE: [' / ', Blockly.Arduino.ORDER_MULTIPLICATIVE],
+  MODULO: [' % ', Blockly.Arduino.ORDER_MULTIPLICATIVE],
   POWER: [null, Blockly.Arduino.ORDER_NONE]  // Handle power separately.
 };

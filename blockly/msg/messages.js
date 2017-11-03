@@ -308,6 +308,7 @@ Blockly.Msg.MATH_MULTIPLICATION_SYMBOL = '×';
 /// value of the left operand is L and the value of the right operand (the exponent) is
 /// R, multiply L by itself R times.  (Fractional and negative exponents are also legal.)
 Blockly.Msg.MATH_POWER_SYMBOL = '^';
+Blockly.Msg.MATH_MODULO_SYMBOL ='mod';
 
 /// math - The short name of the trigonometric function
 /// [https://en.wikipedia.org/wiki/Trigonometric_functions#Sine.2C_cosine_and_tangent sine].
