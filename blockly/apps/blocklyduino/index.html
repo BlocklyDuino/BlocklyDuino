@@ -3,9 +3,22 @@
   <meta charset="utf-8">
   <title>BlocklyDuino</title>
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
-  <script type="text/javascript" src="../../blocks_compressed.js"></script>
+  <!--<script type="text/javascript" src="../../blocks_compressed.js"></script>-->
+  
+  <!-- Blockly Blocks -->
+  <script type="text/javascript" src="../../blocks/base.js"></script>
+  <script type="text/javascript" src="../../blocks/colour.js"></script>
+  <script type="text/javascript" src="../../blocks/lists.js"></script>
+  <script type="text/javascript" src="../../blocks/logic.js"></script>
+  <script type="text/javascript" src="../../blocks/loops.js"></script>
+  <script type="text/javascript" src="../../blocks/math.js"></script>
+  <script type="text/javascript" src="../../blocks/procedures.js"></script>
+  <script type="text/javascript" src="../../blocks/text.js"></script>
+  <script type="text/javascript" src="../../blocks/variables.js"></script>
+  
+  
   <!-- Arduino Specific Includes -->
-  <script type="text/javascript" src="../../generators/arduino.js"></script>
+   <script type="text/javascript" src="../../generators/arduino.js"></script>
    <script type="text/javascript" src="../../generators/arduino/base.js"></script>
    <script type="text/javascript" src="../../generators/arduino/control.js"></script>
    <script type="text/javascript" src="../../generators/arduino/grove.js"></script>
@@ -378,6 +391,8 @@ function init() {
     <category name="Math">
       <block type="math_number"></block>
       <block type="math_arithmetic"></block>
+	  <block type="math_modulo"></block>
+	  
       <block type="base_map">
         <value name="DMAX">
           <block type="math_number">
@@ -394,7 +409,14 @@ function init() {
     <sep></sep>
     <category name="Input/Output">
       <block type="inout_highlow"></block>
-      <block type="inout_digital_write"></block>
+      <block type="inout_digital_write">
+	   <value name="PIN">
+		<block type="math_number">
+            <field name="NUM">13</field>
+			
+          </block>
+		</value>  
+	  </block>
       <block type="inout_digital_read"></block>
       <block type="inout_analog_write">
         <value name="NUM">

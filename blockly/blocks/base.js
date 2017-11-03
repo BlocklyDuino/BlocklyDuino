@@ -79,15 +79,36 @@ Blockly.Blocks['inout_buildin_led'] = {
 Blockly.Blocks['inout_digital_write'] = {
   helpUrl: 'http://arduino.cc/en/Reference/DigitalWrite',
   init: function() {
-    this.setColour(230);
+    /*this.setColour(230);
     this.appendDummyInput()
 	      .appendField("DigitalWrite PIN#")
-	      .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+	      .appendField(new Blockly.FieldNumber(profile.default.digital), "PIN")
       	.appendField("Stat")
       	.appendField(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setTooltip('Write digital value to a specific Port');
+    this.setTooltip('Write digital value to a specific Port');*/
+	this.jsonInit({
+      "message0": "Set Pin %1 to state %2" ,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number"
+        },
+        {
+			"type": "field_dropdown",
+			"name": "STAT",
+			"options": [[ "HIGH", "HIGH" ],[ "LOW", "LOW" ]]
+      
+		}
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "colour":  Blockly.Blocks.math.HUE,
+      "tooltip": "Write digital value to a specific Pin",
+      
+    });
   }
 };
 
