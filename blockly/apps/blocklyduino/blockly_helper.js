@@ -201,7 +201,7 @@ function uploadCode(code, callback) {
     var target = document.getElementById('content_arduino');
     var spinner = new Spinner().spin(target);
 
-    var url = "http://127.0.0.1:8080/";
+    var url =location.protocol+"//"+location.host;
     var method = "POST";
 
     // You REALLY want async = true.
@@ -265,7 +265,9 @@ function resetClick() {
     var code = "void setup() {} void loop() {}";
 
     uploadCode(code, function(status, errorInfo) {
-        if (status != 200) {
+        if (status == 200) {
+            alert("Program resetting ok ");
+        }else {
             alert("Error resetting program: " + errorInfo);
         }
     });
