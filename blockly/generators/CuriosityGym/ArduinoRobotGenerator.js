@@ -30,9 +30,9 @@ goog.require('Blockly.Arduino');
 
 
 
-/*Blockly.Arduino.motorB_Speed = function() { return "abc"}
-Blockly.Arduino.motorA_Speed = function() { return "abc"}
-Blockly.Arduino.motorB_Direction = function() { 
+/*Blockly.Arduino.motor4_Speed = function() { return "abc"}
+Blockly.Arduino.motor1_Speed = function() { return "abc"}
+Blockly.Arduino.motor4_Direction = function() { 
 
 Blockly.Arduino.setups_['setup_output_2'] = 'pinMode(D4, OUTPUT);';
 var value_num = Blockly.Arduino.valueToCode(this, 'motorBDirection', Blockly.Arduino.ORDER_ATOMIC);
@@ -50,7 +50,7 @@ var value_num = Blockly.Arduino.valueToCode(this, 'motorBDirection', Blockly.Ard
 	return code;
 }
 
-Blockly.Arduino.motorA_Direction = function() { 
+Blockly.Arduino.motor1_Direction = function() { 
 
 Blockly.Arduino.setups_['setup_output_0'] = 'pinMode(D3, OUTPUT);';
 var value_num = Blockly.Arduino.valueToCode(this, 'motorADirection', Blockly.Arduino.ORDER_ATOMIC);
@@ -66,8 +66,19 @@ if(value_num==1)
 }
 
 return code;
+}*/
+
+Blockly.Arduino.setMotor = function()
+{
+	Blockly.Arduino.definitions_['include_motor_driver'] = '#include <MotorDriver.h>';
+	Blockly.Arduino.definitions_['motor_driver_object'] = 'MotorDriver m;';
+	var inputSpeed= Blockly.Arduino.valueToCode(this, 'motorSpeed', Blockly.Arduino.ORDER_ATOMIC)||255;
+	var chosenMotor= this.getFieldValue('motorChoice')
+	var chosenDirection= this.getFieldValue('direction')
+	var code="m.motor("+chosenMotor+","+chosenDirection+","+ inputSpeed+");\n"
+	return code;
 }
-*/
+
 
 Blockly.Arduino.MoveForward = function() { 
 	Blockly.Arduino.definitions_['include_motor_driver'] = '#include <MotorDriver.h>';

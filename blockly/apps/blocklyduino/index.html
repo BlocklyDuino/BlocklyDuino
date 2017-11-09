@@ -461,22 +461,22 @@ function init() {
 	 <!--<block type="Direction"></block> 
 	 
 	 
-	  <block type="motorA_Direction"></block> 
-	  <block type="motorA_Speed">
-	  <value name="motorASpeed">
+	  <block type="motor1_Direction"></block> 
+	  <block type="motor1_Speed">
+	  <value name="motor1Speed">
 			<block type="math_number">
-				<field name="NUM">1023</field>
+				<field name="NUM">255</field>
 			</block>
 		</value>
 	  </block>
-	  <block type="motorB_Direction"></block> 
-	  <block type="motorB_Speed">
-		<value name="motorBSpeed">
+	  <block type="motor4_Direction"></block> 
+	  <block type="motor4_Speed">
+		<value name="motor4Speed">
 			<block type="math_number">
-				<field name="NUM">1023</field>
+				<field name="NUM">255</field>
 			</block>
 		</value>
-	  </block>	-->
+	  </block>
 	  <block type="MoveForward">
 		<value name="forwardSpeed">
           <block type="math_number">
@@ -484,8 +484,15 @@ function init() {
 			
           </block>
         </value>
-	  </block>
-
+	  </block>-->
+	<block type="setMotor">
+		<value name="motorSpeed">
+          <block type="math_number">
+            <field name="NUM">255</field>
+			
+          </block>
+        </value>
+	</block>
 	<block type="MoveReverse">
 		<value name="reverseSpeed">
           <block type="math_number">

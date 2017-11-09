@@ -32,14 +32,14 @@ goog.require('Blockly.Arduino');
 
 /*---------------------------------------------------------------------------*/
 
-
-Blockly.Blocks['motorA_Speed'] = {
+/*
+Blockly.Blocks['motor1_Speed'] = {
   init: function() {
 	
 	 
-	this.appendValueInput('motorASpeed')
+	this.appendValueInput('motor1Speed')
         .setCheck('Number')
-        .appendField('Set Motor A Speed to ');  
+        .appendField('Set Motor 1 Speed to ');  
     this.setPreviousStatement(true);
 	this.setNextStatement(true);
     this.setColour(160);
@@ -50,13 +50,13 @@ Blockly.Blocks['motorA_Speed'] = {
 
 
 
-Blockly.Blocks['motorB_Speed'] = {
+Blockly.Blocks['motor4_Speed'] = {
   init: function() {
 	
 	 
-	this.appendValueInput('motorBSpeed')
+	this.appendValueInput('motor4Speed')
         .setCheck('Number')
-        .appendField('Set Motor B Speed to ');  
+        .appendField('Set Motor 4 Speed to ');  
     this.setPreviousStatement(true);
 	this.setNextStatement(true);
     this.setColour(160);
@@ -68,11 +68,11 @@ Blockly.Blocks['motorB_Speed'] = {
 
 
 
-Blockly.Blocks['motorB_Direction'] = {
+Blockly.Blocks['motor4_Direction'] = {
   init: function() {	 
-	this.appendValueInput('motorBDirection')
+	this.appendValueInput('motor4Direction')
         .setCheck('Number')
-        .appendField('Set Motor B Direction to ');  
+        .appendField('Set Motor 4 Direction to ');  
     this.setPreviousStatement(true);
 	this.setNextStatement(true);
     this.setColour(160);
@@ -87,11 +87,11 @@ Blockly.Blocks['motorB_Direction'] = {
 
 
 
-Blockly.Blocks['motorA_Direction'] = {
+Blockly.Blocks['motor1_Direction'] = {
   init: function() { 
-	this.appendValueInput('motorADirection')
+	this.appendValueInput('motor1Direction')
         .setCheck('Number')
-        .appendField('Set Motor A Direction to ');  
+        .appendField('Set Motor 1 Direction to ');  
     this.setPreviousStatement(true);
 	this.setNextStatement(true);
     this.setColour(160);
@@ -100,8 +100,27 @@ Blockly.Blocks['motorA_Direction'] = {
   }
 };
 
+*/
 
+Blockly.Blocks['setMotor'] = {
+  init: function() {
+	  var motoroptions = [['1', '1'], ['2', '2'],['3', '3'],['4', '4']];
+	  var directionOptions = [['FORWARD', 'FORWARD'], ['BACKWARD', 'BACKWARD']];
+	  
+	this.appendValueInput('motorSpeed')
+        .setCheck('Number')
+        .appendField('Turn Motor ')
+		.appendField(new Blockly.FieldDropdown(motoroptions), 'motorChoice')
+		.appendField('in ')
+		.appendField(new Blockly.FieldDropdown(directionOptions), 'direction')
+		.appendField('direction with speed ');
+		
+	this.setPreviousStatement(true);
+	this.setNextStatement(true);
+    this.setColour(160);
 
+  }
+}
 
 Blockly.Blocks['MoveForward'] = {
   init: function() { 
