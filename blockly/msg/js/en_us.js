@@ -468,6 +468,13 @@ Blockly.Msg.VARIABLES_SET_TAIL = 'to';
 Blockly.Msg.VARIABLES_SET_TOOLTIP = 'Sets this variable to be equal to the input.';
 Blockly.Msg.VARIABLES_SET_CREATE_GET = 'Create "get %1"';
 
+Blockly.Msg.VARIABLES_INIT_HELPURL = 'http://en.wikipedia.org/wiki/Variable_(computer_science)';
+Blockly.Msg.VARIABLES_INIT_TITLE = 'Initialise';
+Blockly.Msg.VARIABLES_INIT_ITEM = 'item';
+Blockly.Msg.VARIABLES_INIT_TAIL = 'to';
+Blockly.Msg.VARIABLES_INIT_TOOLTIP = 'Initialises this variable to be equal to the input.';
+Blockly.Msg.VARIABLES_INIT_CREATE_GET = 'Create "get %1"';
+
 // Procedures Blocks.
 Blockly.Msg.PROCEDURES_DEFNORETURN_HELPURL = 'http://en.wikipedia.org/wiki/Procedure_%28computer_science%29';
 Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE = 'to';
