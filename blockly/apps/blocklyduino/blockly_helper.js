@@ -201,7 +201,7 @@ function uploadCode(code, callback) {
     var target = document.getElementById('content_arduino');
     var spinner = new Spinner().spin(target);
 
-    var url = "http://127.0.0.1:8080/";
+    var url = "http://localhost:8080/";
     var method = "POST";
 
     // You REALLY want async = true.
@@ -269,4 +269,22 @@ function resetClick() {
             alert("Error resetting program: " + errorInfo);
         }
     });
+}
+
+function getPortNames(){
+	
+	//var target = document.getElementById('content_arduino');
+    //var spinner = new Spinner().spin(target);
+
+    
+    $.ajax({
+	url: "http://localhost:8080/getPorts",
+	success: function( result ) {
+		//alert(result.ports[0]);
+		$( "#portNames" ).empty();
+		jQuery.each( result.ports, function( i, val ) {
+			$( "#portNames" ).append("<option value='"+val+"'>"+val+"</option>");  
+			});
+	}
+	});
 }

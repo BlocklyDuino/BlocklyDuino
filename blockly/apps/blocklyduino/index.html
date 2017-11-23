@@ -3,20 +3,59 @@
   <meta charset="utf-8">
   <title>BlocklyDuino</title>
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
-  <script type="text/javascript" src="../../blocks_compressed.js"></script>
-  <script type="text/javascript" src="../../arduino_compressed.js"></script>
+  <!--<script type="text/javascript" src="../../blocks_compressed.js"></script>-->
+  
+  <!-- Blockly Blocks -->
+  <script type="text/javascript" src="../../blocks/base.js"></script>
+  <script type="text/javascript" src="../../blocks/colour.js"></script>
+  <script type="text/javascript" src="../../blocks/lists.js"></script>
+  <script type="text/javascript" src="../../blocks/logic.js"></script>
+  <script type="text/javascript" src="../../blocks/loops.js"></script>
+  <script type="text/javascript" src="../../blocks/math.js"></script>
+  <script type="text/javascript" src="../../blocks/procedures.js"></script>
+  <script type="text/javascript" src="../../blocks/text.js"></script>
+  <script type="text/javascript" src="../../blocks/variables.js"></script>
+  
+  
+  <!-- Arduino Specific Includes -->
+   <script type="text/javascript" src="../../generators/arduino.js"></script>
+   <script type="text/javascript" src="../../generators/arduino/base.js"></script>
+   <script type="text/javascript" src="../../generators/arduino/control.js"></script>
+   <script type="text/javascript" src="../../generators/arduino/grove.js"></script>
+   <script type="text/javascript" src="../../generators/arduino/logic.js"></script>
+   <script type="text/javascript" src="../../generators/arduino/math.js"></script>
+   <script type="text/javascript" src="../../generators/arduino/procedures.js"></script>
+   <script type="text/javascript" src="../../generators/arduino/text.js"></script>
+   <script type="text/javascript" src="../../generators/arduino/variables.js"></script>
+   <!-- Arduino Specific Includes -->
+   
+   <!-- CuriosityGym Specific Includes -->
+    <script type="text/javascript" src="../../generators/CuriosityGym/ArduinoRobotBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/ArduinoRobotGenerator.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/UltrasonicBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/UltrasonicGenerator.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/ColorSensorBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/ColorSensorGenerator.js"></script>
+
+	<script type="text/javascript" src="../../generators/CuriosityGym/UtilBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/UtilBlocksGenerator.js"></script>	
+   <!-- CuriosityGym Specific Includes -->
+   
   <script type="text/javascript" src="../../msg/js/en.js"></script>
+  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="Blob.js"></script>
   <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
+
+  
   <script>
 
 /**
  * List of tab names.
  * @private
  */
-var TABS_ = ['blocks', 'arduino', 'xml'];
+var TABS_ = ['blocks', 'arduino','xml'];
 
 var selected = 'blocks';
 
@@ -297,8 +336,12 @@ function init() {
             <td class="tabmin">&nbsp;</td>
             <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
             <td class="tabmax">
-              <button type="button" onclick="uploadClick()">Upload</button>
-              <button type="button" onclick="resetClick()">Reset</button>
+			 <!--<select id='portNames'>
+				
+			 </select>
+			  <button type="button" onclick="getPortNames()">Refresh Ports</button>-->
+              <!--<button type="button" onclick="uploadClick()">Upload</button>-->
+              <!--<button type="button" onclick="resetClick()">Reset</button>-->
               <button onclick="discard()">Discard</button>
               <button onclick="saveCode()">Save Arduino Code</button>
               <button onclick="save()">Save XML</button>
@@ -347,12 +390,31 @@ function init() {
         </value>
       </block>
       <block type="controls_whileUntil"></block>
+	  <block type="break_stmt"></block>
+	  
     </category>
     <category name="Math">
       <block type="math_number"></block>
       <block type="math_arithmetic"></block>
+	  <block type="math_modulo"></block>
+	  
       <block type="base_map">
-        <value name="DMAX">
+        <value name="ILRange">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+		<value name="IHRange">
+          <block type="math_number">
+            <field name="NUM">1024</field>
+          </block>
+        </value>
+		<value name="OLRange">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+		<value name="OHRange">
           <block type="math_number">
             <field name="NUM">180</field>
           </block>
@@ -362,12 +424,25 @@ function init() {
     <category name="Text">
       <block type="text"></block>
     </category>
-    <category name="Variables" custom="VARIABLE"></category>
+    <category name="Variables">
+	<block type="variables_init"></block>
+	<block type="variables_set"></block>
+	<block type="variables_get"></block>
+	
+	
+	</category>
     <category name="Functions" custom="PROCEDURE"></category>
     <sep></sep>
     <category name="Input/Output">
       <block type="inout_highlow"></block>
-      <block type="inout_digital_write"></block>
+      <block type="inout_digital_write">
+	   <value name="PIN">
+		<block type="math_number">
+            <field name="NUM">13</field>
+			
+          </block>
+		</value>  
+	  </block>
       <block type="inout_digital_read"></block>
       <block type="inout_analog_write">
         <value name="NUM">
@@ -403,48 +478,104 @@ function init() {
         </value>
       </block>
       <block type="servo_read_degrees"></block>
+	  
+	  
+	  
     </category>
-    <category name="Grove Analog">
-      <block type="grove_rotary_angle"></block>
-      <block type="grove_temporature_sensor"></block>
-      <block type="grove_sound_sensor"></block>
-      <block type="grove_thumb_joystick"></block>
-    </category>
-    <category name="Grove">
-      <block type="grove_led"></block>
-      <block type="grove_button"></block>
-      <block type="grove_relay"></block>
-      <block type="grove_tilt_switch"></block>
-      <block type="grove_piezo_buzzer"></block>
-      <block type="grove_pir_motion_sensor"></block>
-      <block type="grove_line_finder"></block>
-      <block type="grove_rgb_led"></block>
-      <block type="grove_ultrasonic_ranger"></block>
-    </category>
-    <category name="Grove LCD">
-      <block type="grove_serial_lcd_print">
-        <value name="TEXT">
-          <block type="text">
-            <field name="TEXT"></field>
-          </block>
-        </value>
-        <value name="TEXT2">
-          <block type="text">
-            <field name="TEXT"></field>
-          </block>
-        </value>
-        <value name="DELAY_TIME">
+	
+	 <category name="CG Robot">  
+	 <!--<block type="Direction"></block> 
+	 
+	 
+	  <block type="motor1_Direction"></block> 
+	  <block type="motor1_Speed">
+	  <value name="motor1Speed">
+			<block type="math_number">
+				<field name="NUM">255</field>
+			</block>
+		</value>
+	  </block>
+	  <block type="motor4_Direction"></block> 
+	  <block type="motor4_Speed">
+		<value name="motor4Speed">
+			<block type="math_number">
+				<field name="NUM">255</field>
+			</block>
+		</value>
+	  </block>
+	  <block type="MoveForward">
+		<value name="forwardSpeed">
           <block type="math_number">
-            <field name="NUM">1000</field>
+            <field name="NUM">255</field>
+			
           </block>
         </value>
+	  </block>-->
+	<block type="setMotor">
+		<value name="motorSpeed">
+          <block type="math_number">
+            <field name="NUM">255</field>
+			
+          </block>
+        </value>
+	</block>
+	<block type="MoveReverse">
+		<value name="reverseSpeed">
+          <block type="math_number">
+            <field name="NUM">255</field>
+			
+          </block>
+        </value>
+	  </block>	
+	  
+	 <block type="TurnLeft">
+		<value name="leftSpeed">
+          <block type="math_number">
+            <field name="NUM">255</field>
+			
+          </block>
+        </value>
+	  </block>	
+	 <block type="TurnRight">
+		<value name="rightSpeed">
+          <block type="math_number">
+            <field name="NUM">255</field>
+			
+          </block>
+        </value>
+	  </block>	
+	  
+	   <block type="Stop">
+		
+	  </block>	
+
+ 	  
+
+	  
+	  
+      	  
+    </category>
+	
+	<category name="Ultrasonic Distance Sensor">
+      <block type="ping_cm">	
       </block>
-      <block type="grove_serial_lcd_power"></block>
-      <block type="grove_serial_lcd_effect"></block>
     </category>
-    <category name="Grove Motor">
-      <block type="grove_motor_shield"></block>
+    
+	
+	<category name="Color Sensor">
+	  <block type="Measure">	
+      </block>
+      <block type="getGreenComponent">	
+      </block>
+	  <block type="getBlueComponent">	
+      </block>
+	  <block type="getRedComponent">	
+      </block>
     </category>
+    
+    
+    
+	
   </xml>
 </body>
 </html>

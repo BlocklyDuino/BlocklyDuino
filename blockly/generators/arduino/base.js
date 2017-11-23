@@ -35,9 +35,12 @@ Blockly.Arduino.base_delay = function() {
 };
 
 Blockly.Arduino.base_map = function() {
-  var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE);
-  var value_dmax = Blockly.Arduino.valueToCode(this, 'DMAX', Blockly.Arduino.ORDER_ATOMIC);
-  var code = 'map(' + value_num + ', 0, 1024, 0, ' + value_dmax + ')';
+  var value_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_NONE) ||0;
+  var value_ILRange = Blockly.Arduino.valueToCode(this, 'ILRange', Blockly.Arduino.ORDER_NONE) ||0;
+  var value_IHRange = Blockly.Arduino.valueToCode(this, 'IHRange', Blockly.Arduino.ORDER_ATOMIC)||1024;
+  var value_OLRange = Blockly.Arduino.valueToCode(this, 'OLRange', Blockly.Arduino.ORDER_NONE)||0;
+  var value_OHRange = Blockly.Arduino.valueToCode(this, 'OHRange', Blockly.Arduino.ORDER_ATOMIC)||180;
+  var code = 'map(' + value_num + ', '+value_ILRange+', '+value_IHRange+', '+value_OLRange+', '+value_OHRange+')';
   return [code, Blockly.Arduino.ORDER_NONE];
 };
 
@@ -49,8 +52,9 @@ Blockly.Arduino.inout_buildin_led = function() {
 };
 
 Blockly.Arduino.inout_digital_write = function() {
-  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '0'
   var dropdown_stat = this.getFieldValue('STAT');
+  //alert(dropdown_stat);
   Blockly.Arduino.setups_['setup_output_' + dropdown_pin] = 'pinMode(' + dropdown_pin + ', OUTPUT);';
   var code = 'digitalWrite(' + dropdown_pin + ', ' + dropdown_stat + ');\n'
   return code;

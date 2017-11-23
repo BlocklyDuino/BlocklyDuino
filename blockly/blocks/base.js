@@ -50,14 +50,24 @@ Blockly.Blocks['base_map'] = {
   init: function() {
     this.setColour(230);
     this.appendValueInput("NUM", 'Number')
-        .appendField("Map ")
+        .appendField("Map Variable ")
         .setCheck('Number');
-    this.appendValueInput("DMAX", 'Number')
-        .appendField("value to [0-")
+	this.appendValueInput("ILRange", 'Number')
+        .appendField("Input Range Low ")
         .setCheck('Number');
-    this.appendDummyInput()
-	      .appendField("]");
-    this.setInputsInline(true);
+	this.appendValueInput("IHRange", 'Number')
+        .appendField("Input Range High ")
+        .setCheck('Number');		
+	this.appendValueInput("OLRange", 'Number')
+        .appendField("Output Range Low ")
+        .setCheck('Number');
+	this.appendValueInput("OHRange", 'Number')
+        .appendField("Output Range High ")
+        .setCheck('Number');	
+	
+   // this.appendDummyInput()
+	 //     .appendField("]");
+    this.setInputsInline(false);
     this.setOutput(true);
     this.setTooltip('Re-maps a number from [0-1024] to another.');
   }
@@ -79,15 +89,36 @@ Blockly.Blocks['inout_buildin_led'] = {
 Blockly.Blocks['inout_digital_write'] = {
   helpUrl: 'http://arduino.cc/en/Reference/DigitalWrite',
   init: function() {
-    this.setColour(230);
+    /*this.setColour(230);
     this.appendDummyInput()
 	      .appendField("DigitalWrite PIN#")
-	      .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+	      .appendField(new Blockly.FieldNumber(profile.default.digital), "PIN")
       	.appendField("Stat")
       	.appendField(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setTooltip('Write digital value to a specific Port');
+    this.setTooltip('Write digital value to a specific Port');*/
+	this.jsonInit({
+      "message0": "Set Pin %1 to state %2" ,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number"
+        },
+        {
+			"type": "field_dropdown",
+			"name": "STAT",
+			"options": [[ "HIGH", "HIGH" ],[ "LOW", "LOW" ]]
+      
+		}
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "colour":  Blockly.Blocks.math.HUE,
+      "tooltip": "Write digital value to a specific Pin",
+      
+    });
   }
 };
 
