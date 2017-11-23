@@ -50,14 +50,24 @@ Blockly.Blocks['base_map'] = {
   init: function() {
     this.setColour(230);
     this.appendValueInput("NUM", 'Number')
-        .appendField("Map ")
+        .appendField("Map Variable ")
         .setCheck('Number');
-    this.appendValueInput("DMAX", 'Number')
-        .appendField("value to [0-")
+	this.appendValueInput("ILRange", 'Number')
+        .appendField("Input Range Low ")
         .setCheck('Number');
-    this.appendDummyInput()
-	      .appendField("]");
-    this.setInputsInline(true);
+	this.appendValueInput("IHRange", 'Number')
+        .appendField("Input Range High ")
+        .setCheck('Number');		
+	this.appendValueInput("OLRange", 'Number')
+        .appendField("Output Range Low ")
+        .setCheck('Number');
+	this.appendValueInput("OHRange", 'Number')
+        .appendField("Output Range High ")
+        .setCheck('Number');	
+	
+   // this.appendDummyInput()
+	 //     .appendField("]");
+    this.setInputsInline(false);
     this.setOutput(true);
     this.setTooltip('Re-maps a number from [0-1024] to another.');
   }

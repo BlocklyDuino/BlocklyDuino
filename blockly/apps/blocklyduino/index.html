@@ -35,7 +35,10 @@
 	<script type="text/javascript" src="../../generators/CuriosityGym/UltrasonicBlocks.js"></script>
 	<script type="text/javascript" src="../../generators/CuriosityGym/UltrasonicGenerator.js"></script>
 	<script type="text/javascript" src="../../generators/CuriosityGym/ColorSensorBlocks.js"></script>
-	<script type="text/javascript" src="../../generators/CuriosityGym/ColorSensorGenerator.js"></script>	 
+	<script type="text/javascript" src="../../generators/CuriosityGym/ColorSensorGenerator.js"></script>
+
+	<script type="text/javascript" src="../../generators/CuriosityGym/UtilBlocks.js"></script>
+	<script type="text/javascript" src="../../generators/CuriosityGym/UtilBlocksGenerator.js"></script>	
    <!-- CuriosityGym Specific Includes -->
    
   <script type="text/javascript" src="../../msg/js/en.js"></script>
@@ -387,6 +390,8 @@ function init() {
         </value>
       </block>
       <block type="controls_whileUntil"></block>
+	  <block type="break_stmt"></block>
+	  
     </category>
     <category name="Math">
       <block type="math_number"></block>
@@ -394,7 +399,22 @@ function init() {
 	  <block type="math_modulo"></block>
 	  
       <block type="base_map">
-        <value name="DMAX">
+        <value name="ILRange">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+		<value name="IHRange">
+          <block type="math_number">
+            <field name="NUM">1024</field>
+          </block>
+        </value>
+		<value name="OLRange">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+		<value name="OHRange">
           <block type="math_number">
             <field name="NUM">180</field>
           </block>
