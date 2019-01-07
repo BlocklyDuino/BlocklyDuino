@@ -61,8 +61,9 @@ OR (if running `ino_web_server.py`):
 ### Developpers
 To work on BlocklyDuino, you need google blockly, google closure and python
 
-- Download the blockly submodule`git submodule init && git submodule update --recursive --remote`
-- Download google closure library and place it /closure-library
+- Clone the repository with submodules : `git clone --recurse-submodules https://github.com/philippejadin/BlocklyDuino`
+
+This will clone as submodules, google blockly and google-closure library.
 
 Then when you change a block, you will need to run the build.py python script
 
