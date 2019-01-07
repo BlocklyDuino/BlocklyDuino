@@ -2,7 +2,7 @@
   "name": "blocklyduino",
   "version": "0.2.0",
   "description": "BlocklyDuino is a web-based visual programming editor for arduino",
-  "main": "index.js",
+  "main": "blocklyduino/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "blockly:upgrade": "git submodule init && git submodule update --recursive --remote"

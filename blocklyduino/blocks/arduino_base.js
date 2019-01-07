@@ -139,17 +139,19 @@ Blockly.Blocks['arduino_base_angle'] = {
   }
 };
 
-// Blockly.Blocks['arduino_base_date'] = {
-  // init: function() {
-    // this.appendDummyInput()
-        // .appendField('date:')
-        // .appendField(new Blockly.FieldDate(''), 'DATE');
-    // this.setOutput(true, 'Number');
-    // this.setTooltip('Date entrie as yyyy-mm-dd');
-    // this.setHelpUrl('');
-    // this.setColour('%{BKY_ARDUINO_BASE_HUE}');
-  // }
-// };
+ Blockly.Blocks['arduino_base_date'] = {
+   init: function() {
+     this.appendDummyInput()
+         .appendField('date:')
+         // according to docs, the field date adds 60% file size and might not be needed
+         //.appendField(new Blockly.FieldDate(''), 'DATE');
+         .appendField('DATE');
+     this.setOutput(true, 'Number');
+     this.setTooltip('Date entrie as yyyy-mm-dd');
+     this.setHelpUrl('');
+     this.setColour('%{BKY_ARDUINO_BASE_HUE}');
+   }
+ };
 
 Blockly.Blocks['arduino_base_map'] = {
   init: function() {
