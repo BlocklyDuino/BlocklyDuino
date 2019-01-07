@@ -313,11 +313,21 @@ Code.renderContent = function() {
   } else if (content.id == 'content_dart') {
     Code.attemptCodeGeneration(Blockly.Dart, 'dart');
   } else if (content.id == 'content_arduino') {
-    Code.attemptCodeGeneration(Blockly.Arduino, 'arduino');
+    Code.attemptCodeGeneration(Blockly.Arduino, 'cpp');
   } else if (content.id == 'content_lua') {
     Code.attemptCodeGeneration(Blockly.Lua, 'lua');
   }
 };
+
+
+// This function will escape html passed to it.
+// It is needed for correct pretification of code like #include <SoftwareSerial.h>
+function htmlEscape(s) {
+return s
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;');
+}
 
 /**
  * Attempt to generate the code and display it in the UI, pretty printed.
@@ -329,10 +339,11 @@ Code.attemptCodeGeneration = function(generator, prettyPrintType) {
   content.textContent = '';
   if (Code.checkAllGeneratorFunctionsDefined(generator)) {
     var code = generator.workspaceToCode(Code.workspace);
+
     content.textContent = code;
     if (typeof PR.prettyPrintOne == 'function') {
       code = content.textContent;
-      code = PR.prettyPrintOne(code, prettyPrintType);
+      code = PR.prettyPrintOne(htmlEscape(code), prettyPrintType);
       content.innerHTML = code;
     }
   }
