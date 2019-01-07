@@ -63,5 +63,5 @@ Blockly.Arduino['servo_read_degrees'] = function(block) {
   Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = 'servo_' + dropdown_pin + '.attach(' + dropdown_pin + ');\n';
 
   var code = 'servo_' + dropdown_pin + '.read()';
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
