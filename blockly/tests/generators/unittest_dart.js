@@ -27,7 +27,7 @@
 Blockly.Dart['unittest_main'] = function(block) {
   // Container for unit tests.
   var resultsVar = Blockly.Dart.variableDB_.getName('unittestResults',
-      Blockly.Variables.NAME_TYPE);
+      Blockly.Names.DEVELOPER_VARIABLE_TYPE);
   var functionName = Blockly.Dart.provideFunction_(
       'unittest_report',
       [ 'String ' + Blockly.Dart.FUNCTION_NAME_PLACEHOLDER_ + '() {',
@@ -59,22 +59,24 @@ Blockly.Dart['unittest_main'] = function(block) {
         '}']);
   // Setup global to hold test results.
   var code = resultsVar + ' = [];\n';
+  // Say which test suite this is.
+  code += 'print(\'\\n====================\\n\\n' +
+      'Running suite: ' +
+      block.getFieldValue('SUITE_NAME') +
+       '\');\n';
   // Run tests (unindented).
   code += Blockly.Dart.statementToCode(block, 'DO')
       .replace(/^  /, '').replace(/\n  /g, '\n');
-  var reportVar = Blockly.Dart.variableDB_.getDistinctName(
-      'report', Blockly.Variables.NAME_TYPE);
-  code += 'String ' + reportVar + ' = ' + functionName + '();\n';
+  // Print the report to the console (that's where errors will go anyway).
+  code += 'print(' + functionName + '());\n';
   // Destroy results.
   code += resultsVar + ' = null;\n';
-  // Print the report to the console (that's where errors will go anyway).
-  code += 'print(' + reportVar + ');\n';
   return code;
 };
 
 Blockly.Dart['unittest_main'].defineAssert_ = function() {
   var resultsVar = Blockly.Dart.variableDB_.getName('unittestResults',
-      Blockly.Variables.NAME_TYPE);
+      Blockly.Names.DEVELOPER_VARIABLE_TYPE);
   var functionName = Blockly.Dart.provideFunction_(
       'unittest_assertequals',
       [ 'void ' + Blockly.Dart.FUNCTION_NAME_PLACEHOLDER_ +
@@ -111,7 +113,8 @@ Blockly.Dart['unittest_main'].defineAssert_ = function() {
 
 Blockly.Dart['unittest_assertequals'] = function(block) {
   // Asserts that a value equals another value.
-  var message = Blockly.Dart.quote_(block.getFieldValue('MESSAGE'));
+  var message = Blockly.Dart.valueToCode(block, 'MESSAGE',
+      Blockly.Dart.ORDER_NONE) || '';
   var actual = Blockly.Dart.valueToCode(block, 'ACTUAL',
       Blockly.Dart.ORDER_NONE) || 'null';
   var expected = Blockly.Dart.valueToCode(block, 'EXPECTED',
@@ -122,7 +125,8 @@ Blockly.Dart['unittest_assertequals'] = function(block) {
 
 Blockly.Dart['unittest_assertvalue'] = function(block) {
   // Asserts that a value is true, false, or null.
-  var message = Blockly.Dart.quote_(block.getFieldValue('MESSAGE'));
+  var message = Blockly.Dart.valueToCode(block, 'MESSAGE',
+      Blockly.Dart.ORDER_NONE) || '';
   var actual = Blockly.Dart.valueToCode(block, 'ACTUAL',
       Blockly.Dart.ORDER_NONE) || 'null';
   var expected = block.getFieldValue('EXPECTED');
@@ -140,7 +144,7 @@ Blockly.Dart['unittest_assertvalue'] = function(block) {
 Blockly.Dart['unittest_fail'] = function(block) {
   // Always assert an error.
   var resultsVar = Blockly.Dart.variableDB_.getName('unittestResults',
-      Blockly.Variables.NAME_TYPE);
+      Blockly.Names.DEVELOPER_VARIABLE_TYPE);
   var message = Blockly.Dart.quote_(block.getFieldValue('MESSAGE'));
   var functionName = Blockly.Dart.provideFunction_(
       'unittest_fail',
@@ -153,4 +157,22 @@ Blockly.Dart['unittest_fail'] = function(block) {
         '  ' + resultsVar + '.add([false, "Fail.", message]);',
         '}']);
   return functionName + '(' + message + ');\n';
+};
+
+Blockly.Dart['unittest_adjustindex'] = function(block) {
+  var index = Blockly.Dart.valueToCode(block, 'INDEX',
+      Blockly.Dart.ORDER_ADDITIVE) || '0';
+  // Adjust index if using one-based indexing.
+  if (block.workspace.options.oneBasedIndex) {
+    if (Blockly.isNumber(index)) {
+      // If the index is a naked number, adjust it right now.
+      return [parseFloat(index) + 1, Blockly.Dart.ORDER_ATOMIC];
+    } else {
+      // If the index is dynamic, adjust it in code.
+      index = index + ' + 1';
+    }
+  } else if (Blockly.isNumber(index)) {
+    return [index, Blockly.Dart.ORDER_ATOMIC];
+  }
+  return [index, Blockly.Dart.ORDER_ADDITIVE];
 };
