@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="google" value="notranslate">
@@ -20,27 +21,28 @@
   <script src="js/Blob.js"></script>
   <script src="js/spin.js"></script>
   <script src="js/FileSaver.min.js"></script>
-	<!-- BlocklyDuino specific: block design -->
-	<script src="blocks/arduino_base.js"></script>
-	<script src="blocks/grove/grove.js"></script>
-	<script src="blocks/servo/servo.js"></script>
-	<!-- BlocklyDuino specific: common generator code -->
-	<script src="generators/arduino.js"></script>
-	<script src="generators/arduino/colour.js"></script>
-	<script src="generators/arduino/lists.js"></script>
-	<script src="generators/arduino/logic.js"></script>
-	<script src="generators/arduino/loops.js"></script>
-	<script src="generators/arduino/math.js"></script>
-	<script src="generators/arduino/procedures.js"></script>
-	<script src="generators/arduino/text.js"></script>
-	<script src="generators/arduino/variables.js"></script>
-	<script src="generators/arduino/variables_dynamic.js"></script>
-	<!-- BlocklyDuino specific: addon generator code -->
-	<script src="generators/arduino/arduino_base.js"></script>
-	<script src="generators/arduino/addon/grove.js"></script>
-	<script src="generators/arduino/addon/servo.js"></script>
+  <!-- BlocklyDuino specific: block design -->
+  <script src="blocks/arduino_base.js"></script>
+  <script src="blocks/grove/grove.js"></script>
+  <script src="blocks/servo/servo.js"></script>
+  <!-- BlocklyDuino specific: common generator code -->
+  <script src="generators/arduino.js"></script>
+  <script src="generators/arduino/colour.js"></script>
+  <script src="generators/arduino/lists.js"></script>
+  <script src="generators/arduino/logic.js"></script>
+  <script src="generators/arduino/loops.js"></script>
+  <script src="generators/arduino/math.js"></script>
+  <script src="generators/arduino/procedures.js"></script>
+  <script src="generators/arduino/text.js"></script>
+  <script src="generators/arduino/variables.js"></script>
+  <script src="generators/arduino/variables_dynamic.js"></script>
+  <!-- BlocklyDuino specific: addon generator code -->
+  <script src="generators/arduino/arduino_base.js"></script>
+  <script src="generators/arduino/addon/grove.js"></script>
+  <script src="generators/arduino/addon/servo.js"></script>
   <!-- BlocklyDuino specific -->
 </head>
+
 <body>
   <table width="100%" height="100%">
     <tr>
@@ -69,26 +71,25 @@
             <td class="tabmin">&nbsp;</td>
             <td id="tab_dart" class="taboff">Dart</td>
             <td class="tabmin">&nbsp;</td>
-			<!-- BlocklyDuino specific -->
+            <!-- BlocklyDuino specific -->
             <td id="tab_arduino" class="taboff">Arduino</td>
             <td class="tabmin">&nbsp;</td>
-			<!-- BlocklyDuino specific -->
+            <!-- BlocklyDuino specific -->
             <td id="tab_xml" class="taboff">XML</td>
             <td class="tabmax">
+
               <button id="uploadButton">Upload</button>
-              <button id="resetButton">Reset card</button>
-              <button id="trashButton" class="notext" title="...">
-                <img src='../media/1x1.gif' class="trash icon21">
-              </button>
+              <button id="resetButton">Reset</button>
+              <button id="trashButton">Delete</button>
               <button id="saveCodeButton">Save Arduino Code</button>
               <button id="saveXMLButton">Save XML</button>
               <button id="loadXMLfakeButton">Load XML</button>
-              <input type="file" id="loadXMLaction" style="display: none;"/>
+              <input type="file" id="loadXMLaction" style="display: none;" />
               <!-- <button id="linkButton" class="notext" title="..."> -->
-                <!-- <img src='../media/1x1.gif' class="link icon21"> -->
+              <!-- <img src='../media/1x1.gif' class="link icon21"> -->
               <!-- </button> -->
               <!-- <button id="runButton" class="notext primary" title="..."> -->
-                <!-- <img src='../media/1x1.gif' class="run icon21"> -->
+              <!-- <img src='../media/1x1.gif' class="run icon21"> -->
               <!-- </button> -->
             </td>
           </tr>
@@ -425,7 +426,8 @@
           <shadow type="math_number">
             <field name="NUM">1000</field>
           </shadow>
-        </value></block>
+        </value>
+      </block>
       <block type="arduino_base_angle"></block>
       <block type="arduino_base_date"></block>
       <block type="arduino_base_map"></block>
@@ -498,4 +500,5 @@
     </category>
   </xml>
 </body>
+
 </html>
