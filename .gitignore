@@ -6,9 +6,6 @@ Desktop.ini
 # Project files
 ino_project
 
-# Closure library needed for uncompressed development
-/closure-library
-/closure-library-read-only
 
 # Python byte-compiled / optimized
 __pycache__/

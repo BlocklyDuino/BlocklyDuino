@@ -29,7 +29,7 @@ Or watch the [video demos](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
 ### Run locally on your web browser
 
-If you want to install it locally. Get code from github and open `blockly/apps/blocklyduino/index.html` in your browser.
+If you want to install it locally. Get code from github and open `blocklyduino/index.html` in your browser.
 
 The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/apps/blocklyduino/index.html for use.
 
@@ -57,6 +57,16 @@ OR (if running `ino_web_server.py`):
 
 1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program.
 2. Select the 'Arduino' tab and press the 'Upload' button. (press the 'Reset' button to upload an empty program)
+
+### Developpers
+To work on BlocklyDuino, you need google blockly, google closure and python
+
+- Clone the repository with submodules : `git clone --recurse-submodules https://github.com/BlocklyDuino/BlocklyDuino`
+- Checkout the v2 branch : `git checkout v2`
+
+This will clone as submodules, google blockly and google-closure library.
+
+Then when you change a block, you will need to run the build.py python script
 
 ### ChangeLog
 
