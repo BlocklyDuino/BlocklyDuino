@@ -31,7 +31,7 @@ Or watch the [video demos](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
 If you want to install it locally. Get code from github and open `blockly/apps/blocklyduino/index.html` in your browser.
 
-The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/apps/blocklyduino/index.html for use.
+The preffered way is to put the `BlocklyDuino/web` folder into a web server and open the url like `localhost/public/blockly/apps/blocklyduino/index.html` for use.
 
 ### Integrated Arduino upload
 
@@ -50,20 +50,20 @@ When the webserver is running, you can access BlocklyDuino itself on [http://127
 ### Usage
 
 1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program
-2. Select the 'Arduino' tab and copy all of the source code into an existing or new project in the Arduino IDE
-3. Press the 'Upload' button in the Arduino IDE to burn the code into a connected Arduino board
+2. Select the `Arduino` tab and copy all of the source code into an existing or new project in the Arduino IDE
+3. Press the `Upload` button in the Arduino IDE to burn the code into a connected Arduino board
 
 OR (if running `ino_web_server.py`):
 
 1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program.
-2. Select the 'Arduino' tab and press the 'Upload' button. (press the 'Reset' button to upload an empty program)
+2. Select the `Arduino` tab and press the `Upload` button. (press the `Reset` button to upload an empty program)
 
 ### ChangeLog
 
 Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino/blob/master/CHANGELOG.txt)
 
 ### Authors and Contributors
-Fred Lin (@gasolin) .
+Fred Lin (@gasolin).
 
 Thanks Neil Fraser, Q.Neutron from Blockly https://developers.google.com/blockly/
 Thanks Dale Low (gumbypp) for contribute the python server to pipe BlocklyDuino source to arduino board.
