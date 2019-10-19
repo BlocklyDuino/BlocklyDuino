@@ -6,8 +6,6 @@ BlocklyDuino is based on [Blockly](https://developers.google.com/blockly/), the 
 
 BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) blocks to easily get started with microcontroller-based experimentation and learning.
 
-[We also have Google+ Page](https://plus.google.com/111979846292233941175).
-
 ### Features
 
 * Programming Arduino with visually drag and drop code blocks
