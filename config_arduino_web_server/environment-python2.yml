@@ -1,0 +1,3 @@
+name: blockly
+dependencies:
+ - python=2.7.*
