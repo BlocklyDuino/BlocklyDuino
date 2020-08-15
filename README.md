@@ -52,8 +52,8 @@ OR (if running `arduino_web_server.py`):
 1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program.
 2. Select the `Arduino` tab and press the `Upload` button. (press the `Reset` button to upload an empty program)
 
-In Ubuntu 18.04x64 (make sure you [setup](config_arduino_web_server/) python requirements with conda).
-1. Open one terminal and go the BlocklyDuino path and run:   
+In Ubuntu 18.04x64 (make sure you [setup](setup_arduino_web_server/) python requirements with conda).
+1. Open one terminal, go the BlocklyDuino path and run:   
 conda activate blockly      
 python arduino_web_server.py --port=/dev/ttyUSB0   
 2. Open a new terminal and run:   
