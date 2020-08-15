@@ -58,7 +58,9 @@ conda activate blockly
 python arduino_web_server.py --port=/dev/ttyUSB0   
 2. Open a new terminal and run:   
 firefox http://127.0.0.1:8080/ 
-3. Once BlocklyDuino is open in the browser, drag and drop blocks to make an Arduino program or press on loadXML (e.g. blink.xml)
+3. Once BlocklyDuino is open in the browser, drag and drop blocks to make an Arduino program or press on `LoadXML` (e.g. blink.xml)
+4. Press `Upload` and wait until you see `Program uploaded ok` and press OK!
+5. Close terminals with `Ctrl+c` or `Ctrl+d`
 
 ### ChangeLog
 
