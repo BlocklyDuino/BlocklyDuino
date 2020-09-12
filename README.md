@@ -52,13 +52,13 @@ OR (if running `arduino_web_server.py`):
 1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program.
 2. Select the `Arduino` tab and press the `Upload` button. (press the `Reset` button to upload an empty program)
 
-In Ubuntu 18.04x64 (make sure you [setup](setup_arduino_web_server/) python requirements with conda).
+In GNU/Linux OS (i.e. Ubuntu 18.04x64) 
 1. Open one terminal, go the BlocklyDuino path and run:   
-conda activate blockly      
 python arduino_web_server.py --port=/dev/ttyUSB0   
 2. Open a new terminal and run:   
 firefox http://127.0.0.1:8080/ 
-3. Once BlocklyDuino is open in the browser, drag and drop blocks to make an Arduino program or press on `LoadXML` (e.g. blink.xml)
+3. Once BlocklyDuino is open in the browser, drag and drop blocks to make an Arduino program or 
+load an example by clicking on `LoadXML` (e.g. /blocky/apps/blockyduino/examples/blink.xml or other in the same path)
 4. Press `Upload` and wait until you see `Program uploaded ok` and press OK!
 5. Close terminals with `Ctrl+c` or `Ctrl+d`
 
