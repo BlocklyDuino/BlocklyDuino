@@ -1,5 +1,7 @@
 ### Welcome to BlocklyDuino
 
+> Check [BlockDuino v2](https://github.com/BlocklyDuino/BlocklyDuino-v2)
+
 BlocklyDuino is a **web-based visual programming editor for [Arduino](http://www.arduino.cc/)**.
 
 BlocklyDuino is based on [Blockly](https://developers.google.com/blockly/), the web-based, graphical programming editor. Provide static type language blocks and code generators for Arduino programming.
