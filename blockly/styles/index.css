@@ -29,6 +29,7 @@ body {
 td.tabon {
     border-bottom-color: #bcac99 !important;
     background-color: #bcac99;
+    color: white;
     padding: 5px 19px;
 }
 td.taboff {
@@ -37,6 +38,7 @@ td.taboff {
 }
 td.taboff:hover {
     background-color: #bcac99;
+    color: white;
 }
 td.tabmin {
     border-top-style: none !important;
@@ -100,4 +102,34 @@ button:active {
 }
 button:hover {
     box-shadow: 2px 2px 5px #888;
+}
+
+/* Blockly css overrides */
+
+/**
+ * I am aware this is not the best way to do this. 
+ * Easiest would be to edit this in the css.js file where the blockly toolbox css is specified in JSON,
+ * but editing this file won't work as it gets uploaded as the compressed blockly file,
+ * which isn't updated due to build.py not running (closure is outdated/not working).
+*/
+
+.blocklyToolboxDiv {
+    background-color: #bcac99 !important;
+}
+
+.blocklyTreeLabel {
+    color: white !important;
+}
+
+.blocklyTreeRow:hover {
+    background-color: #9e846d !important;
+}
+
+.blocklyTreeSelected {
+    background-color: #9e846d !important;
+    /*doesnt work rn as the css.js file also uses !important*/
+}
+
+.blocklyFlyoutBackground {
+    fill: #BDB7B1 !important;
 }
