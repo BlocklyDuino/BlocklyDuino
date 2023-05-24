@@ -1,8 +1,4 @@
 /**
- * Own adjustments
- */ 
-
-/**
  * List of tab names.
  * @private
  */
@@ -163,3 +159,8 @@ function init() {
     load_by_url(dest);
   }
 }
+
+
+/**
+ * Own adjustments
+ */ 
