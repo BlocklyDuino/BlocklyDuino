@@ -33,6 +33,7 @@ def get_arduino_command():
                 "c:\Program Files\Arduino\Arduino.exe",
                 "c:\Program Files (x86)\Arduino\Arduino_debug.exe",
                 "c:\Program Files (x86)\Arduino\Arduino.exe"
+                "c:\Program Files (x86)\Arduino\Arduino IDE.exe"
             ]
         else:
             arduino_cmd_guesses = []
