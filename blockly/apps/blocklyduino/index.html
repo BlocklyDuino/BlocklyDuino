@@ -12,6 +12,7 @@
   <script type="text/javascript" src="blockly_helper.js"></script>
   <script type="text/javascript" src="../../scripts/index.js"></script>
   <script type="text/javascript" src="../../scripts/step-by-step.js"></script>
+  <script type="text/javascript" src="../../scripts/pomodoro.js"></script>
 
   <link rel="stylesheet" href="../../styles/index.css">
   <link rel="stylesheet" href="../../styles/grid.css">
@@ -22,16 +23,36 @@
       <p>ADHDuino, a web-based visual programming editor for arduino</p>
       <p>Based on <a href="https://github.com/gasolin/BlocklyDuino/wiki">BlocklyDuino</a></p>
     </div>
-    <div class="box-1">
-        <p>Menu drop below</p>
-    </div>
-    <div class="box-2">
-        <div id="myBar">0%</div>
+    
+    <div id="popup" class="popup">
+      <p>Time to relax!</p>
+      <button id="continueBtn" onclick="resetTimer()">I want to continue</button>
     </div>
 
-    <div class="box-3">
-        <button class="button" onclick="move()">Click Me</button>
+    <div class="box-pomodoro">
+      <label for="focustime">Focus Time:</label> 
+      <select name="focustime" id="focustime" onchange="changeSelect()"> 
+        <option value="5">5 seconds</option> 
+        <option value="10"selected>10 seconds</option> 
+        <option value="15">15 seconds</option> 
+      </select>
+      <label for="pausetime">Pause Time:</label> 
+      <select name="pausetime" id="pausetime" onchange="changeSelect()">
+        <option value="5000"selected>5 seconds</option> 
+        <option value="10000">10 seconds</option> 
+        <option value="15000">15 seconds</option> 
+      </select>
     </div>
+    
+    <div id="timer">0.0</div>
+    <button id="startBtn" onclick="startTimer()">Start</button>
+    <!--<div class="box-2">
+        <div id="myBar">0%</div>
+    </div-->
+
+    <!--div class="box-3">
+        <button class="button" onclick="move()">Click Me</button>
+    </div-->
 
     <div class="box-menu">
       <table>

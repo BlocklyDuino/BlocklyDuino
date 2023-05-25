@@ -104,32 +104,65 @@ button:hover {
     box-shadow: 2px 2px 5px #888;
 }
 
-/* Blockly css overrides */
 
-/**
- * I am aware this is not the best way to do this. 
- * Easiest would be to edit this in the css.js file where the blockly toolbox css is specified in JSON,
- * but editing this file won't work as it gets uploaded as the compressed blockly file,
- * which isn't updated due to build.py not running (closure is outdated/not working).
-*/
-
-.blocklyToolboxDiv {
-    background-color: #bcac99 !important;
+/* Pomodoro */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    font-size:x-large;
+    text-align: center;
+    display: none;
 }
 
-.blocklyTreeLabel {
-    color: white !important;
+.popup p {
+    margin-bottom: 10px;
 }
 
-.blocklyTreeRow:hover {
-    background-color: #9e846d !important;
+.popup button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: blue;
+    color: #fff;
+    font-weight: bold;
+    font-size: small;
+    cursor: pointer;
 }
 
-.blocklyTreeSelected {
-    background-color: #9e846d !important;
-    /*doesnt work rn as the css.js file also uses !important*/
+/* Style the timer */
+.timer {
+    position: fixed;
+    top: 0;
+    left: 40px;
+    padding: 10px;
+    background-color: rgb(156, 251, 162);
+    color: rgb(0, 0, 0);
+    font-size: 18px;
 }
-
-.blocklyFlyoutBackground {
-    fill: #BDB7B1 !important;
+.focustime {
+    display: inline-block;
+    position: fixed;
+    width: 50%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: aqua;
+    color:black;
+    font-size: 18px;
+}
+.pausetime {
+    display: inline-block;
+    position: fixed;
+    width: 50%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: aqua;
+    color:black;
+    font-size: 18px;
 }

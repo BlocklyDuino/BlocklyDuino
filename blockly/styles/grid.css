@@ -5,7 +5,7 @@
     height: calc(100vh - 10px);
     grid-template-areas:
     'header header header'
-    'box-1 box-2 box-3'
+    'box-pomodoro box-1 box-3'
     'box-buttons box-menu box-menu'
     'box-4 box-workspace box-workspace';
 }
@@ -15,7 +15,7 @@
 }
 
 .box-1 {
-    grid-area: box-1;
+    grid-area: box-pomodoro;
 
 }
 .box-2 {
