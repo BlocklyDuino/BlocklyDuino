@@ -45,7 +45,7 @@ def get_arduino_command():
                 break
         else:
             logging.info("Couldn't find Arduino command; hoping it's on the path!")
-            arduino_cmd = "arduino"
+            arduino_cmd = "Arduino IDE"
     return arduino_cmd
 
 
