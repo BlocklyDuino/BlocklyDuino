@@ -15,4 +15,6 @@ To upload code to the Arduino, make sure it's port is COM5 and Arduino IDE is in
 
 ---------------------
 ADHDuino is an interactive web-based programming environment for Arduino's for children aged 12, specifically catered towards kids with ADHD. To help them concentrate, one of the interaction techniques applied is a pop-up system.
-<i>Explanation here</i>
+To start the Pomodoro timer, select your desired focus and pause time (it's in seconds for demonstartion purposes). Then, click the start button. The timer will start running (displayed in green for demonstration purposes) and after your focus time is up, a pop up will appear promting the user to take their pause time. This pop-up will disappear once time is up. If they were too focussed and want to continue, they can click the 'Continue' button. The timer will then restart again.
+
+Other techniques in the workings is the step-by-step guide + gamification. The 'levels' and sidebar are already here to get an idea as to where these would be placed. This technique also includes a progressbar, which is also implemented, yet not paired with any functions yet. To demo the progress bar, hit the demo button.

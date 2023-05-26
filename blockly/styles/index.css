@@ -151,13 +151,12 @@ button:hover {
     background-color: #e67e22;
     color:white;
 }
-
+/* Depending on which browser you use the selection dropdown colours might differ*/
 select:focus > option:checked, option:hover{
     background-color: #8a5808;
 }
 
 /* Step by step */
-
 #progressBar {
     border: 2px solid rgb(188, 172, 153);
     border-radius: 8px;

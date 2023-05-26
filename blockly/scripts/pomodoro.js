@@ -24,6 +24,7 @@ function startTimer() {
 function changeSelect() {
     pausetimes = document.getElementById("pausetime").value;
     focustimes = document.getElementById("focustime").value;
+    PaymentRequestUpdateEvent()
 }
 
 function showPopup() {
