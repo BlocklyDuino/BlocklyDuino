@@ -1,6 +1,6 @@
 ### Welcome to ADHDuino
 
-(BlocklyDuino README can be found in blockly/apps\blocklyduino/README.txt)
+(BlocklyDuino README can be found in blockly/blocklyduino/README.txt)
 
 Specification:
 - Python 2.7.18
