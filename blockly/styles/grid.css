@@ -1,47 +1,54 @@
 .grid {
     display: grid;
-    grid-template-columns: 1fr 4fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr 20fr;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 20fr;
     height: calc(100vh - 10px);
     grid-template-areas:
     'header header header'
-    'box-pomodoro box-1 box-3'
-    'box-buttons box-menu box-menu'
-    'box-4 box-workspace box-workspace';
+    'box-timer box-levels box-pomobutton '
+    'box-menu box-pomodoro box-pomodoro'
+    'box-menu box-blockbuttons box-blockbuttons'
+    'box-menu box-workspace box-workspace';
 }
 
 [class*="box-"] {
     padding: 5px;
+    margin: 5px;
 }
 
-.box-1 {
+.box-timer {
+    grid-area: box-timer;
+    border: 2px solid #ccc;
+}
+.box-levels {
+    grid-area: box-levels;
+}
+
+.box-menu{
+    grid-area: box-menu;
+    margin-bottom: 0px !important;
+}
+
+.box-pomodoro {
     grid-area: box-pomodoro;
+}
 
-}
-.box-2 {
-    grid-area: box-2;
-    grid-column: 2 / span 2;
-}
-.box-3 {
-    grid-area: box-3;
-    z-index: 5;
+.box-pomobutton {
+    grid-area: box-pomobutton;
 }
 
 .box-buttons{
     grid-area: box-buttons;
+   
 }
-.box-menu{
-    grid-area: box-menu;
+
+.box-blockbuttons{
+    grid-area: box-blockbuttons;
     padding: 0px !important;
+    margin-bottom: 0px !important;
 }
 
-.box-4 {
-    grid-area: box-4;
-
-}
 .box-workspace {
     grid-area: box-workspace;
-}
-.box-6 {
-    grid-area: box-6;
+    margin: 0px 5px 0px 5px !important;
 }

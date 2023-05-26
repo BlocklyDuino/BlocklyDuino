@@ -29,32 +29,39 @@
       <button id="continueBtn" onclick="resetTimer()">I want to continue</button>
     </div>
 
-    <div class="box-pomodoro">
-      <label for="focustime">Focus Time:</label> 
-      <select name="focustime" id="focustime" onchange="changeSelect()"> 
-        <option value="5">5 seconds</option> 
-        <option value="10"selected>10 seconds</option> 
-        <option value="15">15 seconds</option> 
-      </select>
-      <label for="pausetime">Pause Time:</label> 
-      <select name="pausetime" id="pausetime" onchange="changeSelect()">
-        <option value="5000"selected>5 seconds</option> 
-        <option value="10000">10 seconds</option> 
-        <option value="15000">15 seconds</option> 
-      </select>
+    <div class="box-timer">
+      <label for="focustime">Focus Time:
+        <select name="focustime" id="focustime" onchange="changeSelect()"> 
+          <option class="timeOptions" value="5">5 seconds</option> 
+          <option class="timeOptions" value="10" selected>10 seconds</option> 
+          <option class="timeOptions" value="15">15 seconds</option> 
+          <option class="timeOptions" value="1500">25 minutes</option>
+        </select>
+      </label> 
+      <div id="timer">0.0</div>
+      <label for="pausetime">Pause Time: 
+        <select name="pausetime" id="pausetime" onchange="changeSelect()">
+          <option class="timeOptions" value="5000">5 seconds</option> 
+          <option class="timeOptions" value="10000"selected>10 seconds</option> 
+          <option class="timeOptions" value="15000">15 seconds</option> 
+          <option class="timeOptions" value="900000">5 minutes</option>
+        </select>
+    </label>
+      <button id="startBtn" onclick="startTimer()"><b>Start</b></button>
     </div>
+
+    <div class="box-levels">
+      <div class="levels">
+        <div class="lvl1"><b>1</b></div>
+        <div class="lvl2"><b>2</b></div>
+        <div class="lvl3"><b>3</b></div>
+      </div>
+    </div>
+
+    <button id="progressButton" class="box-pomobutton" onclick="move()"><b>Click Me To Demo Progress Bar</b></button>
+    <div class="box-pomodoro" id="progressBar">0%</div>
     
-    <div id="timer">0.0</div>
-    <button id="startBtn" onclick="startTimer()">Start</button>
-    <!--<div class="box-2">
-        <div id="myBar">0%</div>
-    </div-->
-
-    <!--div class="box-3">
-        <button class="button" onclick="move()">Click Me</button>
-    </div-->
-
-    <div class="box-menu">
+    <div class="box-blockbuttons">
       <table>
         <tr id="tabRow">
           <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')">Blocks</td>
@@ -82,10 +89,40 @@
       </table>
       <div></div>
     </div>
-    <div class="box-4 menu">
-      menu goes here?
+    
+    <div class="box-menu menu">
+      <button class="accordion"><b>Section 1</b></button>
+      <div class="panel">
+        <p>Welcome to ADHDuino! This is where the step by step guide would potentially be.</p>
+      </div>
+
+      <button class="accordion"><b>Section 2</b></button>
+      <div class="panel">
+        <p>A mascot is also in the workings :></p>
+      </div>
+
+      <button class="accordion"><b>Section 3</b></button>
+      <div class="panel">
+        <p>Beep boop :O</p>
+      </div>
     </div>
-  
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+      
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          } 
+        });
+      }
+    </script>
+
     <div id="content-area" class="box-workspace"></div>
     <div id="content_blocks" class="content box-workspace"></div>
     <textarea id="content_arduino" class="content box-workspace" readonly wrap="off"></textarea>

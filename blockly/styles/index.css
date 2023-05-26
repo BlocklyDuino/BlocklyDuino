@@ -6,6 +6,7 @@ body {
     font-family: Lucida,Verdana,sans-serif;
     margin: 0;
     overflow: hidden;
+    color: #444;
 }
 
 .header {
@@ -19,6 +20,10 @@ body {
 .header p {
     font-size: 15px;
     margin: 5px;
+}
+
+.header a {
+    color: black;
 }
 
 
@@ -101,6 +106,7 @@ button:active {
     border: 1px solid blue !important;
 }
 button:hover {
+    background-color: #a55a19;
     box-shadow: 2px 2px 5px #888;
 }
 
@@ -129,7 +135,6 @@ button:hover {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: blue;
     color: #fff;
     font-weight: bold;
     font-size: small;
@@ -137,32 +142,74 @@ button:hover {
 }
 
 /* Style the timer */
-.timer {
-    position: fixed;
-    top: 0;
-    left: 40px;
-    padding: 10px;
+#timer {
+    float: right;
     background-color: rgb(156, 251, 162);
     color: rgb(0, 0, 0);
-    font-size: 18px;
 }
-.focustime {
-    display: inline-block;
-    position: fixed;
-    width: 50%;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    background-color: aqua;
-    color:black;
-    font-size: 18px;
+#focustime, #pausetime {
+    background-color: #e67e22;
+    color:white;
 }
-.pausetime {
-    display: inline-block;
-    position: fixed;
-    width: 50%;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    background-color: aqua;
-    color:black;
-    font-size: 18px;
+
+select:focus > option:checked, option:hover{
+    background-color: #8a5808;
+}
+
+/* Step by step */
+
+#progressBar {
+    border: 2px solid rgb(188, 172, 153);
+    border-radius: 8px;
+}
+
+#progressButton {
+    float: right;
+}
+
+.levels {
+    display: flex;
+    justify-content: center;
+}
+.levels div {
+    border: 4px solid #008184;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    float:left;
+    padding:25px;
+    margin-left:10px;
+}
+
+.lvl3 {
+    background-color: #256465cc;
+    color: darkgray;
+}
+
+
+/* Menu */
+.accordion {
+    background-color: white;
+    border: 2px solid #008184 !important;
+    margin-bottom: 5px;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+.accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }

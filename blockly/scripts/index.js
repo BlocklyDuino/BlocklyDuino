@@ -164,3 +164,7 @@ function init() {
 /**
  * Own adjustments
  */ 
+function showMenuContent() {
+  var panel = document.getElementsByClassName("panel");
+  panel.style.height = "auto";
+}

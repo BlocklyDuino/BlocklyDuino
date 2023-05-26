@@ -3,15 +3,20 @@ var focustimes = "10"
 var popupTimeout;
 
 function startTimer() {
+    var button = document.getElementById("startBtn")
     var timerElement = document.getElementById('timer');
     var time = 0.0;
+    button.disabled = true;
+    button.style.backgroundColor = "#a55a19";
 
     timerInterval = setInterval(function () {
-    time += 0.1;
-    timerElement.innerText = time.toFixed(1);
     if (time >= focustimes) {
         clearInterval(timerInterval);
         showPopup();
+    }
+    else {
+        time += 0.1;
+        timerElement.innerText = time.toFixed(1);
     }
     }, 100);
 }
