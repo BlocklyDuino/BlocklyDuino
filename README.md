@@ -8,6 +8,7 @@ Specification:
 - port COM5, Arduino UNO board.
 
 (note: the index.html file was split into index.html, index.css and index.js to reduce clutter. Any new js or css files are in scripts and styles)
+<i>Ignore the closure-library folder, this was pulled from GitHub in an attempt to run build.py</i>
 
 Simply opening the index.html file via directory or terminal (cd (whatever folder the zip is in)/ADHDuino/blockly/blocklyduino/index.html) should work.
 
