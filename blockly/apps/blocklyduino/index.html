@@ -52,9 +52,9 @@
 
     <div class="box-levels">
       <div class="levels">
-        <div class="lvl1"><b>1</b></div>
-        <div class="lvl2"><b>2</b></div>
-        <div class="lvl3"><b>3</b></div>
+        <div class="lvl1" onclick="levelClick(this)">1</div>
+        <div class="lvl2" onclick="levelClick(this)">2</div>
+        <div class="lvl3" onclick="levelClick(this)">3</div>
       </div>
     </div>
 
@@ -91,17 +91,21 @@
     </div>
     
     <div class="box-menu menu">
-      <button class="accordion"><b>Section 1</b></button>
+      <div class="mascotBox">
+        <img id="mascot" src="../../media/mascot.png">
+        <p></p>
+      </div>
+      <button class="accordion" onclick="unfoldMenu()"><b>Section 1</b></button>
       <div class="panel">
         <p>Welcome to ADHDuino! This is where the step by step guide would potentially be.</p>
       </div>
 
-      <button class="accordion"><b>Section 2</b></button>
+      <button class="accordion" onclick="unfoldMenu()"><b>Section 2</b></button>
       <div class="panel">
         <p>A mascot is also in the workings :></p>
       </div>
 
-      <button class="accordion"><b>Section 3</b></button>
+      <button class="accordion" onclick="unfoldMenu()"><b>Section 3</b></button>
       <div class="panel">
         <p>Beep boop :O</p>
       </div>
@@ -130,6 +134,9 @@
     <textarea id="content_arduino" class="content box-workspace" readonly wrap="off"></textarea>
     <textarea id="content_xml" class="content box-workspace" wrap="off"></textarea> 
   </div>
+
+  
+
 
   <xml id="toolbox" style="display: none">
     <category name="An Example">

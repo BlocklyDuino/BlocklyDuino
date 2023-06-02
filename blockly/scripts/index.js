@@ -164,3 +164,32 @@ function init() {
 /**
  * Own adjustments
  */ 
+
+
+function levelClick(e){
+  var mascot = document.getElementById("mascot");
+  var levelTarget = e;
+  
+  if (levelTarget.innerHTML == "1") {
+    mascot.src = "../../media/mascotHappy.png"
+    mascot.nextElementSibling.innerHTML = "<i> Good job! </i>";
+  }
+  if (levelTarget.innerHTML == "2") {
+    mascot.src = "../../media/mascotConfused.png"
+    mascot.nextElementSibling.innerHTML = "<i> I don't know what you are talking about? </i>";
+  }
+  if (levelTarget.innerHTML == "3") {
+    mascot.src = "../../media/mascotDenied.png"
+    mascot.nextElementSibling.innerHTML = "<i> You're not allowed here yet! </i>";
+  }
+  
+}
+
+function unfoldMenu() {
+  var panel = this.nextElementSibling;
+  if (panel.style.maxHeight) {
+    panel.style.maxHeight = null;
+  } else {
+    panel.style.maxHeight = panel.scrollHeight + "px";
+  } 
+}

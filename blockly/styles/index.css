@@ -26,6 +26,18 @@ body {
     color: black;
 }
 
+.mascotBox {
+    text-align: center;
+}
+
+#mascot {
+    height: 150px;
+    width: 150px;
+}
+
+.mascotBox p {
+    margin: 5px;
+}
 
 /* Tabs */
 #tabRow>td {
@@ -177,6 +189,12 @@ select:focus > option:checked, option:hover{
     float:left;
     padding:25px;
     margin-left:10px;
+    cursor: pointer;
+}
+
+.levels div:hover {
+    background-color: #008184;
+    color: white;
 }
 
 .lvl3 {
