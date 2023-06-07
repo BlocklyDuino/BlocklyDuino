@@ -16,17 +16,28 @@
 
   <link rel="stylesheet" href="../../styles/index.css">
   <link rel="stylesheet" href="../../styles/grid.css">
+
+  <link rel="icon" href="../../media/logo.png">
 </head>
 <body onload="init()">
   <div class="grid">
     <div class="header">
-      <p>ADHDuino, a web-based visual programming editor for arduino</p>
-      <p>Based on <a href="https://github.com/gasolin/BlocklyDuino/wiki">BlocklyDuino</a></p>
+      <img src="../../media/logoWhite.png">
+      <p style="float: left;">ADHDuino, a web-based visual programming editor for arduino</p>
+      <p style="float: right;">Based on <a href="https://github.com/gasolin/BlocklyDuino/wiki">BlocklyDuino</a></p>
     </div>
     
     <div id="popup" class="popup">
       <p>Time to relax!</p>
       <button id="continueBtn" onclick="resetTimer()">I want to continue</button>
+    </div>
+
+    <div class="box-levels">
+      <div class="levels">
+        <div class="lvl1" onclick="levelClick(this)">1</div>
+        <div class="lvl2" onclick="levelClick(this)">2</div>
+        <div class="lvl3" onclick="levelClick(this)">3</div>
+      </div>
     </div>
 
     <div class="box-timer">
@@ -38,7 +49,8 @@
           <option class="timeOptions" value="1500">25 minutes</option>
         </select>
       </label> 
-      <div id="timer">0.0</div>
+      <br>
+      <!--div id="timer">0.0</div-->
       <label for="pausetime">Pause Time: 
         <select name="pausetime" id="pausetime" onchange="changeSelect()">
           <option class="timeOptions" value="5000">5 seconds</option> 
@@ -46,19 +58,11 @@
           <option class="timeOptions" value="15000">15 seconds</option> 
           <option class="timeOptions" value="900000">5 minutes</option>
         </select>
-    </label>
+      </label>
+      <br>
       <button id="startBtn" onclick="startTimer()"><b>Start</b></button>
     </div>
-
-    <div class="box-levels">
-      <div class="levels">
-        <div class="lvl1" onclick="levelClick(this)">1</div>
-        <div class="lvl2" onclick="levelClick(this)">2</div>
-        <div class="lvl3" onclick="levelClick(this)">3</div>
-      </div>
-    </div>
-
-    <button id="progressButton" class="box-pomobutton" onclick="move()"><b>Click Me To Demo Progress Bar</b></button>
+    <!--button id="progressButton" class="box-pomobutton" onclick="move()"><b>Click Me To Demo Progress Bar</b></button-->
     <div class="box-pomodoro" id="progressBar">0%</div>
     
     <div class="box-blockbuttons">

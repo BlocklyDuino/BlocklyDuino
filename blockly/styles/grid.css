@@ -1,11 +1,11 @@
 .grid {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1.5fr 4fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 20fr;
     height: calc(100vh - 10px);
     grid-template-areas:
     'header header header'
-    'box-timer box-levels box-pomobutton '
+    'box-menu box-levels box-timer '
     'box-menu box-pomodoro box-pomodoro'
     'box-menu box-blockbuttons box-blockbuttons'
     'box-menu box-workspace box-workspace';
@@ -19,7 +19,9 @@
 .box-timer {
     grid-area: box-timer;
     border: 2px solid #ccc;
+    text-align: center;
 }
+
 .box-levels {
     grid-area: box-levels;
 }
@@ -27,6 +29,7 @@
 .box-menu{
     grid-area: box-menu;
     margin-bottom: 0px !important;
+    overflow: clip auto;
 }
 
 .box-pomodoro {

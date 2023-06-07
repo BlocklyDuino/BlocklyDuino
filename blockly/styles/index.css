@@ -18,8 +18,17 @@ body {
 }
 
 .header p {
-    font-size: 15px;
-    margin: 5px;
+    font-size: 20px;
+    margin: 15px;
+}
+
+.header img {
+    text-align: center;
+    float: left;
+    height: auto;
+    margin: 2px;
+    width: 50px;
+
 }
 
 .header a {
@@ -166,6 +175,10 @@ button:hover {
 /* Depending on which browser you use the selection dropdown colours might differ*/
 select:focus > option:checked, option:hover{
     background-color: #8a5808;
+}
+
+#startBtn {
+    margin-top: 10px;
 }
 
 /* Step by step */
