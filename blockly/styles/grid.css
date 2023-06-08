@@ -29,7 +29,6 @@
 .box-menu{
     grid-area: box-menu;
     margin-bottom: 0px !important;
-    overflow: clip auto;
 }
 
 .box-pomodoro {

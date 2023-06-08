@@ -20,6 +20,14 @@
   <link rel="icon" href="../../media/logo.png">
 </head>
 <body onload="init()">
+  <div id="startingScreen">
+    <div>
+      <h1>Welcome to ADHDino!</h1>
+      <p>Welcome to the website! To start, pick one of the two games you want to create.</p>
+      <button onclick="pickSimonSays()">Simon Says</button>
+      <button onclick="pickTicTacToe()">Tic-Tac-Toe</button>
+    </div>
+  </div>
   <div class="grid">
     <div class="header">
       <img src="../../media/logoWhite.png">
@@ -34,9 +42,14 @@
 
     <div class="box-levels">
       <div class="levels">
-        <div class="lvl1" onclick="levelClick(this)">1</div>
-        <div class="lvl2" onclick="levelClick(this)">2</div>
-        <div class="lvl3" onclick="levelClick(this)">3</div>
+        <div class="lvl-1" onclick="levelClick(this)">1</div>
+        <div class="lvl-2" onclick="levelClick(this)">2</div>
+        <div class="lvl-3" onclick="levelClick(this)">3</div>
+        <div class="lvl-4" onclick="levelClick(this)">4</div>
+        <div class="lvl-5" onclick="levelClick(this)">5</div>
+        <div class="lvl-6" onclick="levelClick(this)">6</div>
+        <div class="lvl-7" onclick="levelClick(this)">7</div>
+        <div class="lvl-8" onclick="levelClick(this)">8</div>
       </div>
     </div>
 
@@ -94,44 +107,20 @@
       <div></div>
     </div>
     
-    <div class="box-menu menu">
+    <div class="box-menu" id="menu">
       <div class="mascotBox">
         <img id="mascot" src="../../media/mascot.png">
         <p></p>
       </div>
-      <button class="accordion" onclick="unfoldMenu()"><b>Section 1</b></button>
-      <div class="panel">
-        <p>Welcome to ADHDuino! This is where the step by step guide would potentially be.</p>
-      </div>
-
-      <button class="accordion" onclick="unfoldMenu()"><b>Section 2</b></button>
-      <div class="panel">
-        <p>A mascot is also in the workings :></p>
-      </div>
-
-      <button class="accordion" onclick="unfoldMenu()"><b>Section 3</b></button>
-      <div class="panel">
-        <p>Beep boop :O</p>
+      <div id="menuTitle"><b>Welcome!</b></div>
+      <div id="menuGallery">
+       <div id="panel">
+          <p id="panelText">Welcome to ADHDuino! Click on 'next' to start the guide!</p>
+          <button id="previous" onclick="toPreviousItem()">Previous</button>
+          <button id="next" onclick="toNextItem()">Next</button>
+        </div>
       </div>
     </div>
-
-    <!-- The script below will be moved to a seperate js file soon -->
-    <script>
-      var acc = document.getElementsByClassName("accordion");
-      var i;
-      
-      for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          } 
-        });
-      }
-    </script>
 
     <div id="content-area" class="box-workspace"></div>
     <div id="content_blocks" class="content box-workspace"></div>

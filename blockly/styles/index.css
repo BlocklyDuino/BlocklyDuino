@@ -9,6 +9,24 @@ body {
     color: #444;
 }
 
+#startingScreen {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.8);
+    z-index: 1;
+    position: fixed;
+    text-align: center;
+    color: white;
+}
+
+#startingScreen div {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    margin:auto;
+}
+
 .header {
     background-color: #008184;
     color: #ffffff;
@@ -195,7 +213,7 @@ select:focus > option:checked, option:hover{
     display: flex;
     justify-content: center;
 }
-.levels div {
+[class*="lvl-"] {
     border: 4px solid #008184;
     border-radius:5px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
@@ -203,43 +221,47 @@ select:focus > option:checked, option:hover{
     padding:25px;
     margin-left:10px;
     cursor: pointer;
-}
-
-.levels div:hover {
-    background-color: #008184;
-    color: white;
-}
-
-.lvl3 {
     background-color: #256465cc;
     color: darkgray;
 }
 
-
-/* Menu */
-.accordion {
-    background-color: white;
-    border: 2px solid #008184 !important;
-    margin-bottom: 5px;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-  }
-  
-.accordion:hover {
-    background-color: #ccc;
+[class*="lvl-"]:hover {
+    background-color: #008184;
+    color: white;
 }
 
-.panel {
-    padding: 0 18px;
+.lvl-1 {
+    background-color:white;
+    color: black;
+}
+
+
+/* Menu */
+#menuTitle {
     background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    border: 2px solid #008184 !important;
+    border-radius: 5px 5px 0px 0px;
+    color: #444;
+    padding: 18px;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 20px;
+  }
+
+#panel {
+    position: relative;
+    padding:18px;
+    background: #008184;
+    color: white;
+    overflow: clip auto;
+    font-size: 20px;
+}
+
+#previous {
+    float: left;
+}
+
+#next {
+    float: right;
 }
