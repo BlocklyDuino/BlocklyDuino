@@ -42,14 +42,14 @@
 
     <div class="box-levels">
       <div class="levels">
-        <div class="lvl-1" onclick="levelClick(this)">1</div>
-        <div class="lvl-2" onclick="levelClick(this)">2</div>
-        <div class="lvl-3" onclick="levelClick(this)">3</div>
-        <div class="lvl-4" onclick="levelClick(this)">4</div>
-        <div class="lvl-5" onclick="levelClick(this)">5</div>
-        <div class="lvl-6" onclick="levelClick(this)">6</div>
-        <div class="lvl-7" onclick="levelClick(this)">7</div>
-        <div class="lvl-8" onclick="levelClick(this)">8</div>
+        <div class="lvl-1 non-hover" id="lvl-1" onclick="levelClick(this)">1</div>
+        <div class="lvl-2" id="lvl-2" onclick="levelClick(this)">2</div>
+        <div class="lvl-3" id="lvl-3" onclick="levelClick(this)">3</div>
+        <div class="lvl-4" id="lvl-4" onclick="levelClick(this)">4</div>
+        <div class="lvl-5" id="lvl-5" onclick="levelClick(this)">5</div>
+        <div class="lvl-6" id="lvl-6" onclick="levelClick(this)">6</div>
+        <div class="lvl-7" id="lvl-7" onclick="levelClick(this)">7</div>
+        <div class="lvl-8" id="lvl-8" onclick="levelClick(this)">8</div>
       </div>
     </div>
 
@@ -116,8 +116,8 @@
       <div id="menuGallery">
        <div id="panel">
           <p id="panelText">Welcome to ADHDuino! Click on 'next' to start the guide!</p>
-          <button id="previous" onclick="toPreviousItem()">Previous</button>
-          <button id="next" onclick="toNextItem()">Next</button>
+          <button id="previous" onclick="toPreviousItem()" style="visibility: hidden;">Previous</button>
+          <button id="next" onclick="toNextItem()" style="visibility: visible;">Next</button>
         </div>
       </div>
     </div>

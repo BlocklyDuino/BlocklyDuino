@@ -1,7 +1,27 @@
+var menuTitle;
+var levelText;
+var levelDiv;
+var mascot;
+var nextButton;
+var previousButton;
+var bar;
+var lvlFinish;
+var currentItem;
+var currentLvl;
+var currentLvlDiv;
+
+function getValues() {
+  menuTitle = document.getElementById("menuTitle");
+  levelText = document.getElementById("panelText");
+  levelDiv = document.getElementById("panel");
+  mascot = document.getElementById("mascot");
+  nextButton = document.getElementById("next");
+  previousButton = document.getElementById("previous");
+  bar = document.getElementById("progressBar");
+}
 var width = 0;
 function moveBar() {
-    var bar = document.getElementById("progressBar");   
-
+    getValues();
     if (width >= 100) {
       clearInterval(id);
       button.disabled = false;
@@ -30,6 +50,9 @@ function moveBar() {
   check over colours
   add anim to progressbar?
 */
+
+
+
 
 const ticTitleArray = 
 [
@@ -116,109 +139,95 @@ function levelAdjustment(type) {
     document.getElementById("startingScreen").remove()
   }
   if (type == "tic") {
-    currentItem = 0;
+    currentItem = -1;
     currentLvl = 0;
     document.getElementById("startingScreen").remove()
   }
 }
 
 function toNextItem() {
-  var menuTitle = document.getElementById("menuTitle");
-  var levelText = document.getElementById("panelText");
-  var levelDiv = document.getElementById("panel");
-  var mascot = document.getElementById("mascot");
-
+  getValues();
+  
   var lengthCurrentLvl = ticArray[currentLvl].length - 1;
+  var lengthLvl = ticTitleArray.length - 1;
+  if (currentItem == 0){
+    previousButton.style.visibility = "visible";
+  }
+
   if (currentItem != lengthCurrentLvl) {
+    levelFinish = false;
     currentItem++;
     menuTitle.innerHTML = "<b>" + ticTitleArray[currentLvl] + "</b>";
     levelText.innerHTML =  ticArray[currentLvl][currentItem];
   }
+  else if (currentLvl == lengthLvl && currentItem == lengthCurrentLvl) {
+    nextButton.innerHTML = "Finish";
+    levelFinish = true;
+    levelDiv.style.backgroundColor = "#2ecc71";
+    menuTitle.innerHTML = "<b>Game complete!</b>";
+    levelText.innerHTML =  "Congratulations! You have completed the game! Click on <b>Finish</b> to return to the home page."
+  }
   else {
-    //help beow doesnt work
-    levelDiv.backgroundColor = "radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)";
+    levelFinish = true;
+    levelDiv.style.backgroundColor = "#2ecc71";
+    nextButton.style.visibility = "hidden";
     menuTitle.innerHTML = "<b>Level " + (currentLvl + 1) + " complete!</b>";
     levelText.innerHTML =  "Congratulations! You have completed <b>level " + (currentLvl + 1) + "</b>! Click on <b>level " + (currentLvl + 2) + "</b> in the level bar to move to the next."
     
     mascot.src = "../../media/mascotHappy.png"
     mascot.nextElementSibling.innerHTML = "<i> Good job! </i>";
-
+    
+    currentLvlDiv = document.getElementById("lvl-" + (currentLvl + 1));
+    currentLvlDiv.nextElementSibling.style.cursor = "pointer";
+    currentLvlDiv.nextElementSibling.style.pointerEvents = "all";
+    removeHoverEffect(currentLvlDiv.nextElementSibling);
+    currentLvlDiv.nextElementSibling.addEventListener("mouseover", applyHoverEffect());
+    currentLvlDiv.nextElementSibling.addEventListener("mouseout", removeHoverEffect());
     currentLvl++;
-    currentItem = -1;
-    //disable button temporarily
   }
 }
 
+function applyHoverEffect(thisItem) {
+  thisItem.classList.add("hover-effect");
+  thisItem.classList.remove("non-hover");
+}
+
+function removeHoverEffect(thisItem) {
+  thisItem.classList.remove("hover-effect");
+  thisItem.classList.add("non-hover");
+}
+
 function toPreviousItem() {
-  var menuTitle = document.getElementById("menuTitle");
-  var levelText = document.getElementById("panelText");
-  
-  var lengthCurrentLvl = ticArray[currentLvl].length - 1;
-  if (currentItem < 0) {
+  getValues();
+
+  if (levelFinish == true) {
+    currentLvl--;
+    currentItem = ticArray[currentLvl].length;
+  }
+  if (!(currentItem <= 0) || levelFinish == true) {
+    levelFinish = false;
     currentItem--;
     menuTitle.innerHTML = "<b>" + ticTitleArray[currentLvl] + "</b>";
     levelText.innerHTML =  ticArray[currentLvl][currentItem];
   }
-  else {
-    currentLvl--;
-    currentItem = lengthCurrentLvl;
-    //disable button temporarily
+  if (currentItem == 0) {
+    previousButton.style.visibility = "hidden";
   }
-}
+  if (currentItem == ticArray[currentLvl].length - 1) {
+    nextButton.style.visibility = "visible";
+    levelDiv.style.backgroundColor = "#008184";
+  }
+} 
 
 function levelClick(e){
-  var mascot = document.getElementById("mascot");
+  getValues();
   var levelTarget = e;
-  currentItem = 0;
+  currentItem = -1;
+  currentLvl = levelTarget.innerHTML - 1;
 
-  switch (levelTarget.innerHTML) {
-    case "1":
-      currentLvl = 0;
-      e.style.backgroundColor = "white";
-      e.style.color = "black";
-      break;
-    case "2":
-      currentLvl = 1;
-      mascot.src = "../../media/mascotConfused.png"
-      mascot.nextElementSibling.innerHTML = "<i> Now doing level 2!</i>";
-      e.style.backgroundColor = "white";
-      e.style.color = "black";
-      break;
-    case "3":
-      currentLvl = 2;
-      mascot.src = "../../media/mascotDenied.png"
-      mascot.nextElementSibling.innerHTML = "<i> You're not allowed here yet! </i>";
-      e.style.backgroundColor = "white";
-      e.style.color = "black";
-      break;
-    case "4":
-      currentLvl = 3;
-      mascot.src = "../../media/mascotConfused.png"
-      mascot.nextElementSibling.innerHTML = "<i> I don't know what you are talking about? </i>";
-      e.style.backgroundColor = "white";
-      e.style.color = "black";
-      break;
-    case "5":
-      currentLvl = 4;
-      e.style.backgroundColor = "white";
-      e.style.color = "black";
-      break;
-    case "6":
-      currentLvl = 5;
-      e.style.backgroundColor = "white";
-      e.style.color = "black";
-      break;
-    case "7":
-      currentLvl = 6;
-      e.style.backgroundColor = "white";
-      e.style.color = "black";
-      break;
-    case "8": 
-      currentLvl = 7;
-      e.style.backgroundColor = "white";
-      e.style.color = "black";
-      break;
-  } 
+  previousButton.style.visibility = "hidden";
+  nextButton.style.visibility = "visible";
+  levelDiv.style.backgroundColor = "#008184";
   moveBar();
   toNextItem();
 }
