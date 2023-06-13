@@ -10,14 +10,12 @@ function startTimer() {
     button.style.backgroundColor = "#a55a19";
 
     timerInterval = setInterval(function () {
+    time += 0.1;
+    timerElement.textContent = time.toFixed(1)
     if (time >= focustimes) {
         clearInterval(timerInterval);
         showPopup();
-    }
-    else {
-        time += 0.1;
-        timerElement.innerText = time.toFixed(1);
-    }
+        }
     }, 100);
 }
 
@@ -29,23 +27,34 @@ function changeSelect() {
 
 function showPopup() {
     var popupElement = document.getElementById('popup');
-    var pausetimes = "5000"
-
+    var pausetimes = document.getElementById("pausetime").value
+    playsoundpause();
     popupElement.style.display = 'block';
     popupTimeout = setTimeout(function () {
     resetTimer();
-    }, pausetimes);
+    hidePopup()
+    }, pausetimes)
 }
 
 function hidePopup() {
     var popupElement = document.getElementById('popup');
     popupElement.style.display = 'none';
+    playsoundfocus();
 }
 
+function playsoundpause() {
+    var audioElement = new Audio ("testaudiopause.mp3")
+    audioElement.play()
+}
+
+function playsoundfocus() {
+    var audioElement = new Audio ("testaudiofocus.wav")
+    audioElement.play()
+}
 function resetTimer() {
     var timerElement = document.getElementById('timer');
 
-    hidePopup();
+    //hidePopup();
     clearInterval(timerInterval);
     clearTimeout(popupTimeout);
     timerElement.textContent = '0.0';
