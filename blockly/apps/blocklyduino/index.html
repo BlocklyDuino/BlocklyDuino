@@ -37,7 +37,7 @@
     
     <div id="popup" class="popup">
       <p>Time to relax!</p>
-      <button id="continueBtn" onclick="resetTimer()">I want to continue</button>
+      <button id="continueBtn" onclick="hidePopup(), resetTimer()">I want to continue</button>
     </div>
 
     <div class="box-levels">
@@ -63,7 +63,7 @@
         </select>
       </label> 
       <br>
-      <!--div id="timer">0.0</div-->
+      <div id="timer">0.0</div>
       <label for="pausetime">Pause Time: 
         <select name="pausetime" id="pausetime" onchange="changeSelect()">
           <option class="timeOptions" value="5000">5 seconds</option> 

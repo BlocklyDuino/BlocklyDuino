@@ -29,9 +29,13 @@ function showPopup() {
     var popupElement = document.getElementById('popup');
     var pausetimes = document.getElementById("pausetime").value
     playsoundpause();
+    var pausetimes = document.getElementById("pausetime").value
+    playsoundpause();
     popupElement.style.display = 'block';
     popupTimeout = setTimeout(function () {
     resetTimer();
+    hidePopup()
+    }, pausetimes)
     hidePopup()
     }, pausetimes)
 }
@@ -45,8 +49,17 @@ function hidePopup() {
 function playsoundpause() {
     var audioElement = new Audio ("testaudiopause.mp3")
     audioElement.play()
+    playsoundfocus();
 }
 
+function playsoundfocus() {
+    var audioElement = new Audio ("testaudiofocus.wav")
+    audioElement.play()
+}
+function playsoundpause() {
+    var audioElement = new Audio ("testaudiopause.mp3")
+    audioElement.play()
+}
 function playsoundfocus() {
     var audioElement = new Audio ("testaudiofocus.wav")
     audioElement.play()
@@ -54,7 +67,7 @@ function playsoundfocus() {
 function resetTimer() {
     var timerElement = document.getElementById('timer');
 
-    //hidePopup();
+    ////hidePopup();
     clearInterval(timerInterval);
     clearTimeout(popupTimeout);
     timerElement.textContent = '0.0';
