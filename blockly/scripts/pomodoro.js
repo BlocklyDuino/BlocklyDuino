@@ -36,8 +36,6 @@ function showPopup() {
     resetTimer();
     hidePopup()
     }, pausetimes)
-    hidePopup()
-    }, pausetimes)
 }
 
 function hidePopup() {
@@ -56,14 +54,7 @@ function playsoundfocus() {
     var audioElement = new Audio ("testaudiofocus.wav")
     audioElement.play()
 }
-function playsoundpause() {
-    var audioElement = new Audio ("testaudiopause.mp3")
-    audioElement.play()
-}
-function playsoundfocus() {
-    var audioElement = new Audio ("testaudiofocus.wav")
-    audioElement.play()
-}
+
 function resetTimer() {
     var timerElement = document.getElementById('timer');
 
