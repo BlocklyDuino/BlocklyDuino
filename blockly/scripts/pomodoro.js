@@ -45,20 +45,17 @@ function hidePopup() {
 }
 
 function playsoundpause() {
-    var audioElement = new Audio ("testaudiopause.mp3")
+    var audioElement = new Audio ("../media/testaudiopause.mp3")
     audioElement.play()
-    playsoundfocus();
 }
-
 function playsoundfocus() {
-    var audioElement = new Audio ("testaudiofocus.wav")
+    var audioElement = new Audio ("../media/testaudiofocus.wav")
     audioElement.play()
 }
-
 function resetTimer() {
     var timerElement = document.getElementById('timer');
 
-    ////hidePopup();
+    //hidePopup();
     clearInterval(timerInterval);
     clearTimeout(popupTimeout);
     timerElement.textContent = '0.0';
