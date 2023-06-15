@@ -45,11 +45,11 @@ function hidePopup() {
 }
 
 function playsoundpause() {
-    var audioElement = new Audio ("../media/testaudiopause.mp3")
+    var audioElement = new Audio ("../../media/testaudiopause.mp3")
     audioElement.play()
 }
 function playsoundfocus() {
-    var audioElement = new Audio ("../media/testaudiofocus.wav")
+    var audioElement = new Audio ("../../media/testaudiofocus.wav")
     audioElement.play()
 }
 function resetTimer() {

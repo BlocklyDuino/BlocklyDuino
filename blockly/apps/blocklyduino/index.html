@@ -13,6 +13,7 @@
   <script type="text/javascript" src="../../scripts/index.js"></script>
   <script type="text/javascript" src="../../scripts/step-by-step.js"></script>
   <script type="text/javascript" src="../../scripts/pomodoro.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.10.1/tsparticles.confetti.bundle.min.js"></script>
 
   <link rel="stylesheet" href="../../styles/index.css">
   <link rel="stylesheet" href="../../styles/grid.css">
@@ -28,6 +29,7 @@
       <button onclick="pickTicTacToe()">Tic-Tac-Toe</button>
     </div>
   </div>
+  <div id="tsparticles"></div>
   <div class="grid">
     <div class="header">
       <img src="../../media/logoWhite.png">
@@ -63,7 +65,7 @@
         </select>
       </label> 
       <br>
-      <div id="timer">0.0</div>
+      <!--div id="timer">0.0</div-->
       <label for="pausetime">Pause Time: 
         <select name="pausetime" id="pausetime" onchange="changeSelect()">
           <option class="timeOptions" value="5000">5 seconds</option> 
