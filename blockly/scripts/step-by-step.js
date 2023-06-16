@@ -309,7 +309,7 @@ function toPreviousItem() {
   getValues();
 
   if (levelFinish == true) {
-    currentLvl--;
+    //currentLvl--;
     currentItem = contentArray[currentLvl].length;
   }
   if (!(currentItem <= 0) || levelFinish == true) {
