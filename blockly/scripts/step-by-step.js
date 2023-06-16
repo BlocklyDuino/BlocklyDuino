@@ -266,6 +266,12 @@ function toNextItem() {
       decay: 0.92,
       scalar: 1.2,
     });
+        
+    fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8,
+    });
   }
   else {
     levelFinish = true;
@@ -279,12 +285,6 @@ function toNextItem() {
     mascot.src = "../../media/mascotHappy.png"
     mascot.nextElementSibling.innerHTML = "<i> Good job! </i>";
 
-    fire(0.35, {
-      spread: 100,
-      decay: 0.91,
-      scalar: 0.8,
-    });
-    
     currentLvlDiv = document.getElementById("lvl-" + (currentLvl + 1));
     currentLvlDiv.nextElementSibling.style.cursor = "pointer";
     currentLvlDiv.nextElementSibling.style.pointerEvents = "all";
