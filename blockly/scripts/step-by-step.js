@@ -266,12 +266,11 @@ function toNextItem() {
       decay: 0.92,
       scalar: 1.2,
     });
-        
-    fire(0.35, {
+    setTimeout(fire(0.35, {
       spread: 100,
       decay: 0.91,
       scalar: 0.8,
-    });
+    }), 1000); 
   }
   else {
     levelFinish = true;

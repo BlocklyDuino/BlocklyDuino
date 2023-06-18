@@ -129,13 +129,7 @@
     <textarea id="content_xml" class="content box-workspace" wrap="off"></textarea> 
   </div>
 
-  
-
-
   <xml id="toolbox" style="display: none">
-    <category name="An Example">
-      <block type="base_delay_example"></block>
-   </category>
     <category name="Logic">
       <block type="controls_if"></block>
       <block type="logic_compare"></block>
@@ -144,13 +138,6 @@
       <block type="logic_null"></block>
     </category>
     <category name="Control">
-      <block type="base_delay">
-        <value name="DELAY_TIME">
-          <block type="math_number">
-            <field name="NUM">1000</field>
-          </block>
-        </value>
-      </block>
       <block type="controls_for">
         <value name="FROM">
           <block type="math_number">
@@ -177,15 +164,34 @@
       </block>
     </category>
     <category name="Lists">
-      <block type="lists.create_empty"></block>
-      <block type="lists.create_with"></block>
-      <block type="lists_create_with_container"></block>
+      <block type="lists_create_empty"></block>
+      <block type="lists_create_with"></block>
+      <block type="list_set_loop"></block>
+      <block type="list_get_loop"></block>
     </category>
     <category name="Text">
       <block type="text"></block>
     </category>
     <category name="Variables" custom="VARIABLE"></category>
     <category name="Functions" custom="PROCEDURE"></category>
+    <category name="Time">
+      <block type="base_delay">
+        <value name="DELAY_TIME">
+          <block type="math_number">
+            <field name="NUM">1000</field>
+          </block>
+        </value>
+      </block>
+      <block type="time_millis"></block>
+      <block type="variables_set_loop"></block>
+      <block type="test"></block>
+    </category>
+    <category name="Setup">
+      <block type="pinmode"></block>
+      <block type="variables_set_int_setup"></block>
+      <block type="list_set_setup"></block>
+      <block type="variables_set_unsigned_long_setup"></block>
+    </category>
     <sep></sep>
     <category name="Input/Output">
       <block type="inout_highlow"></block>

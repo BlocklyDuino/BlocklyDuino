@@ -470,4 +470,85 @@ Blockly.Arduino.variables_declare = function() {
 Blockly.Arduino.variables_set = function() {
     var a = Blockly.Arduino.valueToCode(this, "VALUE", Blockly.Arduino.ORDER_ASSIGNMENT) || "0";
     return Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";\n"
+    // Blockly.Arduino.setups_["setup_var" + a] = Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";\n";
+    // return ""
 };
+
+Blockly.Arduino.lists_create_empty = function(block) {
+    // Create an empty list.
+    return ['{}', Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.lists_create_with = function(block) {
+
+    var elements = new Array(block.itemCount_);
+    for (var i = 0; i < block.itemCount_; i++) {
+        elements[i] = Blockly.Arduino.valueToCode(block, 'ADD' + i, Blockly.Arduino.ORDER_ATOMIC) || 'null';
+    }
+    var code = '{' + elements.join(', ') + '}';
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
+
+};
+
+Blockly.Arduino.time_millis = function() {
+    return ["millis()", Blockly.Arduino.ORDER_ATOMIC]
+};
+
+Blockly.Arduino.pinmode = function() {
+    var a = Blockly.Arduino.valueToCode(this, "PINNUMBER", Blockly.Arduino.ORDER_ATOMIC);
+    var b = this.getFieldValue("DROPDOWNPINMODE");
+    Blockly.Arduino.setups_["setup_output_" + a] = "pinMode(" + a + ", " + b + ")" + ";\n";
+    return ""
+}
+
+Blockly.Arduino.list_set_loop = function() {
+    var a = this.getFieldValue("LIST")
+    var b = Blockly.Arduino.valueToCode(this, "SET#", Blockly.Arduino.ORDER_ATOMIC);
+    var c = Blockly.Arduino.valueToCode(this, "TO", Blockly.Arduino.ORDER_ATOMIC);
+    var code = a + "[" + b + "] = " + c + ";\n";
+    return code;
+}
+
+Blockly.Arduino.list_get_loop = function() {
+    var a = this.getFieldValue("LIST")
+    var b = Blockly.Arduino.valueToCode(this, "GET#", Blockly.Arduino.ORDER_ATOMIC) || "0";
+    var code = a + '[' + b + ']';
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
+}
+
+Blockly.Arduino.variables_set_int_setup = function() {
+    var a = Blockly.Arduino.valueToCode(this, "VALUE", Blockly.Arduino.ORDER_ASSIGNMENT) || "0";
+    var b = this.getFieldValue("VAR");
+    // return Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";\n"
+    Blockly.Arduino.setups_["setup_var" + b] = Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";";
+    return ""
+};
+
+Blockly.Arduino.list_set_setup = function() {
+    var a = this.getFieldValue("LIST");
+    var b = Blockly.Arduino.valueToCode(this, "TO", Blockly.Arduino.ORDER_ASSIGNMENT) || "0";
+    // return Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";\n"
+    Blockly.Arduino.definitions_["setup_var" + a] = "int " + a + "[] = " + b + ";\n";
+    // Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";";
+    return ""
+};
+
+Blockly.Arduino.variables_set_unsigned_long_setup = function() {
+    var a = this.getFieldValue("VARIABLE");
+    var b = Blockly.Arduino.valueToCode(this, "TO", Blockly.Arduino.ORDER_ASSIGNMENT) || "0";
+    // return Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";\n"
+    Blockly.Arduino.definitions_["setup_var" + a] = "unsigned long " + a + " = " + b + ";\n";
+    // Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";";
+    return ""
+};
+
+Blockly.Arduino.variables_set_loop = function() {
+    var a = this.getFieldValue("VARIABLE")
+    var b = Blockly.Arduino.valueToCode(this, "TO", Blockly.Arduino.ORDER_ATOMIC);
+    var code = a + " = " + b + ";\n";
+    return code;
+}
+
+Blockly.Arduino.test = function() {
+    return [this.getFieldValue("VARIABLE"), Blockly.Arduino.ORDER_ATOMIC]
+}
