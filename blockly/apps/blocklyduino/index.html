@@ -22,7 +22,8 @@
 </head>
 <body onload="init()">
   <div id="startingScreen">
-    <div>
+    <div id="startingScreenContent">
+      <img style="height:250px;" src="../../media/mascotHappy.png">
       <h1>Welcome to ADHDino!</h1>
       <p>Welcome to the website! To start, pick one of the two games you want to create.</p>
       <button onclick="pickSimonSays()">Simon Says</button>
@@ -36,9 +37,11 @@
       <p style="float: right;">Based on <a href="https://github.com/gasolin/BlocklyDuino/wiki">BlocklyDuino</a></p>
     </div>
     
-    <div id="popup" class="popup">
-      <p>Time to relax!</p>
-      <button id="continueBtn" onclick="hidePopup(), resetTimer()">I want to continue</button>
+    <div id="popupOverlay" class="popupOverlay">
+      <div id="popup" class="popup">
+        <p>Time to relax!</p>
+        <button id="continueBtn" onclick="hidePopup(), resetTimer()">I want to continue</button>
+      </div>
     </div>
 
     <div class="box-levels">
@@ -64,7 +67,6 @@
         </select>
       </label> 
       <br>
-      <!--div id="timer">0.0</div-->
       <label for="pausetime">Pause Time: 
         <select name="pausetime" id="pausetime" onchange="changeSelect()">
           <option class="timeOptions" value="5000">5 seconds</option> 
@@ -74,6 +76,7 @@
         </select>
       </label>
       <br>
+      <div id="timer">0.0</div>
       <button id="startBtn" onclick="startTimer()"><b>Start</b></button>
     </div>
     <!--button id="progressButton" class="box-pomobutton" onclick="move()"><b>Click Me To Demo Progress Bar</b></button-->

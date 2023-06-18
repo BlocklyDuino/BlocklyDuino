@@ -7,7 +7,7 @@ function startTimer() {
     var timerElement = document.getElementById('timer');
     var time = 0.0;
     button.disabled = true;
-    button.style.backgroundColor = "#a55a19";
+    button.style.backgroundColor = "#2B5C8C";
 
     timerInterval = setInterval(function () {
     time += 0.1;
@@ -26,9 +26,7 @@ function changeSelect() {
 }
 
 function showPopup() {
-    var popupElement = document.getElementById('popup');
-    var pausetimes = document.getElementById("pausetime").value
-    playsoundpause();
+    var popupElement = document.getElementById('popupOverlay');
     var pausetimes = document.getElementById("pausetime").value
     playsoundpause();
     popupElement.style.display = 'block';
@@ -39,7 +37,7 @@ function showPopup() {
 }
 
 function hidePopup() {
-    var popupElement = document.getElementById('popup');
+    var popupElement = document.getElementById('popupOverlay');
     popupElement.style.display = 'none';
     playsoundfocus();
 }
