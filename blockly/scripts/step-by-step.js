@@ -10,6 +10,8 @@ var gameFinish;
 var currentItem;
 var currentLvl;
 var currentLvlDiv;
+var titleArray;
+var contentArray;
 
 function getValues() {
   menuTitle = document.getElementById("menuTitle");
@@ -68,7 +70,7 @@ function fire(particleRatio, opts) {
 /* Level system */
 
 /* 
-  todo: change lvl-1 to a done colour, move to next level
+  todo: change lvl-1 to a done colour, move to next
 */
 
 
@@ -131,7 +133,7 @@ const ticArray = [
     "Use the <b>analogWrite</b> function block to control the cursor LED brightness."
   ],
   [
-    "Connect your microcontroller board to power or upload the Blockly code to the board.",
+    "Connect your microcontroller board to power or upload the Blockly code to the board. If this doesn't work, you can load in the XML file of the final answer. To do this, click Load XML and select Tic Tac Toe v2.xml in the examples folder of the project.",
     "The LEDs should light up and the cursor LED should blink according to the specified conditions."
   ]
 ];
@@ -216,8 +218,6 @@ const imgArray = [
   "../../media/mascotConfused.png",
 ]
 
-var currentLvl;
-var currentItem;
 
 function pickSimonSays() {
   levelAdjustment("simon");
@@ -226,10 +226,6 @@ function pickSimonSays() {
 function pickTicTacToe() {
   levelAdjustment("tic");
 }
-
-
-var titleArray;
-var contentArray;
 
 function levelAdjustment(type) {
   currentItem = -1;
@@ -374,3 +370,11 @@ function mascotChanger(){
 function reloadPage() {
   location.reload();
 };
+
+/*
+function loadXMLLvl() {
+  var xml = Blockly.Xml.textToDom("../../examples/Tic Tac Toe v2.xml");
+  Blockly.mainWorkspace.clear();
+  Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+}
+*/
