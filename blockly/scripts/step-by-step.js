@@ -5,7 +5,8 @@ var mascot;
 var nextButton;
 var previousButton;
 var bar;
-var lvlFinish;
+var levelFinish;
+var gameFinish;
 var currentItem;
 var currentLvl;
 var currentLvlDiv;
@@ -29,11 +30,15 @@ function moveBar() {
     } else {
       bar.style.backgroundColor = "#008184";
       width++; 
-      bar.style.width = width * 9.8 + '%'; 
-      bar.innerHTML = width * 10  + '%';
+      bar.style.width = width * 12.25 + '%'; 
+      bar.innerHTML = width * 12.5  + '%';
     }
     if (width > 0) {
       bar.style.color = "white";
+    }
+    if (bar.innerHTML == "100%") {
+      bar.style.color = "black";
+      bar.style.backgroundColor = "#2ecc71";
     }
   }
 
@@ -63,12 +68,7 @@ function fire(particleRatio, opts) {
 /* Level system */
 
 /* 
-  todo: change lvl-1 to a done colour, move to next
-  make end level do smth else (confetti?)
-  add sounds (semi done)
-  make mascot be correspondant
-  check over colours
-  add anim to progressbar?
+  todo: change lvl-1 to a done colour, move to next level
 */
 
 
@@ -210,6 +210,12 @@ const simonArray = [
   ]
 ];
 
+const imgArray = [
+  "../../media/mascotType.png",
+  //"../../media/mascotDenied.png",
+  "../../media/mascotConfused.png",
+]
+
 var currentLvl;
 var currentItem;
 
@@ -254,8 +260,10 @@ function toNextItem() {
     levelText.innerHTML =  contentArray[currentLvl][currentItem];
   }
   else if (currentLvl == lengthLvl && currentItem == lengthCurrentLvl) {
+    moveBar();
     nextButton.innerHTML = "Finish";
-    levelFinish = true;
+    nextButton.setAttribute("onclick", "reloadPage()");
+    gameFinish = true;
     playSoundGameDone();
     levelDiv.style.backgroundColor = "#2ecc71";
     menuTitle.innerHTML = "<b>Game complete!</b>";
@@ -292,6 +300,7 @@ function toNextItem() {
     currentLvlDiv.nextElementSibling.addEventListener("mouseout", removeHoverEffect());
     currentLvl++;
   }
+  mascotChanger();
 }
 
 function applyHoverEffect(thisItem) {
@@ -337,3 +346,31 @@ function levelClick(e){
   levelDiv.style.backgroundColor = "#008184";
   toNextItem();
 }
+
+
+function mascotChanger(){
+  getValues();
+
+  var randomImg = Math.floor(Math.random() * (imgArray.length - 0) + 0);
+
+  if (currentItem == 0 && currentLvl == 0) {
+    mascot.src = "../../media/mascot.png"
+    mascot.nextElementSibling.innerHTML = "<i> Let's get started! </i>";
+  }
+  else if (currentItem == 0) {
+    mascot.src = "../../media/mascot.png"
+    mascot.nextElementSibling.innerHTML = "<i> Let's get going to the next level!</i>";
+  }
+  else if (gameFinish == true) {
+    mascot.src = "../../media/mascotFinish.png"
+    mascot.nextElementSibling.innerHTML = "<i> Congrats! </i>";
+  }
+  else {
+    mascot.src = imgArray[randomImg];
+    mascot.nextElementSibling.innerHTML = "<i> ... </i>";
+  }
+}
+
+function reloadPage() {
+  location.reload();
+};

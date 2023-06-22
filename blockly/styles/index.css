@@ -56,6 +56,10 @@ body {
     margin: 15px;
 }
 
+.header a {
+    color: white;
+}
+
 .header img {
     text-align: center;
     float: left;
@@ -63,10 +67,6 @@ body {
     margin: 2px;
     width: 50px;
 
-}
-
-.header a {
-    color: black;
 }
 
 .mascotBox {
