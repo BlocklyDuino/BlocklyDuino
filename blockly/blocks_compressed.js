@@ -61,7 +61,8 @@ Blockly.Blocks.inout_digital_write = {
     helpUrl: "http://arduino.cc/en/Reference/DigitalWrite",
     init: function() {
         this.setColour(230);
-        this.appendDummyInput().appendField("DigitalWrite PIN#").appendField(new Blockly.FieldDropdown(profile["default"].digital), "PIN").appendField("Stat").appendField(new Blockly.FieldDropdown([
+        this.appendValueInput("PINNUMBER").setCheck("Number").appendField("DigitalWrite PIN#");
+        this.appendDummyInput().appendField("Stat").appendField(new Blockly.FieldDropdown([
             ["HIGH", "HIGH"],
             ["LOW", "LOW"]
         ]), "STAT");
@@ -2354,3 +2355,157 @@ Blockly.Blocks.variables_set = {
     contextMenuType_: "variables_get",
     customContextMenu: Blockly.Blocks.variables_get.customContextMenu
 };
+
+Blockly.Blocks.time_millis = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("current elapsed time (milliseconds)");
+      this.setOutput(true, null);
+      this.setColour(120);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks.pinmode= {
+    init: function() {
+      this.appendValueInput("PINNUMBER").setCheck(null).appendField("Pinmode pin #");
+      this.appendDummyInput().appendField("as").appendField(new Blockly.FieldDropdown([["OUTPUT","OUTPUT"], ["INPUT","INPUT"], ["INPUT_PULLUP","INPUT_PULLUP"]]), "DROPDOWNPINMODE");
+      this.setInputsInline(!0);
+      this.setPreviousStatement(!0, null);
+      this.setNextStatement(!0, null);
+      this.setColour(45);
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks.list_set_loop = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("in")
+            .appendField(new Blockly.FieldTextInput("list"), "LIST");
+        this.appendValueInput("SET#")
+            .setCheck(null)
+            .appendField("set #");
+        this.appendValueInput("TO")
+            .setCheck(null)
+            .appendField("to");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(260);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks.list_get_loop = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("in")
+            .appendField(new Blockly.FieldTextInput("list"), "LIST");
+        this.appendValueInput("GET#")
+            .setCheck(null)
+            .appendField("get #");
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(260);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks.variables_set_int_setup = {
+    init: function() {
+        this.jsonInit({
+            message0: 'set int %1 to %2',
+            args0: [{
+                type: "field_variable",
+                name: "VAR",
+                variable: Blockly.Msg.VARIABLES_DEFAULT_NAME
+            }, {
+                type: "input_value",
+                name: "VALUE"
+            }],
+            previousStatement: null,
+            nextStatement: null,
+            colour: 45,
+            tooltip: Blockly.Msg.VARIABLES_SET_TOOLTIP,
+            helpUrl: Blockly.Msg.VARIABLES_SET_HELPURL
+        });
+        this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET
+    },
+    getVars: function() {
+        return [this.getFieldValue("VAR")]
+    },
+    renameVar: function(a,
+        b) {
+        Blockly.Names.equals(a, this.getFieldValue("VAR")) && this.setFieldValue(b, "VAR")
+    },
+    contextMenuType_: "variables_get",
+    customContextMenu: Blockly.Blocks.variables_get.customContextMenu
+};
+
+Blockly.Blocks.list_set_setup = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("set")
+          .appendField(new Blockly.FieldTextInput("list"), "LIST");
+      this.appendValueInput("TO")
+          .setCheck(null)
+          .appendField("to");
+      this.setInputsInline(true);
+      this.setColour(45);
+   this.setTooltip("");
+   this.setHelpUrl("");
+   this.setPreviousStatement(true, null);
+   this.setNextStatement(true, null);
+    }
+  };
+
+  Blockly.Blocks.variables_set_unsigned_long_setup = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("set unsigned long")
+          .appendField(new Blockly.FieldTextInput("variable"), "VARIABLE");
+      this.appendValueInput("TO")
+          .setCheck(null)
+          .appendField("to");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks.variables_set_loop = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("set")
+          .appendField(new Blockly.FieldTextInput("joystickTime"), "VARIABLE");
+      this.appendValueInput("TO")
+          .setCheck(null)
+          .appendField("to");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(120);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks.test = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldTextInput("joystickTime"), "VARIABLE");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setColour(120);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
