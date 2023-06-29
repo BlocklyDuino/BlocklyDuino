@@ -1204,7 +1204,7 @@ Blockly.Blocks.controls_for = {
             }, {
                 type: "input_value",
                 name: "TO",
-                check: "Number",
+                // check: "Number",
                 align: "RIGHT"
             }, {
                 type: "input_value",
@@ -2449,13 +2449,12 @@ Blockly.Blocks.variables_set_int_setup = {
 
 Blockly.Blocks.list_set_setup = {
     init: function() {
-      this.appendDummyInput()
-          .appendField("set")
-          .appendField(new Blockly.FieldTextInput("list"), "LIST");
-      this.appendValueInput("TO")
-          .setCheck(null)
-          .appendField("to");
-      this.setInputsInline(true);
+        this.appendValueInput("TO")
+        .setCheck(null)
+        .appendField("set list")
+        .appendField(new Blockly.FieldTextInput("item"), "LIST")
+        .appendField("to");
+      this.setInputsInline(false);
       this.setColour(45);
    this.setTooltip("");
    this.setHelpUrl("");
@@ -2466,13 +2465,12 @@ Blockly.Blocks.list_set_setup = {
 
   Blockly.Blocks.variables_set_unsigned_long_setup = {
     init: function() {
-      this.appendDummyInput()
-          .appendField("set unsigned long")
-          .appendField(new Blockly.FieldTextInput("variable"), "VARIABLE");
-      this.appendValueInput("TO")
-          .setCheck(null)
-          .appendField("to");
-      this.setInputsInline(true);
+        this.appendValueInput("TO")
+        .setCheck(null)
+        .appendField("set unsigned long")
+        .appendField(new Blockly.FieldTextInput("item"), "VARIABLE")
+        .appendField("to");
+      this.setInputsInline(false);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(45);
@@ -2481,29 +2479,48 @@ Blockly.Blocks.list_set_setup = {
     }
   };
 
-  Blockly.Blocks.variables_set_loop = {
+  Blockly.Blocks.direct_code = {
     init: function() {
       this.appendDummyInput()
-          .appendField("set")
-          .appendField(new Blockly.FieldTextInput("joystickTime"), "VARIABLE");
-      this.appendValueInput("TO")
-          .setCheck(null)
-          .appendField("to");
+          .appendField(new Blockly.FieldTextInput("code"), "VARIABLE");
       this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(120);
+      this.setOutput(true, null);
+      this.setColour(160);
    this.setTooltip("");
    this.setHelpUrl("");
     }
   };
 
-  Blockly.Blocks.test = {
+  Blockly.Blocks.code_in_loop = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldTextInput("joystickTime"), "VARIABLE");
-      this.setInputsInline(true);
-      this.setOutput(true, null);
+          .appendField(new Blockly.FieldTextInput("code in loop"), "CODE");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(160);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks.code_in_setup = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldTextInput("code in setup"), "CODE");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(160);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks.break = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("break");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
       this.setColour(120);
    this.setTooltip("");
    this.setHelpUrl("");

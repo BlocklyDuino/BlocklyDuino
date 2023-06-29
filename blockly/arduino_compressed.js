@@ -520,7 +520,7 @@ Blockly.Arduino.variables_set_int_setup = function() {
     var a = Blockly.Arduino.valueToCode(this, "VALUE", Blockly.Arduino.ORDER_ASSIGNMENT) || "0";
     var b = this.getFieldValue("VAR");
     // return Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";\n"
-    Blockly.Arduino.setups_["setup_var" + b] = Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";";
+    Blockly.Arduino.setups_["setup_var" + b] = Blockly.Arduino.variableDB_.getName(this.getFieldValue("VAR"), Blockly.Variables.NAME_TYPE) + " = " + a + ";\n";
     return ""
 };
 
@@ -542,13 +542,20 @@ Blockly.Arduino.variables_set_unsigned_long_setup = function() {
     return ""
 };
 
-Blockly.Arduino.variables_set_loop = function() {
-    var a = this.getFieldValue("VARIABLE")
-    var b = Blockly.Arduino.valueToCode(this, "TO", Blockly.Arduino.ORDER_ATOMIC);
-    var code = a + " = " + b + ";\n";
-    return code;
+Blockly.Arduino.direct_code = function() {
+    return [this.getFieldValue("VARIABLE"), Blockly.Arduino.ORDER_ATOMIC]
 }
 
-Blockly.Arduino.test = function() {
-    return [this.getFieldValue("VARIABLE"), Blockly.Arduino.ORDER_ATOMIC]
+Blockly.Arduino.code_in_loop = function() {
+    return this.getFieldValue("CODE") + ";\n"
+}
+
+Blockly.Arduino.code_in_setup = function() {
+    var b = this.getFieldValue("CODE");
+    Blockly.Arduino.setups_["code" + b] = b + ";\n";
+    return "";
+}
+
+Blockly.Arduino.break = function() {
+    return "break;\n"
 }
