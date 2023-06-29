@@ -76,65 +76,90 @@ function fire(particleRatio, opts) {
 
 const ticTitleArray = 
 [
-  "Step 1: Define the variables",
-  "Step 2: Set up the hardware in the <b>setup</b> function",
-  "Step 3: Create the main <b>loop</b> in the loop function",
-  "Step 4: Implement the <b>checkJoystickMovement</b> function",
-  "Step 5: Implement the <b>checkJoystickPress</b> function",
-  "Step 6: Implement the <b>setLed</b> function",
-  "Step 7: Implement the <b>setCursor</b> function",
+  "Step 1: Defining variables",
+  "Step 2: Pinmodes",
+  "Step 3: Implement the <i>checkJoystickMovement</i> function",
+  "Step 4: Implement the <i>checkJoystickPress</i> function",
+  "Step 5: Implement the <i>setLed</i> function",
+  "Step 6: Implement the <i>setCursor</i> function",
+  "Step 7: Create the main loop",
   "Step 8: Test the program"
-
 ];
 
 const ticArray = [
   [
-    "Create a variable block for <b>buttonPin</b> and set its value to 13.",
-    "Create variable blocks for <b>xPin</b> and <b>yPin</b> and set their values to 0 and 1, respectively.",
-    "Create a list variable block for <b>board</b> and set its initial values to {0, 0, 0, 0, 0, 0, 0, 0, 0}.",
-    "Create a list variable block for <b>leds</b> and set its initial values to {3, 5, 6, 2, 7, 10, 4, 8, 9}.",
-    "Create a variable block <b>for cursor</b> and set its initial value to 0.",
-    "Create variable blocks for the timing variables (<b>prevTime</b>, <b>joyStickTime</b>, <b>player2Count</b>, and <b>cursorCount</b>).",
-    "Create variable blocks for <b>lastButtonState</b> and <b>player</b> and set their initial values to 1."
+    "In this level we're going to make all the variables we need to create the well-known game of Tic Tac Toe. Almost all the blocks you will need in this level are in the <b>Setup</b> category. Click next to continue.",
+    "Create a variable called <i>joystickTime</i> using the <b>set unsigned long block</b>.",
+    "Set <i>joystickTime</i> equal to 0.",
+    "Create five variables with the following names: <i>cursor</i>, <i>player2Count</i>, <i>cursorCount</i>, <i>lastButtonState</i> and <i>player</i> using the <b>set int block</b>.",
+    "Set the previous variables equal to 0, 200, 1000, 1 and 1 respectively.",
+    "To keep track of all the LEDs in the game and their states, we need two lists. One list will hold information about the states of the LEDs in the game. The other list will hold information about how the LEDs are connected to pins on the Arduino. Click next to continue.",
+    "Create two lists called <i>board</i> and <i>leds</i> using the <b>set list block</b>.", 
+    "Set the previous lists equal to {0, 0, 0, 0, 0, 0, 0, 0, 0} and {3, 5, 6, 2, 7, 10, 4, 8, 9} respectively using the <b>create list with block</b> in <b>Lists</b>."
   ],
   [
-    "Create a <b>setup</b> block.",
-    "Inside the <b>setup</b> block, use a loop block to iterate over the <b>leds</b> list variable and set each pin as an output using the <b>pinMode</b> function block.",
-    "Use the <b>pinMode</b> function block to set the <b>buttonPin</b> as an input with pull-up resistor."
+    "In order to use the Arduino, we need to tell it what kind of hardware it is dealing with. Some hardware receives information from the Arduino, so the Arduino acts as an output. Other hardware sends information to the Arduino, so the Arduino acts as an input. Click next to continue.",
+    "Think about whether an LED sends information to the Arduino or whether an LED receives information from the Arduino.",
+    "Set each pinnumber in <i>leds</i> to either input or output using the <b>Pinmode block</b>.",
+    "Think about whether a button sends information to the Arduino or whether a button receives information from the Arduino.",
+    "Set pin 13 to either input or output using the <b>Pinmode block</b>."
   ],
   [
-    "Create a <b>loop</b> block.",
-    "Inside the <b>loop</b> block, use function call blocks to call the <b>checkJoystickMovement</b> and <b>checkJoystickPress</b> functions.",
-    "Use a loop block to iterate over the <b>leds</b> list variable and set the LEDs according to the <b>board</b> values using the <b>setLed</b> function block.",
-    "Call the <b>setCursor</b> function block to update the cursor LED.",
-    "Use math and comparison blocks to decrement and check the values of <b>player2Count</b> and <b>cursorCount</b>, and reset them if necessary."
+    "It is important to constantly monitor whether the joystick has been moved. To achieve this, we'll make a function. The movement of the joystick can be divided into an x-direction, i.e. from side to side, and a y-direction, i.e. up and down. Combining these values will tell us where the joystick is located. Click next to continue.",
+    "Create a <b>function block</b> called <i>checkJoystickMovement</i> that returns nothing.",
+    "Create a variable <i>xAxis</i> that stores the x-coordinate of the joystick by setting it equal to the <b>AnalogRead block</b> in <b>Input/Output</b> with a value of A0.",
+    "Create a variable <i>yAxis</i> that stores the y-coordinate of the joystick by setting it equal to the <b>AnalogRead block</b> in <b>Input/Output</b> with a value of A1.",
+    "We need to ensure that there is a delay between each joystick movement, otherwise errors may occur. Click next to continue.",
+    "Create an <b>if-do block</b> that checks whether the current elapsed time minus <i>joystickTime</i> is greater or equal to 500.",
+    "You should be able to use the joystick to navigate up, down, left, and right and move the cursor accordingly across the LED grid. So, we need to check each of these four conditions. Click next to continue.",
+    "Create an <b>if-do-elseif-do-elseif-do-elseif-do</b> block using the mutator option.",
+    "",
+    "",
+    "End each of the do-parts with <i>joystickTime = millis()</i> using the <b>code in loop block</b> in <b>Text</b>.  "
   ],
   [
-    "Create a function block for <b>checkJoystickMovement</b>.",
-    "Inside the function block, read the analog values of <b>xAxis</b> and <b>yAxis</b> using the <b>analogRead</b> function blocks.",
-    "Use if-else if blocks with comparison and logical operators to check the joystick position and update the <b>cursor</b> variable accordingly.",
-    "Use the <b>Serial.println</b> function block to print the joystick movement direction."
+    "In this level we will implement a function that determines whether the joystick button has been pressed. First, we need to read the pin that the button is connected to. Click next to continue.",
+    "Create a <b>function block</b> called <i>checkJoystickPress</i> that returns nothing.",
+    "Create a variable called <i>buttonState</i> and set it equal to the <b>DigitalRead block</b> with a value of 13.",
+    "This variable <i>buttonState</i> will have a value of 0 if the button is pressed and 1 if it is not. To actually check that it has been pressed, we need to check that it has changed state, i.e. that it was not initially pressed, but is now pressed. Click next to continue.",
+    "Create an <b>if-do block</b> that checks if <i>buttonState</i> is 0 and <i>lastButtonState</i> is 1.",
+    "Inside the <b>if-do block</b> set the <i>lastButtonState</i> to 0.",
+    "In the <i>board</i> list we need to change the state of the LED to indicate which player has pressed the button. Use the <b>in list set block</b> in <b>Lists</b> to set <i>cursor</i> to <i>player</i> in <i>board</i>.",
+    "Now it is player 2's turn. Increment <i>player</i> by 1.",
+    "We need to make sure that the variable <i>player</i> stays between 1 and 2 and alternates. Create an <b>if-do block</b> that checks if <i>player</i> is greater than 2. If it is, then set <i>player</i> back to 1.",
+    "A button can be clicked, but it can also be released. When the button is released, we do not want anything special to happen, but we do want to know that it has happened. Create an <b>if-do block</b> under the previous <b>if-do block</b> that checks if <i>buttonstate</i> is 1 and <i>lastButtonState</i> is 0. If it is, then set <i>lastButtonState</i> to 1."
   ],
   [
-    "Create a function block for <b>checkJoystickPress</b>.",
-    "Inside the function block, read the digital state of the button using the <b>digitalRead</b> function block.",
-    "Use if blocks with logical operators to detect button press and release.",
-    "Inside the press block, update the <b>lastButtonState</b>, <b>board</b>, and <b>player</b> variables according to the given conditions.",
-    "Inside the release block, update the <b>lastButtonState</b> variable."
+    "In this level you will implement a function that determines whether an led is on, off or blinking depending on its state. Click next to continue.",
+    "Create a <b>function block</b> called <i>setLed</i> with two parameters, <i>led</i> and <i>state</i>, which returns nothing.",
+    "An LED can be in one of three states: 0, 1, or 2, and these are stored in the <i>board</i> list. We must therefore check each of these three states. Click next to continue.",
+    "Create an <b>if-do block</b> that checks if <i>state</i> is 0. If it is, then turn <i>led</i> off using the <b>DigitalWrite block</b> in <b>Input/Output</b>.",
+    "Create an <b>if-do block</b> that checks if <i>state</i> is 1. If it is, then turn <i>led</i> on.",
+    "Create an <b>if-do block</b> that checks if <i>state</i> is 2. If it is, then check if <i>player2Count</i> is above 100. If it is, then turn <i>led</i> on. If it is not, then turn <i>led</i> off."
   ],
   [
-    "Create a function block for <b>setLed</b> with input parameters for <b>led</b> and <b>state</b>.",
-    "Inside the function block, use if-else if blocks to set the LED brightness based on the <b>state</b> value.",
-    "Use the <b>analogWrite</b> function block to control the LED brightness."
+    "In this level you will implement a function that determines where and how often the cursor LED blicks. Click next to continue.",
+    "Create a <b>function block</b> called <i>setCursor</i> that returns nothing.",
+    "Create an <b>if-do-else block</b> that checks if <i>cursorCount</i> is greater than 500. If it is, then turn the LED at the <i>cursor</i> position on. if it is not, then turn it off."
   ],
   [
-    "Create a function block for <b>setCursor</b>.",
-    "Inside the function block, use if-else blocks to determine the cursor LED brightness based on the <b>cursorCount</b> value.",
-    "Use the <b>analogWrite</b> function block to control the cursor LED brightness."
+    "Time to build the main loop. Every Arduino sketch has a main loop that runs continuously. This is where all the functions you have created are called. Click next to continue.",
+    "Call the <i>checkJoystickMovement</i> and <i>checkJoystickPress</i> functions.",
+    "Next we want to make sure that all the LEDs are lit properly. To do this we need to perform a task on each LED. There are 9 LEDs, so we need a loop that will run 9 times. Click next to continue.",
+    "Create a <b>count with block</b> that goes from 0 to 8 inclusive.",
+    "We want to set each LED correctly using the <i>setLed</i> function previously created, except for the LED at the <i>cursor</i> position. The light state of the <i>cursor</i> LED is handled seperately. Click next to continue.",
+    "Create an <b>if-do block</b> that checks that <i>i</i> (iterator variable) is not equal to the <i>cursor</i>.",
+    "Inside this <b>if-do block</b> we call the <i>setLed</i> function.",
+    "Set the <i>led</i> parameter equal to the <b>in list get block</b> with the list <i>leds</i> and a value <i>i</i>.",
+    "Set the <i>state</i> parameter equal to the <b>in list get block</b> with the list <i>board</i> and a value <i>i</i>.",
+    "Outside the <b>count with block</b> call the <i>setCursor</i> function.",
+    "Finally, we need some blocks to handle the LED blicking timing. The variable <i>player2Count</i> controls the blinking of the LEDs associated with player 2. The variable <i>cursorCount</i> controls the blinking of the LED associated with the cursor. Click next to continue.",
+    "Decrement <i>player2Count</i> by 1. Create an <b>if-do block</b> that checks if <i>player2Count</i> is less than 0. If it is, then set <i>player2Count</i> back to 200.",
+    "Decrement <i>cursorCount</i> by 1. Create an <b>if-do block</b> that checks if <i>cursorCount</i> is smaller than 0. If that the case, then set <i>cursorCount</i> back to 1000. "
   ],
   [
-    "Connect your microcontroller board to power or upload the Blockly code to the board. If this doesn't work, you can load in the XML file of the final answer. To do this, click Load XML and select Tic Tac Toe v2.xml in the examples folder of the project.",
-    "The LEDs should light up and the cursor LED should blink according to the specified conditions."
+    "You are completely done! Connect your Arduino to your computer and click the upload button to upload your code to the Arduino.",
+    "If you've followed all the steps correctly, one of the corner LEDs should start blinking."
   ]
 ];
 
