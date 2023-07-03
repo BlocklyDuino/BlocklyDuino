@@ -113,9 +113,7 @@ const ticArray = [
     "Create an <b>if-do block</b> that checks whether the current elapsed time minus <i>joystickTime</i> is greater or equal to 500.",
     "You should be able to use the joystick to navigate up, down, left, and right and move the cursor accordingly across the LED grid. So, we need to check each of these four conditions. Click next to continue.",
     "Create an <b>if-do-elseif-do-elseif-do-elseif-do</b> block using the mutator option.",
-    "",
-    "",
-    "End each of the do-parts with <i>joystickTime = millis()</i> using the <b>code in loop block</b> in <b>Text</b>.  "
+    "End each of the do-parts with <i>joystickTime = millis()</i> using the <b>code in loop block</b> in <b>Text</b>."
   ],
   [
     "In this level we will implement a function that determines whether the joystick button has been pressed. First, we need to read the pin that the button is connected to. Click next to continue.",
