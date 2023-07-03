@@ -22,23 +22,21 @@ function getValues() {
   previousButton = document.getElementById("previous");
   bar = document.getElementById("progressBar");
 }
-var width = 0;
-function moveBar() {
+function moveBar(width = 0) {
     getValues();
-    if (width >= 100) {
+    if (width == -1) {
       clearInterval(id);
       button.disabled = false;
       button.style.backgroundColor = "#e67e22";
     } else {
       bar.style.backgroundColor = "#008184";
-      width++; 
-      bar.style.width = width * 12.25 + '%'; 
-      bar.innerHTML = width * 12.5  + '%';
+      bar.innerHTML = Math.max(width * 12.5,parseFloat(bar.innerHTML) || 0) + "%"; 
+      bar.style.width = parseFloat(bar.innerHTML) * 0.98 + "%";
     }
     if (width > 0) {
       bar.style.color = "white";
     }
-    if (bar.innerHTML == "100%") {
+    if (width >= 8) {
       bar.style.color = "black";
       bar.style.backgroundColor = "#2ecc71";
     }
@@ -284,7 +282,7 @@ function toNextItem() {
     levelText.innerHTML =  contentArray[currentLvl][currentItem];
   }
   else if (currentLvl == lengthLvl && currentItem == lengthCurrentLvl) {
-    moveBar();
+    moveBar(currentLvl + 1);
     nextButton.innerHTML = "Finish";
     nextButton.setAttribute("onclick", "reloadPage()");
     gameFinish = true;
@@ -306,7 +304,7 @@ function toNextItem() {
   }
   else {
     levelFinish = true;
-    moveBar();
+    moveBar(currentLvl + 1);
     playSoundLevelDone();
     levelDiv.style.backgroundColor = "#2ecc71";
     nextButton.style.visibility = "hidden";
