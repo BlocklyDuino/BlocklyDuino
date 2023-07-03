@@ -147,7 +147,7 @@ class Handler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    print "Blocklyduino can now be accessed at http://127.0.0.1:8080/"
+    print "ADHDino can now be accessed at http://127.0.0.1:8080/"
     server = BaseHTTPServer.HTTPServer(("127.0.0.1", 8080), Handler)
     server.pages = {}
     server.serve_forever()
