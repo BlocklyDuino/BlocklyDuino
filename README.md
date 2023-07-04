@@ -1,5 +1,4 @@
 # Welcome to ADHDuino
-=======================
 
 -----------------
 ## Introduction
@@ -7,11 +6,11 @@
 
 ADHDino is an interactive web-based programming environment for Arduino's for children aged 16, specifically catered towards kids with ADHD.
 
-ADHDino is based on [BlocklyDuino] (https://github.com/BlocklyDuino/BlocklyDuino)
+ADHDino is based on [BlocklyDuino](https://github.com/BlocklyDuino/BlocklyDuino)
 
-* [Blockly] (https://developers.google.com/blockly/)
-* [Arduino] (http://www.arduino.cc/)
-* [Grove] (http://www.seeedstudio.com/wiki/GROVE_-_Starter_Kit_V1.1b)
+* [Blockly](https://developers.google.com/blockly/)
+* [Arduino](http://www.arduino.cc/)
+* [Grove](http://www.seeedstudio.com/wiki/GROVE_-_Starter_Kit_V1.1b)
 
 Features:
 * Programming Arduino with visually drag and drop code blocks
