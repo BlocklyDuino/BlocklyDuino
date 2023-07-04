@@ -94,7 +94,7 @@ class Handler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             return SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
         else:
             self.send_response(302)
-            self.send_header("Location", "/blockly/apps/blocklyduino/index.html")
+            self.send_header("Location", "/blockly/apps/ADHDino/index.html")
             self.end_headers()
 
     def do_POST(self):

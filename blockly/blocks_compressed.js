@@ -491,7 +491,7 @@ Blockly.Blocks.grove_bluetooth_slave = {
     init: function() {
         this.setColour(190);
         this.appendDummyInput().appendField("Bluetooth Slave").appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/File:Twigbt00.jpg", 64, 64)).appendField("PIN#").appendField(new Blockly.FieldDropdown(profile["default"].digital), "PIN");
-        this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField("Name").appendField(new Blockly.FieldTextInput("blocklyduino"),
+        this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField("Name").appendField(new Blockly.FieldTextInput("ADHDino"),
             "NAME");
         this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField("Pincode").appendField(new Blockly.FieldTextInput("0000"), "PINCODE");
         this.appendStatementInput("RCV").setAlign(Blockly.ALIGN_RIGHT).appendField("Receive");
