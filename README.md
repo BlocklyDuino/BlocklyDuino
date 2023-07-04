@@ -34,14 +34,14 @@ Requirements:
 
 To install locally, follow these steps:
 
--Extract the ZIP file and place the ADHDino folder in a directory.
+- Extract the ZIP file and place the ADHDino folder in a directory.
 
--Copy the directory of the folder
+- Copy the directory of the folder
 
--Open command prompt or terminal on windows and run the following command: "cd [PASTE DIRECTORY HERE] & python arduino_web_server.py"
+- Open command prompt or terminal on windows and run the following command: "cd [PASTE DIRECTORY HERE] & python arduino_web_server.py"
 Example: cd C:\xampp\htdocs\ADHDino python arduino_web_server.py
 
--You can now open ADHDino in a web browser by opening the following address in a webbrowser: 127.0.0.1:8080 or http://127.0.0.1:8080/ 
+- You can now open ADHDino in a web browser by opening the following address in a webbrowser: 127.0.0.1:8080 or http://127.0.0.1:8080/ 
 
 (note: the index.html file was split into index.html, index.css and index.js to reduce clutter. Any new js or css files are in scripts and styles)
 
@@ -49,16 +49,25 @@ Example: cd C:\xampp\htdocs\ADHDino python arduino_web_server.py
 -----------------
 General Usage
 -----------------
-1. Drag and drop blocks in the workspace to make an Arduino program. 
-	1a. To view your code, press the 'Arduino' tab. 
-	1b. To view XML code, or the code which consists the data of the block configuration, press the 'XML' tab
-	1c. To open an example project in blocks, click 'Load XML' and select any to open a project in Blockly.
-	1d. To save your project in blocks, click 'Save XML'
-	1e. To save your project in Arduino code, click 'Save Arduino code'
-	1f. To rid the workspace, click 'Discard'
-2 To upload code to the Arduino, make sure it's port is COM5 and Arduino IDE is installed (and findable). If 'arduino_web_server.py is running: click the 'Upload' button. The code should now run.
-	2a. If not, select the 'Arduino' tab and copy the displayed code into an existing or new project in Arduino IDE. Then, press the 'Upload' button within Arduino IDE to send the code to the connected Arduino. 
-	2b. To reset code sent to the Arduino board, press the 'Reset' button
+Drag and drop blocks in the workspace to make an Arduino program. 
+	
+1a. To view your code, press the 'Arduino' tab. 
+	
+1b. To view XML code, or the code which consists the data of the block configuration, press the 'XML' tab
+	
+1c. To open an example project in blocks, click 'Load XML' and select any to open a project in Blockly.
+	
+1d. To save your project in blocks, click 'Save XML'
+	
+1e. To save your project in Arduino code, click 'Save Arduino code'
+	
+1f. To rid the workspace, click 'Discard'
+
+To upload code to the Arduino, make sure it's port is COM5 and Arduino IDE is installed (and findable). If 'arduino_web_server.py is running: click the 'Upload' button. The code should now run.
+	
+2a. If not, select the 'Arduino' tab and copy the displayed code into an existing or new project in Arduino IDE. Then, press the 'Upload' button within Arduino IDE to send the code to the connected Arduino. 
+	
+2b. To reset code sent to the Arduino board, press the 'Reset' button
 
 -----------------
 Specific Usage (ADHD catered)
