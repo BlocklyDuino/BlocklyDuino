@@ -1,19 +1,17 @@
-Welcome to ADHDuino
+# Welcome to ADHDuino
 =======================
 
 -----------------
-Introduction
+## Introduction
 -----------------
 
 ADHDino is an interactive web-based programming environment for Arduino's for children aged 16, specifically catered towards kids with ADHD.
 
-ADHDino is based on BlocklyDuino
-https://github.com/BlocklyDuino/BlocklyDuino
+ADHDino is based on [BlocklyDuino] (https://github.com/BlocklyDuino/BlocklyDuino)
 
-* Blockly https://developers.google.com/blockly/
-* Arduino http://www.arduino.cc/
-* Grove http://www.seeedstudio.com/wiki/GROVE_-_Starter_Kit_V1.1b
-* BlocklyDuino https://github.com/BlocklyDuino/BlocklyDuino
+* [Blockly] (https://developers.google.com/blockly/)
+* [Arduino] (http://www.arduino.cc/)
+* [Grove] (http://www.seeedstudio.com/wiki/GROVE_-_Starter_Kit_V1.1b)
 
 Features:
 * Programming Arduino with visually drag and drop code blocks
@@ -23,7 +21,7 @@ Features:
 * A step-by-step guide for 2 different programming use cases
 * A Pomodoro timer
 -----------------
-Installation
+## Installation
 -----------------
 
 Requirements:
@@ -38,39 +36,31 @@ To install locally, follow these steps:
 
 - Copy the directory of the folder
 
-- Open command prompt or terminal on windows and run the following command: "cd [PASTE DIRECTORY HERE] & python arduino_web_server.py"
-Example: cd C:\xampp\htdocs\ADHDino python arduino_web_server.py
+- Open command prompt or terminal on windows and run the following command: `cd [PASTE DIRECTORY HERE] & python arduino_web_server.py`
+Example: `cd C:\xampp\htdocs\ADHDino python arduino_web_server.py`
 
 - You can now open ADHDino in a web browser by opening the following address in a webbrowser: 127.0.0.1:8080 or http://127.0.0.1:8080/ 
 
-(note: the index.html file was split into index.html, index.css and index.js to reduce clutter. Any new js or css files are in scripts and styles)
+> (note: the index.html file was split into index.html, index.css and index.js to reduce clutter. Any new js or css files are in scripts and styles)
 
 
 -----------------
-General Usage
+## General Usage
 -----------------
-Drag and drop blocks in the workspace to make an Arduino program. 
-	
-1a. To view your code, press the 'Arduino' tab. 
-	
-1b. To view XML code, or the code which consists the data of the block configuration, press the 'XML' tab
-	
-1c. To open an example project in blocks, click 'Load XML' and select any to open a project in Blockly.
-	
-1d. To save your project in blocks, click 'Save XML'
-	
-1e. To save your project in Arduino code, click 'Save Arduino code'
-	
-1f. To rid the workspace, click 'Discard'
+1. Drag and drop blocks in the workspace to make an Arduino program. 
+   1a. To view your code, press the 'Arduino' tab. 
+   1b. To view XML code, or the code which consists the data of the block configuration, press the 'XML' tab	
+   1c. To open an example project in blocks, click 'Load XML' and select any to open a project in Blockly.	
+   1d. To save your project in blocks, click 'Save XML'	
+   1e. To save your project in Arduino code, click 'Save Arduino code'	
+   1f. To rid the workspace, click 'Discard'
 
-To upload code to the Arduino, make sure it's port is COM5 and Arduino IDE is installed (and findable). If 'arduino_web_server.py is running: click the 'Upload' button. The code should now run.
-	
-2a. If not, select the 'Arduino' tab and copy the displayed code into an existing or new project in Arduino IDE. Then, press the 'Upload' button within Arduino IDE to send the code to the connected Arduino. 
-	
-2b. To reset code sent to the Arduino board, press the 'Reset' button
+2. To upload code to the Arduino, make sure it's port is COM5 and Arduino IDE is installed (and findable). If 'arduino_web_server.py is running: click the 'Upload' button. The code should now run.
+   2a. If not, select the 'Arduino' tab and copy the displayed code into an existing or new project in Arduino IDE. Then, press the 'Upload' button within Arduino IDE to send the code to the connected Arduino. 	
+   2b. To reset code sent to the Arduino board, press the 'Reset' button
 
 -----------------
-Specific Usage (ADHD catered)
+## Specific Usage (ADHD catered)
 -----------------
 To help kids with ADHD concentrate, one of the interaction techniques applied is a pop-up system.
 1. To start the Pomodoro timer, select your desired focus and pause time.
@@ -82,12 +72,12 @@ The other technique is the step-by-step guide and the progressbar. The levels on
 2. To progress in the level, the user will need to press next untill the final step is finished.
 3. When finished with a level, the user can now go to the next level, unlocked in the level display at the top of the website. To continue, press the button of the corresponding next level in this display.
 
-Note: the user can choose to go forward and backwards within a level, and progress to the next when the level is finished or 'clicked through completely'. The user can access previously completed levels in the level bar on the top.
+> Note: the user can choose to go forward and backwards within a level, and progress to the next when the level is finished or 'clicked through completely'. The user can access previously completed levels in the level bar on the top.
 The progressbar will move according to how many levels have been completed.
 
 
 -----------------
-Where to find relevant files
+## Where to find relevant files
 -----------------
 
 - Base solutions of the use cases are found under: ADHDino\blockly\apps\ADHDino\case solutions
@@ -97,7 +87,7 @@ Where to find relevant files
 - The main website can manually be accessed under: ADHDino\blockly\apps\ADHDino\index.html
  
 -----------------
-Credits
+## Credits
 -----------------
 Fred Lin is the creator of BlocklyDuino.
 
@@ -111,7 +101,7 @@ https://github.com/BlocklyDuino/BlocklyDuino
 (For reference, the original BlocklyDuino README can be found in blockly/blocklyduino/README.txt)
 
 -----------------
-License
+## License
 -----------------
 Copyright (C) 2012 Fred Lin gasolin+arduino@gmail.com
 
