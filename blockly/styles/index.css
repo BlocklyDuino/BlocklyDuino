@@ -1,0 +1,345 @@
+html, body {
+    height: 100%;
+}
+body {
+    background-color: #fff;
+    font-family: Lucida,Verdana,sans-serif;
+    margin: 0;
+    overflow: hidden;
+    color: #444;
+}
+
+#startingScreen{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.8);
+    z-index: 1;
+    position: fixed;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+#startingScreenContent {
+    display: inline-block;
+    margin:auto; 
+}
+
+#startingScreenContent button {
+    background-color: #12263A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#startingScreenContent button:hover {
+    background-color: #2B5C8C;
+    box-shadow: 2px 2px 5px #888;
+}
+
+.header {
+    background-color: #008184;
+    color: #ffffff;
+    padding: 5px;
+    height: auto;
+    grid-area: header;
+}
+
+.header p {
+    font-size: 20px;
+    margin: 15px;
+}
+
+.header a {
+    color: white;
+}
+
+.header img {
+    text-align: center;
+    float: left;
+    height: auto;
+    margin: 2px;
+    width: 50px;
+
+}
+
+.mascotBox {
+    text-align: center;
+}
+
+#mascot {
+    height: 150px;
+    width: 150px;
+}
+
+.mascotBox p {
+    margin: 5px;
+}
+
+/* Tabs */
+#tabRow>td {
+    border: 1px solid #bcac99;
+}
+td.tabon {
+    border-bottom-color: #bcac99 !important;
+    background-color: #bcac99;
+    color: white;
+    padding: 5px 19px;
+}
+td.taboff {
+    cursor: pointer;
+    padding: 5px 19px;
+}
+td.taboff:hover {
+    background-color: #bcac99;
+    color: white;
+}
+td.tabmin {
+    border-top-style: none !important;
+    border-left-style: none !important;
+    border-right-style: none !important;
+}
+td.tabmax {
+    border-top-style: none !important;
+    border-left-style: none !important;
+    border-right-style: none !important;
+    width: 99%;
+    text-align: right;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+td {
+    padding: 0;
+    vertical-align: top;
+}
+.content {
+    visibility: hidden;
+    margin: 0;
+    direction: ltr;
+}
+pre.content {
+    overflow: scroll;
+}
+#content_blocks {
+    padding: 0;
+}
+.blocklySvg {
+    border-top: none !important;
+}
+#content_xml {
+    resize: none;
+    outline: none;
+    border: none;
+    font-family: monospace;
+    overflow: scroll;
+}
+button {
+    padding: 5px;
+    font-size: 90%;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #8a5808;
+    color: white;
+}
+button.launch {
+    border: 1px solid #d43;
+    background-color: #d43;
+    color: white;
+}
+button:active {
+    border: 1px solid blue !important;
+}
+button:hover {
+    background-color: #2A0800;
+    box-shadow: 2px 2px 5px #888;
+}
+
+
+/* Pomodoro */
+.popupOverlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.8);
+    z-index: 1;
+    position: fixed;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display:none;
+}
+
+.popup {
+    position: fixed;
+    z-index: 5; top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    font-size:x-large;
+    text-align: center;
+    color: #444;
+}
+
+.popup p {
+    margin-bottom: 10px;
+}
+
+.popup button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    font-size: small;
+    cursor: pointer;
+}
+
+/* Style the timer */
+#timer {
+    float: right;
+    background-color: rgb(156, 251, 162);
+    color: rgb(0, 0, 0);
+    visibility: hidden;
+    height:0;
+}
+#focustime, #pausetime {
+    background-color: #2B5C8C;
+    color:white;
+}
+/* Depending on which browser you use the selection dropdown colours might differ*/
+select:focus > option:checked, option:hover{
+    background-color: #272932;
+}
+
+#startBtn {
+    margin-top: 10px;
+    background-color: #12263A;
+}
+
+#startBtn:hover {
+    background-color: #2B5C8C;
+}
+
+#continueBtn {
+    background-color: #12263A;
+}
+
+#continueBtn:hover {
+    background-color: #2B5C8C;
+}
+
+/* Step by step */
+#progressBar {
+    border: 2px solid rgb(188, 172, 153);
+    border-radius: 8px;
+}
+
+#progressButton {
+    float: right;
+}
+
+.levels {
+    display: flex;
+    justify-content: center;
+}
+[class*="lvl-"] {
+    border: 4px solid #008184;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+    float:left;
+    padding:25px;
+    margin-left:10px;
+    background-color: #256465cc;
+    color: darkgray;
+}
+
+[class*="lvl-"]:not(.lvl-1) {
+    pointer-events: none;
+}
+
+[class*="lvl-"]:hover {
+    background-color: #008184;
+    color: white;
+}
+
+.hover-effect {
+    background-color: #008184;
+    color: white;
+}
+
+.non-hover{
+    background-color:white;
+    color: black;
+    cursor: pointer;
+}
+
+
+/* Menu */
+#menuTitle {
+    background-color: white;
+    border: 2px solid #008184 !important;
+    border-radius: 5px 5px 0px 0px;
+    color: #444;
+    padding: 18px;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 20px;
+  }
+
+#panel {
+    position: relative;
+    padding:18px;
+    background: #008184;
+    color: white;
+    overflow: clip auto;
+    font-size: 20px;
+}
+
+#panel button {
+    background-color: #12263A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#panel button:hover {
+    background-color: #2B5C8C;
+    box-shadow: 2px 2px 5px #888;
+}
+
+#previous {
+    float: left;
+}
+
+#next {
+    float: right;
+}
+
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
