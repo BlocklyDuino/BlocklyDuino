@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0.63in" height="0.11in" xml:space="preserve"  version="1.1" xmlns:xml="http://www.w3.org/XML/1998/namespace" id="Layer_1" viewBox="0 0 45.002 8.004" gorn="0">
+    <desc  id="desc3">
+        <referenceFile  id="referenceFile5">reed_switch_leg.svg</referenceFile>
+    </desc>
+    <metadata  id="metadata162">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <cc:Work rdf:about="" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
+                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+                <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/"/>
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <defs  id="defs160"/>
+    <g  id="breadboard" gorn="0.3">
+        <rect width="1" x="0" y="2.937" height="1"  id="connector0pin" style="fill:none" gorn="0.3.0"/>
+        <rect width="1" x="40.641998" y="2.9360001" height="1"  id="connector1pin" style="fill:none" gorn="0.3.1"/>
+        <line fill="none"  id="connector0leg" y1="4.0619998" y2="4.0619998" style="fill:none;stroke:#6d6d6d;stroke-width:2.5;stroke-linecap:round" x1="0" stroke-width="2.5" x2="3" gorn="0.3.2" stroke="#6D6D6D" stroke-linecap="round"/>
+        <line fill="none"  id="connector1leg" y1="4.0619998" y2="4.0619998" style="fill:none;stroke:#6d6d6d;stroke-width:2.5;stroke-linecap:round" x1="45.001999" stroke-width="2.5" x2="42.001999" gorn="0.3.3" stroke="#6D6D6D" stroke-linecap="round"/>
+        <line fill="none"  id="line12" y1="4.0619998" y2="4.0619998" style="fill:none;stroke:#6d6d6d;stroke-width:2.5" x1="6.2319999" stroke-width="2.5" x2="3" gorn="0.3.4" stroke="#6D6D6D"/>
+        <line fill="none"  id="line14" y1="4.0619998" y2="4.0619998" style="fill:none;stroke:#6d6d6d;stroke-width:2.5" x1="42.001999" stroke-width="2.5" x2="39.016998" gorn="0.3.5" stroke="#6D6D6D"/>
+    </g>
+    <rect width="32.494068" x="9.3636141" y="-0.17192671" rx="1.5" ry="1.5" height="8.1759262"  id="rect3293" style="fill:#333333" gorn="0.4"/>
+    <rect width="32.494068" x="9.4432297" y="1.365427" height="5.2409787"  id="rect3283" style="fill:#1a1a1a" gorn="0.5"/>
+    <g transform="matrix(0.80848488,0,0,0.80848488,-0.41954665,0)" >
+        <g >
+            <g >
+                <rect width="3.8894815" x="8.2111282" y="3.503963" height="3.1115851"  id="rect3295" style="fill:#666666" gorn="0.6.0.0.0"/>
+            </g>
+        </g>
+    </g>
+    <g fill-opacity="1" font-size="5.13347" xml:space="preserve" fill="#ececec"  xmlns:xml="http://www.w3.org/XML/1998/namespace" id="text3297" style="font-style:normal;font-weight:normal;line-height:118.00000668%;letter-spacing:0px;word-spacing:0px;font-family:Droid Sans" gorn="0.7" stroke="none">
+        <text x="14.185314" y="5.837729"  id="tspan3299" style="font-size:4.85090923px;line-height:118.00000668%;letter-spacing:-0.03233939px;fill:#ececec" gorn="0.7.0">SW-200D</text>
+    </g>
+</svg>

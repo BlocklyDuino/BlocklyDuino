@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20100429 at Tue Jun  5 20:08:21 2012
+ By root
+Copyright (C) 2012 by original authors @ fontello.com
+</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1228" >
+  <font-face 
+    font-family="fontello"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1000"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="800"
+    descent="-200"
+    bbox="0 -166 1101 806"
+    underline-thickness="50"
+    underline-position="-100"
+    unicode-range="U+2302-E724"
+  />
+<missing-glyph horiz-adv-x="364" 
+d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
+    <glyph glyph-name=".notdef" horiz-adv-x="364" 
+d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="333" 
+ />
+    <glyph glyph-name="house" unicode="&#x2302;" 
+d="M128 304.5q0 10.5 15 20.5l471 379l471 -379q16 -10 16 -20.5t-26 -10.5h-51h-51v-51v-256v-51q0 -51 -51 -51h-154q-51 0 -51 51v205v51h-52h-102h-51v-51v-205q0 -51 -51 -51h-154q-51 0 -51 51v51v256v51h-51h-51q-26 0 -26 10.5z" />
+    <glyph glyph-name="uni2699" unicode="&#x2699;" horiz-adv-x="900" 
+d="M587 350q0 54 -39 92t-93 38t-92 -38t-38 -92t38 -92t92 -38t93 38t39 92zM900 415v-128l-166 -23q-10 -25 -19 -45l108 -142l-92 -90l-143 107q-18 -10 -46 -19l-27 -175h-129l-24 177q-19 7 -39 17l-145 -108l-91 90l109 144q-10 19 -17 42l-179 25v128l179 25
+q6 19 17 40l-108 144l91 90l144 -108q14 8 42 18l26 176h128l25 -176q20 -6 44 -17l142 106l92 -90l-107 -141q11 -24 18 -43z" />
+    <glyph glyph-name="uni27F3" unicode="&#x27f3;" horiz-adv-x="786" 
+d="M599 239h112q0 -133 -92 -225q-91 -94 -225 -94t-225 94q-94 94 -94 225q0 129 94 225q95 92 222 92l-40 173l330 -228l-317 -241l28 184q-84 -2 -144 -62t-60 -143q0 -85 60.5 -146t145.5 -61t145 61t60 146z" />
+    <glyph glyph-name="uniE724" unicode="&#xe724;" 
+d="M256 402q0 169 123 287q117 117 286.5 117t286.5 -117q123 -118 123 -287q0 -138 -102 -267q-51 -66 -92 -102q-26 -30 -113 -107l-103 -92q-51 51 -102 92q-46 41 -112 107q-41 36 -93 102q-102 119 -102 267zM487 397q0 -77 51 -128t127.5 -51t128 51t51.5 128
+t-51.5 128t-128 51t-127.5 -51t-51 -128z" />
+  </font>
+</defs></svg>

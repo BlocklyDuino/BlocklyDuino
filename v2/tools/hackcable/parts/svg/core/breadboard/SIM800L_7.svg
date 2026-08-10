@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0.94494361in" x="0in" version="1.2" y="0in" gorn="0"  height="1.2194228in" viewBox="0 0 944.94358 1219.4228" id="svg3607">
+    <metadata  id="metadata3641">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <cc:Work xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" rdf:about="">
+                <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
+                <dc:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="http://purl.org/dc/dcmitype/StillImage" xmlns:dc="http://purl.org/dc/elements/1.1/"/>
+                <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/"/>
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <defs  id="defs3639"/>
+    <desc  id="desc3609">
+        <referenceFile >mystery_part_7_sip_100mil_bread.svg</referenceFile>
+    </desc>
+    <path fill="#004455" gorn="0.3"  id="rect3612" stroke-width="0" d="M 20.008697,1.059638e-5 C 8.9286981,1.059638e-5 2.119276e-5,8.9069875 2.119276e-5,19.986986 l 0,1179.426914 c 0,11.08 8.92867690724,20.0087 20.00867580724,20.0087 l 904.926123,0 c 11.08003,0 20.00868,-8.9287 20.00868,-20.0087 l 0,-1179.426914 C 944.9435,8.9069875 936.01485,1.059638e-5 924.93482,1.059638e-5 l -904.926123,0 z M 81.770846,31.835941 A 46.987011,46.987011 0 0 1 128.75435,78.841147 A 46.987011,46.987011 0 0 1 81.770846,125.82465 A 46.987011,46.987011 0 0 1 34.78734,78.841147 A 46.987011,46.987011 0 0 1 81.770846,31.835941 Z m 780.881004,0 a 46.98701,46.98701 0 0 1 46.98349,47.005206 A 46.98701,46.98701 0 0 1 862.65185,125.82465 A 46.98701,46.98701 0 0 1 815.64664,78.841147 A 46.98701,46.98701 0 0 1 862.65185,31.835941 Z M 81.770846,1092.4044 a 46.987009,46.987009 0 0 1 46.983504,46.9835 a 46.987009,46.987009 0 0 1 -46.983504,47.0052 A 46.987009,46.987009 0 0 1 34.78734,1139.3879 a 46.987009,46.987009 0 0 1 46.983506,-46.9835 z"/>
+    <g  transform="translate(218.25084,910.98081)">
+        <g >
+            <g >
+                <g >
+                    <g gorn="0.4.0.0.0.0"  id="g3684">
+                        <rect width="660.02197" x="0" y="220" fill="#ffd42a"  height="70.561317" stroke-width="0"/>
+                        <rect width="23" x="18.510981" y="245.28065" fill="#8c8c8c" gorn="0.4.0.0.0.0.1"  height="20" stroke="none" id="connector0pin" stroke-width="0"/>
+                        <rect width="23" x="118.51098" y="245.28065" fill="#8c8c8c" gorn="0.4.0.0.0.0.2"  height="20" stroke="none" id="connector1pin" stroke-width="0"/>
+                        <rect width="23" x="218.51097" y="245.28065" fill="#8c8c8c" gorn="0.4.0.0.0.0.3"  height="20" stroke="none" id="connector2pin" stroke-width="0"/>
+                        <rect width="0.046" x="229.98798" y="255.23764" fill="none"  height="0.085000001" stroke="none" stroke-width="0"/>
+                        <rect width="23" x="318.51099" y="245.28065" fill="#8c8c8c" gorn="0.4.0.0.0.0.5"  height="20" stroke="none" id="connector3pin" stroke-width="0"/>
+                        <rect width="0.046" x="329.98798" y="255.23764" fill="none"  height="0.085000001" stroke="none" stroke-width="0"/>
+                        <rect width="23" x="418.51099" y="245.28065" fill="#8c8c8c" gorn="0.4.0.0.0.0.7"  height="20" stroke="none" id="connector4pin" stroke-width="0"/>
+                        <rect width="23" x="518.51099" y="245.28065" fill="#8c8c8c" gorn="0.4.0.0.0.0.8"  height="20" stroke="none" id="connector5pin" stroke-width="0"/>
+                        <rect width="23" x="618.51099" y="245.28065" fill="#8c8c8c" gorn="0.4.0.0.0.0.9"  height="20" stroke="none" id="connector6pin" stroke-width="0"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <path stroke-opacity="1" fill="#b3b3b3" gorn="0.5"  stroke="none" style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill-rule:nonzero;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker:none;enable-background:accumulate" fill-opacity="1" id="rect3722" stroke-width="4" d="m 57.161471,251.12845 l 0,55.33854 A 153.26715,222.62894 0 0 1 92.947056,449.13191 A 153.26715,222.62894 0 0 1 57.161471,592.05724 l 0,175.91144 l 525.802899,0 l 0,-145.42099 l -26.84462,0 l 0,-371.41924 l -498.958279,0 z M 169.03212,315.9939 a 22.374768,22.374768 0 0 1 22.37413,22.39583 a 22.374768,22.374768 0 0 1 -22.37413,22.37413 a 22.374768,22.374768 0 0 1 -22.37413,-22.37413 a 22.374768,22.374768 0 0 1 22.37413,-22.39583 z m 288.62844,0 a 22.374768,22.374768 0 0 1 22.37414,22.39583 a 22.374768,22.374768 0 0 1 -22.37414,22.37413 a 22.374768,22.374768 0 0 1 -22.37413,-22.37413 a 22.374768,22.374768 0 0 1 22.37413,-22.39583 z m -288.62844,88.38975 a 22.374768,22.374768 0 0 1 22.37413,22.37413 a 22.374768,22.374768 0 0 1 -22.37413,22.37413 a 22.374768,22.374768 0 0 1 -22.37413,-22.37413 a 22.374768,22.374768 0 0 1 22.37413,-22.37413 z m 288.62844,0 a 22.374768,22.374768 0 0 1 22.37414,22.37413 a 22.374768,22.374768 0 0 1 -22.37414,22.37413 a 22.374768,22.374768 0 0 1 -22.37413,-22.37413 a 22.374768,22.374768 0 0 1 22.37413,-22.37413 z m -288.62844,88.38974 a 22.374768,22.374768 0 0 1 22.37413,22.37414 a 22.374768,22.374768 0 0 1 -22.37413,22.37413 a 22.374768,22.374768 0 0 1 -22.37413,-22.37413 a 22.374768,22.374768 0 0 1 22.37413,-22.37414 z m 288.62844,0 a 22.374768,22.374768 0 0 1 22.37414,22.37414 a 22.374768,22.374768 0 0 1 -22.37414,22.37413 a 22.374768,22.374768 0 0 1 -22.37413,-22.37413 a 22.374768,22.374768 0 0 1 22.37413,-22.37414 z"/>
+    <g  transform="matrix(0,-1,1,0,0,0)">
+        <g >
+            <g >
+                <g >
+                    <g stroke-opacity="1" fill="#ffffff" gorn="0.6.0.0.0.0"  stroke="none" xmlns:xml="http://www.w3.org/XML/1998/namespace" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;font-family:Droid Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;stroke-linecap:butt;stroke-linejoin:miter;" fill-opacity="1" id="text3810" xml:space="preserve" stroke-width="11.1111" font-size="1481.48">
+                        <text x="-1108.0553" y="271.18661" gorn="0.6.0.0.0.0.0"  style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:69.44443512px;font-family:Droid Sans;-inkscape-font-specification:'Droid Sans Medium';fill:#ffffff" id="tspan3812">5V</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g  transform="matrix(0,-1,1,0,0,0)">
+        <g >
+            <g >
+                <g >
+                    <g stroke-opacity="1" fill="#ffffff" gorn="0.7.0.0.0.0"  stroke="none" xmlns:xml="http://www.w3.org/XML/1998/namespace" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;font-family:Droid Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;stroke-linecap:butt;stroke-linejoin:miter;" fill-opacity="1" id="text3810-2" xml:space="preserve" stroke-width="11.1111" font-size="1481.48">
+                        <text x="-1106.5972" y="768.3988" gorn="0.7.0.0.0.0.0"  style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:69.44443512px;font-family:Droid Sans;-inkscape-font-specification:'Droid Sans Medium';fill:#ffffff" id="tspan3812-8">GND</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g  transform="matrix(0,-1,1,0,0,0)">
+        <g >
+            <g >
+                <g >
+                    <g stroke-opacity="1" fill="#ffffff" gorn="0.8.0.0.0.0"  stroke="none" xmlns:xml="http://www.w3.org/XML/1998/namespace" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;font-family:Droid Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;stroke-linecap:butt;stroke-linejoin:miter;" fill-opacity="1" id="text3810-2-4" xml:space="preserve" stroke-width="11.1111" font-size="1481.48">
+                        <text x="-1107.2754" y="661.35065" gorn="0.8.0.0.0.0.0"  style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:69.44443512px;font-family:Droid Sans;-inkscape-font-specification:'Droid Sans Medium';fill:#ffffff" id="tspan3812-8-2">SIM_RXD</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g  transform="matrix(0,-1,1,0,0,0)">
+        <g >
+            <g >
+                <g >
+                    <g stroke-opacity="1" fill="#ffffff" gorn="0.9.0.0.0.0"  stroke="none" xmlns:xml="http://www.w3.org/XML/1998/namespace" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;font-family:Droid Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;stroke-linecap:butt;stroke-linejoin:miter;" fill-opacity="1" id="text3810-2-4-1" xml:space="preserve" stroke-width="11.1111" font-size="1481.48">
+                        <text x="-1107.2754" y="561.99982" gorn="0.9.0.0.0.0.0"  style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:69.44443512px;font-family:Droid Sans;-inkscape-font-specification:'Droid Sans Medium';fill:#ffffff" id="tspan3812-8-2-3">SIM_TXD</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g  transform="matrix(0,-1,1,0,0,0)">
+        <g >
+            <g >
+                <g >
+                    <g stroke-opacity="1" fill="#ffffff" gorn="0.10.0.0.0.0"  stroke="none" xmlns:xml="http://www.w3.org/XML/1998/namespace" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;font-family:Droid Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;stroke-linecap:butt;stroke-linejoin:miter;" fill-opacity="1" id="text3810-2-3" xml:space="preserve" stroke-width="11.1111" font-size="1481.48">
+                        <text x="-1103.2402" y="470.38007" gorn="0.10.0.0.0.0.0"  style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:69.44443512px;font-family:Droid Sans;-inkscape-font-specification:'Droid Sans Medium';fill:#ffffff" id="tspan3886">VDD</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g  transform="matrix(0,-1,1,0,0,0)">
+        <g >
+            <g >
+                <g >
+                    <g stroke-opacity="1" fill="#ffffff" gorn="0.11.0.0.0.0"  stroke="none" xmlns:xml="http://www.w3.org/XML/1998/namespace" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;font-family:Droid Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;stroke-linecap:butt;stroke-linejoin:miter;" fill-opacity="1" id="text3810-2-3-3" xml:space="preserve" stroke-width="11.1111" font-size="1481.48">
+                        <text x="-1109.5133" y="867.74963" gorn="0.11.0.0.0.0.0"  style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:69.44443512px;font-family:Droid Sans;-inkscape-font-specification:'Droid Sans Medium';fill:#ffffff" id="tspan3886-1">RST</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g  transform="matrix(0,-1,1,0,0,0)">
+        <g >
+            <g >
+                <g >
+                    <g stroke-opacity="1" fill="#ffffff" gorn="0.12.0.0.0.0"  stroke="none" xmlns:xml="http://www.w3.org/XML/1998/namespace" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;font-family:Droid Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;stroke-linecap:butt;stroke-linejoin:miter;" fill-opacity="1" id="text3810-2-30" xml:space="preserve" stroke-width="11.1111" font-size="1481.48">
+                        <text x="-1106.5972" y="370.99527" gorn="0.12.0.0.0.0.0"  style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:69.44443512px;font-family:Droid Sans;-inkscape-font-specification:'Droid Sans Medium';fill:#ffffff" id="tspan3812-8-9">GND</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g  transform="matrix(0,-1,1,0,0,0)">
+        <g >
+            <g >
+                <g >
+                    <g stroke-opacity="1" fill="#000000" gorn="0.13.0.0.0.0"  stroke="none" xmlns:xml="http://www.w3.org/XML/1998/namespace" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;font-family:Droid Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;stroke-linecap:butt;stroke-linejoin:miter;" fill-opacity="1" id="text3926" xml:space="preserve" stroke-width="11.1111" font-size="1481.48">
+                        <text x="-531.0415" y="744.53174" gorn="0.13.0.0.0.0.0"  style="fill:#ffffff;font-size:138.88890062px;-inkscape-font-specification:'Droid Sans Medium';font-family:Droid Sans;font-weight:500;font-style:normal;font-stretch:normal;font-variant:normal" id="tspan3928">SIM</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

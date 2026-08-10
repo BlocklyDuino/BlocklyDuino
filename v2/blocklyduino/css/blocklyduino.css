@@ -1,0 +1,111 @@
+/**
+* @license
+* Copyright 2020 Sébastien CANET
+* SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
+.blocklyToolboxDiv {
+    box-shadow: 5px 5px 5px gray !important;
+}
+.UIText {
+    vertical-align: middle;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.UITextSmall {
+    vertical-align: middle;
+    color: #FFFFFF;
+    font-size: large;
+    font-weight: bold;
+}
+.iconButtons{
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    padding:2px;
+    line-height:0;
+    vertical-align: middle;
+    background: #006468;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    width: 32px;
+}
+.iconButtons:hover{
+    background: #FFFFFF;
+    color: #000000;
+    cursor : pointer;
+    transition: 0.5s ease;
+}
+.iconButtons:active{
+    background: #FFCC00;
+}
+.iconButtons:active::after {
+    transition-property: background;
+    transition-duration: 10s;
+}
+.iconButtons:disabled{
+    background: #F3F1EF;
+    color: #006468;
+    cursor : not-allowed;
+}
+.iconButtonsClicked{
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    padding:2px;
+    line-height:0;
+    vertical-align: middle;
+    background: #FFCC00;
+    color: #006468;
+    font-size: x-large;
+    width: 32px;
+}
+.CLI {
+    margin: 5px;
+}
+/* surcharger .iconButton */
+#boardMenu, #serialMenu{
+    color: #000000;
+    font-size:large;
+    border: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+#barre_h{
+    background-color : #17a1a5;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items:center;
+}
+
+/* boutons classiques */
+#verifyButton,
+#uploadButton,
+#serialConnectButton
+{
+    border-radius: 50%;
+}
+#resetButton{
+    background: #FF0000;
+}
+#resetButton:hover{
+    background: #FFFFFF;
+    cursor: no-drop;
+}
+#helpButton{
+    border-radius: 5px;
+    cursor: help;
+}
+#copyCodeButton{
+    visibility: hidden;
+    position: absolute;
+    top: 85px;
+    right: 5px;
+    border-radius: 5px;
+    z-index: 5;
+}

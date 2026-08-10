@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg3336"
+   viewBox="0 0 500 600"
+   height="0.6in"
+   y="0in"
+   version="1.2"
+   x="0in"
+   width="0.5in">
+  <metadata
+     id="metadata3533">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3531" />
+  <desc
+     id="desc3338">
+    <referenceFile>SO08_breadboard.svg</referenceFile>
+  </desc>
+  <g
+     transform="translate(0,-4.7683714e-5)"
+     stroke-width="0"
+     id="breadboard">
+    <g
+       stroke-width="0"
+       id="icon">
+      <path
+         fill="#1f7a34" stroke="none" stroke-width="0"
+         id="path3342"
+         d="m 0,0 0,270 a 37.499999,30 0 0 1 0,60 L 0,600 500,600 500,0 0,0 Z" />
+      <g
+         stroke-width="0"
+         id="g3344"
+         transform="translate(104,153.5)">
+        <g
+           stroke-width="0"
+           id="g3346"
+           transform="matrix(0.5,0,0,0.5,48,73.25)">
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3348"
+             height="87"
+             y="206"
+             x="9"
+             width="24" />
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3350"
+             height="87"
+             y="206"
+             x="59"
+             width="24" />
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3352"
+             height="87"
+             y="206"
+             x="109"
+             width="24" />
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3354"
+             height="87"
+             y="206"
+             x="159"
+             width="24" />
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3356"
+             height="87"
+             y="0"
+             x="159"
+             width="24" />
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3358"
+             height="87"
+             y="0"
+             x="109"
+             width="24" />
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3360"
+             height="87"
+             y="0"
+             x="59"
+             width="24" />
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3362"
+             height="87"
+             y="0"
+             x="9"
+             width="24" />
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3356-8"
+             height="87"
+             y="-0.49990463"
+             x="210"
+             width="24" />
+          <rect
+             fill="#8c8c8c" stroke="none" stroke-width="0"
+             id="rect3354-2"
+             height="87"
+             y="205.50009"
+             x="210"
+             width="24" />
+          <rect
+             fill="#303030" stroke="none" stroke-width="0"
+             id="rect3364"
+             height="141.96899"
+             y="75.515701"
+             x="3.00787"
+             width="232" />
+          <polygon
+             transform="matrix(1.1704345,0,0,1,-0.51264486,0)"
+             fill="#1f1f1f" stroke-width="0"
+             id="polygon3366"
+             points="178.992,85.5157 13.0079,85.5157 3.00787,75.5157 188.992,75.5157 " />
+          <polygon
+             transform="matrix(1.1826084,0,0,1,-0.54926235,0)"
+             fill="#1f1f1f" stroke-width="0"
+             id="polygon3368"
+             points="178.992,207.483 13.0079,207.483 3.00787,217.483 188.992,217.483 " />
+          <polygon
+             fill="#000000" stroke-width="0"
+             id="polygon3370"
+             points="3.00787,217.483 13.0079,207.483 13.0079,85.5157 3.00787,75.5157 " />
+          <polygon
+             transform="translate(39.008,-0.98290463)"
+             fill="#3d3d3d" stroke-width="0"
+             id="polygon3372"
+             points="188.992,75.5157 188.992,217.483 178.992,207.483 178.992,85.5157 " />
+          <circle
+             fill="#1f1f1f" stroke="none" stroke-width="0"
+             id="circle3374"
+             r="10"
+             cy="187.483"
+             cx="33.0079" />
+        </g>
+      </g>
+      <text
+         font-family="OCRA" fill="white"  text-anchor="start" stroke="none" stroke-width="0"
+         font-size="65"
+         id="label"
+         y="324.375"
+         x="50">IC</text>
+      <g
+         stroke-width="0"
+         id="g3377"
+         transform="translate(63.5,526.05)">
+        <g
+           stroke-width="0"
+           id="g3379"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="start" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3381"
+             font-size="45"
+             y="0"
+             x="0">1</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         id="g3383"
+         transform="translate(263.255,73.95)">
+        <g
+           stroke-width="0"
+           id="g3385"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="end" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3387"
+             font-size="45"
+             y="0"
+             x="0">8</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         id="g3389"
+         transform="translate(163.5,526.05)">
+        <g
+           stroke-width="0"
+           id="g3391"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="start" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3393"
+             font-size="45"
+             y="0"
+             x="0">2</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         id="g3395"
+         transform="translate(363.255,73.95)">
+        <g
+           stroke-width="0"
+           id="g3397"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="end" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3399"
+             font-size="45"
+             y="0"
+             x="0">7</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         id="g3401"
+         transform="translate(263.5,526.05)">
+        <g
+           stroke-width="0"
+           id="g3403"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="start" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3405"
+             font-size="45"
+             y="0"
+             x="0">3</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         id="g3407"
+         transform="translate(463.255,73.95)">
+        <g
+           stroke-width="0"
+           id="g3409"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="end" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3411"
+             font-size="45"
+             y="0"
+             x="0">6</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         id="g3413"
+         transform="translate(363.5,526.05)">
+        <g
+           stroke-width="0"
+           id="g3415"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="start" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3417"
+             font-size="45"
+             y="0"
+             x="0">4</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         id="g3419"
+         transform="translate(378.36611,5.8437822)">
+        <g
+           stroke-width="0"
+           id="g3421"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="end" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3423"
+             font-size="45"
+             y="88.888885"
+             x="-487.7569">5</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         id="g3383-6"
+         transform="translate(167.255,73.602079)">
+        <g
+           stroke-width="0"
+           id="g3385-3"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="end" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3387-5"
+             font-size="45"
+             y="0"
+             x="0">9</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         transform="translate(134,34.100048)"
+         id="connector8pin">
+        <rect
+           fill="#8d8c8c" stroke-width="0"
+           id="rect3439-4"
+           height="31.9"
+           y="0"
+           x="0"
+           width="31.93" />
+        <rect
+           fill="#8c8663" stroke-width="0"
+           id="rect3441-4"
+           height="16.4151"
+           y="7.7354398"
+           x="7.7915301"
+           width="16.444201" />
+        <polygon
+           fill="#b8af82" stroke-width="0"
+           id="polygon3443-3"
+           points="0,0 0,31.9 7.79153,24.1368 7.79153,6.97162 " />
+        <polygon
+           fill="#80795b" stroke-width="0"
+           id="polygon3445-2"
+           points="31.93,0 24.2079,7.76321 7.90264,7.76321 0,0 " />
+        <polygon
+           fill="#5e5b43" stroke-width="0"
+           id="polygon3447-4"
+           points="31.93,31.9 24.2079,24.1368 24.2079,7.76321 31.93,0 " />
+        <polygon
+           fill="#9a916c" stroke-width="0"
+           id="polygon3449-0"
+           points="31.93,31.9 0,31.9 7.87486,24.1368 24.2079,24.1368 " />
+      </g>
+      <g
+         stroke-width="0"
+         id="g3383-0"
+         transform="translate(67.255,73.602079)">
+        <g
+           stroke-width="0"
+           id="g3385-4"
+           transform="matrix(0,-1,1,0,0,0)">
+          <text
+             font-family="OCRA" text-anchor="end" fill="#ffffff" stroke="none" stroke-width="0"
+             id="text3387-2"
+             font-size="45"
+             y="0"
+             x="0">10</text>
+        </g>
+      </g>
+      <g
+         stroke-width="0"
+         transform="translate(34,34.100048)"
+         id="connector9pin">
+        <rect
+           fill="#8d8c8c" stroke-width="0"
+           id="rect3439-9"
+           height="31.9"
+           y="0"
+           x="0"
+           width="31.93" />
+        <rect
+           fill="#8c8663" stroke-width="0"
+           id="rect3441-7"
+           height="16.4151"
+           y="7.7354398"
+           x="7.7915301"
+           width="16.444201" />
+        <polygon
+           fill="#b8af82" stroke-width="0"
+           id="polygon3443-6"
+           points="0,0 0,31.9 7.79153,24.1368 7.79153,6.97162 " />
+        <polygon
+           fill="#80795b" stroke-width="0"
+           id="polygon3445-6"
+           points="31.93,0 24.2079,7.76321 7.90264,7.76321 0,0 " />
+        <polygon
+           fill="#5e5b43" stroke-width="0"
+           id="polygon3447-7"
+           points="31.93,31.9 24.2079,24.1368 24.2079,7.76321 31.93,0 " />
+        <polygon
+           fill="#9a916c" stroke-width="0"
+           id="polygon3449-8"
+           points="31.93,31.9 0,31.9 7.87486,24.1368 24.2079,24.1368 " />
+      </g>
+    </g>
+    <g
+       stroke-width="0"
+       transform="translate(34.035,534.05)"
+       id="connector0pin">
+      <rect
+         fill="#8d8c8c" stroke-width="0"
+         id="rect3426"
+         height="31.9"
+         y="0"
+         x="0"
+         width="31.93" />
+      <rect
+         fill="#8c8663" stroke-width="0"
+         id="rect3428"
+         height="16.4151"
+         y="7.7354398"
+         x="7.7915301"
+         width="16.444201" />
+      <polygon
+         fill="#b8af82" stroke-width="0"
+         id="polygon3430"
+         points="7.79153,24.1368 7.79153,6.97162 0,0 0,31.9 " />
+      <polygon
+         fill="#80795b" stroke-width="0"
+         id="polygon3432"
+         points="7.90264,7.76321 0,0 31.93,0 24.2079,7.76321 " />
+      <polygon
+         fill="#5e5b43" stroke-width="0"
+         id="polygon3434"
+         points="24.2079,7.76321 31.93,0 31.93,31.9 24.2079,24.1368 " />
+      <polygon
+         fill="#9a916c" stroke-width="0"
+         id="polygon3436"
+         points="7.87486,24.1368 24.2079,24.1368 31.93,31.9 0,31.9 " />
+    </g>
+    <g
+       stroke-width="0"
+       transform="translate(233.79,34.05)"
+       id="connector7pin">
+      <rect
+         fill="#8d8c8c" stroke-width="0"
+         id="rect3439"
+         height="31.9"
+         y="0"
+         x="0"
+         width="31.93" />
+      <rect
+         fill="#8c8663" stroke-width="0"
+         id="rect3441"
+         height="16.4151"
+         y="7.7354398"
+         x="7.7915301"
+         width="16.444201" />
+      <polygon
+         fill="#b8af82" stroke-width="0"
+         id="polygon3443"
+         points="7.79153,6.97162 0,0 0,31.9 7.79153,24.1368 " />
+      <polygon
+         fill="#80795b" stroke-width="0"
+         id="polygon3445"
+         points="0,0 31.93,0 24.2079,7.76321 7.90264,7.76321 " />
+      <polygon
+         fill="#5e5b43" stroke-width="0"
+         id="polygon3447"
+         points="31.93,0 31.93,31.9 24.2079,24.1368 24.2079,7.76321 " />
+      <polygon
+         fill="#9a916c" stroke-width="0"
+         id="polygon3449"
+         points="24.2079,24.1368 31.93,31.9 0,31.9 7.87486,24.1368 " />
+    </g>
+    <g
+       stroke-width="0"
+       transform="translate(134.035,534.05)"
+       id="connector1pin">
+      <rect
+         fill="#8d8c8c" stroke-width="0"
+         id="rect3452"
+         height="31.9"
+         y="0"
+         x="0"
+         width="31.93" />
+      <rect
+         fill="#8c8663" stroke-width="0"
+         id="rect3454"
+         height="16.4151"
+         y="7.7354398"
+         x="7.7915301"
+         width="16.444201" />
+      <polygon
+         fill="#b8af82" stroke-width="0"
+         id="polygon3456"
+         points="7.79153,24.1368 7.79153,6.97162 0,0 0,31.9 " />
+      <polygon
+         fill="#80795b" stroke-width="0"
+         id="polygon3458"
+         points="7.90264,7.76321 0,0 31.93,0 24.2079,7.76321 " />
+      <polygon
+         fill="#5e5b43" stroke-width="0"
+         id="polygon3460"
+         points="24.2079,7.76321 31.93,0 31.93,31.9 24.2079,24.1368 " />
+      <polygon
+         fill="#9a916c" stroke-width="0"
+         id="polygon3462"
+         points="7.87486,24.1368 24.2079,24.1368 31.93,31.9 0,31.9 " />
+    </g>
+    <g
+       stroke-width="0"
+       transform="translate(333.79,34.05)"
+       id="connector6pin">
+      <rect
+         fill="#8d8c8c" stroke-width="0"
+         id="rect3465"
+         height="31.9"
+         y="0"
+         x="0"
+         width="31.93" />
+      <rect
+         fill="#8c8663" stroke-width="0"
+         id="rect3467"
+         height="16.4151"
+         y="7.7354398"
+         x="7.7915301"
+         width="16.444201" />
+      <polygon
+         fill="#b8af82" stroke-width="0"
+         id="polygon3469"
+         points="7.79153,6.97162 0,0 0,31.9 7.79153,24.1368 " />
+      <polygon
+         fill="#80795b" stroke-width="0"
+         id="polygon3471"
+         points="0,0 31.93,0 24.2079,7.76321 7.90264,7.76321 " />
+      <polygon
+         fill="#5e5b43" stroke-width="0"
+         id="polygon3473"
+         points="31.93,0 31.93,31.9 24.2079,24.1368 24.2079,7.76321 " />
+      <polygon
+         fill="#9a916c" stroke-width="0"
+         id="polygon3475"
+         points="24.2079,24.1368 31.93,31.9 0,31.9 7.87486,24.1368 " />
+    </g>
+    <g
+       stroke-width="0"
+       transform="translate(234.035,534.05)"
+       id="connector2pin">
+      <rect
+         fill="#8d8c8c" stroke-width="0"
+         id="rect3478"
+         height="31.9"
+         y="0"
+         x="0"
+         width="31.93" />
+      <rect
+         fill="#8c8663" stroke-width="0"
+         id="rect3480"
+         height="16.4151"
+         y="7.7354398"
+         x="7.7915301"
+         width="16.444201" />
+      <polygon
+         fill="#b8af82" stroke-width="0"
+         id="polygon3482"
+         points="7.79153,24.1368 7.79153,6.97162 0,0 0,31.9 " />
+      <polygon
+         fill="#80795b" stroke-width="0"
+         id="polygon3484"
+         points="7.90264,7.76321 0,0 31.93,0 24.2079,7.76321 " />
+      <polygon
+         fill="#5e5b43" stroke-width="0"
+         id="polygon3486"
+         points="24.2079,7.76321 31.93,0 31.93,31.9 24.2079,24.1368 " />
+      <polygon
+         fill="#9a916c" stroke-width="0"
+         id="polygon3488"
+         points="7.87486,24.1368 24.2079,24.1368 31.93,31.9 0,31.9 " />
+    </g>
+    <g
+       stroke-width="0"
+       transform="translate(433.79,34.05)"
+       id="connector5pin">
+      <rect
+         fill="#8d8c8c" stroke-width="0"
+         id="rect3491"
+         height="31.9"
+         y="0"
+         x="0"
+         width="31.93" />
+      <rect
+         fill="#8c8663" stroke-width="0"
+         id="rect3493"
+         height="16.4151"
+         y="7.7354398"
+         x="7.7915301"
+         width="16.444201" />
+      <polygon
+         fill="#b8af82" stroke-width="0"
+         id="polygon3495"
+         points="7.79153,6.97162 0,0 0,31.9 7.79153,24.1368 " />
+      <polygon
+         fill="#80795b" stroke-width="0"
+         id="polygon3497"
+         points="0,0 31.93,0 24.2079,7.76321 7.90264,7.76321 " />
+      <polygon
+         fill="#5e5b43" stroke-width="0"
+         id="polygon3499"
+         points="31.93,0 31.93,31.9 24.2079,24.1368 24.2079,7.76321 " />
+      <polygon
+         fill="#9a916c" stroke-width="0"
+         id="polygon3501"
+         points="24.2079,24.1368 31.93,31.9 0,31.9 7.87486,24.1368 " />
+    </g>
+    <g
+       stroke-width="0"
+       transform="translate(334.035,534.05)"
+       id="connector3pin">
+      <rect
+         fill="#8d8c8c" stroke-width="0"
+         id="rect3504"
+         height="31.9"
+         y="0"
+         x="0"
+         width="31.93" />
+      <rect
+         fill="#8c8663" stroke-width="0"
+         id="rect3506"
+         height="16.4151"
+         y="7.7354398"
+         x="7.7915301"
+         width="16.444201" />
+      <polygon
+         fill="#b8af82" stroke-width="0"
+         id="polygon3508"
+         points="7.79153,24.1368 7.79153,6.97162 0,0 0,31.9 " />
+      <polygon
+         fill="#80795b" stroke-width="0"
+         id="polygon3510"
+         points="7.90264,7.76321 0,0 31.93,0 24.2079,7.76321 " />
+      <polygon
+         fill="#5e5b43" stroke-width="0"
+         id="polygon3512"
+         points="24.2079,7.76321 31.93,0 31.93,31.9 24.2079,24.1368 " />
+      <polygon
+         fill="#9a916c" stroke-width="0"
+         id="polygon3514"
+         points="7.87486,24.1368 24.2079,24.1368 31.93,31.9 0,31.9 " />
+    </g>
+    <g
+       stroke-width="0"
+       transform="translate(434,534.10005)"
+       id="connector4pin">
+      <rect
+         fill="#8d8c8c" stroke-width="0"
+         id="rect3517"
+         height="31.9"
+         y="0"
+         x="0"
+         width="31.93" />
+      <rect
+         fill="#8c8663" stroke-width="0"
+         id="rect3519"
+         height="16.4151"
+         y="7.7354398"
+         x="7.7915301"
+         width="16.444201" />
+      <polygon
+         fill="#b8af82" stroke-width="0"
+         id="polygon3521"
+         points="7.79153,6.97162 0,0 0,31.9 7.79153,24.1368 " />
+      <polygon
+         fill="#80795b" stroke-width="0"
+         id="polygon3523"
+         points="0,0 31.93,0 24.2079,7.76321 7.90264,7.76321 " />
+      <polygon
+         fill="#5e5b43" stroke-width="0"
+         id="polygon3525"
+         points="31.93,0 31.93,31.9 24.2079,24.1368 24.2079,7.76321 " />
+      <polygon
+         fill="#9a916c" stroke-width="0"
+         id="polygon3527"
+         points="24.2079,24.1368 31.93,31.9 0,31.9 7.87486,24.1368 " />
+    </g>
+  </g>
+</svg>

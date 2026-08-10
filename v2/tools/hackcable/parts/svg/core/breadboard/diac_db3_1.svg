@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns="http://www.w3.org/2000/svg" gorn="0" viewBox="0 0 429.17015 97.100031" x="0"  width="0.42917001in" version="1.2" id="svg1418" height="0.097099997in" y="0">
+    <desc >
+        <referenceFile >diac_db3_breadboard.svg</referenceFile>
+    </desc>
+    <metadata  id="metadata1424">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <cc:Work xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" rdf:about="">
+                <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
+                <dc:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="http://purl.org/dc/dcmitype/StillImage" xmlns:dc="http://purl.org/dc/elements/1.1/"/>
+                <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/"/>
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <defs  id="defs1422"/>
+    <g gorn="0.3"  id="breadboard">
+        <rect gorn="0.3.0" stroke-width="9.99633789" x="5.2053223"  fill="none" width="9.9963379" height="9.9963379" id="connector0pin" y="34.810791"/>
+        <rect gorn="0.3.1" stroke-width="9.99633789" x="414.22552"  fill="none" width="9.9963379" height="9.9963379" id="connector1pin" y="34.810791"/>
+        <line gorn="0.3.2" stroke-width="29.08934784"  fill="none" x2="29.296495" y2="49.355465" x1="14.751826" y1="49.355465" stroke="#8c8c8c" id="connector0leg" style="stroke-linecap:round"/>
+        <line gorn="0.3.3" stroke-width="29.08934784"  fill="none" x2="400.13065" y2="49.355465" x1="414.67538" y1="49.355465" stroke="#8c8c8c" id="connector1leg" style="stroke-linecap:round"/>
+        <path gorn="0.3.4" stroke-width="29.08934784"  fill="none" d="M 14.751824,49.355468 H 408.58761" stroke="#8c8c8c" id="path1404"/>
+        <path gorn="0.3.5" stroke-width="8.30827045"  fill="#00aad4" d="M 151.16514,1.7445819 H 132.1066 c -3.7979,0 -6.90526,4.498352 -6.90526,9.9963381 v 74.362768 c 0,5.50798 3.10736,9.99634 6.90526,9.99634 h 19.05854 c 25.91825,-1.083331 96.75161,-1.083331 123.05178,0 h 19.05856 c 3.8117,0 6.90523,-4.48836 6.90523,-9.99634 V 11.74092 c 0,-5.4979861 -3.09353,-9.9963381 -6.90523,-9.9963381 -59.94207,-0.030324 -103.69209,0.051057 -142.11034,0 z" id="body"/>
+        <path gorn="0.3.6" stroke-width="8.4425354"  d="m 293.22869,55.703142 v 0 c 0,5.268068 -1.29058,9.706445 -2.9234,9.706445 h -19.03776 c -37.53219,0.440434 -83.51526,0.440434 -123.01113,-0.01 h -3.13731 -9.91104 -3.06601 c -3.77903,0 -5.00382,-0.591233 -6.91635,-1.689014 v 14.074479 2.20919 2.399121 c 0,4.998172 3.36835,8.41111 7.14728,8.438817 l 15.69667,0.115089 c 39.68263,-0.09724 85.6657,-0.09724 123.27057,-0.04755 l 21.91702,-0.05755 c 3.77187,-0.0099 6.92348,-3.580592 6.92348,-8.438813 V 74.896111 61.391057 35.790433 c -2.74517,1.499452 -6.95202,5.697913 -6.95202,19.912709 z" id="Shadow" style="opacity:0.3;"/>
+        <path gorn="0.3.7" stroke-width="9.99633789"  fill="#ffffff" d="m 250.18698,9.828275 c 3.18884,0 6.81751,-1.3994861 9.19664,-2.3991181 2.79897,-1.099598 8.00707,-1.999267 13.41508,-1.999267 h 20.28257 c 3.11885,0 3.11885,3.398754 3.11885,5.1980951 0,1.79934 -0.20992,5.298059 -3.11885,5.298059 h -42.48444 c -1.48944,0 -3.19883,-1.599415 -3.19883,-3.108861 0.0896,-1.189564 1.0896,-2.988908 2.78898,-2.988908 z" id="ReflexRight" style="opacity:0.25;"/>
+        <circle gorn="0.3.8" stroke-width="9.99633789"  fill="#ffffff" cx="137.21237" cy="13.317093" id="ReflexLeft" r="5.9978037" style="opacity:0.35;"/>
+        <g gorn="0.3.9" fill-opacity="1" stroke-width="10.41666985" xmlns:xml="http://www.w3.org/XML/1998/namespace"  fill="#000000" xml:space="preserve" stroke="none" font-size="55.55557251" id="text1448" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1.25;font-family:Droid Sans;-inkscape-font-specification:Droid Sans;letter-spacing:0;word-spacing:0;opacity:0.5;">
+            <text gorn="0.3.9.0" stroke-width="10.41666985" x="157.64626"  font-size="55.55557251" id="tspan1446" y="56.55748" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Droid Sans;-inkscape-font-specification:Droid Sans;">DB3</text>
+        </g>
+    </g>
+</svg>

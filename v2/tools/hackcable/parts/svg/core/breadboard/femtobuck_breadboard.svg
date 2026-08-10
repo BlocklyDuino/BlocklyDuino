@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="28.8px" height="106.172px" viewBox="0 0 28.8 106.172" enable-background="new 0 0 28.8 106.172" xml:space="preserve">
+<g id="breadboard">
+	<g id="icon">
+		<path fill="#C62717" d="M28.08,6.092l0.721-0.72v-1.8L28.765,3.6c0-1.988-1.612-3.6-3.602-3.6H3.6C1.612,0,0,1.612,0,3.6v1.771
+			l0.72,0.72H3.6v9.36H0.72L0,16.172v72l0.72,0.721H3.6v9.359H0.72L0,98.973v3.6c0,1.988,1.612,3.601,3.6,3.601h21.563
+			c1.988,0,3.602-1.61,3.602-3.601H28.8v-3.6l-0.721-0.721h-2.879v-9.359h2.879l0.721-0.721v-72l-0.721-0.72h-2.879v-9.36H28.08z
+			 M5.04,19.772c0,0.795-0.645,1.44-1.44,1.439c-0.795,0-1.44-0.645-1.439-1.44c0-0.795,0.645-1.44,1.44-1.44
+			S5.04,18.977,5.04,19.772L5.04,19.772z M10.8,93.212c-0.795,0-1.44-0.646-1.44-1.44s0.645-1.438,1.44-1.438
+			c0.795,0,1.44,0.646,1.44,1.438C12.24,92.566,11.595,93.212,10.8,93.212z M10.8,21.211c-0.795,0-1.44-0.645-1.44-1.44
+			s0.645-1.44,1.44-1.44c0.795,0,1.44,0.645,1.44,1.44C12.24,20.567,11.595,21.211,10.8,21.211z M19.44,91.773
+			c-0.001,0.795-0.646,1.439-1.44,1.438c-0.795,0-1.438-0.646-1.438-1.44s0.646-1.439,1.438-1.439c0.797,0,1.44,0.645,1.44,1.439
+			V91.773z M19.44,19.774c-0.001,0.795-0.646,1.439-1.44,1.439c-0.795-0.001-1.438-0.646-1.438-1.441s0.646-1.44,1.438-1.44
+			c0.797,0,1.44,0.645,1.44,1.44C19.44,19.772,19.44,19.773,19.44,19.774z M26.64,19.771c0,0.001,0,0.001,0,0.002
+			c-0.001,0.795-0.646,1.439-1.441,1.439c-0.795-0.001-1.439-0.646-1.438-1.441c0-0.795,0.645-1.44,1.439-1.44
+			C25.996,18.332,26.64,18.977,26.64,19.771z"/>
+		<rect x="4.619" y="54.854" fill="#D7D2CD" width="19.563" height="17.232"/>
+		<path fill="#5E5E5E" d="M22.744,62.096v-2.679c-1.188-2.216-3.258-3.892-5.738-4.563H12.17c-2.77,0.75-5.021,2.752-6.114,5.358
+			v1.646l0.813,0.646v2.583L6.056,65.73v1.572c0.869,2.09,2.467,3.797,4.494,4.783h8.075c1.767-0.859,3.199-2.271,4.119-3.999
+			v-2.593l-1.104-0.408v-2.583L22.744,62.096z"/>
+		<g>
+			<path fill="#EEEEEE" d="M18.625,72.086c1.916-0.813,3.275-2.297,4.119-3.999l0,0C21.824,69.814,20.39,71.227,18.625,72.086
+				L18.625,72.086z"/>
+			<path fill="#EEEEEE" d="M6.056,67.303c0.422,1.705,2.574,4.127,4.494,4.783l0,0C8.523,71.1,6.925,69.393,6.056,67.303
+				L6.056,67.303z"/>
+			<path fill="#EEEEEE" d="M6.056,60.212c0.953-2.532,3.203-4.767,6.114-5.358l0,0C9.4,55.604,7.149,57.604,6.056,60.212
+				L6.056,60.212z"/>
+			<path fill="#EEEEEE" d="M22.744,59.417c-1.188-2.216-3.258-3.892-5.738-4.563l0,0C19.322,55.336,21.759,57.211,22.744,59.417
+				L22.744,59.417z"/>
+		</g>
+		<g>
+			<title>layer 21</title>
+			<g>
+				<title>text:PGND</title>
+				<g transform="matrix(1, 0, 0, 1, 5.76, 15.0916)">
+					<g transform="rotate(270)">
+						<text transform="matrix(1 0 0 1 -1.831055e-004 1.4402)" fill="#FFFFFF" font-family="'OCRA'" font-size="3.3408">PGND</text>
+					</g>
+				</g>
+			</g>
+			<g>
+				<title>text:VIN</title>
+				<g transform="matrix(1, 0, 0, 1, 10.8, 15.0916)">
+					<g transform="rotate(270)">
+						<text transform="matrix(1 0 0 1 -1.831055e-004 1.8006)" fill="#FFFFFF" font-family="'OCRA'" font-size="3.3408">VIN</text>
+					</g>
+				</g>
+			</g>
+			<g>
+				<title>text:VIN</title>
+				<g transform="matrix(1, 0, 0, 1, 10.8, 15.0916)">
+					<g>
+						<g transform="rotate(270)">
+							<text transform="matrix(1 0 0 1 -52.9142 5.2933)" fill="#666465" font-family="'OCRA'" font-size="3.8397">330</text>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g>
+				<title>text:VIN</title>
+				<g transform="matrix(1, 0, 0, 1, 10.8, 15.0916)">
+					<g>
+						<g transform="rotate(270)">
+							<text transform="matrix(1 0 0 1 -52.8107 5.3773)" fill="#777576" font-family="'OCRA'" font-size="3.8397">330</text>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g>
+				<title>text:DGND</title>
+				<g transform="matrix(1, 0, 0, 1, 18, 15.0916)">
+					<g transform="rotate(270)">
+						<text transform="matrix(1 0 0 1 -1.831055e-004 0.4331)" fill="#FFFFFF" font-family="'OCRA'" font-size="3.3408">DGND</text>
+					</g>
+				</g>
+			</g>
+			<g>
+				<title>text:CTRL</title>
+				<g transform="matrix(1, 0, 0, 1, 23.04, 15.0916)">
+					<g transform="rotate(270)">
+						<text transform="matrix(1 0 0 1 -1.831055e-004 5.187988e-004)" fill="#FFFFFF" font-family="'OCRA'" font-size="3.3408">CTRL</text>
+					</g>
+				</g>
+			</g>
+			<g>
+				<title>text:- LED +</title>
+				<text transform="matrix(1 0 0 1 5.3999 102.5732)" fill="#FFFFFF" font-family="'OCRA'" font-size="3.3408">- LED +</text>
+			</g>
+			<g>
+				<title>text:V-</title>
+				<text transform="matrix(1 0 0 1 1.0698 27.6914)" fill="#FFFFFF" font-family="'OCRA'" font-size="4.176">V-</text>
+			</g>
+			<g>
+				<title>text:V+</title>
+				<text transform="matrix(1 0 0 1 8.6299 27.6914)" fill="#FFFFFF" font-family="'OCRA'" font-size="4.176">V+</text>
+			</g>
+			<g>
+				<title>text:D-</title>
+				<text transform="matrix(1 0 0 1 15.4702 27.6914)" fill="#FFFFFF" font-family="'OCRA'" font-size="4.176">D-</text>
+			</g>
+			<g>
+				<title>text:D+</title>
+				<text transform="matrix(1 0 0 1 22.3101 27.6914)" fill="#FFFFFF" font-family="'OCRA'" font-size="4.176">D+</text>
+			</g>
+			<g>
+				<title>element:C1</title>
+				<g>
+					<title>package:1206-CAP</title>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="1.584" stroke-linecap="round" x1="25.287" y1="46.771" x2="25.113" y2="46.771"/>
+				</g>
+			</g>
+			<g>
+				<title>element:C2</title>
+				<g>
+					<title>package:1206-CAP</title>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="1.584" stroke-linecap="round" x1="10.8" y1="33.538" x2="10.8" y2="33.365"/>
+				</g>
+			</g>
+			<g>
+				<title>element:CH1</title>
+				<g>
+					<title>package:SCREWTERMINAL-3.5MM-2_LOCK</title>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="4.399" y1="73.854" x2="24.242" y2="73.854"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="24.242" y1="73.854" x2="24.242" y2="91.43"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="24.242" y1="91.43" x2="24.242" y2="93.695"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="24.242" y1="93.695" x2="4.399" y2="93.695"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="4.399" y1="93.695" x2="4.399" y2="91.43"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="4.399" y1="91.43" x2="4.399" y2="73.854"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="24.242" y1="91.43" x2="4.399" y2="91.43"/>
+				</g>
+			</g>
+			<g>
+				<title>element:FID1</title>
+				<g>
+					<title>package:FIDUCIAL-1X2</title>
+				</g>
+			</g>
+			<g>
+				<title>element:FID2</title>
+				<g>
+					<title>package:FIDUCIAL-1X2</title>
+				</g>
+			</g>
+			<g>
+				<title>element:JP1</title>
+				<g>
+					<title>package:1X04</title>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="23.4" y1="16.172" x2="27" y2="16.172"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="27" y1="16.172" x2="28.8" y2="17.972"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.8" y1="21.572" x2="27" y2="23.372"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="14.4" y1="17.972" x2="16.201" y2="16.172"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="16.201" y1="16.172" x2="19.8" y2="16.172"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="19.8" y1="16.172" x2="21.6" y2="17.972"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="21.6" y1="21.572" x2="19.8" y2="23.372"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="19.8" y1="23.372" x2="16.201" y2="23.372"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="16.201" y1="23.372" x2="14.4" y2="21.572"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="23.4" y1="16.172" x2="21.6" y2="17.972"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="21.6" y1="21.572" x2="23.4" y2="23.372"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="27" y1="23.372" x2="23.4" y2="23.372"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="1.8" y1="16.172" x2="5.4" y2="16.172"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="5.4" y1="16.172" x2="7.2" y2="17.972"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="7.2" y1="21.572" x2="5.4" y2="23.372"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="7.2" y1="17.972" x2="9" y2="16.172"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="9" y1="16.172" x2="12.6" y2="16.172"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="12.6" y1="16.172" x2="14.4" y2="17.972"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="14.4" y1="21.572" x2="12.6" y2="23.372"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="12.6" y1="23.372" x2="9" y2="23.372"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="9" y1="23.372" x2="7.2" y2="21.572"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0" y1="17.972" x2="0" y2="21.572"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="1.8" y1="16.172" x2="0" y2="17.972"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0" y1="21.572" x2="1.8" y2="23.372"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="5.4" y1="23.372" x2="1.8" y2="23.372"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.8" y1="17.972" x2="28.8" y2="21.572"/>
+				</g>
+			</g>
+			<g>
+				<title>element:JP2</title>
+				<g>
+					<title>package:1X02</title>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="19.8" y1="95.372" x2="16.201" y2="95.372"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="16.201" y1="95.372" x2="14.4" y2="93.572"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="14.4" y1="89.973" x2="16.201" y2="88.172"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="14.4" y1="93.572" x2="12.6" y2="95.372"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="12.6" y1="95.372" x2="9" y2="95.372"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="9" y1="95.372" x2="7.2" y2="93.572"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="7.2" y1="89.973" x2="9" y2="88.172"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="9" y1="88.172" x2="12.6" y2="88.172"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="12.6" y1="88.172" x2="14.4" y2="89.973"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="21.6" y1="93.572" x2="21.6" y2="89.973"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="19.8" y1="95.372" x2="21.6" y2="93.572"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="21.6" y1="89.973" x2="19.8" y2="88.172"/>
+					
+						<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="16.201" y1="88.172" x2="19.8" y2="88.172"/>
+					<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="7.2" y1="93.572" x2="7.2" y2="89.973"/>
+				</g>
+			</g>
+			<g>
+				<title>element:LOGO1</title>
+				<g>
+					<title>package:OSHW-LOGO-S</title>
+				</g>
+			</g>
+			<g>
+				<title>element:LOGO2</title>
+				<g>
+					<title>package:SFE_LOGO_NAME_FLAME_.1</title>
+				</g>
+			</g>
+			<g>
+				<title>element:SJ2</title>
+				<g>
+					<title>package:PAD-JUMPER-2-NO_NO_SILK</title>
+				</g>
+			</g>
+		</g>
+		<g>
+			<title>layer 20</title>
+			<path fill="none" stroke="#FFFFFF" stroke-width="0.576" d="M0,102.572c0,1.988,1.612,3.6,3.6,3.6"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="3.6" y1="106.172" x2="25.166" y2="106.172"/>
+			<path fill="none" stroke="#FFFFFF" stroke-width="0.576" d="M25.166,106.172c1.987,0,3.601-1.611,3.601-3.6"/>
+			<path fill="none" stroke="#FFFFFF" stroke-width="0.576" d="M28.765,3.6c0-1.988-1.612-3.6-3.602-3.6l0,0"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="25.166" y1="0" x2="3.6" y2="0"/>
+			<path fill="none" stroke="#FFFFFF" stroke-width="0.576" d="M3.6,0C1.612,0,0,1.612,0,3.6l0,0"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0" y1="3.572" x2="0" y2="5.372"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0" y1="5.372" x2="0.72" y2="6.092"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0.72" y1="6.092" x2="3.6" y2="6.092"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="3.6" y1="6.092" x2="3.6" y2="15.452"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="3.6" y1="15.452" x2="0.72" y2="15.452"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0.72" y1="15.452" x2="0" y2="16.172"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0" y1="16.172" x2="0" y2="88.172"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0" y1="88.172" x2="0.72" y2="88.893"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0.72" y1="88.893" x2="3.6" y2="88.893"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="3.6" y1="88.893" x2="3.6" y2="98.252"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="3.6" y1="98.252" x2="0.72" y2="98.252"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0.72" y1="98.252" x2="0" y2="98.973"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="0" y1="98.973" x2="0" y2="102.572"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.8" y1="3.572" x2="28.8" y2="5.372"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.8" y1="5.372" x2="28.08" y2="6.092"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.08" y1="6.092" x2="25.201" y2="6.092"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="25.201" y1="6.092" x2="25.201" y2="15.452"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="25.201" y1="15.452" x2="28.08" y2="15.452"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.08" y1="15.452" x2="28.8" y2="16.172"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.8" y1="16.172" x2="28.8" y2="88.172"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.8" y1="88.172" x2="28.08" y2="88.893"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.08" y1="88.893" x2="25.201" y2="88.893"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="25.201" y1="88.893" x2="25.201" y2="98.252"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="25.201" y1="98.252" x2="28.08" y2="98.252"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.08" y1="98.252" x2="28.8" y2="98.973"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.576" stroke-linecap="round" x1="28.8" y1="98.973" x2="28.8" y2="102.572"/>
+			<g>
+				<title>element:C1</title>
+				<g>
+					<title>package:1206-CAP</title>
+				</g>
+			</g>
+			<g>
+				<title>element:C2</title>
+				<g>
+					<title>package:1206-CAP</title>
+				</g>
+			</g>
+			<g>
+				<title>element:CH1</title>
+				<g>
+					<title>package:SCREWTERMINAL-3.5MM-2_LOCK</title>
+				</g>
+			</g>
+			<g>
+				<title>element:D1</title>
+				<g>
+					<title>package:SMA-DIODE</title>
+				</g>
+			</g>
+			<g>
+				<title>element:FID1</title>
+				<g>
+					<title>package:FIDUCIAL-1X2</title>
+				</g>
+			</g>
+			<g>
+				<title>element:FID2</title>
+				<g>
+					<title>package:FIDUCIAL-1X2</title>
+				</g>
+			</g>
+			<g>
+				<title>element:JP1</title>
+				<g>
+					<title>package:1X04</title>
+				</g>
+			</g>
+			<g>
+				<title>element:JP2</title>
+				<g>
+					<title>package:1X02</title>
+				</g>
+			</g>
+			<g>
+				<title>element:L1</title>
+				<g>
+					<title>package:SRN6045</title>
+				</g>
+			</g>
+			<g>
+				<title>element:LOGO1</title>
+				<g>
+					<title>package:OSHW-LOGO-S</title>
+				</g>
+			</g>
+			<g>
+				<title>element:LOGO2</title>
+				<g>
+					<title>package:SFE_LOGO_NAME_FLAME_.1</title>
+				</g>
+			</g>
+			<g>
+				<title>element:R1</title>
+				<g>
+					<title>package:0805</title>
+				</g>
+			</g>
+			<g>
+				<title>element:R2</title>
+				<g>
+					<title>package:0805</title>
+				</g>
+			</g>
+			<g>
+				<title>element:SJ2</title>
+				<g>
+					<title>package:PAD-JUMPER-2-NO_NO_SILK</title>
+				</g>
+			</g>
+			<g>
+				<title>element:U1</title>
+				<g>
+					<title>package:SOT23-5</title>
+				</g>
+			</g>
+		</g>
+		<circle id="connector10pin" fill="none" stroke="#9A916C" stroke-width="1.224" cx="3.6" cy="19.772" r="2.052"/>
+		<rect x="1.548" y="17.72" fill="none" stroke="#9A916C" stroke-width="1.224" width="4.104" height="4.104"/>
+		<circle id="connector11pin" fill="none" stroke="#9A916C" stroke-width="1.224" cx="10.8" cy="19.772" r="2.052"/>
+		<circle id="connector12pin" fill="none" stroke="#9A916C" stroke-width="1.224" cx="18" cy="19.772" r="2.052"/>
+		<circle id="connector13pin" fill="none" stroke="#9A916C" stroke-width="1.224" cx="25.201" cy="19.772" r="2.052"/>
+		<circle id="connector14pin" fill="none" stroke="#9A916C" stroke-width="1.224" cx="18" cy="91.772" r="2.052"/>
+		<circle id="connector15pin" fill="none" stroke="#9A916C" stroke-width="1.224" cx="10.8" cy="91.772" r="2.052"/>
+		<g>
+			<title>layer 20</title>
+			<g>
+				<title>element:C1</title>
+				<g>
+					<title>package:1206-CAP</title>
+				</g>
+			</g>
+			<g>
+				<title>element:C2</title>
+				<g>
+					<title>package:1206-CAP</title>
+				</g>
+			</g>
+			<g>
+				<title>element:CH1</title>
+				<g>
+					<title>package:SCREWTERMINAL-3.5MM-2_LOCK</title>
+				</g>
+			</g>
+			<g>
+				<title>element:D1</title>
+				<g>
+					<title>package:SMA-DIODE</title>
+				</g>
+			</g>
+			<g>
+				<title>element:FID1</title>
+				<g>
+					<title>package:FIDUCIAL-1X2</title>
+				</g>
+			</g>
+			<g>
+				<title>element:FID2</title>
+				<g>
+					<title>package:FIDUCIAL-1X2</title>
+				</g>
+			</g>
+			<g>
+				<title>element:JP1</title>
+				<g>
+					<title>package:1X04</title>
+				</g>
+			</g>
+			<g>
+				<title>element:JP2</title>
+				<g>
+					<title>package:1X02</title>
+				</g>
+			</g>
+			<g>
+				<title>element:L1</title>
+				<g>
+					<title>package:SRN6045</title>
+				</g>
+			</g>
+			<g>
+				<title>element:LOGO1</title>
+				<g>
+					<title>package:OSHW-LOGO-S</title>
+				</g>
+			</g>
+			<g>
+				<title>element:LOGO2</title>
+				<g>
+					<title>package:SFE_LOGO_NAME_FLAME_.1</title>
+				</g>
+			</g>
+			<g>
+				<title>element:R1</title>
+				<g>
+					<title>package:0805</title>
+				</g>
+			</g>
+			<g>
+				<title>element:R2</title>
+				<g>
+					<title>package:0805</title>
+				</g>
+			</g>
+			<g>
+				<title>element:SJ2</title>
+				<g>
+					<title>package:PAD-JUMPER-2-NO_NO_SILK</title>
+				</g>
+			</g>
+			<g>
+				<title>element:U1</title>
+				<g>
+					<title>package:SOT23-5</title>
+				</g>
+			</g>
+		</g>
+		<g>
+			<polygon fill="#3B3B3B" points="22.744,61.979 21.639,62.389 21.639,62.503 22.744,62.096 			"/>
+			<polygon fill="#3B3B3B" points="21.639,65.172 22.744,65.58 22.744,65.494 21.639,65.086 			"/>
+			<polygon fill="#3B3B3B" points="6.056,65.814 6.869,65.172 6.869,65.086 6.056,65.729 			"/>
+			<polygon fill="#3B3B3B" points="6.056,61.743 6.869,62.389 6.869,62.503 6.056,61.857 			"/>
+			<polyline fill="#C9C9C9" points="21.566,65.07 21.566,62.488 21.639,62.389 21.639,65.172 			"/>
+			<polygon fill="#C9C9C9" points="6.947,62.503 6.947,65.086 6.869,65.172 6.869,62.389 			"/>
+		</g>
+		<g id="_x30_402-res_1_" transform="matrix(1, 0, 0, 1, 10.275, 83.3789)">
+			<g transform="matrix(0, 1, -1, 0, 4.1105, -1.5595)">
+				<g>
+					<g>
+						
+							<rect x="-40.356" y="2.766" transform="matrix(2.578893e-006 1 -1 2.578893e-006 -27.5241 45.4939)" fill="#333333" width="7.693" height="12.438"/>
+					</g>
+					<g>
+						<path fill="#CCCCCC" d="M-30.086,6.566L-30.086,6.566L-30.086,6.566h-0.2l0,0c-0.179,0.324-0.129,1.667-0.129,2.025
+							c0,0.376-0.067,2.479,0.129,2.813h1.369V6.566H-30.086z"/>
+						<path fill="#CCCCCC" d="M-42.736,6.566L-42.736,6.566h-1.596v4.837h1.596c0.189-0.344,0.18-2.039,0.18-2.418
+							C-42.556,8.537-42.483,6.954-42.736,6.566z"/>
+						
+							<rect x="-43.56" y="10.575" transform="matrix(2.578893e-006 1 -1 2.578893e-006 -32.1586 54.9063)" opacity="0.15" enable-background="new    " width="0.055" height="1.598"/>
+						
+							<rect x="-43.562" y="5.798" transform="matrix(2.578893e-006 1 -1 2.578893e-006 -36.9379 50.1299)" opacity="0.5" fill="#FFFFFF" enable-background="new    " width="0.056" height="1.596"/>
+						
+							<rect x="-29.632" y="10.688" transform="matrix(2.578893e-006 1 -1 2.578893e-006 -18.23 40.9761)" opacity="0.15" enable-background="new    " width="0.057" height="1.371"/>
+						
+							<rect x="-29.631" y="5.91" transform="matrix(2.578893e-006 1 -1 2.578893e-006 -23.0073 36.1968)" opacity="0.5" fill="#FFFFFF" enable-background="new    " width="0.058" height="1.369"/>
+						<line fill="none" x1="-43.595" y1="11.403" x2="-43.595" y2="11.403"/>
+					</g>
+				</g>
+				<g>
+					<line fill="none" x1="-39.733" y1="12.585" x2="-39.733" y2="5.272"/>
+					
+						<rect x="-43.39" y="8.554" transform="matrix(2.578893e-006 1 -1 2.578893e-006 -30.8044 48.6624)" fill="#777777" width="7.313" height="0.75"/>
+				</g>
+			</g>
+		</g>
+		<g>
+			<g>
+				<path fill="#CCCCCC" d="M12.458,48.733L12.458,48.733L12.458,48.733v-0.2l0,0c-0.324-0.179-0.857-0.129-1.214-0.129
+					c-0.377,0-0.11-0.067-0.444,0.129v1.369h1.659L12.458,48.733L12.458,48.733z"/>
+				<path fill="#CCCCCC" d="M12.458,45.121L12.458,45.121v-1.596h-1.657v1.596c0.344,0.189,0.224,0.18,0.604,0.18
+					C11.853,45.301,12.07,45.373,12.458,45.121z"/>
+				<rect x="10.804" y="43.524" opacity="0.15" enable-background="new    " width="0.055" height="1.598"/>
+				<rect x="12.4" y="43.524" opacity="0.5" fill="#FFFFFF" enable-background="new    " width="0.057" height="1.596"/>
+				<rect x="10.804" y="48.531" opacity="0.15" enable-background="new    " width="0.057" height="1.371"/>
+				<rect x="12.4" y="48.533" opacity="0.5" fill="#FFFFFF" enable-background="new    " width="0.059" height="1.369"/>
+				<line fill="none" x1="10.801" y1="44.262" x2="10.801" y2="44.262"/>
+			</g>
+			<g>
+				<path fill="#CCCCCC" d="M15.021,48.733L15.021,48.733L15.021,48.733v-0.2l0,0c-0.324-0.179-0.857-0.129-1.214-0.129
+					c-0.377,0-0.11-0.067-0.444,0.129v1.369h1.659L15.021,48.733L15.021,48.733z"/>
+				<rect x="13.366" y="48.531" opacity="0.15" enable-background="new    " width="0.057" height="1.371"/>
+				<rect x="14.962" y="48.533" opacity="0.5" fill="#FFFFFF" enable-background="new    " width="0.059" height="1.369"/>
+			</g>
+			<g>
+				<path fill="#CCCCCC" d="M17.604,48.733L17.604,48.733L17.604,48.733v-0.2l0,0c-0.324-0.179-0.856-0.129-1.215-0.129
+					c-0.377,0-0.109-0.067-0.443,0.129v1.369h1.658V48.733z"/>
+				<path fill="#CCCCCC" d="M17.604,45.121L17.604,45.121v-1.596h-1.657v1.596c0.344,0.189,0.225,0.18,0.604,0.18
+					C17,45.301,17.214,45.373,17.604,45.121z"/>
+				<rect x="15.951" y="43.524" opacity="0.15" enable-background="new    " width="0.055" height="1.598"/>
+				<rect x="17.544" y="43.524" opacity="0.5" fill="#FFFFFF" enable-background="new    " width="0.058" height="1.596"/>
+				<rect x="15.951" y="48.531" opacity="0.15" enable-background="new    " width="0.057" height="1.371"/>
+				<rect x="17.544" y="48.533" opacity="0.5" fill="#FFFFFF" enable-background="new    " width="0.06" height="1.369"/>
+				<line fill="none" x1="15.947" y1="44.262" x2="15.947" y2="44.262"/>
+			</g>
+			<rect x="10.368" y="45.194" fill="#333333" width="8.064" height="3.515"/>
+		</g>
+	</g>
+</g>
+<desc>Fritzing breadboard generated by brd2svg</desc>
+</svg>

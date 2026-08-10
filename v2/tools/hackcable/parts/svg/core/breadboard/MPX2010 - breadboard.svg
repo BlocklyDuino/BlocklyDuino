@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns="http://www.w3.org/2000/svg"  width="105.40625" version="1.1" height="112.96875" id="0">
+ <desc   id="0.0" oldid="0.0">
+  <referenceFile   id="0.0.0" oldid="0.0.0">MPX2010 - breadboard.svg</referenceFile>
+ </desc>
+ <defs   id="0.1" oldid="0.1"/>
+ <metadata   id="0.2" oldid="0.2">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"  id="0.2.0" oldid="0.2.0">
+   <cc:Work xmlns:cc="http://creativecommons.org/ns#"  rdf:about="" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="0.2.0.0" oldid="0.2.0.0">
+    <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"  id="0.2.0.0.0" oldid="0.2.0.0.0">image/svg+xml</dc:format>
+    <dc:type xmlns:dc="http://purl.org/dc/elements/1.1/"  id="0.2.0.0.1" oldid="0.2.0.0.1" rdf:resource="http://purl.org/dc/dcmitype/StillImage" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/"  id="0.2.0.0.2" oldid="0.2.0.0.2"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g   id="layer1" transform="translate(52.705955,-918.49933)">
+  <g   stroke="#000000" id="graphic" stroke-width="0" transform="matrix(1.25,0,0,1.25,-31.5,972.59995)">
+   <title   id="0.3.0.0" oldid="0.3.0.0">element:JP1</title>
+   <path  stroke-opacity="1" fill="#4d4d4d"  stroke="#000000" style="stroke-linecap:butt;stroke-linejoin:miter;" id="path3716" stroke-width="0.8" d="M 63.005583,5.324356 42.891302,-6.315148 -1.0918417,14.324727 c 0,0 -1.5952003,4.321105 -3.4597565,5.180164 -1.8645562,0.85906 -6.0456658,-0.719575 -6.0456658,-0.719575 l -2.441626,1.145776 24.957652,14.345036 39.352085,-22.301497 c 0,0 1.137916,-3.9823726 3.02364,-5.127391 1.885724,-1.1450185 7.273885,-0.388916 7.273885,-0.388916 z"/>
+   <g   id="0.3.0.2" transform="matrix(0.8,0,0,0.8,-16.964764,-43.280496)">
+    <path  fill="#e6ab00"  stroke="#000000" style="stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" fill-opacity="1" id="rect3656" stroke-width="0.70599997" d="m 37.59375,94.90625 0,9.1875 c 0.899633,0.29448 1.5625,1.12695 1.5625,2.125 0,0.99805 -0.662867,1.83052 -1.5625,2.125 l 0,4.25 3.46875,0 0,-17.6875 -3.46875,0 z"/>
+   </g>
+   <rect  width="2.7549579" x="20.320305" y="32.649082" fill="#e6ab00"  height="14.153863" stroke="#000000" style="stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" fill-opacity="1" id="rect3656-1" stroke-width="0.56479996"/>
+   <rect  width="2.7549579" x="27.520304" y="32.649082" fill="#e6ab00"  height="14.153863" stroke="#000000" style="stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" fill-opacity="1" id="rect3656-4" stroke-width="0.56479996"/>
+   <rect  width="2.7549579" x="34.720303" y="32.649082" fill="#e6ab00"  height="14.153863" stroke="#000000" style="stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" fill-opacity="1" id="rect3656-14" stroke-width="0.56479996"/>
+   <g   id="0.3.0.6" transform="matrix(0.8,0,0,0.8,-25.089764,-43.283752)">
+    <path  stroke-opacity="1" fill="#666666"  stroke="#000000" style="stroke-linecap:butt;stroke-linejoin:miter;" id="path7319-4" stroke-width="1" d="M 57.0625,38.5 15.65625,60.71875 c -3.019145,2.01976 -5,5.46993 -5,9.375 0,6.21883 5.030933,11.25 11.25,11.25 3.342137,0 6.25,-2.879664 8.40625,-3.78125 2.34375,3.91032 4.064551,6.63372 5.90625,8.84375 6.91067,8.29272 9.624371,13.78713 26.65625,14.15625 17.031879,0.36912 27.014952,-9.82055 40.9375,-17.5625 5.31043,-2.98041 11.25,-6.68743 11.25,-12.90625 0,-6.21883 -5.03092,-11.28125 -11.25,-11.28125 -3.23719,0 -5.730752,1.88557 -8.21875,3.5625 -1.961834,1.09913 -2.024103,-8.17207 -10.625,-16.15625 L 85.0625,38.875 z M 22.09375,62.8125 c 3.47705,0.08891 6.580412,3.532162 6.5625,7.28125 0,3.800968 -3.208265,7.259311 -6.734375,7.259311 -3.52611,0 -6.734375,-3.458343 -6.734375,-7.259311 -0.01019,-3.631544 2.889361,-6.99502 6.25,-7.25 0.218103,-0.02193 0.437202,-0.03237 0.65625,-0.03125 z M 104,63.34375 c 3.34673,0.102905 6.32212,3.28451 6.3125,6.75 0.14646,3.616561 -3.00278,7.015599 -6.5,7.015599 -3.49722,0 -6.646456,-3.399038 -6.5,-7.015599 -0.0098,-3.594774 3.21574,-6.850466 6.6875,-6.75 z"/>
+   </g>
+   <g   id="0.3.0.7" transform="matrix(0.8,0,0,0.8,25.2,-531.46774)">
+    <path  stroke-opacity="1" fill="none"  stroke="#000000" style="stroke-linecap:butt;stroke-linejoin:miter;" id="path7309" stroke-width="1" d="m -22.943414,649.00371 0,0 0,0"/>
+   </g>
+   <path  stroke-opacity="1" fill="none"  stroke="#000000" style="stroke-linecap:butt;stroke-linejoin:miter;" id="path7309-9" stroke-width="0.8" d="m 29.927198,-42.883612 0,0 0,0"/>
+   <path  stroke-opacity="1" fill="#333333"  stroke="#000000" style="stroke-linecap:round;stroke-linejoin:miter;" id="path3724" stroke-width="0.8" d="m 40.495985,-42.883612 -8.264822,0 0,27.68881 -1.86124,2.768968 12.189257,0.119781 -2.063195,-2.888749 z"/>
+   <path  stroke-opacity="1" fill="#333333"  stroke="#000000" style="stroke-linecap:round;stroke-linejoin:miter;" id="path4504" stroke-width="0.8" d="m 43.194795,-24.528672 -2.69881,-13.16736 -8.264822,0 -2.230987,13.16736 z"/>
+   <path  stroke-opacity="1" fill="#333333"  stroke="#000000" style="stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" id="path3722" stroke-width="0.792" d="m 17.414056,-42.883612 -8.2648224,0 0,27.688816 -1.8319308,3.065488 11.9496952,-0.239562 -1.852942,-2.825926 z"/>
+   <path  stroke-opacity="1" fill="#333333"  stroke="#000000" style="stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" id="path4508" stroke-width="0.792" d="m 20.112866,-24.528668 -2.69881,-13.16736 -8.2648224,0 -2.2309872,13.16736 z"/>
+   <path  stroke-opacity="1" fill="#4d4d4d"  stroke="#000000" style="stroke-linecap:butt;stroke-linejoin:miter;" id="path3720" stroke-width="0.8" d="m 20.55603,-12.485916 -13.7107612,0.221144 0,0 0.3697152,6.941352 0,0 0,0 z"/>
+   <g   id="0.3.0.14" transform="matrix(0.8,0,0,0.8,-16.964764,-43.280496)">
+    <path  stroke-opacity="1" fill="none"  stroke="#000000" style="stroke-linecap:butt;stroke-linejoin:miter;" id="path3014" stroke-width="1" d="m 32.642497,35.107125 10.331028,0"/>
+   </g>
+   <g   id="0.3.0.15" transform="matrix(0.8,0,0,0.8,-16.964764,-43.280496)">
+    <path  stroke-opacity="1" fill="none"  stroke="#000000" style="stroke-linecap:butt;stroke-linejoin:miter;" id="path3016" stroke-width="1" d="m 61.494909,35.107118 10.331027,0"/>
+   </g>
+   <g  xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace" fill="#ffffff"  stroke="#000000" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;font-family:Droid Sans;-inkscape-font-specification:Droid Sans" fill-opacity="1" id="text7444" stroke-width="1" transform="matrix(0,-1,1,0,0,0)" font-size="6.4">
+    <text  x="14.813923" y="15.221541"  stroke="#000000" id="tspan7446" stroke-width="1">Vacuum</text>
+   </g>
+   <g  xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace" fill="#ffffff"  stroke="#000000" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;font-family:Droid Sans;-inkscape-font-specification:Droid Sans" fill-opacity="1" id="text7448" stroke-width="1" transform="matrix(0,-1,1,0,0,0)" font-size="6.4">
+    <text  x="14.192049" y="38.317684"  stroke="#000000" id="tspan7450" stroke-width="1">Pressure</text>
+   </g>
+   <g  xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace" fill="#b3b3b3"  stroke="none" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;font-family:Droid Sans;-inkscape-font-specification:Droid Sans" fill-opacity="1" id="text4510" font-size="12">
+    <text  x="-0.22902182" y="16.63714"  id="tspan4512">MPX2010</text>
+   </g>
+  </g>
+  <g   id="0.3.1" transform="scale(-1,-1)">
+   <rect  width="0.89999998" x="12.927772" y="-1030.9617" fill="none"  height="0.89999998" stroke="none" id="connector1"/>
+  </g>
+  <g   id="0.3.2" transform="scale(-1,-1)">
+   <rect  width="0.89999998" x="3.9277701" y="-1030.9617" fill="none"  height="0.89999998" stroke="none" id="connector2"/>
+  </g>
+  <g   id="0.3.3" transform="scale(-1,-1)">
+   <rect  width="0.89999998" x="-5.0722284" y="-1030.9617" fill="none"  height="0.89999998" stroke="none" id="connector3"/>
+  </g>
+  <g   id="0.3.4" transform="scale(-1,-1)">
+   <rect  width="0.89999998" x="-14.072227" y="-1030.9617" fill="none"  height="0.89999998" stroke="none" id="connector4"/>
+  </g>
+ </g>
+</svg>

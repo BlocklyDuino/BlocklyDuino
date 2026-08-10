@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 57.6 60.12" width="2.03cm" height="2.12cm" xml:space="preserve">
+<g id="breadboard">
+	<g id="icon">
+		<!-- <rect id="artboard" opacity="0" fill="#0000ff" x="0" y="0" width="57.6" height="60.12"/> -->
+
+		<g class="pcb" fill="#222222">
+			<path class="pcb-with-holes" d="M56.544,0.017H32.268c0,1.931-1.565,3.497-3.497,3.497s-3.497-1.565-3.497-3.497H0.999C0.448,0.017,0,0.464,0,1.016v55.545c0,0.551,0.448,0.999,0.999,0.999h55.545c0.551,0,0.999-0.448,0.999-0.999V1.016C57.543,0.464,57.096,0.017,56.544,0.017z M3.596,56.012c-1.131,0-2.048-0.917-2.048-2.048s0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048S4.728,56.012,3.596,56.012z M3.596,48.819c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C5.644,47.902,4.728,48.819,3.596,48.819z M3.596,41.626c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C5.644,40.709,4.728,41.626,3.596,41.626z M3.596,34.433c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C5.644,33.516,4.728,34.433,3.596,34.433z M3.596,27.24c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C5.644,26.323,4.728,27.24,3.596,27.24z M3.596,20.047c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C5.644,19.13,4.728,20.047,3.596,20.047z M3.596,12.854c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C5.644,11.937,4.728,12.854,3.596,12.854z M3.596,5.661c-1.131,0-2.048-0.917-2.048-2.048s0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048S4.728,5.661,3.596,5.661z M53.947,56.012c-1.131,0-2.048-0.917-2.048-2.048s0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048S55.078,56.012,53.947,56.012z M53.947,48.819c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C55.995,47.902,55.078,48.819,53.947,48.819z M53.947,41.626c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C55.995,40.709,55.078,41.626,53.947,41.626z M53.947,34.433c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C55.995,33.516,55.078,34.433,53.947,34.433z M53.947,27.24c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C55.995,26.323,55.078,27.24,53.947,27.24z M53.947,20.047c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C55.995,19.13,55.078,20.047,53.947,20.047z M53.947,12.854c-1.131,0-2.048-0.917-2.048-2.048c0-1.131,0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048C55.995,11.937,55.078,12.854,53.947,12.854z M53.947,5.661c-1.131,0-2.048-0.917-2.048-2.048s0.917-2.048,2.048-2.048c1.131,0,2.048,0.917,2.048,2.048S55.078,5.661,53.947,5.661z"/>
+		</g>
+
+		<g class="parts-0603">
+			<g class="cap1 cap-0603-medium" transform="translate(8.1, 1.333)">
+				<rect class="pad" x="0" y="0" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="pad" x="0" y="3.867" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="cap medium" x="0.2" y="1" fill="#89604d" width="2.268" height="4.535"/>
+				<rect class="tip" x="0.2" y="1" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="tip" x="0.2" y="4.535" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="shadow left" opacity="0.5" x="0.2" y="1" fill="#000000" width="0.1" height="4.535"/>
+				<rect class="shadow bottom" opacity="0.5" x="0.2" y="5.535" fill="#000000" width="2.268" height="0.1"/>
+				<rect class="highlight right" opacity="0.5" x="2.3668" y="1" fill="#ffffff" width="0.1" height="4.535"/>
+				<rect class="highlight top" opacity="0.5" x="0.2" y="1" fill="#ffffff" width="2.268" height="0.1"/>
+			</g>
+			<g class="cap2 cap-0603-medium" transform="translate(14.1, 1.333)">
+				<rect class="pad" x="0" y="0" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="pad" x="0" y="3.867" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="cap medium" x="0.2" y="1" fill="#89604d" width="2.268" height="4.535"/>
+				<rect class="tip" x="0.2" y="1" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="tip" x="0.2" y="4.535" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="shadow left" opacity="0.5" x="0.2" y="1" fill="#000000" width="0.1" height="4.535"/>
+				<rect class="shadow bottom" opacity="0.5" x="0.2" y="5.535" fill="#000000" width="2.268" height="0.1"/>
+				<rect class="highlight right" opacity="0.5" x="2.3668" y="1" fill="#ffffff" width="0.1" height="4.535"/>
+				<rect class="highlight top" opacity="0.5" x="0.2" y="1" fill="#ffffff" width="2.268" height="0.1"/>
+			</g>
+			<g class="cap3 cap-0603-light" transform="translate(20.1, 1.333)">
+				<rect class="pad" x="0" y="0" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="pad" x="0" y="3.867" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="cap light" x="0.2" y="1" fill="#bb9977" width="2.268" height="4.535"/>
+				<rect class="tip" x="0.2" y="1" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="tip" x="0.2" y="4.535" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="shadow left" opacity="0.5" x="0.2" y="1" fill="#000000" width="0.1" height="4.535"/>
+				<rect class="shadow bottom" opacity="0.5" x="0.2" y="5.535" fill="#000000" width="2.268" height="0.1"/>
+				<rect class="highlight right" opacity="0.5" x="2.3668" y="1" fill="#ffffff" width="0.1" height="4.535"/>
+				<rect class="highlight top" opacity="0.5" x="0.2" y="1" fill="#ffffff" width="2.268" height="0.1"/>
+			</g>
+			<g class="led1 led-0603-blue" transform="translate(27.466, 3.2665) rotate(90, 1.334, 3.2675)">
+				<rect class="pad" x="0" y="0" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="pad" x="0" y="3.867" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="led blue" x="0.2" y="1" fill="#0000ff" width="2.268" height="4.535"/>
+				<rect class="tip" x="0.2" y="1" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="tip" x="0.2" y="4.535" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="shadow left" opacity="0.5" x="0.2" y="1" fill="#000000" width="0.1" height="4.535"/>
+				<rect class="shadow bottom" opacity="0.5" x="0.2" y="5.535" fill="#000000" width="2.268" height="0.1"/>
+				<rect class="highlight right" opacity="0.5" x="2.3668" y="1" fill="#ffffff" width="0.1" height="4.535"/>
+				<rect class="highlight top" opacity="0.5" x="0.2" y="1" fill="#ffffff" width="2.268" height="0.1"/>
+			</g>
+			<g class="res1 res-0603" transform="translate(34.832, 1.333)">
+				<rect class="pad" x="0" y="0" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="pad" x="0" y="3.867" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="res" x="0.2" y="1" fill="#333333" width="2.268" height="4.535"/>
+				<rect class="tip" x="0.2" y="1" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="tip" x="0.2" y="4.535" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="shadow left" opacity="0.5" x="0.2" y="1" fill="#000000" width="0.1" height="4.535"/>
+				<rect class="shadow bottom" opacity="0.5" x="0.2" y="5.535" fill="#000000" width="2.268" height="0.1"/>
+				<rect class="highlight right" opacity="0.5" x="2.3668" y="1" fill="#ffffff" width="0.1" height="4.535"/>
+				<rect class="highlight top" opacity="0.5" x="0.2" y="1" fill="#ffffff" width="2.268" height="0.1"/>
+			</g>
+			<g class="res2 res-0603" transform="translate(40.832, 1.333)">
+				<rect class="pad" x="0" y="0" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="pad" x="0" y="3.867" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="res" x="0.2" y="1" fill="#333333" width="2.268" height="4.535"/>
+				<rect class="tip" x="0.2" y="1" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="tip" x="0.2" y="4.535" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="shadow left" opacity="0.5" x="0.2" y="1" fill="#000000" width="0.1" height="4.535"/>
+				<rect class="shadow bottom" opacity="0.5" x="0.2" y="5.535" fill="#000000" width="2.268" height="0.1"/>
+				<rect class="highlight right" opacity="0.5" x="2.3668" y="1" fill="#ffffff" width="0.1" height="4.535"/>
+				<rect class="highlight top" opacity="0.5" x="0.2" y="1" fill="#ffffff" width="2.268" height="0.1"/>
+			</g>
+			<g class="cap4 cap-0603-light" transform="translate(46.832, 1.333)">
+				<rect class="pad" x="0" y="0" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="pad" x="0" y="3.867" fill="#aaaaaa" width="2.668" height="2.668"/>
+				<rect class="cap light" x="0.2" y="1" fill="#bb9977" width="2.268" height="4.535"/>
+				<rect class="tip" x="0.2" y="1" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="tip" x="0.2" y="4.535" fill="#cccccc" width="2.268" height="1"/>
+				<rect class="shadow left" opacity="0.5" x="0.2" y="1" fill="#000000" width="0.1" height="4.535"/>
+				<rect class="shadow bottom" opacity="0.5" x="0.2" y="5.535" fill="#000000" width="2.268" height="0.1"/>
+				<rect class="highlight right" opacity="0.5" x="2.3668" y="1" fill="#ffffff" width="0.1" height="4.535"/>
+				<rect class="highlight top" opacity="0.5" x="0.2" y="1" fill="#ffffff" width="2.268" height="0.1"/>
+			</g>
+		</g>
+
+		<g class="DFPlayerMini" fill="#FFFFFF" transform="translate(13.7345, 10)">
+			<path class="d" d="M2.629,1.98c0,0.301-0.039,0.564-0.117,0.792C2.434,2.999,2.321,3.188,2.173,3.341s-0.33,0.267-0.545,0.343c-0.216,0.077-0.46,0.115-0.734,0.115H0V0.229h0.994c0.249,0,0.475,0.037,0.676,0.112s0.374,0.186,0.515,0.333s0.251,0.33,0.328,0.548C2.591,1.441,2.629,1.693,2.629,1.98z M2.148,1.994c0-0.237-0.027-0.442-0.081-0.616C2.014,1.205,1.936,1.062,1.833,0.949c-0.103-0.111-0.229-0.195-0.378-0.25s-0.32-0.082-0.51-0.082H0.454v2.791H0.85c0.43,0,0.753-0.119,0.972-0.356S2.148,2.462,2.148,1.994z"/>
+			<path class="f" d="M3.875,3.799H3.42V0.229h1.853v0.4H3.875v1.26h1.306v0.4H3.875V3.799z"/>
+			<path class="p" d="M8.015,1.274c0,0.148-0.022,0.29-0.067,0.427C7.903,1.838,7.83,1.959,7.727,2.064C7.625,2.169,7.489,2.253,7.32,2.315C7.152,2.378,6.944,2.41,6.697,2.41H6.331v1.389H5.876V0.229H6.76c0.218,0,0.406,0.023,0.564,0.069c0.158,0.047,0.288,0.114,0.391,0.203S7.893,0.7,7.942,0.83S8.015,1.108,8.015,1.274z M6.331,2.023h0.315c0.151,0,0.284-0.013,0.396-0.039c0.113-0.025,0.207-0.067,0.281-0.125C7.397,1.802,7.453,1.727,7.49,1.635s0.056-0.204,0.056-0.336c0-0.231-0.067-0.402-0.2-0.514S7.004,0.617,6.721,0.617H6.331V2.023z"/>
+			<path class="l" d="M9.141,3.799H8.696V0h0.444V3.799z"/>
+			<path class="a" d="M11.501,3.799l-0.09-0.371h-0.02c-0.054,0.073-0.107,0.137-0.161,0.189s-0.112,0.096-0.176,0.131c-0.063,0.033-0.134,0.059-0.212,0.075s-0.168,0.024-0.271,0.024c-0.112,0-0.216-0.016-0.31-0.048c-0.094-0.031-0.176-0.08-0.246-0.146C9.947,3.588,9.893,3.505,9.854,3.404c-0.039-0.1-0.059-0.219-0.059-0.355c0-0.267,0.094-0.472,0.282-0.615c0.188-0.143,0.474-0.221,0.858-0.234l0.449-0.017V2.014c0-0.108-0.012-0.199-0.036-0.273c-0.023-0.072-0.058-0.132-0.103-0.177c-0.044-0.045-0.1-0.077-0.166-0.097c-0.065-0.02-0.141-0.029-0.226-0.029c-0.135,0-0.261,0.02-0.377,0.059c-0.117,0.039-0.229,0.087-0.336,0.143L9.985,1.304c0.121-0.065,0.255-0.12,0.403-0.166s0.304-0.068,0.466-0.068c0.166,0,0.31,0.017,0.431,0.05c0.122,0.033,0.222,0.087,0.301,0.159c0.079,0.072,0.138,0.165,0.177,0.276c0.039,0.113,0.059,0.249,0.059,0.408v1.836H11.501z M10.686,3.488c0.099,0,0.191-0.015,0.276-0.046s0.158-0.078,0.22-0.141s0.11-0.142,0.146-0.236c0.035-0.096,0.052-0.207,0.052-0.336V2.488L11.03,2.505c-0.146,0.007-0.27,0.022-0.369,0.049s-0.179,0.062-0.238,0.108c-0.06,0.047-0.103,0.103-0.128,0.169c-0.026,0.065-0.039,0.14-0.039,0.224c0,0.149,0.04,0.259,0.119,0.329C10.454,3.454,10.558,3.488,10.686,3.488z"/>
+			<path class="y" d="M12.244,1.118h0.461l0.525,1.497c0.023,0.064,0.046,0.133,0.069,0.205c0.024,0.071,0.046,0.143,0.066,0.215c0.02,0.071,0.038,0.141,0.052,0.207s0.025,0.129,0.032,0.186h0.015c0.008-0.041,0.021-0.096,0.039-0.166s0.038-0.145,0.06-0.224c0.022-0.079,0.045-0.156,0.068-0.233c0.024-0.076,0.044-0.141,0.062-0.195l0.486-1.491h0.459l-1.06,3.03c-0.045,0.131-0.095,0.25-0.148,0.354c-0.053,0.105-0.114,0.194-0.184,0.268S13.095,4.9,13,4.94S12.794,5,12.664,5c-0.084,0-0.158-0.005-0.22-0.014s-0.115-0.018-0.159-0.027V4.604c0.034,0.008,0.077,0.015,0.129,0.021s0.106,0.009,0.164,0.009c0.078,0,0.146-0.01,0.203-0.028s0.106-0.046,0.149-0.082c0.042-0.035,0.079-0.079,0.109-0.131c0.03-0.053,0.057-0.112,0.082-0.179l0.139-0.391L12.244,1.118z"/>
+			<path class="e" d="M16.147,3.848c-0.179,0-0.342-0.03-0.49-0.09c-0.148-0.061-0.275-0.148-0.382-0.264c-0.106-0.116-0.189-0.26-0.248-0.43c-0.059-0.172-0.088-0.367-0.088-0.586c0-0.222,0.027-0.42,0.081-0.594s0.129-0.322,0.227-0.443s0.214-0.213,0.35-0.277c0.137-0.062,0.287-0.095,0.451-0.095c0.161,0,0.307,0.029,0.435,0.087s0.237,0.139,0.327,0.244c0.09,0.104,0.158,0.23,0.207,0.378c0.047,0.147,0.071,0.311,0.071,0.489v0.276h-1.689c0.008,0.314,0.075,0.545,0.198,0.693c0.125,0.148,0.311,0.222,0.557,0.222c0.082,0,0.16-0.004,0.23-0.012s0.139-0.02,0.205-0.035s0.129-0.035,0.191-0.059s0.125-0.051,0.188-0.08V3.67c-0.064,0.03-0.129,0.058-0.191,0.08s-0.127,0.041-0.193,0.057c-0.064,0.014-0.133,0.024-0.205,0.031C16.307,3.845,16.231,3.848,16.147,3.848z M16.038,1.438c-0.186,0-0.332,0.064-0.441,0.191c-0.107,0.127-0.17,0.312-0.188,0.554h1.201c0-0.11-0.011-0.212-0.032-0.304c-0.023-0.092-0.057-0.171-0.104-0.236c-0.047-0.064-0.105-0.115-0.177-0.15C16.225,1.456,16.139,1.438,16.038,1.438z"/>
+			<path class="r" d="M18.923,1.069c0.048,0,0.101,0.002,0.159,0.006s0.108,0.011,0.15,0.019l-0.059,0.41c-0.045-0.008-0.092-0.015-0.141-0.021c-0.047-0.006-0.092-0.009-0.135-0.009c-0.103,0-0.196,0.021-0.281,0.062c-0.084,0.041-0.156,0.101-0.219,0.178c-0.061,0.077-0.107,0.17-0.141,0.278s-0.051,0.229-0.051,0.36v1.445h-0.443V1.118h0.361l0.053,0.491h0.02c0.041-0.07,0.084-0.138,0.131-0.203s0.099-0.122,0.156-0.172c0.059-0.05,0.123-0.09,0.194-0.12S18.833,1.069,18.923,1.069z"/>
+			<path class="m" d="M22.592,3.799l-1.081-3.125h-0.02c0.01,0.12,0.019,0.24,0.024,0.359c0.006,0.102,0.012,0.21,0.016,0.323s0.006,0.216,0.006,0.309v2.134h-0.42V0.229h0.674l1.006,2.91h0.016l1.01-2.91h0.674v3.569h-0.453V1.633c0-0.084,0.001-0.181,0.004-0.29c0.004-0.109,0.008-0.213,0.013-0.312c0.007-0.115,0.013-0.232,0.017-0.352h-0.02l-1.091,3.12H22.592z"/>
+			<path class="i" d="M25.374,0.393c0-0.098,0.025-0.168,0.074-0.212c0.05-0.044,0.111-0.065,0.185-0.065c0.036,0,0.069,0.005,0.102,0.016c0.031,0.011,0.06,0.027,0.083,0.05s0.042,0.052,0.056,0.087c0.015,0.035,0.021,0.076,0.021,0.125c0,0.095-0.025,0.165-0.076,0.212c-0.052,0.046-0.113,0.069-0.185,0.069c-0.073,0-0.135-0.022-0.185-0.068C25.399,0.56,25.374,0.489,25.374,0.393z M25.852,3.799h-0.444V1.118h0.444V3.799z"/>
+			<path class="n" d="M28.376,3.799V2.072c0-0.211-0.043-0.37-0.128-0.476c-0.086-0.105-0.22-0.159-0.402-0.159c-0.131,0-0.242,0.021-0.332,0.064c-0.089,0.042-0.161,0.104-0.216,0.188c-0.054,0.083-0.093,0.185-0.117,0.305c-0.023,0.121-0.035,0.26-0.035,0.416v1.389h-0.444V1.118h0.361l0.063,0.361h0.024c0.041-0.07,0.089-0.131,0.146-0.182c0.056-0.052,0.117-0.095,0.185-0.128c0.066-0.035,0.137-0.06,0.212-0.076s0.151-0.024,0.229-0.024c0.298,0,0.521,0.078,0.673,0.233c0.15,0.155,0.226,0.404,0.226,0.746v1.75H28.376z"/>
+			<path class="i" d="M29.612,0.393c0-0.098,0.024-0.168,0.074-0.212s0.111-0.065,0.185-0.065c0.036,0,0.069,0.005,0.102,0.016c0.031,0.011,0.06,0.027,0.083,0.05s0.042,0.052,0.056,0.087s0.021,0.076,0.021,0.125c0,0.095-0.025,0.165-0.076,0.212c-0.052,0.046-0.113,0.069-0.185,0.069c-0.073,0-0.135-0.022-0.185-0.068S29.612,0.489,29.612,0.393z M30.09,3.799h-0.444V1.118h0.444V3.799z"/>
+		</g>
+
+		<g class="micro-usb" transform="translate(5.2, 16.62)">
+			<g class="pads" fill="#888888">
+				<path d="M5,0h1.5c0.11,0,0.2,0.09,0.2,0.2v2.3H4.8V0.2C4.8,0.09,4.89,0,5,0z"/>
+				<path d="M5,0h1.5c0.11,0,0.2,0.09,0.2,0.2v2.3H4.8V0.2C4.8,0.09,4.89,0,5,0z" transform="translate(3,0)"/>
+				<path d="M5,0h1.5c0.11,0,0.2,0.09,0.2,0.2v2.3H4.8V0.2C4.8,0.09,4.89,0,5,0z" transform="translate(6,0)"/>
+				<path d="M5,0h1.5c0.11,0,0.2,0.09,0.2,0.2v2.3H4.8V0.2C4.8,0.09,4.89,0,5,0z" transform="translate(9,0)"/>
+				<path d="M5,0h1.5c0.11,0,0.2,0.09,0.2,0.2v2.3H4.8V0.2C4.8,0.09,4.89,0,5,0z" transform="translate(12,0)"/>
+				<path d="M5,0h1.5c0.11,0,0.2,0.09,0.2,0.2v2.3H4.8V0.2C4.8,0.09,4.89,0,5,0z" transform="translate(15,0)"/>
+				<path d="M5,0h1.5c0.11,0,0.2,0.09,0.2,0.2v2.3H4.8V0.2C4.8,0.09,4.89,0,5,0z" transform="translate(18,0)"/>
+				<path d="M5,0h1.5c0.11,0,0.2,0.09,0.2,0.2v2.3H4.8V0.2C4.8,0.09,4.89,0,5,0z" transform="translate(21,0)"/>
+				<path d="M5,0h1.5c0.11,0,0.2,0.09,0.2,0.2v2.3H4.8V0.2C4.8,0.09,4.89,0,5,0z" transform="translate(24,0)"/>
+			</g>
+			<g class="pins-shadow" fill="#000000" opacity="0.3" transform="translate(-0.1, 0)">
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(3,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(6,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(9,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(12,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(15,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(18,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(21,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(24,0)"/>
+			</g>
+			<g class="pins" fill="#aaaaaa">
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(3,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(6,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(9,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(12,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(15,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(18,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(21,0)"/>
+				<path d="M5.4,0.7h0.7c0.11,0,0.2,0.09,0.2,0.2v1.6H5.2V0.9C5.2,0.79,5.29,0.7,5.4,0.7z" transform="translate(24,0)"/>
+			</g>
+			<g class="cover-pads" fill="#888888">
+				<path class="top right" d="M41.6,2.5h1.1c0.276,0,0.5,0.224,0.5,0.5v2.5c0,0.276-0.224,0.5-0.5,0.5h-1.1V2.5z"/>
+				<path class="top left" d="M3.6,6H2.5C2.224,6,2,5.776,2,5.5V3c0-0.276,0.224-0.5,0.5-0.5h1.1V6z"/>
+				<path class="bottom right" d="M43.6,28.38h3.1c0.276,0,0.5,0.224,0.5,0.5v2.5c0,0.276-0.224,0.5-0.5,0.5h-3.1V28.38z"/>
+				<path class="bottom left" d="M3.6,31.98H0.5c-0.276,0-0.5-0.224-0.5-0.5l0-2.6c0-0.276,0.224-0.5,0.5-0.5h3.1V31.98z"/>
+			</g>
+			<g class="black-plastic-dark" fill="#333333">
+				<rect class="right" x="40.35" y="24.5" width="2.25" height="14"/>
+				<path class="left" d="M6.1,18.698V6.531h-2V19h1.698C5.965,19,6.1,18.865,6.1,18.698z"/>
+			</g>
+			<g class="black-plastic-medium" fill="#444444">
+				<rect class="right" x="42.35" y="24.5" width="1" height="14"/>
+				<rect class="middle" x="37.1" y="24.5" width="3.25" height="14"/>
+				<rect class="top left" x="3.6" y="4.25" fill="#444444" width="1.25" height="2.281"/>
+			</g>
+			<g class="black-plastic-light" fill="#555555">
+				<rect class="top left" x="4.85" y="4.25" fill="#555555" width="1.606" height="2.281"/>
+			</g>
+			<rect class="cover left wall" x="3.6" y="6.531" fill="#777777" width="0.5" height="12.469"/>
+			<path class="cover left wall slant" fill="#999999" d="M3.6,19h0.5l-0.003-1.8L5.16,7.915C5.166,7.86,5.127,7.811,5.072,7.805L4.774,7.77C4.719,7.764,4.669,7.803,4.663,7.858L3.6,17.143"/>
+			<path class="left spring" fill="#CCCC00" d="M5.5,19v-4.961c0-0.535,0.234-1.013,0.6-1.35v-0.513c-0.602,0.402-1,1.086-1,1.863V19H5.5z"/>
+			<path class="right flap" fill="#888888" d="M38.4,27.598v2.695c0,0.083,0.034,0.162,0.095,0.218l1.5,1.392c0.066,0.062,0.101,0.15,0.094,0.241L39.6,38.5H42V27.598c0-0.164-0.133-0.298-0.298-0.298h-3.005C38.533,27.3,38.4,27.433,38.4,27.598z"/>
+			<path class="right flap tip" fill="#CCCC00" d="M41.25,27.3h-0.3v-1.4c0-0.055,0.045-0.1,0.1-0.1h0.1c0.055,0,0.1,0.045,0.1,0.1V27.3z"/>
+			<path class="cover" fill="#999999" d="M40.5,7.062c-0.166,0-0.3-0.134-0.3-0.3V6.3c0-0.166,0.134-0.3,0.3-0.3h1.1V2.5h-5v0.7c0,0.166-0.134,0.3-0.3,0.3h-0.4c-0.166,0-0.3-0.134-0.3-0.3V2.5V2V1.5H10.7V2v0.5v0.7c0,0.166-0.134,0.3-0.3,0.3H10c-0.166,0-0.3-0.134-0.3-0.3V2.5H3.6v2l2.5,1.247v12.95C6.1,18.865,5.965,19,5.798,19H3.6v22h26.35c0.429,0,0.852,0.092,1.242,0.269l3.922,1.783c0.65,0.295,1.355,0.448,2.069,0.448H43.6V41V7.062H40.5z M43.35,38.5h-4.506c-0.167,0-0.302-0.135-0.302-0.302v-6.064c0-0.086-0.036-0.167-0.1-0.225l-1.242-1.119c-0.064-0.058-0.101-0.14-0.101-0.226v-5.762c0-0.167,0.135-0.302,0.302-0.302h5.948V38.5z"/>
+			<g class="highlights" opacity="0.2" fill="#FFFFFF">
+				<rect class="right bottom" x="42.6" y="38.5" width="1" height="5"/>
+				<rect class="right middle" x="43.35" y="24.5" width="0.25" height="14"/>
+				<rect class="right top" x="42.6" y="7.062" width="1" height="17.438"/>
+				<rect class="left bottom" x="3.6" y="19" width="1" height="22"/>
+				<polygon class="left top" points="4.6,2.5 3.6,2.5 3.6,4.5 4.6,5"/>
+				<rect class="top right" x="40.6" y="2.5" width="1" height="3.5"/>
+				<rect class="top" x="10.7" y="1.5" width="24.9" height="1"/>
+			</g>
+		</g>
+
+		<g class="pads" fill="none" stroke="#9A916C" stroke-width="1.5">
+			<g class="pads-left">
+				<circle id="connector0pin" class="pad-vcc"   cx="3.6" cy="3.6" r="2.05"/>
+				<circle id="connector1pin" class="pad-rx"    cx="3.6" cy="3.6" r="2.05" transform="translate(0, 7.2)"/>
+				<circle id="connector2pin" class="pad-tx"    cx="3.6" cy="3.6" r="2.05" transform="translate(0, 14.4)"/>
+				<circle id="connector3pin" class="pad-dac-r" cx="3.6" cy="3.6" r="2.05" transform="translate(0, 21.6)"/>
+				<circle id="connector4pin" class="pad-dac-l" cx="3.6" cy="3.6" r="2.05" transform="translate(0, 28.8)"/>
+				<circle id="connector5pin" class="pad-spk-1" cx="3.6" cy="3.6" r="2.05" transform="translate(0, 36.0)"/>
+				<circle id="connector6pin" class="pad-gnd-1" cx="3.6" cy="3.6" r="2.05" transform="translate(0, 43.2)"/>
+				<circle id="connector7pin" class="pad-spk-2" cx="3.6" cy="3.6" r="2.05" transform="translate(0, 50.4)"/>
+			</g>
+			<g class="pads-right">
+				<circle id="connector15pin" class="pad-busy"    cx="3.6" cy="3.6" r="2.05" transform="translate(50.4, 0)"/>
+				<circle id="connector14pin" class="pad-usb-m"   cx="3.6" cy="3.6" r="2.05" transform="translate(50.4, 7.2)"/>
+				<circle id="connector13pin" class="pad-usb-p"   cx="3.6" cy="3.6" r="2.05" transform="translate(50.4, 14.4)"/>
+				<circle id="connector12pin" class="pad-adkey-2" cx="3.6" cy="3.6" r="2.05" transform="translate(50.4, 21.6)"/>
+				<circle id="connector11pin" class="pad-adkey-1" cx="3.6" cy="3.6" r="2.05" transform="translate(50.4, 28.8)"/>
+				<circle id="connector10pin" class="pad-io-2"    cx="3.6" cy="3.6" r="2.05" transform="translate(50.4, 36.0)"/>
+				<circle id="connector9pin"  class="pad-gnd-2"   cx="3.6" cy="3.6" r="2.05" transform="translate(50.4, 43.2)"/>
+				<circle id="connector8pin"  class="pad-io-1"    cx="3.6" cy="3.6" r="2.05" transform="translate(50.4, 50.4)"/>
+			</g>
+		</g>
+
+		<g class="male-headers-below">
+			<g class="male-header-below-left">
+				<g class="pin-vcc">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-rx" transform="translate(0,7.2)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-tx" transform="translate(0,14.4)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-dac-r" transform="translate(0,21.6)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-dac-l" transform="translate(0,28.8)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-spk-1" transform="translate(0,36.0)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-gnd-1" transform="translate(0,43.2)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-spk-2" transform="translate(0,50.4)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+			</g>
+			<g class="male-header-below-right">
+				<g class="pin-busy" transform="translate(50.4,0)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-usb-neg" transform="translate(50.4, 7.2)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-usb-pos" transform="translate(50.4, 14.4)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-adkey-2" transform="translate(50.4, 21.6)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-adkey-1" transform="translate(50.4, 28.8)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-io-2" transform="translate(50.4, 36.0)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-gnd-2" transform="translate(50.4, 43.2)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+				<g class="pin-io-1" transform="translate(50.4, 50.4)">
+					<rect class="S" fill="#9A916C" x="2.1" y="2.1" width="3" height="3"/>
+					<rect class="C" fill="#8C8663" x="3" y="3" width="1.2" height="1.2"/>
+					<polygon class="R" fill="#B8AF82" points="4.7,2.5 4.2,3 4.2,4.2 4.7,4.7"/>
+					<polygon class="B" fill="#80795B" points="3,4.2 4.2,4.2 4.7,4.7 2.5,4.7"/>
+					<polygon class="L" fill="#5E5B43" points="3,3 3,4.2 2.5,4.7 2.5,2.5"/>
+					<polygon class="T" fill="#9A916C" points="4.7,2.5 4.2,3 3,3 2.5,2.5"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

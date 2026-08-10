@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  height="68.398186" id="svg3012" gorn="0" width="65.238693">
+    <desc >
+        <referenceFile >MX-Switch-BB.svg</referenceFile>
+    </desc>
+    <defs  id="defs3014"/>
+    <metadata  id="metadata3017">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <cc:Work xmlns:cc="http://creativecommons.org/ns#" rdf:about="" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
+                <dc:type xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:resource="http://purl.org/dc/dcmitype/StillImage" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+                <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/"/>
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <g  transform="translate(-337.95573,-409.30008)">
+        <g >
+            <g >
+                <g  id="layer1" gorn="0.3.0.0.0">
+                    <rect stroke-width="1.77165353"  height="49.426014" id="rect3020" x="346.33096" y="418.88123" gorn="0.3.0.0.0.0" style="stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:15.30000019;stroke-dasharray:none;stroke-dashoffset:0" fill="none" stroke-opacity="1" width="49.424236" ry="0.030167347" stroke="#000000"/>
+                    <g font-size="32"  id="text3790" xml:space="preserve" fill-opacity="1" gorn="0.3.0.0.0.1" xmlns:xml="http://www.w3.org/XML/1998/namespace" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;font-family:Droid Sans;-inkscape-font-specification:Droid Sans" fill="#000000" stroke="none">
+                        <text  x="353.03162" id="tspan3792" y="449.98441" gorn="0.3.0.0.0.1.0" style="font-size:24px">MX</text>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 17.12774,1.9413384 0,-7.3167045" stroke-width="1"  id="connector3pin" gorn="0.3.0.0.0.2.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 35.918367,1.9413384 0,-7.1504158" stroke-width="1"  id="connector4pin" gorn="0.3.0.0.0.3.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 51.050642,15.078149 5.487529,0" stroke-width="1"  id="connector5pin" gorn="0.3.0.0.0.4.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 51.549509,24.390318 4.988662,0" stroke-width="1"  style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 1.4965986,15.244437 -5.653817,0" stroke-width="1"  id="connector2pin" gorn="0.3.0.0.0.6.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 1.6628874,24.05774 -5.3212396,0" stroke-width="1"  style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 1.9954649,41.18548 -5.3212397,0" stroke-width="1"  id="connector0pin" gorn="0.3.0.0.0.8.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 51.549509,41.351769 4.988662,0" stroke-width="1"  id="connector6pin" gorn="0.3.0.0.0.9.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 44.232804,51.329093 0,5.986395" stroke-width="1"  id="connector7pin" gorn="0.3.0.0.0.10.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 36.084656,51.495382 0,6.152683" stroke-width="1"  id="connector8pin" gorn="0.3.0.0.0.11.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 14.46712,51.329093 0,6.485261" stroke-width="1"  id="connector9pin" gorn="0.3.0.0.0.12.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g  transform="translate(344.3846,416.9471)">
+                        <g >
+                            <g >
+                                <path d="m 7.3167045,51.495382 0,5.986395" stroke-width="1"  id="connector10pin" gorn="0.3.0.0.0.13.0.0.0" style="stroke-linecap:butt;stroke-linejoin:miter;" fill="none" stroke-opacity="1" stroke="#000000"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

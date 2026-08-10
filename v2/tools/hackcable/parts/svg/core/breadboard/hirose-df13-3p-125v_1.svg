@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg>
+<!-- Creator: CorelDRAW X6 -->
+<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" viewBox="0 0 4080 5101" image-rendering="optimizeQuality" fill-rule="evenodd" xml:space="preserve" width="0.4in" xmlns:xml="http://www.w3.org/XML/1998/namespace" version="1.1" text-rendering="geometricPrecision" clip-rule="evenodd"  height="0.5in">
+    <desc >
+        <referenceFile >Hirose_DF13-3p-smd-v_bb.svg</referenceFile>
+    </desc>
+    <g id="DF13-3p-smd-v" gorn="0.1" >
+        <metadata id="CorelCorpID_0Corel-Layer" />
+        <g id="breadboard" gorn="0.1.1" >
+            <g id="icon" gorn="0.1.1.0" >
+                <rect fill="#1F7A34" width="4080"  height="5101"/>
+                <g >
+                    <rect x="353" fill="#D2D3D5" y="1990" width="3374"  height="557"/>
+                    <g >
+                        <rect x="353" fill="#FEFEFE" y="1990" width="75"  height="557"/>
+                        <rect x="429" fill="#1F7A34" y="2181" width="124"  height="168"/>
+                        <rect x="353" fill="#96989A" y="2482" width="75"  height="66"/>
+                    </g>
+                    <g >
+                        <rect x="3652" fill="#FEFEFE" y="1990" width="75"  height="557"/>
+                        <rect x="3528" fill="#1F7A34" y="2181" width="124"  height="168"/>
+                        <rect x="3652" fill="#96989A" y="2482" width="75"  height="66"/>
+                    </g>
+                    <g >
+                        <rect x="701" fill="#848688" y="2065" width="2679"  height="525"/>
+                        <rect x="701" fill="#E6E7E8" y="1400" width="2679"  height="655"/>
+                    </g>
+                    <rect x="956" fill="#727376" y="947" width="2169"  height="1730"/>
+                    <g >
+                        <rect x="1056" fill="#FEFEFE" y="1651" width="1968"  height="81"/>
+                        <rect x="1056" fill="#FEFEFE" y="947" width="1968"  height="71"/>
+                    </g>
+                    <g >
+                        <rect x="1237" fill="#727376" y="1622" width="1606"  height="488"/>
+                        <rect x="1237" fill="#D2D3D5" y="1789" width="1606"  height="185"/>
+                        <rect x="1237" fill="#FEFEFE" y="1975" width="1606"  height="77"/>
+                        <rect x="1347" fill="#D2D3D5" y="1789" width="1386"  height="562"/>
+                    </g>
+                    <g >
+                        <rect x="956" fill="#FEFEFE" y="947" width="100"  height="785"/>
+                        <rect x="956" fill="#606062" y="1223" width="100"  height="233"/>
+                    </g>
+                    <g >
+                        <rect x="3024" fill="#FEFEFE" y="947" width="100"  height="785"/>
+                        <rect x="3024" fill="#606062" y="1223" width="100"  height="233"/>
+                    </g>
+                    <g >
+                        <rect x="1468" fill="#9D98CA" y="1294" width="141"  height="625"/>
+                        <rect x="1468" fill="#FEFEFE" y="1294" width="141"  height="89"/>
+                        <rect x="1468" fill="#FEFEFE" y="2605" width="141"  height="478"/>
+                        <rect x="1468" fill="#9D98CA" y="3039" width="141"  height="59"/>
+                    </g>
+                    <g >
+                        <rect x="1970" fill="#9D98CA" y="1294" width="141"  height="625"/>
+                        <rect x="1970" fill="#FEFEFE" y="1294" width="141"  height="89"/>
+                        <rect x="1970" fill="#FEFEFE" y="2605" width="141"  height="478"/>
+                        <rect x="1970" fill="#9D98CA" y="3039" width="141"  height="59"/>
+                    </g>
+                    <g >
+                        <rect x="2472" fill="#9D98CA" y="1294" width="141"  height="625"/>
+                        <rect x="2472" fill="#FEFEFE" y="1294" width="141"  height="89"/>
+                        <rect x="2472" fill="#FEFEFE" y="2605" width="141"  height="478"/>
+                        <rect x="2472" fill="#9D98CA" y="3039" width="141"  height="59"/>
+                    </g>
+                </g>
+                <text font-family="OCRA" x="997" fill="white" y="3602" font-size="424.993" font-weight="500" >DF13-3P</text>
+                <text font-family="OCRA" x="1136" fill="white" y="665" font-size="424.993" font-weight="500" >HIROSE</text>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 -1329.96 24346.2)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-family="OCRA" x="20000" fill="white" y="2484" font-size="459.01" font-weight="500" >1</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 -309.849 24346.2)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-family="OCRA" x="20000" fill="white" y="2484" font-size="459.01" font-weight="500" >2</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 710.222 24346.2)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-family="OCRA" x="20000" fill="white" y="2484" font-size="459.01" font-weight="500" >3</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="connector0pin" gorn="0.1.1.1" >
+                <rect x="854" fill="#8D8C8C" y="4428" width="326"  height="325"/>
+                <rect x="933" fill="#8C8663" y="4507" width="168"  height="167"/>
+                <polygon fill="#B8AF82" points="854,4753 933,4674 933,4499 854,4428 " />
+                <polygon fill="#80795B" points="1101,4507 934,4507 854,4428 1179,4428 " />
+                <polygon fill="#5E5B43" points="1101,4674 1101,4507 1179,4428 1179,4753 " />
+                <polygon fill="#9A916C" points="854,4753 934,4674 1101,4674 1179,4753 " />
+            </g>
+            <g id="connector1pin" gorn="0.1.1.2" >
+                <rect x="1874" fill="#8D8C8C" y="4428" width="326"  height="325"/>
+                <rect x="1953" fill="#8C8663" y="4507" width="168"  height="167"/>
+                <polygon fill="#B8AF82" points="1874,4753 1953,4674 1953,4499 1874,4428 " />
+                <polygon fill="#80795B" points="2121,4507 1954,4507 1874,4428 2200,4428 " />
+                <polygon fill="#5E5B43" points="2121,4674 2121,4507 2200,4428 2200,4753 " />
+                <polygon fill="#9A916C" points="1874,4753 1954,4674 2121,4674 2200,4753 " />
+            </g>
+            <g id="connector2pin" gorn="0.1.1.3" >
+                <rect x="2894" fill="#8D8C8C" y="4428" width="326"  height="325"/>
+                <rect x="2973" fill="#8C8663" y="4507" width="168"  height="167"/>
+                <polygon fill="#B8AF82" points="2894,4753 2973,4674 2973,4499 2894,4428 " />
+                <polygon fill="#80795B" points="3141,4507 2975,4507 2894,4428 3220,4428 " />
+                <polygon fill="#5E5B43" points="3141,4674 3141,4507 3220,4428 3220,4753 " />
+                <polygon fill="#9A916C" points="2894,4753 2974,4674 3141,4674 3220,4753 " />
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<head>
+		<meta charset="utf-8">
+		<link href="../../blocklyduino/media/logo_only.png" rel="shortcut icon" />
+		<title>HackCable</title>
+		<link rel="stylesheet" href="./css/hackcable.css" />
+		<link rel="stylesheet" href="../../css/font_awesome_all.min.css" />
+		<script src="./js/addon/konva6.min.js"></script>
+	</head>
+	<body>
+		<div class="sideBar">
+			<div class="functionMenu">
+				<button id="btn_save_img"  class="iconButtons" onclick="" title="Enregistrer l'media">
+					<span id="btn_save_img_span">
+						<i class="fas fa-camera"></i>
+					</span>
+				</button>
+				<!-- <button id="btn_grid_onoff"  class="iconButtons" onclick="backgroundShowHide()" title="Activer la grille"> -->
+				<button id="btn_grid_onoff"  class="iconButtons" onclick="isGrid = !isGrid;isGrid ? $(this).addClass('active') : $(this).removeClass('active')" title="Activer la grille">
+					<span id="btn_grid_onoff_span">
+						<i class="fas fa-border-all"></i>
+					</span>
+				</button>
+				<button id="btn_zoom_plus"  class="iconButtons" onclick="changeScale(1.2)" title="Zoom +">
+					<span id="btn_zoom_plus_span">
+						<i class="fa fa-search-plus"></i>
+					</span>
+				</button>
+				<button id="btn_zoom_minus"  class="iconButtons" onclick="changeScale(-1.2)" title="Zoom -">
+					<span id="btn_zoom_minus_span">
+						<i class="fa fa-search-minus"></i>
+					</span>
+				</button>
+			</div>
+			<div class="pagins">
+				<form onsubmit="finds(event);">
+					<input autocomplete="on" type="text" id="searchText" placeholder="Rechercher...">
+				</form>
+				<button id="btn_previous_parts"  class="iconButtons" onclick="previous_parts()" title="Page suivante">
+					<span id="btn_previous_parts_span">
+						<i class="fas fa-angle-left"></i>
+					</span>
+				</button>
+				<span id="froms">0</span> ~ <span id="to">0</span>
+				<button id="btn_next_parts"  class="iconButtons" onclick="next_parts()" title="Page précédente">
+					<span id="btn_next_parts_span">
+						<i class="fas fa-angle-right"></i>
+					</span>
+				</button>
+			</div>
+			<div id="all_parts" class="parts">
+				<img src="media/wait.gif">
+			</div>
+			<div class="partsDescription">
+				<span class="partsDescription_title"></span>
+				<img class="partsDescription_img" src="media/question.svg" />
+				<span class="partsDescription_text"></span>
+			</div>
+		</div>
+		<div id="konvaContainer"></div>
+		<div id="konvaPreview"></div>
+	</body>
+	<script src="./parts/components_database.js"></script>
+	<script src="../blockFactory/libs/jquery-2.1.3.min.js"></script>
+	<script src="./js/addon/jquery-3.5.1.min.js"></script>
+	<script src="./js/addon/jquery-ui.min.js"></script>
+	<script src="./js/init_vars.js"></script>
+	<script src="./js/addline.js"></script>
+	<script src="./js/addpoint.js"></script>
+	<script src="./js/context.js"></script>
+	<script src="./js/element.js"></script>
+	<script src="./js/stage.js"></script>
+	<script src="./js/background.js"></script>
+	<script src="./js/init.js"></script>
+</html>

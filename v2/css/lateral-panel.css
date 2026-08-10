@@ -1,0 +1,112 @@
+/**
+* @license
+* Copyright 2020 Sébastien CANET
+* SPDX-License-Identifier: BSD-3-Clause
+*/
+
+/**
+ * @fileoverview Modified from https://nosmoking.developpez.com/demos/css/panneau-lateral.html
+ * @author scanet@libreduc.cc (Sébastien CANET)
+ */
+
+.label_panel{
+    display: grid;
+    align-items: center;
+    text-align: center;
+}
+#CLI_title {
+    display:flex;
+    text-align: center;
+}
+.controlPanelInput {
+    width: 230px;
+    font-size:20px;
+}
+
+#lateral-panel-setup {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    right: -700px;
+    width: 350px;
+    min-height: 100vh;
+    transform: translateX(-100%);
+}
+#lateral-panel-setup-input {
+    position: absolute;
+    right: -999em;
+}
+#lateral-panel-setup-bloc,
+#lateral-panel-CLI-bloc {
+    z-index: 0;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    width: 350px;
+    height: 100%;
+    overflow: auto;
+}
+#lateral-panel-setup-label {
+    z-index: 1;
+    top: 2px;
+    right: 100%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+#lateral-panel-CLI-bloc,
+#lateral-panel-setup-label,
+#lateral-panel-setup-bloc {
+    position: absolute;
+    background: #FFF;
+    box-shadow: -0.5em 0 .4em rgba(0, 0, 0, 0.3);
+    transition: all .5s;
+}
+#lateral-panel-setup-input:checked ~ #lateral-panel-setup-label {
+    right: 200%;
+}   
+#lateral-panel-setup-input:checked ~ #lateral-panel-setup-bloc {
+    transform: translateX(-100%);
+}
+#lateral-panel-setup-label:before {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transition: all .5s;
+    transform: translate(50%, -50%) rotate(45deg);
+}
+/**
+ * accordion effect inside setup panel
+ */
+.accordion {
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+	vertical-align: middle;
+    font-size: x-large;
+    font-weight: bold;
+}
+.accordion:after {
+  content: "\0271A"; /* Unicode character for "plus" sign (+) */
+  font-size: x-large;
+  float: right;
+  margin-left: 5px;
+}
+.accordion:hover {
+  background-color: #FFFFFF;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}

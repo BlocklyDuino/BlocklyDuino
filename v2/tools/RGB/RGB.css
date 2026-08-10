@@ -1,0 +1,42 @@
+@charset "iso-8859-1";
+
+/* corps de la page */
+body {
+    scrollbar-face-color: #2E69AC;
+    scrollbar-shadow-color: #000000;
+    scrollbar-highlight-color: #FFFFFF;
+    scrollbar-3dlight-color: #FFFF00;
+    scrollbar-darkshadow-color: #660000;
+    scrollbar-track-color: #000000;
+    scrollbar-arrow-color: #FFFF00;
+    font-family:Arial,Verdana,Helvetica,Sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #000000;
+    color: #FFFFFF
+}
+/* D�finiton des titres */
+h1 {
+    font-size: 30px;
+    text-align: center;
+    margin: 6px 6px 6px 6px;
+}
+/* style des liens */
+a:link {color:#FFFF00;text-decoration: none; color: #FFFF00;}
+a:visited {color:#FFFF00;text-decoration: none; color: #FFFF00;}
+a:active {color:#FF0000;text-decoration: underline; color: #FF0000;}
+a:hover {color:#FF0000;text-decoration: underline; color: #FF0000;}
+
+a.menu { width:110px; margin-top:2px; margin-bottom:2px; padding-bottom:1px; background-color:#FFD733; text-align:center; display:block;font-size:15px;font-weight:bold;}
+a.menu:link { color:#2E69AC; border:1px solid; border-color:white darkred darkred white; text-decoration:none; background-color:#FFD733 }
+a.menu:visited { color:#2E69AC; border:1px solid; border-color:white darkred darkred white; text-decoration:none; background-color:#FFD733 }
+a.menu:hover {  color:#FFFFFF; border:1px solid; border-color:black #BBD9F9 #BBD9F9 black; text-decoration:none; background-color:#2E69AC }
+a.menu:active { color:#FFFFFF; border:1px solid; border-color:black #BBD9F9 #BBD9F9 black; text-decoration:none; background-color:#2E69AC }
+
+div.menu { color:#2E69AC;width:110px; margin-top:2px; margin-bottom:2px; padding-bottom:1px; background-color:#2E69AC; display:block;
+           text-align:center; border:1px solid; border-color:black #BBD9F9 #BBD9F9 black; }
+
+table.normal { border:0; }
+table.titre { background-color:#0060BF;background-image:url(alien.jpg); border:1px solid; border-color:white gray gray white;}
+
+span.menu { color:#2E69AC; width:110px; margin-top:2px; margin-bottom:2px; padding-bottom:1px; background-color:#2E69AC; display:block; text-align:center; border:1px solid; border-color:black #BBD9F9 #BBD9F9 black; }

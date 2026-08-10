@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns="http://www.w3.org/2000/svg"
+  id="Layer_1"
+  viewBox="0 0 1588.7401 3358.5431"
+  x="0px"
+  y="0px"
+  height="3.358542in"
+  version="1.1"
+  enable-background="new 0 0 113.39 167.24"
+  width="1.5887396in">
+  <metadata
+    id="metadata54">
+    <rdf:RDF>
+      <cc:Work
+        rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+          rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        />
+        <dc:title/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+    id="defs52">
+        </defs>
+  <desc
+    id="desc2">
+    <referenceFile>YumoE6B2_1_breadboard.svg</referenceFile>
+  </desc>
+  <g
+    id="breadboard">
+    <text
+      y="3311.6682"
+      x="733.61774"
+      id="text99"
+      font-size="49"
+      font-family="'Droid Sans'"
+      fill="#000000">B</text>
+    <path
+      d="m 773.53005,3025.5167 c -28.24577,127.1576 -185.79543,219.8328 -178.74445,292.742"
+      id="line84"
+      fill="none"
+      stroke="#800000"
+      stroke-width="20"
+      stroke-linecap="butt"
+    />
+    <path
+      d="m 793.14,3028.4869 c -9.56566,128.7519 4.15944,213.8041 0.87735,284.13"
+      id="path89"
+      fill="#cccccc"
+      stroke="#cccccc"
+      stroke-width="20"
+      stroke-linecap="butt"
+    />
+    <line
+      y1="2336.6677"
+      x1="792.08356"
+      y2="3031.6682"
+      x2="792.08356"
+      id="connector4pin-6"
+      fill="#000000"
+      stroke="#000000"
+      stroke-width="80"
+      stroke-linecap="butt"
+    />
+    <rect
+      width="1574.8094"
+      height="1454.0688"
+      y="875.65405"
+      x="6.9444518"
+      id="rect4"
+      fill="#414042"
+      stroke="#000000"
+      stroke-width="13.88890362"
+    />
+    <rect
+      width="787.40472"
+      height="196.84715"
+      y="597.46045"
+      x="400.66754"
+      id="rect6"
+      fill="#bcbec0"
+      stroke="#000000"
+      stroke-width="13.88890362"
+    />
+    <rect
+      width="236.22281"
+      height="590.5553"
+      x="676.26581"
+      id="rect8"
+      y="6.9444518"
+      fill="#d1d3d4"
+      stroke="#000000"
+      stroke-width="13.88890362"
+    />
+    <rect
+      width="1574.8373"
+      height="81.347191"
+      y="794.30603"
+      x="6.9583411"
+      id="rect10"
+      fill="#939598"
+      stroke="#000000"
+      stroke-width="13.88890362"
+    />
+    <path
+      id="connector0pin"
+      d="m 604.16685,3355.442 c 0,1.1368 -0.42075,2.0594 -0.93878,2.0594 h -16.87245 c -0.51802,0 -0.93878,-0.9226 -0.93878,-2.0594 v -47.9645 c 0,-1.1368 0.42076,-2.0594 0.93878,-2.0594 h 16.87245 c 0.51803,0 0.93878,0.9226 0.93878,2.0594 z"
+      fill="#666666"
+      stroke="none"
+      stroke-width="0"
+    />
+    <path
+      id="path87"
+      d="m 787.0632,3030.4378 c -27.48462,127.4621 -93.11609,215.0748 -92.62441,285.3603"
+      fill="#000000"
+      stroke="#000000"
+      stroke-width="20"
+      stroke-linecap="butt"
+    />
+    <path
+      id="connector1pin"
+      d="m 704.16688,3356.4837 c 0,1.1368 -0.42076,2.0594 -0.93877,2.0594 h -16.87247 c -0.51801,0 -0.93877,-0.9226 -0.93877,-2.0594 v -47.9645 c 0,-1.1368 0.42076,-2.0594 0.93877,-2.0594 h 16.87247 c 0.51801,0 0.93877,0.9226 0.93877,2.0594 z"
+      fill="#666666"
+      stroke="none"
+      stroke-width="0"
+    />
+    <path
+      id="connector2pin"
+      d="m 804.1669,3355.442 c 0,1.1368 -0.42077,2.0594 -0.93667,2.0594 h -16.87455 c -0.51804,0 -0.93878,-0.9226 -0.93878,-2.0594 v -47.9645 c 0,-1.1368 0.42074,-2.0594 0.93878,-2.0594 h 16.87455 c 0.5159,0 0.93667,0.9226 0.93667,2.0594 z"
+      fill="#666666"
+      stroke="none"
+      stroke-width="0"
+    />
+    <path
+      id="path91"
+      d="m 801.83944,3031.9667 c 20.32706,132.2304 97.58001,202.2456 93.09139,284.13"
+      fill="#cccccc"
+      stroke="#ff9955"
+      stroke-width="20"
+      stroke-linecap="butt"
+    />
+    <path
+      id="connector3pin"
+      d="m 904.16694,3356.4837 c 0,1.1368 -0.42074,2.0594 -0.93664,2.0594 h -16.8746 c -0.51802,0 -0.93876,-0.9226 -0.93876,-2.0594 v -47.9645 c 0,-1.1368 0.42074,-2.0594 0.93876,-2.0594 h 16.8746 c 0.5159,0 0.93664,0.9226 0.93664,2.0594 z"
+      fill="#666666"
+      stroke="none"
+      stroke-width="0"
+    />
+    <path
+      d="m 814.01865,3018.0476 c 21.38745,129.9676 190.93695,207.3424 180.08578,303.2688"
+      id="path93"
+      fill="none"
+      stroke="#0000ff"
+      stroke-width="20"
+      stroke-linecap="butt"
+    />
+    <path
+      id="connector4pin"
+      d="m 1004.1671,3356.4837 c 0,1.1368 -0.4207,2.0594 -0.9367,2.0594 h -16.87467 c -0.51801,0 -0.93876,-0.9226 -0.93876,-2.0594 v -47.9645 c 0,-1.1368 0.42075,-2.0594 0.93876,-2.0594 h 16.87467 c 0.516,0 0.9367,0.9226 0.9367,2.0594 z"
+      fill="#666666"
+      stroke="none"
+      stroke-width="0"
+    />
+    <text
+      y="3311.6682"
+      x="541.04474"
+      id="text95"
+      font-size="49"
+      font-family="'Droid Sans'"
+      fill="#000000">V</text>
+    <text
+      font-size="49"
+      id="text97"
+      x="631.55341"
+      y="3311.5684"
+      font-family="'Droid Sans'"
+      fill="#000000">A</text>
+    <text
+      font-size="49"
+      id="text101"
+      x="833.44391"
+      y="3311.6682"
+      font-family="'Droid Sans'"
+      fill="#000000">Z</text>
+    <text
+      y="3310.9744"
+      x="929.54047"
+      id="text103"
+      font-size="49"
+      font-family="'Droid Sans'"
+      fill="#000000">G</text>
+  </g>
+</svg>

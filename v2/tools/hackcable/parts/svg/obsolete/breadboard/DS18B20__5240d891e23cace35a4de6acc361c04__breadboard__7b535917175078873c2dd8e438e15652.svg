@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="21.6" xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace" version="1.1" height="34.200001" viewBox="0 0 21.599999 34.199999" id="Layer_1">
+ <metadata  id="metadata150882">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work xmlns:cc="http://creativecommons.org/ns#" rdf:about="" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
+    <dc:type xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:resource="http://purl.org/dc/dcmitype/StillImage" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs  id="defs150880"/>
+ <g  style="display:inline" id="layer6" transform="translate(0,10.118)">
+  <g  id="g213067">
+   <path  style="color:#000000;fill:none;stroke:#8c8c8c;stroke-width:2.16000009;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" id="path212445" d="m 1.7999999,15.104998 5.3999999,-5.4 0,-3.599999"/>
+   <line  style="fill:none;stroke:#8c8c8c;stroke-width:2.16000009;stroke-linecap:round" id="connector3leg" y1="15.105" x1="1.7999998" y2="22.281998" x2="1.7999998"/>
+   <line  style="fill:none;stroke:#8c8c8c;stroke-width:2.16000009;stroke-linecap:round" id="connector2leg" y1="15.105" x1="10.8" y2="22.281998" x2="10.8"/>
+   <line  style="fill:none;stroke:#8c8c8c;stroke-width:2.16000009;stroke-linecap:round" id="connector1leg" y1="15.105" x1="19.799999" y2="22.281998" x2="19.799999"/>
+   <rect  width="2.154" x="9.717" y="5.7539968" height="9.3509998" style="fill:#8c8c8c" id="rect9506"/>
+   <rect  width="13.278" x="4.1549997" y="-4.3180008" height="10.07" style="fill:#1a1a1a" id="rect9553"/>
+   <path  style="fill:#141414" id="path9555" d="m 16.428,-4.3180015 v 2.4529996 8.2279999 1.842999 c 0.633,-0.713999 1.005,-1.553999 1.005,-2.452999 l 0,0 V -4.3180015 h -1.005 z"/>
+   <path  style="fill:#242424" id="path9557" d="m 5.1609994,-4.3180015 h -1.005 V 5.751998 l 0,0 c 0,0.899 0.373,1.739 1.005,2.452999 V 6.361998 -1.8650019 -4.3180015 z"/>
+   <path  style="fill:#1f1f1f" id="path9559" d="m 4.1549994,-4.3180015 0,0 c 0,0.899 0.373,1.74 1.005,2.4529996 H 16.436 c 0.632,-0.7129996 1.005,-1.5539996 1.005,-2.4529996 l 0,0 H 4.1549994 z"/>
+   <path  style="fill:#141414" id="path9561" d="m 10.794999,-8.9770015 c -3.6679996,0 -6.6399996,2.086 -6.6399996,4.661 H 17.433 c 0,-2.575 -2.97,-4.661 -6.638001,-4.661 z"/>
+   <path  style="color:#000000;fill:none;stroke:#8c8c8c;stroke-width:2.16000009;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" id="path212957" d="m 19.8,15.104998 -5.4,-5.4 0,-3.599999"/>
+   <rect  width="11.276" x="5.1609998" y="-1.8650026" height="10.07" id="rect9563"/>
+   <g style="font-size:3px;fill:#e6e6e6;font-family:OCRA" id="label0">
+    <text x="10.757889" y="2.4170942" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:OCR A Std;-inkscape-font-specification:OCR A Std" id="tspan150901">DS18</text>
+   </g>
+   <g style="font-size:3px;fill:#e6e6e6;font-family:OCRA" id="label0_1_">
+    <text x="7.5303779" y="5.4636621" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:OCR A Std;-inkscape-font-specification:OCR A Std" id="tspan150907">B20</text>
+   </g>
+   <path  style="color:#000000;fill:none;stroke:#8c8c8c;stroke-width:2.16000009;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" id="connector3pin" d="m 1.8,32.400001 0,1.8" transform="translate(-1.3401714e-7,-10.118)"/>
+   <path  style="color:#000000;fill:none;stroke:#8c8c8c;stroke-width:2.16000009;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" id="connector2pin" d="m 10.8,32.400001 0,1.8" transform="translate(-1.3401714e-7,-10.118)"/>
+   <path  style="color:#000000;fill:none;stroke:#8c8c8c;stroke-width:2.16000009;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" id="connector1pin" d="m 19.8,32.400001 0,1.8" transform="translate(-1.3401714e-7,-10.118)"/>
+  </g>
+ </g>
+</svg>

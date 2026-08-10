@@ -1,0 +1,61 @@
+/**
+* @license
+* Copyright 2020 Sébastien CANET
+* SPDX-License-Identifier: BSD-3-Clause
+*/
+
+/**
+ * @fileoverview Modified from https://github.com/google/blockly/commit/5a92aff63e93dce884bbe2e715ba832244628501
+ * @author scanet@libreduc.cc (Sébastien CANET)
+ */
+
+#keyboard_nav {
+    background-color: #ebebeb;
+    border: 1px solid black;
+    padding: 1em;
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+#keyboard_nav_header {
+    padding: 5px;
+    cursor: move;
+    z-index: 10;
+    color: #fff;
+}
+#keyboard_announce {
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+}
+#keyboard_mappings {
+    font-size: 1.3em;
+    font-weight: 400;
+}
+labelDiv {
+    margin-right: .5em;
+    min-width: 350px;
+    text-align: right;
+}
+div[data-actionname] {
+    display: flex;
+    width: 100%;
+}
+select {
+    font-size: .8em;
+}
+/* update original code css */
+.farSide > labelDiv, input {
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.farSide > select {
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}

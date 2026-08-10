@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg>
+<!-- Creator: CorelDRAW X6 -->
+<svg xmlns="http://www.w3.org/2000/svg" height="0.5in" version="1.1" width="0.8in" shape-rendering="geometricPrecision" fill-rule="evenodd" xml:space="preserve" text-rendering="geometricPrecision" viewBox="0 0 13858 8661" image-rendering="optimizeQuality"  xmlns:xml="http://www.w3.org/XML/1998/namespace" clip-rule="evenodd">
+    <desc >
+        <referenceFile >Molex_53261-0819-smd_bb.svg</referenceFile>
+    </desc>
+    <g gorn="0.1" id="_53261-0819_smd-h" >
+        <metadata id="CorelCorpID_0Corel-Layer" />
+        <g gorn="0.1.1" id="breadboard" >
+            <g gorn="0.1.1.0" id="icon" >
+                <rect height="8661" width="13858"  fill="#1F7A34"/>
+                <g >
+                    <g >
+                        <rect height="948" width="955" x="9572"  y="4331" fill="#A9ABAE"/>
+                        <rect height="307" width="723" x="9804"  y="4036" fill="#A9ABAE"/>
+                        <rect height="68" width="955" x="9572"  y="5210" fill="#606062"/>
+                    </g>
+                    <g >
+                        <rect height="948" width="955" x="3332"  y="4331" fill="#A9ABAE"/>
+                        <rect height="307" width="723" x="3332"  y="4036" fill="#A9ABAE"/>
+                        <rect height="68" width="955" x="3332"  y="5210" fill="#606062"/>
+                    </g>
+                    <g >
+                        <rect height="307" width="4481" x="4689"  y="4036" fill="#A9ABAE"/>
+                        <rect height="948" width="4945" x="4457"  y="4331" fill="#A9ABAE"/>
+                        <rect height="68" width="4945" x="4457"  y="5210" fill="#606062"/>
+                    </g>
+                    <g >
+                        <polygon points="6394,4585 6467,4908 6538,4908 6612,4585 6612,4585 6394,4585 "  fill="#706A22"/>
+                        <rect height="2514" width="218" x="6394"  y="2071" fill="#BFD84F"/>
+                    </g>
+                    <g >
+                        <polygon points="7246,4585 7320,4908 7390,4908 7465,4585 7465,4585 7246,4585 "  fill="#706A22"/>
+                        <rect height="2514" width="218" x="7246"  y="2071" fill="#BFD84F"/>
+                    </g>
+                    <g >
+                        <polygon points="8099,4585 8172,4908 8243,4908 8317,4585 8317,4585 8099,4585 "  fill="#706A22"/>
+                        <rect height="2514" width="218" x="8099"  y="2071" fill="#BFD84F"/>
+                    </g>
+                    <g >
+                        <polygon points="8951,4585 9025,4908 9095,4908 9170,4585 9170,4585 8951,4585 "  fill="#706A22"/>
+                        <rect height="2514" width="218" x="8951"  y="2071" fill="#BFD84F"/>
+                    </g>
+                    <g >
+                        <polygon points="9804,4585 9877,4908 9948,4908 10022,4585 10022,4585 9804,4585 "  fill="#706A22"/>
+                        <rect height="2514" width="218" x="9804"  y="2071" fill="#BFD84F"/>
+                    </g>
+                    <g >
+                        <polygon points="5541,4585 5615,4908 5685,4908 5760,4585 5760,4585 5541,4585 "  fill="#706A22"/>
+                        <rect height="2514" width="218" x="5541"  y="2071" fill="#BFD84F"/>
+                    </g>
+                    <g >
+                        <polygon points="4689,4585 4762,4908 4833,4908 4907,4585 4907,4585 4689,4585 "  fill="#706A22"/>
+                        <rect height="2514" width="218" x="4689"  y="2071" fill="#BFD84F"/>
+                    </g>
+                    <g >
+                        <polygon points="3836,4585 3910,4908 3980,4908 4055,4585 4055,4585 3836,4585 "  fill="#706A22"/>
+                        <rect height="2514" width="218" x="3836"  y="2071" fill="#BFD84F"/>
+                    </g>
+                    <g >
+                        <rect height="1493" width="8014" x="2922"  y="2611" fill="#F0F0F0"/>
+                        <rect height="108" width="8014" x="2922"  y="2503" fill="#A9ABAE"/>
+                        <rect height="68" width="8014" x="2922"  y="4036" fill="#606062"/>
+                    </g>
+                    <g >
+                        <rect height="218" width="546" x="3246"  y="2414" fill="#F0F0F0"/>
+                        <rect height="218" width="546" x="4099"  y="2414" fill="#F0F0F0"/>
+                        <rect height="218" width="546" x="4951"  y="2414" fill="#F0F0F0"/>
+                        <rect height="218" width="546" x="5804"  y="2414" fill="#F0F0F0"/>
+                        <rect height="218" width="546" x="6656"  y="2414" fill="#F0F0F0"/>
+                        <rect height="218" width="546" x="7509"  y="2414" fill="#F0F0F0"/>
+                        <rect height="218" width="546" x="8361"  y="2414" fill="#F0F0F0"/>
+                        <rect height="218" width="546" x="9214"  y="2414" fill="#F0F0F0"/>
+                        <rect height="218" width="546" x="10066"  y="2414" fill="#F0F0F0"/>
+                    </g>
+                    <g >
+                        <polygon points="11874,3232 11909,3232 12095,3418 12095,4410 11909,4596 11874,4596 "  fill="#BFD84F"/>
+                        <rect height="1910" width="938" x="10936"  y="2959" fill="#E6E7E8"/>
+                        <rect height="1705" width="239" x="10936"  y="2959" fill="#BDBFC1"/>
+                        <rect height="205" width="938" x="10936"  y="4664" fill="#606062"/>
+                        <rect height="750" width="409" x="10527"  y="4528" fill="#F0F0F0"/>
+                        <rect height="273" width="409" x="10527"  y="5005" fill="#606062"/>
+                        <rect height="498" width="682" x="10254"  y="4030" fill="#F0F0F0"/>
+                        <rect height="68" width="682" x="10254"  y="4460" fill="#606062"/>
+                    </g>
+                    <g >
+                        <polygon points="1949,3232 1985,3232 1985,4596 1949,4596 1763,4410 1763,3418 "  fill="#BFD84F"/>
+                        <rect height="1910" width="938" x="1985"  y="2959" fill="#E6E7E8"/>
+                        <rect height="1705" width="239" x="2684"  y="2959" fill="#BDBFC1"/>
+                        <rect height="205" width="938" x="1985"  y="4664" fill="#606062"/>
+                        <rect height="750" width="409" x="2922"  y="4528" fill="#F0F0F0"/>
+                        <rect height="273" width="409" x="2922"  y="5005" fill="#606062"/>
+                        <rect height="498" width="682" x="2922"  y="4030" fill="#F0F0F0"/>
+                        <rect height="68" width="682" x="2922"  y="4460" fill="#606062"/>
+                    </g>
+                </g>
+                <text font-size="721.699" font-weight="500" x="4446"  y="6185" font-family="OCRA" fill="white">53261-0819</text>
+                <text font-size="721.699" font-weight="500" x="4636"  y="1636" font-family="OCRA" fill="white">Picoblade</text>
+                <text font-size="721.699" font-weight="500" x="5713"  y="835" font-family="OCRA" fill="white">MOLEX</text>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 -3118.61 -32619.6)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-size="779.465" font-weight="500" x="-40000"  y="4219" font-family="OCRA" fill="white">1</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 -1386.31 -32619.6)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-size="779.465" font-weight="500" x="-40000"  y="4219" font-family="OCRA" fill="white">2</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 345.913 -32619.6)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-size="779.465" font-weight="500" x="-40000"  y="4219" font-family="OCRA" fill="white">3</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 2078.21 -32619.6)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-size="779.465" font-weight="500" x="-40000"  y="4219" font-family="OCRA" fill="white">4</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 3811.05 -33178)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-size="779.465" font-weight="500" x="-40557"  y="4219" font-family="OCRA" fill="white">5</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 5543.48 -33177.4)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-size="779.465" font-weight="500" x="-40557"  y="4219" font-family="OCRA" fill="white">6</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 7275.03 -33177.3)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-size="779.465" font-weight="500" x="-40557"  y="4219" font-family="OCRA" fill="white">7</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 9007.87 -33177.5)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-size="779.465" font-weight="500" x="-40557"  y="4219" font-family="OCRA" fill="white">8</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g gorn="0.1.1.1" id="connector0pin" >
+                <rect height="553" width="553" x="590"  y="7519" fill="#8D8C8C"/>
+                <rect height="284" width="285" x="725"  y="7653" fill="#8C8663"/>
+                <polygon points="590,8072 725,7937 725,7640 590,7519 "  fill="#B8AF82"/>
+                <polygon points="1009,7654 726,7654 590,7519 1143,7519 "  fill="#80795B"/>
+                <polygon points="1009,7937 1009,7654 1143,7519 1143,8072 "  fill="#5E5B43"/>
+                <polygon points="590,8072 726,7937 1009,7937 1143,8072 "  fill="#9A916C"/>
+            </g>
+            <g gorn="0.1.1.2" id="connector1pin" >
+                <rect height="553" width="553" x="2322"  y="7519" fill="#8D8C8C"/>
+                <rect height="284" width="285" x="2457"  y="7653" fill="#8C8663"/>
+                <polygon points="2322,8072 2457,7937 2457,7640 2322,7519 "  fill="#B8AF82"/>
+                <polygon points="2741,7654 2459,7654 2322,7519 2875,7519 "  fill="#80795B"/>
+                <polygon points="2741,7937 2741,7654 2875,7519 2875,8072 "  fill="#5E5B43"/>
+                <polygon points="2322,8072 2458,7937 2741,7937 2875,8072 "  fill="#9A916C"/>
+            </g>
+            <g gorn="0.1.1.3" id="connector2pin" >
+                <rect height="553" width="553" x="4054"  y="7519" fill="#8D8C8C"/>
+                <rect height="284" width="285" x="4189"  y="7653" fill="#8C8663"/>
+                <polygon points="4054,8072 4189,7937 4189,7640 4054,7519 "  fill="#B8AF82"/>
+                <polygon points="4474,7654 4191,7654 4054,7519 4607,7519 "  fill="#80795B"/>
+                <polygon points="4474,7937 4474,7654 4607,7519 4607,8072 "  fill="#5E5B43"/>
+                <polygon points="4054,8072 4191,7937 4474,7937 4607,8072 "  fill="#9A916C"/>
+            </g>
+            <g gorn="0.1.1.4" id="connector3pin" >
+                <rect height="553" width="553" x="5786"  y="7519" fill="#8D8C8C"/>
+                <rect height="284" width="285" x="5921"  y="7653" fill="#8C8663"/>
+                <polygon points="5786,8072 5921,7937 5921,7640 5786,7519 "  fill="#B8AF82"/>
+                <polygon points="6206,7654 5923,7654 5786,7519 6340,7519 "  fill="#80795B"/>
+                <polygon points="6206,7937 6206,7654 6340,7519 6340,8072 "  fill="#5E5B43"/>
+                <polygon points="5786,8072 5923,7937 6206,7937 6340,8072 "  fill="#9A916C"/>
+            </g>
+            <g gorn="0.1.1.5" id="connector4pin" >
+                <rect height="553" width="553" x="7519"  y="7519" fill="#8D8C8C"/>
+                <rect height="284" width="285" x="7654"  y="7653" fill="#8C8663"/>
+                <polygon points="7519,8072 7654,7937 7654,7640 7519,7519 "  fill="#B8AF82"/>
+                <polygon points="7938,7653 7656,7653 7519,7519 8072,7519 "  fill="#80795B"/>
+                <polygon points="7938,7937 7938,7653 8072,7519 8072,8072 "  fill="#5E5B43"/>
+                <polygon points="7519,8072 7655,7937 7938,7937 8072,8072 "  fill="#9A916C"/>
+            </g>
+            <g gorn="0.1.1.6" id="connector5pin" >
+                <rect height="553" width="553" x="9251"  y="7519" fill="#8D8C8C"/>
+                <rect height="284" width="285" x="9386"  y="7653" fill="#8C8663"/>
+                <polygon points="9251,8071 9386,7937 9386,7640 9251,7519 "  fill="#B8AF82"/>
+                <polygon points="9670,7653 9388,7653 9251,7519 9804,7519 "  fill="#80795B"/>
+                <polygon points="9670,7937 9670,7653 9804,7519 9804,8071 "  fill="#5E5B43"/>
+                <polygon points="9251,8071 9387,7937 9670,7937 9804,8071 "  fill="#9A916C"/>
+            </g>
+            <g gorn="0.1.1.7" id="connector6pin" >
+                <rect height="553" width="553" x="10983"  y="7519" fill="#8D8C8C"/>
+                <rect height="284" width="285" x="11118"  y="7653" fill="#8C8663"/>
+                <polygon points="10983,8071 11118,7937 11118,7640 10983,7519 "  fill="#B8AF82"/>
+                <polygon points="11403,7653 11120,7653 10983,7519 11536,7519 "  fill="#80795B"/>
+                <polygon points="11403,7937 11403,7653 11536,7519 11536,8071 "  fill="#5E5B43"/>
+                <polygon points="10983,8071 11120,7937 11403,7937 11536,8071 "  fill="#9A916C"/>
+            </g>
+            <g gorn="0.1.1.8" id="connector7pin" >
+                <rect height="553" width="553" x="12716"  y="7519" fill="#8D8C8C"/>
+                <rect height="284" width="285" x="12851"  y="7653" fill="#8C8663"/>
+                <polygon points="12716,8071 12851,7937 12851,7639 12716,7519 "  fill="#B8AF82"/>
+                <polygon points="13136,7653 12853,7653 12716,7519 13270,7519 "  fill="#80795B"/>
+                <polygon points="13136,7937 13136,7653 13270,7519 13270,8071 "  fill="#5E5B43"/>
+                <polygon points="12716,8071 12853,7937 13136,7937 13270,8071 "  fill="#9A916C"/>
+            </g>
+        </g>
+    </g>
+</svg>

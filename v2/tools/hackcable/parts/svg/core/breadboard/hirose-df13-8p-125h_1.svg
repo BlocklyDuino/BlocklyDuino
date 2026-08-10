@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg>
+<!-- Creator: CorelDRAW X6 -->
+<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" viewBox="0 0 19985 12490" image-rendering="optimizeQuality" fill-rule="evenodd" xml:space="preserve" width="0.8in" xmlns:xml="http://www.w3.org/XML/1998/namespace" version="1.1" text-rendering="geometricPrecision" clip-rule="evenodd"  height="0.5in">
+    <desc >
+        <referenceFile >Hirose_DF13_8p_smd-h_BB.svg</referenceFile>
+    </desc>
+    <g id="DF13_smd-8p-h" gorn="0.1" >
+        <metadata id="CorelCorpID_0Corel-Layer" />
+        <g id="breadboard" gorn="0.1.1" >
+            <g id="icon" gorn="0.1.1.0" >
+                <rect fill="#1F7A34" width="19985"  height="12490"/>
+                <g id="header" gorn="0.1.1.0.1" >
+                    <rect x="2788" fill="#D2D3D5" y="4354" width="14408"  height="1365"/>
+                    <g >
+                        <rect x="3639" fill="#E6E7E8" y="2914" width="12707"  height="2502"/>
+                        <rect x="3639" fill="#96989A" y="5040" width="12707"  height="1134"/>
+                    </g>
+                    <rect x="4263" fill="#727376" y="2504" width="11458"  height="4844"/>
+                    <rect x="4509" fill="#A9ABAE" y="7200" width="10966"  height="148"/>
+                    <g >
+                        <rect x="4998" fill="#1F7A34" y="6579" width="9976"  height="811"/>
+                        <rect x="4998" fill="#A9ABAE" y="6505" width="9976"  height="148"/>
+                    </g>
+                    <g >
+                        <rect x="10435" fill="#C8C5E2" y="1559" width="344"  height="4692"/>
+                        <rect x="10435" fill="#FEFEFE" y="6145" width="344"  height="173"/>
+                    </g>
+                    <g >
+                        <rect x="11664" fill="#C8C5E2" y="1559" width="344"  height="4692"/>
+                        <rect x="11664" fill="#FEFEFE" y="6145" width="344"  height="173"/>
+                    </g>
+                    <g >
+                        <rect x="12894" fill="#C8C5E2" y="1559" width="344"  height="4692"/>
+                        <rect x="12894" fill="#FEFEFE" y="6145" width="344"  height="173"/>
+                    </g>
+                    <g >
+                        <rect x="14123" fill="#C8C5E2" y="1559" width="344"  height="4692"/>
+                        <rect x="14123" fill="#FEFEFE" y="6145" width="344"  height="173"/>
+                    </g>
+                    <g >
+                        <rect x="5517" fill="#C8C5E2" y="1559" width="344"  height="4692"/>
+                        <rect x="5517" fill="#FEFEFE" y="6145" width="344"  height="173"/>
+                    </g>
+                    <g >
+                        <rect x="6747" fill="#C8C5E2" y="1559" width="344"  height="4692"/>
+                        <rect x="6747" fill="#FEFEFE" y="6145" width="344"  height="173"/>
+                    </g>
+                    <g >
+                        <rect x="7976" fill="#C8C5E2" y="1559" width="344"  height="4692"/>
+                        <rect x="7976" fill="#FEFEFE" y="6145" width="344"  height="173"/>
+                    </g>
+                    <g >
+                        <rect x="9206" fill="#C8C5E2" y="1559" width="344"  height="4692"/>
+                        <rect x="9206" fill="#FEFEFE" y="6145" width="344"  height="173"/>
+                    </g>
+                    <rect x="4263" fill="#FEFEFE" y="2161" width="11458"  height="3558"/>
+                    <rect x="4509" fill="#A9ABAE" y="5688" width="10966"  height="178"/>
+                    <g >
+                        <rect x="2788" fill="#FEFEFE" y="4354" width="184"  height="1365"/>
+                        <rect x="2972" fill="#1F7A34" y="4820" width="304"  height="412"/>
+                        <rect x="2788" fill="#96989A" y="5557" width="184"  height="162"/>
+                    </g>
+                    <g >
+                        <rect x="17012" fill="#FEFEFE" y="4354" width="184"  height="1365"/>
+                        <rect x="16709" fill="#1F7A34" y="4820" width="304"  height="412"/>
+                        <rect x="17012" fill="#96989A" y="5557" width="184"  height="162"/>
+                    </g>
+                    <g >
+                        <rect x="4263" fill="#A9ABAE" y="5688" width="246"  height="1659"/>
+                        <rect x="4684" fill="#606062" y="3532" width="625"  height="948"/>
+                        <rect x="4684" fill="#D2D3D5" y="3532" width="625"  height="148"/>
+                        <rect x="4263" fill="#606062" y="6291" width="246"  height="454"/>
+                    </g>
+                    <g >
+                        <rect x="15475" fill="#A9ABAE" y="5688" width="246"  height="1659"/>
+                        <rect x="14693" fill="#606062" y="3532" width="625"  height="948"/>
+                        <rect x="14693" fill="#D2D3D5" y="3532" width="625"  height="148"/>
+                        <rect x="15475" fill="#606062" y="6291" width="246"  height="454"/>
+                    </g>
+                </g>
+                <text font-family="OCRA" x="4504" fill="white" font-size="1040.74" y="8820" font-weight="500" >HIROSE DF13-8P</text>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 -4887.51 -29356.9)" >
+                    <g >
+                        <g >
+                            <g >
+                                <g >
+                                    <g >
+                                        <g >
+                                            <text font-family="OCRA" x="-40000" fill="white" font-size="1124.04" y="6474" font-weight="500" >1</text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 -2389.42 -29356.9)" >
+                    <g >
+                        <g >
+                            <g >
+                                <g >
+                                    <g >
+                                        <g >
+                                            <text font-family="OCRA" x="-40000" fill="white" font-size="1124.04" y="6474" font-weight="500" >2</text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 108.578 -29356.9)" >
+                    <g >
+                        <g >
+                            <g >
+                                <g >
+                                    <g >
+                                        <g >
+                                            <text font-family="OCRA" x="-40000" fill="white" font-size="1124.04" y="6474" font-weight="500" >3</text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 2606.67 -29356.9)" >
+                    <g >
+                        <g >
+                            <g >
+                                <g >
+                                    <g >
+                                        <g >
+                                            <text font-family="OCRA" x="-40000" fill="white" font-size="1124.04" y="6474" font-weight="500" >4</text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 5105.55 -30162.1)" >
+                    <g >
+                        <g >
+                            <g >
+                                <g >
+                                    <g >
+                                        <g >
+                                            <text font-family="OCRA" x="-40804" fill="white" font-size="1124.04" y="6474" font-weight="500" >5</text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 7603.84 -30161.3)" >
+                    <g >
+                        <g >
+                            <g >
+                                <g >
+                                    <g >
+                                        <g >
+                                            <text font-family="OCRA" x="-40804" fill="white" font-size="1124.04" y="6474" font-weight="500" >6</text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 10100.9 -30161.2)" >
+                    <g >
+                        <g >
+                            <g >
+                                <g >
+                                    <g >
+                                        <g >
+                                            <text font-family="OCRA" x="-40804" fill="white" font-size="1124.04" y="6474" font-weight="500" >7</text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 12599.7 -30161.4)" >
+                    <g >
+                        <g >
+                            <g >
+                                <g >
+                                    <g >
+                                        <g >
+                                            <text font-family="OCRA" x="-40804" fill="white" font-size="1124.04" y="6474" font-weight="500" >8</text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="connector0pin" gorn="0.1.1.1" >
+                <rect x="850" fill="#8D8C8C" y="10843" width="798"  height="797"/>
+                <rect x="1045" fill="#8C8663" y="11036" width="411"  height="410"/>
+                <polygon fill="#B8AF82" points="850,11640 1045,11446 1045,11017 850,10843 " />
+                <polygon fill="#80795B" points="1455,11037 1048,11037 850,10843 1648,10843 " />
+                <polygon fill="#5E5B43" points="1455,11446 1455,11037 1648,10843 1648,11640 " />
+                <polygon fill="#9A916C" points="850,11640 1047,11446 1455,11446 1648,11640 " />
+            </g>
+            <g id="connector1pin" gorn="0.1.1.2" >
+                <rect x="3348" fill="#8D8C8C" y="10843" width="798"  height="797"/>
+                <rect x="3543" fill="#8C8663" y="11036" width="411"  height="410"/>
+                <polygon fill="#B8AF82" points="3348,11640 3543,11446 3543,11017 3348,10843 " />
+                <polygon fill="#80795B" points="3953,11037 3546,11037 3348,10843 4146,10843 " />
+                <polygon fill="#5E5B43" points="3953,11446 3953,11037 4146,10843 4146,11640 " />
+                <polygon fill="#9A916C" points="3348,11640 3545,11446 3953,11446 4146,11640 " />
+            </g>
+            <g id="connector2pin" gorn="0.1.1.3" >
+                <rect x="5846" fill="#8D8C8C" y="10843" width="798"  height="797"/>
+                <rect x="6041" fill="#8C8663" y="11036" width="411"  height="410"/>
+                <polygon fill="#B8AF82" points="5846,11640 6041,11446 6041,11017 5846,10843 " />
+                <polygon fill="#80795B" points="6451,11037 6044,11037 5846,10843 6644,10843 " />
+                <polygon fill="#5E5B43" points="6451,11446 6451,11037 6644,10843 6644,11640 " />
+                <polygon fill="#9A916C" points="5846,11640 6043,11446 6451,11446 6644,11640 " />
+            </g>
+            <g id="connector3pin" gorn="0.1.1.4" >
+                <rect x="8345" fill="#8D8C8C" y="10843" width="798"  height="797"/>
+                <rect x="8539" fill="#8C8663" y="11036" width="411"  height="410"/>
+                <polygon fill="#B8AF82" points="8345,11640 8539,11446 8539,11017 8345,10843 " />
+                <polygon fill="#80795B" points="8949,11037 8542,11037 8345,10843 9142,10843 " />
+                <polygon fill="#5E5B43" points="8949,11446 8949,11037 9142,10843 9142,11640 " />
+                <polygon fill="#9A916C" points="8345,11640 8541,11446 8949,11446 9142,11640 " />
+            </g>
+            <g id="connector4pin" gorn="0.1.1.5" >
+                <rect x="10843" fill="#8D8C8C" y="10843" width="798"  height="797"/>
+                <rect x="11037" fill="#8C8663" y="11036" width="411"  height="410"/>
+                <polygon fill="#B8AF82" points="10843,11640 11037,11446 11037,11017 10843,10843 " />
+                <polygon fill="#80795B" points="11447,11037 11040,11037 10843,10843 11640,10843 " />
+                <polygon fill="#5E5B43" points="11447,11446 11447,11037 11640,10843 11640,11640 " />
+                <polygon fill="#9A916C" points="10843,11640 11039,11446 11447,11446 11640,11640 " />
+            </g>
+            <g id="connector5pin" gorn="0.1.1.6" >
+                <rect x="13341" fill="#8D8C8C" y="10843" width="798"  height="797"/>
+                <rect x="13535" fill="#8C8663" y="11036" width="411"  height="410"/>
+                <polygon fill="#B8AF82" points="13341,11640 13535,11446 13535,11017 13341,10843 " />
+                <polygon fill="#80795B" points="13945,11037 13538,11037 13341,10843 14138,10843 " />
+                <polygon fill="#5E5B43" points="13945,11446 13945,11037 14138,10843 14138,11640 " />
+                <polygon fill="#9A916C" points="13341,11640 13537,11446 13945,11446 14138,11640 " />
+            </g>
+            <g id="connector6pin" gorn="0.1.1.7" >
+                <rect x="15839" fill="#8D8C8C" y="10843" width="798"  height="797"/>
+                <rect x="16033" fill="#8C8663" y="11036" width="411"  height="410"/>
+                <polygon fill="#B8AF82" points="15839,11640 16033,11446 16033,11017 15839,10843 " />
+                <polygon fill="#80795B" points="16444,11037 16036,11037 15839,10843 16636,10843 " />
+                <polygon fill="#5E5B43" points="16444,11446 16444,11037 16636,10843 16636,11640 " />
+                <polygon fill="#9A916C" points="15839,11640 16036,11446 16444,11446 16636,11640 " />
+            </g>
+            <g id="connector7pin" gorn="0.1.1.8" >
+                <rect x="18338" fill="#8D8C8C" y="10842" width="798"  height="797"/>
+                <rect x="18533" fill="#8C8663" y="11036" width="411"  height="410"/>
+                <polygon fill="#B8AF82" points="18338,11639 18533,11445 18533,11017 18338,10843 " />
+                <polygon fill="#80795B" points="18943,11036 18535,11036 18338,10843 19136,10843 " />
+                <polygon fill="#5E5B43" points="18943,11445 18943,11036 19136,10843 19136,11639 " />
+                <polygon fill="#9A916C" points="18338,11639 18535,11445 18943,11445 19136,11639 " />
+            </g>
+        </g>
+    </g>
+</svg>

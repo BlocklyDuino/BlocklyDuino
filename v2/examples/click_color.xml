@@ -1,0 +1,26 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+    <block type="controls_if" id="47" inline="false" x="63" y="38">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+            <block type="grove_button" id="41">
+                <field name="PIN">3</field>
+            </block>
+        </value>
+        <statement name="DO0">
+            <block type="grove_rgb_led" id="21">
+                <mutation items="2" rgb0="#660000" rgb1="#660000"></mutation>
+                <field name="PIN">1</field>
+                <field name="RGB0">#660000</field>
+                <field name="RGB1">#000099</field>
+            </block>
+        </statement>
+        <statement name="ELSE">
+            <block type="grove_rgb_led" id="52">
+                <mutation items="2" rgb0="#006600" rgb1="#006600"></mutation>
+                <field name="PIN">1</field>
+                <field name="RGB0">#006600</field>
+                <field name="RGB1">#663366</field>
+            </block>
+        </statement>
+    </block>
+</xml>

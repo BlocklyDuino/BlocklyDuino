@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="27.77px" height="44.404px" viewBox="0 0 27.77 44.404" enable-background="new 0 0 27.77 44.404" xml:space="preserve">
+<g id="breadboard">
+	<g>
+		<g>
+			<circle id="connector0pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="6.694" cy="5.471" r="1.984"/>
+			<circle id="connector1pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="13.895" cy="5.471" r="1.984"/>
+			<circle id="connector2pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="21.095" cy="5.471" r="1.984"/>
+			<circle id="connector3pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="21.095" cy="12.911" r="2.268"/>
+			<circle id="connector4pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="6.694" cy="12.911" r="2.268"/>
+			<circle cx="21.831" cy="20.309" r="2.41"/>
+			<circle cx="5.957" cy="20.309" r="2.41"/>
+		</g>
+	</g>
+	<g id="icon">
+		<rect x="0.5" y="0.491" fill="#1F1F1F" width="26.787" height="15.609"/>
+		<rect x="0.5" y="16.1" fill="#262626" width="26.787" height="28.304"/>
+		<polygon fill="#7D7D7D" points="4.649,19.09 4.649,39.151 4.648,39.151 8.651,42.508 19.136,42.508 23.138,39.151 23.139,39.151 
+			23.139,19.09 		"/>
+		<circle fill="#7D7D7D" cx="22.875" cy="32.925" r="3.19"/>
+		<circle fill="#7D7D7D" cx="4.912" cy="32.925" r="3.191"/>
+		<circle fill="#262626" cx="5.428" cy="32.925" r="2.675"/>
+		<circle fill="#262626" cx="22.36" cy="32.925" r="2.675"/>
+		<polygon fill="#262626" points="5.428,20.186 5.428,38.338 5.427,38.338 9.093,41.413 18.695,41.413 22.36,38.338 22.36,38.338 
+			22.36,20.186 		"/>
+		<rect x="9.598" y="25.577" fill="#7D7D7D" width="8.592" height="14.572"/>
+		<path fill="#3F3F3F" d="M11.535,36.824c0,2.339,1.063,4.252,2.358,4.252s2.357-1.913,2.357-4.252v-5.058
+			c0-2.34-1.062-4.252-2.357-4.252s-2.358,1.912-2.358,4.252V36.824z"/>
+	</g>
+</g>
+</svg>

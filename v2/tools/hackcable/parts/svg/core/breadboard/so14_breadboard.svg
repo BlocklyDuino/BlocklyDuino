@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+<svg xmlns="http://www.w3.org/2000/svg" x="0in" height="0.6in" y="0in" version="1.2" xmlns:svg="http://www.w3.org/2000/svg"  width="0.7in" viewBox="0 0 700 600" baseProfile="tiny">
+    <desc>
+        <referenceFile>SO14_breadboard.svg</referenceFile>
+    </desc>
+    <g id="breadboard" stroke-width="0" >
+        <g id="icon" stroke-width="0" >
+            <path fill="#1F7A34" d="M0,0L0,270A30,30,0,0,1,0,330L0,600L700,600L700,0L0,0z" stroke-width="0" stroke="none" />
+            <g transform="matrix(1, 0, 0, 1, 164, 128.5)" stroke-width="0" >
+                <g transform="matrix(0.5, 0, 0, 0.5, 93, 85.75)" stroke-width="0" >
+                    <rect fill="#8c8c8c" x="23" height="80" y="261.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="73" height="80" y="261.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="123" height="80" y="261.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="173" height="80" y="261.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="223" height="80" y="261.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="273" height="80" y="261.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="323" height="80" y="261.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="323" height="80" y="0.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="273" height="80" y="0.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="223" height="80" y="0.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="173" height="80" y="0.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="123" height="80" y="0.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="73" height="80" y="0.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#8c8c8c" x="23" height="80" y="0.5" stroke-width="0" stroke="none"  width="26"/>
+                    <rect fill="#303030" x="3.86811" height="153.401" y="94.7992" stroke-width="0" stroke="none"  width="364.264"/>
+                    <polygon fill="#1f1f1f" stroke-width="0"  points="3.86811,94.7992,368.132,94.7992,358.132,104.799,13.8681,104.799"/>
+                    <polygon fill="#1f1f1f" stroke-width="0"  points="3.86811,248.201,368.132,248.201,358.132,238.201,13.8681,238.201"/>
+                    <polygon fill="#000000" stroke-width="0"  points="3.86811,94.7992,3.86811,248.201,13.8681,238.201,13.8681,104.799"/>
+                    <polygon fill="#3d3d3d" stroke-width="0"  points="368.132,94.7992,368.132,248.201,358.132,238.201,358.132,104.799"/>
+                    <circle fill="#1f1f1f" cx="33.8681" r="10" stroke-width="0" stroke="none"  cy="218.201"/>
+                </g>
+            </g>
+            <text fill="white" font-size="65" x="50" y="324.375" text-anchor="start" id="label" stroke-width="0" stroke="none"  font-family="OCRA">SO-14</text>
+            <g transform="matrix(1, 0, 0, 1, 63.5, 526.05)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="start" stroke-width="0" stroke="none"  font-family="OCRA">1</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 63.5, 73.95)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="end" stroke-width="0" stroke="none"  font-family="OCRA">14</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 163.5, 526.05)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="start" stroke-width="0" stroke="none"  font-family="OCRA">2</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 163.5, 73.95)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="end" stroke-width="0" stroke="none"  font-family="OCRA">13</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 263.5, 526.05)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="start" stroke-width="0" stroke="none"  font-family="OCRA">3</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 263.5, 73.95)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="end" stroke-width="0" stroke="none"  font-family="OCRA">12</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 363.5, 526.05)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="start" stroke-width="0" stroke="none"  font-family="OCRA">4</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 363.5, 73.95)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="end" stroke-width="0" stroke="none"  font-family="OCRA">11</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 463.5, 526.05)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="start" stroke-width="0" stroke="none"  font-family="OCRA">5</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 463.5, 73.95)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="end" stroke-width="0" stroke="none"  font-family="OCRA">10</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 563.5, 526.05)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="start" stroke-width="0" stroke="none"  font-family="OCRA">6</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 563.5, 73.95)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="end" stroke-width="0" stroke="none"  font-family="OCRA">9</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 663.5, 526.05)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="start" stroke-width="0" stroke="none"  font-family="OCRA">7</text>
+                </g>
+            </g>
+            <g transform="matrix(1, 0, 0, 1, 663.5, 73.95)" stroke-width="0" >
+                <g transform="rotate(-90)" stroke-width="0" >
+                    <text fill="white" font-size="45" x="0" y="0" text-anchor="end" stroke-width="0" stroke="none"  font-family="OCRA">8</text>
+                </g>
+            </g>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 34.035, 534.05)" id="connector0pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 34.035, 34.05)" id="connector13pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 134.035, 534.05)" id="connector1pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 134.035, 34.05)" id="connector12pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 234.035, 534.05)" id="connector2pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 234.035, 34.05)" id="connector11pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 334.035, 534.05)" id="connector3pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 334.035, 34.05)" id="connector10pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 434.035, 534.05)" id="connector4pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 434.035, 34.05)" id="connector9pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 534.035, 534.05)" id="connector5pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 534.035, 34.05)" id="connector8pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 634.035, 534.05)" id="connector6pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 634.035, 34.05)" id="connector7pin" stroke-width="0" >
+            <rect fill="#8D8C8C" x="0" height="31.9" y="0" stroke-width="0"  width="31.93"/>
+            <rect fill="#8C8663" x="7.79153" height="16.4151" y="7.73544" stroke-width="0"  width="16.4442"/>
+            <polygon fill="#B8AF82" stroke-width="0"  points="0,31.9,7.79153,24.1368,7.79153,6.97162,0,0"/>
+            <polygon fill="#80795B" stroke-width="0"  points="24.2079,7.76321,7.90264,7.76321,0,0,31.93,0"/>
+            <polygon fill="#5E5B43" stroke-width="0"  points="24.2079,24.1368,24.2079,7.76321,31.93,0,31.93,31.9"/>
+            <polygon fill="#9A916C" stroke-width="0"  points="0,31.9,7.87486,24.1368,24.2079,24.1368,31.93,31.9"/>
+        </g>
+    </g>
+</svg>

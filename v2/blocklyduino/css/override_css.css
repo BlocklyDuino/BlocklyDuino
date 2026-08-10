@@ -1,0 +1,100 @@
+/**
+* @license
+* Copyright 2020 Sébastien CANET
+* SPDX-License-Identifier: BSD-3-Clause
+*/
+
+/* CSS specific added for the theme */
+
+body {
+    background-color: #006468;
+}
+#separator {
+    background-color: #006468;
+}
+#helpModal_header {
+    background-color: #006468;
+}
+#keyboard_nav_header {
+    background-color: #006468;
+}
+#buttonsMenuPopupInside,
+#buttonsToolsPopupInside,
+#buttonsIotPopupInside{
+    background-color: #006468;
+    padding: 5px;
+}
+.config_content {
+    background-color: #006468;
+}
+.modal-header, .modal-footer {
+    background-color: #006468;
+}
+.accordion {
+  background-color: #006468;
+}
+.accordion:hover {
+  color: #006468;
+}
+.active {
+    color: #006468;
+  background-color: #FFCC00;
+}
+.collapsibleButton {
+    background-color: #006468;
+}
+.active:after {
+    color: #006468;
+}
+#lateral-panel-setup-label {
+    color: #006468;
+}
+.closeModal:hover,
+.closeModal:focus {
+    color: #FFCC00;
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsibleButton:hover {
+    background-color: #FFCC00;
+}
+
+/* enhance sliders behavior */
+input:checked + .slider {
+  background-color: #17a1a5;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #17a1a5;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateY(27px);
+  -ms-transform: translateY(27px);
+  transform: translateY(27px);
+}
+
+/**
+ * @fileoverview Toolbox modification, override css style
+ * @source https://blocklycodelabs.dev/codelabs/custom-toolbox
+ */
+/* Makes label white */
+.blocklyTreeLabel {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+/* Adds padding around the group of categories and separators */
+.blocklyToolboxContents {
+  padding: .2em;
+}
+/* Adds space between the categories, rounds the corners and adds space around the label */
+.blocklyTreeRow {
+  padding: 2px;
+  border-radius: 4px;
+  height: initial;
+}
+/* Changes color of the icon to white */
+.customIcon {
+  color: white;
+  margin-left: 5px;
+  vertical-align: middle;
+  width: 25px;
+}

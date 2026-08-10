@@ -1,0 +1,83 @@
+<html>
+<head>
+	<link rel="icon" type="image/png" href="../../blocklyduino/media/icon.ico" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="height=660, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="../../css/font_awesome_all.min.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.BlocklyArduino.css">
+	<link rel="stylesheet" href="./css/blockly@rduino.css">
+	<link rel="stylesheet" href="./css/prettify.css">
+	<title></title>
+</head>
+<body>
+	<div id="blockly_l" >
+		<div id="blockly" ></div>
+	</div>
+	<div id="blockly_r">
+		<div style="height:3%">
+			<span id="span_factory_preview"> </span>
+			<select id="direction">
+				<option value="ltr">LTR</option>
+				<option value="rtl">RTL</option>
+			</select>			
+			<span id="span_factory_help"> </span>
+		</div>
+		<div style="height:20%">
+			<div id="preview" style="position:absolute"></div>
+		</div>
+		<div style="height:3%">
+			<span id="span_BF_divBlocks"> </span> </div>
+		<div style="height:35%">
+			<pre id="languagePre" style="border:#ddd 1px solid; overflow:auto"></pre>
+		</div>
+		<div style="height:3%">
+			<span id="span_BF_divGenerators"> </span> </div>
+		<div style="height:35%">
+			<pre id="generatorPre" style="border:#ddd 1px solid; overflow:auto"></pre>
+		</div>
+	</div>
+	<xml id="toolbox_factory" class="toolbox" style="display:none">
+		<category name="BF_CAT_INPUT" colour="#5B80A5">
+			<block type="input_dummy"></block>
+			<block type="input_value"></block>
+			<block type="input_statement"></block>
+		</category>
+		<category name="BF_CAT_FIELD" colour="#5BA58C">
+			<block type="field_static"></block>
+			<block type="field_input"></block>
+			<block type="field_math"></block>
+			<block type="field_image"></block>
+			<block type="field_dropdown"></block>
+			<block type="field_variable"></block>
+			<block type="field_checkbox"></block>
+			<block type="field_angle"></block>
+			<block type="field_colour"></block>
+		</category>
+		<category name="BF_CAT_TYPE" colour="#5B67A5">
+			<block type="type_group"></block>
+			<block type="type_null"></block>
+			<block type="type_boolean"></block>
+			<block type="type_number"></block>
+			<block type="type_string"></block>
+			<block type="type_list"></block>
+			<block type="type_other"></block>
+		</category>
+		<category name="BF_CAT_COLOR" id="colourCategory" colour="#FD6C9E">
+			<block type="colour_hue"><mutation colour="360"></mutation><field name="HUE">0</field></block>
+			<block type="colour_hue"><mutation colour="60"></mutation><field name="HUE">60</field></block>
+			<block type="colour_hue"><mutation colour="120"></mutation><field name="HUE">120</field></block>
+			<block type="colour_hue"><mutation colour="180"></mutation><field name="HUE">180</field></block>
+			<block type="colour_hue"><mutation colour="240"></mutation><field name="HUE">240</field></block>
+			<block type="colour_hue"><mutation colour="300"></mutation><field name="HUE">300</field></block>
+		</category>
+	</xml>
+</body>
+	<script type="text/javascript" src="../../@blockly/closure/goog/base.js"></script>
+	<script type="text/javascript" src="../../@blockly/blockly_compressed.js"></script>
+    <script type="text/javascript" src="./libs/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../hackcable/js/addon/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="./libs/prettify.min.js"></script>
+	<script type="text/javascript" src="./codeFactory.js"></script>
+	<script type="text/javascript" src="./factory.js"></script>
+	<script type="text/javascript" src="./blocks.js"></script>
+</html>

@@ -1,0 +1,568 @@
+/**
+* @license
+* Copyright 2020 Sébastien CANET
+* SPDX-License-Identifier: BSD-3-Clause
+*/
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: large;
+    font-weight: bold;
+    margin: 0;
+    overflow: hidden;
+}
+
+html[dir=rtl] {
+    text-align: right;
+}
+
+.blocklyTrash,
+.blocklyZoom > image {
+    opacity: 1 !important;
+}
+.TitleText {
+    vertical-align: middle;
+    color: #FFFFFF;
+    font-size: x-large;
+    font-weight: bold;
+}
+/* Popup box  */
+.popup_bckgrd{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.popup_bckgrd > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    /* vertical-align: middle; */
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+#menuButton.active{
+    transform: rotate(90deg);
+}
+#buttonsMenuPopup{
+    animation: fadein 0.5s;
+    position: absolute;
+    top: 70px;
+    left: 5px;
+    padding: 5px;
+    margin: 5px;
+    width: auto;
+}
+#buttonsToolsPopup{
+    animation: fadein 0.5s;
+    position: absolute;
+    top: 70px;
+    left: 145px;
+    padding: 5px;
+    margin: 5px;
+    width: auto;
+}
+#buttonsIotPopup{
+    animation: fadein 0.5s;
+    position: absolute;
+    top: 70px;
+    left: 185px;
+    padding: 5px;
+    margin: 5px;
+    width: auto;
+}
+@keyframes fadein {
+    from {opacity:0;} to {opacity:1;}
+}
+.menu_text{
+    color: white;
+    display: inline; 
+}
+.menu_div{
+    align-content: start;
+    text-align: left;
+}
+/*****************/
+/*  Sketch name  */
+/*****************/
+.sketch_name_wrapper {
+  display: inline-block;
+  padding-left: 5px;
+}
+.sketch_name_icon {
+  display: inline !important;
+  font-size: 1.2rem !important;
+  float: right;
+  padding-top: 3px;
+}
+.sketch_name {
+  width: auto !important;
+  max-width: 400px;
+  line-height: 64px;
+  height: 3rem !important;
+  font-size: 1.5rem !important;
+  border-bottom: 0px solid #EEE !important;
+  font-style: italic;
+}
+.sketch_name:focus {
+    border-bottom: 1px solid #EEE !important;
+}
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+  .sketch_name {
+    max-width: 200px;
+  }
+  /* Remove the title only leaving the sketch name */
+  .app_title {
+    display: none;
+  }
+}
+@media only screen and (min-width : 600px) {
+  .sketch_name {
+    max-width: 275px;
+  }
+}
+@media only screen and (min-width : 993px) {
+  .sketch_name {
+    max-width: 350px;
+  }
+}
+
+#globalTable {
+    width: 100%;
+    height: 100%;
+}
+#optionsTop {
+    height: 30px;
+}
+#optionsTopTitle {
+    width: 268px;
+    white-space: nowrap;
+}
+#optionsTopInteractiveHelp {
+    width: 100%;
+}
+#functionsIcons {
+    height: 30px;
+}
+#globalWorkspace {
+    width: 100%;
+    height: 100%;
+}
+/* ace editor */
+.ace_content{
+    left: 0px !important;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 50px;
+}
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 11px;
+  width: 11px;
+  top: 5px;
+  left: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* Table */
+.table_wrapper {
+    height: -moz-calc(100%);
+    width: -moz-calc(100%);
+    /* WebKit */
+    height: -webkit-calc(100%);
+    width: -webkit-calc(100%);
+    /* Opera */
+    height: -o-calc(100%);
+    width: -o-calc(100%);
+    /* Standard */
+    height: calc(100%);
+    width: calc(100%);
+    padding: 0px;
+}
+table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    border: none;
+    position: relative;
+    /* Firefox */
+    height: -moz-calc(100% - 40px);
+    width: -moz-calc(100% - 40px);
+    /* WebKit */
+    height: -webkit-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    /* Opera */
+    height: -o-calc(100% - 40px);
+    width: -o-calc(100% - 40px);
+    /* Standard */
+    height: calc(100% - 5px);
+    width: calc(100% - 5px);
+}
+table table {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+td {
+    padding: 2px;
+    vertical-align: middle;
+}
+
+td.tabMiddle {
+    border-top-style: none !important;
+    border-left-style: none !important;
+    border-right-style: none !important;
+    padding-right: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#separator {
+    cursor: col-resize;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='30'><path d='M2 0 v30 M5 0 v30 M8 0 v30' fill='white' stroke='white'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 15px;
+    min-width: 15px;
+    height: 100%;
+    /* prevent browser's built-in drag from interfering */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#content_hoverButton {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: x-large;
+    color: #FFFFFF;
+}
+/* Help modal */
+.helpModal {
+    background-color: #ebebeb;
+    border: 1px solid black;
+    padding: 1em;
+    text-align: center;
+    width: 500px;
+    height: auto;
+    position: fixed; /* Stay in place */
+    z-index: 200; /* Sit on top */
+    /* Firefox */
+    left: -moz-calc(50% - 500px);
+    /* WebKit */
+    left: -webkit-calc(50% - 500px);
+    /* Opera */
+    left: -o-calc(50% - 500px);
+    /* Standard */
+    left: calc(50% - 500px);
+    top: -100%;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.4s;
+}
+.helpModal.show {
+    /* Firefox */
+    top: -moz-calc(50% - 325px);
+    /* WebKit */
+    top: -webkit-calc(50% - 325px);
+    /* Opera */
+    top: -o-calc(50% - 325px);
+    /* Standard */
+    top: calc(50% - 325px);
+    opacity: 1;
+}
+#helpModal_header {
+    padding: 5px;
+    cursor: move;
+    z-index: 10;
+    color: #fff;
+}
+/* modal buttons */
+#boardListModalDialogOkay{
+    border: none;
+    font-size: x-large;
+    background-color: #4CAF50;
+    border-radius: 12px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    margin: 5px;
+    position: relative;
+    left: 88px;
+}
+#portListModalDialogOkay{
+    border: none;
+    font-size: large;
+    background-color: #4CAF50;
+    border-radius: 12px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* Content blocks */
+.content_wrapper {
+    height: 100%;
+    width: 100%;
+    background-color: #eee;
+    display: flex;
+    flex-wrap: wrap;
+}
+.wrapper_up {
+    width: 100%;
+    /* Firefox */
+    height: -moz-calc(100% - 41px);
+    /* WebKit */
+    height: -webkit-calc(100% - 41px);
+    /* Opera */
+    height: -o-calc(100% - 41px);
+    /* Standard */
+    height: calc(100% - 41px);
+    min-height: 5px;
+    display: flex;
+}
+.content_blocks{
+    width: 100% !important;
+    overflow: hidden;
+}
+#content_area{
+    width: calc(100% - 50px);
+    height: 100%;
+    min-width: 10px;
+}
+    
+/* side panel */
+.side_content {
+    min-width: 10px;
+    height: 97%;
+    right: 0px;
+    bottom: 0px;
+    padding: 5px;
+    margin: 0;
+    border: 0;
+    background-color: #ffffff;
+    overflow: auto !important;
+}
+.config_content {
+    margin: 5px;
+}
+#content_code {
+    width: 40px;
+    height: 100%;
+    min-width: 5px;
+}
+
+#barre_h{
+    cursor: row-resize;
+    width: 100%;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='10'><path d='M0 2 h30 0 M0 5 h30 0 M0 8 h30 0' fill='none' stroke='black'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    /* prevent browser's built-in drag from interfering */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#detailedCompilation_span,
+#boardSelected_span,
+#portSelected_span{
+    color: white;
+    vertical-align: middle;
+}
+
+#content_serial {
+    background: #000000;
+    color: rgba(29, 147, 47, 1);
+    width: 100%;
+    height: 10px;
+    min-height: 10px;
+    white-space: pre-wrap;
+    overflow-y: scroll;
+}
+
+/* The boards list modal (background) */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 200; /* Sit on top */
+    width: 700px; /* Full width */
+    height: 650px; /* Full height */
+    /* Firefox */
+    left: -moz-calc(50% - 350px);
+    /* WebKit */
+    left: -webkit-calc(50% - 350px);
+    /* Opera */
+    left: -o-calc(50% - 350px);
+    /* Standard */
+    left: calc(50% - 350px);
+    overflow: hidden; /* Enable scroll if needed */
+    top: -100%;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.4s;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5); /*dim the background*/
+    display: none;
+}
+.modal.show {
+    /* Firefox */
+    top: -moz-calc(50% - 325px);
+    /* WebKit */
+    top: -webkit-calc(50% - 325px);
+    /* Opera */
+    top: -o-calc(50% - 325px);
+    /* Standard */
+    top: calc(50% - 325px);
+    opacity: 1;
+}
+/* Modal Content/Box */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    -webkit-border-radius: 15px !important;
+    -moz-border-radius: 15px !important;
+    border-radius: 15px !important;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+/* The Close Button */
+.closeModal {
+    color: #FFFFFF;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    -ms-transform: translateY(-20%);
+    transform: translateY(-20%);
+}
+.closeModal:hover,
+.closeModal:focus {
+    color: #FFCC00;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Modal Header */
+.modal-header {
+    padding: 10px;
+    color: white;
+    -webkit-border-radius: 15px !important;
+    -moz-border-radius: 15px !important;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+/* Modal Body */
+.modal-body {
+    padding: 5px;
+}
+/* Modal Footer */
+.modal-footer {
+    padding: 10px;
+    color: white;
+    -webkit-border-radius: 15px !important;
+    -moz-border-radius: 15px !important;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+
+/* Modal board selector information */
+#boardDescriptionSelector {
+    overflow: auto;
+}
+#hideSelectScrollbar {
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    border: solid grey 1px;
+}
+#hideSelectScrollbar > select {
+    padding: 10px;
+}
+#board_mini_picture_div {
+    position:absolute;
+    right:65px;
+    width:166px;
+    height:266px;
+}
+#board_mini_picture {
+    text-align: center;
+    width:166px;
+    height:266px;
+    object-fit: contain;
+}
+.modalBoard_info {
+    left: 380px;
+    position: absolute;
+}
+/* collapsible content inside div */
+.collapsibleButton {
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: large;
+    font-weight: bold;
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsibleButton:hover {
+    background-color: #FFCC00;
+    color: #000000;
+}
+/* Style the collapsible content. Note: hidden by default */
+.collapsibleContent {
+    visibility: hidden;
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.1s ease-out;
+}
+.collapsibleButton:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    float: left;
+    padding-right: 5px;
+    transition: 0.1s ease-out;
+}
+.active:after {
+    transform: rotateZ(45deg);
+    transition: 0.1s ease-out;
+}

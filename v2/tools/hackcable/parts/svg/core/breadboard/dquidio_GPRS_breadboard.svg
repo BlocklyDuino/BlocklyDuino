@@ -1,0 +1,2418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="DQuid_IO_GPRS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="226px" height="393px" viewBox="0 0 226 393" enable-background="new 0 0 226 393" xml:space="preserve">
+<desc>
+	<referenceFile>generic_bread.svg</referenceFile>
+</desc>
+<g id="breadboard">
+	<g id="Pin42">
+		
+			<rect id="connector42pin" x="195.629" y="257.415" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.102" height="2.835"/>
+		
+			<rect id="connector42terminal" x="195.629" y="257.415" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.834" height="2.835"/>
+	</g>
+	<g id="Pin41">
+		
+			<rect id="connector41pin" x="195.629" y="247.966" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.102" height="2.836"/>
+		
+			<rect id="connector41terminal" x="195.629" y="247.966" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.834" height="2.836"/>
+	</g>
+	<g id="Pin40">
+		
+			<rect id="connector40pin" x="195.629" y="240.116" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.102" height="2.835"/>
+		
+			<rect id="connector40terminal" x="195.629" y="240.116" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.834" height="2.835"/>
+	</g>
+	<g id="Pin39">
+		
+			<rect id="connector39pin" x="195.629" y="230.667" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.102" height="2.835"/>
+		
+			<rect id="connector39terminal" x="195.629" y="230.667" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.834" height="2.835"/>
+	</g>
+	<g id="Pin38">
+		
+			<rect id="connector38pin" x="195.629" y="221.146" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.102" height="2.835"/>
+		
+			<rect id="connector38terminal" x="195.629" y="221.146" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.833" height="2.835"/>
+	</g>
+	<g id="Pin37">
+		
+			<rect id="connector37pin" x="195.629" y="211.697" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.102" height="2.835"/>
+		
+			<rect id="connector37terminal" x="195.629" y="211.697" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.833" height="2.835"/>
+	</g>
+	<g id="Pin36">
+		
+			<rect id="connector36pin" x="195.629" y="202.251" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.102" height="2.829"/>
+		
+			<rect id="connector36terminal" x="195.629" y="202.251" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.833" height="2.829"/>
+	</g>
+	<g id="Pin35">
+		
+			<rect id="connector35pin" x="195.629" y="192.802" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.102" height="2.834"/>
+		
+			<rect id="connector35terminal" x="195.629" y="192.802" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.833" height="2.834"/>
+	</g>
+	<g id="Pin34">
+		
+			<rect id="connector34pin" x="195.566" y="175.997" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.162" height="2.877"/>
+		
+			<rect id="connector34terminal" x="195.566" y="175.997" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.877" height="2.877"/>
+	</g>
+	<g id="Pin33">
+		
+			<rect id="connector33pin" x="195.566" y="166.408" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.162" height="2.877"/>
+		
+			<rect id="connector33terminal" x="195.566" y="166.408" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.877" height="2.877"/>
+	</g>
+	<g id="Pin32">
+		
+			<rect id="connector32pin" x="195.566" y="156.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.162" height="2.876"/>
+		
+			<rect id="connector32terminal" x="195.705" y="156.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.876" height="2.876"/>
+	</g>
+	<g id="Pin31">
+		
+			<rect id="connector31pin" x="195.566" y="147.226" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.162" height="2.871"/>
+		
+			<rect id="connector31terminal" x="195.566" y="147.226" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.877" height="2.871"/>
+	</g>
+	<g id="Pin30">
+		
+			<rect id="connector30pin" x="195.566" y="137.635" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.162" height="2.877"/>
+		
+			<rect id="connector30terminal" x="195.566" y="137.635" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.877" height="2.877"/>
+	</g>
+	<g id="Pin29">
+		
+			<rect id="connector29pin" x="195.566" y="128.044" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.162" height="2.877"/>
+		
+			<rect id="connector29terminal" x="195.566" y="128.044" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.877" height="2.877"/>
+	</g>
+	<g id="Pin28">
+		
+			<rect id="connector28pin" x="19.938" y="192.249" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.034" height="2.782"/>
+		
+			<rect id="connector28terminal" x="19.938" y="192.249" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.788" height="2.782"/>
+	</g>
+	<g id="Pin27">
+		
+			<rect id="connector27pin" x="19.938" y="184.349" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.034" height="2.788"/>
+		
+			<rect id="connector27terminal" x="19.938" y="184.349" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.788" height="2.788"/>
+	</g>
+	<g id="Pin26">
+		
+			<rect id="connector26pin" x="19.938" y="175.055" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.034" height="2.787"/>
+		
+			<rect id="connector26terminal" x="19.938" y="175.055" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.788" height="2.787"/>
+	</g>
+	<g id="Pin25">
+		
+			<rect id="connector25pin" x="19.938" y="165.762" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.034" height="2.788"/>
+		
+			<rect id="connector25terminal" x="19.938" y="165.762" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.788" height="2.788"/>
+	</g>
+	<g id="Pin24">
+		
+			<rect id="connector24pin" x="19.938" y="156.469" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.034" height="2.786"/>
+		
+			<rect id="connector24terminal" x="19.938" y="156.469" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.788" height="2.786"/>
+	</g>
+	<g id="Pin23">
+		
+			<rect id="connector23pin" x="19.938" y="147.175" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.034" height="2.782"/>
+		
+			<rect id="connector23terminal" x="19.938" y="147.175" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.788" height="2.782"/>
+	</g>
+	<g id="Pin22">
+		
+			<rect id="connector22pin" x="19.938" y="137.881" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.034" height="2.788"/>
+		
+			<rect id="connector22terminal" x="19.938" y="137.881" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.788" height="2.788"/>
+	</g>
+	<g id="Pin21">
+		
+			<rect id="connector21pin" x="19.938" y="128.587" fill="none" stroke="#000000" stroke-miterlimit="10" width="4.034" height="2.788"/>
+		
+			<rect id="connector21terminal" x="19.938" y="128.587" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.788" height="2.788"/>
+	</g>
+	<g id="Pin20">
+		
+			<rect id="connector20pin" x="174.363" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.063"/>
+		
+			<rect id="connector20terminal" x="174.363" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.81"/>
+	</g>
+	<g id="Pin19">
+		
+			<rect id="connector19pin" x="165" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.063"/>
+		
+			<rect id="connector19terminal" x="165" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.81"/>
+	</g>
+	<g id="Pin18">
+		
+			<rect id="connector18pin" x="155.641" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.063"/>
+		
+			<rect id="connector18terminal" x="155.641" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.81"/>
+	</g>
+	<g id="Pin17">
+		
+			<rect id="connector17pin" x="146.275" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="4.063"/>
+		
+			<rect id="connector17terminal" x="146.275" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="2.81"/>
+	</g>
+	<g id="Pin16">
+		
+			<rect id="connector16pin" x="136.915" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="4.063"/>
+		
+			<rect id="connector16terminal" x="136.915" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="2.81"/>
+	</g>
+	<g id="Pin15">
+		
+			<rect id="connector15pin" x="127.555" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.063"/>
+		
+			<rect id="connector15terminal" x="127.555" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.81"/>
+	</g>
+	<g id="Pin14">
+		
+			<rect id="connector14pin" x="118.191" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.063"/>
+		
+			<rect id="connector14terminal" x="118.191" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.81"/>
+	</g>
+	<g id="Pin13">
+		
+			<rect id="connector13pin" x="108.831" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.063"/>
+		
+			<rect id="connector13terminal" x="108.831" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.81"/>
+	</g>
+	<g id="Pin12">
+		
+			<rect id="connector12pin" x="99.468" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.063"/>
+		
+			<rect id="connector12terminal" x="99.468" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.81"/>
+	</g>
+	<g id="Pin11">
+		
+			<rect id="connector11pin" x="90.107" y="345.95" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.063"/>
+		
+			<rect id="connector11terminal" x="90.107" y="347.205" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.81"/>
+	</g>
+	<g id="Pin10">
+		
+			<rect id="connector10pin" x="174.357" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="4.062"/>
+		
+			<rect id="connector10terminal" x="174.357" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="2.803"/>
+	</g>
+	<g id="Pin9">
+		
+			<rect id="connector9pin" x="164.995" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="4.062"/>
+		
+			<rect id="connector9terminal" x="164.995" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="2.803"/>
+	</g>
+	<g id="Pin8">
+		
+			<rect id="connector8pin" x="155.634" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="4.062"/>
+		
+			<rect id="connector8terminal" x="155.634" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.81" height="2.803"/>
+	</g>
+	<g id="Pin7">
+		
+			<rect id="connector7pin" x="146.271" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.062"/>
+		
+			<rect id="connector7terminal" x="146.271" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.803"/>
+	</g>
+	<g id="Pin6">
+		
+			<rect id="connector6pin" x="136.91" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.062"/>
+		
+			<rect id="connector6terminal" x="136.91" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.803"/>
+	</g>
+	<g id="Pin5">
+		
+			<rect id="connector5pin" x="127.55" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.808" height="4.062"/>
+		
+			<rect id="connector5terminal" x="127.55" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.808" height="2.803"/>
+	</g>
+	<g id="Pin4">
+		
+			<rect id="connector4pin" x="118.188" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.062"/>
+		
+			<rect id="connector4terminal" x="118.188" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.803"/>
+	</g>
+	<g id="Pin3">
+		
+			<rect id="connector3pin" x="108.826" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.062"/>
+		
+			<rect id="connector3terminal" x="108.826" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.803"/>
+	</g>
+	<g id="Pin2">
+		
+			<rect id="connector2pin" x="99.464" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.808" height="4.062"/>
+		
+			<rect id="connector2terminal" x="99.464" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.808" height="2.803"/>
+	</g>
+	<g id="Pin1">
+		
+			<rect id="connector1pin" x="90.101" y="336.56" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="4.062"/>
+		
+			<rect id="connector1terminal" x="90.101" y="337.817" fill="none" stroke="#000000" stroke-miterlimit="10" width="2.809" height="2.803"/>
+	</g>
+	<g id="Layout_5_">
+		<g id="Green_Background">
+			<path id="path31079" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M188.525,176.469l-1.32-1.319"/>
+			<path id="path31081" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M187.201,175.148h4.203"/>
+			<path id="path31083" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M191.406,176.469v-2.771"/>
+			<path id="path31085" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M187.201,127.148l0.604,1.438"/>
+			<path id="path31087" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M187.807,128.586l1.438,1.315"/>
+			<path id="path31089" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M189.244,129.905h1.438"/>
+			<path id="path31091" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M190.686,129.905l0.728-0.598"/>
+			<path id="path31093" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M191.406,129.308v-1.441"/>
+			<path id="path31095" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M191.406,127.865l-0.725-0.719"/>
+			<path id="path31097" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M190.686,127.148h-0.719"/>
+			<path id="path31099" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M189.967,127.148l-0.723,0.719"/>
+			<path id="path31101" fill="none" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+				M189.244,127.865v2.039"/>
+			<g>
+				<g id="g30923">
+					<path id="path30925" fill="#316B03" stroke="#000000" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" d="
+						M11.648,7.42h195.596v355.686H11.648V7.42z"/>
+				</g>
+				<g id="g57174">
+					<path id="path57176" fill="#FDFFFD" d="M191.941,310.193c0-3.287,2.66-5.941,5.947-5.941c3.28,0,5.944,2.654,5.944,5.941
+						s-2.664,5.949-5.944,5.949C194.602,316.142,191.941,313.476,191.941,310.193z"/>
+					<path id="path57178" fill="#006000" d="M203.838,311.08c0-3.282-2.664-5.945-5.949-5.945c-3.287,0-5.947,2.658-5.947,5.945
+						v-2.389c0-3.287,2.66-5.941,5.947-5.941c3.285,0,5.949,2.654,5.949,5.941V311.08z"/>
+				</g>
+				<g id="g57180">
+					<path id="path57182" fill="#FDFFFD" d="M14.471,309.814c0-3.287,2.659-5.941,5.946-5.941c3.286,0,5.949,2.654,5.949,5.941
+						s-2.663,5.949-5.949,5.949S14.471,313.097,14.471,309.814z"/>
+					<path id="path57184" fill="#006000" d="M26.367,310.697c0-3.283-2.663-5.941-5.949-5.941c-3.287,0-5.945,2.658-5.945,5.941
+						v-2.385c0-3.287,2.658-5.945,5.945-5.945c3.286,0,5.949,2.658,5.949,5.945V310.697z"/>
+				</g>
+				<g id="g57186">
+					<path id="path57188" fill="#FDFFFD" d="M96.496,85.755c0-3.282,2.66-5.941,5.947-5.941c3.285,0,5.949,2.659,5.949,5.941
+						s-2.664,5.945-5.949,5.945C99.156,91.704,96.496,89.038,96.496,85.755z"/>
+					<path id="path57190" fill="#006000" d="M108.396,86.638c0-3.287-2.664-5.946-5.949-5.946c-3.287,0-5.947,2.659-5.947,5.946
+						V84.25c0-3.287,2.66-5.941,5.947-5.941c3.285,0,5.949,2.654,5.949,5.941V86.638z"/>
+				</g>
+			</g>
+		</g>
+		<g id="IOL">
+			<g id="I">
+				<path id="path30929" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M34.365,150.787v-2.043"/>
+				<path id="path30931" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M34.365,149.705h-6"/>
+				<path id="path30933" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M28.365,150.787v-2.043"/>
+			</g>
+			<g id="O">
+				<path id="path30935" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M28.365,143.705v2.039"/>
+				<path id="path30937" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M28.365,145.744l0.965,0.961"/>
+				<path id="path30939" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M29.326,146.705h3.961"/>
+				<path id="path30941" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M33.287,146.705l1.074-0.961"/>
+				<path id="path30943" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M34.365,145.744v-2.039"/>
+				<path id="path30945" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M34.365,143.705l-1.074-0.961"/>
+				<path id="path30947" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M33.287,142.744h-3.961"/>
+				<path id="path30949" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M29.326,142.744l-0.965,0.961"/>
+			</g>
+			<g id="L">
+				<path id="path30951" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M28.365,140.705h6"/>
+				<path id="path30953" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M34.365,140.705v-3.961"/>
+			</g>
+		</g>
+		<g id="AD">
+			<g id="A">
+				<path id="path30955" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M198.166,122.347h-3.965"/>
+				<path id="path30957" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M194.201,122.347l-2.039-2.039"/>
+				<path id="path30959" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M192.166,120.308l2.035-1.923"/>
+				<path id="path30961" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M194.201,118.387h3.961"/>
+				<path id="path30963" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M195.166,122.347v-3.962"/>
+			</g>
+			<g id="D">
+				<path id="path30965" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M192.166,116.347h6"/>
+				<path id="path30967" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M198.166,116.347v-3"/>
+				<path id="path30969" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M198.166,113.347l-0.965-0.962"/>
+				<path id="path30971" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M197.201,112.387h-3.957"/>
+				<path id="path30973" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M193.244,112.387l-1.08,0.961"/>
+				<path id="path30975" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+					M192.166,113.347v3"/>
+			</g>
+		</g>
+		<g id="_x33__2_1_Pin">
+			<path d="M17.516,115.943c0.14-0.218,0.357-0.723,0.357-1.254c0-0.983-0.627-1.289-1.097-1.279
+				c-0.792,0.008-1.132,0.722-1.132,1.462v0.427H15.07v-0.427c0-0.557-0.288-1.262-0.958-1.262c-0.453,0-0.853,0.287-0.853,0.992
+				c0,0.453,0.2,0.888,0.375,1.132l-0.557,0.2c-0.218-0.296-0.436-0.871-0.436-1.48c0-1.114,0.662-1.619,1.35-1.619
+				c0.583,0,1.079,0.348,1.332,1.044h0.017c0.139-0.697,0.662-1.262,1.454-1.262c0.906,0,1.698,0.705,1.698,2.063
+				c0,0.635-0.2,1.192-0.383,1.471L17.516,115.943z"/>
+			<path d="M18.396,106.127h-0.47l-0.583-0.601c-1.375-1.445-2.107-2.098-2.96-2.106c-0.574,0-1.105,0.278-1.105,1.123
+				c0,0.513,0.261,0.94,0.479,1.201l-0.54,0.244c-0.331-0.391-0.575-0.948-0.575-1.602c0-1.219,0.836-1.732,1.645-1.732
+				c1.045,0,1.889,0.757,3.039,1.95l0.418,0.452h0.017v-2.542h0.636V106.127z"/>
+			<path d="M13.45,94.465v0.018l0.531,0.983l-0.583,0.148l-0.662-1.236v-0.652h5.659v0.74H13.45z"/>
+		</g>
+		<g id="Pin_35-42">
+			<g>
+				<path d="M184.487,195.075c0.194,0.124,0.646,0.319,1.12,0.319c0.879,0,1.15-0.56,1.143-0.98c-0.008-0.708-0.646-1.01-1.307-1.01
+					h-0.381v-0.514h0.381c0.498,0,1.128-0.257,1.128-0.855c0-0.404-0.257-0.762-0.887-0.762c-0.403,0-0.793,0.179-1.01,0.334
+					l-0.179-0.498c0.264-0.194,0.777-0.389,1.321-0.389c0.995,0,1.446,0.591,1.446,1.205c0,0.521-0.312,0.964-0.933,1.189v0.015
+					c0.621,0.125,1.127,0.592,1.127,1.299c0,0.809-0.63,1.517-1.843,1.517c-0.568,0-1.065-0.179-1.314-0.343L184.487,195.075z"/>
+				<path d="M191.328,191.381H189.4l-0.195,1.299c0.117-0.016,0.227-0.031,0.412-0.031c0.39,0,0.778,0.085,1.089,0.272
+					c0.396,0.225,0.724,0.661,0.724,1.299c0,0.986-0.785,1.726-1.882,1.726c-0.552,0-1.02-0.155-1.261-0.312l0.173-0.521
+					c0.209,0.124,0.621,0.28,1.08,0.28c0.646,0,1.197-0.42,1.197-1.097c-0.007-0.653-0.443-1.12-1.454-1.12
+					c-0.287,0-0.514,0.031-0.699,0.054l0.326-2.426h2.418V191.381z"/>
+			</g>
+			<g>
+				<path d="M186.707,262.193v-1.374h-2.345v-0.45l2.252-3.222h0.738v3.136h0.705v0.536h-0.705v1.374H186.707z M186.707,260.283
+					v-1.685c0-0.264,0.009-0.528,0.023-0.792h-0.023c-0.155,0.295-0.279,0.513-0.42,0.745l-1.233,1.716v0.016H186.707z"/>
+				<path d="M188.576,262.193v-0.419l0.536-0.521c1.289-1.227,1.871-1.879,1.88-2.64c0-0.513-0.249-0.986-1.002-0.986
+					c-0.459,0-0.839,0.233-1.071,0.428l-0.218-0.482c0.349-0.294,0.846-0.512,1.429-0.512c1.086,0,1.544,0.745,1.544,1.467
+					c0,0.932-0.675,1.685-1.738,2.71l-0.404,0.373v0.015h2.268v0.567H188.576z"/>
+			</g>
+		</g>
+		<g id="Pin_29-34">
+			<g>
+				<path d="M183.18,132.867v-0.444l0.567-0.551c1.364-1.3,1.981-1.99,1.989-2.796c0-0.542-0.263-1.044-1.061-1.044
+					c-0.484,0-0.889,0.246-1.135,0.452l-0.23-0.509c0.371-0.313,0.896-0.543,1.514-0.543c1.15,0,1.636,0.79,1.636,1.554
+					c0,0.987-0.715,1.785-1.841,2.869l-0.428,0.396v0.017h2.4v0.599H183.18z"/>
+				<path d="M187.815,132.358c0.157,0.017,0.338,0,0.585-0.024c0.418-0.058,0.813-0.231,1.117-0.519
+					c0.354-0.321,0.609-0.789,0.708-1.422h-0.024c-0.297,0.362-0.725,0.575-1.258,0.575c-0.963,0-1.58-0.724-1.58-1.637
+					c0-1.012,0.732-1.899,1.826-1.899c1.093,0,1.768,0.888,1.768,2.253c0,1.176-0.395,1.999-0.921,2.508
+					c-0.412,0.403-0.979,0.65-1.555,0.716c-0.263,0.041-0.493,0.05-0.666,0.041V132.358z M188.08,129.282
+					c0,0.667,0.401,1.136,1.026,1.136c0.485,0,0.864-0.239,1.054-0.56c0.041-0.066,0.065-0.148,0.065-0.262
+					c0-0.914-0.337-1.613-1.094-1.613C188.515,127.983,188.08,128.526,188.08,129.282z"/>
+			</g>
+			<g>
+				<path d="M183.902,179.747c0.206,0.132,0.685,0.337,1.186,0.337c0.929,0,1.217-0.592,1.208-1.036
+					c-0.007-0.749-0.682-1.069-1.382-1.069h-0.402v-0.542h0.402c0.526,0,1.193-0.271,1.193-0.904c0-0.428-0.271-0.806-0.938-0.806
+					c-0.428,0-0.839,0.189-1.068,0.354l-0.189-0.526c0.279-0.206,0.822-0.411,1.397-0.411c1.053,0,1.53,0.625,1.53,1.274
+					c0,0.55-0.33,1.02-0.987,1.259v0.016c0.657,0.131,1.192,0.625,1.192,1.373c0,0.855-0.666,1.604-1.949,1.604
+					c-0.601,0-1.127-0.189-1.39-0.361L183.902,179.747z"/>
+				<path d="M190.185,180.578v-1.456h-2.483v-0.477l2.384-3.412h0.782v3.322h0.748v0.567h-0.748v1.456H190.185z M190.185,178.555
+					v-1.785c0-0.279,0.008-0.56,0.025-0.838h-0.025c-0.164,0.312-0.296,0.543-0.444,0.79l-1.308,1.817v0.017H190.185z"/>
+			</g>
+		</g>
+		<g id="_x32_1-28_Pin">
+			<g>
+				<path d="M27.464,131.669v-0.396l0.507-0.492c1.218-1.16,1.769-1.777,1.777-2.497c0-0.484-0.235-0.932-0.948-0.932
+					c-0.433,0-0.793,0.22-1.013,0.404l-0.206-0.455c0.33-0.279,0.8-0.485,1.351-0.485c1.028,0,1.461,0.705,1.461,1.388
+					c0,0.881-0.639,1.593-1.645,2.562l-0.381,0.353v0.015h2.144v0.536H27.464z"/>
+				<path d="M32.632,127.498h-0.015l-0.83,0.448l-0.125-0.492l1.043-0.558h0.551v4.772h-0.624V127.498z"/>
+			</g>
+			<g>
+				<path d="M27.121,197.058v-0.409l0.522-0.507c1.257-1.197,1.826-1.833,1.833-2.576c0-0.5-0.243-0.961-0.978-0.961
+					c-0.447,0-0.818,0.227-1.045,0.417l-0.212-0.47c0.341-0.288,0.826-0.5,1.394-0.5c1.061,0,1.507,0.727,1.507,1.431
+					c0,0.909-0.659,1.644-1.697,2.644l-0.394,0.364v0.015h2.212v0.553H27.121z"/>
+				<path d="M30.945,195.809c0-0.622,0.372-1.061,0.978-1.318l-0.008-0.023c-0.545-0.257-0.78-0.682-0.78-1.105
+					c0-0.781,0.659-1.311,1.522-1.311c0.955,0,1.432,0.598,1.432,1.212c0,0.417-0.205,0.864-0.811,1.151v0.023
+					c0.613,0.242,0.992,0.674,0.992,1.272c0,0.856-0.734,1.432-1.674,1.432C31.566,197.142,30.945,196.528,30.945,195.809z
+					 M33.596,195.778c0-0.598-0.417-0.886-1.083-1.075c-0.576,0.167-0.886,0.545-0.886,1.015c-0.023,0.5,0.355,0.939,0.984,0.939
+					C33.21,196.657,33.596,196.285,33.596,195.778z M31.763,193.317c0,0.492,0.372,0.757,0.94,0.909
+					c0.424-0.144,0.75-0.447,0.75-0.894c0-0.394-0.235-0.803-0.833-0.803C32.066,192.529,31.763,192.892,31.763,193.317z"/>
+			</g>
+		</g>
+		<g id="_x31_-20_Pin">
+			<g>
+				<path d="M78.333,362.372h-0.01l-0.528,0.284l-0.079-0.312l0.663-0.355h0.351v3.039h-0.397V362.372z"/>
+			</g>
+			<g>
+				<path d="M185.527,361.736h-0.01l-0.565,0.306l-0.085-0.334l0.711-0.381h0.373v3.251h-0.424V361.736z"/>
+				<path d="M189.297,362.917c0,1.105-0.411,1.717-1.13,1.717c-0.636,0-1.065-0.595-1.075-1.67c0-1.092,0.47-1.691,1.129-1.691
+					C188.908,361.272,189.297,361.883,189.297,362.917z M187.531,362.968c0,0.845,0.262,1.325,0.66,1.325
+					c0.451,0,0.666-0.524,0.666-1.354c0-0.802-0.206-1.326-0.66-1.326C187.812,361.612,187.531,362.082,187.531,362.968z"/>
+			</g>
+			<g>
+				<path d="M78.023,371.851h-0.009l-0.564,0.306l-0.085-0.335l0.71-0.381h0.375v3.25h-0.425V371.851z"/>
+				<path d="M80.587,371.851h-0.01l-0.564,0.306l-0.085-0.335l0.71-0.381h0.374v3.25h-0.425V371.851z"/>
+			</g>
+			<g>
+				<path d="M184.856,374.715v-0.265l0.339-0.329c0.813-0.774,1.183-1.188,1.187-1.669c0-0.323-0.156-0.623-0.633-0.623
+					c-0.289,0-0.529,0.148-0.676,0.271l-0.138-0.306c0.22-0.188,0.534-0.323,0.902-0.323c0.687,0,0.977,0.471,0.977,0.926
+					c0,0.591-0.428,1.066-1.099,1.714l-0.256,0.234v0.01h1.433v0.359H184.856z"/>
+				<path d="M189.492,373.086c0,1.084-0.401,1.684-1.108,1.684c-0.624,0-1.045-0.584-1.056-1.639c0-1.071,0.461-1.659,1.109-1.659
+					C189.11,371.471,189.492,372.068,189.492,373.086z M187.76,373.135c0,0.831,0.255,1.3,0.647,1.3
+					c0.441,0,0.652-0.515,0.652-1.329c0-0.784-0.2-1.302-0.647-1.302C188.035,371.803,187.76,372.265,187.76,373.135z"/>
+			</g>
+		</g>
+		<g id="Components_x5F_4">
+			<g id="Layout_1_">
+				<path id="path30987" fill="#161519" stroke="#000000" stroke-width="0.24" stroke-linecap="round" stroke-linejoin="round" d="
+					M133.607,299.226h15v16.68h-15V299.226z"/>
+				<g id="g57170">
+					<path id="path57172" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+						M132.768,298.386h16.68v18.354h-16.68V298.386z"/>
+				</g>
+			</g>
+			<g id="Pin">
+				<rect id="rect31155" x="149.447" y="315.552" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31157" x="149.447" y="315.552" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31159" x="149.447" y="313.148" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31161" x="149.447" y="313.148" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31163" x="149.447" y="310.75" fill="#B9B8C8" width="3.121" height="0.728"/>
+				<rect id="rect31165" x="149.447" y="310.75" fill="#B9B8C8" width="3.121" height="0.728"/>
+				<rect id="rect31167" x="149.447" y="308.347" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31169" x="149.447" y="308.347" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31171" x="149.447" y="306.066" fill="#B9B8C8" width="3.121" height="0.729"/>
+				<rect id="rect31173" x="149.447" y="306.066" fill="#B9B8C8" width="3.121" height="0.729"/>
+				<rect id="rect31175" x="149.447" y="303.67" fill="#B9B8C8" width="3.121" height="0.724"/>
+				<rect id="rect31177" x="149.447" y="303.67" fill="#B9B8C8" width="3.121" height="0.724"/>
+				<rect id="rect31179" x="149.447" y="301.265" fill="#B9B8C8" width="3.121" height="0.723"/>
+				<rect id="rect31181" x="149.447" y="301.265" fill="#B9B8C8" width="3.121" height="0.723"/>
+				<rect id="rect31183" x="149.447" y="298.867" fill="#B9B8C8" width="3.121" height="0.723"/>
+				<rect id="rect31185" x="149.447" y="298.867" fill="#B9B8C8" width="3.121" height="0.723"/>
+				<rect id="rect31187" x="129.646" y="298.867" fill="#B9B8C8" width="3.121" height="0.723"/>
+				<rect id="rect31189" x="129.646" y="298.867" fill="#B9B8C8" width="3.121" height="0.723"/>
+				<rect id="rect31191" x="129.646" y="301.265" fill="#B9B8C8" width="3.121" height="0.723"/>
+				<rect id="rect31193" x="129.646" y="301.265" fill="#B9B8C8" width="3.121" height="0.723"/>
+				<rect id="rect31195" x="129.646" y="303.67" fill="#B9B8C8" width="3.121" height="0.724"/>
+				<rect id="rect31197" x="129.646" y="303.67" fill="#B9B8C8" width="3.121" height="0.724"/>
+				<rect id="rect31199" x="129.646" y="306.066" fill="#B9B8C8" width="3.121" height="0.729"/>
+				<rect id="rect31201" x="129.646" y="306.066" fill="#B9B8C8" width="3.121" height="0.729"/>
+				<rect id="rect31203" x="129.646" y="308.347" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31205" x="129.646" y="308.347" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31207" x="129.646" y="310.75" fill="#B9B8C8" width="3.121" height="0.728"/>
+				<rect id="rect31209" x="129.646" y="310.75" fill="#B9B8C8" width="3.121" height="0.728"/>
+				<rect id="rect31211" x="129.646" y="313.148" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31213" x="129.646" y="313.148" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31215" x="129.646" y="315.552" fill="#B9B8C8" width="3.121" height="0.719"/>
+				<rect id="rect31217" x="129.646" y="315.552" fill="#B9B8C8" width="3.121" height="0.719"/>
+			</g>
+		</g>
+		<g id="Components">
+			<g id="Layout_2_">
+				<g id="g31227">
+					<path id="path31229" fill="#161519" d="M136.006,270.146h-1.805v17.521h1.805h12.121v-17.521H136.006z"/>
+				</g>
+			</g>
+			<g id="Pin_1_">
+				<rect id="rect31235" x="129.768" y="275.832" fill="#B9B8C8" width="4.078" height="1.685"/>
+				<rect id="rect31225" x="129.768" y="271.265" fill="#B9B8C8" width="4.078" height="1.68"/>
+				<rect id="rect31237" x="148.486" y="285.025" fill="#B9B8C8" width="4.082" height="1.682"/>
+				<rect id="rect31239" x="148.486" y="275.67" fill="#B9B8C8" width="4.082" height="1.685"/>
+				<rect id="rect31241" x="148.486" y="280.345" fill="#B9B8C8" width="4.082" height="1.68"/>
+				<rect id="rect31243" x="148.486" y="271.265" fill="#B9B8C8" width="4.082" height="1.68"/>
+				<rect id="rect31249" x="129.768" y="280.508" fill="#B9B8C8" width="4.078" height="1.685"/>
+				<rect id="rect31253" x="129.768" y="285.187" fill="#B9B8C8" width="4.078" height="1.68"/>
+			</g>
+		</g>
+		<g id="Components_x5F_2">
+			<g id="Layout_3_">
+				<path id="path57164" fill="#161519" stroke="#FAFAFC" stroke-width="0.5" stroke-miterlimit="10" d="M159.525,247.386h15.121
+					v16.801h-15.121V247.386"/>
+				<g id="g57152">
+					<path id="path57154" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+						M175.486,265.027v-18.48"/>
+					<path id="path57156" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+						M158.686,246.547h16.801"/>
+					<path id="path57158" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+						M158.686,246.547v18.479"/>
+					<path id="path57160" fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" d="
+						M175.486,265.027h-16.801"/>
+				</g>
+			</g>
+			<g id="Pin_2_">
+				<rect id="rect31293" x="175.365" y="263.711" fill="#B9B8C8" width="3.119" height="0.724"/>
+				<rect id="rect31295" x="175.365" y="263.711" fill="#B9B8C8" width="3.119" height="0.724"/>
+				<rect id="rect31297" x="175.365" y="261.426" fill="#B9B8C8" width="3.119" height="0.728"/>
+				<rect id="rect31299" x="175.365" y="261.426" fill="#B9B8C8" width="3.119" height="0.728"/>
+				<rect id="rect31301" x="175.365" y="259.027" fill="#B9B8C8" width="3.119" height="0.723"/>
+				<rect id="rect31303" x="175.365" y="259.027" fill="#B9B8C8" width="3.119" height="0.723"/>
+				<rect id="rect31305" x="175.365" y="256.629" fill="#B9B8C8" width="3.119" height="0.724"/>
+				<rect id="rect31307" x="175.365" y="256.629" fill="#B9B8C8" width="3.119" height="0.724"/>
+				<rect id="rect31309" x="175.365" y="254.226" fill="#B9B8C8" width="3.119" height="0.719"/>
+				<rect id="rect31311" x="175.365" y="254.226" fill="#B9B8C8" width="3.119" height="0.719"/>
+				<rect id="rect31313" x="175.365" y="251.832" fill="#B9B8C8" width="3.119" height="0.719"/>
+				<rect id="rect31315" x="175.365" y="251.832" fill="#B9B8C8" width="3.119" height="0.719"/>
+				<rect id="rect31317" x="175.365" y="249.426" fill="#B9B8C8" width="3.119" height="0.728"/>
+				<rect id="rect31319" x="175.365" y="249.426" fill="#B9B8C8" width="3.119" height="0.728"/>
+				<rect id="rect31321" x="175.365" y="247.027" fill="#B9B8C8" width="3.119" height="0.723"/>
+				<rect id="rect31323" x="175.365" y="247.027" fill="#B9B8C8" width="3.119" height="0.723"/>
+				<rect id="rect31325" x="155.568" y="247.027" fill="#B9B8C8" width="3.117" height="0.723"/>
+				<rect id="rect31327" x="155.568" y="247.027" fill="#B9B8C8" width="3.117" height="0.723"/>
+				<rect id="rect31329" x="155.568" y="249.426" fill="#B9B8C8" width="3.117" height="0.728"/>
+				<rect id="rect31331" x="155.568" y="249.426" fill="#B9B8C8" width="3.117" height="0.728"/>
+				<rect id="rect31333" x="155.568" y="251.832" fill="#B9B8C8" width="3.117" height="0.719"/>
+				<rect id="rect31335" x="155.568" y="251.832" fill="#B9B8C8" width="3.117" height="0.719"/>
+				<rect id="rect31337" x="155.568" y="254.226" fill="#B9B8C8" width="3.117" height="0.719"/>
+				<rect id="rect31339" x="155.568" y="254.226" fill="#B9B8C8" width="3.117" height="0.719"/>
+				<rect id="rect31341" x="155.568" y="256.629" fill="#B9B8C8" width="3.117" height="0.724"/>
+				<rect id="rect31343" x="155.568" y="256.629" fill="#B9B8C8" width="3.117" height="0.724"/>
+				<rect id="rect31345" x="155.568" y="259.027" fill="#B9B8C8" width="3.117" height="0.723"/>
+				<rect id="rect31347" x="155.568" y="259.027" fill="#B9B8C8" width="3.117" height="0.723"/>
+				<rect id="rect31349" x="155.568" y="261.426" fill="#B9B8C8" width="3.117" height="0.728"/>
+				<rect id="rect31351" x="155.568" y="261.426" fill="#B9B8C8" width="3.117" height="0.728"/>
+				<rect id="rect31353" x="155.568" y="263.711" fill="#B9B8C8" width="3.117" height="0.724"/>
+				<rect id="rect31355" x="155.568" y="263.711" fill="#B9B8C8" width="3.117" height="0.724"/>
+			</g>
+		</g>
+		<g id="Components_x5F_3">
+			<g id="Layout_4_">
+				<path id="path57168" fill="#161519" stroke="#000000" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+					M100.006,267.547h24V254.47h-24V267.547z"/>
+			</g>
+			<g id="Pin_3_">
+				<rect id="rect31263" x="110.447" y="247.629" fill="#B9B8C8" width="3.122" height="6.724"/>
+				<rect id="rect31265" x="110.447" y="247.629" fill="#B9B8C8" width="3.122" height="6.724"/>
+				<rect id="rect31267" x="118.967" y="247.629" fill="#B9B8C8" width="3.121" height="6.724"/>
+				<rect id="rect31269" x="118.967" y="247.629" fill="#B9B8C8" width="3.121" height="6.724"/>
+				<rect id="rect31271" x="102.045" y="247.629" fill="#B9B8C8" width="3.121" height="6.724"/>
+				<rect id="rect31273" x="102.045" y="247.629" fill="#B9B8C8" width="3.121" height="6.724"/>
+				<rect id="rect31275" x="110.447" y="247.629" fill="#B9B8C8" width="3.122" height="6.724"/>
+				<rect id="rect31277" x="110.447" y="247.629" fill="#B9B8C8" width="3.122" height="6.724"/>
+				<rect id="rect31279" x="118.967" y="247.629" fill="#B9B8C8" width="3.121" height="6.724"/>
+				<rect id="rect31281" x="118.967" y="247.629" fill="#B9B8C8" width="3.121" height="6.724"/>
+				<rect id="rect31283" x="102.045" y="247.629" fill="#B9B8C8" width="3.121" height="6.724"/>
+				<rect id="rect31285" x="102.045" y="247.629" fill="#B9B8C8" width="3.121" height="6.724"/>
+				<rect id="rect31287" x="106.127" y="267.67" fill="#B9B8C8" width="11.758" height="6.724"/>
+			</g>
+		</g>
+		<g id="Resistor">
+			<g id="g31363">
+				<path id="path31365" fill="#D9A300" stroke="#D9A300" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+					M127.967,118.787h11.396c0-0.001,0-20.521,0-20.521c-0.002,0-11.396,0-11.396,0.001V118.787z"/>
+				<rect id="rect31367" x="129.611" y="97.546" fill="#B9B8C8" width="8.16" height="0.479"/>
+			</g>
+			<g id="g31369">
+				<g id="g31371">
+					<rect id="rect31373" x="129.611" y="119.026" fill="#B9B8C8" width="8.16" height="0.479"/>
+				</g>
+				<rect id="rect31375" x="127.846" y="115.666" fill="#D66C2A" width="11.521" height="1.923"/>
+			</g>
+		</g>
+		<g id="Micro_Freescale">
+			<g id="Pin_Micro">
+				<g id="Pin_Micro_Down">
+					<rect id="rect56632" x="142.088" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56634" x="142.088" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56636" x="144.006" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56638" x="144.006" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56640" x="145.807" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56642" x="145.807" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56644" x="147.607" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56646" x="147.607" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56648" x="149.525" y="204.906" fill="#B9B8C8" width="0.723" height="4.082"/>
+					<rect id="rect56650" x="149.525" y="204.906" fill="#B9B8C8" width="0.723" height="4.082"/>
+					<rect id="rect56652" x="151.322" y="204.906" fill="#B9B8C8" width="0.725" height="4.082"/>
+					<rect id="rect56654" x="151.322" y="204.906" fill="#B9B8C8" width="0.725" height="4.082"/>
+					<rect id="rect56656" x="153.127" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56658" x="153.127" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56660" x="154.928" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56662" x="154.928" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56664" x="156.846" y="204.906" fill="#B9B8C8" width="0.723" height="4.082"/>
+					<rect id="rect56666" x="156.846" y="204.906" fill="#B9B8C8" width="0.723" height="4.082"/>
+					<rect id="rect56668" x="158.646" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56670" x="158.646" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56672" x="160.447" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56674" x="160.447" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56676" x="162.365" y="204.906" fill="#B9B8C8" width="0.727" height="4.082"/>
+					<rect id="rect56678" x="162.365" y="204.906" fill="#B9B8C8" width="0.727" height="4.082"/>
+					<rect id="rect56680" x="164.166" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56682" x="164.166" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56684" x="165.967" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56686" x="165.967" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56688" x="167.768" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56690" x="167.768" y="204.906" fill="#B9B8C8" width="0.719" height="4.082"/>
+					<rect id="rect56692" x="169.686" y="204.906" fill="#B9B8C8" width="0.728" height="4.082"/>
+					<rect id="rect56694" x="169.686" y="204.906" fill="#B9B8C8" width="0.728" height="4.082"/>
+					<g>
+						<polyline id="polyline56828" fill="#B9B8C8" points="137.887,173.584 133.805,173.584 133.805,172.865 137.887,172.865 						
+							"/>
+						<polyline id="polyline56832" fill="#B9B8C8" points="137.887,175.502 133.805,175.502 133.805,174.783 137.887,174.783 						
+							"/>
+						<polyline id="polyline56836" fill="#B9B8C8" points="137.887,177.302 133.805,177.302 133.805,176.583 137.887,176.583 						
+							"/>
+						<polyline id="polyline56840" fill="#B9B8C8" points="137.887,179.104 133.805,179.104 133.805,178.384 137.887,178.384 						
+							"/>
+						<polyline id="polyline56844" fill="#B9B8C8" points="137.887,181.026 133.805,181.026 133.805,180.302 137.887,180.302 						
+							"/>
+						<polyline id="polyline56848" fill="#B9B8C8" points="137.887,182.823 133.805,182.823 133.805,182.103 137.887,182.103 						
+							"/>
+						<polyline id="polyline56852" fill="#B9B8C8" points="137.887,184.623 133.805,184.623 133.805,183.905 137.887,183.905 						
+							"/>
+						<polyline id="polyline56856" fill="#B9B8C8" points="137.887,186.423 133.805,186.423 133.805,185.704 137.887,185.704 						
+							"/>
+						<polyline id="polyline56860" fill="#B9B8C8" points="137.887,188.345 133.805,188.345 133.805,187.622 137.887,187.622 						
+							"/>
+						<polyline id="polyline56864" fill="#B9B8C8" points="137.887,190.143 133.805,190.143 133.805,189.423 137.887,189.423 						
+							"/>
+						<polyline id="polyline56868" fill="#B9B8C8" points="137.887,191.944 133.805,191.944 133.805,191.224 137.887,191.224 						
+							"/>
+						<polyline id="polyline56872" fill="#B9B8C8" points="137.887,193.865 133.805,193.865 133.805,193.142 137.887,193.142 						
+							"/>
+						<polyline id="polyline56876" fill="#B9B8C8" points="137.887,195.666 133.805,195.666 133.805,194.944 137.887,194.944 						
+							"/>
+						<polyline id="polyline56880" fill="#B9B8C8" points="137.887,197.463 133.805,197.463 133.805,196.748 137.887,196.748 						
+							"/>
+						<polyline id="polyline56884" fill="#B9B8C8" points="137.887,199.263 133.805,199.263 133.805,198.545 137.887,198.545 						
+							"/>
+						<polyline id="polyline56888" fill="#B9B8C8" points="137.887,201.185 133.805,201.185 133.805,200.463 137.887,200.463 						
+							"/>
+					</g>
+				</g>
+				<g id="Pin_Micro_DX">
+					<rect id="rect56698" x="174.725" y="199.867" fill="#B9B8C8" width="4.082" height="0.723"/>
+					<rect id="rect56702" x="174.725" y="198.066" fill="#B9B8C8" width="4.082" height="0.727"/>
+					<rect id="rect56706" x="174.725" y="196.265" fill="#B9B8C8" width="4.082" height="0.723"/>
+					<rect id="rect56710" x="174.725" y="194.469" fill="#B9B8C8" width="4.082" height="0.719"/>
+					<rect id="rect56714" x="174.725" y="192.546" fill="#B9B8C8" width="4.082" height="0.724"/>
+					<rect id="rect56718" x="174.725" y="190.745" fill="#B9B8C8" width="4.082" height="0.729"/>
+					<rect id="rect56722" x="174.725" y="188.944" fill="#B9B8C8" width="4.082" height="0.723"/>
+					<rect id="rect56726" x="174.725" y="187.026" fill="#B9B8C8" width="4.082" height="0.719"/>
+					<rect id="rect56730" x="174.725" y="185.226" fill="#B9B8C8" width="4.082" height="0.719"/>
+					<rect id="rect56734" x="174.725" y="183.425" fill="#B9B8C8" width="4.082" height="0.729"/>
+					<rect id="rect56738" x="174.725" y="181.628" fill="#B9B8C8" width="4.082" height="0.725"/>
+					<rect id="rect56742" x="174.725" y="179.705" fill="#B9B8C8" width="4.082" height="0.729"/>
+					<rect id="rect56746" x="174.725" y="177.905" fill="#B9B8C8" width="4.082" height="0.728"/>
+					<rect id="rect56750" x="174.725" y="176.105" fill="#B9B8C8" width="4.082" height="0.723"/>
+					<rect id="rect56754" x="174.725" y="174.187" fill="#B9B8C8" width="4.082" height="0.719"/>
+					<rect id="rect56758" x="174.725" y="172.387" fill="#B9B8C8" width="4.082" height="0.719"/>
+					<g>
+						<rect id="rect56700" x="174.725" y="199.867" fill="#B9B8C8" width="4.082" height="0.723"/>
+						<rect id="rect56704" x="174.725" y="198.066" fill="#B9B8C8" width="4.082" height="0.727"/>
+						<rect id="rect56708" x="174.725" y="196.265" fill="#B9B8C8" width="4.082" height="0.723"/>
+						<rect id="rect56712" x="174.725" y="194.469" fill="#B9B8C8" width="4.082" height="0.719"/>
+						<rect id="rect56716" x="174.725" y="192.546" fill="#B9B8C8" width="4.082" height="0.724"/>
+						<rect id="rect56720" x="174.725" y="190.745" fill="#B9B8C8" width="4.082" height="0.729"/>
+						<rect id="rect56724" x="174.725" y="188.944" fill="#B9B8C8" width="4.082" height="0.723"/>
+						<rect id="rect56728" x="174.725" y="187.026" fill="#B9B8C8" width="4.082" height="0.719"/>
+						<rect id="rect56732" x="174.725" y="185.226" fill="#B9B8C8" width="4.082" height="0.719"/>
+						<rect id="rect56736" x="174.725" y="183.425" fill="#B9B8C8" width="4.082" height="0.729"/>
+						<rect id="rect56740" x="174.725" y="181.628" fill="#B9B8C8" width="4.082" height="0.725"/>
+						<rect id="rect56744" x="174.725" y="179.705" fill="#B9B8C8" width="4.082" height="0.729"/>
+						<rect id="rect56748" x="174.725" y="177.905" fill="#B9B8C8" width="4.082" height="0.728"/>
+						<rect id="rect56752" x="174.725" y="176.105" fill="#B9B8C8" width="4.082" height="0.723"/>
+						<rect id="rect56756" x="174.725" y="174.187" fill="#B9B8C8" width="4.082" height="0.719"/>
+						<rect id="rect56760" x="174.725" y="172.387" fill="#B9B8C8" width="4.082" height="0.719"/>
+					</g>
+				</g>
+				<g id="Pin_Micro_Up">
+					<rect id="rect56764" x="170.686" y="163.987" fill="#B9B8C8" width="0.728" height="4.078"/>
+					<rect id="rect56768" x="168.768" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56772" x="166.967" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56776" x="165.166" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56780" x="163.365" y="163.987" fill="#B9B8C8" width="0.727" height="4.078"/>
+					<rect id="rect56784" x="161.447" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56788" x="159.646" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56792" x="157.846" y="163.987" fill="#B9B8C8" width="0.723" height="4.078"/>
+					<rect id="rect56796" x="155.928" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56800" x="154.127" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56804" x="152.322" y="163.987" fill="#B9B8C8" width="0.725" height="4.078"/>
+					<rect id="rect56808" x="150.525" y="163.987" fill="#B9B8C8" width="0.723" height="4.078"/>
+					<rect id="rect56812" x="148.607" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56816" x="146.807" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56820" x="145.006" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<rect id="rect56824" x="143.088" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					<g>
+						<rect id="rect56766" x="170.686" y="163.987" fill="#B9B8C8" width="0.728" height="4.078"/>
+						<rect id="rect56770" x="168.768" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56774" x="166.967" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56778" x="165.166" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56782" x="163.365" y="163.987" fill="#B9B8C8" width="0.727" height="4.078"/>
+						<rect id="rect56786" x="161.447" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56790" x="159.646" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56794" x="157.846" y="163.987" fill="#B9B8C8" width="0.723" height="4.078"/>
+						<rect id="rect56798" x="155.928" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56802" x="154.127" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56806" x="152.322" y="163.987" fill="#B9B8C8" width="0.725" height="4.078"/>
+						<rect id="rect56810" x="150.525" y="163.987" fill="#B9B8C8" width="0.723" height="4.078"/>
+						<rect id="rect56814" x="148.607" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56818" x="146.807" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56822" x="145.006" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+						<rect id="rect56826" x="143.088" y="163.987" fill="#B9B8C8" width="0.719" height="4.078"/>
+					</g>
+				</g>
+				<g id="Pin_Micro_SX">
+					<polyline id="polyline56830" fill="#B9B8C8" points="137.887,173.584 133.805,173.584 133.805,172.865 137.887,172.865 					
+						"/>
+					<polyline id="polyline56834" fill="#B9B8C8" points="137.887,175.502 133.805,175.502 133.805,174.783 137.887,174.783 					
+						"/>
+					<polyline id="polyline56838" fill="#B9B8C8" points="137.887,177.302 133.805,177.302 133.805,176.583 137.887,176.583 					
+						"/>
+					<polyline id="polyline56842" fill="#B9B8C8" points="137.887,179.104 133.805,179.104 133.805,178.384 137.887,178.384 					
+						"/>
+					<polyline id="polyline56846" fill="#B9B8C8" points="137.887,181.026 133.805,181.026 133.805,180.302 137.887,180.302 					
+						"/>
+					<polyline id="polyline56850" fill="#B9B8C8" points="137.887,182.823 133.805,182.823 133.805,182.103 137.887,182.103 					
+						"/>
+					<polyline id="polyline56854" fill="#B9B8C8" points="137.887,184.623 133.805,184.623 133.805,183.905 137.887,183.905 					
+						"/>
+					<polyline id="polyline56858" fill="#B9B8C8" points="137.887,186.423 133.805,186.423 133.805,185.704 137.887,185.704 					
+						"/>
+					<polyline id="polyline56862" fill="#B9B8C8" points="137.887,188.345 133.805,188.345 133.805,187.622 137.887,187.622 					
+						"/>
+					<polyline id="polyline56866" fill="#B9B8C8" points="137.887,190.143 133.805,190.143 133.805,189.423 137.887,189.423 					
+						"/>
+					<polyline id="polyline56870" fill="#B9B8C8" points="137.887,191.944 133.805,191.944 133.805,191.224 137.887,191.224 					
+						"/>
+					<polyline id="polyline56874" fill="#B9B8C8" points="137.887,193.865 133.805,193.865 133.805,193.142 137.887,193.142 					
+						"/>
+					<polyline id="polyline56878" fill="#B9B8C8" points="137.887,195.666 133.805,195.666 133.805,194.944 137.887,194.944 					
+						"/>
+					<polyline id="polyline56882" fill="#B9B8C8" points="137.887,197.463 133.805,197.463 133.805,196.748 137.887,196.748 					
+						"/>
+					<polyline id="polyline56886" fill="#B9B8C8" points="137.887,199.263 133.805,199.263 133.805,198.545 137.887,198.545 					
+						"/>
+					<polyline id="polyline56890" fill="#B9B8C8" points="137.887,201.185 133.805,201.185 133.805,200.463 137.887,200.463 					
+						"/>
+				</g>
+			</g>
+			<g id="Layout">
+				<g id="g57138">
+					<path id="path57140" fill="#161519" stroke="#161519" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+						M174.607,204.426v-35.879c0-0.001-0.359-0.354-0.359-0.354h-34.922l-1.438,1.438c0,0.001,0,34.803,0,34.803l0.354,0.479h36
+						L174.607,204.426z"/>
+				</g>
+				<g>
+					<g id="g57142">
+						<path id="path57144" fill="none" stroke="#FCFCFC" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" d="
+							M142.322,175.148l-1.078-0.242l-0.723-0.719l-0.355-0.961l0.117-1.078l0.604-0.84l0.961-0.48h0.961l0.961,0.48l0.603,0.84
+							l0.116,1.078l-0.354,0.961l-0.846,0.719L142.322,175.148v-0.729l-0.719-0.111l-0.48-0.48l-0.238-0.723l0.121-0.724
+							l0.354-0.479l0.605-0.354h0.719l0.604,0.354l0.356,0.479l0.121,0.724l-0.242,0.723l-0.479,0.48l-0.724,0.111v0.729H142.322z"
+							/>
+					</g>
+					<g id="g30977">
+						<path id="path30979" d="M142.322,175.148l-1.078-0.242l-0.723-0.719l-0.355-0.961l0.117-1.078l0.604-0.84l0.961-0.48h0.961
+							l0.961,0.48l0.603,0.84l0.116,1.078l-0.354,0.961l-0.846,0.719L142.322,175.148v-0.729l-0.719-0.111l-0.48-0.48l-0.238-0.723
+							l0.121-0.724l0.354-0.479l0.605-0.354h0.719l0.604,0.354l0.356,0.479l0.121,0.724l-0.242,0.723l-0.479,0.48l-0.724,0.111
+							v0.729"/>
+					</g>
+				</g>
+			</g>
+			<g id="M4">
+				<path id="path57148" fill="#FFFFFF" d="M155.795,187.599c-0.07-1.316-0.154-2.899-0.145-4.076h-0.041
+					c-0.322,1.104-0.715,2.283-1.188,3.586l-1.668,4.581h-0.928l-1.522-4.496c-0.447-1.331-0.826-2.551-1.093-3.67h-0.026
+					c-0.029,1.177-0.101,2.76-0.187,4.174l-0.252,4.049h-1.16l0.653-9.438h1.56l1.606,4.562c0.396,1.163,0.716,2.199,0.951,3.188
+					h0.043c0.238-0.953,0.574-1.989,0.994-3.188l1.683-4.562h1.56l0.588,9.438h-1.188L155.795,187.599z"/>
+				<path id="path57150" fill="#FFFFFF" d="M162.469,191.745v-2.479h-4.229v-0.812l4.062-5.812h1.33v5.654h1.271v0.971h-1.271v2.479
+					L162.469,191.745L162.469,191.745z M162.469,188.299v-3.04c0-0.479,0.016-0.948,0.043-1.433h-0.043
+					c-0.279,0.532-0.504,0.928-0.756,1.349l-2.23,3.1v0.023L162.469,188.299L162.469,188.299z"/>
+			</g>
+		</g>
+		<g id="Cinterion_Module_BGS2_-_W">
+			<g id="Cinterion_perimether">
+				<g id="g31105">
+					<path id="path31107" fill="none" stroke="#B9B8C8" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+						M119.906,220.506V117.985c0,0.001-6.684-6.678-6.684-6.678h-71.3c0,0,0,109.196,0.001,109.196h77.979"/>
+				</g>
+			</g>
+			<g id="Cinterion_Background_layer">
+				<path id="path31221" fill="#265567" stroke="#265567" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+					M46.006,217.148h69V115.987h-69V217.148z"/>
+			</g>
+			<g id="Cinterion_up_layer">
+				<path id="path56393" fill="#A8926F" stroke="#B9B8C8" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+					M112.865,214.742V123.93c0,0.001-5.547-5.543-5.547-5.543H49.006v96.353L112.865,214.742"/>
+			</g>
+			<g id="Cinterion_parts">
+				<g id="g57192">
+					<circle id="circle57194" fill="#000500" cx="88.225" cy="129.338" r="2.134"/>
+					<path id="path57196" fill="#967B53" d="M90.357,129.655c0-1.179-0.955-2.133-2.135-2.133c-1.178,0-2.133,0.954-2.133,2.133
+						v-0.854c0-1.183,0.955-2.137,2.133-2.137c1.18,0,2.135,0.954,2.135,2.137V129.655z"/>
+				</g>
+				<g id="g57198">
+					<circle id="circle57200" fill="#000500" cx="88.225" cy="136.776" r="2.134"/>
+					<path id="path57202" fill="#967B53" d="M90.357,137.094c0-1.188-0.955-2.138-2.135-2.138c-1.178,0-2.133,0.95-2.133,2.138
+						v-0.855c0-1.179,0.955-2.133,2.133-2.133c1.18,0,2.135,0.954,2.135,2.133V137.094z"/>
+				</g>
+				<g id="g57204">
+					<circle id="circle57206" fill="#000500" cx="59.947" cy="162.727" r="2.134"/>
+					<path id="path57208" fill="#967B53" d="M62.076,163.044c0-1.183-0.955-2.137-2.135-2.137c-1.178,0-2.133,0.954-2.133,2.137
+						v-0.854c0-1.179,0.955-2.133,2.133-2.133c1.18,0,2.135,0.954,2.135,2.133V163.044z"/>
+				</g>
+				<g id="g57210">
+					<circle id="circle57212" fill="#000500" cx="58.361" cy="179.373" r="2.134"/>
+					<path id="path57214" fill="#967B53" d="M60.49,179.69c0-1.179-0.955-2.133-2.135-2.133c-1.178,0-2.133,0.954-2.133,2.133
+						v-0.855c0-1.179,0.955-2.133,2.133-2.133c1.18,0,2.135,0.954,2.135,2.133V179.69z"/>
+				</g>
+				<g id="g57216">
+					<circle id="circle57218" fill="#000500" cx="58.361" cy="208.432" r="2.134"/>
+					<path id="path57220" fill="#967B53" d="M60.49,208.752c0-1.182-0.955-2.137-2.135-2.137c-1.178,0-2.133,0.955-2.133,2.137
+						v-0.854c0-1.178,0.955-2.133,2.133-2.133c1.18,0,2.135,0.955,2.135,2.133V208.752z"/>
+				</g>
+			</g>
+			<g id="CINTERION">
+				<path id="path56397" fill="#FCFBFA" d="M103.453,204.959c0.277-0.145,0.84-0.274,1.555-0.274c1.648,0,2.895,1.045,2.895,2.969
+					c0,1.838-1.246,3.084-3.061,3.084c-0.732,0-1.193-0.154-1.396-0.262l0.188-0.617c0.287,0.141,0.691,0.242,1.184,0.242
+					c1.377,0,2.291-0.884,2.291-2.422c0-1.438-0.828-2.359-2.256-2.359c-0.461,0-0.932,0.102-1.236,0.244L103.453,204.959z"/>
+				<path id="path56399" fill="#FCFBFA" d="M101.754,210.631v-5.864h0.758v5.864H101.754z"/>
+				<path id="path56401" fill="#FCFBFA" d="M100.432,204.761v5.864h-0.828l-1.881-2.969c-0.439-0.688-0.775-1.311-1.055-1.908
+					l-0.021,0.015c0.07,0.778,0.088,1.498,0.088,2.407v2.455H96.02v-5.864h0.766l1.865,2.979c0.408,0.652,0.801,1.322,1.102,1.959
+					l0.021-0.008c-0.045-0.74-0.061-1.441-0.061-2.422v-2.508H100.432L100.432,204.761z"/>
+				<path id="path56403" fill="#FCFBFA" d="M93.59,209.986h1.779v0.646h-4.346v-0.646h1.795v-5.225h0.771L93.59,209.986
+					L93.59,209.986z"/>
+				<path id="path56405" fill="#FCFBFA" d="M87.338,207.513h2.277v-2.115h-2.543v-0.637h3.307v5.864h-3.174v-0.635h2.41v-1.854
+					h-2.277V207.513L87.338,207.513z"/>
+				<path id="path56407" fill="#FCFBFA" d="M86.096,210.552c-0.383,0.073-0.938,0.118-1.455,0.118c-0.812,0-1.332-0.146-1.697-0.479
+					c-0.297-0.262-0.461-0.656-0.461-1.109c0-0.771,0.486-1.289,1.105-1.498v-0.021c-0.453-0.158-0.729-0.576-0.861-1.188
+					c-0.193-0.813-0.332-1.389-0.453-1.606h0.783c0.096,0.166,0.227,0.672,0.391,1.397c0.176,0.812,0.488,1.111,1.182,1.146h0.715
+					v-2.543h0.758L86.096,210.552L86.096,210.552z M85.338,207.879h-0.775c-0.811,0-1.322,0.439-1.322,1.115
+					c0,0.758,0.549,1.088,1.354,1.098c0.361,0,0.627-0.03,0.75-0.065L85.338,207.879L85.338,207.879z"/>
+				<path id="path56409" fill="#FCFBFA" d="M80.656,210.631v-5.864h0.756v5.864H80.656z"/>
+				<path id="path56411" fill="#FCFBFA" d="M74.316,207.758c0-2.021,1.23-3.092,2.73-3.092c1.551,0,2.639,1.197,2.639,2.979
+					c0,1.858-1.158,3.082-2.73,3.082C75.354,210.726,74.316,209.502,74.316,207.758z M78.867,207.666
+					c0-1.258-0.68-2.377-1.873-2.377c-1.197,0-1.881,1.104-1.881,2.438c0,1.166,0.609,2.385,1.871,2.385
+					C78.24,210.109,78.867,208.955,78.867,207.666z"/>
+				<path id="path56413" fill="#FCFBFA" d="M73.336,204.761v5.864H72.51l-1.883-2.969c-0.438-0.688-0.773-1.311-1.059-1.908
+					l-0.016,0.015c0.064,0.778,0.086,1.498,0.086,2.407v2.455h-0.713v-5.864h0.766l1.863,2.979c0.41,0.652,0.801,1.322,1.098,1.959
+					l0.025-0.008c-0.043-0.74-0.062-1.441-0.062-2.422v-2.508H73.336L73.336,204.761z"/>
+			</g>
+			<g id="BGS2-_W">
+				<path id="path56431" fill="#F9F8F7" d="M105.162,174.095c-0.406,0.086-1.057,0.146-1.713,0.146
+					c-0.938,0-1.543-0.162-1.988-0.521c-0.383-0.28-0.604-0.716-0.604-1.282c0-0.7,0.463-1.314,1.229-1.599v-0.021
+					c-0.689-0.172-1.496-0.743-1.496-1.821c0-0.625,0.248-1.098,0.607-1.451c0.51-0.466,1.324-0.682,2.514-0.682
+					c0.646,0,1.145,0.043,1.451,0.085V174.095L105.162,174.095z M104.23,171.12h-0.852c-0.992,0-1.574,0.521-1.574,1.222
+					c0,0.854,0.645,1.188,1.596,1.188c0.43,0,0.678-0.033,0.83-0.062V171.12z M104.23,167.641c-0.186-0.032-0.453-0.042-0.789-0.042
+					c-0.967,0-1.863,0.354-1.863,1.411c0,0.981,0.855,1.396,1.875,1.396h0.777V167.641z"/>
+				<path id="path56433" fill="#F9F8F7" d="M93.803,167.253c0.42-0.146,1.252-0.396,2.229-0.396c1.104,0,2.006,0.28,2.717,0.958
+					c0.625,0.603,1.016,1.574,1.016,2.705c-0.01,2.166-1.498,3.749-3.938,3.749c-0.84,0-1.494-0.188-1.811-0.334l0.229-0.771
+					c0.393,0.178,0.871,0.312,1.605,0.312c1.766,0,2.918-1.104,2.918-2.919c0-1.848-1.109-2.938-2.801-2.938
+					c-0.613,0-1.033,0.088-1.25,0.191v2.166h1.477v0.754h-2.393L93.803,167.253L93.803,167.253z"/>
+				<path id="path56435" fill="#F9F8F7" d="M92.504,168.072c-0.426-0.258-1.033-0.473-1.686-0.473c-0.959,0-1.52,0.506-1.52,1.234
+					c0,0.684,0.389,1.062,1.369,1.438c1.186,0.42,1.914,1.035,1.914,2.062c0,1.136-0.938,1.977-2.352,1.977
+					c-0.742,0-1.281-0.172-1.604-0.355l0.258-0.764c0.236,0.129,0.723,0.344,1.381,0.344c0.988,0,1.369-0.592,1.369-1.088
+					c0-0.679-0.443-1.013-1.445-1.396c-1.229-0.479-1.854-1.062-1.854-2.139c0-1.121,0.828-2.091,2.543-2.091
+					c0.693,0,1.467,0.205,1.854,0.464L92.504,168.072z"/>
+				<path id="path56437" fill="#F9F8F7" d="M87.398,166.931v0.581l-0.742,0.723c-1.787,1.702-2.598,2.604-2.604,3.662
+					c0,0.711,0.346,1.368,1.389,1.368c0.637,0,1.166-0.322,1.488-0.597l0.301,0.669c-0.482,0.403-1.174,0.715-1.98,0.715
+					c-1.51,0-2.145-1.034-2.145-2.036c0-1.293,0.939-2.338,2.412-3.765l0.561-0.521v-0.021h-3.145v-0.781L87.398,166.931
+					L87.398,166.931z"/>
+				<path id="path56439" fill="#F9F8F7" d="M77.094,170.195v-0.7h2.662v0.7H77.094z"/>
+				<path id="path56441" fill="#F9F8F7" d="M72.869,166.931l1.848,7.26h-0.992l-0.861-3.672c-0.215-0.906-0.408-1.812-0.539-2.515
+					h-0.02c-0.121,0.726-0.346,1.583-0.594,2.521l-0.977,3.662h-0.979L68.87,170.5c-0.203-0.856-0.396-1.729-0.51-2.484h-0.02
+					c-0.152,0.797-0.355,1.604-0.582,2.51l-0.959,3.662H65.84l2.057-7.26h0.98l0.916,3.776c0.225,0.93,0.377,1.642,0.473,2.365
+					h0.023c0.129-0.723,0.289-1.434,0.559-2.365l1.035-3.776L72.869,166.931L72.869,166.931z"/>
+			</g>
+			<g id="CE0682">
+				<path id="path56417" fill="#F9F9F9" d="M74.527,196.845c0.23-0.115,0.693-0.23,1.287-0.23c1.371,0,2.404,0.866,2.404,2.469
+					c0,1.521-1.033,2.562-2.543,2.562c-0.609,0-0.99-0.131-1.156-0.215l0.15-0.521c0.236,0.113,0.574,0.201,0.98,0.201
+					c1.145,0,1.898-0.729,1.898-2.008c0-1.188-0.689-1.959-1.871-1.959c-0.383,0-0.771,0.08-1.025,0.203L74.527,196.845z"/>
+				<path id="path56419" fill="#F9F9F9" d="M71.221,198.969h1.893v-1.759H71.01v-0.522h2.73v4.869h-2.627v-0.529h2v-1.537H71.22
+					L71.221,198.969L71.221,198.969z"/>
+				<path id="path56421" fill="#F9F9F9" d="M65.764,199.086c0-1.602,0.592-2.479,1.631-2.479c0.916,0,1.539,0.855,1.553,2.413
+					c0,1.576-0.68,2.438-1.633,2.438C66.322,201.463,65.764,200.586,65.764,199.086z M68.311,199.013
+					c0-1.228-0.375-1.914-0.953-1.914c-0.65,0-0.961,0.758-0.961,1.957c0,1.149,0.297,1.914,0.955,1.914
+					C67.906,200.97,68.311,200.295,68.311,199.013z"/>
+				<path id="path56423" fill="#F9F9F9" d="M62.492,200.935c0.137,0.008,0.303,0,0.48-0.029c0.996-0.164,1.52-0.896,1.633-1.67
+					h-0.021c-0.227,0.297-0.613,0.543-1.139,0.543c-0.828,0-1.414-0.6-1.414-1.518c0-0.861,0.586-1.655,1.562-1.655
+					c1.004,0,1.66,0.782,1.66,2c0,0.926-0.33,1.656-0.795,2.117c-0.395,0.383-0.908,0.621-1.504,0.692
+					c-0.188,0.021-0.348,0.033-0.465,0.033L62.492,200.935L62.492,200.935z M62.678,198.226c0,0.672,0.385,1.076,0.971,1.076
+					c0.381,0,0.736-0.238,0.91-0.578c0.043-0.072,0.07-0.166,0.07-0.281c-0.018-0.771-0.367-1.344-1.031-1.344
+					C63.049,197.099,62.678,197.554,62.678,198.226z"/>
+				<path id="path56425" fill="#F9F9F9" d="M61.531,197.879c0,0.597-0.354,1.017-0.934,1.263l0.006,0.02
+					c0.521,0.248,0.746,0.65,0.746,1.062c0,0.743-0.629,1.254-1.453,1.254c-0.91,0-1.363-0.57-1.363-1.156
+					c0-0.396,0.193-0.824,0.771-1.103v-0.021c-0.584-0.229-0.945-0.646-0.945-1.217c0-0.812,0.699-1.364,1.596-1.364
+					C60.941,196.607,61.531,197.193,61.531,197.879z M59.004,197.914c0,0.564,0.395,0.844,1.029,1.021
+					c0.553-0.16,0.85-0.521,0.85-0.974c0.02-0.479-0.346-0.896-0.939-0.896C59.367,197.07,59.004,197.426,59.004,197.914z
+					 M60.752,200.256c0-0.469-0.355-0.729-0.896-0.862c-0.406,0.137-0.715,0.428-0.715,0.854c0,0.373,0.223,0.771,0.795,0.771
+					C60.463,201.006,60.752,200.664,60.752,200.256z"/>
+				<path id="path56427" fill="#F9F9F9" d="M57.77,196.688v0.396l-0.496,0.479c-1.199,1.146-1.742,1.75-1.748,2.455
+					c0,0.479,0.229,0.918,0.93,0.918c0.432,0,0.781-0.224,0.998-0.396l0.201,0.443c-0.322,0.271-0.787,0.479-1.328,0.479
+					c-1.01,0-1.438-0.688-1.438-1.36c0-0.869,0.631-1.564,1.619-2.521l0.375-0.354v-0.019h-2.109v-0.522L57.77,196.688
+					L57.77,196.688z"/>
+			</g>
+			<g id="Cinterion_Pads_x5F_2">
+				<g>
+					<g id="g58366">
+						
+							<line id="line58368" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="56.133" y1="219.537" x2="56.133" y2="225.584"/>
+						
+							<line id="line58370" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="60.613" y1="219.537" x2="60.613" y2="224.054"/>
+					</g>
+					<g id="g58374">
+						
+							<line id="line58376" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="65.115" y1="219.584" x2="65.115" y2="225.627"/>
+						
+							<line id="line58378" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="69.596" y1="219.584" x2="69.596" y2="224.099"/>
+					</g>
+					<g id="g58380">
+						
+							<line id="line58382" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="74.129" y1="219.584" x2="74.129" y2="225.627"/>
+						
+							<line id="line58384" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="78.609" y1="219.584" x2="78.609" y2="224.099"/>
+					</g>
+					<g id="g58386">
+						
+							<line id="line58388" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="83.02" y1="219.584" x2="83.02" y2="225.627"/>
+						
+							<line id="line58390" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="87.496" y1="219.584" x2="87.496" y2="224.099"/>
+					</g>
+					<g id="g58392">
+						
+							<line id="line58394" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="91.969" y1="219.584" x2="91.969" y2="225.627"/>
+						
+							<line id="line58396" fill="none" stroke="#FFFFFF" stroke-width="0.12" stroke-linecap="round" stroke-linejoin="round" x1="96.447" y1="219.584" x2="96.447" y2="224.099"/>
+					</g>
+				</g>
+				<g>
+					<path id="path58372" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M59.348,223.236
+						c0-0.695,0.562-1.264,1.266-1.264c0.697,0,1.268,0.562,1.268,1.264s-0.566,1.27-1.268,1.27
+						C59.91,224.502,59.348,223.935,59.348,223.236z"/>
+					<path id="path58398" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M54.91,226.845
+						c0-0.699,0.566-1.271,1.268-1.271c0.697,0,1.266,0.562,1.266,1.271c0,0.694-0.564,1.266-1.266,1.266
+						C55.476,228.111,54.91,227.545,54.91,226.845z"/>
+					<path id="path58400" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M63.869,226.845
+						c0-0.699,0.566-1.271,1.27-1.271c0.697,0,1.264,0.562,1.264,1.271c0,0.694-0.562,1.266-1.264,1.266
+						C64.437,228.111,63.869,227.545,63.869,226.845z"/>
+					<path id="path58402" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M68.305,223.236
+						c0-0.695,0.564-1.264,1.266-1.264c0.699,0,1.268,0.562,1.268,1.264s-0.566,1.27-1.268,1.27
+						C68.869,224.502,68.305,223.935,68.305,223.236z"/>
+					<path id="path58404" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M72.865,226.845
+						c0-0.699,0.566-1.271,1.268-1.271c0.695,0,1.266,0.562,1.266,1.271c0,0.694-0.566,1.266-1.266,1.266
+						C73.432,228.111,72.865,227.545,72.865,226.845z"/>
+					<path id="path58406" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M77.344,223.236
+						c0-0.695,0.564-1.264,1.266-1.264c0.699,0,1.266,0.562,1.266,1.264s-0.564,1.27-1.266,1.27
+						C77.908,224.502,77.344,223.935,77.344,223.236z"/>
+					<path id="path58408" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M81.754,226.845
+						c0-0.699,0.564-1.271,1.266-1.271c0.699,0,1.266,0.562,1.266,1.271c0,0.694-0.564,1.266-1.266,1.266
+						S81.754,227.545,81.754,226.845z"/>
+					<path id="path58410" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M86.225,223.236
+						c0-0.695,0.562-1.264,1.266-1.264c0.697,0,1.268,0.562,1.268,1.264s-0.566,1.27-1.268,1.27
+						C86.787,224.502,86.225,223.935,86.225,223.236z"/>
+					<path id="path58412" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M90.701,226.845
+						c0-0.699,0.566-1.271,1.27-1.271c0.697,0,1.264,0.562,1.264,1.271c0,0.694-0.562,1.266-1.264,1.266
+						C91.269,228.111,90.701,227.545,90.701,226.845z"/>
+					<path id="path58414" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M95.184,223.236
+						c0-0.695,0.562-1.264,1.266-1.264c0.697,0,1.268,0.562,1.268,1.264s-0.566,1.27-1.268,1.27
+						C95.746,224.502,95.184,223.935,95.184,223.236z"/>
+				</g>
+			</g>
+			<g id="Cinterion_Pads">
+				<g id="g57246">
+					<g id="g57248">
+						<rect id="rect57250" x="114.512" y="123.932" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57252" x="115.529" y="123.932" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57254" x="115.641" y="123.932" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57256" x="115.818" y="123.932" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57258" x="116.152" y="123.932" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57260" x="116.475" y="123.932" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57262" x="118.049" y="123.932" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57264">
+						<rect id="rect57266" x="114.512" y="137.37" fill="#D1D1D1" width="3.926" height="2.44"/>
+						<rect id="rect57268" x="115.529" y="137.37" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57270" x="115.641" y="137.37" fill="#C2C2C2" width="1.666" height="2.44"/>
+						<rect id="rect57272" x="115.818" y="137.37" fill="#ADADAD" width="1.312" height="2.44"/>
+						<rect id="rect57274" x="116.152" y="137.37" fill="#B8B8B8" width="0.643" height="2.44"/>
+						<rect id="rect57276" x="116.475" y="137.37" fill="#DDDDDD" width="0.125" height="2.44"/>
+						<rect id="rect57278" x="118.049" y="137.37" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57280">
+						<rect id="rect57282" x="114.512" y="132.891" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57284" x="115.529" y="132.891" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57286" x="115.641" y="132.891" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57288" x="115.818" y="132.891" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57290" x="116.152" y="132.891" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57292" x="116.475" y="132.891" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57294" x="118.049" y="132.891" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57296">
+						<rect id="rect57298" x="114.512" y="128.41" fill="#D1D1D1" width="3.926" height="2.44"/>
+						<rect id="rect57300" x="115.529" y="128.41" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57302" x="115.641" y="128.41" fill="#C2C2C2" width="1.666" height="2.44"/>
+						<rect id="rect57304" x="115.818" y="128.41" fill="#ADADAD" width="1.312" height="2.44"/>
+						<rect id="rect57306" x="116.152" y="128.41" fill="#B8B8B8" width="0.643" height="2.44"/>
+						<rect id="rect57308" x="116.475" y="128.41" fill="#DDDDDD" width="0.125" height="2.44"/>
+						<rect id="rect57310" x="118.049" y="128.41" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57312">
+						<rect id="rect57314" x="114.512" y="141.849" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57316" x="115.529" y="141.849" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57318" x="115.641" y="141.849" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57320" x="115.818" y="141.849" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57322" x="116.152" y="141.849" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57324" x="116.475" y="141.849" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57326" x="118.049" y="141.849" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57328">
+						<rect id="rect57330" x="114.512" y="146.329" fill="#D1D1D1" width="3.926" height="2.44"/>
+						<rect id="rect57332" x="115.529" y="146.329" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57334" x="115.641" y="146.329" fill="#C2C2C2" width="1.666" height="2.44"/>
+						<rect id="rect57336" x="115.818" y="146.329" fill="#ADADAD" width="1.312" height="2.44"/>
+						<rect id="rect57338" x="116.152" y="146.329" fill="#B8B8B8" width="0.643" height="2.44"/>
+						<rect id="rect57340" x="116.475" y="146.329" fill="#DDDDDD" width="0.125" height="2.44"/>
+						<rect id="rect57342" x="118.049" y="146.329" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57344">
+						<rect id="rect57346" x="114.512" y="150.809" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57348" x="115.529" y="150.809" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57350" x="115.641" y="150.809" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57352" x="115.818" y="150.809" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57354" x="116.152" y="150.809" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57356" x="116.475" y="150.809" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57358" x="118.049" y="150.809" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57360">
+						<rect id="rect57362" x="114.512" y="155.287" fill="#D1D1D1" width="3.926" height="2.441"/>
+						<rect id="rect57364" x="115.529" y="155.287" fill="#CCCCCC" width="1.895" height="2.441"/>
+						<rect id="rect57366" x="115.641" y="155.287" fill="#C2C2C2" width="1.666" height="2.441"/>
+						<rect id="rect57368" x="115.818" y="155.287" fill="#ADADAD" width="1.312" height="2.441"/>
+						<rect id="rect57370" x="116.152" y="155.287" fill="#B8B8B8" width="0.643" height="2.441"/>
+						<rect id="rect57372" x="116.475" y="155.287" fill="#DDDDDD" width="0.125" height="2.441"/>
+						<rect id="rect57374" x="118.049" y="155.287" fill="#D6D6D6" width="0.23" height="2.441"/>
+					</g>
+					<g id="g57376">
+						<rect id="rect57378" x="114.512" y="159.768" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57380" x="115.529" y="159.768" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57382" x="115.641" y="159.768" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57384" x="115.818" y="159.768" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57386" x="116.152" y="159.768" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57388" x="116.475" y="159.768" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57390" x="118.049" y="159.768" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57392">
+						<rect id="rect57394" x="114.512" y="164.246" fill="#D1D1D1" width="3.926" height="2.44"/>
+						<rect id="rect57396" x="115.529" y="164.246" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57398" x="115.641" y="164.246" fill="#C2C2C2" width="1.666" height="2.44"/>
+						<rect id="rect57400" x="115.818" y="164.246" fill="#ADADAD" width="1.312" height="2.44"/>
+						<rect id="rect57402" x="116.152" y="164.246" fill="#B8B8B8" width="0.643" height="2.44"/>
+						<rect id="rect57404" x="116.475" y="164.246" fill="#DDDDDD" width="0.125" height="2.44"/>
+						<rect id="rect57406" x="118.049" y="164.246" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57408">
+						<rect id="rect57410" x="114.512" y="168.726" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57412" x="115.529" y="168.726" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57414" x="115.641" y="168.726" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57416" x="115.818" y="168.726" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57418" x="116.152" y="168.726" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57420" x="116.475" y="168.726" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57422" x="118.049" y="168.726" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57424">
+						<rect id="rect57426" x="114.512" y="173.206" fill="#D1D1D1" width="3.926" height="2.44"/>
+						<rect id="rect57428" x="115.529" y="173.206" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57430" x="115.641" y="173.206" fill="#C2C2C2" width="1.666" height="2.44"/>
+						<rect id="rect57432" x="115.818" y="173.206" fill="#ADADAD" width="1.312" height="2.44"/>
+						<rect id="rect57434" x="116.152" y="173.206" fill="#B8B8B8" width="0.643" height="2.44"/>
+						<rect id="rect57436" x="116.475" y="173.206" fill="#DDDDDD" width="0.125" height="2.44"/>
+						<rect id="rect57438" x="118.049" y="173.206" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57440">
+						<rect id="rect57442" x="114.512" y="177.685" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57444" x="115.529" y="177.685" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57446" x="115.641" y="177.685" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57448" x="115.818" y="177.685" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57450" x="116.152" y="177.685" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57452" x="116.475" y="177.685" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57454" x="118.049" y="177.685" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57456">
+						<rect id="rect57458" x="114.512" y="182.164" fill="#D1D1D1" width="3.926" height="2.439"/>
+						<rect id="rect57460" x="115.529" y="182.164" fill="#CCCCCC" width="1.895" height="2.439"/>
+						<rect id="rect57462" x="115.641" y="182.164" fill="#C2C2C2" width="1.666" height="2.439"/>
+						<rect id="rect57464" x="115.818" y="182.164" fill="#ADADAD" width="1.312" height="2.439"/>
+						<rect id="rect57466" x="116.152" y="182.164" fill="#B8B8B8" width="0.643" height="2.439"/>
+						<rect id="rect57468" x="116.475" y="182.164" fill="#DDDDDD" width="0.125" height="2.439"/>
+						<rect id="rect57470" x="118.049" y="182.164" fill="#D6D6D6" width="0.23" height="2.439"/>
+					</g>
+					<g id="g57472">
+						<rect id="rect57474" x="114.512" y="186.647" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57476" x="115.529" y="186.647" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57478" x="115.641" y="186.647" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57480" x="115.818" y="186.647" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57482" x="116.152" y="186.647" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57484" x="116.475" y="186.647" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57486" x="118.049" y="186.647" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57488">
+						<rect id="rect57490" x="114.512" y="191.124" fill="#D1D1D1" width="3.926" height="2.44"/>
+						<rect id="rect57492" x="115.529" y="191.124" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57494" x="115.641" y="191.124" fill="#C2C2C2" width="1.666" height="2.44"/>
+						<rect id="rect57496" x="115.818" y="191.124" fill="#ADADAD" width="1.312" height="2.44"/>
+						<rect id="rect57498" x="116.152" y="191.124" fill="#B8B8B8" width="0.643" height="2.44"/>
+						<rect id="rect57500" x="116.475" y="191.124" fill="#DDDDDD" width="0.125" height="2.44"/>
+						<rect id="rect57502" x="118.049" y="191.124" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57504">
+						<rect id="rect57506" x="114.512" y="195.604" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57508" x="115.529" y="195.604" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57510" x="115.641" y="195.604" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57512" x="115.818" y="195.604" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57514" x="116.152" y="195.604" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57516" x="116.475" y="195.604" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57518" x="118.049" y="195.604" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57520">
+						<rect id="rect57522" x="114.512" y="200.086" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57524" x="115.529" y="200.086" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57526" x="115.641" y="200.086" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57528" x="115.818" y="200.086" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57530" x="116.152" y="200.086" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57532" x="116.475" y="200.086" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57534" x="118.049" y="200.086" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57536">
+						<rect id="rect57538" x="114.512" y="204.562" fill="#D1D1D1" width="3.926" height="2.438"/>
+						<rect id="rect57540" x="115.529" y="204.562" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57542" x="115.641" y="204.562" fill="#C2C2C2" width="1.666" height="2.438"/>
+						<rect id="rect57544" x="115.818" y="204.562" fill="#ADADAD" width="1.312" height="2.438"/>
+						<rect id="rect57546" x="116.152" y="204.562" fill="#B8B8B8" width="0.643" height="2.438"/>
+						<rect id="rect57548" x="116.475" y="204.562" fill="#DDDDDD" width="0.125" height="2.438"/>
+						<rect id="rect57550" x="118.049" y="204.562" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+				</g>
+				<g id="g57606">
+					<g id="g57608">
+						<rect id="rect57610" x="43.045" y="123.932" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57612" x="44.062" y="123.932" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57614" x="44.174" y="123.932" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57616" x="44.352" y="123.932" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57618" x="44.688" y="123.932" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57620" x="45.009" y="123.932" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57622" x="46.582" y="123.932" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57624">
+						<rect id="rect57626" x="43.045" y="137.37" fill="#D1D1D1" width="3.928" height="2.44"/>
+						<rect id="rect57628" x="44.062" y="137.37" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57630" x="44.174" y="137.37" fill="#C2C2C2" width="1.667" height="2.44"/>
+						<rect id="rect57632" x="44.352" y="137.37" fill="#ADADAD" width="1.313" height="2.44"/>
+						<rect id="rect57634" x="44.688" y="137.37" fill="#B8B8B8" width="0.641" height="2.44"/>
+						<rect id="rect57636" x="45.009" y="137.37" fill="#DDDDDD" width="0.124" height="2.44"/>
+						<rect id="rect57638" x="46.582" y="137.37" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57640">
+						<rect id="rect57642" x="43.045" y="132.891" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57644" x="44.062" y="132.891" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57646" x="44.174" y="132.891" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57648" x="44.352" y="132.891" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57650" x="44.688" y="132.891" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57652" x="45.009" y="132.891" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57654" x="46.582" y="132.891" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57656">
+						<rect id="rect57658" x="43.045" y="128.41" fill="#D1D1D1" width="3.928" height="2.44"/>
+						<rect id="rect57660" x="44.062" y="128.41" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57662" x="44.174" y="128.41" fill="#C2C2C2" width="1.667" height="2.44"/>
+						<rect id="rect57664" x="44.352" y="128.41" fill="#ADADAD" width="1.313" height="2.44"/>
+						<rect id="rect57666" x="44.688" y="128.41" fill="#B8B8B8" width="0.641" height="2.44"/>
+						<rect id="rect57668" x="45.009" y="128.41" fill="#DDDDDD" width="0.124" height="2.44"/>
+						<rect id="rect57670" x="46.582" y="128.41" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57672">
+						<rect id="rect57674" x="43.045" y="141.849" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57676" x="44.062" y="141.849" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57678" x="44.174" y="141.849" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57680" x="44.352" y="141.849" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57682" x="44.688" y="141.849" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57684" x="45.009" y="141.849" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57686" x="46.582" y="141.849" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57688">
+						<rect id="rect57690" x="43.045" y="146.329" fill="#D1D1D1" width="3.928" height="2.44"/>
+						<rect id="rect57692" x="44.062" y="146.329" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57694" x="44.174" y="146.329" fill="#C2C2C2" width="1.667" height="2.44"/>
+						<rect id="rect57696" x="44.352" y="146.329" fill="#ADADAD" width="1.313" height="2.44"/>
+						<rect id="rect57698" x="44.688" y="146.329" fill="#B8B8B8" width="0.641" height="2.44"/>
+						<rect id="rect57700" x="45.009" y="146.329" fill="#DDDDDD" width="0.124" height="2.44"/>
+						<rect id="rect57702" x="46.582" y="146.329" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57704">
+						<rect id="rect57706" x="43.045" y="150.809" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57708" x="44.062" y="150.809" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57710" x="44.174" y="150.809" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57712" x="44.352" y="150.809" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57714" x="44.688" y="150.809" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57716" x="45.009" y="150.809" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57718" x="46.582" y="150.809" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57720">
+						<rect id="rect57722" x="43.045" y="155.287" fill="#D1D1D1" width="3.928" height="2.441"/>
+						<rect id="rect57724" x="44.062" y="155.287" fill="#CCCCCC" width="1.895" height="2.441"/>
+						<rect id="rect57726" x="44.174" y="155.287" fill="#C2C2C2" width="1.667" height="2.441"/>
+						<rect id="rect57728" x="44.352" y="155.287" fill="#ADADAD" width="1.313" height="2.441"/>
+						<rect id="rect57730" x="44.688" y="155.287" fill="#B8B8B8" width="0.641" height="2.441"/>
+						<rect id="rect57732" x="45.009" y="155.287" fill="#DDDDDD" width="0.124" height="2.441"/>
+						<rect id="rect57734" x="46.582" y="155.287" fill="#D6D6D6" width="0.23" height="2.441"/>
+					</g>
+					<g id="g57736">
+						<rect id="rect57738" x="43.045" y="159.768" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57740" x="44.062" y="159.768" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57742" x="44.174" y="159.768" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57744" x="44.352" y="159.768" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57746" x="44.688" y="159.768" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57748" x="45.009" y="159.768" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57750" x="46.582" y="159.768" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57752">
+						<rect id="rect57754" x="43.045" y="164.246" fill="#D1D1D1" width="3.928" height="2.44"/>
+						<rect id="rect57756" x="44.062" y="164.246" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57758" x="44.174" y="164.246" fill="#C2C2C2" width="1.667" height="2.44"/>
+						<rect id="rect57760" x="44.352" y="164.246" fill="#ADADAD" width="1.313" height="2.44"/>
+						<rect id="rect57762" x="44.688" y="164.246" fill="#B8B8B8" width="0.641" height="2.44"/>
+						<rect id="rect57764" x="45.009" y="164.246" fill="#DDDDDD" width="0.124" height="2.44"/>
+						<rect id="rect57766" x="46.582" y="164.246" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57768">
+						<rect id="rect57770" x="43.045" y="168.726" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57772" x="44.062" y="168.726" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57774" x="44.174" y="168.726" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57776" x="44.352" y="168.726" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57778" x="44.688" y="168.726" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57780" x="45.009" y="168.726" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57782" x="46.582" y="168.726" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57784">
+						<rect id="rect57786" x="43.045" y="173.206" fill="#D1D1D1" width="3.928" height="2.44"/>
+						<rect id="rect57788" x="44.062" y="173.206" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57790" x="44.174" y="173.206" fill="#C2C2C2" width="1.667" height="2.44"/>
+						<rect id="rect57792" x="44.352" y="173.206" fill="#ADADAD" width="1.313" height="2.44"/>
+						<rect id="rect57794" x="44.688" y="173.206" fill="#B8B8B8" width="0.641" height="2.44"/>
+						<rect id="rect57796" x="45.009" y="173.206" fill="#DDDDDD" width="0.124" height="2.44"/>
+						<rect id="rect57798" x="46.582" y="173.206" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57800">
+						<rect id="rect57802" x="43.045" y="177.685" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57804" x="44.062" y="177.685" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57806" x="44.174" y="177.685" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57808" x="44.352" y="177.685" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57810" x="44.688" y="177.685" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57812" x="45.009" y="177.685" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57814" x="46.582" y="177.685" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57816">
+						<rect id="rect57818" x="43.045" y="182.164" fill="#D1D1D1" width="3.928" height="2.439"/>
+						<rect id="rect57820" x="44.062" y="182.164" fill="#CCCCCC" width="1.895" height="2.439"/>
+						<rect id="rect57822" x="44.174" y="182.164" fill="#C2C2C2" width="1.667" height="2.439"/>
+						<rect id="rect57824" x="44.352" y="182.164" fill="#ADADAD" width="1.313" height="2.439"/>
+						<rect id="rect57826" x="44.688" y="182.164" fill="#B8B8B8" width="0.641" height="2.439"/>
+						<rect id="rect57828" x="45.009" y="182.164" fill="#DDDDDD" width="0.124" height="2.439"/>
+						<rect id="rect57830" x="46.582" y="182.164" fill="#D6D6D6" width="0.23" height="2.439"/>
+					</g>
+					<g id="g57832">
+						<rect id="rect57834" x="43.045" y="186.647" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57836" x="44.062" y="186.647" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57838" x="44.174" y="186.647" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57840" x="44.352" y="186.647" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57842" x="44.688" y="186.647" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57844" x="45.009" y="186.647" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57846" x="46.582" y="186.647" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57848">
+						<rect id="rect57850" x="43.045" y="191.124" fill="#D1D1D1" width="3.928" height="2.44"/>
+						<rect id="rect57852" x="44.062" y="191.124" fill="#CCCCCC" width="1.895" height="2.44"/>
+						<rect id="rect57854" x="44.174" y="191.124" fill="#C2C2C2" width="1.667" height="2.44"/>
+						<rect id="rect57856" x="44.352" y="191.124" fill="#ADADAD" width="1.313" height="2.44"/>
+						<rect id="rect57858" x="44.688" y="191.124" fill="#B8B8B8" width="0.641" height="2.44"/>
+						<rect id="rect57860" x="45.009" y="191.124" fill="#DDDDDD" width="0.124" height="2.44"/>
+						<rect id="rect57862" x="46.582" y="191.124" fill="#D6D6D6" width="0.23" height="2.44"/>
+					</g>
+					<g id="g57864">
+						<rect id="rect57866" x="43.045" y="195.604" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57868" x="44.062" y="195.604" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57870" x="44.174" y="195.604" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57872" x="44.352" y="195.604" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57874" x="44.688" y="195.604" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57876" x="45.009" y="195.604" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57878" x="46.582" y="195.604" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57880">
+						<rect id="rect57882" x="43.045" y="200.086" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57884" x="44.062" y="200.086" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57886" x="44.174" y="200.086" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57888" x="44.352" y="200.086" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57890" x="44.688" y="200.086" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57892" x="45.009" y="200.086" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57894" x="46.582" y="200.086" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+					<g id="g57896">
+						<rect id="rect57898" x="43.045" y="204.562" fill="#D1D1D1" width="3.928" height="2.438"/>
+						<rect id="rect57900" x="44.062" y="204.562" fill="#CCCCCC" width="1.895" height="2.438"/>
+						<rect id="rect57902" x="44.174" y="204.562" fill="#C2C2C2" width="1.667" height="2.438"/>
+						<rect id="rect57904" x="44.352" y="204.562" fill="#ADADAD" width="1.313" height="2.438"/>
+						<rect id="rect57906" x="44.688" y="204.562" fill="#B8B8B8" width="0.641" height="2.438"/>
+						<rect id="rect57908" x="45.009" y="204.562" fill="#DDDDDD" width="0.124" height="2.438"/>
+						<rect id="rect57910" x="46.582" y="204.562" fill="#D6D6D6" width="0.23" height="2.438"/>
+					</g>
+				</g>
+				<g id="g57912">
+					<g id="g57914">
+						<rect id="rect57916" x="50.434" y="112.884" fill="#D1D1D1" width="2.438" height="3.932"/>
+						<rect id="rect57918" x="50.434" y="113.901" fill="#CCCCCC" width="2.438" height="1.892"/>
+						<rect id="rect57920" x="50.434" y="114.015" fill="#C2C2C2" width="2.438" height="1.667"/>
+						<rect id="rect57922" x="50.434" y="114.19" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect57924" x="50.434" y="114.53" fill="#B8B8B8" width="2.438" height="0.642"/>
+						<rect id="rect57926" x="50.434" y="114.723" fill="#DDDDDD" width="2.438" height="0.124"/>
+						<rect id="rect57928" x="50.434" y="113.039" fill="#D6D6D6" width="2.438" height="0.233"/>
+					</g>
+					<g id="g57930">
+						<rect id="rect57932" x="54.91" y="112.884" fill="#D1D1D1" width="2.439" height="3.932"/>
+						<rect id="rect57934" x="54.91" y="113.901" fill="#CCCCCC" width="2.439" height="1.892"/>
+						<rect id="rect57936" x="54.91" y="114.015" fill="#C2C2C2" width="2.439" height="1.667"/>
+						<rect id="rect57938" x="54.91" y="114.19" fill="#ADADAD" width="2.439" height="1.312"/>
+						<rect id="rect57940" x="54.91" y="114.53" fill="#B8B8B8" width="2.439" height="0.642"/>
+						<rect id="rect57942" x="54.91" y="114.723" fill="#DDDDDD" width="2.439" height="0.124"/>
+						<rect id="rect57944" x="54.91" y="113.039" fill="#D6D6D6" width="2.439" height="0.233"/>
+					</g>
+					<g id="g57946">
+						<rect id="rect57948" x="59.393" y="112.884" fill="#D1D1D1" width="2.438" height="3.932"/>
+						<rect id="rect57950" x="59.393" y="113.901" fill="#CCCCCC" width="2.438" height="1.892"/>
+						<rect id="rect57952" x="59.393" y="114.015" fill="#C2C2C2" width="2.438" height="1.667"/>
+						<rect id="rect57954" x="59.393" y="114.19" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect57956" x="59.393" y="114.53" fill="#B8B8B8" width="2.438" height="0.642"/>
+						<rect id="rect57958" x="59.393" y="114.723" fill="#DDDDDD" width="2.438" height="0.124"/>
+						<rect id="rect57960" x="59.393" y="113.039" fill="#D6D6D6" width="2.438" height="0.233"/>
+					</g>
+					<g id="g57962">
+						<rect id="rect57964" x="63.869" y="112.884" fill="#D1D1D1" width="2.439" height="3.932"/>
+						<rect id="rect57966" x="63.869" y="113.901" fill="#CCCCCC" width="2.439" height="1.892"/>
+						<rect id="rect57968" x="63.869" y="114.015" fill="#C2C2C2" width="2.439" height="1.667"/>
+						<rect id="rect57970" x="63.869" y="114.19" fill="#ADADAD" width="2.439" height="1.312"/>
+						<rect id="rect57972" x="63.869" y="114.53" fill="#B8B8B8" width="2.439" height="0.642"/>
+						<rect id="rect57974" x="63.869" y="114.723" fill="#DDDDDD" width="2.439" height="0.124"/>
+						<rect id="rect57976" x="63.869" y="113.039" fill="#D6D6D6" width="2.439" height="0.233"/>
+					</g>
+					<g id="g57978">
+						<rect id="rect57980" x="68.352" y="112.884" fill="#D1D1D1" width="2.438" height="3.932"/>
+						<rect id="rect57982" x="68.352" y="113.901" fill="#CCCCCC" width="2.438" height="1.892"/>
+						<rect id="rect57984" x="68.352" y="114.015" fill="#C2C2C2" width="2.438" height="1.667"/>
+						<rect id="rect57986" x="68.352" y="114.19" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect57988" x="68.352" y="114.53" fill="#B8B8B8" width="2.438" height="0.642"/>
+						<rect id="rect57990" x="68.352" y="114.723" fill="#DDDDDD" width="2.438" height="0.124"/>
+						<rect id="rect57992" x="68.352" y="113.039" fill="#D6D6D6" width="2.438" height="0.233"/>
+					</g>
+					<g id="g57994">
+						<rect id="rect57996" x="72.826" y="112.884" fill="#D1D1D1" width="2.441" height="3.932"/>
+						<rect id="rect57998" x="72.826" y="113.901" fill="#CCCCCC" width="2.441" height="1.892"/>
+						<rect id="rect58000" x="72.826" y="114.015" fill="#C2C2C2" width="2.441" height="1.667"/>
+						<rect id="rect58002" x="72.826" y="114.19" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58004" x="72.826" y="114.53" fill="#B8B8B8" width="2.441" height="0.642"/>
+						<rect id="rect58006" x="72.826" y="114.723" fill="#DDDDDD" width="2.441" height="0.124"/>
+						<rect id="rect58008" x="72.826" y="113.039" fill="#D6D6D6" width="2.441" height="0.233"/>
+					</g>
+					<g id="g58010">
+						<rect id="rect58012" x="77.311" y="112.884" fill="#D1D1D1" width="2.441" height="3.932"/>
+						<rect id="rect58014" x="77.311" y="113.901" fill="#CCCCCC" width="2.441" height="1.892"/>
+						<rect id="rect58016" x="77.311" y="114.015" fill="#C2C2C2" width="2.441" height="1.667"/>
+						<rect id="rect58018" x="77.311" y="114.19" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58020" x="77.311" y="114.53" fill="#B8B8B8" width="2.441" height="0.642"/>
+						<rect id="rect58022" x="77.311" y="114.723" fill="#DDDDDD" width="2.441" height="0.124"/>
+						<rect id="rect58024" x="77.311" y="113.039" fill="#D6D6D6" width="2.441" height="0.233"/>
+					</g>
+					<g id="g58026">
+						<rect id="rect58028" x="81.785" y="112.884" fill="#D1D1D1" width="2.441" height="3.932"/>
+						<rect id="rect58030" x="81.785" y="113.901" fill="#CCCCCC" width="2.441" height="1.892"/>
+						<rect id="rect58032" x="81.785" y="114.015" fill="#C2C2C2" width="2.441" height="1.667"/>
+						<rect id="rect58034" x="81.785" y="114.19" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58036" x="81.785" y="114.53" fill="#B8B8B8" width="2.441" height="0.642"/>
+						<rect id="rect58038" x="81.785" y="114.723" fill="#DDDDDD" width="2.441" height="0.124"/>
+						<rect id="rect58040" x="81.785" y="113.039" fill="#D6D6D6" width="2.441" height="0.233"/>
+					</g>
+					<g id="g58042">
+						<rect id="rect58044" x="86.27" y="112.884" fill="#D1D1D1" width="2.438" height="3.932"/>
+						<rect id="rect58046" x="86.27" y="113.901" fill="#CCCCCC" width="2.438" height="1.892"/>
+						<rect id="rect58048" x="86.27" y="114.015" fill="#C2C2C2" width="2.438" height="1.667"/>
+						<rect id="rect58050" x="86.27" y="114.19" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect58052" x="86.27" y="114.53" fill="#B8B8B8" width="2.438" height="0.642"/>
+						<rect id="rect58054" x="86.27" y="114.723" fill="#DDDDDD" width="2.438" height="0.124"/>
+						<rect id="rect58056" x="86.27" y="113.039" fill="#D6D6D6" width="2.438" height="0.233"/>
+					</g>
+					<g id="g58058">
+						<rect id="rect58060" x="90.75" y="112.884" fill="#D1D1D1" width="2.438" height="3.932"/>
+						<rect id="rect58062" x="90.75" y="113.901" fill="#CCCCCC" width="2.438" height="1.892"/>
+						<rect id="rect58064" x="90.75" y="114.015" fill="#C2C2C2" width="2.438" height="1.667"/>
+						<rect id="rect58066" x="90.75" y="114.19" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect58068" x="90.75" y="114.53" fill="#B8B8B8" width="2.438" height="0.642"/>
+						<rect id="rect58070" x="90.75" y="114.723" fill="#DDDDDD" width="2.438" height="0.124"/>
+						<rect id="rect58072" x="90.75" y="113.039" fill="#D6D6D6" width="2.438" height="0.233"/>
+					</g>
+					<g id="g58074">
+						<rect id="rect58076" x="95.229" y="112.884" fill="#D1D1D1" width="2.441" height="3.932"/>
+						<rect id="rect58078" x="95.229" y="113.901" fill="#CCCCCC" width="2.441" height="1.892"/>
+						<rect id="rect58080" x="95.229" y="114.015" fill="#C2C2C2" width="2.441" height="1.667"/>
+						<rect id="rect58082" x="95.229" y="114.19" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58084" x="95.229" y="114.53" fill="#B8B8B8" width="2.441" height="0.642"/>
+						<rect id="rect58086" x="95.229" y="114.723" fill="#DDDDDD" width="2.441" height="0.124"/>
+						<rect id="rect58088" x="95.229" y="113.039" fill="#D6D6D6" width="2.441" height="0.233"/>
+					</g>
+					<g id="g58090">
+						<rect id="rect58092" x="99.705" y="112.884" fill="#D1D1D1" width="2.439" height="3.932"/>
+						<rect id="rect58094" x="99.705" y="113.901" fill="#CCCCCC" width="2.439" height="1.892"/>
+						<rect id="rect58096" x="99.705" y="114.015" fill="#C2C2C2" width="2.439" height="1.667"/>
+						<rect id="rect58098" x="99.705" y="114.19" fill="#ADADAD" width="2.439" height="1.312"/>
+						<rect id="rect58100" x="99.705" y="114.53" fill="#B8B8B8" width="2.439" height="0.642"/>
+						<rect id="rect58102" x="99.705" y="114.723" fill="#DDDDDD" width="2.439" height="0.124"/>
+						<rect id="rect58104" x="99.705" y="113.039" fill="#D6D6D6" width="2.439" height="0.233"/>
+					</g>
+					<g id="g58106">
+						<rect id="rect58108" x="104.189" y="112.884" fill="#D1D1D1" width="2.438" height="3.932"/>
+						<rect id="rect58110" x="104.189" y="113.901" fill="#CCCCCC" width="2.438" height="1.892"/>
+						<rect id="rect58112" x="104.189" y="114.015" fill="#C2C2C2" width="2.438" height="1.667"/>
+						<rect id="rect58114" x="104.189" y="114.19" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect58116" x="104.189" y="114.53" fill="#B8B8B8" width="2.438" height="0.642"/>
+						<rect id="rect58118" x="104.189" y="114.723" fill="#DDDDDD" width="2.438" height="0.124"/>
+						<rect id="rect58120" x="104.189" y="113.039" fill="#D6D6D6" width="2.438" height="0.233"/>
+					</g>
+					<g id="g58122">
+						<rect id="rect58124" x="108.662" y="112.884" fill="#D1D1D1" width="2.441" height="3.932"/>
+						<rect id="rect58126" x="108.662" y="113.901" fill="#CCCCCC" width="2.441" height="1.892"/>
+						<rect id="rect58128" x="108.662" y="114.015" fill="#C2C2C2" width="2.441" height="1.667"/>
+						<rect id="rect58130" x="108.662" y="114.19" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58132" x="108.662" y="114.53" fill="#B8B8B8" width="2.441" height="0.642"/>
+						<rect id="rect58134" x="108.662" y="114.723" fill="#DDDDDD" width="2.441" height="0.124"/>
+						<rect id="rect58136" x="108.662" y="113.039" fill="#D6D6D6" width="2.441" height="0.233"/>
+					</g>
+				</g>
+				<g id="g58138">
+					<g id="g58140">
+						<rect id="rect58142" x="50.434" y="215.607" fill="#D1D1D1" width="2.438" height="3.93"/>
+						<rect id="rect58144" x="50.434" y="216.627" fill="#CCCCCC" width="2.438" height="1.896"/>
+						<rect id="rect58146" x="50.434" y="216.738" fill="#C2C2C2" width="2.438" height="1.668"/>
+						<rect id="rect58148" x="50.434" y="216.918" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect58150" x="50.434" y="217.254" fill="#B8B8B8" width="2.438" height="0.644"/>
+						<rect id="rect58152" x="50.434" y="217.447" fill="#DDDDDD" width="2.438" height="0.123"/>
+						<rect id="rect58154" x="50.434" y="215.763" fill="#D6D6D6" width="2.438" height="0.229"/>
+					</g>
+					<g id="g58156">
+						<rect id="rect58158" x="54.91" y="215.607" fill="#D1D1D1" width="2.439" height="3.93"/>
+						<rect id="rect58160" x="54.91" y="216.627" fill="#CCCCCC" width="2.439" height="1.896"/>
+						<rect id="rect58162" x="54.91" y="216.738" fill="#C2C2C2" width="2.439" height="1.668"/>
+						<rect id="rect58164" x="54.91" y="216.918" fill="#ADADAD" width="2.439" height="1.312"/>
+						<rect id="rect58166" x="54.91" y="217.254" fill="#B8B8B8" width="2.439" height="0.644"/>
+						<rect id="rect58168" x="54.91" y="217.447" fill="#DDDDDD" width="2.439" height="0.123"/>
+						<rect id="rect58170" x="54.91" y="215.763" fill="#D6D6D6" width="2.439" height="0.229"/>
+					</g>
+					<g id="g58172">
+						<rect id="rect58174" x="59.393" y="215.607" fill="#D1D1D1" width="2.438" height="3.93"/>
+						<rect id="rect58176" x="59.393" y="216.627" fill="#CCCCCC" width="2.438" height="1.896"/>
+						<rect id="rect58178" x="59.393" y="216.738" fill="#C2C2C2" width="2.438" height="1.668"/>
+						<rect id="rect58180" x="59.393" y="216.918" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect58182" x="59.393" y="217.254" fill="#B8B8B8" width="2.438" height="0.644"/>
+						<rect id="rect58184" x="59.393" y="217.447" fill="#DDDDDD" width="2.438" height="0.123"/>
+						<rect id="rect58186" x="59.393" y="215.763" fill="#D6D6D6" width="2.438" height="0.229"/>
+					</g>
+					<g id="g58188">
+						<rect id="rect58190" x="63.869" y="215.607" fill="#D1D1D1" width="2.439" height="3.93"/>
+						<rect id="rect58192" x="63.869" y="216.627" fill="#CCCCCC" width="2.439" height="1.896"/>
+						<rect id="rect58194" x="63.869" y="216.738" fill="#C2C2C2" width="2.439" height="1.668"/>
+						<rect id="rect58196" x="63.869" y="216.918" fill="#ADADAD" width="2.439" height="1.312"/>
+						<rect id="rect58198" x="63.869" y="217.254" fill="#B8B8B8" width="2.439" height="0.644"/>
+						<rect id="rect58200" x="63.869" y="217.447" fill="#DDDDDD" width="2.439" height="0.123"/>
+						<rect id="rect58202" x="63.869" y="215.763" fill="#D6D6D6" width="2.439" height="0.229"/>
+					</g>
+					<g id="g58204">
+						<rect id="rect58206" x="68.352" y="215.607" fill="#D1D1D1" width="2.438" height="3.93"/>
+						<rect id="rect58208" x="68.352" y="216.627" fill="#CCCCCC" width="2.438" height="1.896"/>
+						<rect id="rect58210" x="68.352" y="216.738" fill="#C2C2C2" width="2.438" height="1.668"/>
+						<rect id="rect58212" x="68.352" y="216.918" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect58214" x="68.352" y="217.254" fill="#B8B8B8" width="2.438" height="0.644"/>
+						<rect id="rect58216" x="68.352" y="217.447" fill="#DDDDDD" width="2.438" height="0.123"/>
+						<rect id="rect58218" x="68.352" y="215.763" fill="#D6D6D6" width="2.438" height="0.229"/>
+					</g>
+					<g id="g58220">
+						<rect id="rect58222" x="72.826" y="215.607" fill="#D1D1D1" width="2.441" height="3.93"/>
+						<rect id="rect58224" x="72.826" y="216.627" fill="#CCCCCC" width="2.441" height="1.896"/>
+						<rect id="rect58226" x="72.826" y="216.738" fill="#C2C2C2" width="2.441" height="1.668"/>
+						<rect id="rect58228" x="72.826" y="216.918" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58230" x="72.826" y="217.254" fill="#B8B8B8" width="2.441" height="0.644"/>
+						<rect id="rect58232" x="72.826" y="217.447" fill="#DDDDDD" width="2.441" height="0.123"/>
+						<rect id="rect58234" x="72.826" y="215.763" fill="#D6D6D6" width="2.441" height="0.229"/>
+					</g>
+					<g id="g58236">
+						<rect id="rect58238" x="77.311" y="215.607" fill="#D1D1D1" width="2.441" height="3.93"/>
+						<rect id="rect58240" x="77.311" y="216.627" fill="#CCCCCC" width="2.441" height="1.896"/>
+						<rect id="rect58242" x="77.311" y="216.738" fill="#C2C2C2" width="2.441" height="1.668"/>
+						<rect id="rect58244" x="77.311" y="216.918" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58246" x="77.311" y="217.254" fill="#B8B8B8" width="2.441" height="0.644"/>
+						<rect id="rect58248" x="77.311" y="217.447" fill="#DDDDDD" width="2.441" height="0.123"/>
+						<rect id="rect58250" x="77.311" y="215.763" fill="#D6D6D6" width="2.441" height="0.229"/>
+					</g>
+					<g id="g58252">
+						<rect id="rect58254" x="81.785" y="215.607" fill="#D1D1D1" width="2.441" height="3.93"/>
+						<rect id="rect58256" x="81.785" y="216.627" fill="#CCCCCC" width="2.441" height="1.896"/>
+						<rect id="rect58258" x="81.785" y="216.738" fill="#C2C2C2" width="2.441" height="1.668"/>
+						<rect id="rect58260" x="81.785" y="216.918" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58262" x="81.785" y="217.254" fill="#B8B8B8" width="2.441" height="0.644"/>
+						<rect id="rect58264" x="81.785" y="217.447" fill="#DDDDDD" width="2.441" height="0.123"/>
+						<rect id="rect58266" x="81.785" y="215.763" fill="#D6D6D6" width="2.441" height="0.229"/>
+					</g>
+					<g id="g58268">
+						<rect id="rect58270" x="86.27" y="215.607" fill="#D1D1D1" width="2.438" height="3.93"/>
+						<rect id="rect58272" x="86.27" y="216.627" fill="#CCCCCC" width="2.438" height="1.896"/>
+						<rect id="rect58274" x="86.27" y="216.738" fill="#C2C2C2" width="2.438" height="1.668"/>
+						<rect id="rect58276" x="86.27" y="216.918" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect58278" x="86.27" y="217.254" fill="#B8B8B8" width="2.438" height="0.644"/>
+						<rect id="rect58280" x="86.27" y="217.447" fill="#DDDDDD" width="2.438" height="0.123"/>
+						<rect id="rect58282" x="86.27" y="215.763" fill="#D6D6D6" width="2.438" height="0.229"/>
+					</g>
+					<g id="g58284">
+						<rect id="rect58286" x="90.75" y="215.607" fill="#D1D1D1" width="2.438" height="3.93"/>
+						<rect id="rect58288" x="90.75" y="216.627" fill="#CCCCCC" width="2.438" height="1.896"/>
+						<rect id="rect58290" x="90.75" y="216.738" fill="#C2C2C2" width="2.438" height="1.668"/>
+						<rect id="rect58292" x="90.75" y="216.918" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect58294" x="90.75" y="217.254" fill="#B8B8B8" width="2.438" height="0.644"/>
+						<rect id="rect58296" x="90.75" y="217.447" fill="#DDDDDD" width="2.438" height="0.123"/>
+						<rect id="rect58298" x="90.75" y="215.763" fill="#D6D6D6" width="2.438" height="0.229"/>
+					</g>
+					<g id="g58300">
+						<rect id="rect58302" x="95.229" y="215.607" fill="#D1D1D1" width="2.441" height="3.93"/>
+						<rect id="rect58304" x="95.229" y="216.627" fill="#CCCCCC" width="2.441" height="1.896"/>
+						<rect id="rect58306" x="95.229" y="216.738" fill="#C2C2C2" width="2.441" height="1.668"/>
+						<rect id="rect58308" x="95.229" y="216.918" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58310" x="95.229" y="217.254" fill="#B8B8B8" width="2.441" height="0.644"/>
+						<rect id="rect58312" x="95.229" y="217.447" fill="#DDDDDD" width="2.441" height="0.123"/>
+						<rect id="rect58314" x="95.229" y="215.763" fill="#D6D6D6" width="2.441" height="0.229"/>
+					</g>
+					<g id="g58316">
+						<rect id="rect58318" x="99.705" y="215.607" fill="#D1D1D1" width="2.439" height="3.93"/>
+						<rect id="rect58320" x="99.705" y="216.627" fill="#CCCCCC" width="2.439" height="1.896"/>
+						<rect id="rect58322" x="99.705" y="216.738" fill="#C2C2C2" width="2.439" height="1.668"/>
+						<rect id="rect58324" x="99.705" y="216.918" fill="#ADADAD" width="2.439" height="1.312"/>
+						<rect id="rect58326" x="99.705" y="217.254" fill="#B8B8B8" width="2.439" height="0.644"/>
+						<rect id="rect58328" x="99.705" y="217.447" fill="#DDDDDD" width="2.439" height="0.123"/>
+						<rect id="rect58330" x="99.705" y="215.763" fill="#D6D6D6" width="2.439" height="0.229"/>
+					</g>
+					<g id="g58332">
+						<rect id="rect58334" x="104.189" y="215.607" fill="#D1D1D1" width="2.438" height="3.93"/>
+						<rect id="rect58336" x="104.189" y="216.627" fill="#CCCCCC" width="2.438" height="1.896"/>
+						<rect id="rect58338" x="104.189" y="216.738" fill="#C2C2C2" width="2.438" height="1.668"/>
+						<rect id="rect58340" x="104.189" y="216.918" fill="#ADADAD" width="2.438" height="1.312"/>
+						<rect id="rect58342" x="104.189" y="217.254" fill="#B8B8B8" width="2.438" height="0.644"/>
+						<rect id="rect58344" x="104.189" y="217.447" fill="#DDDDDD" width="2.438" height="0.123"/>
+						<rect id="rect58346" x="104.189" y="215.763" fill="#D6D6D6" width="2.438" height="0.229"/>
+					</g>
+					<g id="g58348">
+						<rect id="rect58350" x="108.662" y="215.607" fill="#D1D1D1" width="2.441" height="3.93"/>
+						<rect id="rect58352" x="108.662" y="216.627" fill="#CCCCCC" width="2.441" height="1.896"/>
+						<rect id="rect58354" x="108.662" y="216.738" fill="#C2C2C2" width="2.441" height="1.668"/>
+						<rect id="rect58356" x="108.662" y="216.918" fill="#ADADAD" width="2.441" height="1.312"/>
+						<rect id="rect58358" x="108.662" y="217.254" fill="#B8B8B8" width="2.441" height="0.644"/>
+						<rect id="rect58360" x="108.662" y="217.447" fill="#DDDDDD" width="2.441" height="0.123"/>
+						<rect id="rect58362" x="108.662" y="215.763" fill="#D6D6D6" width="2.441" height="0.229"/>
+					</g>
+				</g>
+			</g>
+			<path id="Pads" fill="#D9A300" stroke="#161519" stroke-width="0.25" stroke-miterlimit="10" d="M108.232,105.604
+				c0-0.959,0.775-1.735,1.734-1.735s1.732,0.776,1.732,1.735s-0.773,1.731-1.732,1.731S108.232,106.562,108.232,105.604z"/>
+		</g>
+		<g id="Inductor">
+			<g id="g30989">
+				<path id="path30991" fill="#B9B8C8" stroke="#000000" stroke-width="0.48" stroke-linecap="round" stroke-linejoin="round" d="
+					M56.447,325.748c0,0,9.121-9.233,9.121-9.231c0,0,0-10.927,0-10.929l-9.121-9.233h-0.002c0,0-11.034,0-11.034,0.002
+					c0,0-9.121,9.233-9.121,9.231v10.927v0.002l9.121,9.237h0.002h11.034"/>
+			</g>
+			<path id="path57236" fill="#313131" stroke="#000000" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+				M61.826,314.594l-0.961,1.924l-1.195,1.918l-1.562,1.438l-1.918,1.197l-2.039,0.84l-2.16,0.48l-2.16-0.121l-2.154-0.359
+				l-2.039-0.84l-1.804-1.315l-1.562-1.562l-1.314-1.801l-0.846-2.039l-0.354-2.281v-2.279l0.354-2.149h0.002l0.961-2.046
+				l1.199-1.805l1.562-1.561l1.921-1.199l2.043-0.84l2.155-0.357h2.156l2.16,0.357l2.043,0.84l1.797,1.32l1.562,1.559l1.316,1.803
+				l0.84,2.042v0.004l0.359,2.274v2.281l-0.359,2.277"/>
+		</g>
+		<g id="Capacitor">
+			<g id="g31357">
+				<path id="path31359" fill="#161519" stroke="#000000" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+					M60.646,284.226v8.039H39.768l-3.242-3.238v-4.801v-8.039v-4.801l3.242-3.238h20.879v8.039L60.646,284.226L60.646,284.226z"/>
+				<path id="path31361" fill="#B9B8C8" stroke="#B9B8C8" stroke-width="0.25" stroke-linecap="round" stroke-linejoin="round" d="
+					M53.805,290.226l-2.039,0.84l-2.16,0.479l-2.16-0.121l-2.154-0.354l-2.039-0.84l-1.807-1.32l-1.562-1.559l-1.315-1.806
+					l-0.844-2.039l-0.354-2.276v-2.281l0.354-2.152h0.002l0.961-2.043l1.199-1.805l1.562-1.559l1.923-1.199l2.043-0.84l2.155-0.359
+					h2.156l2.16,0.359l2.043,0.84l0.062,19.92"/>
+			</g>
+			<path id="path57238" fill="#313131" stroke="#313131" stroke-width="0.25" stroke-linecap="round" stroke-linejoin="round" d="
+				M59.521,283.75l-0.961,1.924l-1.199,1.918L55.8,289.03l-1.809,1.199l0.014-0.271v-19.771l1.797,1.315l1.562,1.562l1.318,1.805
+				l0.84,2.035v0.004l0.359,2.279v2.281l-0.359,2.272L59.521,283.75L59.521,283.75z"/>
+		</g>
+		<g id="Components_x5F_6">
+			<g id="g30981">
+				<path id="path30983" fill="none" stroke="#FFFDFD" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+					M21.884,239.49h26.642v24.721H21.885C21.885,264.211,21.885,239.49,21.884,239.49z"/>
+			</g>
+			<path id="path57242" fill="#313131" stroke="#B9B8C8" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+				M22.945,240.474h24.52v22.748H22.947C22.947,263.222,22.947,240.474,22.945,240.474z"/>
+		</g>
+		<g id="Components_x5F_5">
+			<g id="Part3">
+				<path id="path30995" fill="none" stroke="#000000" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+					M18.287,75.905v-8.039"/>
+				<path id="path30997" fill="none" stroke="#000000" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+					M41.686,67.865v8.039"/>
+				<path id="path30999" fill="none" stroke="#FFFDFD" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+					M36.166,72.065c0,3.479-2.758,6.242-6.238,6.242s-6.242-2.768-6.242-6.242c0-3.479,2.762-6.238,6.242-6.238
+					S36.166,68.586,36.166,72.065z"/>
+			</g>
+			<g id="Part2">
+				<path id="path31379" fill="none" stroke="#FFFDFD" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+					M18.287,83.705v-23.52"/>
+				<path id="path31381" fill="none" stroke="#FCFAFA" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+					M41.686,60.187v23.52"/>
+				<path id="path31383" fill="none" stroke="#B9B8C8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="
+					M41.686,83.705H18.289"/>
+				<path id="path31385" fill="#B9B8C8" stroke="#B9B8C8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="
+					M18.287,60.187h23.396"/>
+			</g>
+			<g id="Part1">
+				<path id="path57244" fill="#FFFFFF" stroke="#FFFDFD" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+					M31.988,72.066c0,1.116-0.885,2.002-2,2.002c-1.114,0-2.002-0.886-2.002-2.002c0-1.115,0.888-2,2.002-2
+					C31.104,70.066,31.988,70.95,31.988,72.066z"/>
+				<g>
+					<path id="path57552" fill="#B9B8C8" stroke="#B9B8C8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="
+						M18.287,66.524V60.16"/>
+					<path id="path57556" fill="#B9B8C8" stroke="#B9B8C8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="
+						M41.925,66.524V60.16"/>
+					<path id="path57558" fill="#B9B8C8" stroke="#B9B8C8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="
+						M41.75,83.705v-6.356"/>
+					<path id="path57560" fill="#B9B8C8" stroke="#B9B8C8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="
+						M18.491,83.705v-6.356"/>
+				</g>
+			</g>
+		</g>
+		<g id="Pin-In_6x">
+			<path id="path57554" fill="#313131" stroke="#313131" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+				M20.689,99.785h15.842h0.005l1.438-1.438c0-0.001,0-6.481,0.002-6.482l-1.438-1.438h0.002H20.693l-1.314,1.438l-0.002,0.001v6.48
+				l0.002,0.003l1.314,1.438"/>
+			<g id="g57562">
+				<rect id="rect57564" x="22.666" y="94.026" fill="#A8926F" width="2.16" height="2.16"/>
+				<rect id="rect57566" x="32.025" y="94.026" fill="#A8926F" width="2.16" height="2.16"/>
+			</g>
+			<path id="path57568" fill="#313131" stroke="#313131" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+				M20.689,109.615h15.842h0.004l1.438-1.438c0-0.006,0-6.481,0.002-6.482l-1.438-1.438h0.002H20.693l-1.314,1.438l-0.002,0.001
+				v6.479l0.002,0.008l1.314,1.438"/>
+			<g id="g57570">
+				<rect id="rect57572" x="22.666" y="103.857" fill="#A8926F" width="2.16" height="2.16"/>
+				<rect id="rect57574" x="32.025" y="103.857" fill="#A8926F" width="2.16" height="2.16"/>
+			</g>
+			<path id="path57576" fill="#313131" stroke="#313131" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+				M20.689,119.435h15.842h0.004l1.438-1.438c0-0.001,0-6.479,0.002-6.479l-1.438-1.439h0.002H20.693l-1.314,1.439l-0.002,0.001
+				v6.479l0.002,0.003l1.314,1.438"/>
+			<g id="g57578">
+				<rect id="rect57580" x="22.665" y="113.467" fill="#A8926F" width="2.16" height="2.16"/>
+				<rect id="rect57582" x="32.025" y="113.467" fill="#A8926F" width="2.16" height="2.16"/>
+			</g>
+		</g>
+		<g id="Flash_Memory">
+			<g id="g57584">
+				<rect id="rect57586" x="147.504" y="113.57" fill="#B9B8C8" width="4.074" height="1.68"/>
+				<g id="g57588">
+					<path id="path57590" fill="#161519" d="M153.74,112.45h-1.803v17.521h1.803h12.121V112.45H153.74z"/>
+				</g>
+			</g>
+			<rect id="rect57592" x="147.504" y="118.135" fill="#B9B8C8" width="4.074" height="1.68"/>
+			<rect id="rect57594" x="166.223" y="127.329" fill="#B9B8C8" width="4.082" height="1.688"/>
+			<rect id="rect57596" x="166.223" y="117.973" fill="#B9B8C8" width="4.082" height="1.68"/>
+			<rect id="rect57598" x="166.223" y="122.65" fill="#B9B8C8" width="4.082" height="1.68"/>
+			<rect id="rect57600" x="166.223" y="113.57" fill="#B9B8C8" width="4.082" height="1.68"/>
+			<rect id="rect57602" x="147.504" y="122.813" fill="#B9B8C8" width="4.074" height="1.68"/>
+			<rect id="rect57604" x="147.504" y="127.491" fill="#B9B8C8" width="4.074" height="1.683"/>
+		</g>
+		<g id="Voltage_regulator">
+			<rect id="rect57222" x="77" y="290.552" fill="#B9B8C8" width="11.492" height="3.479"/>
+			<rect id="rect57224" x="77" y="284.187" fill="#B9B8C8" width="11.492" height="3.479"/>
+			<rect id="rect57226" x="77" y="297.033" fill="#B9B8C8" width="11.492" height="3.48"/>
+			<rect id="rect57228" x="77" y="303.461" fill="#B9B8C8" width="11.492" height="3.479"/>
+			<rect id="rect57230" x="77" y="310.144" fill="#B9B8C8" width="11.492" height="3.48"/>
+			<g id="g57166_1_">
+				
+					<path id="path57168_1_" fill="#161519" stroke="#000000" stroke-width="0.84" stroke-linecap="round" stroke-linejoin="round" d="
+					M116.125,315v-31.875H87.491V315H116.125z"/>
+			</g>
+		</g>
+		<g id="Logo_DQuid">
+			<polygon id="polygon56558" fill="#345A92" points="195.5,33.111 184.518,37.107 185.75,31.965 195.5,28.416 			"/>
+			<polygon id="polygon56560" fill="#1E3658" points="191.098,30.02 191.098,34.713 189.363,35.339 			"/>
+			<polygon id="polygon56562" fill="#D9DF6D" points="195.5,43.831 184.518,37.069 184.518,31.251 195.5,38.012 			"/>
+			<polygon id="polygon56564" fill="#E2BD00" points="180.109,19.705 184.518,16.787 184.518,37.069 180.109,34.148 			"/>
+			<polygon id="polygon56566" fill="#71CAF3" points="195.5,25.473 184.518,21.457 184.518,16.787 195.5,20.785 			"/>
+			<polygon id="polygon56568" fill="#D0107C" points="195.5,20.785 191.098,19.185 191.098,34.713 195.5,33.111 			"/>
+			<polygon id="polygon56570" fill="#0B8299" points="184.518,16.787 185.754,21.911 184.518,21.457 			"/>
+		</g>
+		<g id="Power_connector">
+			<g>
+				
+					<line id="line56588" opacity="0.5" fill="none" stroke="#000000" stroke-width="0.25" stroke-miterlimit="10" enable-background="new    " x1="62.781" y1="333.552" x2="39.05" y2="333.552"/>
+				<g id="g56590">
+					<rect id="rect56592" x="39.076" y="360.218" opacity="0.25" enable-background="new    " width="23.729" height="1.282"/>
+					
+						<path id="path56594" opacity="0.25" stroke="#565656" stroke-width="0.25" stroke-miterlimit="10" enable-background="new    " d="
+						M43.374,361.219h15.077v-13.299c0-4.166-3.375-7.541-7.541-7.541c-4.16,0-7.537,3.375-7.537,7.541L43.374,361.219
+						L43.374,361.219z"/>
+				</g>
+				<rect id="rect56602" x="48.059" y="329.041" fill="#6D6D6D" width="5.713" height="1.697"/>
+				<rect id="rect56604" x="45.305" y="329.763" fill="#494949" width="11.223" height="0.975"/>
+				<g>
+					<g id="g56572">
+						<g id="g56574">
+							<rect id="rect56576" x="39.05" y="330.738" fill="#232323" width="23.729" height="32.979"/>
+							<rect id="rect56578" x="39.623" y="331.175" fill="#494949" width="1.645" height="31.936"/>
+							<rect id="rect56580" x="41.271" y="331.175" fill="#3D3D3D" fill-opacity="0.3" width="5.369" height="31.936"/>
+							<rect id="rect56582" x="60.646" y="331.175" width="1.619" height="32.973"/>
+							<rect id="rect56584" x="54.865" y="331.175" fill="#0F0F0F" fill-opacity="0.4" width="5.828" height="32.973"/>
+						</g>
+						<rect id="rect56586" x="39.05" y="330.738" opacity="0.2" enable-background="new    " width="23.729" height="0.601"/>
+					</g>
+					<g>
+						<g id="g56596">
+							<path id="path56598" fill="#232323" d="M43.374,361.219h15.077v-13.299c0-4.166-3.375-7.541-7.541-7.541
+								c-4.16,0-7.537,3.375-7.537,7.541L43.374,361.219L43.374,361.219z"/>
+							<rect id="rect56600" x="38.159" y="360.49" fill="#232323" width="25.513" height="7.688"/>
+						</g>
+						<g id="g56606">
+							<g id="g56608" enable-background="new    ">
+								<g id="g56610">
+									<g id="g56612">
+										<path id="path56614" fill="#1A1A1A" d="M43.589,378.183c-1.868-0.938-3.024-2.229-3.024-3.664
+											c0-2.861,4.646-5.188,10.379-5.188c5.73,0,10.375,2.326,10.375,5.188c0,0.164-0.018,0.324-0.047,0.482
+											c-0.311,2.723-4.828,4.887-10.357,4.887c-5.729,0-10.373-2.326-10.373-5.188v-0.188
+											C40.536,375.943,41.703,377.246,43.589,378.183 M40.562,374.496v-0.188c0-2.867,4.646-5.188,10.377-5.188
+											c5.734,0,10.379,2.316,10.379,5.188v0.188c0-2.862-4.646-5.188-10.379-5.188
+											C45.208,369.304,40.562,371.632,40.562,374.496 M63.693,368.144H38.188v12.752h25.508L63.693,368.144"/>
+										<path id="path56616" d="M53.145,369.844v4.678c0,0.25-0.16,0.48-0.438,0.662c-0.285,0.34-0.959,0.576-1.736,0.576
+											c-0.695,0-1.307-0.189-1.629-0.479c-0.379-0.191-0.613-0.469-0.613-0.766v-4.678c-4.24,0.5-7.396,2.396-7.396,4.678
+											c0,2.656,4.302,4.807,9.606,4.807c5.312,0,9.613-2.146,9.613-4.807C60.553,372.248,57.393,370.344,53.145,369.844"/>
+										<path id="path56618" fill="#808080" d="M50.941,369.719c-0.764,0-1.504,0.045-2.215,0.129v4.678
+											c0-0.604,0.99-1.104,2.215-1.104c1.215,0,2.203,0.489,2.203,1.104v-4.68C52.438,369.76,51.697,369.719,50.941,369.719"/>
+										<path id="path56620" fill="#333333" d="M50.941,369.719c0.758,0,1.496,0.045,2.203,0.127
+											c4.248,0.498,7.408,2.397,7.408,4.68c0,2.654-4.303,4.812-9.611,4.812c-5.312,0-9.608-2.146-9.608-4.812
+											c0-2.271,3.153-4.178,7.396-4.678C49.438,369.76,50.18,369.719,50.941,369.719 M50.941,369.339
+											c-5.729,0-10.379,2.317-10.379,5.188c0,1.435,1.156,2.729,3.025,3.664c1.876,0.937,4.465,1.512,7.322,1.512
+											c5.73,0,10.377-2.313,10.377-5.188v0.188c0,0.104-0.008,0.201-0.021,0.312c0.029-0.158,0.047-0.318,0.047-0.482
+											C61.318,371.656,56.674,369.339,50.941,369.339"/>
+										<path id="path56622" fill="#B3B3B3" d="M50.941,373.425c-1.225,0-2.215,0.489-2.215,1.104
+											c0,0.297,0.232,0.562,0.611,0.771c-0.16-0.146-0.252-0.31-0.252-0.479c0-0.52,0.846-0.938,1.881-0.938
+											c1.045,0,1.893,0.418,1.893,0.938c0,0.133-0.057,0.258-0.146,0.371c0.271-0.188,0.438-0.414,0.438-0.662
+											C53.145,373.916,52.156,373.425,50.941,373.425"/>
+										<path id="path56624" fill="#CCCCCC" d="M50.969,373.875c-1.035,0-1.881,0.423-1.881,0.938
+											c0,0.172,0.092,0.334,0.252,0.477c0.322,0.279,0.936,0.479,1.629,0.479c0.781,0,1.453-0.236,1.736-0.574
+											c0.1-0.113,0.15-0.238,0.15-0.371C52.859,374.298,52.012,373.875,50.969,373.875"/>
+										<path id="path56626" fill="#4D4D4D" d="M50.941,369.115c-5.729,0-10.379,2.32-10.379,5.188v0.188
+											c0-2.858,4.646-5.188,10.379-5.188s10.377,2.315,10.377,5.188v-0.188C61.318,371.437,56.674,369.115,50.941,369.115"/>
+										<path id="path56628" d="M61.287,374.51c0,2.858-4.645,5.188-10.377,5.188c-2.855,0-5.444-0.578-7.321-1.512
+											c-1.886-0.938-3.052-2.24-3.052-3.676v0.188c0,2.861,4.645,5.188,10.373,5.188c5.529,0,10.049-2.164,10.357-4.892
+											c0.014-0.104,0.021-0.194,0.021-0.307L61.287,374.51"/>
+									</g>
+								</g>
+							</g>
+						</g>
+					</g>
+				</g>
+				<rect id="rect56892" x="38.572" y="361.219" fill="#494949" width="1.054" height="6.264"/>
+			</g>
+			<rect id="rect56894" x="62.26" y="361.219" width="1.049" height="6.264"/>
+		</g>
+		<g id="Usb_micro" transform="matrix(1, 0, 0, 1, 18.6038, 120.082)">
+			<g id="g56444">
+				<rect id="rect56446" x="12.472" y="96.15" fill="#666666" width="1.668" height="1.338"/>
+				<rect id="rect56448" x="12.661" y="96.15" fill="#999999" width="1.479" height="0.121"/>
+			</g>
+			<g id="g56450">
+				<rect id="rect56452" x="12.472" y="98.644" fill="#666666" width="1.668" height="1.336"/>
+				<rect id="rect56454" x="12.661" y="98.644" fill="#999999" width="1.479" height="0.112"/>
+			</g>
+			<g id="g56456">
+				<rect id="rect56458" x="12.472" y="101.129" fill="#666666" width="1.668" height="1.338"/>
+				<rect id="rect56460" x="12.661" y="101.129" fill="#999999" width="1.479" height="0.121"/>
+			</g>
+			<g id="g56462">
+				<rect id="rect56464" x="12.472" y="103.625" fill="#666666" width="1.668" height="1.338"/>
+				<rect id="rect56466" x="12.661" y="103.619" fill="#999999" width="1.479" height="0.119"/>
+			</g>
+			<g id="g56468">
+				<rect id="rect56470" x="12.472" y="106.111" fill="#666666" width="1.668" height="1.334"/>
+				<rect id="rect56472" x="12.661" y="106.109" fill="#999999" width="1.479" height="0.119"/>
+			</g>
+			<g id="g56474">
+				<polygon id="polygon56476" fill="#B3B3B3" points="-10.117,114.521 -10.117,89.07 12.854,89.07 12.854,114.525 				"/>
+				<rect id="rect56478" x="-0.185" y="114.799" fill="#666666" width="4.104" height="1.347"/>
+				<rect id="rect56480" x="-0.185" y="87.404" fill="#666666" width="4.104" height="1.354"/>
+				<rect id="rect56482" x="12.679" y="89.07" fill="#CCCCCC" width="0.174" height="25.455"/>
+				<rect id="rect56484" x="-8.235" y="94.832" fill="#333333" width="21.092" height="13.896"/>
+				<polygon id="polygon56486" fill="#B3B3B3" points="-9.617,88.758 -10.262,88.758 -11.725,87.894 -11.725,87.404 				"/>
+				<polygon id="polygon56488" fill="#CCCCCC" points="-10.262,88.758 -10.262,88.76 -10.991,88.758 -11.725,87.894 				"/>
+				<polygon id="polygon56490" fill="#B3B3B3" points="-11.725,116.146 -11.725,115.656 -10.262,114.795 -9.617,114.795 				"/>
+				<polygon id="polygon56492" fill="#CCCCCC" points="-11.725,115.656 -10.991,114.795 -10.262,114.795 -10.262,114.795 				"/>
+				<g id="g56494">
+					<g id="g56496">
+						<rect id="rect56498" x="-9.616" y="107.088" fill="#F2F2F2" width="0.873" height="0.646"/>
+					</g>
+					<g id="g56500">
+						<rect id="rect56502" x="-9.616" y="104.269" fill="#F2F2F2" width="0.873" height="0.646"/>
+					</g>
+					<g id="g56504">
+						<rect id="rect56506" x="-9.616" y="101.457" fill="#F2F2F2" width="0.873" height="0.646"/>
+					</g>
+					<g id="g56508">
+						<rect id="rect56510" x="-9.616" y="98.637" fill="#F2F2F2" width="0.873" height="0.645"/>
+					</g>
+					<g id="g56512">
+						<rect id="rect56514" x="-9.616" y="95.82" fill="#F2F2F2" width="0.873" height="0.646"/>
+					</g>
+					<g id="g56516">
+						<rect id="rect56518" x="-9.616" y="95.82" fill="#808080" width="0.873" height="0.131"/>
+					</g>
+					<g id="g56520">
+						<rect id="rect56522" x="-9.616" y="98.638" fill="#808080" width="0.873" height="0.129"/>
+					</g>
+					<g id="g56524">
+						<rect id="rect56526" x="-9.616" y="101.457" fill="#808080" width="0.873" height="0.135"/>
+					</g>
+					<g id="g56528">
+						<rect id="rect56530" x="-9.616" y="104.267" fill="#808080" width="0.873" height="0.135"/>
+					</g>
+					<g id="g56532">
+						<rect id="rect56534" x="-9.616" y="107.09" fill="#808080" width="0.873" height="0.136"/>
+					</g>
+				</g>
+				<path id="path56536" fill="#4D4D4D" d="M-9.867,95.129v0.691h0.537v0.646h-0.537v2.166h0.537v0.646h-0.537v2.178h0.537v0.646
+					h-0.537v2.17h0.537v0.646h-0.537v2.172h0.537v0.646h-0.537v0.438v0.363c0,0.104,0.086,0.191,0.198,0.191h1.435
+					c0.107,0,0.199-0.086,0.199-0.191V95.023c0-0.104-0.086-0.191-0.199-0.191h-1.435c-0.104,0-0.198,0.086-0.198,0.191V95.129z"/>
+				<path id="path56538" fill="#CCCCCC" d="M12.092,88.758l0.76,0.312v3.422c0,0-0.146-3.107-0.381-3.223
+					c-0.229-0.109-0.377,0.146-0.377,0.146L12.092,88.758L12.092,88.758z"/>
+				<path id="path56540" fill="#CCCCCC" d="M12.092,114.795l0.76-0.312v-3.422c0,0-0.146,3.104-0.381,3.219
+					c-0.229,0.109-0.375-0.146-0.375-0.146L12.092,114.795L12.092,114.795z"/>
+				<path id="path56542" fill="#E6E6E6" d="M12.854,110.215h-2.207v-2.168h2.207v-0.621H12.09V96.131h0.765v-0.707h-2.208v-2.166
+					h2.208V88.77h-22.974v26.021h22.974L12.854,110.215L12.854,110.215z M-5.86,95.42h-1.1V93.27h1.188
+					c0.376-0.581,1.026-0.96,1.772-0.96c0.807,0,1.49,0.297,1.844,0.957l0,0h6.049v2.146H-2.16
+					c-0.354,0.652-1.041,1.107-1.844,1.107C-4.815,96.531-5.503,96.082-5.86,95.42z M-5.86,110.129h-1.1v-2.146h1.188
+					c0.375-0.576,1.024-0.955,1.771-0.955c0.807,0,1.49,0.293,1.844,0.955l0,0h6.049v2.146H-2.16
+					c-0.354,0.662-1.041,1.111-1.844,1.111C-4.815,111.24-5.503,110.793-5.86,110.129z"/>
+				<polygon id="polygon56544" fill="#F2F2F2" points="-10.117,89.308 -10.117,88.758 12.092,88.758 12.092,90.832 				"/>
+				<polygon id="polygon56546" fill="#999999" points="-10.117,114.795 4.711,114.023 12.092,113.258 12.092,114.795 				"/>
+				<rect id="rect56548" x="3.718" y="93.267" fill="#CCCCCC" width="0.176" height="2.146"/>
+				<rect id="rect56550" x="3.718" y="107.976" fill="#CCCCCC" width="0.176" height="2.146"/>
+				<rect id="rect56552" x="-9.843" y="90.041" fill="#B3B3B3" width="0.892" height="23.479"/>
+				<rect id="rect56554" x="-10.117" y="90.041" fill="#CCCCCC" width="0.422" height="23.479"/>
+			</g>
+		</g>
+		<g id="Antenova_Antenna">
+			<g id="Antenova">
+				<g id="_x3C_Antenova_x3E_">
+					<g id="Background">
+						<g id="g55853">
+							<path id="path55855" fill="#357E94" stroke="#357E94" stroke-width="0.5" stroke-miterlimit="10" d="M165.885,9.787v38.156
+								H19.248V9.787H165.885z"/>
+						</g>
+					</g>
+					<g id="Layer_SX">
+						<g id="g55859">
+							<path id="path55861" fill="#265567" d="M64.848,12.013V45.96H21.227V12.013H64.848z"/>
+						</g>
+					</g>
+					<g id="Layer_DX">
+						<g id="g55865">
+							<path id="path55867" fill="#265567" d="M164.057,12.013V45.96h-43.621V12.013H164.057z"/>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g id="Antenova_1_">
+				<path id="path55871" fill="#FFFFFF" d="M61.004,28.881l-0.143-1.188h-0.057c-0.525,0.737-1.535,1.396-2.873,1.396
+					c-1.902,0-2.873-1.341-2.873-2.694c0-2.271,2.018-3.518,5.646-3.494v-0.194c0-0.771-0.217-2.174-2.139-2.174
+					c-0.873,0-1.787,0.272-2.443,0.699l-0.391-1.125c0.777-0.505,1.902-0.834,3.086-0.834c2.875,0,3.572,1.959,3.572,3.843v3.518
+					c0,0.812,0.039,1.606,0.154,2.251L61.004,28.881L61.004,28.881z M60.752,24.087c-1.865-0.039-3.98,0.291-3.98,2.111
+					c0,1.106,0.738,1.63,1.611,1.63c1.223,0,1.998-0.771,2.271-1.562c0.062-0.18,0.102-0.369,0.102-0.543L60.752,24.087
+					L60.752,24.087z"/>
+				<path id="path55873" fill="#FFFFFF" d="M65.152,22.029c0-0.971-0.02-1.766-0.076-2.543h1.516l0.098,1.553h0.039
+					c0.467-0.893,1.553-1.766,3.104-1.766c1.305,0,3.318,0.771,3.318,3.998v5.605h-1.707v-5.416c0-1.519-0.562-2.771-2.174-2.771
+					c-1.127,0-2,0.795-2.291,1.747c-0.078,0.213-0.115,0.505-0.115,0.796v5.646h-1.709L65.152,22.029L65.152,22.029z"/>
+				<path id="path55875" fill="#FFFFFF" d="M77.898,16.787v2.698h2.447v1.3h-2.447v5.067c0,1.165,0.33,1.824,1.281,1.824
+					c0.447,0,0.777-0.062,0.992-0.117l0.072,1.277c-0.326,0.141-0.854,0.229-1.514,0.229c-0.797,0-1.438-0.252-1.846-0.719
+					c-0.484-0.504-0.66-1.341-0.66-2.445V20.78H74.77v-1.3h1.455v-2.25L77.898,16.787z"/>
+				<path id="path55877" fill="#FFFFFF" d="M83.098,24.494c0.037,2.312,1.514,3.271,3.223,3.271c1.227,0,1.961-0.218,2.605-0.485
+					l0.291,1.223c-0.605,0.271-1.635,0.583-3.125,0.583c-2.896,0-4.621-1.896-4.621-4.729s1.668-5.065,4.402-5.065
+					c3.068,0,3.887,2.697,3.887,4.425c0,0.354-0.039,0.621-0.062,0.801L83.098,24.494L83.098,24.494z M88.105,23.271
+					c0.021-1.086-0.447-2.775-2.369-2.775c-1.727,0-2.479,1.596-2.619,2.775H88.105z"/>
+				<path id="path55879" fill="#FFFFFF" d="M91.865,22.029c0-0.971-0.02-1.766-0.078-2.543h1.52l0.098,1.553h0.039
+					c0.465-0.893,1.553-1.766,3.105-1.766c1.301,0,3.312,0.771,3.312,3.998v5.605h-1.707v-5.416c0-1.519-0.562-2.771-2.174-2.771
+					c-1.125,0-2,0.795-2.289,1.747c-0.08,0.213-0.117,0.505-0.117,0.796v5.646h-1.709L91.865,22.029L91.865,22.029z"/>
+				<path id="path55881" fill="#FFFFFF" d="M111.135,24.107c0,3.474-2.406,4.989-4.682,4.989c-2.543,0-4.504-1.863-4.504-4.834
+					c0-3.146,2.062-4.988,4.66-4.988C109.311,19.273,111.135,21.233,111.135,24.107z M103.682,24.202
+					c0,2.062,1.186,3.611,2.854,3.611c1.631,0,2.854-1.534,2.854-3.65c0-1.591-0.795-3.604-2.812-3.604
+					C104.557,20.554,103.682,22.416,103.682,24.202z"/>
+				<path id="path55883" fill="#FFFFFF" d="M113.811,19.486l1.842,5.279c0.312,0.854,0.562,1.631,0.765,2.403h0.062
+					c0.213-0.772,0.479-1.559,0.795-2.403l1.824-5.279h1.785l-3.688,9.396h-1.629l-3.57-9.396H113.811z"/>
+				<path id="path55885" fill="#FFFFFF" d="M127.604,28.881l-0.135-1.188h-0.062c-0.521,0.737-1.527,1.396-2.873,1.396
+					c-1.897,0-2.873-1.341-2.873-2.694c0-2.271,2.021-3.518,5.647-3.494v-0.194c0-0.771-0.213-2.174-2.139-2.174
+					c-0.873,0-1.781,0.272-2.441,0.699l-0.393-1.125c0.771-0.505,1.896-0.834,3.092-0.834c2.869,0,3.562,1.959,3.562,3.843v3.518
+					c0,0.812,0.033,1.606,0.15,2.251L127.604,28.881L127.604,28.881z M127.352,24.087c-1.863-0.039-3.979,0.291-3.979,2.111
+					c0,1.106,0.736,1.63,1.611,1.63c1.223,0,1.998-0.771,2.271-1.562c0.06-0.18,0.099-0.369,0.099-0.543L127.352,24.087
+					L127.352,24.087z"/>
+			</g>
+			<g id="Copyright">
+				<path id="path55889" fill="#FAFCFC" d="M139.723,19.41c0,2.41-1.854,4.347-4.215,4.347c-2.383,0-4.264-1.938-4.264-4.347
+					c0-2.381,1.877-4.312,4.264-4.312C137.869,15.097,139.723,17.029,139.723,19.41z M131.947,19.452
+					c0,2.087,1.541,3.729,3.562,3.729c1.976,0,3.517-1.646,3.517-3.771c0-2.087-1.541-3.735-3.517-3.735
+					C133.49,15.671,131.947,17.323,131.947,19.452z M137.217,17.814c-0.188-0.103-0.701-0.322-1.359-0.322
+					c-1.312,0-1.961,0.84-1.961,1.961c0,1.103,0.688,1.979,1.979,1.979c0.562,0,1.103-0.154,1.416-0.364l0.168,0.532
+					c-0.481,0.317-1.14,0.435-1.729,0.435c-1.625,0-2.561-1.121-2.561-2.536c0-1.597,1.26-2.604,2.676-2.604
+					c0.729,0,1.354,0.21,1.541,0.378L137.217,17.814z"/>
+			</g>
+		</g>
+		<g id="Pin-ou_29-34_Dx">
+			<rect id="rect56898" x="193.244" y="124.887" fill="#404040" width="9.602" height="28.794"/>
+			<rect id="rect56900" x="196.572" y="146.954" width="3.709" height="3.708"/>
+			<polygon id="polygon56902" fill="#2A2A29" points="195.205,152.029 196.572,150.664 196.572,146.954 195.205,145.587 			"/>
+			<polygon id="polygon56904" fill="#474747" points="195.205,145.587 196.576,146.954 200.281,146.954 201.65,145.587 			"/>
+			<polygon id="polygon56906" fill="#595959" points="201.65,145.589 200.281,146.955 200.281,150.664 201.65,152.029 			"/>
+			<polygon id="polygon56908" fill="#373737" points="201.65,152.031 200.281,150.664 196.572,150.664 195.205,152.031 			"/>
+			<rect id="rect56910" x="196.572" y="137.357" width="3.709" height="3.707"/>
+			<polygon id="polygon56912" fill="#2A2A29" points="195.205,142.432 196.572,141.066 196.572,137.356 195.205,135.99 			"/>
+			<polygon id="polygon56914" fill="#474747" points="195.205,135.99 196.576,137.356 200.281,137.356 201.65,135.99 			"/>
+			<polygon id="polygon56916" fill="#595959" points="201.65,135.991 200.281,137.357 200.281,141.066 201.65,142.432 			"/>
+			<polygon id="polygon56918" fill="#373737" points="201.65,142.435 200.281,141.066 196.572,141.066 195.205,142.435 			"/>
+			<rect id="rect56920" x="196.572" y="127.757" width="3.709" height="3.708"/>
+			<polygon id="polygon56922" fill="#2A2A29" points="195.205,132.833 196.572,131.469 196.572,127.757 195.205,126.392 			"/>
+			<polygon id="polygon56924" fill="#474747" points="195.205,126.392 196.576,127.757 200.281,127.757 201.65,126.392 			"/>
+			<polygon id="polygon56926" fill="#595959" points="201.65,126.393 200.281,127.758 200.281,131.469 201.65,132.833 			"/>
+			<polygon id="polygon56928" fill="#373737" points="201.65,132.836 200.281,131.469 196.572,131.469 195.205,132.836 			"/>
+			<rect id="rect56930" x="193.244" y="153.681" fill="#404040" width="9.602" height="28.794"/>
+			<rect id="rect56932" x="196.572" y="175.748" width="3.709" height="3.708"/>
+			<polygon id="polygon56934" fill="#2A2A29" points="195.205,180.823 196.572,179.458 196.572,175.748 195.205,174.382 			"/>
+			<polygon id="polygon56936" fill="#474747" points="195.205,174.382 196.576,175.748 200.281,175.748 201.65,174.382 			"/>
+			<polygon id="polygon56938" fill="#595959" points="201.65,174.383 200.281,175.75 200.281,179.458 201.65,180.823 			"/>
+			<polygon id="polygon56940" fill="#373737" points="201.65,180.825 200.281,179.458 196.572,179.458 195.205,180.825 			"/>
+			<rect id="rect56942" x="196.572" y="166.152" width="3.709" height="3.707"/>
+			<polygon id="polygon56944" fill="#2A2A29" points="195.205,171.227 196.572,169.86 196.572,166.15 195.205,164.784 			"/>
+			<polygon id="polygon56946" fill="#474747" points="195.205,164.784 196.576,166.15 200.281,166.15 201.65,164.784 			"/>
+			<polygon id="polygon56948" fill="#595959" points="201.65,164.785 200.281,166.152 200.281,169.86 201.65,171.227 			"/>
+			<polygon id="polygon56950" fill="#373737" points="201.65,171.229 200.281,169.86 196.572,169.86 195.205,171.229 			"/>
+			<rect id="rect56952" x="196.572" y="156.552" width="3.709" height="3.708"/>
+			<polygon id="polygon56954" fill="#2A2A29" points="195.205,161.628 196.572,160.262 196.572,156.552 195.205,155.186 			"/>
+			<polygon id="polygon56956" fill="#474747" points="195.205,155.186 196.576,156.552 200.281,156.552 201.65,155.186 			"/>
+			<polygon id="polygon56958" fill="#595959" points="201.65,155.188 200.281,156.553 200.281,160.262 201.65,161.628 			"/>
+			<polygon id="polygon56960" fill="#373737" points="201.65,161.63 200.281,160.262 196.572,160.262 195.205,161.63 			"/>
+		</g>
+		<g id="Pin-out_35-42_Dx">
+			<rect id="rect56964" x="193.244" y="189.108" fill="#404040" width="9.336" height="28.013"/>
+			<rect id="rect56966" x="196.484" y="210.574" width="3.604" height="3.605"/>
+			<polygon id="polygon56968" fill="#2A2A29" points="195.156,215.51 196.484,214.181 196.484,210.574 195.156,209.248 			"/>
+			<polygon id="polygon56970" fill="#474747" points="195.156,209.248 196.488,210.574 200.094,210.574 201.422,209.248 			"/>
+			<polygon id="polygon56972" fill="#595959" points="201.422,209.248 200.094,210.578 200.094,214.181 201.422,215.51 			"/>
+			<polygon id="polygon56974" fill="#373737" points="201.422,215.511 200.092,214.181 196.484,214.181 195.156,215.511 			"/>
+			<rect id="rect56976" x="196.484" y="201.238" width="3.604" height="3.605"/>
+			<polygon id="polygon56978" fill="#2A2A29" points="195.156,206.174 196.484,204.845 196.484,201.236 195.156,199.912 			"/>
+			<polygon id="polygon56980" fill="#474747" points="195.156,199.912 196.488,201.236 200.094,201.236 201.422,199.912 			"/>
+			<polygon id="polygon56982" fill="#595959" points="201.422,199.914 200.094,201.238 200.094,204.845 201.422,206.174 			"/>
+			<polygon id="polygon56984" fill="#373737" points="201.422,206.177 200.092,204.845 196.484,204.845 195.156,206.177 			"/>
+			<rect id="rect56986" x="196.484" y="191.901" width="3.604" height="3.604"/>
+			<polygon id="polygon56988" fill="#2A2A29" points="195.156,196.838 196.484,195.509 196.484,191.901 195.156,190.572 			"/>
+			<polygon id="polygon56990" fill="#474747" points="195.156,190.572 196.488,191.901 200.094,191.901 201.422,190.572 			"/>
+			<polygon id="polygon56992" fill="#595959" points="201.422,190.573 200.094,191.901 200.094,195.509 201.422,196.838 			"/>
+			<polygon id="polygon56994" fill="#373737" points="201.422,196.839 200.092,195.509 196.484,195.509 195.156,196.839 			"/>
+			<rect id="rect56996" x="193.244" y="217.121" fill="#404040" width="9.336" height="28.008"/>
+			<rect id="rect56998" x="196.484" y="238.586" width="3.604" height="3.604"/>
+			<polygon id="polygon57000" fill="#2A2A29" points="195.156,243.519 196.484,242.191 196.484,238.586 195.156,237.252 			"/>
+			<polygon id="polygon57002" fill="#474747" points="195.156,237.252 196.488,238.586 200.094,238.586 201.422,237.252 			"/>
+			<polygon id="polygon57004" fill="#595959" points="201.422,237.254 200.094,238.586 200.094,242.191 201.422,243.519 			"/>
+			<polygon id="polygon57006" fill="#373737" points="201.422,243.519 200.092,242.191 196.484,242.191 195.156,243.519 			"/>
+			<rect id="rect57008" x="196.484" y="229.252" width="3.604" height="3.604"/>
+			<polygon id="polygon57010" fill="#2A2A29" points="195.156,234.183 196.484,232.853 196.484,229.248 195.156,227.92 			"/>
+			<polygon id="polygon57012" fill="#474747" points="195.156,227.92 196.488,229.248 200.094,229.248 201.422,227.92 			"/>
+			<polygon id="polygon57014" fill="#595959" points="201.422,227.92 200.094,229.252 200.094,232.853 201.422,234.183 			"/>
+			<polygon id="polygon57016" fill="#373737" points="201.422,234.185 200.092,232.853 196.484,232.853 195.156,234.185 			"/>
+			<rect id="rect57018" x="196.484" y="219.914" width="3.604" height="3.604"/>
+			<polygon id="polygon57020" fill="#2A2A29" points="195.156,224.845 196.484,223.517 196.484,219.914 195.156,218.584 			"/>
+			<polygon id="polygon57022" fill="#474747" points="195.156,218.584 196.488,219.914 200.094,219.914 201.422,218.584 			"/>
+			<polygon id="polygon57024" fill="#595959" points="201.422,218.586 200.094,219.914 200.094,223.517 201.422,224.845 			"/>
+			<polygon id="polygon57026" fill="#373737" points="201.422,224.849 200.092,223.517 196.484,223.517 195.156,224.849 			"/>
+			<rect id="rect57028" x="193.244" y="245.127" fill="#404040" width="9.336" height="18.582"/>
+			<rect id="rect57030" x="196.484" y="257.256" width="3.604" height="3.604"/>
+			<polygon id="polygon57032" fill="#2A2A29" points="195.156,262.191 196.484,260.863 196.484,257.254 195.156,255.926 			"/>
+			<polygon id="polygon57034" fill="#474747" points="195.156,255.926 196.488,257.254 200.094,257.254 201.422,255.926 			"/>
+			<polygon id="polygon57036" fill="#595959" points="201.422,255.926 200.094,257.256 200.094,260.863 201.422,262.191 			"/>
+			<polygon id="polygon57038" fill="#373737" points="201.422,262.193 200.092,260.863 196.484,260.863 195.156,262.193 			"/>
+			<rect id="rect57040" x="196.484" y="247.92" width="3.604" height="3.604"/>
+			<polygon id="polygon57042" fill="#2A2A29" points="195.156,252.853 196.484,251.525 196.484,247.92 195.156,246.588 			"/>
+			<polygon id="polygon57044" fill="#474747" points="195.156,246.588 196.488,247.92 200.094,247.92 201.422,246.588 			"/>
+			<polygon id="polygon57046" fill="#595959" points="201.422,246.59 200.094,247.92 200.094,251.525 201.422,252.853 			"/>
+			<polygon id="polygon57048" fill="#373737" points="201.422,252.857 200.092,251.525 196.484,251.525 195.156,252.857 			"/>
+		</g>
+		<g id="Pin_Out_21-28_Sx">
+			<rect id="rect57052" x="16.584" y="124.647" fill="#404040" width="9.335" height="28.01"/>
+			<rect id="rect57054" x="19.82" y="146.112" width="3.607" height="3.604"/>
+			<polygon id="polygon57056" fill="#2A2A29" points="18.491,151.048 19.82,149.721 19.82,146.112 18.491,144.782 			"/>
+			<polygon id="polygon57058" fill="#474747" points="18.491,144.782 19.824,146.112 23.43,146.112 24.757,144.782 			"/>
+			<polygon id="polygon57060" fill="#595959" points="24.757,144.782 23.43,146.113 23.43,149.721 24.757,151.048 			"/>
+			<polygon id="polygon57062" fill="#373737" points="24.757,151.05 23.428,149.721 19.82,149.721 18.491,151.05 			"/>
+			<rect id="rect57064" x="19.82" y="136.776" width="3.607" height="3.604"/>
+			<polygon id="polygon57066" fill="#2A2A29" points="18.491,141.712 19.82,140.385 19.82,136.774 18.491,135.447 			"/>
+			<polygon id="polygon57068" fill="#474747" points="18.491,135.447 19.824,136.774 23.43,136.774 24.757,135.447 			"/>
+			<polygon id="polygon57070" fill="#595959" points="24.757,135.448 23.43,136.776 23.43,140.385 24.757,141.712 			"/>
+			<polygon id="polygon57072" fill="#373737" points="24.757,141.716 23.428,140.385 19.82,140.385 18.491,141.716 			"/>
+			<rect id="rect57074" x="19.82" y="127.44" width="3.607" height="3.604"/>
+			<polygon id="polygon57076" fill="#2A2A29" points="18.491,132.377 19.82,131.048 19.82,127.44 18.491,126.11 			"/>
+			<polygon id="polygon57078" fill="#474747" points="18.491,126.11 19.824,127.44 23.43,127.44 24.757,126.11 			"/>
+			<polygon id="polygon57080" fill="#595959" points="24.757,126.111 23.43,127.44 23.43,131.048 24.757,132.377 			"/>
+			<polygon id="polygon57082" fill="#373737" points="24.757,132.378 23.428,131.048 19.82,131.048 18.491,132.378 			"/>
+			<rect id="rect57084" x="16.584" y="152.656" fill="#404040" width="9.335" height="28.008"/>
+			<rect id="rect57086" x="19.82" y="174.119" width="3.607" height="3.607"/>
+			<polygon id="polygon57088" fill="#2A2A29" points="18.491,179.058 19.82,177.73 19.82,174.119 18.491,172.79 			"/>
+			<polygon id="polygon57090" fill="#474747" points="18.491,172.79 19.824,174.119 23.43,174.119 24.757,172.79 			"/>
+			<polygon id="polygon57092" fill="#595959" points="24.757,172.791 23.43,174.12 23.43,177.73 24.757,179.058 			"/>
+			<polygon id="polygon57094" fill="#373737" points="24.757,179.059 23.428,177.73 19.82,177.73 18.491,179.059 			"/>
+			<rect id="rect57096" x="19.82" y="164.785" width="3.607" height="3.605"/>
+			<polygon id="polygon57098" fill="#2A2A29" points="18.491,169.723 19.82,168.393 19.82,164.782 18.491,163.455 			"/>
+			<polygon id="polygon57100" fill="#474747" points="18.491,163.455 19.824,164.782 23.43,164.782 24.757,163.455 			"/>
+			<polygon id="polygon57102" fill="#595959" points="24.757,163.456 23.43,164.785 23.43,168.393 24.757,169.723 			"/>
+			<polygon id="polygon57104" fill="#373737" points="24.757,169.725 23.428,168.393 19.82,168.393 18.491,169.725 			"/>
+			<rect id="rect57106" x="19.82" y="155.448" width="3.607" height="3.606"/>
+			<polygon id="polygon57108" fill="#2A2A29" points="18.491,160.385 19.82,159.057 19.82,155.448 18.491,154.117 			"/>
+			<polygon id="polygon57110" fill="#474747" points="18.491,154.117 19.824,155.448 23.43,155.448 24.757,154.117 			"/>
+			<polygon id="polygon57112" fill="#595959" points="24.757,154.119 23.43,155.448 23.43,159.057 24.757,160.385 			"/>
+			<polygon id="polygon57114" fill="#373737" points="24.757,160.388 23.428,159.057 19.82,159.057 18.491,160.388 			"/>
+			<rect id="rect57116" x="16.584" y="180.663" fill="#404040" width="9.335" height="18.586"/>
+			<rect id="rect57118" x="19.82" y="192.794" width="3.607" height="3.604"/>
+			<polygon id="polygon57120" fill="#2A2A29" points="18.491,197.73 19.82,196.402 19.82,192.792 18.491,191.464 			"/>
+			<polygon id="polygon57122" fill="#474747" points="18.491,191.464 19.824,192.792 23.43,192.792 24.757,191.464 			"/>
+			<polygon id="polygon57124" fill="#595959" points="24.757,191.464 23.43,192.794 23.43,196.402 24.757,197.73 			"/>
+			<polygon id="polygon57126" fill="#373737" points="24.757,197.732 23.428,196.402 19.82,196.402 18.491,197.732 			"/>
+			<rect id="rect57128" x="19.82" y="183.455" width="3.607" height="3.606"/>
+			<polygon id="polygon57130" fill="#2A2A29" points="18.491,188.393 19.82,187.065 19.82,183.455 18.491,182.127 			"/>
+			<polygon id="polygon57132" fill="#474747" points="18.491,182.127 19.824,183.455 23.43,183.455 24.757,182.127 			"/>
+			<polygon id="polygon57134" fill="#595959" points="24.757,182.129 23.43,183.456 23.43,187.065 24.757,188.393 			"/>
+			<polygon id="polygon57136" fill="#373737" points="24.757,188.396 23.428,187.065 19.82,187.065 18.491,188.396 			"/>
+		</g>
+		<g id="PinOut">
+			<g id="g30901">
+				<path id="path30903" fill="#FDFFFF" d="M93.365,338.695c0,1.066-0.869,1.938-1.936,1.938c-1.064,0-1.938-0.867-1.938-1.938
+					c0-1.061,0.867-1.934,1.938-1.934C92.494,336.761,93.365,337.635,93.365,338.695z"/>
+				<path id="path30905" fill="#FDFFFF" d="M102.775,338.695c0,1.066-0.869,1.938-1.936,1.938c-1.064,0-1.938-0.867-1.938-1.938
+					c0-1.061,0.867-1.934,1.938-1.934C101.906,336.761,102.775,337.635,102.775,338.695z"/>
+				<path id="path30907" fill="#FDFFFF" d="M112.197,338.695c0,1.066-0.867,1.938-1.934,1.938c-1.067,0-1.939-0.867-1.939-1.938
+					c0-1.061,0.869-1.934,1.939-1.934C111.326,336.761,112.197,337.635,112.197,338.695z"/>
+				<path id="path30909" fill="#FDFFFF" d="M121.625,338.695c0,1.066-0.867,1.938-1.938,1.938c-1.062,0-1.938-0.867-1.938-1.938
+					c0-1.061,0.86-1.934,1.938-1.934C120.758,336.761,121.625,337.635,121.625,338.695z"/>
+				<path id="path30911" fill="#FDFFFF" d="M131.061,338.695c0,1.066-0.869,1.938-1.936,1.938c-1.064,0-1.938-0.867-1.938-1.938
+					c0-1.061,0.867-1.934,1.938-1.934C130.191,336.761,131.061,337.635,131.061,338.695z"/>
+				<path id="path30913" fill="#FDFFFF" d="M140.475,338.695c0,1.066-0.867,1.938-1.938,1.938c-1.062,0-1.934-0.867-1.934-1.938
+					c0-1.061,0.867-1.934,1.934-1.934C139.607,336.761,140.475,337.635,140.475,338.695z"/>
+				<path id="path30915" fill="#FDFFFF" d="M150.014,338.695c0,1.066-0.867,1.938-1.938,1.938c-1.062,0-1.934-0.867-1.934-1.938
+					c0-1.061,0.862-1.934,1.934-1.934C149.146,336.761,150.014,337.635,150.014,338.695z"/>
+				<path id="path30917" fill="#FDFFFF" d="M159.434,338.695c0,1.066-0.869,1.938-1.936,1.938c-1.064,0-1.938-0.867-1.938-1.938
+					c0-1.061,0.867-1.934,1.938-1.934C158.564,336.761,159.434,337.635,159.434,338.695z"/>
+				<path id="path30919" fill="#FDFFFF" d="M168.732,338.695c0,1.066-0.869,1.938-1.938,1.938c-1.062,0-1.938-0.867-1.938-1.938
+					c0-1.061,0.867-1.934,1.938-1.934C167.863,336.761,168.732,337.635,168.732,338.695z"/>
+				<path id="path30921" fill="#FDFFFF" d="M178.184,338.695c0,1.064-0.867,1.938-1.936,1.938c-1.064,0-1.938-0.867-1.938-1.938
+					c0-1.062,0.869-1.934,1.938-1.934S178.184,337.634,178.184,338.695z"/>
+			</g>
+			<g id="g55891">
+				<rect id="rect55893" x="86.699" y="367.359" fill="#404040" width="94.264" height="9.43"/>
+				<rect id="rect55895" x="86.699" y="357.937" fill="#404040" width="94.264" height="9.42"/>
+				<g id="g55897">
+					<g id="g55899">
+						<rect id="rect55901" x="165.002" y="360.832" width="3.641" height="3.646"/>
+						<polygon id="polygon55903" fill="#2A2A29" points="163.656,359.486 165,360.832 168.643,360.832 169.984,359.486 						"/>
+						<polygon id="polygon55905" fill="#474747" points="169.984,359.486 168.643,360.841 168.643,364.47 169.984,365.812 						"/>
+						<polygon id="polygon55907" fill="#595959" points="169.984,365.812 168.643,364.47 165,364.47 163.656,365.812 						"/>
+						<polygon id="polygon55909" fill="#373737" points="163.656,365.812 165,364.469 165,360.832 163.656,359.486 						"/>
+						<rect id="rect55911" x="174.428" y="360.832" width="3.637" height="3.646"/>
+						<polygon id="polygon55913" fill="#2A2A29" points="173.084,359.486 174.426,360.832 178.066,360.832 179.408,359.486 						
+							"/>
+						<polygon id="polygon55915" fill="#474747" points="179.408,359.486 178.066,360.841 178.066,364.47 179.408,365.812 						"/>
+						<polygon id="polygon55917" fill="#595959" points="179.406,365.812 178.064,364.47 174.426,364.47 173.084,365.812 						"/>
+						<polygon id="polygon55919" fill="#373737" points="173.078,365.812 174.426,364.469 174.426,360.832 173.078,359.486 						
+							"/>
+						<rect id="rect55921" x="165.002" y="370.257" width="3.641" height="3.643"/>
+						<polygon id="polygon55923" fill="#2A2A29" points="163.656,368.923 165,370.257 168.643,370.257 169.984,368.923 						"/>
+						<polygon id="polygon55925" fill="#474747" points="169.984,368.923 168.643,370.259 168.643,373.898 169.984,375.236 						
+							"/>
+						<polygon id="polygon55927" fill="#595959" points="169.984,375.236 168.643,373.898 165,373.898 163.656,375.236 						"/>
+						<polygon id="polygon55929" fill="#373737" points="163.656,375.236 165,373.894 165,370.257 163.656,368.923 						"/>
+						<rect id="rect55931" x="174.428" y="370.257" width="3.637" height="3.643"/>
+						<polygon id="polygon55933" fill="#2A2A29" points="173.084,368.923 174.426,370.257 178.066,370.257 179.408,368.923 						
+							"/>
+						<polygon id="polygon55935" fill="#474747" points="179.408,368.923 178.066,370.259 178.066,373.898 179.408,375.236 						
+							"/>
+						<polygon id="polygon55937" fill="#595959" points="179.406,375.236 178.064,373.898 174.426,373.898 173.084,375.236 						
+							"/>
+						<polygon id="polygon55939" fill="#373737" points="173.078,375.236 174.426,373.894 174.426,370.257 173.078,368.923 						
+							"/>
+					</g>
+					<rect id="rect55941" x="89.598" y="360.832" width="3.641" height="3.646"/>
+					<polygon id="polygon55943" fill="#2A2A29" points="88.258,359.486 89.594,360.832 93.24,360.832 94.578,359.486 					"/>
+					<polygon id="polygon55945" fill="#474747" points="94.578,359.486 93.24,360.841 93.24,364.47 94.578,365.812 					"/>
+					<polygon id="polygon55947" fill="#595959" points="94.574,365.812 93.238,364.47 89.594,364.47 88.258,365.812 					"/>
+					<polygon id="polygon55949" fill="#373737" points="88.254,365.812 89.594,364.469 89.594,360.832 88.254,359.486 					"/>
+					<rect id="rect55951" x="99.023" y="360.832" width="3.641" height="3.646"/>
+					<polygon id="polygon55953" fill="#2A2A29" points="97.68,359.486 99.021,360.832 102.658,360.832 104.004,359.486 					"/>
+					<polygon id="polygon55955" fill="#474747" points="104.004,359.486 102.658,360.841 102.658,364.47 104.004,365.812 					"/>
+					<polygon id="polygon55957" fill="#595959" points="104,365.812 102.658,364.47 99.021,364.47 97.68,365.812 					"/>
+					<polygon id="polygon55959" fill="#373737" points="97.676,365.812 99.021,364.469 99.021,360.832 97.676,359.486 					"/>
+					<rect id="rect55961" x="108.447" y="360.832" width="3.645" height="3.646"/>
+					<polygon id="polygon55963" fill="#2A2A29" points="107.104,359.486 108.447,360.832 112.088,360.832 113.428,359.486 					"/>
+					<polygon id="polygon55965" fill="#474747" points="113.428,359.486 112.088,360.841 112.088,364.47 113.428,365.812 					"/>
+					<polygon id="polygon55967" fill="#595959" points="113.428,365.812 112.086,364.47 108.447,364.47 107.104,365.812 					"/>
+					<polygon id="polygon55969" fill="#373737" points="107.1,365.812 108.447,364.469 108.447,360.832 107.1,359.486 					"/>
+					<rect id="rect55971" x="117.867" y="360.832" width="3.645" height="3.646"/>
+					<polygon id="polygon55973" fill="#2A2A29" points="116.531,359.486 117.865,360.832 121.512,360.832 122.855,359.486 					"/>
+					<polygon id="polygon55975" fill="#474747" points="122.855,359.486 121.512,360.841 121.512,364.47 122.855,365.812 					"/>
+					<polygon id="polygon55977" fill="#595959" points="122.854,365.812 121.51,364.47 117.865,364.47 116.531,365.812 					"/>
+					<polygon id="polygon55979" fill="#373737" points="116.529,365.812 117.865,364.469 117.865,360.832 116.529,359.486 					"/>
+					<rect id="rect55981" x="127.295" y="360.832" width="3.641" height="3.646"/>
+					<polygon id="polygon55983" fill="#2A2A29" points="125.947,359.486 127.287,360.832 130.936,360.832 132.277,359.486 					"/>
+					<polygon id="polygon55985" fill="#474747" points="132.277,359.486 130.936,360.841 130.936,364.47 132.277,365.812 					"/>
+					<polygon id="polygon55987" fill="#595959" points="132.277,365.812 130.936,364.47 127.287,364.47 125.947,365.812 					"/>
+					<polygon id="polygon55989" fill="#373737" points="125.947,365.812 127.287,364.469 127.287,360.832 125.947,359.486 					"/>
+					<rect id="rect55991" x="136.721" y="360.832" width="3.641" height="3.646"/>
+					<polygon id="polygon55993" fill="#2A2A29" points="135.379,359.486 136.717,360.832 140.363,360.832 141.699,359.486 					"/>
+					<polygon id="polygon55995" fill="#474747" points="141.699,359.486 140.363,360.841 140.363,364.47 141.699,365.812 					"/>
+					<polygon id="polygon55997" fill="#595959" points="141.697,365.812 140.361,364.47 136.717,364.47 135.379,365.812 					"/>
+					<polygon id="polygon55999" fill="#373737" points="135.377,365.812 136.717,364.469 136.717,360.832 135.377,359.486 					"/>
+					<rect id="rect56001" x="146.146" y="360.832" width="3.639" height="3.646"/>
+					<polygon id="polygon56003" fill="#2A2A29" points="144.803,359.486 146.145,360.832 149.781,360.832 151.125,359.486 					"/>
+					<polygon id="polygon56005" fill="#474747" points="151.125,359.486 149.781,360.841 149.781,364.47 151.125,365.812 					"/>
+					<polygon id="polygon56007" fill="#595959" points="151.119,365.812 149.781,364.47 146.145,364.47 144.803,365.812 					"/>
+					<polygon id="polygon56009" fill="#373737" points="144.799,365.812 146.145,364.469 146.145,360.832 144.799,359.486 					"/>
+					<rect id="rect56011" x="155.57" y="360.832" width="3.646" height="3.646"/>
+					<polygon id="polygon56013" fill="#2A2A29" points="154.225,359.486 155.568,360.832 159.213,360.832 160.551,359.486 					"/>
+					<polygon id="polygon56015" fill="#474747" points="160.551,359.486 159.213,360.841 159.213,364.47 160.551,365.812 					"/>
+					<polygon id="polygon56017" fill="#595959" points="160.551,365.812 159.207,364.47 155.568,364.47 154.225,365.812 					"/>
+					<polygon id="polygon56019" fill="#373737" points="154.223,365.812 155.568,364.469 155.568,360.832 154.223,359.486 					"/>
+					<rect id="rect56021" x="89.598" y="370.257" width="3.641" height="3.643"/>
+					<polygon id="polygon56023" fill="#2A2A29" points="88.258,368.923 89.594,370.257 93.24,370.257 94.578,368.923 					"/>
+					<polygon id="polygon56025" fill="#474747" points="94.578,368.923 93.24,370.259 93.24,373.898 94.578,375.236 					"/>
+					<polygon id="polygon56027" fill="#595959" points="94.574,375.236 93.238,373.898 89.594,373.898 88.258,375.236 					"/>
+					<polygon id="polygon56029" fill="#373737" points="88.254,375.236 89.594,373.894 89.594,370.257 88.254,368.923 					"/>
+					<rect id="rect56031" x="99.023" y="370.257" width="3.641" height="3.643"/>
+					<polygon id="polygon56033" fill="#2A2A29" points="97.68,368.923 99.021,370.257 102.658,370.257 104.004,368.923 					"/>
+					<polygon id="polygon56035" fill="#474747" points="104.004,368.923 102.658,370.259 102.658,373.898 104.004,375.236 					"/>
+					<polygon id="polygon56037" fill="#595959" points="104,375.236 102.658,373.898 99.021,373.898 97.68,375.236 					"/>
+					<polygon id="polygon56039" fill="#373737" points="97.676,375.236 99.021,373.894 99.021,370.257 97.676,368.923 					"/>
+					<rect id="rect56041" x="108.447" y="370.257" width="3.645" height="3.643"/>
+					<polygon id="polygon56043" fill="#2A2A29" points="107.104,368.923 108.447,370.257 112.088,370.257 113.428,368.923 					"/>
+					<polygon id="polygon56045" fill="#474747" points="113.428,368.923 112.088,370.259 112.088,373.898 113.428,375.236 					"/>
+					<polygon id="polygon56047" fill="#595959" points="113.428,375.236 112.086,373.898 108.447,373.898 107.104,375.236 					"/>
+					<polygon id="polygon56049" fill="#373737" points="107.1,375.236 108.447,373.894 108.447,370.257 107.1,368.923 					"/>
+					<rect id="rect56051" x="117.867" y="370.257" width="3.645" height="3.643"/>
+					<polygon id="polygon56053" fill="#2A2A29" points="116.531,368.923 117.865,370.257 121.512,370.257 122.855,368.923 					"/>
+					<polygon id="polygon56055" fill="#474747" points="122.855,368.923 121.512,370.259 121.512,373.898 122.855,375.236 					"/>
+					<polygon id="polygon56057" fill="#595959" points="122.854,375.236 121.51,373.898 117.865,373.898 116.531,375.236 					"/>
+					<polygon id="polygon56059" fill="#373737" points="116.529,375.236 117.865,373.894 117.865,370.257 116.529,368.923 					"/>
+					<rect id="rect56061" x="127.295" y="370.257" width="3.641" height="3.643"/>
+					<polygon id="polygon56063" fill="#2A2A29" points="125.947,368.923 127.287,370.257 130.936,370.257 132.277,368.923 					"/>
+					<polygon id="polygon56065" fill="#474747" points="132.277,368.923 130.936,370.259 130.936,373.898 132.277,375.236 					"/>
+					<polygon id="polygon56067" fill="#595959" points="132.277,375.236 130.936,373.898 127.287,373.898 125.947,375.236 					"/>
+					<polygon id="polygon56069" fill="#373737" points="125.947,375.236 127.287,373.894 127.287,370.257 125.947,368.923 					"/>
+					<rect id="rect56071" x="136.721" y="370.257" width="3.641" height="3.643"/>
+					<polygon id="polygon56073" fill="#2A2A29" points="135.379,368.923 136.717,370.257 140.363,370.257 141.699,368.923 					"/>
+					<polygon id="polygon56075" fill="#474747" points="141.699,368.923 140.363,370.259 140.363,373.898 141.699,375.236 					"/>
+					<polygon id="polygon56077" fill="#595959" points="141.697,375.236 140.361,373.898 136.717,373.898 135.379,375.236 					"/>
+					<polygon id="polygon56079" fill="#373737" points="135.377,375.236 136.717,373.894 136.717,370.257 135.377,368.923 					"/>
+					<rect id="rect56081" x="146.146" y="370.257" width="3.639" height="3.643"/>
+					<polygon id="polygon56083" fill="#2A2A29" points="144.803,368.923 146.145,370.257 149.781,370.257 151.125,368.923 					"/>
+					<polygon id="polygon56085" fill="#474747" points="151.125,368.923 149.781,370.259 149.781,373.898 151.125,375.236 					"/>
+					<polygon id="polygon56087" fill="#595959" points="151.119,375.236 149.781,373.898 146.145,373.898 144.803,375.236 					"/>
+					<polygon id="polygon56089" fill="#373737" points="144.799,375.236 146.145,373.894 146.145,370.257 144.799,368.923 					"/>
+					<rect id="rect56091" x="155.57" y="370.257" width="3.646" height="3.643"/>
+					<polygon id="polygon56093" fill="#2A2A29" points="154.225,368.923 155.568,370.257 159.213,370.257 160.551,368.923 					"/>
+					<polygon id="polygon56095" fill="#474747" points="160.551,368.923 159.213,370.259 159.213,373.898 160.551,375.236 					"/>
+					<polygon id="polygon56097" fill="#595959" points="160.551,375.236 159.207,373.898 155.568,373.898 154.225,375.236 					"/>
+					<polygon id="polygon56099" fill="#373737" points="154.223,375.236 155.568,373.894 155.568,370.257 154.223,368.923 					"/>
+				</g>
+			</g>
+			<g>
+				<g id="g56101">
+					<g id="g56103">
+						<circle id="circle56105" fill="#B3B3B3" cx="91.424" cy="338.695" r="2.242"/>
+					</g>
+					<g id="g56107">
+						<circle id="circle56109" fill="#B3B3B3" cx="100.85" cy="338.695" r="2.242"/>
+					</g>
+					<g id="g56111">
+						<circle id="circle56113" fill="#B3B3B3" cx="110.275" cy="338.695" r="2.242"/>
+					</g>
+					<g id="g56115">
+						<path id="path56117" fill="#B3B3B3" d="M119.697,336.457c1.24,0,2.244,1.009,2.244,2.238c0,1.236-1.004,2.242-2.244,2.242
+							c-1.23,0-2.24-1.006-2.24-2.242C117.453,337.466,118.463,336.457,119.697,336.457z"/>
+					</g>
+					<g id="g56119">
+						<circle id="circle56121" fill="#B3B3B3" cx="129.125" cy="338.695" r="2.242"/>
+					</g>
+					<g id="g56123">
+						<circle id="circle56125" fill="#B3B3B3" cx="138.547" cy="338.695" r="2.242"/>
+					</g>
+					<g id="g56127">
+						<circle id="circle56129" fill="#B3B3B3" cx="147.975" cy="338.695" r="2.242"/>
+					</g>
+					<g id="g56131">
+						<circle id="circle56133" fill="#B3B3B3" cx="157.398" cy="338.695" r="2.242"/>
+					</g>
+					<g id="g56135">
+						<circle id="circle56137" fill="#B3B3B3" cx="166.822" cy="338.695" r="2.242"/>
+					</g>
+					<g id="g56139">
+						<circle id="circle56141" fill="#B3B3B3" cx="176.242" cy="338.695" r="2.242"/>
+					</g>
+				</g>
+				<g id="g56143">
+					<g id="g56145">
+						<circle id="circle56147" fill="#B3B3B3" cx="91.424" cy="348.119" r="2.244"/>
+					</g>
+					<g id="g56149">
+						<circle id="circle56151" fill="#B3B3B3" cx="100.85" cy="348.119" r="2.244"/>
+					</g>
+					<g id="g56153">
+						<circle id="circle56155" fill="#B3B3B3" cx="110.275" cy="348.119" r="2.244"/>
+					</g>
+					<g id="g56157">
+						<circle id="circle56159" fill="#B3B3B3" cx="119.697" cy="348.119" r="2.244"/>
+					</g>
+					<g id="g56161">
+						<circle id="circle56163" fill="#B3B3B3" cx="129.125" cy="348.119" r="2.244"/>
+					</g>
+					<g id="g56165">
+						<circle id="circle56167" fill="#B3B3B3" cx="138.547" cy="348.119" r="2.244"/>
+					</g>
+					<g id="g56169">
+						<circle id="circle56171" fill="#B3B3B3" cx="147.975" cy="348.119" r="2.244"/>
+					</g>
+					<g id="g56173">
+						<circle id="circle56175" fill="#B3B3B3" cx="157.398" cy="348.119" r="2.244"/>
+					</g>
+					<g id="g56177">
+						<circle id="circle56179" fill="#B3B3B3" cx="166.822" cy="348.119" r="2.244"/>
+					</g>
+					<g id="g56181">
+						<circle id="circle56183" fill="#B3B3B3" cx="176.242" cy="348.119" r="2.244"/>
+					</g>
+				</g>
+			</g>
+			<g id="g56185">
+				<polyline id="polyline56187" points="180.963,350.175 124.406,350.175 124.406,357.966 180.963,357.966 				"/>
+				<g id="g56189">
+					<g id="g56191">
+						<polygon id="polygon56193" fill="#B8AF82" points="89.92,337.683 90.656,337.406 92.197,337.406 92.93,337.683 92.93,352.05 
+							89.92,352.05 						"/>
+					</g>
+					<g id="g56195">
+						<polygon id="polygon56197" fill="#B8AF82" points="99.346,337.683 100.076,337.406 101.619,337.406 102.355,337.683 
+							102.355,352.05 99.346,352.05 						"/>
+					</g>
+					<g id="g56199">
+						<polygon id="polygon56201" fill="#B8AF82" points="108.771,337.683 109.506,337.406 111.049,337.406 111.781,337.683 
+							111.781,352.05 108.771,352.05 						"/>
+					</g>
+					<g id="g56203">
+						<polygon id="polygon56205" fill="#B8AF82" points="118.195,337.683 118.932,337.406 120.473,337.406 121.199,337.683 
+							121.199,352.05 118.195,352.05 						"/>
+					</g>
+					<g id="g56207">
+						<polygon id="polygon56209" fill="#B8AF82" points="127.615,337.683 128.355,337.406 129.896,337.406 130.629,337.683 
+							130.629,352.05 127.615,352.05 						"/>
+					</g>
+					<g id="g56211">
+						<polygon id="polygon56213" fill="#B8AF82" points="137.045,337.683 137.779,337.406 139.322,337.406 140.055,337.683 
+							140.055,352.05 137.045,352.05 						"/>
+					</g>
+					<g id="g56215">
+						<polygon id="polygon56217" fill="#B8AF82" points="146.471,337.683 147.199,337.406 148.744,337.406 149.477,337.683 
+							149.477,352.05 146.471,352.05 						"/>
+					</g>
+					<g id="g56219">
+						<polygon id="polygon56221" fill="#B8AF82" points="155.895,337.683 156.629,337.406 158.174,337.406 158.904,337.683 
+							158.904,352.05 155.895,352.05 						"/>
+					</g>
+					<g id="g56223">
+						<polygon id="polygon56225" fill="#B8AF82" points="165.32,337.683 166.053,337.406 167.596,337.406 168.324,337.683 
+							168.324,352.05 165.32,352.05 						"/>
+					</g>
+					<g id="g56227">
+						<polygon id="polygon56229" fill="#B8AF82" points="174.74,337.683 175.48,337.406 177.021,337.406 177.754,337.683 
+							177.754,352.05 174.74,352.05 						"/>
+					</g>
+				</g>
+				<g id="g56231">
+					<g id="g56233">
+						<polygon id="polygon56235" fill="#E2D6A1" points="90.656,337.406 90.447,338.265 92.404,338.265 92.197,337.406 						"/>
+					</g>
+					<g id="g56237">
+						<polygon id="polygon56239" fill="#E2D6A1" points="100.076,337.406 99.867,338.265 101.824,338.265 101.619,337.406 						"/>
+					</g>
+					<g id="g56241">
+						<polygon id="polygon56243" fill="#E2D6A1" points="109.506,337.406 109.297,338.265 111.252,338.265 111.049,337.406 						
+							"/>
+					</g>
+					<g id="g56245">
+						<polygon id="polygon56247" fill="#E2D6A1" points="118.932,337.406 118.723,338.265 120.678,338.265 120.473,337.406 						
+							"/>
+					</g>
+					<g id="g56249">
+						<polygon id="polygon56251" fill="#E2D6A1" points="128.355,337.406 128.148,338.265 130.104,338.265 129.896,337.406 						
+							"/>
+					</g>
+					<g id="g56253">
+						<polygon id="polygon56255" fill="#E2D6A1" points="137.779,337.406 137.572,338.265 139.527,338.265 139.322,337.406 						
+							"/>
+					</g>
+					<g id="g56257">
+						<polygon id="polygon56259" fill="#E2D6A1" points="147.199,337.406 146.992,338.265 148.947,338.265 148.744,337.406 						
+							"/>
+					</g>
+					<g id="g56261">
+						<polygon id="polygon56263" fill="#E2D6A1" points="156.629,337.406 156.422,338.265 158.377,338.265 158.174,337.406 						
+							"/>
+					</g>
+					<g id="g56265">
+						<polygon id="polygon56267" fill="#E2D6A1" points="166.053,337.406 165.844,338.265 167.803,338.265 167.596,337.406 						
+							"/>
+					</g>
+					<g id="g56269">
+						<polygon id="polygon56271" fill="#E2D6A1" points="175.48,337.406 175.271,338.265 177.227,338.265 177.021,337.406 						"/>
+					</g>
+				</g>
+				<polygon id="polygon56273" points="180.963,357.966 180.963,350.175 133.834,350.175 133.834,357.966 				"/>
+				<rect id="rect56275" x="163.443" y="350.175" fill="#404040" width="6.74" height="7.795"/>
+				<polygon id="polygon56277" fill="#474747" points="163.443,350.175 162.105,350.175 162.107,357.966 163.443,357.966 				"/>
+				<polygon id="polygon56279" fill="#373737" points="170.191,357.966 171.531,357.966 171.531,350.175 170.193,350.175 				"/>
+				<rect id="rect56281" x="135.174" y="350.175" fill="#404040" width="6.744" height="7.791"/>
+				<polygon id="polygon56283" fill="#474747" points="135.174,350.175 133.834,350.175 133.834,357.966 135.176,357.966 				"/>
+				<polygon id="polygon56285" fill="#373737" points="141.922,357.966 143.258,357.966 143.258,350.175 141.92,350.175 				"/>
+				<rect id="rect56287" x="125.742" y="350.175" fill="#404040" width="6.746" height="7.789"/>
+				<polygon id="polygon56289" fill="#474747" points="125.742,350.175 124.406,350.175 124.406,357.966 125.742,357.966 				"/>
+				<polygon id="polygon56291" fill="#373737" points="132.49,357.966 133.834,357.966 133.834,350.175 132.49,350.175 				"/>
+				<rect id="rect56293" x="144.596" y="350.175" fill="#404040" width="6.746" height="7.791"/>
+				<polygon id="polygon56295" fill="#474747" points="144.596,350.175 143.258,350.175 143.258,357.966 144.598,357.966 				"/>
+				<polygon id="polygon56297" fill="#373737" points="151.344,357.966 152.686,357.966 152.684,350.175 151.344,350.175 				"/>
+				<rect id="rect56299" x="154.023" y="350.175" fill="#404040" width="6.744" height="7.791"/>
+				<polygon id="polygon56301" fill="#474747" points="154.023,350.175 152.684,350.175 152.686,357.966 154.02,357.966 				"/>
+				<polygon id="polygon56303" fill="#373737" points="160.768,357.966 162.107,357.966 162.105,350.175 160.768,350.175 				"/>
+				<rect id="rect56305" x="172.875" y="350.175" fill="#404040" width="6.74" height="7.791"/>
+				<polygon id="polygon56307" fill="#474747" points="172.875,350.175 171.533,350.175 171.533,357.966 172.875,357.966 				"/>
+				<polygon id="polygon56309" fill="#373737" points="179.617,357.966 180.963,357.966 180.963,350.175 179.617,350.175 				"/>
+				<path id="path56311" d="M124.406,357.966"/>
+				<path id="path56313" d="M124.406,350.175"/>
+				<line id="line56315" fill="none" x1="124.406" y1="357.966" x2="124.406" y2="350.175"/>
+				<rect id="rect56317" x="106.893" y="350.175" fill="#404040" width="6.746" height="7.791"/>
+				<polygon id="polygon56319" fill="#474747" points="106.893,350.175 105.555,350.175 105.555,357.966 106.893,357.966 				"/>
+				<polygon id="polygon56321" fill="#373737" points="113.639,357.966 114.98,357.966 114.979,350.175 113.639,350.175 				"/>
+				<line id="line56323" fill="none" x1="85.365" y1="350.175" x2="85.365" y2="357.966"/>
+				<rect id="rect56325" x="88.045" y="350.175" fill="#404040" width="6.746" height="7.791"/>
+				<polygon id="polygon56327" fill="#474747" points="88.045,350.175 86.701,350.175 86.701,357.966 88.045,357.966 				"/>
+				<polygon id="polygon56329" fill="#373737" points="94.787,357.966 96.133,357.966 96.133,350.175 94.795,350.175 				"/>
+				<rect id="rect56331" x="97.469" y="350.175" fill="#404040" width="6.744" height="7.791"/>
+				<polygon id="polygon56333" fill="#474747" points="97.469,350.175 96.133,350.175 96.133,357.966 97.471,357.966 				"/>
+				<polygon id="polygon56335" fill="#373737" points="104.217,357.966 105.555,357.966 105.555,350.175 104.217,350.175 				"/>
+				<rect id="rect56337" x="116.322" y="350.175" fill="#404040" width="6.748" height="7.791"/>
+				<polygon id="polygon56339" fill="#474747" points="116.322,350.175 114.986,350.175 114.986,357.966 116.322,357.966 				"/>
+				<polygon id="polygon56341" fill="#373737" points="123.072,357.966 124.406,357.966 124.406,350.175 123.07,350.175 				"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

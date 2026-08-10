@@ -1,0 +1,34 @@
+var toolbox_servo = {
+   "kind": "categoryToolbox",
+   "contents": [{
+	  "kind": "category",
+	  "name": "%{BKY_CAT_SERVO}",
+		"toolboxitemid": "SERVO",
+		"levels": "1,2,3",
+		"level": "1",
+	  "categorystyle": "servo_category",
+		"cssConfig": {
+		  "icon": "customIcon fas fa-robot"
+		},
+	  "contents": [{
+		 "kind": "block",
+		 "type": "servo_move",
+		 "value": {
+			"kind": "category",
+			"name": "DEGREE",
+			"shadow": {
+			   "field": {
+				  "kind": "category",
+				  "name": "NUM",
+				  "text": "90"
+			   },
+				  "type": "math_number"
+			   }
+			}
+		 }, {
+			"kind": "block",
+			"type": "servo_read_degrees"
+		 }
+	  ]
+   }]
+};

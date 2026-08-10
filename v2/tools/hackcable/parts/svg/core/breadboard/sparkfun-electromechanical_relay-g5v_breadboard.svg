@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Ebene_1" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="58.455px"
+	 height="34.917px" viewBox="0 0 58.455 34.917" enable-background="new 0 0 58.455 34.917" xml:space="preserve">
+<g id="breadboard">
+	<g>
+		<g>
+			<circle id="connector16pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="3.999" cy="30.349" r="1.843"/>
+			<circle id="connector13pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="25.599" cy="30.348" r="1.843"/>
+			<circle id="connector11pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="39.999" cy="30.348" r="1.843"/>
+			<circle id="connector9pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="54.399" cy="30.348" r="1.843"/>
+			<circle id="connector8pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="54.399" cy="8.748" r="1.843"/>
+			<circle id="connector6pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="39.999" cy="8.748" r="1.843"/>
+			<circle id="connector4pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="25.599" cy="8.748" r="1.843"/>
+			<g id="connector0pin">
+				<circle fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="3.999" cy="8.748" r="1.843"/>
+				<rect x="2.156" y="6.905" fill="none" stroke="#FFBF00" stroke-width="1.4173" width="3.685" height="3.686"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<path fill="#1A1A1A" d="M-34.09-8.738c0,0.551-0.45,1-1,1h-34.576c-0.55,0-1-0.449-1-1v-11.35c0-0.553,0.45-1,1-1h34.576
+					c0.55,0,1,0.447,1,1V-8.738z"/>
+				<path fill="#FFFFFF" fill-opacity="0.1" d="M-35.09-20.78h-34.576c-0.55,0-1,0.447-1,1v-0.308c0-0.553,0.45-1,1-1h34.576V-20.78
+					z"/>
+			</g>
+			<path fill="#1A1A1A" d="M-34.09,11.648c0,0.552-0.45,1-1,1h-34.576c-0.55,0-1-0.448-1-1V0.299c0-0.558,0.45-1,1-1h34.576
+				c0.55,0,1,0.442,1,1V11.648z"/>
+			<path fill="#333333" d="M-34.717-21.088h-32.061v3.605c0,0.503-0.412,0.916-0.916,0.916h-2.972V0.485
+				c0,0.346,0.283,0.629,0.627,0.629h35.322c0.345,0,0.627-0.283,0.627-0.629v-20.947C-34.09-20.805-34.373-21.088-34.717-21.088z"
+				/>
+		</g>
+		<text transform="matrix(1 0 0 1 -64.3169 -17.9258)" fill="#808080" font-family="'DroidSans'" font-size="2.531">OMRON</text>
+		<text transform="matrix(1 0 0 1 -64.3169 -15.4258)" fill="#808080" font-family="'DroidSans'" font-size="2.531">G5V-1</text>
+	</g>
+	<g>
+		<text transform="matrix(1 0 0 1 -66.4814 -3.2363)" fill="#808080" font-family="'DroidSans'" font-size="2.531">12VDC</text>
+		<text transform="matrix(1 0 0 1 -66.4814 -0.7363)" fill="#808080" font-family="'DroidSans'" font-size="2.531">MADE IN CHINA</text>
+	</g>
+	<path fill="#B3B3B3" d="M-68.044-2.484c0,0.504-0.412,0.916-0.916,0.916h-0.002c-0.503,0-0.916-0.412-0.916-0.916v-12.084
+		c0-0.503,0.412-0.916,0.916-0.916h0.002c0.503,0,0.916,0.412,0.916,0.916V-2.484z"/>
+	<path fill="#FFFFFF" fill-opacity="0.1" d="M-66.778-20.775h32.061c0.345,0,0.627,0.283,0.627,0.627v-0.313
+		c0-0.344-0.282-0.627-0.627-0.627h-32.061V-20.775z"/>
+	<path fill="#FFFFFF" fill-opacity="0.1" d="M-70.667-16.254h2.972c0.504,0,0.916-0.413,0.916-0.916v-0.313
+		c0,0.503-0.412,0.916-0.916,0.916h-2.972V-16.254z"/>
+	<path fill-opacity="0.7" d="M-70.667,11.329c0,0.551,0.45,1,1,1h34.576c0.55,0,1-0.449,1-1v0.319c0,0.552-0.45,1-1,1h-34.576
+		c-0.55,0-1-0.448-1-1V11.329z"/>
+	<path fill-opacity="0.1" d="M-34.09,0.165c0,0.348-0.282,0.629-0.627,0.629H-70.04c-0.344,0-0.627-0.281-0.627-0.629v0.32
+		c0,0.346,0.283,0.629,0.627,0.629h35.322c0.345,0,0.627-0.283,0.627-0.629V0.165z"/>
+	<rect x="0.598" y="5.974" fill="#333333" width="57.258" height="27.78"/>
+	<g id="silkscreen">
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="0.75" points="0.598,16.407 0.598,5.974 57.856,5.974 57.856,33.753 
+			0.598,33.753 0.598,23.353 		"/>
+		<rect x="2.744" y="13.378" fill="none" stroke="#FFFFFF" stroke-width="0.75" width="2.125" height="11.75"/>
+		<line fill="none" stroke="#FFFFFF" stroke-width="0.75" x1="3.806" y1="13.378" x2="3.806" y2="11.878"/>
+		<line fill="none" stroke="#FFFFFF" stroke-width="0.75" x1="3.806" y1="26.628" x2="3.806" y2="25.128"/>
+		<line fill="none" stroke="#FFFFFF" stroke-width="0.75" x1="2.744" y1="20.753" x2="4.869" y2="18.253"/>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="0.75" points="25.599,27.128 25.599,24.378 46.618,24.378 45.118,25.753 
+			39.999,25.753 39.999,27.128 		"/>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="0.75" points="47.618,25.753 54.399,25.753 54.399,27.128 		"/>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="0.75" points="25.599,11.628 25.599,14.378 46.618,14.378 45.118,13.003 
+			39.999,13.003 39.999,11.628 		"/>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="0.75" points="47.618,13.003 54.399,13.003 54.399,11.628 		"/>
+	</g>
+</g>
+</svg>

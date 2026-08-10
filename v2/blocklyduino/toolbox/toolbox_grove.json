@@ -1,0 +1,111 @@
+var toolbox_grove = {
+  "kind": "categoryToolbox",
+  "contents": [{
+	"kind": "category",
+	"name": "%{BKY_CAT_SEEED}",
+	"toolboxitemid": "SEEED",
+	"levels": "1,2,3",
+	"level": "1",
+	"categorystyle": "seeed_category",
+	"cssConfig": {
+	  "icon": "customIcon fas fa-robot"
+	},
+	"contents": [{
+	  "kind": "category",
+	  "name": "%{BKY_CAT_GROVE}",
+	  "categorystyle": "grove_category",
+	  "contents": [{
+		"kind": "category",
+		"name": "%{BKY_CAT_GROVE_IO}",
+		"categorystyle": "grove_category",
+		"contents": [{
+		  "kind": "block",
+		  "type": "grove_led",
+		  },{
+		  "kind": "block",
+		  "type": "grove_button",
+		  },{
+		  "kind": "block",
+		  "type": "grove_relay",
+		  },{
+		  "kind": "block",
+		  "type": "grove_tilt_switch",
+		  },{
+		  "kind": "block",
+		  "type": "grove_piezo_buzzer",
+		  },{
+		  "kind": "block",
+		  "type": "grove_pir_motion_sensor",
+		  },{
+		  "kind": "block",
+		  "type": "grove_line_finder",
+		  },{
+		  "kind": "block",
+		  "type": "grove_rgb_led",
+		  },{
+		  "kind": "block",
+		  "type": "grove_ultrasonic_ranger",
+		  }
+		]
+	  },{
+		"kind": "category",
+		"name": "%{BKY_CAT_GROVE_ANALOG}",
+		"categorystyle": "grove_category",
+		"contents": [{
+		  "kind": "block",
+		  "type": "grove_rotary_angle",
+		  },{
+		  "kind": "block",
+		  "type": "grove_temperature_sensor",
+		  },{
+		  "kind": "block",
+		  "type": "grove_sound_sensor",
+		  },{
+		  "kind": "block",
+		  "type": "grove_thumb_joystick",
+		  }
+		]
+	  },{
+		"kind": "category",
+		"name": "%{BKY_CAT_GROVE_LCD}",
+		"categorystyle": "grove_category",
+		"contents": [{
+		  "kind": "block",
+		  "blockxml": '<block type="grove_serial_lcd_print">'
+					+ '<value name="TEXT1">'
+					+	'<shadow type="text">'
+					+		'<field name="TEXT"></field>'
+					+	'</shadow>'
+					+ '</value>'
+					+ '<value name="TEXT2">'
+					+	'<shadow type="text">'
+					+		'<field name="TEXT"></field>'
+					+	'</shadow>'
+					+ '</value>'
+					+ '<value name="DELAY_TIME">'
+					+	'<shadow type="math_number">'
+					+		'<field name="NUM">1000</field>'
+					+	'</shadow>'
+					+ '</value>'
+					+'</block>',
+		  },{
+		  "kind": "block",
+		  "type": "grove_serial_lcd_power",
+		  },{
+		  "kind": "block",
+		  "type": "grove_serial_lcd_effect",
+		  }
+		]
+	  },{
+		"kind": "category",
+		"name": "%{BKY_CAT_GROVE_MOTOR}",
+		"categorystyle": "grove_category",
+		"contents": [{
+		  "kind": "block",
+		  "type": "grove_motor_shield",
+		  }
+		]
+	  }]
+	}]
+  }]
+};

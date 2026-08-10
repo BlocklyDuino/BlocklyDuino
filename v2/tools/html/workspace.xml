@@ -1,0 +1,69 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none">
+  <block type="html" id="9oFDR`IIn6rS=HtBc1=;" x="-137" y="13">
+    <statement name="content">
+      <block type="head" id="GcN`f+0y~dua46CQmnr|">
+        <statement name="content">
+          <block type="title" id="rB[~}$}00N3;aP6]xnDB">
+            <statement name="content">
+              <block type="plaintext" id="CjhokkH)~`2F##tpTkVK">
+                <field name="content">Blockly HTML</field>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <next>
+          <block type="body_attributes" id="PScP7X][kjt|f!8/L%#=">
+            <value name="NAME">
+              <block type="style" id="m0}^Fb+}Ev,7[q@ztf#N">
+                <statement name="NAME">
+                  <block type="genericstyle" id="6@F@,+j$;T5u{n4?uEUr">
+                    <field name="property">font-family</field>
+                    <field name="value">sans-serif</field>
+                  </block>
+                </statement>
+              </block>
+            </value>
+            <statement name="content">
+              <block type="headline" id="^Afs`s`}=wNp`R8ca37J">
+                <field name="NAME">h1</field>
+                <statement name="content">
+                  <block type="plaintext" id="y?9?JkK^68`6RoX9M|HK">
+                    <field name="content">Create web pages with Blockly</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="paragraph" id="`7GrdZ)-sMI$8U]X:FT{">
+                    <statement name="content">
+                      <block type="plaintext" id="t$+$tH1}{rq41re|0c*(">
+                        <field name="content">Just combine the building blocks on the left side</field>
+                        <next>
+                          <block type="plaintext" id="C]F#kLxHh]~_/W9dI[xM">
+                            <field name="content">and watch this page change accordingly.</field>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="paragraph" id="dl,67cz~ME2iY-0u@WN2">
+                        <statement name="content">
+                          <block type="plaintext" id="2p+0sn,p3Ir+8[A+ub@+">
+                            <field name="content">On the bottom, you can also see the HTML</field>
+                            <next>
+                              <block type="plaintext" id="~q?}Zyz_#Z/)z{$C5:Eg">
+                                <field name="content">source code of the page you are creating.</field>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

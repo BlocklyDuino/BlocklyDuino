@@ -1,0 +1,172 @@
+/**
+ * @license
+ * Copyright 2020 Sébastien CANET
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/**
+ * @fileoverview CSS style from BlocklyDuino.
+ * @author ROBOM
+ * @author scanet@libreduc.cc (Sébastien CANET)
+ */
+ 
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #F0F0F0;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* IE/Edge */
+	user-select: none;
+	background: #FFFFFF;
+    font-family: sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
+#konvaContainer {
+	position: absolute;
+	left: 250px;
+	width: 100%;
+	height: 100%;
+}
+#konvaPreview {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	border: 1px solid grey;
+	background-color: lightgrey;
+}
+.sideBar{
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	background: #03234b;
+	position: absolute;
+}
+.functionMenu {
+	text-align: center;
+	width: 100%;
+	border-bottom: 1px solid #fff;
+}
+.partsDescription,
+.pagins,
+.parts {
+	text-align: center;
+}
+.parts {
+	width: 100%;
+	height: 300px;
+	overflow: auto;
+	padding: 10px 0px 10px 0px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+.pagins {
+	margin-top: 5px;
+	color: #fff;
+}
+.pagins span.arr:hover {
+	background-color: #fff;
+	color: #4199df;
+}
+.pagins span.arr {
+	font-size: 18px;
+	font-weight: 700;
+	border: 4px solid #fff;
+	padding: 0 10px;
+	border-radius: 50%;
+	cursor: pointer;
+	margin: 7px;
+}
+.mini_parts {
+	background-color: #fff;
+	border-radius: 4px;
+	margin: 5px;
+}
+.mini_parts:hover {
+	cursor: grab;
+	transform: scale(0.85);
+	filter: drop-shadow(0 0 15px red);
+}
+.defaultTextSearch {
+	display: block;
+	font-size: 16px;
+	color: #000;
+	margin: 0 auto 5px;
+	border: 1px solid gray;
+	border-radius: 4px;
+	padding: 0 10px;
+}
+.partsDescription_title,
+.partsDescription_text {
+}
+.partsDescription_title {
+	color: #fff;
+}
+.partsDescription_text {
+	color: #FFFFFF;
+	box-sizing: border-box;
+	overflow-y: scroll;
+    /* Firefox */
+    height: -moz-calc(100% - 40px);
+    /* WebKit */
+    height: -webkit-calc(100% - 40px);
+    /* Opera */
+    height: -o-calc(100% - 40px);
+    /* Standard */
+    height: calc(100% - 5px);
+}
+.partsDescription_img {
+	width: 90%;
+	height: 125px;
+	margin: 0 auto
+}
+
+.iconButtons{
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    padding:2px;
+    line-height:0;
+    vertical-align: middle;
+    background: #03234b;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    width: 32px;
+}
+.iconButtons:hover{
+    background: #FFFFFF;
+    color: #03234b;
+    cursor : pointer;
+    transition: 0.5s ease;
+}
+.iconButtons:active{
+    background: #FFCC00;
+}
+.iconButtons:active::after {
+    transition-property: background;
+    transition-duration: 10s;
+}
+.iconButtons:disabled{
+    background: #F3F1EF;
+    color: #03234B;
+    cursor : not-allowed;
+}
+.iconButtonsClicked{
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    padding:2px;
+    line-height:0;
+    vertical-align: middle;
+    background: #FFCC00;
+    color: #03234B;
+    font-size: x-large;
+    width: 32px;
+}

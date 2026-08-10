@@ -1,0 +1,27 @@
+var toolbox_X_NUCLEO_IKS01A3 = {
+   "kind": "categoryToolbox",
+    "contents": [
+      {
+         "kind": "category",
+         "name": "%{BKY_CAT_IKS01A3}",
+		"toolboxitemid": "X-NUCLEO-IKS01A3",
+		"level": "1",
+		"levels": "1,2,3",
+         "categorystyle": "X-NUCLEO-IKS01A3_category",
+		"cssConfig": {
+		  "icon": "customIcon fas fas fa-shield-alt"
+		},
+         "contents": [
+            {
+               "kind": "block",
+               "type": "X_NUCLEO_IKS01A3_Temp_Read"
+            },
+            {
+               "kind": "block",
+               "type": "X_NUCLEO_IKS01A3_Humidity_Read"
+            }
+         ]
+      },{
+  "kind": "sep"
+  }]
+};

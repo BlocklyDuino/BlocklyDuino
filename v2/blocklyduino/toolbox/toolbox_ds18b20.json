@@ -1,0 +1,22 @@
+var toolbox_ds18b20 = {
+   "kind": "categoryToolbox",
+   "contents": [{
+	  "kind": "category",
+	  "name": "%{BKY_CAT_DS18B20}",
+		"toolboxitemid": "DS18B20",
+		"levels": "1,2,3",
+		"level": "1",
+	  "categorystyle": "ds18b20_category",
+		"cssConfig": {
+		  "icon": "customIcon fas fa-thermometer-half"
+		},
+	  "contents": [{
+		 "kind": "block",
+		 "type": "ds18b20_search"
+		 }, {
+		"kind": "block",
+		"type": "ds18b20_temp"
+		 }
+	  ]
+   }]
+};

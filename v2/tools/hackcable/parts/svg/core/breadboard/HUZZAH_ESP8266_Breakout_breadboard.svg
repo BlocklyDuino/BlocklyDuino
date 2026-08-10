@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1.50314in" gorn="0" x="0px" y="0px" version="1.2"  baseProfile="tiny" xml:space="preserve" id="breadboard" viewBox="0 0 108.226 73.701" xmlns:xml="http://www.w3.org/XML/1998/namespace" height="1.02363in">
+    <desc >
+        <referenceFile >breadboard.svg</referenceFile>
+    </desc>
+    <g  transform="translate(-110.015,-437.286)">
+        <g >
+            <g >
+                <g >
+                    <g >
+                        <path gorn="0.1.0.0.0.0.0"  fill="#337380" id="Huzzah_PCB" d="M110.015,510.987h48.698h10.829h48.699v-73.701H110.015V510.987L110.015,510.987z"/>
+                        <rect width="70.867" gorn="0.1.0.0.0.0.1" x="147.373" y="458.089"  fill="#285A63" id="ESP-12_PCB" height="31.856"/>
+                        <g  transform="matrix(0,-1,1.2190595,0,2.9065317,84.571101)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <g gorn="0.1.0.0.0.0.2.0.0.0.0"  id="Wifi_Antenna">
+                                            <g gorn="0.1.0.0.0.0.2.0.0.0.0.0"  id="g9454">
+                                                <g gorn="0.1.0.0.0.0.2.0.0.0.0.0.0"  id="g9456">
+                                                    <g gorn="0.1.0.0.0.0.2.0.0.0.0.0.0.0"  id="g9458">
+                                                        <g gorn="0.1.0.0.0.0.2.0.0.0.0.0.0.0.0"  id="g9460">
+                                                            <g gorn="0.1.0.0.0.0.2.0.0.0.0.0.0.0.0.0"  id="g9462">
+                                                                <g gorn="0.1.0.0.0.0.2.0.0.0.0.0.0.0.0.0.0"  id="g9464">
+                                                                    <path gorn="0.1.0.0.0.0.2.0.0.0.0.0.0.0.0.0.0.0"  fill="#9A916C" id="path4088" d="M-378.14,157.594v16.171c-0.065,0.53-0.284,0.977-1.034,1.148h-1.867c-0.742-0.078-0.904-0.458-0.898-0.925v-6.953h-1.267v6.984c-0.01,0.505-0.281,0.826-1,0.798h-1.731c-0.849-0.058-0.993-0.415-1-0.83v-7.048h-1.067v7.016c-0.031,0.524-0.228,0.742-0.899,0.798h-2c-0.531-0.023-0.87-0.266-0.933-0.829v-6.889h-1.301v6.794c-0.027,0.501-0.351,0.806-1.132,0.797h-7.28c-0.653-0.059-1.152-0.317-1.119-1.271h8.1v-7.149c0.007-0.423,0.233-0.621,0.65-0.622h2.85c0.313,0.04,0.54,0.181,0.574,0.55v7.184h1.258v-6.984c-0.067-0.451,0.067-0.679,0.409-0.679h2.557c0.371,0.025,0.752,0.026,0.786,0.753v7.261h0.98v-7.463c0.071-0.45,0.288-0.487,0.516-0.495h2.75c0.448-0.014,0.665,0.209,0.675,0.646v7.343h1.258v-11.259h-14.129c-1.154,0.01-1.034-0.311-1.07-0.591c-0.086-0.64,0.532-0.664,1.187-0.656h13.979v-3.633L-378.14,157.594z"/>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <rect width="42.789" gorn="0.1.0.0.0.0.3" x="148.996" y="460.112"  fill="#CCCCCF" stroke-width="0.3554" stroke="#000000" id="AI_Thinker_Metal_Cover" height="27.974" stroke-miterlimit="1"/>
+                        <path gorn="0.1.0.0.0.0.4"  fill="#FFFFFF" id="Adafruit_logo" d="M125.808,498.636c-0.035-0.222-0.156-0.285-0.446-0.379c-0.221-0.071-1.701-0.542-1.701-0.542s-1.032-0.391-1.797,0.161c-0.103,0.074-0.208,0.159-0.316,0.249c0.09-0.107,0.174-0.214,0.249-0.317c0.549-0.766,0.159-1.796,0.159-1.796s-0.475-1.479-0.546-1.701c-0.094-0.29-0.157-0.41-0.38-0.445s-0.32,0.06-0.498,0.308c-0.135,0.188-1.042,1.45-1.042,1.45s-0.688,0.861-0.401,1.759c0.039,0.121,0.086,0.248,0.139,0.378c-0.074-0.119-0.15-0.231-0.225-0.335c-0.558-0.759-1.66-0.705-1.66-0.705s-1.553-0.007-1.786-0.007c-0.305-0.001-0.439,0.022-0.541,0.223c-0.102,0.201-0.042,0.323,0.139,0.569c0.137,0.188,1.058,1.439,1.058,1.439s0.606,0.921,1.548,0.925c0.126,0.001,0.262-0.005,0.401-0.016c-0.136,0.034-0.266,0.07-0.386,0.11c-0.895,0.297-1.184,1.36-1.184,1.36s-0.486,1.477-0.559,1.696c-0.095,0.291-0.115,0.426,0.045,0.584c0.159,0.159,0.294,0.14,0.584,0.044c0.22-0.072,1.695-0.561,1.695-0.561s1.064-0.292,1.358-1.188c0.039-0.119,0.076-0.25,0.109-0.386c-0.01,0.14-0.015,0.274-0.014,0.401c0.005,0.942,0.927,1.547,0.927,1.547s1.254,0.917,1.441,1.055c0.248,0.18,0.37,0.24,0.569,0.137c0.202-0.102,0.224-0.235,0.222-0.541c0-0.231-0.01-1.785-0.01-1.785s0.052-1.102-0.709-1.659c-0.102-0.074-0.214-0.15-0.333-0.224c0.13,0.053,0.257,0.1,0.377,0.138c0.898,0.286,1.758-0.404,1.758-0.404s1.26-0.908,1.448-1.044C125.748,498.956,125.843,498.858,125.808,498.636L125.808,498.636z M120.458,497.493c0.169,0.026,0.253,0.387,0.188,0.805s-0.256,0.735-0.426,0.708c-0.17-0.026-0.254-0.387-0.188-0.805C120.097,497.783,120.288,497.466,120.458,497.493z M118.288,498.6c0.077-0.152,0.446-0.121,0.823,0.07c0.377,0.191,0.619,0.472,0.542,0.624c-0.078,0.153-0.446,0.121-0.824-0.069C118.453,499.033,118.209,498.754,118.288,498.6L118.288,498.6z M119.432,500.684c-0.299,0.3-0.64,0.443-0.762,0.323c-0.122-0.122,0.023-0.463,0.322-0.762c0.298-0.3,0.639-0.444,0.76-0.323C119.875,500.045,119.73,500.385,119.432,500.684L119.432,500.684z M121.078,501.386c-0.152,0.077-0.433-0.165-0.625-0.541c-0.192-0.377-0.225-0.746-0.071-0.824c0.152-0.077,0.433,0.165,0.625,0.541C121.199,500.939,121.23,501.308,121.078,501.386z M121.475,499.641c-0.417,0.066-0.779-0.017-0.806-0.187c-0.027-0.169,0.291-0.36,0.708-0.427c0.418-0.066,0.778,0.017,0.805,0.186C122.209,499.383,121.892,499.575,121.475,499.641L121.475,499.641z"/>
+                        <g  transform="matrix(1 0 0 1 152.9824 467.157)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  font-family="OCRA">Adafruit</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(1 0 0 1 152.9824 473.157)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  font-family="OCRA">HUZZAH </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(1 0 0 1 152.9824 479.157)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  font-family="OCRA">ESP8266 </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(1 0 0 1 152.9824 485.157)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  font-family="OCRA">Breakout</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="200.181" cy="506.29"/>
+                            <circle gorn="0.1.0.0.0.0.9.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector11pin" r="1.584" cx="200.181" cy="506.29"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="192.981" cy="506.29"/>
+                            <circle gorn="0.1.0.0.0.0.10.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector12pin" r="1.584" cx="192.981" cy="506.29"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="185.781" cy="506.262"/>
+                            <circle gorn="0.1.0.0.0.0.11.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector13pin" r="1.584" cx="185.781" cy="506.262"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="178.581" cy="506.262"/>
+                            <circle gorn="0.1.0.0.0.0.12.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector14pin" r="1.584" cx="178.581" cy="506.262"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="171.381" cy="506.29"/>
+                            <circle gorn="0.1.0.0.0.0.13.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector15pin" r="1.584" cx="171.381" cy="506.29"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="164.181" cy="506.291"/>
+                            <circle gorn="0.1.0.0.0.0.14.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector16pin" r="1.584" cx="164.181" cy="506.291"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="156.981" cy="506.291"/>
+                            <circle gorn="0.1.0.0.0.0.15.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector17pin" r="1.584" cx="156.981" cy="506.291"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="149.781" cy="506.291"/>
+                            <circle gorn="0.1.0.0.0.0.16.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector18pin" r="1.584" cx="149.781" cy="506.291"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="142.582" cy="506.291"/>
+                            <circle gorn="0.1.0.0.0.0.17.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector19pin" r="1.584" cx="142.582" cy="506.291"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="135.381" cy="506.29"/>
+                            <circle gorn="0.1.0.0.0.0.18.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector20pin" r="1.584" cx="135.381" cy="506.29"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="200.181" cy="441.516"/>
+                            <circle gorn="0.1.0.0.0.0.19.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector10pin" r="1.584" cx="200.181" cy="441.516"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="192.981" cy="441.516"/>
+                            <circle gorn="0.1.0.0.0.0.20.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector9pin" r="1.584" cx="192.981" cy="441.516"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="185.781" cy="441.489"/>
+                            <circle gorn="0.1.0.0.0.0.21.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector8pin" r="1.584" cx="185.781" cy="441.489"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="178.581" cy="441.489"/>
+                            <circle gorn="0.1.0.0.0.0.22.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector7pin" r="1.584" cx="178.581" cy="441.489"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="171.381" cy="441.516"/>
+                            <circle gorn="0.1.0.0.0.0.23.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector6pin" r="1.584" cx="171.381" cy="441.516"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="164.181" cy="441.517"/>
+                            <circle gorn="0.1.0.0.0.0.24.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector5pin" r="1.584" cx="164.181" cy="441.517"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="156.981" cy="441.517"/>
+                            <circle gorn="0.1.0.0.0.0.25.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector4pin" r="1.584" cx="156.981" cy="441.517"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="149.781" cy="441.517"/>
+                            <circle gorn="0.1.0.0.0.0.26.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector3pin" r="1.584" cx="149.781" cy="441.517"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="142.582" cy="441.517"/>
+                            <circle gorn="0.1.0.0.0.0.27.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector2pin" r="1.584" cx="142.582" cy="441.517"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="135.381" cy="441.516"/>
+                            <circle gorn="0.1.0.0.0.0.28.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector1pin" r="1.584" cx="135.381" cy="441.516"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="113.769" cy="484.689"/>
+                            <circle gorn="0.1.0.0.0.0.29.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector21pin" r="1.584" cx="113.769" cy="484.689"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="113.796" cy="470.29"/>
+                            <circle gorn="0.1.0.0.0.0.30.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector22pin" r="1.584" cx="113.796" cy="470.29"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="113.796" cy="463.09"/>
+                            <circle gorn="0.1.0.0.0.0.31.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector23pin" r="1.584" cx="113.796" cy="463.089"/>
+                        </g>
+                        <g >
+                            <circle  fill="#383938" r="1.196" cx="113.769" cy="455.89"/>
+                            <circle gorn="0.1.0.0.0.0.32.1"  fill="none" stroke-width="1.152" stroke="#9A916C" id="connector24pin" r="1.584" cx="113.769" cy="455.889"/>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 137.3467 456.4695)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">GND</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 144.5264 460.0847)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">VBat</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 151.707 452.8552)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">V+</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 158.8867 456.4695)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">#13</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 166.0664 456.4695)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">#12</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 173.2471 456.4695)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">#14</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 180.4268 456.4695)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">#16</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 187.6064 452.8552)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">EN</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 194.7871 449.24)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">A</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 201.9668 456.4695)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">RST</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 137.3467 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">GND</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 144.5264 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">LDO</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 151.707 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">3V</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 158.8867 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">#15</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 166.0664 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">#2</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 173.2471 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">#0</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 180.4268 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">#4</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 187.6064 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">#5</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 194.7871 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">RX</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(0 -1 1 0 201.9668 502.2917)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">TX</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(1 0 0 1 118.3467 457.8533)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">TX</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(1 0 0 1 118.3467 465.033)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">RX</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(1 0 0 1 118.3467 472.2136)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">V+</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="matrix(1 0 0 1 118.3467 486.573)">
+                            <g >
+                                <g >
+                                    <g >
+                                        <text font-size="5"  fill="#E6E6E6" font-family="OCRA">GND</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <circle  fill="#383938" r="1.196" cx="113.769" cy="477.289"/>
+                        <circle gorn="0.1.0.0.0.0.58"  fill="none" stroke-width="1.152" stroke="#635D46" id="connector0pin_4_" r="1.584" cx="113.769" cy="477.289"/>
+                        <circle  fill="#383938" r="1.196" cx="113.796" cy="448.041"/>
+                        <circle gorn="0.1.0.0.0.0.60"  fill="none" stroke-width="1.152" stroke="#635D46" id="connector0pin_5_" r="1.584" cx="113.796" cy="448.041"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

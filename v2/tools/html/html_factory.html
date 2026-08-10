@@ -1,0 +1,750 @@
+<html>
+  <head>
+    <title>Blockly 2 HTML</title>
+    <link rel="icon" type="image/png" href="../../blocklyduino/media/logo_only.png" />
+    <meta content="">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        padding: 0;
+        margin: 0;
+      }
+
+      #container {
+        width:100vw;
+        height:100vh;
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 50% 50%;
+        -ms-grid-rows: 50px 30px 45% 45%;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50px 30px auto;
+        grid-template-areas:
+          "blockly     menubar"
+          "blockly     title"
+          "blockly     website";
+      }
+
+      #blocklyArea  {grid-area: blockly; -ms-grid-row:1;-ms-grid-column:1; -ms-grid-row-span:4;}
+      #menubar      {background: #a9d0f7; grid-area: menubar; font-family: sans-serif; font-size: 18px; padding: 5px 10px; display: -ms-grid; display: grid; grid-template-columns: auto 36% auto; -ms-grid-row:1;-ms-grid-column:2; -ms-grid-columns: 32% 36% 32%; }
+      #title        {grid-area: title; width: 100%; background-color: #444; color:white; text-align:center; font-size: 20px; font-family: sans-serif; padding-top: 5px; -ms-grid-row:2;-ms-grid-column:2;}
+      #websiteFrame {grid-area: website; border: 5px solid #444;  -ms-grid-row:3;-ms-grid-column:2;}
+      <!-- #sourcecode   {display: none;grid-area: code; border: 5px solid lightgray;overflow: scroll; margin:0px;  -ms-grid-row:4;-ms-grid-column:2;} -->
+
+      #website {width: calc(100% - 5px);height: calc(100% - 5px);}
+
+
+      /* Edge hack, God I hate this browser */
+      _:-ms-lang(x),
+      #container {
+        width:98vw;
+      }
+    </style>
+    <script src="../../@blockly/blockly_compressed.js"></script>
+    <script src="../../@blockly/blocks_compressed.js"></script>
+    <script src="../../@blockly/msg/js/en.js"></script>
+
+    <script src="./en.js"></script>
+    <script src="./html_generators.js"></script>
+    <script src="./html_blocks.js"></script>
+
+    <!-- For JS-Blocks only -->
+    <script src="./javascript_compressed.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="blocklyArea"></div>
+      <div id="menubar">
+        <div><span id="saveText">💾 Save blocks:</span> <input type="button" value="Save" id="saveButton" /></div>
+        <div><span id="loadText">📂 Load blocks:</span> <input type="file" id="fileButton" style="max-width:200px" /></div>
+        <div><span id="exportText">📄 Export webpage as HTML:</span> <input type="button" value="Export" id="exportButton" /></div>
+        <script>
+          if (typeof(Msg) == "object" && Msg.buttons) {
+            document.getElementById("saveText").textContent   = Msg.buttons.save.desc;
+            document.getElementById("saveButton").textContent = Msg.buttons.save.button;
+            document.getElementById("loadText").textContent   = Msg.buttons.load.desc;
+            document.getElementById("exportText").value       = Msg.buttons.export.desc;
+            document.getElementById("exportButton").value     = Msg.buttons.export.button;
+          }
+        </script>
+      </div>
+      <div id="title">untitled web page</div>
+      <div id="websiteFrame"><iframe id="website"></iframe></div>
+      <pre id="sourcecode">sum contnent</pre>
+    </div>
+
+    <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+      <category name="html" expanded="true">
+        <category name="baseframe" colour="#a55b5b">
+          <block type="html">
+            <statement name="content">
+              <block type="head">
+                <statement name="content">
+                  <block type="title">
+                    <statement name="content">
+                      <block type="plaintext">
+                        <field name="content"></field>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="body"></block>
+                </next>
+              </block>
+            </statement>
+          </block>
+          <block type="html"></block>
+          <block type="body"></block>
+          <block type="body_attributes"></block>
+          <block type="head"></block>
+          <block type="title">
+            <statement name="content">
+              <block type="plaintext">
+                <field name="content"></field>
+              </block>
+            </statement>
+          </block>
+        </category>
+        <category name="textstructure" colour="#5ba55b">
+          <block type="plaintext">
+            <field name="content"></field>
+          </block>
+          <block type="horizontalbreak"></block>
+          <block type="linebreak"></block>
+          <block type="paragraph"></block>
+          <block type="headline">
+            <field name="NAME">h1</field>
+          </block>
+          <block type="link">
+            <field name="NAME">target</field>
+          </block>
+          <block type="image">
+            <field name="IMAGE">URL</field>
+            <field name="ALT">alternative text</field>
+          </block>
+          <block type="generictag">
+            <field name="NAME">tag</field>
+          </block>
+        </category>
+        <category name="markup" colour="#5ba55b">
+          <block type="emphasise"></block>
+          <block type="inserted"></block>
+          <block type="strong"></block>
+          <block type="deleted"></block>
+          <block type="super"></block>
+          <block type="sub"></block>
+          <block type="code"></block>
+          <block type="quote"></block>
+          <block type="blockquote"></block>
+          <block type="sample"></block>
+          <block type="keyboard"></block>
+          <block type="variable"></block>
+          <block type="division"></block>
+        </category>
+        <category name="style" colour="#5b6da5">
+          <block type="span">
+            <value name="NAME">
+              <block type="style"></block>
+            </value>
+          </block>
+          <block type="style"></block>
+          <block type="color">
+            <field name="NAME">#ff0000</field>
+          </block>
+          <block type="bgcolour">
+            <field name="NAME">#ff0000</field>
+          </block>
+          <block type="genericstyle">
+            <field name="property">property</field>
+            <field name="value">value</field>
+          </block>
+          <block type="span"></block>
+          <block type="division"></block>
+          <block type="generictag">
+            <field name="NAME">tag</field>
+          </block>
+        </category>
+        <category name="enumerations" colour="#a55ba5">
+          <block type="unorderedlist"></block>
+          <block type="orderedlist"></block>
+          <block type="listelement"></block>
+        </category>
+        <category name="tables" colour="#5ba5a5">
+          <block type="table">
+            <statement name="content">
+              <block type="tablerow">
+                <statement name="content">
+                  <block type="tablecell">
+                    <next>
+                      <block type="tablecell"></block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="tablerow">
+                    <statement name="content">
+                      <block type="tablecell">
+                        <next>
+                          <block type="tablecell"></block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+          <block type="table"></block>
+          <block type="tablerow"></block>
+          <block type="tablecell"></block>
+        </category>
+        <category name="forms" colour="#80a55b">
+          <block type="form"></block>
+          <block type="input_text">
+            <field name="default"></field>
+          </block>
+          <block type="button"></block>
+          <block type="input">
+            <field name="type">text</field>
+            <field name="value"></field>
+          </block>
+        </category>
+        <category name="scripts" colour="#a5a55b">
+          <block type="script"></block>
+          <block type="onclick"></block>
+        </category>
+      </category>
+      <sep></sep>
+      <category name="scripting">
+        <category name="logic" colour="#5C81A6">
+          <block type="controls_if"></block>
+          <block type="logic_compare">
+            <field name="OP">EQ</field>
+          </block>
+          <block type="logic_operation">
+            <field name="OP">AND</field>
+          </block>
+          <block type="logic_negate"></block>
+          <block type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </block>
+          <block type="logic_null"></block>
+          <block type="logic_ternary"></block>
+        </category>
+        <category name="loops" colour="#5CA65C">
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="controls_whileUntil">
+            <field name="MODE">WHILE</field>
+          </block>
+          <block type="controls_for">
+            <field name="VAR" id=")[(PctVvu3c`*IACnwmm">i</field>
+            <value name="FROM">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="TO">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="BY">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="controls_forEach">
+            <field name="VAR" id="~a;YXk@k`X$Eb9]Z6{Me">j</field>
+          </block>
+          <block type="controls_flow_statements">
+            <field name="FLOW">BREAK</field>
+          </block>
+        </category>
+        <category name="math" colour="#5C68A6">
+          <block type="math_round">
+            <field name="OP">ROUND</field>
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+          <block type="math_single">
+            <field name="OP">ROOT</field>
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_trig">
+            <field name="OP">SIN</field>
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_constant">
+            <field name="CONSTANT">PI</field>
+          </block>
+          <block type="math_number_property">
+            <mutation divisor_input="false"></mutation>
+            <field name="PROPERTY">EVEN</field>
+            <value name="NUMBER_TO_CHECK">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_arithmetic">
+            <field name="OP">ADD</field>
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_on_list">
+            <mutation op="SUM"></mutation>
+            <field name="OP">SUM</field>
+          </block>
+          <block type="math_modulo">
+            <value name="DIVIDEND">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="DIVISOR">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_constrain">
+            <value name="VALUE">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="LOW">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="HIGH">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_random_int">
+            <value name="FROM">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="TO">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_random_float"></block>
+        </category>
+        <category name="text" colour="#5CA68D">
+          <block type="text_charAt">
+            <mutation at="true"></mutation>
+            <field name="WHERE">FROM_START</field>
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR" id="3lD0;=:EX{.QS(1_E}e_">item</field>
+              </block>
+            </value>
+          </block>
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+          <block type="text_append">
+            <field name="VAR" id="3lD0;=:EX{.QS(1_E}e_">item</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_length">
+            <value name="VALUE">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_isEmpty">
+            <value name="VALUE">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_indexOf">
+            <field name="END">FIRST</field>
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR" id="3lD0;=:EX{.QS(1_E}e_">item</field>
+              </block>
+            </value>
+            <value name="FIND">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_join">
+            <mutation items="2"></mutation>
+          </block>
+          <block type="text_getSubstring">
+            <mutation at1="true" at2="true"></mutation>
+            <field name="WHERE1">FROM_START</field>
+            <field name="WHERE2">FROM_START</field>
+            <value name="STRING">
+              <block type="variables_get">
+                <field name="VAR" id="3lD0;=:EX{.QS(1_E}e_">item</field>
+              </block>
+            </value>
+          </block>
+          <block type="text_changeCase">
+            <field name="CASE">UPPERCASE</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_trim">
+            <field name="MODE">BOTH</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_print">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_prompt_ext">
+            <mutation type="TEXT"></mutation>
+            <field name="TYPE">TEXT</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category name="lists" colour="#745CA6">
+          <block type="lists_indexOf">
+            <field name="END">FIRST</field>
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR" id="$nGj}F5dt?Fu8z!2-*~F">item</field>
+              </block>
+            </value>
+          </block>
+          <block type="lists_create_with">
+            <mutation items="0"></mutation>
+          </block>
+          <block type="lists_repeat">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_length"></block>
+          <block type="lists_isEmpty"></block>
+          <block type="lists_create_with">
+            <mutation items="3"></mutation>
+          </block>
+          <block type="lists_getIndex">
+            <mutation statement="false" at="true"></mutation>
+            <field name="MODE">GET</field>
+            <field name="WHERE">FROM_START</field>
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR" id="$nGj}F5dt?Fu8z!2-*~F">item</field>
+              </block>
+            </value>
+          </block>
+          <block type="lists_setIndex">
+            <mutation at="true"></mutation>
+            <field name="MODE">SET</field>
+            <field name="WHERE">FROM_START</field>
+            <value name="LIST">
+              <block type="variables_get">
+                <field name="VAR" id="$nGj}F5dt?Fu8z!2-*~F">item</field>
+              </block>
+            </value>
+          </block>
+          <block type="lists_getSublist">
+            <mutation at1="true" at2="true"></mutation>
+            <field name="WHERE1">FROM_START</field>
+            <field name="WHERE2">FROM_START</field>
+            <value name="LIST">
+              <block type="variables_get">
+                <field name="VAR" id="$nGj}F5dt?Fu8z!2-*~F">item</field>
+              </block>
+            </value>
+          </block>
+          <block type="lists_split">
+            <mutation mode="SPLIT"></mutation>
+            <field name="MODE">SPLIT</field>
+            <value name="DELIM">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_sort">
+            <field name="TYPE">NUMERIC</field>
+            <field name="DIRECTION">1</field>
+          </block>
+        </category>
+        <category name="colour" colour="#A6745C">
+          <block type="colour_picker">
+            <field name="COLOUR">#ff0000</field>
+          </block>
+          <block type="colour_random"></block>
+          <block type="colour_rgb">
+            <value name="RED">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="GREEN">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="BLUE">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="colour_blend">
+            <value name="COLOUR1">
+              <shadow type="colour_picker">
+                <field name="COLOUR">#ff0000</field>
+              </shadow>
+            </value>
+            <value name="COLOUR2">
+              <shadow type="colour_picker">
+                <field name="COLOUR">#ff0000</field>
+              </shadow>
+            </value>
+            <value name="RATIO">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category name="variables" colour="#A65C81" custom="VARIABLE"></category>
+        <category name="functions" colour="#9A5CA6" custom="PROCEDURE"></category>
+      </category>
+    </xml>
+
+    <script>
+      if (typeof(Msg) == "object" && Msg.categories) {
+        for (category in Msg.categories) {
+          elements = document.getElementsByName(category);
+          if (elements.length == 0) {
+            continue;
+          }
+          elements[0].setAttribute("name", Msg.categories[category]);
+        }
+      }
+    </script>
+
+    <xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none">
+      <block type="html" id="9oFDR`IIn6rS=HtBc1=;" x="-137" y="13">
+        <statement name="content">
+          <block type="head" id="GcN`f+0y~dua46CQmnr|">
+            <statement name="content">
+              <block type="title" id="rB[~}$}00N3;aP6]xnDB">
+                <statement name="content">
+                  <block type="plaintext" id="CjhokkH)~`2F##tpTkVK">
+                    <field name="content">Blockly HTML</field>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <next>
+              <block type="body_attributes" id="PScP7X][kjt|f!8/L%#=">
+                <value name="NAME">
+                  <block type="style" id="m0}^Fb+}Ev,7[q@ztf#N">
+                    <statement name="NAME">
+                      <block type="genericstyle" id="6@F@,+j$;T5u{n4?uEUr">
+                        <field name="property">font-family</field>
+                        <field name="value">sans-serif</field>
+                      </block>
+                    </statement>
+                  </block>
+                </value>
+                <statement name="content">
+                  <block type="headline" id="^Afs`s`}=wNp`R8ca37J">
+                    <field name="NAME">h1</field>
+                    <statement name="content">
+                      <block type="plaintext" id="y?9?JkK^68`6RoX9M|HK">
+                        <field name="content">Create web pages with Blockly</field>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="paragraph" id="`7GrdZ)-sMI$8U]X:FT{">
+                        <statement name="content">
+                          <block type="plaintext" id="t$+$tH1}{rq41re|0c*(">
+                            <field name="content">Just combine the building blocks on the left side</field>
+                            <next>
+                              <block type="plaintext" id="C]F#kLxHh]~_/W9dI[xM">
+                                <field name="content">and watch this page change accordingly.</field>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="paragraph" id="dl,67cz~ME2iY-0u@WN2">
+                            <statement name="content">
+                              <block type="plaintext" id="2p+0sn,p3Ir+8[A+ub@+">
+                                <field name="content">On the bottom, you can also see the HTML</field>
+                                <next>
+                                  <block type="plaintext" id="~q?}Zyz_#Z/)z{$C5:Eg">
+                                    <field name="content">source code of the page you are creating.</field>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </xml>
+
+    <script>
+      var toolbox = document.getElementById("toolbox");
+      var blocklyArea = document.getElementById('blocklyArea');
+
+      var options = {
+        toolbox : toolbox,
+        collapse : true,
+//        comments : false,
+//        disable : false,
+        maxBlocks : Infinity,
+        trashcan : true,
+//        horizontalLayout : false,
+        toolboxPosition : 'center',
+        tooltips: true,
+        css : true,
+        media : '../../@blockly/media/',
+        rtl : false,
+        scrollbars : true,
+        sounds : true,
+        oneBasedIndex : true
+      };
+
+      var workspace = Blockly.inject(blocklyArea, options);
+
+      var xml_text = localStorage.getItem('blockly-html-code');
+      if (xml_text) {
+        var xml = Blockly.Xml.textToDom(xml_text);
+        Blockly.Xml.domToWorkspace(xml, workspace);
+      }
+      else {
+        /* === For backwards compability. Remove soon ===*/
+        var xml_text = localStorage.getItem('code');
+        if (xml_text) {
+          var xml = Blockly.Xml.textToDom(xml_text);
+          Blockly.Xml.domToWorkspace(xml, workspace);
+        }
+        /* === ^^^ === */
+        else {
+          var workspaceBlocks = document.getElementById("workspaceBlocks");
+          Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+        }
+      }
+
+      Blockly.svgResize(workspace);
+
+      function myUpdateFunction(event) {
+        var code = HtmlGenerator.workspaceToCode(workspace);
+        document.getElementById('sourcecode').innerText = code;
+        document.getElementById('website').src = "data:text/html;charset=utf-8," + encodeURIComponent(code);
+
+        // Save Blocks
+        var xml = Blockly.Xml.workspaceToDom(workspace);
+        var xml_text = Blockly.Xml.domToText(xml);
+        localStorage.setItem('blockly-html-code', xml_text);
+      }
+      workspace.addChangeListener(myUpdateFunction);
+
+      function saveWorkspaceToDownload() {
+        var xml = Blockly.Xml.workspaceToDom(workspace);
+        var xml_text = Blockly.Xml.domToText(xml);
+        newWindow = window.open("data:application/octet-stream," + encodeURIComponent(xml_text), 'webseite.blockly.xml');
+      }
+      document.getElementById("saveButton").onclick = saveWorkspaceToDownload;
+
+      function saveHtmlToDownload() {
+        var code = HtmlGenerator.workspaceToCode(workspace);
+        newWindow = window.open("data:application/octet-stream," + encodeURIComponent(code), 'webseite.html');
+      }
+      document.getElementById("exportButton").onclick = saveHtmlToDownload;
+
+
+      function loadWorkspaceFromUpload(e) {
+        var file = e.target.files[0];
+        if (!file) {
+          return;
+        }
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var xml_text = e.target.result;
+          if (xml_text) {
+            var xml = Blockly.Xml.textToDom(xml_text);
+            Blockly.Xml.domToWorkspace(xml, workspace);
+          }
+        };
+        reader.readAsText(file);
+      }
+      document.getElementById('fileButton').addEventListener('change', loadWorkspaceFromUpload, false);
+
+     </script>
+  </body>
+</html>

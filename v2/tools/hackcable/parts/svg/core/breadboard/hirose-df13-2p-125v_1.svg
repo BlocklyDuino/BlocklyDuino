@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg>
+<!-- Creator: CorelDRAW X6 -->
+<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" viewBox="0 0 2346 3351" image-rendering="optimizeQuality" fill-rule="evenodd" xml:space="preserve" width="0.35in" xmlns:xml="http://www.w3.org/XML/1998/namespace" version="1.1" text-rendering="geometricPrecision" clip-rule="evenodd"  height="0.5in">
+    <desc >
+        <referenceFile >Hirose_DF13-2p-smd-v_bb.svg</referenceFile>
+    </desc>
+    <g id="DF13-2p-smd-v" gorn="0.1" >
+        <metadata id="CorelCorpID_0Corel-Layer" />
+        <g id="breadboard" gorn="0.1.1" >
+            <g id="icon" gorn="0.1.1.0" >
+                <rect fill="#1F7A34" width="2346"  height="3351"/>
+                <g >
+                    <rect x="230" fill="#D2D3D5" y="1308" width="1887"  height="366"/>
+                    <g >
+                        <rect x="230" fill="#FEFEFE" y="1308" width="49"  height="366"/>
+                        <rect x="279" fill="#1F7A34" y="1433" width="81"  height="111"/>
+                        <rect x="230" fill="#96989A" y="1631" width="49"  height="43"/>
+                    </g>
+                    <g >
+                        <rect x="2067" fill="#FEFEFE" y="1308" width="49"  height="366"/>
+                        <rect x="1986" fill="#1F7A34" y="1433" width="81"  height="111"/>
+                        <rect x="2067" fill="#96989A" y="1631" width="49"  height="43"/>
+                    </g>
+                    <g >
+                        <rect x="458" fill="#848688" y="1357" width="1430"  height="345"/>
+                        <rect x="458" fill="#E6E7E8" y="920" width="1430"  height="430"/>
+                    </g>
+                    <rect x="625" fill="#727376" y="622" width="1095"  height="1137"/>
+                    <g >
+                        <rect x="691" fill="#FEFEFE" y="1085" width="963"  height="53"/>
+                        <rect x="691" fill="#FEFEFE" y="622" width="963"  height="46"/>
+                    </g>
+                    <g >
+                        <rect x="810" fill="#727376" y="1066" width="725"  height="321"/>
+                        <rect x="810" fill="#D2D3D5" y="1176" width="725"  height="122"/>
+                        <rect x="810" fill="#FEFEFE" y="1297" width="725"  height="51"/>
+                        <rect x="883" fill="#D2D3D5" y="1176" width="581"  height="369"/>
+                    </g>
+                    <g >
+                        <rect x="625" fill="#FEFEFE" y="622" width="66"  height="516"/>
+                        <rect x="625" fill="#606062" y="803" width="66"  height="153"/>
+                    </g>
+                    <g >
+                        <rect x="1655" fill="#FEFEFE" y="622" width="66"  height="516"/>
+                        <rect x="1655" fill="#606062" y="803" width="66"  height="153"/>
+                    </g>
+                    <g >
+                        <rect x="962" fill="#9D98CA" y="850" width="92"  height="411"/>
+                        <rect x="962" fill="#FEFEFE" y="850" width="92"  height="59"/>
+                        <rect x="962" fill="#FEFEFE" y="1712" width="92"  height="314"/>
+                        <rect x="962" fill="#9D98CA" y="1997" width="92"  height="39"/>
+                    </g>
+                    <g >
+                        <rect x="1292" fill="#9D98CA" y="850" width="92"  height="411"/>
+                        <rect x="1292" fill="#FEFEFE" y="850" width="92"  height="59"/>
+                        <rect x="1292" fill="#FEFEFE" y="1712" width="92"  height="314"/>
+                        <rect x="1292" fill="#9D98CA" y="1997" width="92"  height="39"/>
+                    </g>
+                </g>
+                <text font-family="OCRA" x="478" fill="white" y="2366" font-size="279.251" font-weight="500" >DF13-2P</text>
+                <text font-family="OCRA" x="585" fill="white" y="437" font-size="279.251" font-weight="500" >HIROSE</text>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 -709.765 20355.7)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-family="OCRA" x="17500" fill="white" y="1632" font-size="301.603" font-weight="500" >1</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(2.64845E-014 -1 1 2.64845E-014 -39.4785 20355.7)" >
+                    <g >
+                        <g >
+                            <g >
+                                <text font-family="OCRA" x="17500" fill="white" y="1632" font-size="301.603" font-weight="500" >2</text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="connector0pin" gorn="0.1.1.1" >
+                <rect x="725" fill="#8D8C8C" y="2909" width="214"  height="214"/>
+                <rect x="777" fill="#8C8663" y="2961" width="110"  height="110"/>
+                <polygon fill="#B8AF82" points="725,3123 777,3071 777,2956 725,2909 " />
+                <polygon fill="#80795B" points="887,2961 778,2961 725,2909 939,2909 " />
+                <polygon fill="#5E5B43" points="887,3071 887,2961 939,2909 939,3123 " />
+                <polygon fill="#9A916C" points="725,3123 778,3071 887,3071 939,3123 " />
+            </g>
+            <g id="connector1pin" gorn="0.1.1.2" >
+                <rect x="1395" fill="#8D8C8C" y="2909" width="214"  height="214"/>
+                <rect x="1448" fill="#8C8663" y="2961" width="110"  height="110"/>
+                <polygon fill="#B8AF82" points="1395,3123 1448,3071 1448,2956 1395,2909 " />
+                <polygon fill="#80795B" points="1558,2961 1448,2961 1395,2909 1609,2909 " />
+                <polygon fill="#5E5B43" points="1558,3071 1558,2961 1609,2909 1609,3123 " />
+                <polygon fill="#9A916C" points="1395,3123 1448,3071 1558,3071 1609,3123 " />
+            </g>
+        </g>
+    </g>
+</svg>

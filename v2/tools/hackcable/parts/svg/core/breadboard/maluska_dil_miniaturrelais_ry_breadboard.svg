@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Ebene_1" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="58.455px"
+	 height="47.034px" viewBox="0 0 58.455 47.034" enable-background="new 0 0 58.455 47.034" xml:space="preserve">
+<g id="breadboard">
+	<g>
+		<g>
+			<circle id="connector16pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="3.999" cy="43.699" r="1.843"/>
+			<circle id="connector13pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="25.599" cy="43.698" r="1.843"/>
+			<circle id="connector11pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="39.999" cy="43.698" r="1.843"/>
+			<circle id="connector9pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="54.399" cy="43.698" r="1.843"/>
+			<circle id="connector8pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="54.399" cy="22.098" r="1.843"/>
+			<circle id="connector6pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="39.999" cy="22.098" r="1.843"/>
+			<circle id="connector4pin" fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="25.599" cy="22.098" r="1.843"/>
+			<g id="connector1pin">
+				<circle fill="none" stroke="#FFBF00" stroke-width="1.4173" cx="3.999" cy="22.098" r="1.843"/>
+				<rect x="2.156" y="20.255" fill="none" stroke="#FFBF00" stroke-width="1.4173" width="3.685" height="3.686"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<path fill="#1A1A1A" d="M57.857,46.325c0,0.39-0.319,0.709-0.709,0.709H1.308c-0.39,0-0.708-0.319-0.708-0.709v-18.74
+			c0-0.39,0.319-0.709,0.708-0.709h55.841c0.39,0,0.709,0.319,0.709,0.709V46.325z"/>
+	</g>
+	<g>
+		<path fill="#333333" d="M57.857,27.17c0,0.39-0.319,0.709-0.709,0.709H1.308c-0.39,0-0.708-0.319-0.708-0.709V0.808
+			c0-0.39,0.319-0.708,0.708-0.708h55.841c0.39,0,0.709,0.319,0.709,0.708V27.17z"/>
+	</g>
+	<g id="silkscreen">
+		<g>
+			<rect x="8.816" y="9.18" fill="none" stroke="#FFFFFF" stroke-width="0.75" width="1.705" height="9.425"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.75" x1="9.669" y1="9.18" x2="9.669" y2="7.977"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.75" x1="9.669" y1="19.808" x2="9.669" y2="18.605"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="0.75" x1="8.816" y1="15.096" x2="10.521" y2="13.091"/>
+		</g>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="0.75" points="26.018,20.208 26.018,18.003 42.877,18.003 41.674,19.106 
+			37.567,19.106 37.567,20.208 		"/>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="0.75" points="43.679,19.106 49.117,19.106 49.117,20.208 		"/>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="0.75" points="26.018,7.777 26.018,9.982 42.877,9.982 41.674,8.879 
+			37.567,8.879 37.567,7.777 		"/>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="0.75" points="43.679,8.879 49.117,8.879 49.117,7.777 		"/>
+		<rect x="7.688" y="4.4" fill="#FFFFFF" width="4.313" height="2.85"/>
+		<rect x="7.688" y="20.525" fill="#FFFFFF" width="4.313" height="2.85"/>
+		<rect x="23.86" y="4.4" fill="#FFFFFF" width="4.314" height="2.85"/>
+		<rect x="23.86" y="20.525" fill="#FFFFFF" width="4.314" height="2.85"/>
+		<rect x="35.412" y="4.4" fill="#FFFFFF" width="4.314" height="2.85"/>
+		<rect x="35.412" y="20.525" fill="#FFFFFF" width="4.314" height="2.85"/>
+		<rect x="46.96" y="4.4" fill="#FFFFFF" width="4.314" height="2.85"/>
+		<rect x="46.96" y="20.525" fill="#FFFFFF" width="4.314" height="2.85"/>
+	</g>
+	<rect x="0.599" y="10.937" fill="#1A1A1A" width="2.689" height="6.105"/>
+</g>
+</svg>

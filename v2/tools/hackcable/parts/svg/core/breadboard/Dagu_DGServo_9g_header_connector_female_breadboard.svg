@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg"  height="0.1in" viewBox="0 0 3000 1000" x="0in" y="0in" version="1.2" baseProfile="tiny" width="0.3in">
+    <desc >
+        <referenceFile >generic_female_pin_header_3_100mil_bread.svg</referenceFile>
+    </desc>
+    <g  gorn="0.1" id="breadboard">
+        <rect  height="1000" fill="#404040" width="3000"/>
+        <rect  height="386.544" fill="none" x="306.727" y="306.727" width="386.544" gorn="0.1.1" id="connector0pin"/>
+        <rect  height="313.414" fill="none" x="349.77" y="343.131" width="299.763" gorn="0.1.2" id="connector0terminal"/>
+        <rect  height="386.544" x="306.727" y="306.727" width="386.544"/>
+        <polygon  fill="#2A2A29" points="164.507,164.507 306.727,306.727 693.272,306.727 835.631,164.507 &#x9;"/>
+        <polygon  fill="#474747" points="835.631,164.507 693.272,306.727 693.272,693.272 835.631,835.631 &#x9;"/>
+        <polygon  fill="#595959" points="835.631,835.631 693.272,693.272 306.727,693.272 164.507,835.631 &#x9;"/>
+        <polygon  fill="#373737" points="164.507,835.631 306.727,693.272 306.727,306.727 164.507,164.507 &#x9;"/>
+        <rect  height="386.544" fill="none" x="1306.73" y="306.727" width="386.544" gorn="0.1.8" id="connector1pin"/>
+        <rect  height="313.414" fill="none" x="1349.77" y="343.131" width="299.763" gorn="0.1.9" id="connector1terminal"/>
+        <rect  height="386.544" x="1306.73" y="306.727" width="386.544"/>
+        <polygon  fill="#2A2A29" points="1164.51,164.507 1306.73,306.727 1693.27,306.727 1835.63,164.507 &#x9;"/>
+        <polygon  fill="#474747" points="1835.63,164.507 1693.27,306.727 1693.27,693.272 1835.63,835.631 &#x9;"/>
+        <polygon  fill="#595959" points="1835.63,835.631 1693.27,693.272 1306.73,693.272 1164.51,835.631 &#x9;"/>
+        <polygon  fill="#373737" points="1164.51,835.631 1306.73,693.272 1306.73,306.727 1164.51,164.507 &#x9;"/>
+        <rect  height="386.544" fill="none" x="2306.73" y="306.727" width="386.544" gorn="0.1.15" id="connector2pin"/>
+        <rect  height="313.414" fill="none" x="2349.77" y="343.131" width="299.763" gorn="0.1.16" id="connector2terminal"/>
+        <rect  height="386.544" x="2306.73" y="306.727" width="386.544"/>
+        <polygon  fill="#2A2A29" points="2164.51,164.507 2306.73,306.727 2693.27,306.727 2835.63,164.507 &#x9;"/>
+        <polygon  fill="#474747" points="2835.63,164.507 2693.27,306.727 2693.27,693.272 2835.63,835.631 &#x9;"/>
+        <polygon  fill="#595959" points="2835.63,835.631 2693.27,693.272 2306.73,693.272 2164.51,835.631 &#x9;"/>
+        <polygon  fill="#373737" points="2164.51,835.631 2306.73,693.272 2306.73,306.727 2164.51,164.507 &#x9;"/>
+    </g>
+</svg>

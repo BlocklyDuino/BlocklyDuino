@@ -1,0 +1,45 @@
+v0.8.0
+- modify UI to add menus for less used commands
+- add HackCable
+- add Blockly2HTML
+- add BlockFactory
+- toolbox disassembled in different JSON (road to 0.9)
+
+v0.7.8
+- enhance URL argument to get configuration Papyrus through Arrowhead
+- no refresh ! Board selection refresh workspace & toolbox without need of reload all page, and lost parameters.
+- reset button enhanced
+
+v0.7.7 2020-10-31
+- upate Blockly core to v3.20200924.3
+- lateral settings panel add categories available: click to select for toolbox
+- if URL argument (toolboxids) exists, only this categories are selectable ; if no argument then all categories from js definition toolbox can be selectable
+
+v0.7.6 2020-10-15
+- fix UI bugs
+- add toolbox sorting through list in URL (index.html?toolboxids=SERVO)
+- COM port selection is inside list COM port modal 
+
+v0.7.5, 2020-10-07
+- upate Blockly core to v3.20200924.2
+- bug fix on screenshot
+
+v0.7.4, 2020-09-12
+- change UI to simplify use, everything is under 'setup' icon top right
+- no more board select in dropdown list, but merged with board modal information
+
+v0.7.3, 2020-07-06
+- change prompt to custom-dialog from Blockly, Electron compatible
+- bug fix on all reset button
+- bug fix on all new/open/save
+- bug fix on fullscreen button
+
+v0.7.2, 2020-07-03
+- update blockly core to v3.20200625.1
+- add comment on workspace
+- add serial board communication category
+
+v0.7.1, 2020-06-24
+- add button switchable readonly option in Ace Editor
+- fix last translation
+- WIP flat design + white everywhere for contrats enhancement

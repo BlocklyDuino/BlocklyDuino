@@ -1,0 +1,294 @@
+var toolbox_standard = {
+    "kind": "categoryToolbox",
+    "contents": [{
+            "kind": "category",
+            "name": "%{BKY_CATLOGIC}",
+			"toolboxitemid": "LOGIC",
+			"level": "1",
+			"levels": "1,2,3",
+            "categorystyle": "logic_category",
+            "cssConfig": {
+              "icon": "customIcon fa fa-project-diagram"
+            },
+            "contents": [
+                {
+                  "kind": "block",
+                  "type": "controls_if"
+                }, {
+                  "kind": "block",
+                  "type": "logic_compare"
+                }, {
+                  "kind": "block",
+                  "type": "logic_operation"
+                }, {
+                  "kind": "block",
+                  "type": "logic_negate"
+                }, {
+                  "kind": "block",
+                  "type": "logic_boolean"
+                }, {
+                  "kind": "block",
+                  "type": "logic_null"
+                }, {
+                  "kind": "block",
+                  "type": "logic_ternary"
+                }, {
+                  "kind": "block",
+                  "type": "controls_switch"
+                }
+            ]}, {
+            "kind": "category",
+            "name": "%{BKY_CATLOOPS}",
+			"toolboxitemid": "LOOPS",
+			"level": "1",
+			"levels": "1,2,3",
+            "categorystyle": "loop_category",
+            "cssConfig": {
+              "icon": "customIcon fa fa-retweet"
+            },
+            "contents": [
+                {
+                  "kind": "block",
+                  "blockxml": "<block type='controls_repeat_ext'><value name='TIMES'><shadow type='math_number'><field name='NUM'>10</field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                    "type": "controls_repeat"
+                }, {
+                  "kind": "block",
+                    "type": "controls_whileUntil"
+                }, {
+                  "kind": "block",
+                    "blockxml": "<block type='controls_for'><value name='FROM'><shadow type='math_number'><field name='NUM'>1</field></shadow></value><value name='TO'><shadow type='math_number'><field name='NUM'>10</field></shadow></value><value name='BY'><shadow type='math_number'><field name='NUM'>1</field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                    "type": "controls_forEach"
+                }, {
+                  "kind": "block",
+                    "type": "controls_flow_statements"
+                }
+            ]
+        }, {
+            "kind": "category",
+            "name": "%{BKY_CATMATH}",
+			"toolboxitemid": "MATH",
+			"level": "1",
+			"levels": "1,2,3",
+            "categorystyle": "math_category",
+            "cssConfig": {
+              "icon": "customIcon fa fa-calculator"
+            },
+            "contents": [
+                {
+                  "kind": "block",
+                  "blockxml": "<block type='math_number'><field name='NUM'>123</field></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='math_arithmetic'><value name='A'><shadow type='math_number'><field name='NUM'>1</field></shadow></value><value name='B'><shadow type='math_number'><field name='NUM'>1</field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='math_single'><value name='NUM'><shadow type='math_number'><field name='NUM'>9</field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='math_trig'><value name='NUM'><shadow type='math_number'><field name='NUM'>45</field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                    "type": "math_constant"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='math_number_property'><value name='NUMBER_TO_CHECK'><shadow type='math_number'><field name='NUM'>0</field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='math_round'><value name='NUM'><shadow type='math_number'><field name='NUM'>3.14</field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                    "type": "math_on_list"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='math_modulo'><value name='DIVIDEND'><shadow type='math_number'><field name='NUM'>64</field></shadow></value><value name='DIVISOR'><shadow type='math_number'><field name='NUM'>10</field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='math_constrain'><value name='VALUE'> <shadow type='math_number'> <field name='NUM'>50</field> </shadow> </value> <value name='LOW'> <shadow type='math_number'> <field name='NUM'>1</field> </shadow> </value> <value name='HIGH'> <shadow type='math_number'> <field name='NUM'>100</field> </shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='math_random_int'><value name='FROM'> <shadow type='math_number'> <field name='NUM'>1</field> </shadow> </value> <value name='TO'> <shadow type='math_number'> <field name='NUM'>100</field> </shadow> </value></block>"
+                }
+            ]
+        }, {
+            "kind": "category",
+            "name": "%{BKY_CATTEXT}",
+			"toolboxitemid": "TEXT",
+			"level": "1",
+			"levels": "1,2,3",
+            "categorystyle": "text_category",
+            "cssConfig": {
+              "icon": "customIcon fa fa-quote-left"
+            },
+            "contents": [{
+                  "kind": "block",
+                    "type": "text"
+                }, {
+                  "kind": "block",
+                    "type": "text_join"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_append'><value name='TEXT'><shadow type='text'></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_length'><value name='VALUE'><shadow type='text'><field name='TEXT'>abc</field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_isEmpty'><value name='VALUE'><shadow type='text'><field name='TEXT'></field></shadow></value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_indexOf'><value name='VALUE'> <block type='variables_get'> <field name='VAR'>text</field> </block> </value> <value name='FIND'> <shadow type='text'> <field name='TEXT'>abc</field> </shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_charAt'><value name='VALUE'> <block type='variables_get'> <field name='VAR'>text</field> </block> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_getSubstring'><value name='STRING'> <block type='variables_get'> <field name='VAR'>text</field> </block> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_changeCase'><value name='TEXT'> <shadow type='text'> <field name='TEXT'>abc</field> </shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_trim'><value name='TEXT'> <shadow type='text'> <field name='TEXT'>abc</field> </shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_count'><value name='SUB'> <shadow type='text'></shadow> </value> <value name='TEXT'> <shadow type='text'></shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_replace'><value name='FROM'> <shadow type='text'></shadow> </value> <value name='TO'> <shadow type='text'></shadow> </value> <value name='TEXT'> <shadow type='text'></shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_count'><value name='TEXT'> <shadow type='text'></shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_print'><value name='TEXT'> <shadow type='text'> <field name='TEXT'>abc</field> </shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='text_prompt_ext'><value name='TEXT'> <shadow type='text'> <field name='TEXT'>abc</field> </shadow> </value></block>"
+                }
+            ]
+        }, {
+            "kind": "category",
+            "name": "%{BKY_CATLISTS}",
+			"toolboxitemid": "LIST",
+			"level": "1",
+			"levels": "1,2,3",
+            "categorystyle": "list_category",
+            "cssConfig": {
+              "icon": "customIcon fa fa-list"
+            },
+            "contents": [{
+                  "kind": "block",
+                  "blockxml": "<block type='lists_create_with'><mutation items='0'></mutation></block>"
+                }, {
+                  "kind": "block",
+                    "type": "lists_create_with"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='lists_repeat'><value name='TEXT'> <shadow type='text'> <field name='TEXT'>abc</field> </shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                    "type": "lists_length"
+                }, {
+                  "kind": "block",
+                    "type": "lists_isEmpty"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='lists_indexOf'><value name='VALUE'> <block type='variables_get'> <field name='VAR'>list</field> </block> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='lists_getIndex'><value name='VALUE'> <block type='variables_get'> <field name='VAR'>list</field> </block> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='lists_setIndex'><value name='LIST'> <block type='variables_get'> <field name='VAR'>list</field> </block> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='lists_getSublist'><value name='LIST'> <block type='variables_get'> <field name='VAR'>list</field> </block> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='lists_split'><value name='DELIM'> <shadow type='text'> <field name='TEXT'>,</field> </shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                    "type": "lists_sort"
+                }, {
+                  "kind": "block",
+                    "type": "lists_reverse"
+                }
+            ]
+        }, {
+            "kind": "category",
+            "name": "%{BKY_CATCOLOUR}",
+			"toolboxitemid": "COLOUR",
+			"level": "1",
+			"levels": "1,2,3",
+            "categorystyle": "colour_category",
+            "cssConfig": {
+              "icon": "customIcon fa fa-palette"
+            },
+            "contents": [{
+                  "kind": "block",
+                    "type": "colour_picker"
+                }, {
+                  "kind": "block",
+                    "type": "colour_random"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='colour_rgb'><value name='RED'> <shadow type='math_number'> <field name='NUM'>100</field> </shadow> </value> <value name='GREEN'> <shadow type='math_number'> <field name='NUM'>50</field> </shadow> </value> <value name='BLUE'> <shadow type='math_number'> <field name='NUM'>0</field> </shadow> </value></block>"
+                }, {
+                  "kind": "block",
+                  "blockxml": "<block type='colour_blend'><value name='COLOUR1'> <shadow type='colour_picker'> <field name='COLOUR'>#ff0000</field> </shadow> </value> <value name='COLOUR2'> <shadow type='colour_picker'> <field name='COLOUR'>#3333ff</field> </shadow> </value> <value name='RATIO'> <shadow type='math_number'> <field name='NUM'>0.5</field> </shadow> </value></block>"
+                }
+            ]
+        }, {
+            "kind": "category",
+            "name": "%{BKY_CATVARIABLES}",
+			"toolboxitemid": "VARIABLES",
+			"level": "1",
+			"levels": "1,2,3",
+            "categorystyle": "variable_category",
+            "cssConfig": {
+              "icon": "customIcon fa fa-question",
+              "openicon": "customIcon fas fa-caret-right",
+              "closedicon": "customIcon fas fa-caret-down"
+            },
+            "contents": [{
+                    "kind": "category",
+					"level": "2",
+					"levels": "1,2,3",
+                    "name": "%{BKY_CAT_VAR_NUM}",
+                    "categorystyle": "variable_category",
+                    "custom": "VARIABLE_TYPED_NUM"
+                }, {
+                    "kind": "category",
+					"level": "2",
+					"levels": "1,2,3",
+                    "name": "%{BKY_CAT_VAR_TEXT}",
+                    "categorystyle": "variable_category",
+                    "custom": "VARIABLE_TYPED_TEXT"
+                }, {
+                    "kind": "category",
+					"level": "2",
+					"levels": "1,2,3",
+                    "name": "%{BKY_CAT_VAR_BOOLEAN}",
+                    "categorystyle": "variable_category",
+                    "custom": "VARIABLE_TYPED_BOOLEAN"
+                }
+            ]
+        }, {
+            "kind": "category",
+            "name": "%{BKY_CATFUNCTIONS}",
+			"toolboxitemid": "FUNCTIONS",
+			"level": "1",
+			"levels": "1,2,3",
+            "categorystyle": "procedure_category",
+            "cssConfig": {
+              "icon": "customIcon fab fa-whmcs"
+            },
+            "custom": "PROCEDURE"
+        },{
+  "kind": "sep"
+}]
+};

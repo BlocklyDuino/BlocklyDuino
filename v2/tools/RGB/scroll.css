@@ -1,0 +1,11 @@
+@charset "iso-8859-1";
+
+body {scrollbar-face-color: #2E69AC;
+scrollbar-shadow-color: #000000;
+scrollbar-highlight-color: #FFFFFF;
+scrollbar-3dlight-color: #FFFF00;
+scrollbar-darkshadow-color: #660000;
+scrollbar-track-color: #2C4E76;
+scrollbar-arrow-color: #FFFF00;}
+
+.centrage{height:auto; margin:0 auto;} /* tableau: toute une page centrée  */

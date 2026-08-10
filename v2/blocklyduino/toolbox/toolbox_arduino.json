@@ -1,0 +1,105 @@
+var toolbox_arduino = {
+   "kind": "categoryToolbox",
+    "contents": [{
+         "kind": "category",
+         "name": "%{BKY_CAT_BOARD}",
+		"toolboxitemid": "BOARD",
+		"level": "1",
+		"levels": "1,2,3",
+         "categorystyle": "arduino_category",
+		"cssConfig": {
+		  "icon": "customIcon fas fa-microchip"
+		},
+         "contents": [{
+               "kind": "category",
+               "name": "%{BKY_CAT_BOARD_IO}",
+				"level": "2",
+				"levels": "1,2,3",
+               "categorystyle": "arduino_category",
+               "contents": [
+                  {
+                     "kind": "block",
+                     "type": "board_base_inout_buildin_led"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_base_inout_digital_write"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_base_inout_digital_read"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_base_inout_highlow"
+                  },
+                  {
+                     "kind": "block",
+                     "blockxml": "<block type='board_base_inout_analog_write'><value name='PWM'> <shadow type='math_number'> <field name='NUM'>0</field> </shadow> </value></block>"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_base_inout_analog_read"
+                  },
+                  {
+                     "kind": "block",
+                     "blockxml": "<block type='board_base_delay'><value name='DELAY_TIME'> <shadow type='math_number'> <field name='NUM'>1000</field> </shadow> </value></block>"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_base_angle"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_base_map"
+                  },
+                  {
+                     "kind": "block",
+                     "blockxml": "<block type='board_base_inout_tone'><value name='NUM'> <shadow type='math_number'> <field name='NUM'>440</field> </shadow> </value></block>"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_base_inout_notone"
+                  }
+               ]
+            },
+            {
+               "kind": "category",
+               "name": "%{BKY_CAT_BOARD_SERIAL}",
+				"level": "2",
+				"levels": "1,2,3",
+               "categorystyle": "arduino_category",
+               "contents": [
+                  {
+                     "kind": "block",
+                     "type": "board_serial_init"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_serial_printfor"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_serial_print"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_serial_available"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_serial_read"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_serial_readStringUntil"
+                  },
+                  {
+                     "kind": "block",
+                     "type": "board_serial_flush"
+                  }
+               ]
+            }
+         ]
+    }]
+};
