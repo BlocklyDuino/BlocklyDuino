@@ -1,6 +1,6 @@
 ### Welcome to BlocklyDuino
 
-> Check [BlockDuino v2](https://github.com/BlocklyDuino/BlocklyDuino-v2)
+> Check [BlockDuino v2](https://github.com/BlocklyDuino/BlocklyDuino/tree/v2)
 
 BlocklyDuino is a **web-based visual programming editor for [Arduino](http://www.arduino.cc/)**.
 
