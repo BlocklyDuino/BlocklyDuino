@@ -1,3 +1,5 @@
+> **Note :** cette version est désormais la branche `v2` du dépôt unifié [BlocklyDuino/BlocklyDuino](https://github.com/BlocklyDuino/BlocklyDuino/tree/v2). Le dépôt historique [BlocklyDuino-v2](https://github.com/BlocklyDuino/BlocklyDuino-v2) reste disponible pour la démo GitHub Pages.
+
 # ![enter image description here](https://raw.githubusercontent.com/BlocklyDuino/BlocklyDuino2Electron/master/src/app.png) Welcome to BlocklyDuino2
 
 BlocklyDuino is a **web-based program for editing and visual block programming editor for [Arduino](http://www.arduino.cc/)** electronic boards.
