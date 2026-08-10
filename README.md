@@ -62,7 +62,7 @@ OR (if running `ino_web_server.py`):
 To work on BlocklyDuino, you need google blockly, google closure and python
 
 - Clone the repository : `git clone https://github.com/BlocklyDuino/BlocklyDuino`
-- Checkout the v2 branch : `git checkout v2`
+- Checkout the v1.5 branch : `git checkout v1.5`
 - Update submodules : `git submodule update --init`
 
 This will clone google blockly and google-closure library as submodules.
@@ -71,7 +71,7 @@ Then when you change a block, you will need to run the `build.py` python script 
 
 ### ChangeLog
 
-Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino/blob/master/CHANGELOG.txt)
+Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino/blob/v1.5/CHANGELOG.txt)
 
 ### Authors and Contributors
 Fred Lin (@gasolin) .
