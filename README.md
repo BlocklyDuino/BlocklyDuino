@@ -66,7 +66,7 @@ load an example by clicking on `LoadXML` (e.g. /blocky/apps/blockyduino/examples
 
 ### ChangeLog
 
-Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino/blob/master/CHANGELOG.txt)
+Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino/blob/v1-gh-pages/CHANGELOG.txt)
 
 ### Authors and Contributors
 Fred Lin (@gasolin).
