@@ -1,4 +1,4 @@
-> **Note :** cette version est désormais la branche `v2` du dépôt unifié [BlocklyDuino/BlocklyDuino](https://github.com/BlocklyDuino/BlocklyDuino/tree/v2). Le dépôt historique [BlocklyDuino-v2](https://github.com/BlocklyDuino/BlocklyDuino-v2) reste disponible pour la démo GitHub Pages.
+> **Note :** version **v2** du dépôt unifié [BlocklyDuino/BlocklyDuino](https://github.com/BlocklyDuino/BlocklyDuino/tree/v2). Démo en ligne : [https://blocklyduino.github.io/BlocklyDuino/v2/](https://blocklyduino.github.io/BlocklyDuino/v2/).
 
 # ![enter image description here](https://raw.githubusercontent.com/BlocklyDuino/BlocklyDuino2Electron/master/src/app.png) Welcome to BlocklyDuino2
 
@@ -6,7 +6,7 @@ BlocklyDuino is a **web-based program for editing and visual block programming e
 
 BlocklyDuino is based on [Blockly](https://developers.google.com/blockly/), the web-based graphical programming editor.
 
-![](https://raw.githubusercontent.com/BlocklyDuino/BlocklyDuino-v2/master/blocklyduino/media/logo_built_on.png)
+![](https://raw.githubusercontent.com/BlocklyDuino/BlocklyDuino/v2/blocklyduino/media/logo_built_on.png)
 
 This new v2 version is also based on the work done on [STudio4Education](https://github.com/A-S-T-U-C-E/STudio4Education), a similar project for [STmicroelectronics](https://www.st.com/) boards, and inspired by all fork of BlocklyDuino's original Gasolin's work.
 
@@ -16,9 +16,9 @@ BlocklyDuino also supports some [Grove](https://wiki.seeedstudio.com/Grove_Syste
 
 ## BlocklyDuino's Demo
 
-BlocklyDuino2 is a simple webware, you can give it a try [here.](https://blocklyduino.github.io/BlocklyDuino-v2/)
+BlocklyDuino2 is a simple webware, you can give it a try [here.](https://blocklyduino.github.io/BlocklyDuino/v2/)
 
-You can download it [here](https://github.com/BlocklyDuino/BlocklyDuino-v2) and launch `index.html`.
+You can download it [here](https://github.com/BlocklyDuino/BlocklyDuino/tree/v2) and launch `index.html`.
 
 ## Features
 
@@ -80,7 +80,7 @@ You can try an [Electron](https://www.electronjs.org/) version with [arduino-cli
 
 ## ChangeLog
 
-Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino-v2/blob/master/CHANGELOG.txt)
+Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino/blob/v2/CHANGELOG.txt)
 
 ## Tools used
 
