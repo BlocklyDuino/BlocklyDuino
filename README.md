@@ -60,7 +60,7 @@ OR (if running `ino_web_server.py`):
 
 ### ChangeLog
 
-Check changelog [here](https://github.com/gasolin/BlocklyDuino/blob/master/CHANGELOG.txt)
+Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino/blob/v1-master/CHANGELOG.txt)
 
 ### Authors and Contributors
 Fred Lin (@gasolin) .
