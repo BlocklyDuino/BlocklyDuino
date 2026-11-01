@@ -1,0 +1,34 @@
+<xml>
+  <block type="inout_analog_write" x="30" y="30">
+    <field name="PIN">9</field>
+    <value name="NUM">
+      <block type="base_map">
+        <value name="NUM">
+          <block type="inout_analog_read">
+            <field name="PIN">A0</field>
+            <comment pinned="false" w="340" h="160">Measure the voltage on this analog input. On ATmega168/328, the ADC returns 0–1023; other boards may use a different ADC range. A potentiometer wiper or analog sensor connects here.</comment>
+          </block>
+        </value>
+        <value name="DMAX">
+          <block type="math_number">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <comment pinned="false" w="340" h="160">Convert a value from one numeric range to another. All five inputs can be expressions. Arduino map uses integer arithmetic and does not clamp values outside the source range.</comment>
+      </block>
+    </value>
+    <next>
+      <block type="base_delay">
+        <value name="DELAY_TIME">
+          <block type="math_number">
+            <field name="NUM">30</field>
+          </block>
+        </value>
+        <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+      </block>
+    </next>
+    <comment pinned="false" w="480" h="240">Purpose: Map an A0 potentiometer reading to PWM brightness for an LED. A PWM output is required for analogWrite.
+Wiring: analog write: PIN D9; analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.
+Try: Change the map output maximum from 255 to 80 to limit LED brightness.</comment>
+  </block>
+</xml>

@@ -1,0 +1,4 @@
+.workspace-zoom{display:inline-flex;align-items:center;gap:3px;margin-left:auto;flex-shrink:0;border-left:1px solid #cbd5e1;padding-left:8px}
+#workspace_zoom button{min-width:28px;padding:3px 7px;line-height:1.35}
+#workspace_zoom #zoom_reset{min-width:54px;font-variant-numeric:tabular-nums}
+#workspace_zoom #zoom_in,#workspace_zoom #zoom_out{font-size:17px;font-weight:600}

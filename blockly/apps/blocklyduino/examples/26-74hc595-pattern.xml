@@ -1,0 +1,120 @@
+<xml>
+  <block type="device_shift595" x="30" y="30">
+    <mutation uid="shift26" />
+    <field name="NAME">lamps</field>
+    <field name="DATA">8</field>
+    <field name="CLOCK">9</field>
+    <field name="LATCH">10</field>
+    <comment pinned="false" w="390" h="170">Purpose: Send a shifting one-bit pattern to a 74HC595 so one LED chases across eight outputs. Wiring is declared once.
+Wiring: 74HC595: DATA D8, CLOCK D9, LATCH D10. Common GND; use each module’s required supply.
+Try: Reverse the shift direction or increase the 150 ms interval.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="510" y="30">
+    <field name="VAR">position</field>
+    <field name="TYPE">uint8_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_typed_variable" x="990" y="30">
+    <field name="VAR">lastSample</field>
+    <field name="TYPE">uint32_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_loop_section" x="30" y="290">
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="logic_compare">
+            <field name="OP">GTE</field>
+            <value name="A">
+              <block type="math_arithmetic">
+                <field name="OP">MINUS</field>
+                <value name="A">
+                  <block type="arduino_millis" />
+                </value>
+                <value name="B">
+                  <block type="variables_get">
+                    <field name="VAR">lastSample</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">150</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="variables_set">
+            <field name="VAR">lastSample</field>
+            <value name="VALUE">
+              <block type="arduino_millis" />
+            </value>
+            <next>
+              <block type="device_shift595_write">
+                <field name="DEVICE">shift26</field>
+                <value name="VALUE">
+                  <block type="ll_bits_shift">
+                    <field name="OP">SHL</field>
+                    <field name="WIDTH">8</field>
+                    <value name="VALUE">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="COUNT">
+                      <block type="variables_get">
+                        <field name="VAR">position</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <comment pinned="false" w="390" h="170">Shift a single 1 across eight output bits, latch once, then advance the index. This teaches a bit pattern without eight separate digital writes.</comment>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">position</field>
+                    <value name="VALUE">
+                      <block type="math_modulo">
+                        <value name="DIVIDEND">
+                          <block type="math_arithmetic">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="variables_get">
+                                <field name="VAR">position</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="DIVISOR">
+                          <block type="math_number">
+                            <field name="NUM">8</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <comment pinned="false" w="390" h="170">Use elapsed milliseconds instead of delay. The command reader remains responsive between updates; unsigned subtraction also works when millis wraps.</comment>
+      </block>
+    </statement>
+    <comment pinned="false" w="390" h="170">A single LED chases along eight outputs. No delay: additional tasks can run between the 150 ms updates.</comment>
+  </block>
+</xml>

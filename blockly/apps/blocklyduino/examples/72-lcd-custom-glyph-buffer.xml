@@ -1,0 +1,407 @@
+<xml>
+  <block type="device_lcd" x="30" y="30">
+    <mutation uid="glyph72" />
+    <field name="NAME">display</field>
+    <field name="ADDR">0x27</field>
+    <field name="COLS">20</field>
+    <field name="ROWS">4</field>
+    <comment pinned="false" w="390" h="170">Purpose: Define a 5×8 face in LCD glyph slot 0, then animate two faces through an 80-byte raw-code buffer. Eight slots and variable indices are supported.
+Wiring: HD44780 I2C LCD: address 0x27; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.
+Try: Edit the eight faceRows values (0–31), or define a second face in slot 1.</comment>
+  </block>
+  <block type="arduino_array_declare" x="510" y="30">
+    <field name="VAR">faceRows</field>
+    <field name="TYPE">byte</field>
+    <field name="SIZE">8</field>
+    <comment pinned="false" w="390" h="170">One glyph is eight byte rows, values 0–31. Edit these eight assignments in setup to draw another face.</comment>
+  </block>
+  <block type="arduino_array_declare" x="990" y="30">
+    <field name="VAR">frame</field>
+    <field name="TYPE">byte</field>
+    <field name="SIZE">4,20</field>
+    <comment pinned="false" w="390" h="170">Rows first: frame[row][column]. 80 bytes of character codes, not 80 glyph definitions.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="30" y="290">
+    <field name="VAR">position</field>
+    <field name="TYPE">uint8_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_typed_variable" x="510" y="290">
+    <field name="VAR">lastSample</field>
+    <field name="TYPE">uint32_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_setup_section" x="990" y="290">
+    <statement name="DO">
+      <block type="arduino_array_set">
+        <mutation rank="1" />
+        <field name="VAR">faceRows</field>
+        <value name="INDEX">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="arduino_array_set">
+            <mutation rank="1" />
+            <field name="VAR">faceRows</field>
+            <value name="INDEX">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="VALUE">
+              <block type="math_number">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <comment pinned="false" w="390" h="170">Five bits across, one byte per row. Bit 4 is the leftmost dot; binary 01010 = decimal 10 makes two eyes.</comment>
+            <next>
+              <block type="arduino_array_set">
+                <mutation rank="1" />
+                <field name="VAR">faceRows</field>
+                <value name="INDEX">
+                  <block type="math_number">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <value name="VALUE">
+                  <block type="math_number">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="arduino_array_set">
+                    <mutation rank="1" />
+                    <field name="VAR">faceRows</field>
+                    <value name="INDEX">
+                      <block type="math_number">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <value name="VALUE">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="arduino_array_set">
+                        <mutation rank="1" />
+                        <field name="VAR">faceRows</field>
+                        <value name="INDEX">
+                          <block type="math_number">
+                            <field name="NUM">4</field>
+                          </block>
+                        </value>
+                        <value name="VALUE">
+                          <block type="math_number">
+                            <field name="NUM">17</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="arduino_array_set">
+                            <mutation rank="1" />
+                            <field name="VAR">faceRows</field>
+                            <value name="INDEX">
+                              <block type="math_number">
+                                <field name="NUM">5</field>
+                              </block>
+                            </value>
+                            <value name="VALUE">
+                              <block type="math_number">
+                                <field name="NUM">14</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="arduino_array_set">
+                                <mutation rank="1" />
+                                <field name="VAR">faceRows</field>
+                                <value name="INDEX">
+                                  <block type="math_number">
+                                    <field name="NUM">6</field>
+                                  </block>
+                                </value>
+                                <value name="VALUE">
+                                  <block type="math_number">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="arduino_array_set">
+                                    <mutation rank="1" />
+                                    <field name="VAR">faceRows</field>
+                                    <value name="INDEX">
+                                      <block type="math_number">
+                                        <field name="NUM">7</field>
+                                      </block>
+                                    </value>
+                                    <value name="VALUE">
+                                      <block type="math_number">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="device_lcd_create_glyph">
+                                        <field name="DEVICE">glyph72</field>
+                                        <value name="SLOT">
+                                          <block type="math_number">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="ROWS">
+                                          <block type="arduino_array_ref">
+                                            <field name="VAR">faceRows</field>
+                                          </block>
+                                        </value>
+                                        <comment pinned="false" w="390" h="170">Store the face in CGRAM slot 0. The LCD has eight slots, not eight symbols per line. All displayed occurrences change if this slot is redefined.</comment>
+                                        <next>
+                                          <block type="device_lcd_show_glyph">
+                                            <field name="DEVICE">glyph72</field>
+                                            <value name="SLOT">
+                                              <block type="math_number">
+                                                <field name="NUM">0</field>
+                                              </block>
+                                            </value>
+                                            <value name="COL">
+                                              <block type="math_number">
+                                                <field name="NUM">19</field>
+                                              </block>
+                                            </value>
+                                            <value name="ROW">
+                                              <block type="math_number">
+                                                <field name="NUM">0</field>
+                                              </block>
+                                            </value>
+                                            <comment pinned="false" w="390" h="170">A single-glyph action also accepts variable slot and position. The animation below will replace this with a complete buffer.</comment>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="390" h="170">Define custom symbols once after LCD initialization. The definition does not draw them until a show-glyph or buffer action writes the slot code.</comment>
+  </block>
+  <block type="arduino_loop_section" x="30" y="550">
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="logic_compare">
+            <field name="OP">GTE</field>
+            <value name="A">
+              <block type="math_arithmetic">
+                <field name="OP">MINUS</field>
+                <value name="A">
+                  <block type="arduino_millis" />
+                </value>
+                <value name="B">
+                  <block type="variables_get">
+                    <field name="VAR">lastSample</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">140</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="variables_set">
+            <field name="VAR">lastSample</field>
+            <value name="VALUE">
+              <block type="arduino_millis" />
+            </value>
+            <next>
+              <block type="controls_for">
+                <field name="VAR">row</field>
+                <value name="FROM">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <value name="BY">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="controls_for">
+                    <field name="VAR">column</field>
+                    <value name="FROM">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_number">
+                        <field name="NUM">19</field>
+                      </block>
+                    </value>
+                    <value name="BY">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="arduino_array_set">
+                        <mutation rank="2" />
+                        <field name="VAR">frame</field>
+                        <value name="INDEX">
+                          <block type="variables_get">
+                            <field name="VAR">row</field>
+                          </block>
+                        </value>
+                        <value name="INDEX2">
+                          <block type="variables_get">
+                            <field name="VAR">column</field>
+                          </block>
+                        </value>
+                        <value name="VALUE">
+                          <block type="math_number">
+                            <field name="NUM">32</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <comment pinned="false" w="390" h="170">Prepare a blank 80-byte frame using ASCII space (32). In raw mode zero means glyph 0, so zero is deliberately not our blank value.</comment>
+                <next>
+                  <block type="arduino_array_set">
+                    <mutation rank="2" />
+                    <field name="VAR">frame</field>
+                    <value name="INDEX">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="INDEX2">
+                      <block type="variables_get">
+                        <field name="VAR">position</field>
+                      </block>
+                    </value>
+                    <value name="VALUE">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="390" h="170">Write the face slot number into an ordinary buffer cell. Slots 0–7 work; normal characters use their LCD character codes.</comment>
+                    <next>
+                      <block type="arduino_array_set">
+                        <mutation rank="2" />
+                        <field name="VAR">frame</field>
+                        <value name="INDEX">
+                          <block type="math_number">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                        <value name="INDEX2">
+                          <block type="math_arithmetic">
+                            <field name="OP">MINUS</field>
+                            <value name="A">
+                              <block type="math_number">
+                                <field name="NUM">19</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get">
+                                <field name="VAR">position</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="VALUE">
+                          <block type="math_number">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="device_lcd_buffer">
+                            <field name="DEVICE">glyph72</field>
+                            <field name="LAYOUT">YX</field>
+                            <field name="ENCODING">RAW</field>
+                            <value name="BUFFER">
+                              <block type="arduino_array_ref">
+                                <field name="VAR">frame</field>
+                              </block>
+                            </value>
+                            <comment pinned="false" w="390" h="170">Send the finished frame once, without clearing the LCD. This avoids exposing intermediate RAM edits. The I2C transfer itself still takes time; this is not an instantaneous display swap.</comment>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR">position</field>
+                                <value name="VALUE">
+                                  <block type="math_modulo">
+                                    <value name="DIVIDEND">
+                                      <block type="math_arithmetic">
+                                        <field name="OP">ADD</field>
+                                        <value name="A">
+                                          <block type="variables_get">
+                                            <field name="VAR">position</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="DIVISOR">
+                                      <block type="math_number">
+                                        <field name="NUM">20</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <comment pinned="false" w="390" h="170">Use elapsed milliseconds instead of delay. The command reader remains responsive between updates; unsigned subtraction also works when millis wraps.</comment>
+      </block>
+    </statement>
+    <comment pinned="false" w="390" h="170">Build both moving faces in RAM and send the finished frame every 140 ms. No delay is used, so other loop tasks can run between updates. Try a second glyph in slot 1.</comment>
+  </block>
+</xml>

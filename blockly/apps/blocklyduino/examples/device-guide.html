@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Named devices — BlocklyDuino</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:900px;margin:35px auto;padding:0 20px;color:#203044;background:#fafcfe}h1,h2{line-height:1.2}h2{margin-top:2em}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:10px;border-bottom:1px solid #d8e1eb;vertical-align:top}code{background:#eaf0f7;padding:2px 5px;border-radius:4px}a{color:#075ac5}.box{padding:16px 20px;background:#e8f4ef;border-radius:10px}small{color:#465a70}</style>
+<h1>Define a device once</h1>
+<p>Use <strong>Devices</strong> to give hardware a name and configure its wiring. Put this definition beside setup and loop. The matching action blocks then offer that name in a dropdown. They reuse the pins, address and model automatically.</p>
+<ol><li>Add <strong>I2C LCD</strong> with Add device in the left sidebar. Name it <code>display</code>, select <code>0x27</code>, 20 columns and 4 rows.</li><li>Add <strong>display print</strong> under Project devices → display, and place it inside setup or loop. Supply text, column and row. No wiring fields are repeated.</li><li>For a second LCD, add another definition with another name and address. Each action chooses the intended display.</li></ol>
+<p>Renaming a definition updates the labels of its existing actions. Saved projects keep those references. If a device is deleted, its actions warn that the device is missing; code generation asks you to select a declaration instead of using guessed pins.</p>
+<p>Names start with a letter and can contain letters, digits and underscores. Give every device a unique name. Use <strong>Functions</strong> for reusable behaviour such as “show temperature” or “scan one angle”; the device definition owns the wiring.</p>
+<div class="box"><a href="../index.html?url=examples/35b-named-lcd.xml">Open 20×4 LCD example</a> · <a href="../index.html?url=examples/35a-named-stepper.xml">Open accelerating stepper example</a> · <a href="../index.html?url=examples/35c-named-radar.xml">Open servo + range sensor example</a></div>
+<h2>What the device blocks support</h2>
+<table><thead><tr><th>Device</th><th>Actions and details</th></tr></thead><tbody>
+<tr><td>STEP/DIR stepper<br>28BYJ-48 + ULN2003</td><td><a href="motion-guide.html">Motion guide</a>: loop or Timer1 pulse engine, position or continuous speed, acceleration, position, remaining steps and stop. 28BYJ-48 uses half steps; enter IN1–IN4 in connector order.</td></tr>
+<tr><td>Servo</td><td>Choose core Servo or hardware PWM, calibrate pulse endpoints once, then set degrees or microseconds. Hardware mode also sets refresh Hz; shared timer channels use the same refresh. Use a suitable servo supply with common ground.</td></tr>
+<tr><td>I2C LCD</td><td>HD44780 with PCF8574 backpack: configurable columns and rows, print, clear row, clear display and backlight. 16×2 and 20×4 use the same blocks.</td></tr>
+<tr><td>SSD1306 OLED</td><td>I2C 128×32 or 128×64, and SPI 128×64. U8x8 text uses no full-screen framebuffer, leaving RAM for the program. Print and clear; columns 0–15 and rows 0–3 or 0–7.</td></tr>
+<tr><td>ST7735 TFT</td><td>SPI 128×160, panel tab variant and rotation. Print text, convert RGB to a 16-bit colour, fill screen, draw pixels and lines. Drawing streams to the display without a framebuffer.</td></tr>
+<tr><td>HC-SR04</td><td>Distance in centimetres; <code>-1</code> means no echo. A read can take up to 30 ms. Allow at least 60 ms between readings.</td></tr>
+<tr><td>DS18B20 bus</td><td>Start conversion, then read a selected sensor index. Conversion runs without blocking; allow up to 750 ms before reading. Use a 4.7 kΩ data pull-up.</td></tr>
+<tr><td>DHT11 / DHT22</td><td>Temperature or humidity. Read no faster than once every 2 seconds; NaN means the sensor read failed.</td></tr>
+<tr><td>NeoPixel / WS2812</td><td>Set RGB for a pixel, clear stored colours, then show the changes. Each LED uses 3 bytes of RAM.</td></tr>
+<tr><td>NEC IR receiver</td><td>Read the next remote command, or -1 if no command arrived. Store the value once before comparing it. One active receiver is supported by IRremote.</td></tr>
+<tr><td>74HC595</td><td>Write one byte to eight outputs, using the declared data, clock and latch pins.</td></tr>
+</tbody></table>
+<h2>Stepper motion must keep running</h2>
+<p><strong>move to position</strong> sets a target. Put <strong>run</strong> in loop so it is called frequently. It sends each step when due and applies acceleration. A long delay, DS18B20 wait, LCD update or ultrasonic read can interrupt smooth stepping. Use millis-based timing and perform short pieces of work on each loop pass. For two motors, call both run actions on every pass.</p>
+<p><strong>stop</strong> requests deceleration. Continue calling run until steps remaining reaches zero. It is not an immediate power-off or an emergency stop.</p>
+<h2>Coordinates and shared buses</h2>
+<p>LCD and OLED text positions start at zero. TFT coordinates are pixels. Printing a shorter value can leave old trailing characters; clear the row or pad the new value with spaces.</p>
+<p>On the ATmega168/328P Pro Mini, hardware I2C is <code>SDA=A4</code>, <code>SCL=A5</code>. Hardware SPI is <code>MOSI=D11</code>, <code>MISO=D12</code>, <code>SCK=D13</code>. SPI devices can share those bus pins; each needs its own chip-select pin. Displays also need their declared DC and reset connections. Other Arduino board families use their own hardware bus pins.</p>
+<p>Pin menus follow the selected board, device engine and declared resource ownership. Bus lines can be shared by compatible I2C/SPI devices but not unrelated GPIO. D0/D1 are reserved when hardware Serial is used; Pro Mini A6/A7 are analog-only. Conflicts and timing notes appear in Connections. Timer1 stepper mode offers only D9/D10.</p>
+<h2>Memory and a scanning radar</h2>
+<p>The ATmega168 has 1024 bytes of RAM. These device blocks avoid allocating a full OLED/TFT framebuffer. The standalone ST7735 test already uses about 12.3 KB of the 14.3 KB sketch space available with this bootloader; combining SPI OLED and TFT tests exceeds that flash budget. An SD library needs additional RAM, so write measurements or image rows incrementally instead of keeping an entire bitmap in memory. See the storage guide for file and BMP blocks. The radar example starts with one servo, one range sensor and Serial output; add storage after the scan works.</p>
+<p>The installed libraries used by these blocks are AccelStepper, FastAccelStepper, Servo, LiquidCrystal_I2C, U8g2 (U8x8), Adafruit ST7735 and ST7789 Library, OneWire, DallasTemperature, DHT sensor library, Adafruit NeoPixel and IRremote. Adding an Arduino library alone does not create Blockly blocks: a block definition and its code generator are also required.</p>
+<p><small>Validation: generated sketches for every listed device family were compiled for Arduino Pro Mini, ATmega168, 16 MHz. These are software compile checks; hardware behaviour depends on the connected module and wiring. The current device selection retains legacy project loading, while the toolbox presents the new named forms.</small></p>
+</html>

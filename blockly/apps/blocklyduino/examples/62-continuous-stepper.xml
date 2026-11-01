@@ -1,0 +1,107 @@
+<xml>
+  <block type="device_stepper_driver" x="25" y="25">
+    <mutation uid="wheel62" />
+    <field name="NAME">wheel</field>
+    <field name="STEP">3</field>
+    <field name="DIR">4</field>
+    <field name="SPEED">600</field>
+    <field name="DRIVE_MODE">RAMPED</field>
+    <comment pinned="false" w="340" h="170">Purpose: Use a potentiometer to set signed continuous stepper speed with acceleration. The software loop engine must still be serviced every pass.
+Wiring: STEP/DIR driver: STEP D3, DIR D4; analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.
+Try: Turn A0 slowly through the centre to stop and reverse. Narrow the speed range for finer ADC control.</comment>
+    <field name="ACCEL">200</field>
+    <field name="PULSE_US">5</field>
+    <field name="ENGINE">LOOP</field>
+  </block>
+  <block type="arduino_loop_section" x="450" y="25">
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="logic_compare">
+            <field name="OP">GTE</field>
+            <value name="A">
+              <block type="math_arithmetic">
+                <field name="OP">MINUS</field>
+                <value name="A">
+                  <block type="arduino_millis" />
+                </value>
+                <value name="B">
+                  <block type="variables_get">
+                    <field name="VAR">lastRead</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">20</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <comment pinned="false" w="380" h="190">Read and map the potentiometer only every 20 ms. ADC conversion and arithmetic on every pass would delay the software STEP pulses. Unsigned millis subtraction also works across rollover.</comment>
+        <statement name="DO0">
+          <block type="variables_set">
+            <field name="VAR">lastRead</field>
+            <value name="VALUE">
+              <block type="arduino_millis" />
+            </value>
+            <next>
+              <block type="device_stepper_speed">
+                <field name="DEVICE">wheel62</field>
+                <value name="SPEED">
+                  <block type="base_map">
+                    <value name="NUM">
+                      <block type="inout_analog_read">
+                        <field name="PIN">A0</field>
+                        <comment pinned="false" w="340" h="160">Measure the voltage on this analog input. On ATmega168/328, the ADC returns 0–1023; other boards may use a different ADC range. A potentiometer wiper or analog sensor connects here.</comment>
+                      </block>
+                    </value>
+                    <value name="FROM_LOW">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="FROM_HIGH">
+                      <block type="math_number">
+                        <field name="NUM">1023</field>
+                      </block>
+                    </value>
+                    <value name="TO_LOW">
+                      <block type="math_number">
+                        <field name="NUM">-600</field>
+                      </block>
+                    </value>
+                    <value name="DMAX">
+                      <block type="math_number">
+                        <field name="NUM">600</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Convert a value from one numeric range to another. All five inputs can be expressions. Arduino map uses integer arithmetic and does not clamp values outside the source range.</comment>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="device_stepper_run">
+            <field name="DEVICE">wheel62</field>
+            <comment pinned="false" w="340" h="170">Service the motor on every loop pass. This emits a step only when due and returns quickly. Long delays would interrupt smooth movement.</comment>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_typed_variable" x="25" y="370">
+    <field name="VAR">lastRead</field>
+    <field name="TYPE">uint32_t</field>
+    <field name="QUALIFIER">normal</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <comment pinned="false" w="380" h="190">Remember when the control was last sampled; the variable is global so it persists between loop passes.</comment>
+  </block>
+</xml>

@@ -1,0 +1,13 @@
+const h=require('../project-device-tests/harness'),{assert,B,win}=h;
+win.Blockly=B;for(const f of ['board_resources.js','resource_ui.js'])win.eval(h.fs.readFileSync(h.out+'/'+f,'utf8'));B.Block.prototype.setWarningText=function(){};
+let ws=h.load(h.fs.readFileSync(h.out+'/examples/70-timer-stepper-speed.xml','utf8'));win.BlocklyResources.setTarget('arduino:avr:pro:cpu=16MHzatmega168');
+let c=h.generate(ws),motor=ws.getAllBlocks().find(b=>b.type==='device_stepper_driver');
+assert(c.includes('BxFastStepper bddev_motor'));assert(c.includes('begin(bxStepEngine, 9, 4, 30000, 5000, 40)'));assert(c.indexOf('bxStepEngine.init();')<c.indexOf('.begin(bxStepEngine')); assert(!c.includes('AccelStepper.h>'));assert(!c.includes('.runSpeed('));assert(!c.includes('.run('));
+assert.deepEqual(Array.from(motor.getField('STEP').getOptions_(),x=>x[1]),['9','10']);assert(!motor.getField('DRIVE_MODE').getOptions_().some(x=>x[1]==='CONTINUOUS'));
+assert(h.save(ws).includes('TIMER'));ws=h.load(h.save(ws));assert.equal(h.generate(ws),c,'engine persists through save/load');
+let servo=h.newBlock(ws,'device_servo',{NAME:'pan',PIN:'7'});assert.throws(()=>h.generate(ws),/Timer1/);assert.equal(servo.getField('PIN').getOptions_()[0][1],'');servo.dispose();
+motor=ws.getAllBlocks().find(b=>b.type==='device_stepper_driver');motor.setFieldValue('LOOP','ENGINE');motor.setFieldValue('3','STEP');c=h.generate(ws);assert(c.includes('BxStepperVelocity<AccelStepper>'));assert(!c.includes('FastAccelStepperEngine'));
+let stop=h.newBlock(ws,'device_stepper_stop',{DEVICE:motor.deviceUid});c=h.generate(ws);assert.equal(c.match(/\.setMinPulseWidth\(/g).length,1,'setup remains idempotent across action references');
+let adc=h.newBlock(ws,'inout_analog_write',{PIN:'4'});assert.throws(()=>h.generate(ws),/compatible pwm/);assert(!adc.getField('PIN').getOptions_().some(x=>x[1]==='4'));adc.dispose();
+win.BlocklyResources.setTarget('rp2040:rp2040:rpipico');assert(!motor.getField('ENGINE').getOptions_().some(x=>x[1]==='TIMER'));
+console.log('PASS timer engine: pins, timer conflicts, compatible modes, saved XML, portable fallback and setup order');win.close();

@@ -1,0 +1,14 @@
+# Version 1; absolute milliseconds from start, voice, note/Hz, duration_ms
+@score 1 absolute
+0,1,C5,220
+0,2,C3,480
+0,3,G4,100
+250,1,E5,220
+500,1,G5,220
+500,2,G3,480
+500,3,660,100
+750,1,C6,220
+1000,1,G5,350
+1000,2,C3,450
+1000,3,E4,200
+1500,1,R,100

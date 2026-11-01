@@ -1,0 +1,12 @@
+# C major phrase
+# Pitch and duration_ms
+# R = rest; F#4/Bb4 also work
+C4 250
+D4 250
+E4 250
+G4 500
+R 100
+G4 250
+E4 250
+D4 250
+C4 750

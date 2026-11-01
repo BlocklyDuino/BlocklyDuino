@@ -1,0 +1,34 @@
+<xml>
+  <block type="tft_st7735_spi_print" x="30" y="30">
+    <field name="ROW">0</field>
+    <value name="CONTENT">
+      <block type="text">
+        <field name="TEXT">Hello!</field>
+      </block>
+    </value>
+    <next>
+      <block type="tft_st7735_spi_print">
+        <field name="ROW">2</field>
+        <value name="CONTENT">
+          <block type="inout_analog_read">
+            <field name="PIN">A0</field>
+            <comment pinned="false" w="340" h="160">Measure the voltage on this analog input. On ATmega168/328, the ADC returns 0–1023; other boards may use a different ADC range. A potentiometer wiper or analog sensor connects here.</comment>
+          </block>
+        </value>
+        <next>
+          <block type="base_delay">
+            <value name="DELAY_TIME">
+              <block type="math_number">
+                <field name="NUM">500</field>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+          </block>
+        </next>
+      </block>
+    </next>
+    <comment pinned="false" w="480" h="240">Purpose: Print text and an analog reading on an ST7735 colour TFT over hardware SPI. Match the panel type and wiring.
+Wiring: ST7735 TFT: MOSI D11, SCK D13, CS D10, DC D9, RESET D8; MISO is unused. Potentiometer wiper A0, outer legs VCC/GND. Match the display’s supply and logic levels.
+Try: Change the foreground colour, text row or the potentiometer label.</comment>
+  </block>
+</xml>

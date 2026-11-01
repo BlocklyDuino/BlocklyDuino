@@ -1,0 +1,4676 @@
+{
+  "version": 1,
+  "auditedAt": null,
+  "target": {
+    "fqbn": "arduino:avr:pro:cpu=16MHzatmega168",
+    "label": "Pro Mini ATmega168 · 16 MHz",
+    "flashLimit": 14336,
+    "ramLimit": 1024
+  },
+  "groups": [
+    "Start here",
+    "Sensors and input",
+    "Displays and LED outputs",
+    "Motors and motion",
+    "Sound and music",
+    "Memory, files and images",
+    "Ports, bits and interrupts",
+    "Serial Monitor and Plotter"
+  ],
+  "examples": [
+    {
+      "id": "01",
+      "file": "01-blink.xml",
+      "title": "Blink the built-in LED",
+      "group": "Start here",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Turn the built-in D13 LED on and off. Learn the order of statements and milliseconds.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter; use the built-in L / D13 LED.",
+        "observe": "Turn the built-in D13 LED on and off. Learn the order of statements and milliseconds.",
+        "change": "Change both wait values from 1000 to 200 ms and compare the blink rate.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "3fec4585cba28c4983686f0a837fedb3ac9cf3f9ff9307b58f837c79ea0595ce",
+        "flash": 924,
+        "flashLimit": 14336,
+        "staticRam": 9,
+        "staticRamLimit": 1024,
+        "flashRemaining": 13412,
+        "ramRemaining": 1015,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "04",
+      "file": "04-pot-pwm-led.xml",
+      "title": "Potentiometer dims a PWM LED",
+      "group": "Start here",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        },
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Map an A0 potentiometer reading to PWM brightness for an LED. A PWM output is required for analogWrite.",
+      "lesson": {
+        "wiring": "analog write: PIN D9; analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "Map an A0 potentiometer reading to PWM brightness for an LED. A PWM output is required for analogWrite.",
+        "change": "Change the map output maximum from 255 to 80 to limit LED brightness.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "92c47576a80c1c6a5eaad4fcb4c836b2450230d44a361855e268c56dafaf97fc",
+        "flash": 2182,
+        "flashLimit": 14336,
+        "staticRam": 9,
+        "staticRamLimit": 1024,
+        "flashRemaining": 12154,
+        "ramRemaining": 1015,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "05",
+      "file": "05-button-led.xml",
+      "title": "Button controls an LED",
+      "group": "Start here",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Read a button and change an LED. The input needs the pull-up or wiring described in the blocks.",
+      "lesson": {
+        "wiring": "Button between D2 and GND; internal pull-up is enabled. The output is the built-in D13 LED.",
+        "observe": "Read a button and change an LED. The input needs the pull-up or wiring described in the blocks.",
+        "change": "Swap the HIGH/LOW actions to make the LED light when the button is released.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "8b357330f1309a29cd4e4ef3f7a33f7bf4d041a328b8b62f9b1bdb9e73c8fd06",
+        "flash": 1040,
+        "flashLimit": 14336,
+        "staticRam": 9,
+        "staticRamLimit": 1024,
+        "flashRemaining": 13296,
+        "ramRemaining": 1015,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "06",
+      "file": "06-traffic-lights.xml",
+      "title": "Traffic lights",
+      "group": "Start here",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Run a simple red/amber/green traffic-light sequence. Each wait makes the next visible phase last longer.",
+      "lesson": {
+        "wiring": "Red LED D2, amber D3, green D4; each LED needs its own series resistor to GND.",
+        "observe": "Run a simple red/amber/green traffic-light sequence. Each wait makes the next visible phase last longer.",
+        "change": "Change the red, amber and green wait times separately.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "5a9a42b78b0f7e3e867075d3affa3d43c9ac9252e3e3b1c12a2488e3586d9741",
+        "flash": 1030,
+        "flashLimit": 14336,
+        "staticRam": 9,
+        "staticRamLimit": 1024,
+        "flashRemaining": 13306,
+        "ramRemaining": 1015,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "07",
+      "file": "07-ds18b20-serial.xml",
+      "title": "DS18B20 thermometer + Plotter",
+      "group": "Sensors and input",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_ds18b20",
+          "label": "DS18B20"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "DallasTemperature",
+        "OneWire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "DallasTemperature.h",
+          "OneWire.h"
+        ],
+        "transitive": [
+          {
+            "library": "OneWire",
+            "viaHeaders": [
+              "DallasTemperature.h"
+            ]
+          }
+        ]
+      },
+      "description": "Request a DS18B20 conversion without waiting, read it after 800 ms, and show a thermometer dashboard after Plotter Start.",
+      "lesson": {
+        "wiring": "DS18B20: PIN D2; Powered DS18B20: data needs a 4.7 kΩ pull-up to VCC. Common GND; use each module’s required supply.",
+        "observe": "Request a DS18B20 conversion without waiting, read it after 800 ms, and show a thermometer dashboard after Plotter Start.",
+        "change": "Warm the sensor with your fingers. Change the graph gauge bounds, keeping the 800 ms sensor interval.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line",
+        "gauge"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "9e62e83e7d339f096f03cfb5fd167e7e977e093f3fd3f5f29748be59706b1e02",
+        "flash": 7226,
+        "flashLimit": 14336,
+        "staticRam": 256,
+        "staticRamLimit": 1024,
+        "flashRemaining": 7110,
+        "ramRemaining": 768,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "08",
+      "file": "08-lcd1602-hello.xml",
+      "title": "16×2 I2C LCD hello",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_lcd",
+          "label": "HD44780 I2C LCD"
+        }
+      ],
+      "libraries": [
+        "LiquidCrystal_I2C",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "LiquidCrystal_I2C.h",
+          "Wire.h"
+        ],
+        "transitive": [
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "LiquidCrystal_I2C.h"
+            ]
+          }
+        ]
+      },
+      "description": "Show a greeting on a 16×2 HD44780 LCD with PCF8574 I2C backpack. Check address and contrast first.",
+      "lesson": {
+        "wiring": "HD44780 I2C LCD: address 0x27; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.",
+        "observe": "Show a greeting on a 16×2 HD44780 LCD with PCF8574 I2C backpack. Check address and contrast first.",
+        "change": "Edit the two text values. Row 0 is the first line; row 1 is the second.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "00aefcdb59e87002047af9bf9a972b7a3250505c82300eb9f9ebbd37167c7896",
+        "flash": 3274,
+        "flashLimit": 14336,
+        "staticRam": 277,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11062,
+        "ramRemaining": 747,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "09",
+      "file": "09-lcd1602-pot.xml",
+      "title": "16×2 LCD potentiometer",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_lcd",
+          "label": "HD44780 I2C LCD"
+        },
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        }
+      ],
+      "libraries": [
+        "LiquidCrystal_I2C",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "LiquidCrystal_I2C.h",
+          "Wire.h"
+        ],
+        "transitive": [
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "LiquidCrystal_I2C.h"
+            ]
+          }
+        ]
+      },
+      "description": "Read a potentiometer and print the value on a 16×2 I2C LCD. Learn how repeated prints update a text display.",
+      "lesson": {
+        "wiring": "HD44780 I2C LCD: address 0x27; analog read: PIN A0; I2C SDA A4, SCL A5; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "Read a potentiometer and print the value on a 16×2 I2C LCD. Learn how repeated prints update a text display.",
+        "change": "Turn the potentiometer. Edit the label and move its output column.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "a1ab546a947b94f8f7645bc71e64b0548495ff3e0a9edfb4eb316ed1a2736ea4",
+        "flash": 3538,
+        "flashLimit": 14336,
+        "staticRam": 267,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10798,
+        "ramRemaining": 757,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "10",
+      "file": "10-ssd1306-spi.xml",
+      "title": "SPI OLED uptime counter",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_oled_spi",
+          "label": "SSD1306 SPI OLED"
+        }
+      ],
+      "libraries": [
+        "SPI",
+        "U8g2",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "U8x8lib.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "U8x8lib.h"
+            ]
+          },
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "U8x8lib.h"
+            ]
+          }
+        ]
+      },
+      "description": "Count seconds on an SSD1306 SPI OLED using a named device and no framebuffer. Update with millis timing.",
+      "lesson": {
+        "wiring": "SSD1306 SPI OLED: CS D10, DC D9, RESET D8; SPI MOSI D11, SCK D13; MISO is unused; CS/DC/RESET as listed. Common GND; use each module’s required supply.",
+        "observe": "Count seconds on an SSD1306 SPI OLED using a named device and no framebuffer. Update with millis timing.",
+        "change": "Edit the heading or move the counter to another text row.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "c45a104ed6d0d00f16cb0af923fbd2966101dc96752d061163189d85bbaf87c8",
+        "flash": 5602,
+        "flashLimit": 14336,
+        "staticRam": 359,
+        "staticRamLimit": 1024,
+        "flashRemaining": 8734,
+        "ramRemaining": 665,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "11",
+      "file": "11-st7735-spi.xml",
+      "title": "ST7735 colour TFT text",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_tft",
+          "label": "ST7735 SPI TFT"
+        },
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        }
+      ],
+      "libraries": [
+        "Adafruit BusIO",
+        "Adafruit GFX Library",
+        "Adafruit ST7735 and ST7789 Library",
+        "SPI",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "Adafruit_ST7735.h"
+        ],
+        "transitive": [
+          {
+            "library": "Adafruit BusIO",
+            "viaHeaders": [
+              "Adafruit_GFX.h"
+            ]
+          },
+          {
+            "library": "Adafruit GFX Library",
+            "viaHeaders": [
+              "Adafruit_ST7735.h"
+            ]
+          },
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "Adafruit_SPIDevice.h"
+            ]
+          },
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "Adafruit_I2CDevice.h"
+            ]
+          }
+        ]
+      },
+      "description": "Print text and an analog reading on an ST7735 colour TFT over hardware SPI. Match the panel type and wiring.",
+      "lesson": {
+        "wiring": "ST7735 TFT: MOSI D11, SCK D13, CS D10, DC D9, RESET D8; MISO is unused. Potentiometer wiper A0, outer legs VCC/GND. Match the display’s supply and logic levels.",
+        "observe": "Print text and an analog reading on an ST7735 colour TFT over hardware SPI. Match the panel type and wiring.",
+        "change": "Change the foreground colour, text row or the potentiometer label.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "34f078fa33b2add624573d8f8e7c8837d9d6851f7479330d7583aa14a2aa4d05",
+        "flash": 12278,
+        "flashLimit": 14336,
+        "staticRam": 432,
+        "staticRamLimit": 1024,
+        "flashRemaining": 2058,
+        "ramRemaining": 592,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "12",
+      "file": "12-i2c-scanner.xml",
+      "title": "Find I2C device addresses",
+      "group": "Start here",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "i2c-bus",
+          "label": "I2C device to scan (optional)"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "Wire.h"
+        ],
+        "transitive": []
+      },
+      "description": "Scan the I2C bus and print responding addresses in Monitor. Use it to discover the address of an attached module.",
+      "lesson": {
+        "wiring": "I2C module SDA→A4 and SCL→A5, with matching supply and common GND. Several modules can share the bus.",
+        "observe": "Scan the I2C bus and print responding addresses in Monitor. Use it to discover the address of an attached module.",
+        "change": "Disconnect one I2C module and scan again; its address disappears.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "91d40e445a68b56aef53e8130f416dcf702127512e09760bc6fbbd5f56be23e2",
+        "flash": 4628,
+        "flashLimit": 14336,
+        "staticRam": 427,
+        "staticRamLimit": 1024,
+        "flashRemaining": 9708,
+        "ramRemaining": 597,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "13",
+      "file": "13-oled-091-i2c.xml",
+      "title": "0.91-inch I2C OLED text",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_oled",
+          "label": "SSD1306 I2C OLED"
+        },
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        }
+      ],
+      "libraries": [
+        "SPI",
+        "U8g2",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "U8x8lib.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "U8x8lib.h"
+            ]
+          },
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "U8x8lib.h"
+            ]
+          }
+        ]
+      },
+      "description": "Print text on a 128×32 SSD1306 I2C OLED. U8x8 sends character tiles without a full pixel framebuffer.",
+      "lesson": {
+        "wiring": "SSD1306 I2C OLED: address 0x3C; analog read: PIN A0; I2C SDA A4, SCL A5; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "Print text on a 128×32 SSD1306 I2C OLED. U8x8 sends character tiles without a full pixel framebuffer.",
+        "change": "Edit the heading. Keep text rows within the 128×32 display height.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "ffbec67e9d612cb5d5458bf2fc464e46489bc439f47510eef02e069e629432b8",
+        "flash": 6398,
+        "flashLimit": 14336,
+        "staticRam": 440,
+        "staticRamLimit": 1024,
+        "flashRemaining": 7938,
+        "ramRemaining": 584,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "14",
+      "file": "14-grove-rgb-lcd.xml",
+      "title": "Grove RGB LCD",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "grove-rgb-lcd",
+          "label": "Grove JHD1313 RGB LCD"
+        }
+      ],
+      "libraries": [
+        "Grove - LCD RGB Backlight",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "Wire.h",
+          "rgb_lcd.h"
+        ],
+        "transitive": []
+      },
+      "description": "Use the text and RGB backlight of a Grove JHD1313 LCD. This module uses a different library from PCF8574 backpacks.",
+      "lesson": {
+        "wiring": "Grove JHD1313 RGB LCD: SDA→A4, SCL→A5, supply and GND.",
+        "observe": "Use the text and RGB backlight of a Grove JHD1313 LCD. This module uses a different library from PCF8574 backpacks.",
+        "change": "Change red, green and blue backlight values and edit the greeting.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "3df4641fc9a6e0cef8a96ee4c92b706be325e943c7346d4c885e8c6b8f46fcb1",
+        "flash": 3376,
+        "flashLimit": 14336,
+        "staticRam": 266,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10960,
+        "ramRemaining": 758,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "15",
+      "file": "15-piezo-beep.xml",
+      "title": "Single piezo beep",
+      "group": "Sound and music",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "music_buzzer",
+          "label": "Passive buzzer"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Make a passive piezo beep using the Arduino core tone function. This AVR engine uses Timer2 interrupts.",
+      "lesson": {
+        "wiring": "Passive buzzer: PIN D8. Common GND; use each module’s required supply.",
+        "observe": "Make a passive piezo beep using the Arduino core tone function. This AVR engine uses Timer2 interrupts.",
+        "change": "Change the frequency from 440 Hz to 880 Hz; compare one octave.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "ce863f68dcd342e7ee9a27362d2f83d276a3c766137201dd74d0f27d9d581c3a",
+        "flash": 1688,
+        "flashLimit": 14336,
+        "staticRam": 28,
+        "staticRamLimit": 1024,
+        "flashRemaining": 12648,
+        "ramRemaining": 996,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "16",
+      "file": "16-piezo-melody.xml",
+      "title": "Simple piezo melody",
+      "group": "Sound and music",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "music_buzzer",
+          "label": "Passive buzzer"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Play a short tune with the basic core tone blocks. Compare this blocking lesson with the nonblocking named music examples.",
+      "lesson": {
+        "wiring": "Passive buzzer: PIN D8. Common GND; use each module’s required supply.",
+        "observe": "Play a short tune with the basic core tone blocks. Compare this blocking lesson with the nonblocking named music examples.",
+        "change": "Change the note frequencies and note durations independently.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "317694bb960a071aaf26b2babe66a8c45e8edc656f61f83e5cbd30ef8c5ff676",
+        "flash": 2068,
+        "flashLimit": 14336,
+        "staticRam": 28,
+        "staticRamLimit": 1024,
+        "flashRemaining": 12268,
+        "ramRemaining": 996,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "17",
+      "file": "17-ds18b20-lcd.xml",
+      "title": "DS18B20 temperature on LCD",
+      "group": "Sensors and input",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_ds18b20",
+          "label": "DS18B20"
+        },
+        {
+          "id": "device_lcd",
+          "label": "HD44780 I2C LCD"
+        }
+      ],
+      "libraries": [
+        "DallasTemperature",
+        "LiquidCrystal_I2C",
+        "OneWire",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "DallasTemperature.h",
+          "LiquidCrystal_I2C.h",
+          "OneWire.h",
+          "Wire.h"
+        ],
+        "transitive": [
+          {
+            "library": "OneWire",
+            "viaHeaders": [
+              "DallasTemperature.h"
+            ]
+          },
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "LiquidCrystal_I2C.h"
+            ]
+          }
+        ]
+      },
+      "description": "Read a DS18B20 temperature and show it on an I2C character LCD. Check the sensor pull-up and LCD address.",
+      "lesson": {
+        "wiring": "HD44780 I2C LCD: address 0x27; DS18B20: PIN D2; I2C SDA A4, SCL A5; Powered DS18B20: data needs a 4.7 kΩ pull-up to VCC. Common GND; use each module’s required supply.",
+        "observe": "Read a DS18B20 temperature and show it on an I2C character LCD. Check the sensor pull-up and LCD address.",
+        "change": "Warm the DS18B20, then change the temperature label or LCD row.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "7bf23ca3982b83f02e706eb3d3952e1b22069085bd4b919dd27fd3bf6da8f1b1",
+        "flash": 7126,
+        "flashLimit": 14336,
+        "staticRam": 328,
+        "staticRamLimit": 1024,
+        "flashRemaining": 7210,
+        "ramRemaining": 696,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "19",
+      "file": "19-lcd20x4-pot.xml",
+      "title": "20×4 LCD potentiometer",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_lcd",
+          "label": "HD44780 I2C LCD"
+        },
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        }
+      ],
+      "libraries": [
+        "LiquidCrystal_I2C",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "LiquidCrystal_I2C.h",
+          "Wire.h"
+        ],
+        "transitive": [
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "LiquidCrystal_I2C.h"
+            ]
+          }
+        ]
+      },
+      "description": "Show a potentiometer reading on a 20×4 LCD. Use the named LCD and buffer examples for reusable display logic.",
+      "lesson": {
+        "wiring": "lcd user init: address 0x27; analog read: PIN A0; I2C SDA A4, SCL A5; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "Show a potentiometer reading on a 20×4 LCD. Use the named LCD and buffer examples for reusable display logic.",
+        "change": "Turn A0 and change which LCD row shows the ADC reading.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "ba1b006ad24dea15ed24db0ae44aedb57f683505a665222a7ea83572cd246cc2",
+        "flash": 3634,
+        "flashLimit": 14336,
+        "staticRam": 287,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10702,
+        "ramRemaining": 737,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "20",
+      "file": "20-servo-sweep.xml",
+      "title": "Servo sweep (core timer library)",
+      "group": "Motors and motion",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_servo",
+          "label": "Servo"
+        }
+      ],
+      "libraries": [
+        "Servo"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "Servo.h"
+        ],
+        "transitive": []
+      },
+      "description": "Move a hobby servo between three angles with the core Servo library. Pulse edges are timer interrupt driven; the waits pause the main loop.",
+      "lesson": {
+        "wiring": "Servo: PIN D9. Common GND; use each module’s required supply.",
+        "observe": "Move a hobby servo between three angles with the core Servo library. Pulse edges are timer interrupt driven; the waits pause the main loop.",
+        "change": "Change the three angle targets, keeping them within your servo mechanism’s clear travel.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "f70c391a6a4eb9b5b219ae3d3cfe7ff5b0811ba6fa486dd36b9afb8db1684423",
+        "flash": 2024,
+        "flashLimit": 14336,
+        "staticRam": 50,
+        "staticRamLimit": 1024,
+        "flashRemaining": 12312,
+        "ramRemaining": 974,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "22",
+      "file": "22-dht22-serial.xml",
+      "title": "DHT22 climate + Plotter",
+      "group": "Sensors and input",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_dht",
+          "label": "DHT11/22"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Adafruit Unified Sensor",
+        "DHT sensor library"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "DHT.h"
+        ],
+        "transitive": [
+          {
+            "library": "Adafruit Unified Sensor",
+            "viaHeaders": [
+              "DHT.h"
+            ]
+          }
+        ]
+      },
+      "description": "Read DHT22 temperature and humidity every 2.1 seconds. Plotter Start opens separate temperature and humidity views; invalid readings are reported as text.",
+      "lesson": {
+        "wiring": "DHT11/22: PIN D2; Bare DHT sensor data needs a pull-up; select its exact model. Common GND; use each module’s required supply.",
+        "observe": "Read DHT22 temperature and humidity every 2.1 seconds. Plotter Start opens separate temperature and humidity views; invalid readings are reported as text.",
+        "change": "Breathe gently near the sensor and watch humidity. Change gauge bounds without making sampling faster than 2.1 s.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line",
+        "gauge",
+        "raw"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "600c6cf57e3a9145a050824c7f3d88a59d9ed4767e6f5439bf799149f65dc06b",
+        "flash": 6478,
+        "flashLimit": 14336,
+        "staticRam": 232,
+        "staticRamLimit": 1024,
+        "flashRemaining": 7858,
+        "ramRemaining": 792,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "23",
+      "file": "23-hc-sr04-serial.xml",
+      "title": "HC-SR04 distance gauge",
+      "group": "Sensors and input",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_ultrasonic",
+          "label": "HC-SR04"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Measure HC-SR04 echo duration and print distance. Sensor reads can block while waiting for an echo; leave at least 60 ms between readings.",
+      "lesson": {
+        "wiring": "HC-SR04: TRIG D3, ECHO D4. Common GND; use each module’s required supply.",
+        "observe": "Measure HC-SR04 echo duration and print distance. Sensor reads can block while waiting for an echo; leave at least 60 ms between readings.",
+        "change": "Move a flat object toward the sensor. Change the gauge maximum from 200 to 50 cm.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "gauge",
+        "line"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "007a9e386252f174e5e267666dcd8d5118381df3c3fa36b2b8f34825c9ddc03f",
+        "flash": 5062,
+        "flashLimit": 14336,
+        "staticRam": 213,
+        "staticRamLimit": 1024,
+        "flashRemaining": 9274,
+        "ramRemaining": 811,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "24",
+      "file": "24-neopixel-rgb.xml",
+      "title": "NeoPixel colour cycle",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_neopixel",
+          "label": "WS2812 RGB LEDs"
+        }
+      ],
+      "libraries": [
+        "Adafruit NeoPixel"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "Adafruit_NeoPixel.h"
+        ],
+        "transitive": []
+      },
+      "description": "Change WS2812 RGB LED colours. The strip library keeps a small colour buffer and sends it on show.",
+      "lesson": {
+        "wiring": "WS2812 RGB LEDs: PIN D6. Common GND; use each module’s required supply.",
+        "observe": "Change WS2812 RGB LED colours. The strip library keeps a small colour buffer and sends it on show.",
+        "change": "Change the RGB values or the LED count to match your strip.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "19566fc339c694abee19936678cde5e92a80135bd20a1d49fe6e6cb2fcd914a1",
+        "flash": 2650,
+        "flashLimit": 14336,
+        "staticRam": 41,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11686,
+        "ramRemaining": 983,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "25",
+      "file": "25-ir-nec-serial.xml",
+      "title": "Read NEC remote buttons",
+      "group": "Sensors and input",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_ir_nec",
+          "label": "NEC IR receiver"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "IRremote"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "IRremote.hpp"
+        ],
+        "transitive": []
+      },
+      "description": "Read each NEC remote command once and print only valid frames. Poll promptly while IRremote uses Timer2 for reception.",
+      "lesson": {
+        "wiring": "NEC IR receiver: PIN D2. Common GND; use each module’s required supply.",
+        "observe": "Read each NEC remote command once and print only valid frames. Poll promptly while IRremote uses Timer2 for reception.",
+        "change": "Press different remote buttons and note their command values.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "raw"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "9b72be660654cbd9fac145ea48e02b6f3966d66d42490c27a06986d19cd65cb6",
+        "flash": 4844,
+        "flashLimit": 14336,
+        "staticRam": 446,
+        "staticRamLimit": 1024,
+        "flashRemaining": 9492,
+        "ramRemaining": 578,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "26",
+      "file": "26-74hc595-pattern.xml",
+      "title": "74HC595 chasing LED",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_shift595",
+          "label": "74HC595"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Send a shifting one-bit pattern to a 74HC595 so one LED chases across eight outputs. Wiring is declared once.",
+      "lesson": {
+        "wiring": "74HC595: DATA D8, CLOCK D9, LATCH D10. Common GND; use each module’s required supply.",
+        "observe": "Send a shifting one-bit pattern to a 74HC595 so one LED chases across eight outputs. Wiring is declared once.",
+        "change": "Reverse the shift direction or increase the 150 ms interval.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "b81fd30e38079a71d300e50772822320ae001879887de90ec823638e65e476c9",
+        "flash": 992,
+        "flashLimit": 14336,
+        "staticRam": 14,
+        "staticRamLimit": 1024,
+        "flashRemaining": 13344,
+        "ramRemaining": 1010,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "28",
+      "file": "28-lcd20x4-block-animation.xml",
+      "title": "20×4 animation made from blocks",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_lcd",
+          "label": "HD44780 I2C LCD"
+        }
+      ],
+      "libraries": [
+        "LiquidCrystal_I2C",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "LiquidCrystal_I2C.h",
+          "Wire.h"
+        ],
+        "transitive": [
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "LiquidCrystal_I2C.h"
+            ]
+          }
+        ]
+      },
+      "description": "Build a 20×4 moving-text animation from editable blocks rather than a preset animation helper.",
+      "lesson": {
+        "wiring": "lcd user init: address 0x27; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.",
+        "observe": "Build a 20×4 moving-text animation from editable blocks rather than a preset animation helper.",
+        "change": "Edit the message and the update interval to change its movement.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "07d8021c9688e80215c62f6227a89f730c1ea22c9fa48fc43a711510686ae39e",
+        "flash": 3416,
+        "flashLimit": 14336,
+        "staticRam": 273,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10920,
+        "ramRemaining": 751,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "30",
+      "file": "30-accelstepper-28byj.xml",
+      "title": "Named 28BYJ: accelerated back and forth",
+      "group": "Motors and motion",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_stepper_coils",
+          "label": "28BYJ-48 + ULN2003"
+        }
+      ],
+      "libraries": [
+        "AccelStepper"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "AccelStepper.h"
+        ],
+        "transitive": []
+      },
+      "description": "Use one named 28BYJ-48 motor to travel between two positions with acceleration. Call run continuously; no delay interrupts the coil sequence.",
+      "lesson": {
+        "wiring": "28BYJ-48 + ULN2003: IN1 D8, IN2 D9, IN3 D10, IN4 D11. Common GND; use each module’s required supply.",
+        "observe": "Use one named 28BYJ-48 motor to travel between two positions with acceleration. Call run continuously; no delay interrupts the coil sequence.",
+        "change": "Change target 512 to 256 half-steps or reduce maximum speed and acceleration.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "4ed93f6db96d6a29b23c924748eac80eb27b9cc8569131b06ba9f7bdaec88309",
+        "flash": 6014,
+        "flashLimit": 14336,
+        "staticRam": 123,
+        "staticRamLimit": 1024,
+        "flashRemaining": 8322,
+        "ramRemaining": 901,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "31",
+      "file": "31-setup-loop-functions-variables.xml",
+      "title": "Setup, loop, function and variable",
+      "group": "Start here",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Separate one-time setup from repeated loop work, create a variable, and call a reusable function.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter; observe the built-in D13 LED.",
+        "observe": "Separate one-time setup from repeated loop work, create a variable, and call a reusable function.",
+        "change": "Edit the blink function once; every function call uses the new timing.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line",
+        "raw"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "b5cac2bdba802fb6f3b25adbe61ac8a86497fa1f244880dded05d2c737292ecb",
+        "flash": 3288,
+        "flashLimit": 14336,
+        "staticRam": 211,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11048,
+        "ramRemaining": 813,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "32",
+      "file": "32-math.xml",
+      "title": "Math operations",
+      "group": "Start here",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Try arithmetic, ranges and mathematical operations. Observe how connected value blocks form expressions.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter.",
+        "observe": "Try arithmetic, ranges and mathematical operations. Observe how connected value blocks form expressions.",
+        "change": "Change one input and compare the labelled mathematical results.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "e2e09a5cf510dc69a24def52420c629639e6e6f149488693b3fd1ff0b2a4ee54",
+        "flash": 3332,
+        "flashLimit": 14336,
+        "staticRam": 211,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11004,
+        "ramRemaining": 813,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "33",
+      "file": "33-arrays-millis.xml",
+      "title": "Array animation with millis timing",
+      "group": "Start here",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Update array data on a millis schedule so loop can continue between animation steps.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter.",
+        "observe": "Update array data on a millis schedule so loop can continue between animation steps.",
+        "change": "Change an array element and the update interval; compare the sequence printed below.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "bb4b2530d132a79449cf75402877f9049a1fab20418ad1b4bc4bf5d4acb0ffd0",
+        "flash": 2854,
+        "flashLimit": 14336,
+        "staticRam": 229,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11482,
+        "ramRemaining": 795,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "34",
+      "file": "34-scoped-arrays.xml",
+      "title": "Local variables and 2D arrays",
+      "group": "Start here",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Compare global and local declarations and address a two-dimensional array with zero-based indices.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter.",
+        "observe": "Compare global and local declarations and address a two-dimensional array with zero-based indices.",
+        "change": "Change one 2D array index and compare the selected element; local variables exist only inside their function.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "cb60ea257607f0b87885636e2fcb23fa85e4fd94a53cd4ef3b0540fc0bc23a1e",
+        "flash": 2778,
+        "flashLimit": 14336,
+        "staticRam": 229,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11558,
+        "ramRemaining": 795,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "35a",
+      "file": "35a-named-stepper.xml",
+      "title": "Named stepper: position targets",
+      "group": "Motors and motion",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_stepper_driver",
+          "label": "STEP/DIR driver"
+        }
+      ],
+      "libraries": [
+        "AccelStepper"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "AccelStepper.h"
+        ],
+        "transitive": []
+      },
+      "description": "Declare a STEP/DIR device once, request target positions and keep servicing the loop engine until each target is reached.",
+      "lesson": {
+        "wiring": "STEP/DIR driver: STEP D3, DIR D4. Common GND; use each module’s required supply.",
+        "observe": "Declare a STEP/DIR device once, request target positions and keep servicing the loop engine until each target is reached.",
+        "change": "Change the two position targets or the acceleration; call run on every loop pass.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "7c63447feb266a9d1e1e991bf40a10fcad6871fd7d05faa7a655aede7e44ecc8",
+        "flash": 5970,
+        "flashLimit": 14336,
+        "staticRam": 119,
+        "staticRamLimit": 1024,
+        "flashRemaining": 8366,
+        "ramRemaining": 905,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "35b",
+      "file": "35b-named-lcd.xml",
+      "title": "Named 20×4 I2C LCD",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_lcd",
+          "label": "HD44780 I2C LCD"
+        }
+      ],
+      "libraries": [
+        "LiquidCrystal_I2C",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "LiquidCrystal_I2C.h",
+          "Wire.h"
+        ],
+        "transitive": [
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "LiquidCrystal_I2C.h"
+            ]
+          }
+        ]
+      },
+      "description": "Declare a 20×4 I2C LCD once and print through its named actions without repeating address or dimensions.",
+      "lesson": {
+        "wiring": "HD44780 I2C LCD: address 0x27; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.",
+        "observe": "Declare a 20×4 I2C LCD once and print through its named actions without repeating address or dimensions.",
+        "change": "Change the message or the LCD columns/rows once in the device definition.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "334fe347db02f7d4ffb02dfa1fed1dabc4934a798c0f5e672a79a7e114a45a2d",
+        "flash": 3448,
+        "flashLimit": 14336,
+        "staticRam": 271,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10888,
+        "ramRemaining": 753,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "35c",
+      "file": "35c-named-radar.xml",
+      "title": "Servo and distance sensor sweep",
+      "group": "Motors and motion",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_servo",
+          "label": "Servo"
+        },
+        {
+          "id": "device_ultrasonic",
+          "label": "HC-SR04"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyHardwareServo.h"
+        ],
+        "transitive": []
+      },
+      "description": "Sweep a servo and take HC-SR04 distance readings. Allow settling time and remember that an echo read briefly blocks.",
+      "lesson": {
+        "wiring": "Servo: PIN D9; HC-SR04: TRIG D5, ECHO D6. Common GND; use each module’s required supply.",
+        "observe": "Sweep a servo and take HC-SR04 distance readings. Allow settling time and remember that an echo read briefly blocks.",
+        "change": "Move an object into the sweep and narrow the servo angle range.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "xy",
+        "gauge"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "2cfbc925a8b56179b360ef6223a360b10f537d3e220e159fd1a843cb761d9b92",
+        "flash": 5884,
+        "flashLimit": 14336,
+        "staticRam": 226,
+        "staticRamLimit": 1024,
+        "flashRemaining": 8452,
+        "ramRemaining": 798,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "36a",
+      "file": "36a-i2c-eeprom.xml",
+      "title": "I2C EEPROM: values and text",
+      "group": "Memory, files and images",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "st_i2c_eeprom",
+          "label": "24LC256 EEPROM"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyMemory.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "BlocklyMemory.h"
+            ]
+          },
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "BlocklyMemory.h"
+            ]
+          }
+        ]
+      },
+      "description": "Write and read typed values and text in a 24LC256 I2C EEPROM. Addresses are byte offsets, separate from its I2C bus address.",
+      "lesson": {
+        "wiring": "24LC256 EEPROM: address 0x50; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.",
+        "observe": "Write and read typed values and text in a 24LC256 I2C EEPROM. Addresses are byte offsets, separate from its I2C bus address.",
+        "change": "Change the stored number/text, using separate byte addresses for each record.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [
+        "Writes a small EEPROM test area. Use a chip with no data you need to retain."
+      ],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "040c4e8d57c577d38b3ecfdff7999ae3c85b67b99aaed942421f62bf525cf767",
+        "flash": 5814,
+        "flashLimit": 14336,
+        "staticRam": 432,
+        "staticRamLimit": 1024,
+        "flashRemaining": 8522,
+        "ramRemaining": 592,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "36b",
+      "file": "36b-spi-eeprom.xml",
+      "title": "SPI EEPROM: values and text",
+      "group": "Memory, files and images",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "st_spi_eeprom",
+          "label": "25LC256 EEPROM"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyMemory.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "BlocklyMemory.h"
+            ]
+          },
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "BlocklyMemory.h"
+            ]
+          }
+        ]
+      },
+      "description": "Write and read typed values and text in a 25LC256 SPI EEPROM using one named chip-select configuration.",
+      "lesson": {
+        "wiring": "25LC256 EEPROM: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Write and read typed values and text in a 25LC256 SPI EEPROM using one named chip-select configuration.",
+        "change": "Change the stored number/text without changing the SPI bus pins.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [
+        "Writes a small EEPROM test area. Use a chip with no data you need to retain."
+      ],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "093d961a05c37311586ec49dabdc42b872236c42563fbe74ce775ab1703434af",
+        "flash": 4648,
+        "flashLimit": 14336,
+        "staticRam": 330,
+        "staticRamLimit": 1024,
+        "flashRemaining": 9688,
+        "ramRemaining": 694,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "36c",
+      "file": "36c-spi-flash.xml",
+      "title": "SPI Flash: erase, write, read",
+      "group": "Memory, files and images",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "st_spi_flash",
+          "label": "W25Q32 Flash"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyMemory.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "BlocklyMemory.h"
+            ]
+          },
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "BlocklyMemory.h"
+            ]
+          }
+        ]
+      },
+      "description": "Erase a W25Q32 Flash sector, write a value/text, then read it back. Flash cannot overwrite programmed bits without erase.",
+      "lesson": {
+        "wiring": "W25Q32 Flash: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Erase a W25Q32 Flash sector, write a value/text, then read it back. Flash cannot overwrite programmed bits without erase.",
+        "change": "Change the test value inside the erased sector; Flash must be erased before bits can return to 1.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [
+        "Erases a whole 4 KB Flash sector before writing. Use a chip with no data you need to retain."
+      ],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "4473ed1ae9fcb73fcd585f82cae602f4eba11a2c1b772193f778264fb5a00d9d",
+        "flash": 4942,
+        "flashLimit": 14336,
+        "staticRam": 330,
+        "staticRamLimit": 1024,
+        "flashRemaining": 9394,
+        "ramRemaining": 694,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "36d",
+      "file": "36d-sd-file.xml",
+      "title": "SD text file",
+      "group": "Memory, files and images",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "SdFat"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklySD.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Create or append a text file on an SPI SD card, then flush and close it. A FAT filesystem remains readable on a computer.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Create or append a text file on an SPI SD card, then flush and close it. A FAT filesystem remains readable on a computer.",
+        "change": "Change the filename and text, upload, then inspect the file on a computer.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "0d70c7967511e9cca81cbe97a5832cfc027ad1af3f82f4471985ac01b126cc39",
+        "flash": 9770,
+        "flashLimit": 14336,
+        "staticRam": 719,
+        "staticRamLimit": 1024,
+        "flashRemaining": 4566,
+        "ramRemaining": 305,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "36e",
+      "file": "36e-sd-bmp.xml",
+      "title": "SD BMP: coordinate pixels",
+      "group": "Memory, files and images",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "SdFat"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklySD.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Create a small BMP file on SD and write pixels by coordinates. File storage replaces a full image array in RAM.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Create a small BMP file on SD and write pixels by coordinates. File storage replaces a full image array in RAM.",
+        "change": "Change the coordinates and pixel values, then open the resulting BMP on a computer.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "4041ef4030e9e3b4c1616b10abed3e7991a8d19e1a18e4c2606391fe17bcf3b5",
+        "flash": 10982,
+        "flashLimit": 14336,
+        "staticRam": 699,
+        "staticRamLimit": 1024,
+        "flashRemaining": 3354,
+        "ramRemaining": 325,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "36f",
+      "file": "36f-radar-to-bmp.xml",
+      "title": "Radar measurements → BMP",
+      "group": "Memory, files and images",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_servo",
+          "label": "Servo"
+        },
+        {
+          "id": "device_ultrasonic",
+          "label": "HC-SR04"
+        },
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "SdFat",
+        "Servo"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklySD.h",
+          "Servo.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Sweep a servo, measure distance, and draw results into an SD BMP. This combined sketch has little memory margin on ATmega168.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; Servo: PIN D9; HC-SR04: TRIG D5, ECHO D6; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Sweep a servo, measure distance, and draw results into an SD BMP. This combined sketch has little memory margin on ATmega168.",
+        "change": "Move an object in the scan arc. Inspect the completed BMP; keep this small-memory combined project advanced.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [
+        "Small remaining memory margin: 240 bytes Flash and 284 bytes SRAM before stack/heap. Keep this advanced; compile success does not measure stack or dynamic allocation.",
+        "Combined SD, sensing and motion: advanced, little stack/heap headroom on ATmega168. Compile size is not a runtime stack test."
+      ],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "4d10c7f62244d305715816f7a4deb63383bfaf0ecc31b4427f57461405ff04ac",
+        "flash": 14096,
+        "flashLimit": 14336,
+        "staticRam": 740,
+        "staticRamLimit": 1024,
+        "flashRemaining": 240,
+        "ramRemaining": 284,
+        "classification": "tight"
+      }
+    },
+    {
+      "id": "37",
+      "file": "37-streamed-bmp.xml",
+      "title": "Stream monochrome BMP to SD",
+      "group": "Memory, files and images",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "SdFat"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklySD.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Write a monochrome BMP in raster order, one pixel at a time, then finish the file. No full image buffer is allocated.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Write a monochrome BMP in raster order, one pixel at a time, then finish the file. No full image buffer is allocated.",
+        "change": "Change the pixel formula to make stripes or a checkerboard; finish the image before reading it on the computer.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "a5c37a5fff8668c7ba93bc8580b1f144689855e29d721cf4367017b66c2123c4",
+        "flash": 12200,
+        "flashLimit": 14336,
+        "staticRam": 711,
+        "staticRamLimit": 1024,
+        "flashRemaining": 2136,
+        "ramRemaining": 313,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "38a",
+      "file": "38a-nonblocking-beep.xml",
+      "title": "Buzzer: nonblocking beep",
+      "group": "Sound and music",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "music_buzzer",
+          "label": "Passive buzzer"
+        },
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion",
+        "BlocklyMusic"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyMusic.h"
+        ],
+        "transitive": [
+          {
+            "library": "BlocklyMotion",
+            "viaHeaders": [
+              "BlocklyMusic.h"
+            ]
+          }
+        ]
+      },
+      "description": "Start a nonblocking note on a named passive buzzer while the main loop remains available for other tasks.",
+      "lesson": {
+        "wiring": "Passive buzzer: PIN D4; digital write: PIN D13. Common GND; use each module’s required supply.",
+        "observe": "Start a nonblocking note on a named passive buzzer while the main loop remains available for other tasks.",
+        "change": "Change the beep duration while the LED continues its separate task.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "ee39cc879a8b05ce748cb480117944115daa95f00ba9732e4af0e4b41805aa07",
+        "flash": 1758,
+        "flashLimit": 14336,
+        "staticRam": 48,
+        "staticRamLimit": 1024,
+        "flashRemaining": 12578,
+        "ramRemaining": 976,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "38b",
+      "file": "38b-three-voice-melody.xml",
+      "title": "Three independent melody voices",
+      "group": "Sound and music",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "music_buzzer",
+          "label": "Passive buzzer"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion",
+        "BlocklyMusic"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyMusic.h",
+          "BlocklyMusicTypes.h"
+        ],
+        "transitive": [
+          {
+            "library": "BlocklyMotion",
+            "viaHeaders": [
+              "BlocklyMusic.h"
+            ]
+          }
+        ]
+      },
+      "description": "Play three independent melody voices on three passive buzzers. The optional IRQ mixer shares one Timer2 and consumes periodic CPU time.",
+      "lesson": {
+        "wiring": "Passive buzzer: PIN D4; Passive buzzer: PIN D5; Passive buzzer: PIN D6. Common GND; use each module’s required supply.",
+        "observe": "Play three independent melody voices on three passive buzzers. The optional IRQ mixer shares one Timer2 and consumes periodic CPU time.",
+        "change": "Change one voice’s notes while the other two voices keep their own melodies.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [
+        "Three-voice IRQ music shares Timer2. Each passive buzzer uses a separate output; Timer2 is unavailable for another independent engine."
+      ],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "c70eb2384e5d152a8fd0092fcdc54bce254d328fef1b72bb802db0cad4f464c0",
+        "flash": 2492,
+        "flashLimit": 14336,
+        "staticRam": 72,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11844,
+        "ramRemaining": 952,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "38c",
+      "file": "38c-melody-with-rests.xml",
+      "title": "Melody with rests",
+      "group": "Sound and music",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "music_buzzer",
+          "label": "Passive buzzer"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion",
+        "BlocklyMusic"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyMusic.h",
+          "BlocklyMusicTypes.h"
+        ],
+        "transitive": [
+          {
+            "library": "BlocklyMotion",
+            "viaHeaders": [
+              "BlocklyMusic.h"
+            ]
+          }
+        ]
+      },
+      "description": "Define a reusable flash melody with rests and play it through a named buzzer.",
+      "lesson": {
+        "wiring": "Passive buzzer: PIN D4. Common GND; use each module’s required supply.",
+        "observe": "Define a reusable flash melody with rests and play it through a named buzzer.",
+        "change": "Edit one note or rest in the melody definition; play it again.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "290ce7a30de088cd4cfcfedfcdf68ab3c1d4e91fdedbf539df18beef4f6ef2f4",
+        "flash": 2282,
+        "flashLimit": 14336,
+        "staticRam": 54,
+        "staticRamLimit": 1024,
+        "flashRemaining": 12054,
+        "ramRemaining": 970,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "39",
+      "file": "39-sd-melody.xml",
+      "title": "SD text-note melody",
+      "group": "Sound and music",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "music_buzzer",
+          "label": "Passive buzzer"
+        },
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion",
+        "BlocklyMusic",
+        "BlocklyStorage",
+        "SPI",
+        "SdFat"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyMusic.h",
+          "BlocklySD.h",
+          "BlocklyTextIO.h"
+        ],
+        "transitive": [
+          {
+            "library": "BlocklyMotion",
+            "viaHeaders": [
+              "BlocklyMusic.h"
+            ]
+          },
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Read text notes from a known SD file and pass each note record to the buzzer. The line parser avoids loading the whole tune.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; Passive buzzer: PIN D4; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Read text notes from a known SD file and pass each note record to the buzzer. The line parser avoids loading the whole tune.",
+        "change": "Edit the note file on the SD card, using the note syntax from the SD music guide.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [
+        "Small remaining memory margin: 820 bytes Flash and 276 bytes SRAM before stack/heap. Keep this advanced; compile success does not measure stack or dynamic allocation."
+      ],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "8f6640bf8d748c4e426d240c5ea1def18a39700b19389c603abb9838be72254a",
+        "flash": 13516,
+        "flashLimit": 14336,
+        "staticRam": 748,
+        "staticRamLimit": 1024,
+        "flashRemaining": 820,
+        "ramRemaining": 276,
+        "classification": "tight"
+      }
+    },
+    {
+      "id": "40",
+      "file": "40-polar-scan-bmp.xml",
+      "title": "Polar scan → streamed BMP",
+      "group": "Memory, files and images",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_servo",
+          "label": "Servo"
+        },
+        {
+          "id": "device_ultrasonic",
+          "label": "HC-SR04"
+        },
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "SdFat",
+        "Servo"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklySD.h",
+          "Servo.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Convert a polar servo/distance scan into row-ordered BMP output on SD. Advanced example with tight AVR memory margins.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; Servo: PIN D9; HC-SR04: TRIG D5, ECHO D6; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Convert a polar servo/distance scan into row-ordered BMP output on SD. Advanced example with tight AVR memory margins.",
+        "change": "Change the pixel/intensity mapping after understanding the polar-to-raster conversion.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [
+        "Small remaining memory margin: 804 bytes Flash and 276 bytes SRAM before stack/heap. Keep this advanced; compile success does not measure stack or dynamic allocation.",
+        "Combined SD, sensing and motion: advanced, little stack/heap headroom on ATmega168. Compile size is not a runtime stack test."
+      ],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "79c6c9f83946eb218c283f9766e0cd674b9e6fdaf4abbda1a183bbb0abc68708",
+        "flash": 13532,
+        "flashLimit": 14336,
+        "staticRam": 748,
+        "staticRamLimit": 1024,
+        "flashRemaining": 804,
+        "ramRemaining": 276,
+        "classification": "tight"
+      }
+    },
+    {
+      "id": "41",
+      "file": "41-array-indices.xml",
+      "title": "Multidimensional arrays and variable indices",
+      "group": "Start here",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Use variables for every index of a multidimensional array. Fixed dimensions reserve RAM; indices choose an element at runtime.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter.",
+        "observe": "Use variables for every index of a multidimensional array. Fixed dimensions reserve RAM; indices choose an element at runtime.",
+        "change": "Change row and column variables to select another cell; keep indices inside the declared shape.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "427a3c2f1fab2eae25db04c2404e59c9e0645a76941faa2f139e8739326fb02e",
+        "flash": 3012,
+        "flashLimit": 14336,
+        "staticRam": 213,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11324,
+        "ramRemaining": 811,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "42",
+      "file": "42-gray-bmp.xml",
+      "title": "BMP grayscale levels",
+      "group": "Memory, files and images",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "SdFat"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyGrayBMP.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Create a grayscale BMP with selected palette levels and append calculated shades. Values must fit the chosen output range.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Create a grayscale BMP with selected palette levels and append calculated shades. Values must fit the chosen output range.",
+        "change": "Change the number of palette shades and the pixel formula together.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "719b4828a101f384f2afab46431bbd2c3863cab5c8dbb7d13a4f7f7a69eea6b3",
+        "flash": 12072,
+        "flashLimit": 14336,
+        "staticRam": 716,
+        "staticRamLimit": 1024,
+        "flashRemaining": 2264,
+        "ramRemaining": 308,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "43",
+      "file": "43-bmp-rgb.xml",
+      "title": "RGB BMP gradient",
+      "group": "Memory, files and images",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        },
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "SdFat"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyImage.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Stream an RGB gradient into a BMP file without keeping the picture in AVR RAM.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; digital write: PIN D6; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Stream an RGB gradient into a BMP file without keeping the picture in AVR RAM.",
+        "change": "Change the red, green or blue formula to produce another colour gradient.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "4626fa7c39b77531561eaccc963ac1c1376e9a0d36421a5d05783e1090d780f4",
+        "flash": 12296,
+        "flashLimit": 14336,
+        "staticRam": 736,
+        "staticRamLimit": 1024,
+        "flashRemaining": 2040,
+        "ramRemaining": 288,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "44",
+      "file": "44-pgm-gray1024.xml",
+      "title": "1024-shade grayscale PGM",
+      "group": "Memory, files and images",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        },
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "SdFat"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyImage.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Write a 1024-level grayscale PGM, preserving more than 8 bits per sample. Use a computer image viewer that supports PGM.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; digital write: PIN D6; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Write a 1024-level grayscale PGM, preserving more than 8 bits per sample. Use a computer image viewer that supports PGM.",
+        "change": "Change a 0–1023 pixel value and open the PGM in a viewer that supports that precision.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "5396d857c9b7baedff74eb67cc4409960e744febd59c4f58c2f106fed983a84f",
+        "flash": 12282,
+        "flashLimit": 14336,
+        "staticRam": 738,
+        "staticRamLimit": 1024,
+        "flashRemaining": 2054,
+        "ramRemaining": 286,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "45",
+      "file": "45-ppm-rgb1024.xml",
+      "title": "High-depth RGB PPM",
+      "group": "Memory, files and images",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        },
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "BlocklyStorage",
+        "SPI",
+        "SdFat"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyImage.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Write a high-depth RGB PPM with selected per-channel range. This format preserves precision beyond an 8-bit BMP channel.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; digital write: PIN D6; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Write a high-depth RGB PPM with selected per-channel range. This format preserves precision beyond an 8-bit BMP channel.",
+        "change": "Change one colour-channel formula while keeping values within the configured range.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "7cdd954d73d149ce0bf5cc18691a27a5386b5196b39d381b4c47e5df034dc854",
+        "flash": 12418,
+        "flashLimit": 14336,
+        "staticRam": 740,
+        "staticRamLimit": 1024,
+        "flashRemaining": 1918,
+        "ramRemaining": 284,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "46",
+      "file": "46-typed-function.xml",
+      "title": "Typed function arguments and results",
+      "group": "Start here",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Define a function with typed float and uint32_t arguments and an explicit result type.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter.",
+        "observe": "Define a function with typed float and uint32_t arguments and an explicit result type.",
+        "change": "Change the arguments to the function and compare its returned value.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "3861f0310fef145e3f4d1766043274231f0bacbe6e7c40890f2974fc8dfcb534",
+        "flash": 2784,
+        "flashLimit": 14336,
+        "staticRam": 197,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11552,
+        "ramRemaining": 827,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "47",
+      "file": "47-bit-packing.xml",
+      "title": "Pack flags and bit fields",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Pack several flags and small fields into integers with masks, shifts and extraction blocks.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter.",
+        "observe": "Pack several flags and small fields into integers with masks, shifts and extraction blocks.",
+        "change": "Change one bit index or packed field, then compare the printed number.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "40e6e65b296bfb217da0e9aa3428efe3f36acc3378111ee21e749afa95ce4156",
+        "flash": 3012,
+        "flashLimit": 14336,
+        "staticRam": 200,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11324,
+        "ramRemaining": 824,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "48",
+      "file": "48-avr-port-blink.xml",
+      "title": "AVR direct-port blink",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "avr/io.h"
+        ],
+        "transitive": []
+      },
+      "description": "Blink D13 through AVR port registers. Compare the generated code and Flash use with ordinary digitalWrite.",
+      "lesson": {
+        "wiring": "Only the Pro Mini; PB5 is the built-in L / D13 LED.",
+        "observe": "Blink D13 through AVR port registers. Compare the generated code and Flash use with ordinary digitalWrite.",
+        "change": "Change the wait times; PB5 is the built-in D13 LED.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "e98b0f4fe34dbf559c95e707771a124d98249b639841bcdb3a9217c78b66fd0f",
+        "flash": 642,
+        "flashLimit": 14336,
+        "staticRam": 9,
+        "staticRamLimit": 1024,
+        "flashRemaining": 13694,
+        "ramRemaining": 1015,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "49",
+      "file": "49-avr-port-inputs.xml",
+      "title": "AVR input and pull-up",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "avr/io.h"
+        ],
+        "transitive": []
+      },
+      "description": "Configure an AVR port input and pull-up with masks, then read its bit without changing neighbouring pins.",
+      "lesson": {
+        "wiring": "Button between D2 and GND; observe the built-in D13 LED.",
+        "observe": "Configure an AVR port input and pull-up with masks, then read its bit without changing neighbouring pins.",
+        "change": "Press and release the D2 button and watch D13 follow the port input.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "bcadf52d9dcb1826440564c7a5d77916ebd779e33cefe13e58b9036df5ab0098",
+        "flash": 462,
+        "flashLimit": 14336,
+        "staticRam": 9,
+        "staticRamLimit": 1024,
+        "flashRemaining": 13874,
+        "ramRemaining": 1015,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "50",
+      "file": "50-avr-register-driver.xml",
+      "title": "Direct-port byte driver",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "avr/io.h"
+        ],
+        "transitive": []
+      },
+      "description": "Drive a byte pattern through direct port operations. This advanced lesson exposes register ownership and bit masks.",
+      "lesson": {
+        "wiring": "74HC595 SER→D8, SRCLK→D9, RCLK→D10, OE→GND, MR→VCC. Add a resistor to each output LED.",
+        "observe": "Drive a byte pattern through direct port operations. This advanced lesson exposes register ownership and bit masks.",
+        "change": "Change the byte pattern sent to the 74HC595 and watch Q0–Q7.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "c9cb4fca1a096e9891861f940f8e2600d5ef601a7357cf0fb97bc58be73114c8",
+        "flash": 750,
+        "flashLimit": 14336,
+        "staticRam": 9,
+        "staticRamLimit": 1024,
+        "flashRemaining": 13586,
+        "ramRemaining": 1015,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "51",
+      "file": "51-spi-jedec-id.xml",
+      "title": "Read SPI Flash JEDEC ID",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "ll_spi_device",
+          "label": "Custom SPI device"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "SPI"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "SPI.h"
+        ],
+        "transitive": []
+      },
+      "description": "Send the JEDEC-ID command to an SPI Flash chip and read its identification bytes using generic SPI blocks.",
+      "lesson": {
+        "wiring": "Custom SPI device: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Send the JEDEC-ID command to an SPI Flash chip and read its identification bytes using generic SPI blocks.",
+        "change": "Read the three JEDEC bytes and compare with the Flash chip’s datasheet.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "d5aceac24623eec31791579a680a7c414cec08861e91c56c0bd9054d97ca4207",
+        "flash": 3202,
+        "flashLimit": 14336,
+        "staticRam": 222,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11134,
+        "ramRemaining": 802,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "52",
+      "file": "52-i2c-register-read.xml",
+      "title": "I2C register read",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "ll_i2c_device",
+          "label": "Custom I2C device"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "Wire.h"
+        ],
+        "transitive": []
+      },
+      "description": "Write a register pointer and read data from an I2C device using generic transactions. Match the address/register to the attached chip.",
+      "lesson": {
+        "wiring": "Custom I2C device: address 0x68; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.",
+        "observe": "Write a register pointer and read data from an I2C device using generic transactions. Match the address/register to the attached chip.",
+        "change": "Set the actual I2C address and register for your chip before interpreting its bytes.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "97797ef7b5f3221dcc09e803145649ddd99a001a404aebeed1cfc461ddbfa3da",
+        "flash": 5332,
+        "flashLimit": 14336,
+        "staticRam": 475,
+        "staticRamLimit": 1024,
+        "flashRemaining": 9004,
+        "ramRemaining": 549,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "53",
+      "file": "53-avr-interrupt-counter.xml",
+      "title": "Interrupt counter with atomic snapshot",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "avr/interrupt.h",
+          "avr/io.h",
+          "util/atomic.h"
+        ],
+        "transitive": []
+      },
+      "description": "Increment a volatile counter in an interrupt and copy it atomically before using it in loop.",
+      "lesson": {
+        "wiring": "Pulse input or button D2→GND with the configured pull-up. D13 gives a visible indication.",
+        "observe": "Increment a volatile counter in an interrupt and copy it atomically before using it in loop.",
+        "change": "Pulse D2 and watch the counter. Keep Serial output outside the interrupt handler.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line",
+        "raw"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "01d49c67828a49ef4097ed33b7cde69802de40f0d94ca2c92de86ec4484ada83",
+        "flash": 2798,
+        "flashLimit": 14336,
+        "staticRam": 201,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11538,
+        "ramRemaining": 823,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "54",
+      "file": "54-serial-monitor-echo.xml",
+      "title": "Send text and receive the board’s reply",
+      "group": "Serial Monitor and Plotter",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Type a short message in Plotter. The board receives the text and sends it back to the visible message box.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter.",
+        "observe": "Type a short message in Plotter. The board receives the text and sends it back to the visible message box.",
+        "change": "Type a short message in Plotter and send it; the board returns the same characters.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "messages",
+        "controls"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "fbe748ef64e30ece6669ac31b2d7e749f8a7042cbf1144acb6dca82c99504a35",
+        "flash": 2614,
+        "flashLimit": 14336,
+        "staticRam": 242,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11722,
+        "ramRemaining": 782,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "55",
+      "file": "55-serial-auto-plot.xml",
+      "title": "Interactive LED lab: your first controls",
+      "group": "Serial Monitor and Plotter",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "The built-in LED blinks immediately after upload. Plotter creates controls for interval, on-time, enable, pattern and a text reply from the board.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter; L / D13 is built in.",
+        "observe": "The built-in LED blinks immediately after upload. Plotter creates controls for interval, on-time, enable, pattern and a text reply from the board.",
+        "change": "Try a slower interval, a different on-time, Steady light, and a text message. Each control changes the running board.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line",
+        "controls",
+        "messages"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "0f06d289a518d91ac16623468bdc84df5b07bb0a39298d14724d3ed06e5231a8",
+        "flash": 7686,
+        "flashLimit": 14336,
+        "staticRam": 318,
+        "staticRamLimit": 1024,
+        "flashRemaining": 6650,
+        "ramRemaining": 706,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "56",
+      "file": "56-serial-dashboard.xml",
+      "title": "Plotter: potentiometer dashboard",
+      "group": "Serial Monitor and Plotter",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "After Plotter Start, send one A0 value. A Flash-resident header asks the PC to calculate voltage and show lines, a gauge, a bar and raw values.",
+      "lesson": {
+        "wiring": "analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "After Plotter Start, send one A0 value. A Flash-resident header asks the PC to calculate voltage and show lines, a gauge, a bar and raw values.",
+        "change": "Turn A0. Edit the header’s voltage formula only if your measured ADC reference differs from 5 V.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line",
+        "gauge",
+        "bar",
+        "raw"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "1209d851ad38cce047540ed244ccb54ecb306b58bea1a711551a5c7420e717f6",
+        "flash": 3252,
+        "flashLimit": 14336,
+        "staticRam": 201,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11084,
+        "ramRemaining": 823,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "57",
+      "file": "57-external-interrupt.xml",
+      "title": "External interrupt edge counter",
+      "group": "Ports, bits and interrupts",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "avr/interrupt.h",
+          "avr/io.h",
+          "util/atomic.h"
+        ],
+        "transitive": []
+      },
+      "description": "Count edges on external interrupt D2. A physical button may bounce and create several electrical edges per press.",
+      "lesson": {
+        "wiring": "Button between D2 and GND; internal pull-up is enabled.",
+        "observe": "Count edges on external interrupt D2. A physical button may bounce and create several electrical edges per press.",
+        "change": "Press the D2 button; electrical contact bounce may count several edges per press.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line",
+        "raw"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "1ef660e43d108c87ed7e32779dae766ecb896e5a653ce6291c35579a83d6277d",
+        "flash": 3306,
+        "flashLimit": 14336,
+        "staticRam": 203,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11030,
+        "ramRemaining": 821,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "58",
+      "file": "58-pin-change-interrupt.xml",
+      "title": "Pin-change counters",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "basic-gpio",
+          "label": "LEDs / button / GPIO"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "avr/interrupt.h",
+          "avr/io.h",
+          "util/atomic.h"
+        ],
+        "transitive": []
+      },
+      "description": "Use pin-change interrupts on D4 and D5 to keep separate counters, then copy the values safely in loop.",
+      "lesson": {
+        "wiring": "Two buttons: D4→GND and D5→GND; both inputs use internal pull-ups.",
+        "observe": "Use pin-change interrupts on D4 and D5 to keep separate counters, then copy the values safely in loop.",
+        "change": "Press each button independently and compare its own counter trace.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line-multiple",
+        "raw"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "e250bd09275261ca24636eb3ceb19a79fbcf5195f64c7d8b758c3ab6286f48dd",
+        "flash": 3432,
+        "flashLimit": 14336,
+        "staticRam": 202,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10904,
+        "ramRemaining": 822,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "59",
+      "file": "59-timer-interrupt.xml",
+      "title": "Timer1 periodic interrupt",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "avr/interrupt.h",
+          "avr/io.h",
+          "util/atomic.h"
+        ],
+        "transitive": []
+      },
+      "description": "The counter rises ten times per second. Plotter shows it five times per second; Running pauses/resumes Timer1, Clear resets the count, and Restart begins a fresh timer period.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter. Timer1 supplies periodic interrupts.",
+        "observe": "The counter rises ten times per second. Plotter shows it five times per second; Running pauses/resumes Timer1, Clear resets the count, and Restart begins a fresh timer period.",
+        "change": "Pause/resume the timer with its checkbox and clear the counter with the button.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line",
+        "controls"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "bd3662afe46846cb5b3a3e64a63e4931da1576a5ef6f3e65d8573688e8bc2764",
+        "flash": 4190,
+        "flashLimit": 14336,
+        "staticRam": 228,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10146,
+        "ramRemaining": 796,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "60",
+      "file": "60-interrupt-attach-detach.xml",
+      "title": "Attach and detach interrupts",
+      "group": "Ports, bits and interrupts",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "avr/interrupt.h",
+          "avr/io.h",
+          "util/atomic.h"
+        ],
+        "transitive": []
+      },
+      "description": "Starts detached. Check Attached, then press the D2 button. Detach pauses counting while preserving the count; Clear resets it.",
+      "lesson": {
+        "wiring": "Button between D2 and GND; internal pull-up is enabled.",
+        "observe": "Starts detached. Check Attached, then press the D2 button. Detach pauses counting while preserving the count; Clear resets it.",
+        "change": "Attach the interrupt, press the button, detach it, then compare the counter.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line",
+        "controls"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "1ec7ac5c78cba64adff9c98e467e7328151fbde1f09bbdbbecf8bed20f29633d",
+        "flash": 4138,
+        "flashLimit": 14336,
+        "staticRam": 227,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10198,
+        "ramRemaining": 797,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "61",
+      "file": "61-serial-image-scanner.xml",
+      "title": "Continuous photocell scan: image + controls",
+      "group": "Serial Monitor and Plotter",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_servo",
+          "label": "Servo"
+        },
+        {
+          "id": "analog-input",
+          "label": "Light-sensor voltage divider"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion",
+        "BlocklySerial"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyHardwareServo.h",
+          "BlocklySerial.h"
+        ],
+        "transitive": []
+      },
+      "description": "Choose one-way or bidirectional photocell sweeps with two hardware servos; adjust delayed sampling to align rows. The computer builds the image while the board averages scheduled ADC readings without a framebuffer.",
+      "lesson": {
+        "wiring": "Light-sensor/resistor divider midpoint A0; pan servo D9, tilt D10. Suitable servo supply with common GND. Both signals use Timer1 hardware PWM at 50 Hz.",
+        "observe": "Choose one-way or bidirectional photocell sweeps with two hardware servos; adjust delayed sampling to align rows. The computer builds the image while the board averages scheduled ADC readings without a framebuffer.",
+        "change": "Use the Parameters area or live controls: resolution, row time, averaging, gain/offset, black/white signal, brightness levels and servo pulse endpoints. Gain 100% = 1x. Accepted changes restart a clean image; Stop holds. Use Areas → Parameters to focus the editable settings.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [
+        "Small remaining memory margin: 30 bytes Flash and 611 bytes SRAM before stack/heap. Keep this advanced; compile success does not measure stack or dynamic allocation.",
+        "Coordinates follow commanded motion, not measured servo position. Mechanical lag and sensor response limit useful speed. The native ADC is 10-bit; 2–65536 output levels rescale its readings. Live bounds follow UART/ADC time and the PC image limit."
+      ],
+      "plotterModes": [
+        "image-gray",
+        "line",
+        "controls"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "8acbcf565df929d1eafb93d97c022d8d5fafe4b627b68599b8d27afc15d9bc3f",
+        "flash": 14306,
+        "flashLimit": 14336,
+        "staticRam": 413,
+        "staticRamLimit": 1024,
+        "flashRemaining": 30,
+        "ramRemaining": 611,
+        "classification": "tight"
+      }
+    },
+    {
+      "id": "62",
+      "file": "62-continuous-stepper.xml",
+      "title": "Continuous stepper: potentiometer ramp",
+      "group": "Motors and motion",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_stepper_driver",
+          "label": "STEP/DIR driver"
+        },
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        }
+      ],
+      "libraries": [
+        "AccelStepper",
+        "BlocklyMotion"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "AccelStepper.h",
+          "BlocklyMotion.h"
+        ],
+        "transitive": []
+      },
+      "description": "Use a potentiometer to set signed continuous stepper speed with acceleration. The software loop engine must still be serviced every pass.",
+      "lesson": {
+        "wiring": "STEP/DIR driver: STEP D3, DIR D4; analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "Use a potentiometer to set signed continuous stepper speed with acceleration. The software loop engine must still be serviced every pass.",
+        "change": "Turn A0 slowly through the centre to stop and reverse. Narrow the speed range for finer ADC control.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "72e0b1615f261851d040fff45151188417027ce1d7eb3958e8b934f3119910e6",
+        "flash": 6800,
+        "flashLimit": 14336,
+        "staticRam": 145,
+        "staticRamLimit": 1024,
+        "flashRemaining": 7536,
+        "ramRemaining": 879,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "63",
+      "file": "63-servo-microseconds.xml",
+      "title": "Servo pulse width in microseconds",
+      "group": "Motors and motion",
+      "level": "beginner",
+      "recommended": false,
+      "hardware": [
+        {
+          "id": "device_servo",
+          "label": "Servo"
+        },
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        }
+      ],
+      "libraries": [
+        "Servo"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "Servo.h"
+        ],
+        "transitive": []
+      },
+      "description": "Map a potentiometer to servo pulse microseconds for finer command increments than whole degree values.",
+      "lesson": {
+        "wiring": "Servo: PIN D9; analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "Map a potentiometer to servo pulse microseconds for finer command increments than whole degree values.",
+        "change": "Turn A0 and adjust the minimum/maximum pulse widths to your servo’s usable travel.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "44974ecb61491863031d602b0ac0298964cd92b1fb41c308853e38d927bac8fb",
+        "flash": 2962,
+        "flashLimit": 14336,
+        "staticRam": 50,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11374,
+        "ramRemaining": 974,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "64",
+      "file": "64-lcd-array-buffer.xml",
+      "title": "LCD character buffer",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_lcd",
+          "label": "HD44780 I2C LCD"
+        }
+      ],
+      "libraries": [
+        "BlocklyBuffers",
+        "LiquidCrystal_I2C",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyBuffers.h",
+          "LiquidCrystal_I2C.h",
+          "Wire.h"
+        ],
+        "transitive": [
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "LiquidCrystal_I2C.h"
+            ]
+          }
+        ]
+      },
+      "description": "Prepare an 80-byte LCD character grid in RAM, then send the finished 20×4 frame once. Legacy text mode treats zero as a space.",
+      "lesson": {
+        "wiring": "HD44780 I2C LCD: address 0x27; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.",
+        "observe": "Prepare an 80-byte LCD character grid in RAM, then send the finished 20×4 frame once. Legacy text mode treats zero as a space.",
+        "change": "Change characters in the frame array, then send the complete frame.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "0423980877af4ac89e3f9d7faa4fdee250fcdd3808d78c683d63af7e5483ab6c",
+        "flash": 3474,
+        "flashLimit": 14336,
+        "staticRam": 342,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10862,
+        "ramRemaining": 682,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "65",
+      "file": "65-oled-packed-buffer.xml",
+      "title": "OLED packed pixel tile",
+      "group": "Displays and LED outputs",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_oled",
+          "label": "SSD1306 I2C OLED"
+        }
+      ],
+      "libraries": [
+        "BlocklyBuffers",
+        "SPI",
+        "U8g2",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyBuffers.h",
+          "U8x8lib.h"
+        ],
+        "transitive": [
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "U8x8lib.h"
+            ]
+          },
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "U8x8lib.h"
+            ]
+          }
+        ]
+      },
+      "description": "Build a 128-byte packed OLED tile: each byte stores eight vertical pixels. Send the tile without allocating a full-screen buffer.",
+      "lesson": {
+        "wiring": "SSD1306 I2C OLED: address 0x3C; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.",
+        "observe": "Build a 128-byte packed OLED tile: each byte stores eight vertical pixels. Send the tile without allocating a full-screen buffer.",
+        "change": "Change bits in the 128-byte tile; each byte represents eight vertical pixels.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [
+        "Uses a 128-byte tile. Do not allocate a 1024-byte OLED framebuffer on a board with 1024 bytes total SRAM."
+      ],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "441a3fba4c526aa5caaa55ab9862eb43048e3fce5337628441833773dca759ba",
+        "flash": 6382,
+        "flashLimit": 14336,
+        "staticRam": 567,
+        "staticRamLimit": 1024,
+        "flashRemaining": 7954,
+        "ramRemaining": 457,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "66",
+      "file": "66-neopixel-array-buffer.xml",
+      "title": "NeoPixel RGB buffer",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_neopixel",
+          "label": "WS2812 RGB LEDs"
+        }
+      ],
+      "libraries": [
+        "Adafruit NeoPixel",
+        "BlocklyBuffers"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "Adafruit_NeoPixel.h",
+          "BlocklyBuffers.h"
+        ],
+        "transitive": []
+      },
+      "description": "Prepare RGB values in an array, copy them to the NeoPixel library buffer and call show once for the finished frame.",
+      "lesson": {
+        "wiring": "WS2812 RGB LEDs: PIN D6. Common GND; use each module’s required supply.",
+        "observe": "Prepare RGB values in an array, copy them to the NeoPixel library buffer and call show once for the finished frame.",
+        "change": "Change one RGB triplet in the array, then call show once for the finished frame.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "b360ab4a98d8e8f4b40e75aba4b5ffa7c1ea34515a792e58828a095130c1bb8f",
+        "flash": 2650,
+        "flashLimit": 14336,
+        "staticRam": 68,
+        "staticRamLimit": 1024,
+        "flashRemaining": 11686,
+        "ramRemaining": 956,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "67",
+      "file": "67-tft-array-tile.xml",
+      "title": "TFT RGB565 tile",
+      "group": "Displays and LED outputs",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_tft",
+          "label": "ST7735 SPI TFT"
+        }
+      ],
+      "libraries": [
+        "Adafruit BusIO",
+        "Adafruit GFX Library",
+        "Adafruit ST7735 and ST7789 Library",
+        "BlocklyBuffers",
+        "SPI",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "Adafruit_ST7735.h",
+          "BlocklyBuffers.h"
+        ],
+        "transitive": [
+          {
+            "library": "Adafruit BusIO",
+            "viaHeaders": [
+              "Adafruit_GFX.h"
+            ]
+          },
+          {
+            "library": "Adafruit GFX Library",
+            "viaHeaders": [
+              "Adafruit_ST7735.h"
+            ]
+          },
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "Adafruit_SPIDevice.h"
+            ]
+          },
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "Adafruit_I2CDevice.h"
+            ]
+          }
+        ]
+      },
+      "description": "Prepare a small RGB565 colour tile and send it to an ST7735 TFT in one SPI transaction.",
+      "lesson": {
+        "wiring": "ST7735 SPI TFT: CS D10, DC D9, RESET D8; SPI MOSI D11, SCK D13; MISO is unused; CS/DC/RESET as listed. Common GND; use each module’s required supply.",
+        "observe": "Prepare a small RGB565 colour tile and send it to an ST7735 TFT in one SPI transaction.",
+        "change": "Change RGB565 tile values or its target position without allocating a full-screen buffer.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "f9dde024830b0fc5241773b71f364edddcb7e95c3ccee2e02d73ddddecd8ebea",
+        "flash": 12034,
+        "flashLimit": 14336,
+        "staticRam": 556,
+        "staticRamLimit": 1024,
+        "flashRemaining": 2302,
+        "ramRemaining": 468,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "68",
+      "file": "68-music-note-variable.xml",
+      "title": "A note read from a variable",
+      "group": "Sound and music",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "music_buzzer",
+          "label": "Passive buzzer"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion",
+        "BlocklyMusic"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyMusic.h"
+        ],
+        "transitive": [
+          {
+            "library": "BlocklyMotion",
+            "viaHeaders": [
+              "BlocklyMusic.h"
+            ]
+          }
+        ]
+      },
+      "description": "Pass a note record through a variable to the music parser. The same format can come from EEPROM, Serial or an SD line.",
+      "lesson": {
+        "wiring": "Passive buzzer: PIN D4. Common GND; use each module’s required supply.",
+        "observe": "Pass a note record through a variable to the music parser. The same format can come from EEPROM, Serial or an SD line.",
+        "change": "Replace the note text with another note or a rest, using the same parser.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "473b19f2408a1df7c4520d8678ca6854a03a1a66cc687ed0b9a3dc36770aecd3",
+        "flash": 4692,
+        "flashLimit": 14336,
+        "staticRam": 72,
+        "staticRamLimit": 1024,
+        "flashRemaining": 9644,
+        "ramRemaining": 952,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "69",
+      "file": "69-sd-polyphonic-score.xml",
+      "title": "Polyphonic SD score",
+      "group": "Sound and music",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "music_buzzer",
+          "label": "Passive buzzer"
+        },
+        {
+          "id": "st_sd",
+          "label": "SPI SD card"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion",
+        "BlocklyMusic",
+        "BlocklySDMusic",
+        "BlocklyStorage",
+        "SPI",
+        "SdFat"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyMusic.h",
+          "BlocklySD.h",
+          "BlocklySDMusic.h"
+        ],
+        "transitive": [
+          {
+            "library": "BlocklyMotion",
+            "viaHeaders": [
+              "BlocklyMusic.h"
+            ]
+          },
+          {
+            "library": "SPI",
+            "viaHeaders": [
+              "SdFat.h"
+            ]
+          },
+          {
+            "library": "SdFat",
+            "viaHeaders": [
+              "BlocklySD.h"
+            ]
+          }
+        ]
+      },
+      "description": "Play a timed, polyphonic score from SD without loading it all into RAM. Three IRQ voices and the SD cache leave a small stack margin.",
+      "lesson": {
+        "wiring": "SPI SD card: CS D10; Passive buzzer: PIN D4; Passive buzzer: PIN D5; Passive buzzer: PIN D6; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.",
+        "observe": "Play a timed, polyphonic score from SD without loading it all into RAM. Three IRQ voices and the SD cache leave a small stack margin.",
+        "change": "Edit one voice’s events in the SD score. This example has little free RAM; keep the buffer sizes unchanged.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [
+        "Small remaining memory margin: 842 bytes Flash and 196 bytes SRAM before stack/heap. Keep this advanced; compile success does not measure stack or dynamic allocation.",
+        "Three-voice IRQ music shares Timer2. Each passive buzzer uses a separate output; Timer2 is unavailable for another independent engine."
+      ],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "d72440ce07ff395b5a63dcf58ac27dbf270635ec087fea14c7bf025583ae8917",
+        "flash": 13494,
+        "flashLimit": 14336,
+        "staticRam": 828,
+        "staticRamLimit": 1024,
+        "flashRemaining": 842,
+        "ramRemaining": 196,
+        "classification": "tight"
+      }
+    },
+    {
+      "id": "70",
+      "file": "70-timer-stepper-speed.xml",
+      "title": "Timer1 stepper: fine speed commands",
+      "group": "Motors and motion",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_stepper_driver",
+          "label": "STEP/DIR driver"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion",
+        "FastAccelStepper"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyFastStepper.h"
+        ],
+        "transitive": [
+          {
+            "library": "FastAccelStepper",
+            "viaHeaders": [
+              "BlocklyFastStepper.h"
+            ]
+          }
+        ]
+      },
+      "description": "Starts stationary. Enter a signed target pulse rate in Plotter; Timer1 ramps toward it with acceleration 5000 steps/s². The chart shows the requested rate, not measured motor speed.",
+      "lesson": {
+        "wiring": "TB6600 STEP signal D9, DIR D4 and common signal GND. Follow the module’s input-voltage wiring; power the motor through the driver.",
+        "observe": "Starts stationary. Enter a signed target pulse rate in Plotter; Timer1 ramps toward it with acceleration 5000 steps/s². The chart shows the requested rate, not measured motor speed.",
+        "change": "Enter -30000..30000 steps/s; Stop ramps to zero. Change acceleration in the device block. Adjacent high-speed requests can map to the same timer period. This sketch has almost no spare Flash.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [
+        "Small remaining memory margin: 24 bytes Flash and 359 bytes SRAM before stack/heap. Keep this advanced; compile success does not measure stack or dynamic allocation.",
+        "Very tight Flash budget on ATmega168. Compile after any edit; a larger header or extra library may not fit."
+      ],
+      "plotterModes": [
+        "line",
+        "controls"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "5fdac7da6b8cba4b628afef7e77d2c492e55ebdc09e8251c60a4106f0e5203b5",
+        "flash": 14312,
+        "flashLimit": 14336,
+        "staticRam": 665,
+        "staticRamLimit": 1024,
+        "flashRemaining": 24,
+        "ramRemaining": 359,
+        "classification": "tight"
+      }
+    },
+    {
+      "id": "71",
+      "file": "71-hardware-servo-and-sound.xml",
+      "title": "Hardware Servo + hardware sound",
+      "group": "Motors and motion",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_servo",
+          "label": "Servo"
+        },
+        {
+          "id": "music_buzzer",
+          "label": "Passive buzzer"
+        },
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        }
+      ],
+      "libraries": [
+        "BlocklyMotion"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyHardwareBuzzer.h",
+          "BlocklyHardwareServo.h",
+          "BlocklyMusicTypes.h"
+        ],
+        "transitive": []
+      },
+      "description": "Use a potentiometer to control hardware Servo pulses on D9 while a hardware buzzer on D11 plays a melody. Timer1 and Timer2 have separate owners.",
+      "lesson": {
+        "wiring": "Servo: PIN D9; Passive buzzer: PIN D11; analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "Use a potentiometer to control hardware Servo pulses on D9 while a hardware buzzer on D11 plays a melody. Timer1 and Timer2 have separate owners.",
+        "change": "Turn A0 and edit the melody. Servo and sound use separate hardware timers.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "2b16a6f2abaccd32de35572e275fbf4c5070fa305b876190ffe0e0da0f06acd3",
+        "flash": 3526,
+        "flashLimit": 14336,
+        "staticRam": 66,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10810,
+        "ramRemaining": 958,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "72",
+      "file": "72-lcd-custom-glyph-buffer.xml",
+      "title": "LCD custom faces from a buffer",
+      "group": "Displays and LED outputs",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "device_lcd",
+          "label": "HD44780 I2C LCD"
+        }
+      ],
+      "libraries": [
+        "BlocklyBuffers",
+        "LiquidCrystal_I2C",
+        "Wire"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [
+          "BlocklyBuffers.h",
+          "LiquidCrystal_I2C.h",
+          "Wire.h"
+        ],
+        "transitive": [
+          {
+            "library": "Wire",
+            "viaHeaders": [
+              "LiquidCrystal_I2C.h"
+            ]
+          }
+        ]
+      },
+      "description": "Define a 5×8 face in LCD glyph slot 0, then animate two faces through an 80-byte raw-code buffer. Eight slots and variable indices are supported.",
+      "lesson": {
+        "wiring": "HD44780 I2C LCD: address 0x27; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.",
+        "observe": "Define a 5×8 face in LCD glyph slot 0, then animate two faces through an 80-byte raw-code buffer. Eight slots and variable indices are supported.",
+        "change": "Edit the eight faceRows values (0–31), or define a second face in slot 1.",
+        "serial": "none",
+        "baud": null
+      },
+      "notes": [],
+      "plotterModes": [],
+      "startCommand": null,
+      "stopCommand": null,
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "a54ef241177cf958ccd25053709746d54c43e8a9a5725ff312e95c9d56a04fae",
+        "flash": 3736,
+        "flashLimit": 14336,
+        "staticRam": 354,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10600,
+        "ramRemaining": 670,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "73",
+      "file": "73-plotter-mixed-dashboard.xml",
+      "title": "Plotter: multiple instruments together",
+      "group": "Serial Monitor and Plotter",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Compare A0 with a generated triangle in overlaid lines, a multi-needle gauge, grouped bars, two XY traces and a raw table. Start/Stop controls one shared stream.",
+      "lesson": {
+        "wiring": "analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "Compare A0 with a generated triangle in overlaid lines, a multi-needle gauge, grouped bars, two XY traces and a raw table. Start/Stop controls one shared stream.",
+        "change": "Turn A0 and compare the same value in lines, gauge, bars and XY plots.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line-multiple",
+        "gauge-multiple",
+        "bar-multiple",
+        "xy-multiple",
+        "raw"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "4bf5d4822ef82ab4101067c86bc7032d29303332789ad09b802fef6e75c515ad",
+        "flash": 5112,
+        "flashLimit": 14336,
+        "staticRam": 216,
+        "staticRamLimit": 1024,
+        "flashRemaining": 9224,
+        "ramRemaining": 808,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "74",
+      "file": "74-plotter-live-math.xml",
+      "title": "Plotter: PC math and live configuration",
+      "group": "Serial Monitor and Plotter",
+      "level": "advanced",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "analog-input",
+          "label": "Analog source / potentiometer"
+        },
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Send one voltage plus device time and let the PC calculate mean, RMS, limits, sum, derivative and integral. After five seconds, a live header changes the averaging window.",
+      "lesson": {
+        "wiring": "analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.",
+        "observe": "Send one voltage plus device time and let the PC calculate mean, RMS, limits, sum, derivative and integral. After five seconds, a live header changes the averaging window.",
+        "change": "Keep A0 steady, then turn it. After five seconds the header changes the averaging window while streaming.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [],
+      "plotterModes": [
+        "line-multiple",
+        "gauge-multiple",
+        "raw",
+        "math",
+        "live-header"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "647b29df1fe514f92f0c630684cb888e35ce2525189e605def5996b15ec5eccb",
+        "flash": 6558,
+        "flashLimit": 14336,
+        "staticRam": 217,
+        "staticRamLimit": 1024,
+        "flashRemaining": 7778,
+        "ramRemaining": 807,
+        "classification": "fits"
+      }
+    },
+    {
+      "id": "75",
+      "file": "75-plotter-rgb-paint.xml",
+      "title": "Plotter: RGB painting, no extra hardware",
+      "group": "Serial Monitor and Plotter",
+      "level": "beginner",
+      "recommended": true,
+      "hardware": [
+        {
+          "id": "serial",
+          "label": "USB–Serial adapter"
+        }
+      ],
+      "libraries": [
+        "Arduino AVR core (no extra library)"
+      ],
+      "libraryEvidence": {
+        "source": "audited-generated-sketch-includes",
+        "headers": [],
+        "transitive": []
+      },
+      "description": "Paint an RGB gradient one pixel at a time while charts and bars show the colours. No external hardware or AVR image buffer is needed.",
+      "lesson": {
+        "wiring": "Only the Pro Mini and USB–Serial adapter; the image is generated mathematically.",
+        "observe": "Paint an RGB gradient one pixel at a time while charts and bars show the colours. No external hardware or AVR image buffer is needed.",
+        "change": "Change the RGB formulas or image dimensions, upload, and watch the computer build the new picture.",
+        "serial": "plotter",
+        "baud": 115200
+      },
+      "notes": [
+        "All pixels are held on the computer. The Arduino sends one pixel and chart sample at a time."
+      ],
+      "plotterModes": [
+        "image-rgb",
+        "line-multiple",
+        "bar-multiple"
+      ],
+      "startCommand": "START\n",
+      "stopCommand": "STOP\n",
+      "verification": {
+        "target": "arduino:avr:pro:cpu=16MHzatmega168",
+        "status": "compiled",
+        "physical": "not-tested-in-this-audit",
+        "ok": true,
+        "sketchSha256": "6b8245dcb49b4edb96ef7883ad8c0b8f0aacfbbfda8c243099f0d5dbbd5adab2",
+        "flash": 3656,
+        "flashLimit": 14336,
+        "staticRam": 204,
+        "staticRamLimit": 1024,
+        "flashRemaining": 10680,
+        "ramRemaining": 820,
+        "classification": "fits"
+      }
+    }
+  ]
+}

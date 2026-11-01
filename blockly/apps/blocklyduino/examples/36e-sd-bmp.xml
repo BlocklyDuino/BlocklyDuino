@@ -1,0 +1,100 @@
+<xml>
+  <block type="st_sd" x="25" y="25">
+    <mutation uid="card36" />
+    <field name="NAME">card</field>
+    <field name="CS">10</field>
+    <comment pinned="false" w="480" h="240">Purpose: Create a small BMP file on SD and write pixels by coordinates. File storage replaces a full image array in RAM.
+Wiring: SPI SD card: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.
+Try: Change the coordinates and pixel values, then open the resulting BMP on a computer.</comment>
+  </block>
+  <block type="arduino_setup_section" x="25" y="170">
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="st_sd_ok">
+            <field name="DEVICE">card36</field>
+            <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="st_bmp_create">
+            <field name="DEVICE">card36</field>
+            <value name="PATH">
+              <block type="text">
+                <field name="TEXT">RADAR.BMP</field>
+              </block>
+            </value>
+            <value name="WIDTH">
+              <block type="math_number">
+                <field name="NUM">128</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number">
+                <field name="NUM">128</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if">
+                <value name="IF0">
+                  <block type="st_sd_ok">
+                    <field name="DEVICE">card36</field>
+                    <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_for">
+                    <field name="VAR">x</field>
+                    <value name="FROM">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_number">
+                        <field name="NUM">127</field>
+                      </block>
+                    </value>
+                    <value name="BY">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="st_bmp_pixel">
+                        <field name="DEVICE">card36</field>
+                        <field name="WHITE">true</field>
+                        <value name="X">
+                          <block type="variables_get">
+                            <field name="VAR">x</field>
+                          </block>
+                        </value>
+                        <value name="Y">
+                          <block type="variables_get">
+                            <field name="VAR">x</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="st_sd_flush">
+                        <field name="DEVICE">card36</field>
+                        <next>
+                          <block type="st_sd_close">
+                            <field name="DEVICE">card36</field>
+                          </block>
+                        </next>
+                        <comment pinned="false" w="340" h="160">Ask the filesystem to write buffered file data to the card. Flushing every sample can be slow; use it at a useful checkpoint and close the file when finished.</comment>
+                      </block>
+                    </next>
+                    <comment pinned="false" w="340" h="170">Repeat the body with x taking each value from the start to the end, using the given step. Array indices start at zero.</comment>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,3 +1,5 @@
+// Modified 2026: classic workbench extensions; see NOTICE and docs/CLASSIC-EXTENSIONS.md.
+function workspaceContentCount(){var ws=Blockly.mainWorkspace;return ws.getAllBlocks().length+(window.BlocklyWorkspaceRegions?BlocklyWorkspaceRegions.get(ws).length:0);}
 /**
  * Execute the user's code.
  * Just a quick and dirty eval.  No checks for infinite loops, etc.
@@ -14,21 +16,67 @@ function runJS() {
 /**
  * Backup code blocks to localStorage.
  */
-function backup_blocks() {
-  if ('localStorage' in window) {
-    var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
-    window.localStorage.setItem('arduino', Blockly.Xml.domToText(xml));
-  }
+var restoredWorkspace = false;
+var workspaceReady = false;
+var currentExample = '';
+function preserveSavedBlocks(reason) {
+ var raw=window.localStorage.getItem('arduino');if(!raw)return;
+ var key='arduino_recovery_'+Date.now();
+ window.localStorage.setItem(key,JSON.stringify({xml:raw,source:window.localStorage.getItem('arduino_source')||'',reason:reason}));
+ var button=document.getElementById('recover_blocks');if(button)button.hidden=false;
 }
-
-/**
- * Restore code blocks from localStorage.
- */
+function recoverBlocks() {
+ var old=document.getElementById('recovery_dialog');if(old)old.remove();
+ var dialog=document.createElement('dialog');dialog.id='recovery_dialog';
+ var title=document.createElement('h2');title.textContent='Recovered block copies';dialog.appendChild(title);
+ var note=document.createElement('p');note.textContent='These original XML copies were kept when loading failed. Download a copy before changing or restoring it.';dialog.appendChild(note);
+ Object.keys(window.localStorage).filter(function(k){return k.indexOf('arduino_recovery_')===0;}).sort().reverse().forEach(function(key){
+  var saved=JSON.parse(window.localStorage.getItem(key)),row=document.createElement('p'),button=document.createElement('button');
+  button.textContent='Download '+new Date(Number(key.slice(17))).toLocaleString();button.onclick=function(){saveAs(new Blob([saved.xml],{type:'text/xml'}),'recovered-'+key.slice(17)+'.xml');};
+  row.appendChild(button);row.appendChild(document.createTextNode(' '+saved.reason+(saved.source?' — '+saved.source:'')));dialog.appendChild(row);
+ });
+ var close=document.createElement('button');close.textContent='Close';close.onclick=function(){dialog.close();};dialog.appendChild(close);document.body.appendChild(dialog);dialog.showModal();
+}
+function initialLoadFailed(message) {
+ try{preserveSavedBlocks('Example did not load');setWorkspaceSource('');}
+ catch(error){workspaceReady=true;currentExample='';}
+ editorStatus(message+' New blocks can still be saved. Previous blocks are under Project → Recover blocks.',true);
+}
+function backup_blocks() {
+  if (!workspaceReady || !('localStorage' in window) || !Blockly.mainWorkspace) return;
+  try {
+    if (window.localStorage.arduino && window.localStorage.getItem('arduino_source') === null && !window.localStorage.arduino_legacy_backup)
+      window.localStorage.arduino_legacy_backup = window.localStorage.arduino;
+    var xml=Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+    window.localStorage.setItem('arduino',Blockly.Xml.domToText(xml));
+    window.localStorage.setItem('arduino_source',currentExample || '');
+  } catch(error) { editorStatus('Could not save locally. Use Project → Save blocks. '+error,false); }
+}
+function setWorkspaceSource(source) {
+  workspaceReady=true;
+  currentExample=source || '';
+  if(window.BlocklyExamples)BlocklyExamples.showLesson(currentExample);
+  history.replaceState(null,'',location.pathname+(currentExample?'?url='+encodeURIComponent(currentExample):''));
+  backup_blocks();
+}
 function restore_blocks() {
-  if ('localStorage' in window && window.localStorage.arduino) {
-    var xml = Blockly.Xml.textToDom(window.localStorage.arduino);
-    Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+  if (!('localStorage' in window) || !window.localStorage.arduino) return false;
+  var requested=new URLSearchParams(location.search).get('url') || '';
+  var stored=window.localStorage.getItem('arduino_source') || '';
+  if(requested && requested!==stored)return false;
+  try {
+    var xml=Blockly.Xml.textToDom(window.localStorage.arduino);
+    Blockly.Xml.domToWorkspace(Blockly.mainWorkspace,xml);
+  } catch(error) {
+    preserveSavedBlocks('Saved blocks could not be restored');
+    Blockly.mainWorkspace.clear();currentExample='';
+    editorStatus('Saved blocks could not be restored. Project → Recover blocks downloads the original XML.',true);
+    return false;
   }
+  currentExample=stored;
+  if(window.BlocklyExamples)BlocklyExamples.showLesson(currentExample);
+  editorStatus('Restored saved blocks. Choose an example to load its original version.',false);
+  return true;
 }
 
 /**
@@ -38,7 +86,9 @@ function saveCode() {
   var fileName = window.prompt('What would you like to name your file?', 'BlocklyDuino')
   //doesn't save if the user quits the save prompt
   if(fileName){
-    var blob = new Blob([Blockly.Arduino.workspaceToCode()], {type: 'text/plain;charset=utf-8'});
+    var code = window.manualCode ? document.getElementById('content_arduino').value : generateSketch();
+    if (code === null) return;
+    var blob = new Blob([code], {type: 'text/plain;charset=utf-8'});
     saveAs(blob, fileName + '.ino');
   }
 }
@@ -65,6 +115,7 @@ function save() {
  * Load blocks from local file.
  */
 function load(event) {
+  if(!ensureBlocksMode()) return;
   var files = event.target.files;
   // Only allow uploading one file.
   if (files.length != 1) {
@@ -83,11 +134,9 @@ function load(event) {
         alert('Error parsing XML:\n' + e);
         return;
       }
-      var count = Blockly.mainWorkspace.getAllBlocks().length;
-      if (count && confirm('Replace existing blocks?\n"Cancel" will merge.')) {
-        Blockly.mainWorkspace.clear();
-      }
-      Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+      var count = workspaceContentCount();
+      if (count && !confirm('Replace current project, including areas? Save blocks first to keep your changes.')) return;
+      if(replaceProjectXml(xml))setWorkspaceSource('');
     }
     // Reset value of input after loading because Chrome will not fire
     // a 'change' event if the same file is loaded again.
@@ -100,9 +149,11 @@ function load(event) {
  * Discard all blocks from the workspace.
  */
 function discard() {
-  var count = Blockly.mainWorkspace.getAllBlocks().length;
+  if(!ensureBlocksMode()) return;
+  var count = workspaceContentCount();
   if (count < 2 || window.confirm('Delete all ' + count + ' blocks?')) {
     Blockly.mainWorkspace.clear();
+    setWorkspaceSource('');
     renderContent();
   }
 }
@@ -111,11 +162,13 @@ function discard() {
  * auto save and restore blocks
  */
 function auto_save_and_restore_blocks() {
-  // Restore saved blocks in a separate thread so that subsequent
-  // initialization is not affected from a failed load.
-  window.setTimeout(restore_blocks, 0);
+  // Restore synchronously after Blockly inject; report invalid stored XML.
+  try { restoredWorkspace=restore_blocks(); } catch (error) { editorStatus('Could not restore saved blocks: ' + error, true); }
   // Hook a save function onto unload.
   bindEvent(window, 'unload', backup_blocks);
+  bindEvent(window,'beforeunload',function(event){if(window.manualCode&&document.getElementById('content_arduino').value!==window.manualCodeOriginal){event.preventDefault();event.returnValue='';}});
+  var recovery=document.getElementById('recover_blocks');if(recovery)recovery.hidden=!Object.keys(window.localStorage).some(function(k){return k.indexOf('arduino_recovery_')===0;});
+  var saveTimer;Blockly.mainWorkspace.addChangeListener(function(){clearTimeout(saveTimer);saveTimer=setTimeout(backup_blocks,350);});
   tabClick(selected);
 
   // Init load event.
@@ -168,24 +221,23 @@ function onSuccess() {
       try {
       var xml = Blockly.Xml.textToDom(ajax.responseText);
       } catch (e) {
-        alert('Error parsing XML:\n' + e);
+        initialLoadFailed('Could not parse the requested example: '+e);
         return;
       }
-      var count = Blockly.mainWorkspace.getAllBlocks().length;
-      if (count && confirm('Replace existing blocks?\n"Cancel" will merge.')) {
-        Blockly.mainWorkspace.clear();
-      }
-      Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+      var count = workspaceContentCount();
+      if (count && !confirm('Replace current project, including areas? Save blocks first to keep your changes.')) return;
+      if(replaceProjectXml(xml))setWorkspaceSource(ajax.blocklySource || '');else initialLoadFailed('Could not open the requested example.');
     } else {
-      alert("Server error");
+      initialLoadFailed('Could not load the requested example (HTTP '+ajax.status+').');
     }
   }
 }
 
 function load_by_url(uri) {
   ajax = createAJAX();
+  if(ajax)ajax.blocklySource=uri;
   if (!ajax) {
-　　   alert ('Not compatible with XMLHttpRequest');
+　　   initialLoadFailed('This browser cannot load the requested example.');
 　　   return 0;
 　  }
   if (ajax.overrideMimeType) {
@@ -197,76 +249,31 @@ function load_by_url(uri) {
 　　ajax.send ("");
 }
 
-function uploadCode(code, callback) {
-    var target = document.getElementById('content_arduino');
-    var spinner = new Spinner().spin(target);
-
-    var url = "http://127.0.0.1:8080/";
-    var method = "POST";
-
-    // You REALLY want async = true.
-    // Otherwise, it'll block ALL execution waiting for server response.
-    var async = true;
-
-    var request = new XMLHttpRequest();
-    
-    request.onreadystatechange = function() {
-        if (request.readyState != 4) { 
-            return; 
-        }
-        
-        spinner.stop();
-        
-        var status = parseInt(request.status); // HTTP response status, e.g., 200 for "200 OK"
-        var errorInfo = null;
-        switch (status) {
-        case 200:
-            break;
-        case 0:
-            errorInfo = "code 0\n\nCould not connect to server at " + url + ".  Is the local web server running?";
-            break;
-        case 400:
-            errorInfo = "code 400\n\nBuild failed - probably due to invalid source code.  Make sure that there are no missing connections in the blocks.";
-            break;
-        case 500:
-            errorInfo = "code 500\n\nUpload failed.  Is the Arduino connected to USB port?";
-            break;
-        case 501:
-            errorInfo = "code 501\n\nUpload failed.  Is 'ino' installed and in your path?  This only works on Mac OS X and Linux at this time.";
-            break;
-        default:
-            errorInfo = "code " + status + "\n\nUnknown error.";
-            break;
-        };
-        
-        callback(status, errorInfo);
-    };
-
-    request.open(method, url, async);
-    request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-    request.send(code);	     
+function uploadCode(code, callback, compileOnly) {
+  var request = new XMLHttpRequest();
+  document.querySelectorAll('.build-action').forEach(function(b){b.disabled=true;});
+  editorStatus(compileOnly ? 'Compiling…' : 'Building and uploading…', false);
+  request.open('POST', compileOnly ? '/compile' : '/', true);
+  request.setRequestHeader('Content-Type','text/plain;charset=UTF-8');
+  request.onload=function(){
+    document.querySelectorAll('.build-action').forEach(function(b){b.disabled=false;});
+    callback(request.status, request.status===200 ? null : request.responseText, request.responseText);
+  };
+  request.onerror=function(){
+    document.querySelectorAll('.build-action').forEach(function(b){b.disabled=false;});
+    callback(0, 'Cannot reach the local Arduino build service.', 'Connection failed.');
+  };
+  request.send(code);
 }
-
+function compileClick() {
+  if(window.BlocklyTarget&&!BlocklyTarget.ready())return;
+  var code=window.manualCode ? document.getElementById('content_arduino').value : generateSketch();
+  if(code===null)return;
+  uploadCode(code,function(status,error,detail){editorStatus(status===200?'Compiled successfully for the saved target.':'Build failed. Open Build output for details.',status!==200,detail||error);},true);
+}
 function uploadClick() {
-    var code = Blockly.Arduino.workspaceToCode();
-
-    alert("Ready to upload to Arduino.");
-    
-    uploadCode(code, function(status, errorInfo) {
-        if (status == 200) {
-            alert("Program uploaded ok");
-        } else {
-            alert("Error uploading program: " + errorInfo);
-        }
-    });
-}
-
-function resetClick() {
-    var code = "void setup() {} void loop() {}";
-
-    uploadCode(code, function(status, errorInfo) {
-        if (status != 200) {
-            alert("Error resetting program: " + errorInfo);
-        }
-    });
+  if(window.BlocklyTarget&&!BlocklyTarget.ready())return;
+  var code=window.manualCode ? document.getElementById('content_arduino').value : generateSketch();
+  if(code===null)return;
+  uploadCode(code,function(status,error,detail){editorStatus(status===200?'Uploaded successfully to the saved target.':'Upload failed. Open Build output for details.',status!==200,detail||error);},false);
 }

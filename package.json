@@ -1,0 +1,14 @@
+{
+  "name": "blocklyduino-classic-tests",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "test": "node tests/run.js"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

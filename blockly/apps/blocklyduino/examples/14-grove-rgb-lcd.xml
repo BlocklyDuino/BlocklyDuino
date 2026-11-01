@@ -1,0 +1,38 @@
+<xml>
+  <block type="grove_rgb_lcd_color" x="30" y="30">
+    <field name="RGB">0, 0, 255</field>
+    <next>
+      <block type="grove_rgb_lcd_print">
+        <field name="ROW">0</field>
+        <value name="CONTENT">
+          <block type="text">
+            <field name="TEXT">Hello!</field>
+          </block>
+        </value>
+        <next>
+          <block type="grove_rgb_lcd_print">
+            <field name="ROW">1</field>
+            <value name="CONTENT">
+              <block type="text">
+                <field name="TEXT">RGB LCD</field>
+              </block>
+            </value>
+            <next>
+              <block type="base_delay">
+                <value name="DELAY_TIME">
+                  <block type="math_number">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+    <comment pinned="false" w="480" h="240">Purpose: Use the text and RGB backlight of a Grove JHD1313 LCD. This module uses a different library from PCF8574 backpacks.
+Wiring: Grove JHD1313 RGB LCD: SDA→A4, SCL→A5, supply and GND.
+Try: Change red, green and blue backlight values and edit the greeting.</comment>
+  </block>
+</xml>

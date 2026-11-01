@@ -1,0 +1,21 @@
+.editor-tabs{display:flex;align-self:stretch;gap:0;border-bottom:1px solid #b8cad9}.editor-tabs [role=tab]{border:0;border-bottom:3px solid transparent;border-radius:7px 7px 0 0;background:transparent;padding:10px 14px;margin-bottom:-1px}.editor-tabs [role=tab][aria-selected=true]{border-bottom-color:#177a67;background:#fff;color:#125d50;font-weight:700}.editor-tabs [role=tab]:focus-visible{outline:2px solid #177a67;outline-offset:-3px}#content_connections{overflow:auto;padding:20px;box-sizing:border-box}.wiring-card{padding:12px 16px;border:1px solid #d5dfe8;border-radius:8px;margin:12px 0}.wiring-card h3{margin:0 0 10px}.wiring-card label{display:inline-flex;align-items:center;gap:6px;margin:5px 14px 5px 0}select:disabled{background:#e9edf0;color:#455569;opacity:1;cursor:default}#resource-status{font-size:12px;padding:3px 12px;min-height:22px;background:#f6f8fa;color:#276454}.error{color:#b52727!important}#target-board{min-width:320px;width:100%;max-width:none;padding:3px;cursor:default}#target-board option{padding:5px 8px}#target-board option:checked{background:#d5eae2;color:#173e34}#board-search{min-width:280px}#target-panel .target-row:has(#board-search){display:grid;grid-template-columns:1fr;max-width:720px}#target-panel .target-row label{display:block}#target-panel #board-search{width:100%;margin:4px 0}.toolbox-pin{float:right;margin:6px 6px 0 0;font-size:18px;position:relative;z-index:2}.toolbox-pin[aria-pressed=true]{background:#cae9de;color:#166450}.sidebar-add-device{width:calc(100% - 48px)!important}.blocklyToolboxDiv{z-index:10!important;box-shadow:3px 0 14px #18344820;transition:transform .16s,opacity .16s}body:not(.sidebar-open) .blocklyToolboxDiv{transform:translateX(-105%);opacity:0;pointer-events:none}#toolbox-peek{position:absolute;left:0;top:0;z-index:11;padding:9px;border-radius:0 0 8px 0;background:#e1eee9;color:#175744}#toolbox-peek{width:30px;height:40px;padding:5px}.sidebar-add-device{margin-left:30px!important;width:calc(100% - 78px)!important}body:not([data-editor-tab=blocks]) #toolbox-peek,body:not([data-editor-tab=blocks]) .blocklyToolboxDiv{display:none!important}.device-order-gear{margin-left:auto;color:#77838c;background:#f0f2f4}.device-order-gear[aria-pressed=true]{background:#d9e9f4;color:#295776}.device-move-top{position:absolute;right:8px;top:7px;font-size:24px;background:#e8edf1;border-radius:4px;padding:0 5px}.device-card{position:relative}.device-present{box-shadow:inset 0 0 0 2px #32826b}.device-picker-heading{gap:8px}.device-picker-heading h2{margin-right:auto}
+/* Editor controls belong to the block canvas, not the other views. */
+body:not([data-editor-tab="blocks"]) #editor_actions,
+body:not([data-editor-tab="blocks"]) #examples-panel,
+body:not([data-editor-tab="blocks"]) .ea-overlay,
+body:not([data-editor-tab="blocks"]) #toolbox-peek { display: none !important; }
+#undo_group_move { display: none !important; }
+.workbench-dialog { border: 1px solid #afbfca; border-radius: 12px; padding: 24px; max-width: min(90vw,800px); color:#263747; }
+.workbench-dialog::backdrop { background: #10203066; }
+.workbench-dialog h2 { margin-top:0; }
+.dialog-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:18px; }
+.device-colour-sample { display:inline-block; margin:0 16px; padding:8px 16px; color:white; border-radius:5px; }
+.message-editor { width: min(86vw,780px); }
+.message-editor textarea { box-sizing:border-box; width:100%; height: min(55vh,430px); resize:vertical; font:14px/1.5 monospace; padding:12px; tab-size:2; white-space:pre; }
+.wiring-card { border-left:5px solid #a9bcc7; }
+.board-diagram { background:#f5f8fa; border:1px solid #d5e0e6; border-radius:12px; padding:12px; margin:16px 0; }
+.board-diagram svg { display:block; width:100%; max-width:860px; max-height:560px; margin:auto; }
+.board-pin:focus circle, .board-pin:hover circle { stroke:#122e41; stroke-width:3; }
+.board-aux,.board-map-note { font-size:13px; line-height:1.5; color:#526875; }
+.board-aux-pin { display:inline-block; padding:6px 9px; margin:4px; border:2px solid #cad5db; border-radius:6px; }
+body:not([data-editor-tab="blocks"]) #block_help { display:none; }

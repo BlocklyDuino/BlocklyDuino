@@ -1,7 +1,10 @@
-<html manifest=node.manifest>
+<!doctype html>
+<!-- Modified 2026: classic workbench extensions; see NOTICE and docs/CLASSIC-EXTENSIONS.md. -->
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>BlocklyDuino</title>
+  <link rel="stylesheet" href="examples_catalog.css?v=dialog1">
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
   <script type="text/javascript" src="../../blocks_compressed.js"></script>
   <script type="text/javascript" src="../../arduino_compressed.js"></script>
@@ -9,22 +12,91 @@
   <script type="text/javascript" src="Blob.js"></script>
   <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
-  <script type="text/javascript" src="blockly_helper.js"></script>
+  <script type="text/javascript" src="blockly_helper.js?v=dialog1"></script>
+  <script type="text/javascript" src="extra_blocks.js"></script>
+  <script type="text/javascript" src="lcd20x4_blocks.js"></script>
+  <script type="text/javascript" src="popular_blocks.js?v=workbench5"></script>
+  <script type="text/javascript" src="program_blocks.js?v=workbench5"></script>
+  <script type="text/javascript" src="math_blocks.js?v=workbench5"></script>
+  <script type="text/javascript" src="user_blocks.js?v=workbench5"></script>
+  <script src="device_blocks.js?v=workbench5"></script>
+  <script src="storage_blocks.js?v=workbench5"></script>
+  <script src="music_blocks.js?v=workbench5"></script><script src="sd_music_blocks.js?v=workbench5"></script><script src="image_blocks.js?v=workbench5"></script><script src="bit_blocks.js?v=workbench5"></script><script src="logic_blocks.js?v=workbench5"></script><script src="avr_blocks.js?v=workbench5"></script><script src="bus_blocks.js?v=workbench5"></script><script src="workspace_inspector.js?v=workbench5"></script><script src="ux_blocks.js?v=workbench5"></script><script src="device_catalog.js?v=workbench5"></script><script src="buffer_blocks.js?v=workbench5"></script><script src="project_devices.js?v=workbench5"></script><script src="field_message.js?v=workbench5"></script><script src="serial_blocks.js?v=workbench5"></script><script src="serial_message_blocks.js?v=scanner2"></script><script src="interrupt_blocks.js?v=dialog1"></script><script src="timer_interrupt_blocks.js?v=dialog1"></script><script src="editor_actions.js?v=workbench5"></script><link rel="stylesheet" href="editor_actions.css?v=workbench5">
+  <script src="workspace_zoom.js?v=areas3"></script><link rel="stylesheet" href="workspace_zoom.css?v=areas3">
+  <script src="workspace_regions.js?v=areas3"></script><link rel="stylesheet" href="workspace_regions.css?v=areas3">
+  <script src="panel_state.js?v=layout1" defer></script><script src="target_picker.js?v=workbench5"></script><link rel="stylesheet" href="target_picker.css?v=layout1">
   <script>
 
 /**
  * List of tab names.
  * @private
  */
-var TABS_ = ['blocks', 'arduino', 'xml'];
+var TABS_ = ['blocks', 'arduino', 'xml', 'connections'];
 
 var selected = 'blocks';
+var manualCode = false;
+var manualCodeOriginal = null;
+
+function editCodeClick() {
+  if (!manualCode) {
+    tabClick('arduino');
+    if (selected != 'arduino') return;
+    manualCode = true;
+    var editor = document.getElementById('content_arduino');
+    manualCodeOriginal=editor.value;
+    editor.readOnly = false;
+    editor.focus();
+    document.getElementById('edit_code').textContent = 'Back to blocks';
+  } else {
+    tabClick('blocks');
+  }
+}
+
+/** Open one installed example without touching the current sketch on failure. */
+function openExample(selector) {
+  var filename = selector.value;
+  selector.selectedIndex = 0;
+  if (!filename) return;
+  if (selected != 'blocks') {
+    tabClick('blocks');
+    if (selected != 'blocks') return;
+  }
+  var request = new XMLHttpRequest();
+  request.onload = function() {
+    if (request.status != 200) {
+      alert('Could not open example: ' + filename);
+      return;
+    }
+    var xml;
+    try {
+      xml = Blockly.Xml.textToDom(request.responseText);
+    } catch (error) {
+      alert('Invalid example XML: ' + error);
+      return;
+    }
+    if (workspaceContentCount() &&
+        !confirm('Replace this project? Save blocks first if you want to keep your changes.')) {
+      return;
+    }
+    if(replaceProjectXml(xml))setWorkspaceSource('examples/' + filename);
+    renderContent();
+  };
+  request.onerror = function() { alert('Could not open example.'); };
+  request.open('GET', 'examples/' + encodeURIComponent(filename), true);
+  request.send();
+}
 
 /**
  * Switch the visible pane when a tab is clicked.
  * @param {string} clickedName Name of tab clicked.
  */
 function tabClick(clickedName) {
+  if (manualCode && selected == 'arduino' && clickedName != 'arduino') {
+    if (!confirm('C++ edits cannot be converted back to blocks. Export C++ to keep them. Discard these edits and return to blocks?')) return;
+    manualCode = false;
+    document.getElementById('content_arduino').readOnly = true;
+    document.getElementById('edit_code').textContent = 'Edit C++';
+  }
   // If the XML tab was open, save and render the content.
   if (document.getElementById('tab_xml').className == 'tabon') {
     var xmlTextarea = document.getElementById('content_xml');
@@ -41,8 +113,7 @@ function tabClick(clickedName) {
       }
     }
     if (xmlDom) {
-      Blockly.mainWorkspace.clear();
-      Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
+      if (!replaceProjectXml(xmlDom)) return;
     }
   }
 
@@ -62,6 +133,8 @@ function tabClick(clickedName) {
   // Show the selected pane.
   document.getElementById('content_' + clickedName).style.visibility =
       'visible';
+  document.body.dataset.editorTab=clickedName;
+  document.querySelectorAll('[role=tab]').forEach(function(t){t.setAttribute('aria-selected',String(t.id==='tab_'+clickedName));t.tabIndex=t.id==='tab_'+clickedName?0:-1;});
   renderContent();
   if (clickedName == 'blocks') {
     Blockly.mainWorkspace.setVisible(true);
@@ -75,6 +148,7 @@ function tabClick(clickedName) {
 function renderContent() {
   var content = document.getElementById('content_' + selected);
   // Initialize the pane.
+  if (selected === 'connections') { renderConnections(); return; }
   if (content.id == 'content_blocks') {
     // If the workspace was changed by the XML tab, Firefox will have performed
     // an incomplete rendering due to Blockly being invisible.  Rerender.
@@ -94,7 +168,7 @@ function renderContent() {
   } else if (content.id == 'content_arduino') {
     //content.innerHTML = Blockly.Arduino.workspaceToCode();
     var arduinoTextarea = document.getElementById('content_arduino');
-    arduinoTextarea.value = Blockly.Arduino.workspaceToCode();
+    if (!manualCode) { var generated = generateSketch(); arduinoTextarea.value = generated === null ? '// Fix the error shown below.' : generated; }
     arduinoTextarea.focus();
   }
 }
@@ -127,6 +201,7 @@ function getBBox_(element) {
  * Initialize Blockly.  Called on page load.
  */
 function init() {
+  if (window.BlocklyExamples) BlocklyExamples.populate(document.getElementById('example_select'));
   //window.onbeforeunload = function() {
   //  return 'Leaving this page will result in the loss of your work.';
   //};
@@ -145,16 +220,23 @@ function init() {
       el.style.width = bBox.width + 'px';
       el.style.width = (2 * bBox.width - el.offsetWidth) + 'px';
     }
-    // Make the 'Blocks' tab line up with the toolbox.
-    if (Blockly.mainWorkspace.toolbox_.width) {
-      document.getElementById('tab_blocks').style.minWidth =
-          (Blockly.mainWorkspace.toolbox_.width - 38) + 'px';
-          // Account for the 19 pixel margin and on each side.
-    }
   };
   window.addEventListener('resize', onresize, false);
 
   var toolbox = document.getElementById('toolbox');
+  if (window.blocklyduinoUserBlockTypes && window.blocklyduinoUserBlockTypes.length) {
+    var userCategory = document.createElement('category');
+    userCategory.setAttribute('name', 'Extensions');
+    for (var j = 0; j < window.blocklyduinoUserBlockTypes.length; ++j) {
+      var userType = window.blocklyduinoUserBlockTypes[j];
+      if (Blockly.Blocks[userType] && Blockly.Arduino[userType]) {
+        var userBlock = document.createElement('block');
+        userBlock.setAttribute('type', userType);
+        userCategory.appendChild(userBlock);
+      }
+    }
+    toolbox.appendChild(userCategory);
+  }
   Blockly.inject(document.getElementById('content_blocks'),
       {grid:
           {spacing: 25,
@@ -165,286 +247,734 @@ function init() {
        toolbox: toolbox});
 
   auto_save_and_restore_blocks();
+  installEditorHelp();
 
   //load from url parameter (single param)
   //http://stackoverflow.com/questions/2090551/parse-query-string-in-javascript
-  var dest = unescape(location.search.replace(/^.*\=/, '')).replace(/\+/g, " ");
-  if(dest){
+  var dest = new URLSearchParams(location.search).get('url');
+  if(dest && !restoredWorkspace){
     load_by_url(dest);
-  }
+  } else { workspaceReady=true; }
 }
   </script>
-  <style>
-    html, body {
-      height: 100%;
-    }
-    body {
-      background-color: #fff;
-      font-family: sans-serif;
-      margin: 0;
-      overflow: hidden;
-    }
-    h1 {
-      font-weight: normal;
-      font-size: 140%;
-      margin-left: 5px;
-      margin-right: 5px;
-    }
+<style>
+*{box-sizing:border-box}html,body{height:100%;margin:0}body{font:14px system-ui,sans-serif;color:#253141;display:flex;flex-direction:column;overflow:hidden;background:#fff}
+header{padding:7px 12px;display:flex;align-items:center;justify-content:space-between;background:#173047;color:white}header strong{font-size:15px}header small{opacity:.85;font-size:11px}
+.toolbar,.examplebar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:6px 10px;border-bottom:1px solid #d4dde5;background:#f6f8fa}button,select{font:inherit;border:1px solid #c2cdd7;border-radius:5px;background:white;padding:5px 9px;color:#253141;cursor:pointer}button:hover{background:#eaf0f6}.tabon{background:#d9e9f4;border-color:#6289a7;font-weight:600}.taboff{background:white}.serial-link{font-size:12px;padding:5px;text-decoration:none}.spacer{flex:1}.primary{background:#176a52;color:white;border-color:#176a52}.primary:hover{background:#105640}.project-menu{position:relative}.project-menu summary{cursor:pointer;padding:5px 9px;border:1px solid #c2cdd7;border-radius:5px;list-style:none;background:white}.menu{position:absolute;right:0;top:32px;z-index:1000;background:white;border:1px solid #c2cdd7;box-shadow:0 4px 16px #0002;padding:6px;display:grid;gap:5px;width:170px}.examplebar select{flex:1;min-width:130px;max-width:380px}.examplebar a{color:#226394;text-decoration:none;margin:0 4px}#content_area{flex:1;min-height:120px;position:relative}.content{visibility:hidden;position:absolute;margin:0;padding:10px;border:0;resize:none;background:white;direction:ltr}#content_blocks{padding:0}.blocklySvg{border:0!important}#content_arduino,#content_xml{font:13px/1.5 monospace;outline:none}.blocklyTreeLabel{font:13px system-ui!important}.blocklyTreeRow{height:26px!important;line-height:26px!important}.blocklyToolboxDiv{background:#edf2f6!important}.footer{border-top:1px solid #d4dde5;padding:5px 10px;background:#f6f8fa;font-size:12px}#status{font-weight:600;color:#23604d}#status.error{color:#b22b25}#block_help{margin-top:3px;color:#526071;min-height:30px;max-height:50px;overflow:auto;line-height:1.4}#build_output{max-height:170px;overflow:auto;white-space:pre-wrap;font:11px/1.4 monospace}#build_details summary{cursor:pointer}a{color:#226394}@media(max-width:650px){header small{display:none}.toolbar{gap:4px}.toolbar button{padding:5px 8px}.examplebar{padding:5px 8px}}
+.statusrow{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap}#build_usage{font-size:11px;color:#526071}dialog{border:1px solid #b7c7d5;border-radius:10px;max-width:720px;width:calc(100% - 40px);max-height:85vh;overflow:auto;padding:20px;color:#253141;box-shadow:0 12px 50px #0003}dialog::backdrop{background:#17304766}dialog h2{margin:0 0 10px;font-size:19px}dialog p{line-height:1.5}dialog table{width:100%;border-collapse:collapse;margin:15px 0}dialog th,dialog td{text-align:left;padding:8px;border-bottom:1px solid #d4dde5}dialog td button{border:0;padding:2px 0;color:#226394}dialog .connection-warning{background:#fff2d5;padding:10px;border-radius:5px}
 
-    /* Tabs */
-    #tabRow>td {
-      border: 1px solid #ccc;
-    }
-    td.tabon {
-      border-bottom-color: #ddd !important;
-      background-color: #ddd;
-      padding: 5px 19px;
-    }
-    td.taboff {
-      cursor: pointer;
-      padding: 5px 19px;
-    }
-    td.taboff:hover {
-      background-color: #eee;
-    }
-    td.tabmin {
-      border-top-style: none !important;
-      border-left-style: none !important;
-      border-right-style: none !important;
-    }
-    td.tabmax {
-      border-top-style: none !important;
-      border-left-style: none !important;
-      border-right-style: none !important;
-      width: 99%;
-      text-align: right;
-    }
-
-    table {
-      border-collapse: collapse;
-      margin: 0;
-      padding: 0;
-      border: none;
-    }
-    td {
-      padding: 0;
-      vertical-align: top;
-    }
-    .content {
-      visibility: hidden;
-      margin: 0;
-      padding: 1ex;
-      position: absolute;
-      direction: ltr;
-    }
-    pre.content {
-      overflow: scroll;
-    }
-    #content_blocks {
-      padding: 0;
-    }
-    .blocklySvg {
-      border-top: none !important;
-    }
-    #content_xml {
-      resize: none;
-      outline: none;
-      border: none;
-      font-family: monospace;
-      overflow: scroll;
-    }
-    button {
-      padding: 1px 1em;
-      font-size: 90%;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-      background-color: #eee;
-      color: black;
-    }
-    button.launch {
-      border: 1px solid #d43;
-      background-color: #d43;
-      color: white;
-    }
-    button:active {
-      border: 1px solid blue !important;
-    }
-    button:hover {
-      box-shadow: 2px 2px 5px #888;
-    }
-  </style>
+.blocklyToolboxDiv{min-width:210px;max-width:270px;padding-bottom:12px;overflow-x:hidden!important}.sidebar-add-device{display:block!important;position:sticky;top:0;z-index:2;margin:8px;width:calc(100% - 16px);background:#176a52;color:#fff;border-color:#176a52;font-weight:700;text-align:left;padding:10px 12px;box-shadow:0 2px 4px #0001}.sidebar-add-device:hover{background:#105640}.project-device-empty{font-size:11px;line-height:1.4;color:#65758a;padding:0 12px 10px;max-width:210px}.blocklyTreeRow[data-project-heading]{margin-top:5px!important;margin-bottom:5px!important;background:#dce8e2!important;border-bottom:1px solid #bfd3c7}.blocklyTreeRow[data-project-heading] .blocklyTreeLabel{font-size:11px!important;font-weight:700!important;text-transform:uppercase;letter-spacing:.5px}.blocklyTreeRow[data-device-id]{border-left:4px solid;margin:3px 6px!important;padding-left:2px!important;background:#fff;border-radius:4px;position:relative;padding-right:27px!important}.blocklyTreeRow[data-device-id] .blocklyTreeLabel{font-weight:600!important;display:inline-block;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle}.device-config-button{position:absolute;right:0;top:0;border:0!important;background:transparent!important;padding:2px 6px!important;color:#526071!important;font-size:15px!important;line-height:21px!important}.device-config-button:hover{color:#173047!important}.blocklyTreeRow[data-device-id].blocklyTreeSelected{background:#d7e7f3!important}.blocklyTreeRow[data-device-id].blocklyTreeSelected .blocklyTreeLabel{color:#173047!important}
+#device_picker{width:min(960px,calc(100% - 36px));max-width:960px;padding:22px}#device_picker::backdrop{background:#17304788}.device-picker-heading{display:flex;justify-content:space-between;align-items:center}.device-picker-heading h2{margin:0}#device_picker>p{font-size:13px;color:#526071;margin:12px 0}#device_picker input[type=search]{font:inherit;width:100%;padding:11px;border:1px solid #afc4d5;border-radius:6px;margin:3px 0 16px}.device-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px}.device-card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;white-space:normal;min-height:205px;border:1px solid #d4dfe8;border-top:4px solid;border-radius:8px;padding:10px;background:#fff}.device-card:hover{background:#f2f7fb;box-shadow:0 3px 10px #0001;border-color:#86a8bd}.device-card:focus-visible{outline:3px solid #236ca1;outline-offset:2px}.device-picture{align-self:center;width:120px;height:84px;margin:0 0 7px}.device-picture svg{width:120px;height:84px}.device-card strong{font-size:13px;line-height:1.3}.device-description{font-size:11px;line-height:1.4;color:#526071;margin-top:5px}.device-present{background:#f1f8f3;border-color:#9fc9aa}.device-present-badge{font-size:10px;color:#21613a;font-weight:700;line-height:1.4;margin-top:auto;padding-top:7px}@media(max-width:700px){.blocklyToolboxDiv{min-width:180px;max-width:220px}.blocklyTreeRow[data-device-id] .blocklyTreeLabel{max-width:135px}.device-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style><script src="board_capabilities.js?v=workbench6"></script><script src="board_resources.js?v=workbench6"></script><script src="motion_math.js?v=workbench5"></script><script src="serial_image_blocks.js"></script><script src="resource_ui.js?v=workbench6"></script><script src="examples_catalog.js?v=dialog1"></script><script src="editor_history.js?v=workbench5"></script><script src="board_diagram.js?v=workbench5"></script><script src="workbench_ui.js?v=workbench5"></script><link rel="stylesheet" href="workbench_ui.css?v=workbench5">
 </head>
 <body onload="init()">
-  <table height="100%" width="100%">
-    <tr>
-      <td>
-        <h1><a href="https://github.com/gasolin/BlocklyDuino/wiki">BlocklyDuino</a> &gt; web-based visual programming editor for arduino</h1>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <table width="100%">
-          <tr id="tabRow" height="1em">
-            <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')">Blocks</td>
-            <td class="tabmin">&nbsp;</td>
-            <!--td id="tab_javascript" class="taboff" onclick="tabClick(this.id)">JavaScript</td>
-            <td class="tabmin">&nbsp;</td-->
-            <!--td id="tab_dart" class="taboff" onclick="tabClick(this.id)">Dart</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_python" class="taboff" onclick="tabClick(this.id)">Python</td>
-            <td class="tabmin">&nbsp;</td-->
-            <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
-            <td class="tabmax">
-              <button type="button" onclick="uploadClick()">Upload</button>
-              <button type="button" onclick="resetClick()">Reset</button>
-              <button onclick="discard()">Discard</button>
-              <button onclick="saveCode()">Save Arduino Code</button>
-              <button onclick="save()">Save XML</button>
-              <button id="fakeload">Load XML</button>
-              <input type="file" id="load" style="display: none;"/>
-              <!--button class="launch" onclick="runJS()">Run Program</button-->
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td height="99%" id="content_area"></td>
-    </tr>
-  </table>
-  <div id="content_blocks" class="content"></div>
-  <textarea id="content_arduino" class="content" readonly wrap="off"></textarea>
-  <textarea id="content_xml" class="content" wrap="off"></textarea>
+<header><strong>BlocklyDuino</strong><small id="board-badge">Loading board…</small></header>
+<div class="toolbar"><div class="editor-tabs" role="tablist" aria-label="Project views"><button role="tab" aria-selected="true" aria-controls="content_blocks" id="tab_blocks" class="tabon" onclick="tabClick('blocks')">Blocks</button><button role="tab" aria-selected="false" aria-controls="content_arduino" id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Code</button><button role="tab" aria-selected="false" aria-controls="content_xml" id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</button><button role="tab" aria-selected="false" aria-controls="content_connections" id="tab_connections" class="taboff" onclick="tabClick('connections')">Connections</button></div><a class="serial-link" href="serial_monitor.html" target="BlocklyDuinoMonitor">Monitor ↗</a><a class="serial-link" href="serial_plotter.html" target="BlocklyDuinoPlotter">Plotter ↗</a><span class="spacer"></span><button class="build-action" onclick="compileClick()" title="Build for the selected board; do not upload">Compile</button><button class="primary build-action" onclick="uploadClick()" title="Build and upload to the saved board and port">Upload</button><details class="project-menu"><summary>Project</summary><div class="menu"><button onclick="save()">Save blocks</button><button id="fakeload">Open blocks</button><button onclick="saveCode()">Export C++</button><button id="edit_code" onclick="editCodeClick()">Edit C++</button><button onclick="discard()">New project</button><button id="recover_blocks" onclick="recoverBlocks()" hidden>Recover blocks</button></div></details><input type="file" id="load" accept=".xml" style="display:none"></div>
+<details id="target-panel" data-panel-key="editor.target"><summary>Board &amp; upload port <span id="target-summary">Loading saved target…</span></summary><div class="target-body">
+<div class="target-row"><label>Board <input id="board-search" type="search" role="combobox" aria-controls="target-board" aria-expanded="true" autocomplete="off" placeholder="Type to search boards…"></label><label><select id="target-board" size="6" aria-label="Matching boards"></select></label></div><div id="board-options"></div>
+<details id="target-advanced" data-panel-key="editor.target.advanced"><summary>Advanced board options</summary><div id="board-advanced-options"></div></details>
+<div class="target-row"><label>Upload port <select id="upload-port"></select></label><button id="ports-refresh">Refresh ports</button><button id="target-apply" class="primary">Apply target</button></div><p id="target-message" role="status"></p><small>Upload method comes from the board core. For SWD or first Pico UF2 upload, choose Automatic / USB / debug probe. Serial Monitor has its own connection. Board selection changes the compiler and uploader; AVR-only blocks remain AVR-only.</small></div></details>
 
-  <xml id="toolbox" style="display: none">
-    <category name="Logic">
-      <block type="controls_if"></block>
-      <block type="logic_compare"></block>
-      <block type="logic_operation"></block>
-      <block type="logic_negate"></block>
-      <block type="logic_null"></block>
-    </category>
-    <category name="Control">
-      <block type="base_delay">
-        <value name="DELAY_TIME">
-          <block type="math_number">
-            <field name="NUM">1000</field>
-          </block>
-        </value>
-      </block>
-      <block type="controls_for">
-        <value name="FROM">
-          <block type="math_number">
-            <field name="NUM">1</field>
-          </block>
-        </value>
-        <value name="TO">
-          <block type="math_number">
-            <field name="NUM">10</field>
-          </block>
-        </value>
-      </block>
-      <block type="controls_whileUntil"></block>
-    </category>
-    <category name="Math">
-      <block type="math_number"></block>
-      <block type="math_arithmetic"></block>
-      <block type="base_map">
-        <value name="DMAX">
-          <block type="math_number">
-            <field name="NUM">180</field>
-          </block>
-        </value>
-      </block>
-    </category>
-    <category name="Text">
-      <block type="text"></block>
-    </category>
-    <category name="Variables" custom="VARIABLE"></category>
-    <category name="Functions" custom="PROCEDURE"></category>
-    <sep></sep>
-    <category name="Input/Output">
-      <block type="inout_highlow"></block>
-      <block type="inout_digital_write"></block>
-      <block type="inout_digital_read"></block>
-      <block type="inout_analog_write">
-        <value name="NUM">
-          <block type="math_number">
-            <field name="NUM">0</field>
-          </block>
-        </value>
-      </block>
-      <block type="inout_analog_read"></block>
-      <block type="serial_print">
-        <value name="CONTENT">
-          <block type="text">
-            <field name="TEXT"></field>
-          </block>
-        </value>
-      </block>
-      <block type="inout_tone">
-        <value name="NUM">
-          <block type="math_number">
-            <field name="NUM">440</field>
-          </block>
-        </value>
-      </block>
-      <block type="inout_notone"></block>
-      <block type="inout_buildin_led"></block>
-    </category>
-    <category name="Servo">
-      <block type="servo_move">
-        <value name="DEGREE">
-          <block type="math_number">
-            <field name="NUM">0</field>
-          </block>
-        </value>
-      </block>
-      <block type="servo_read_degrees"></block>
-    </category>
-    <category name="Grove Analog">
-      <block type="grove_rotary_angle"></block>
-      <block type="grove_temporature_sensor"></block>
-      <block type="grove_sound_sensor"></block>
-      <block type="grove_thumb_joystick"></block>
-    </category>
-    <category name="Grove">
-      <block type="grove_led"></block>
-      <block type="grove_button"></block>
-      <block type="grove_relay"></block>
-      <block type="grove_tilt_switch"></block>
-      <block type="grove_piezo_buzzer"></block>
-      <block type="grove_pir_motion_sensor"></block>
-      <block type="grove_line_finder"></block>
-      <block type="grove_rgb_led"></block>
-      <block type="grove_ultrasonic_ranger"></block>
-    </category>
-    <category name="Grove LCD">
-      <block type="grove_serial_lcd_print">
-        <value name="TEXT">
-          <block type="text">
-            <field name="TEXT"></field>
-          </block>
-        </value>
-        <value name="TEXT2">
-          <block type="text">
-            <field name="TEXT"></field>
-          </block>
-        </value>
-        <value name="DELAY_TIME">
-          <block type="math_number">
-            <field name="NUM">1000</field>
-          </block>
-        </value>
-      </block>
-      <block type="grove_serial_lcd_power"></block>
-      <block type="grove_serial_lcd_effect"></block>
-    </category>
-    <category name="Grove Motor">
-      <block type="grove_motor_shield"></block>
-    </category>
-  </xml>
-</body>
-</html>
+<details id="examples-panel" data-panel-key="editor.examples" open><summary>Examples &amp; guides</summary><div class="examplebar"><select id="example_select" aria-label="Examples" onchange="openExample(this)"><option value="">Loading examples…</option></select><a href="examples/guide.html" target="_blank">Guide</a><a href="examples/custom-block-guide.html" target="_blank">Extensions</a></div></details>
+<details id="example-lesson" hidden></details>
+<div id="resource-status" role="status"></div><div id="content_area"></div><section id="content_connections" role="tabpanel" class="content"></section><div id="content_blocks" class="content"></div><textarea id="content_arduino" class="content" readonly wrap="off"></textarea><textarea id="content_xml" class="content" wrap="off"></textarea>
+<footer class="footer"><div class="statusrow"><div id="status" role="status">Ready</div><div id="build_usage"></div></div><div id="block_help">Select a block to read its explanation. Use Add device in the left sidebar to configure hardware. Value sockets accept variables and calculations.</div><details id="build_details" data-panel-key="editor.build"><summary>Build output</summary><pre id="build_output">No build yet.</pre></details></footer>
+<xml id="toolbox" style="display:none">
+<category name="Program"><block type="arduino_setup_section"></block><block type="arduino_loop_section"></block></category>
+<category name="Variables" custom="VARIABLE"></category>
+<category name="Functions" custom="PROCEDURE"></category>
+<category name="Logic"><block type="controls_if"></block><block type="logic_compare"></block><block type="logic_operation"></block><block type="logic_negate"></block><block type="logic_boolean"></block></category>
+<category name="Interrupts"><block type="irq_external"></block>
+  <block type="irq_pin_change"></block>
+  <block type="irq_timer1"><value name="PERIOD_US"><block type="math_number"><field name="NUM">100000</field></block></value></block>
+  <block type="irq_control"></block>
+  <block type="irq_enabled"></block>
+  <block type="irq_timer1_control"><field name="ACTION">PAUSE</field></block>
+  <block type="irq_timer1_set_period"><value name="PERIOD_US"><block type="math_number"><field name="NUM">50000</field></block></value></block>
+  <block type="irq_timer1_running"></block>
+<block type="avr_atomic"></block>
+  <block type="arduino_typed_variable"><field name="QUALIFIER">volatile</field><field name="TYPE">uint16_t</field><field name="VAR">pulseCount</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value></block>
+  <block type="avr_isr"></block>
+ </category><category name="Loops &amp; time"><block type="controls_for"><value name="FROM"><block type="math_number"><field name="NUM">0</field></block></value><value name="TO"><block type="math_number"><field name="NUM">9</field></block></value></block><block type="controls_whileUntil"></block><block type="base_delay"><value name="DELAY_TIME"><block type="math_number"><field name="NUM">100</field></block></value></block><block type="arduino_millis"></block><block type="arduino_micros"></block></category>
+<category name="Math"><block type="math_number"></block><block type="math_arithmetic"></block><block type="math_single"></block><block type="math_trig"></block><block type="math_constant"></block><block type="math_round"></block><block type="math_modulo"></block><block type="math_constrain"></block><block type="arduino_math_minmax"></block><block type="math_random_int"></block><block type="math_random_float"></block><block type="arduino_random_seed"></block><block type="base_map"><value name="FROM_LOW"><block type="math_number"><field name="NUM">0</field></block></value><value name="FROM_HIGH"><block type="math_number"><field name="NUM">1023</field></block></value><value name="TO_LOW"><block type="math_number"><field name="NUM">0</field></block></value></block></category>
+<category name="Text &amp; serial">
+  <block type="serial_config"></block>
+  <block type="serial_text"></block>
+  <block type="serial_template"><value name="ARG_value"><block type="math_number"><field name="NUM">42</field></block></value></block>
+  <block type="serial_send"><value name="VALUE"><block type="math_number"><field name="NUM">42</field></block></value></block>
+  <block type="serial_receive_line"></block>
+  <block type="serial_when_command"></block>
+  <block type="serial_set_number"><value name="MIN"><block type="math_number"><field name="NUM">0</field></block></value><value name="MAX"><block type="math_number"><field name="NUM">1023</field></block></value><value name="STEP"><block type="math_number"><field name="NUM">1</field></block></value></block>
+  <block type="text"></block>
+  <block type="serial_print"></block>
+  <block type="ll_serial_number"><field name="BASE">BIN</field><field name="END">println</field><value name="VALUE"><block type="math_number"><field name="NUM">165</field></block></value></block>
+  <block type="serial_available"></block>
+  <block type="serial_read"></block>
+  <block type="serial_write_byte"><value name="VALUE"><block type="math_number"><field name="NUM">65</field></block></value></block>
+</category>
+<category name="Devices">
+    <block type="device_stepper_driver"></block>
+    <block type="device_stepper_coils"></block>
+    <block type="device_servo"></block>
+    <block type="device_lcd"></block>
+    <block type="device_ultrasonic"></block>
+    <block type="device_ds18b20"></block>
+    <block type="device_dht"></block>
+    <block type="device_neopixel"></block>
+    <block type="device_oled"></block>
+    <block type="device_oled_spi"></block>
+    <block type="device_tft"></block>
+    <block type="device_ir_nec"></block>
+    <block type="device_shift595"></block>
+  <block type="music_buzzer"></block>
+  <block type="st_i2c_eeprom"></block>
+    <block type="st_spi_eeprom"></block>
+    <block type="st_spi_flash"></block>
+    <block type="st_sd"></block>
+  <block type="ll_spi_device"></block>
+    <block type="ll_i2c_device"></block>
+  </category>
+
+<category name="Motion">
+    <block type="device_stepper_move">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">800</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_stepper_speed"><value name="SPEED"><block type="math_number"><field name="NUM">200</field></block></value></block><block type="device_stepper_run"></block>
+    <block type="device_stepper_setting">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">200</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_stepper_position"></block>
+    <block type="device_stepper_stop"></block>
+    <block type="device_servo_write">
+      <value name="ANGLE">
+        <block type="math_number">
+          <field name="NUM">90</field>
+        </block>
+      </value>
+    </block>
+  </category>
+
+<category name="Displays">
+    <block type="device_lcd_print">
+      <value name="TEXT">
+        <block type="text">
+          <field name="TEXT">Hello</field>
+        </block>
+      </value>
+      <value name="COL">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="ROW">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_lcd_clear_row">
+      <value name="ROW">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_lcd_clear"></block>
+    <block type="device_lcd_backlight">
+      <value name="ENABLED">
+        <block type="logic_boolean">
+          <field name="BOOL">TRUE</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_oled_print">
+      <value name="TEXT">
+        <block type="text">
+          <field name="TEXT">Hello</field>
+        </block>
+      </value>
+      <value name="COL">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="ROW">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_oled_clear"></block>
+    <block type="device_tft_print">
+      <value name="TEXT">
+        <block type="text">
+          <field name="TEXT">Hello</field>
+        </block>
+      </value>
+      <value name="X">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="Y">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="COLOUR">
+        <block type="math_number">
+          <field name="NUM">65535</field>
+        </block>
+      </value>
+      <value name="SIZE">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_tft_colour">
+      <value name="R">
+        <block type="math_number">
+          <field name="NUM">255</field>
+        </block>
+      </value>
+      <value name="G">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="B">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_tft_fill">
+      <value name="COLOUR">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_tft_pixel">
+      <value name="X">
+        <block type="math_number">
+          <field name="NUM">10</field>
+        </block>
+      </value>
+      <value name="Y">
+        <block type="math_number">
+          <field name="NUM">20</field>
+        </block>
+      </value>
+      <value name="COLOUR">
+        <block type="math_number">
+          <field name="NUM">65535</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_tft_line">
+      <value name="X1">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="Y1">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="X2">
+        <block type="math_number">
+          <field name="NUM">100</field>
+        </block>
+      </value>
+      <value name="Y2">
+        <block type="math_number">
+          <field name="NUM">100</field>
+        </block>
+      </value>
+      <value name="COLOUR">
+        <block type="math_number">
+          <field name="NUM">65535</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_tft_rotation">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+  </category>
+
+<category name="Sensors">
+    <block type="device_ultrasonic_read"></block>
+    <block type="device_ds_request"></block>
+    <block type="device_ds_read">
+      <value name="INDEX">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_dht_read"></block>
+    <block type="device_ir_command"></block>
+  </category>
+
+<category name="LEDs and outputs">
+    <block type="device_pixels_set">
+      <value name="INDEX">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="R">
+        <block type="math_number">
+          <field name="NUM">32</field>
+        </block>
+      </value>
+      <value name="G">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="B">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_pixels_show"></block>
+    <block type="device_pixels_clear"></block>
+    <block type="device_shift595_write">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">170</field>
+        </block>
+      </value>
+    </block>
+    <block type="device_pixels_brightness">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">64</field>
+        </block>
+      </value>
+    </block>
+  </category>
+
+<category name="Music"><category name="Notes and melodies">
+    <block type="music_note">
+      <value name="HZ">
+        <block type="music_pitch">
+          <field name="PITCH">440</field>
+        </block>
+      </value>
+      <value name="MS">
+        <block type="math_number">
+          <field name="NUM">250</field>
+        </block>
+      </value>
+    </block>
+    <block type="music_pitch"></block>
+    <block type="music_rest">
+      <value name="MS">
+        <block type="math_number">
+          <field name="NUM">250</field>
+        </block>
+      </value>
+    </block>
+    <block type="music_stop"></block>
+    <block type="music_busy"></block>
+    <block type="music_melody"></block>
+    <block type="music_note_item"></block>
+    <block type="music_play">
+      <value name="LOOP">
+        <block type="logic_boolean">
+          <field name="BOOL">FALSE</field>
+        </block>
+      </value>
+    </block>
+    <block type="music_update"></block>
+    <block type="music_midi_pitch">
+      <value name="MIDI">
+        <block type="math_number">
+          <field name="NUM">69</field>
+        </block>
+      </value>
+    </block>
+  </category>
+<category name="SD music">
+<block type="sd_music_start"><value name="PATH"><block type="text"><field name="TEXT">MELODY.TXT</field></block></value></block>
+<block type="sd_music_update"></block><block type="sd_music_stop"></block><block type="sd_music_active"></block><block type="sd_music_ok"></block>
+</category></category>
+<category name="Images">
+    <block type="st_image_begin">
+      <field name="FORMAT">BMP_RGB</field>
+      <field name="MODE">STREAM</field>
+      <value name="PATH">
+        <block type="text">
+          <field name="TEXT">IMAGE.BMP</field>
+        </block>
+      </value>
+      <value name="WIDTH">
+        <block type="math_number">
+          <field name="NUM">32</field>
+        </block>
+      </value>
+      <value name="HEIGHT">
+        <block type="math_number">
+          <field name="NUM">32</field>
+        </block>
+      </value>
+      <value name="LEVELS">
+        <block type="math_number">
+          <field name="NUM">256</field>
+        </block>
+      </value>
+      <value name="RESERVE">
+        <block type="logic_boolean">
+          <field name="BOOL">FALSE</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_image_append_gray">
+      <value name="SHADE">
+        <block type="math_number">
+          <field name="NUM">128</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_image_append_rgb">
+      <value name="R">
+        <block type="math_number">
+          <field name="NUM">255</field>
+        </block>
+      </value>
+      <value name="G">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="B">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_image_gray_pixel">
+      <value name="X">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="Y">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="SHADE">
+        <block type="math_number">
+          <field name="NUM">128</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_image_rgb_pixel">
+      <value name="X">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="Y">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="R">
+        <block type="math_number">
+          <field name="NUM">255</field>
+        </block>
+      </value>
+      <value name="G">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="B">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_image_finish"></block>
+    <block type="st_image_ok"></block>
+  </category>
+
+<category name="Low-level"><category name="Bits &amp; bytes">
+  <block type="ll_bits_literal"><field name="VALUE">0xA5</field></block>
+  <block type="ll_bits_integer_math"><field name="WIDTH">8</field><field name="OP">DIV</field><value name="A"><block type="math_number"><field name="NUM">255</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block>
+  <block type="ll_bits_logic"><field name="WIDTH">8</field><field name="OP">AND</field><value name="A"><block type="ll_bits_literal"><field name="VALUE">0xA5</field></block></value><value name="B"><block type="ll_bits_literal"><field name="VALUE">0x0F</field></block></value></block>
+  <block type="ll_bits_not"><field name="WIDTH">8</field><value name="VALUE"><block type="ll_bits_literal"><field name="VALUE">0x0F</field></block></value></block>
+  <block type="ll_bits_shift"><field name="WIDTH">8</field><field name="OP">ROL</field><value name="VALUE"><block type="ll_bits_literal"><field name="VALUE">0x81</field></block></value><value name="COUNT"><block type="math_number"><field name="NUM">1</field></block></value></block>
+  <block type="ll_bits_mask"><field name="WIDTH">8</field><value name="INDEX"><block type="math_number"><field name="NUM">0</field></block></value></block>
+  <block type="ll_bits_test"><field name="WIDTH">8</field><value name="VALUE"><block type="ll_bits_literal"><field name="VALUE">0xA5</field></block></value><value name="INDEX"><block type="math_number"><field name="NUM">7</field></block></value></block>
+  <block type="ll_bits_update"><field name="WIDTH">8</field><field name="OP">SET</field><value name="VALUE"><block type="ll_bits_literal"><field name="VALUE">0xA5</field></block></value><value name="INDEX"><block type="math_number"><field name="NUM">1</field></block></value></block>
+  <block type="ll_bits_replace"><field name="WIDTH">8</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><value name="INDEX"><block type="math_number"><field name="NUM">0</field></block></value><value name="BIT"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value></block>
+  <block type="ll_bits_byte"><value name="VALUE"><block type="ll_bits_literal"><field name="VALUE">0x12345678</field></block></value><value name="INDEX"><block type="math_number"><field name="NUM">0</field></block></value></block>
+  <block type="ll_bits_join"><field name="WIDTH">16</field><value name="HIGH"><block type="ll_bits_literal"><field name="VALUE">0x12</field></block></value><value name="LOW"><block type="ll_bits_literal"><field name="VALUE">0x34</field></block></value></block>
+  <block type="ll_bits_extract"><field name="WIDTH">8</field><value name="VALUE"><block type="ll_bits_literal"><field name="VALUE">0xAB</field></block></value><value name="START"><block type="math_number"><field name="NUM">4</field></block></value><value name="COUNT"><block type="math_number"><field name="NUM">4</field></block></value></block>
+  <block type="ll_bits_insert"><field name="WIDTH">8</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><value name="FIELD"><block type="math_number"><field name="NUM">5</field></block></value><value name="START"><block type="math_number"><field name="NUM">4</field></block></value><value name="COUNT"><block type="math_number"><field name="NUM">3</field></block></value></block>
+ </category>
+<category name="AVR registers">
+    <block type="avr_port_direction">
+      <value name="MASK">
+        <block type="math_number">
+          <field name="NUM">32</field>
+        </block>
+      </value>
+    </block>
+    <block type="avr_pin_write">
+      <value name="VALUE">
+        <block type="logic_boolean">
+          <field name="BOOL">TRUE</field>
+        </block>
+      </value>
+    </block>
+    <block type="avr_pin_read"></block>
+    <block type="avr_port_read"></block>
+    <block type="avr_port_bits">
+      <value name="MASK">
+        <block type="math_number">
+          <field name="NUM">32</field>
+        </block>
+      </value>
+    </block>
+    <block type="avr_port_replace">
+      <value name="MASK">
+        <block type="math_number">
+          <field name="NUM">32</field>
+        </block>
+      </value>
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">32</field>
+        </block>
+      </value>
+    </block>
+    <block type="avr_port_write">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="avr_register_read"></block>
+    <block type="avr_register_write">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="avr_register_bits">
+      <value name="MASK">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+    <block type="avr_register_flags">
+      <value name="MASK">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+    <block type="avr_delay_us">
+      <value name="US">
+        <block type="math_number">
+          <field name="NUM">2</field>
+        </block>
+      </value>
+    </block>
+    <block type="avr_nop"></block>
+  </category>
+<category name="SPI commands">
+    <block type="ll_spi_transaction"></block>
+    <block type="ll_spi_send">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">159</field>
+        </block>
+      </value>
+    </block>
+    <block type="ll_spi_transfer">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+  </category>
+  <category name="I2C commands">
+    <block type="ll_i2c_config">
+      <value name="HZ">
+        <block type="math_number">
+          <field name="NUM">100000</field>
+        </block>
+      </value>
+      <value name="TIMEOUT">
+        <block type="math_number">
+          <field name="NUM">25000</field>
+        </block>
+      </value>
+    </block>
+    <block type="ll_i2c_start"></block>
+    <block type="ll_i2c_write">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="ll_i2c_end">
+      <value name="STOP">
+        <block type="logic_boolean">
+          <field name="BOOL">TRUE</field>
+        </block>
+      </value>
+    </block>
+    <block type="ll_i2c_request">
+      <value name="COUNT">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+      <value name="STOP">
+        <block type="logic_boolean">
+          <field name="BOOL">TRUE</field>
+        </block>
+      </value>
+    </block>
+    <block type="ll_i2c_available"></block>
+    <block type="ll_i2c_read"></block>
+  </category>
+</category>
+<category name="Storage"><category name="External memory">
+    <block type="st_memory_read">
+      <value name="ADDRESS">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_memory_write">
+      <value name="ADDRESS">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">123</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_memory_text_write">
+      <value name="ADDRESS">
+        <block type="math_number">
+          <field name="NUM">16</field>
+        </block>
+      </value>
+      <value name="TEXT">
+        <block type="text">
+          <field name="TEXT">Hello</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_memory_text_read">
+      <value name="ADDRESS">
+        <block type="math_number">
+          <field name="NUM">16</field>
+        </block>
+      </value>
+      <value name="LIMIT">
+        <block type="math_number">
+          <field name="NUM">64</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_memory_text_stream">
+      <value name="ADDRESS">
+        <block type="math_number">
+          <field name="NUM">16</field>
+        </block>
+      </value>
+      <value name="LIMIT">
+        <block type="math_number">
+          <field name="NUM">256</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_memory_ok"></block>
+    <block type="st_flash_erase">
+      <value name="ADDRESS">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+  </category>
+  <category name="SD files">
+    <block type="st_sd_open">
+      <value name="PATH">
+        <block type="text">
+          <field name="TEXT">DATA.TXT</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_sd_print">
+      <value name="TEXT">
+        <block type="text">
+          <field name="TEXT">Hello</field>
+        </block>
+      </value>
+      <value name="NEWLINE">
+        <block type="logic_boolean">
+          <field name="BOOL">TRUE</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_sd_write">
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">123</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_sd_read"></block>
+    <block type="st_sd_byte"></block>
+    <block type="st_sd_seek">
+      <value name="POSITION">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="st_sd_flush"></block>
+    <block type="st_sd_close"></block>
+    <block type="st_sd_ok"></block>
+    <block type="st_sd_list"></block>
+  </category>
+  </category>
+<category name="Pins"><block type="inout_buildin_led"></block><block type="inout_digital_write"></block><block type="inout_digital_read"></block><block type="inout_analog_read"></block><block type="inout_analog_write"></block><block type="inout_highlow"></block><block type="button_pullup_pressed"></block></category>
+</xml></body></html>

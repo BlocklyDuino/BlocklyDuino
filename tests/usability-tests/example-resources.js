@@ -1,0 +1,3 @@
+const h=require('../project-device-tests/harness');h.win.Blockly=h.B;for(const f of ['interrupt_blocks.js','timer_interrupt_blocks.js','board_resources.js','resource_ui.js'])h.win.eval(h.fs.readFileSync(h.out+'/'+f,'utf8'));h.B.Block.prototype.setWarningText=function(){};
+let count=0;for(const file of h.fs.readdirSync(h.out+'/examples').filter(n=>/^\d.*\.xml$/.test(n))){h.load(h.fs.readFileSync(h.out+'/examples/'+file,'utf8'));h.win.BlocklyResources.setTarget('arduino:avr:pro:cpu=16MHzatmega168');let errors=h.win.BlocklyResources.analysis().errors;h.assert.equal(errors.length,0,file+': '+JSON.stringify(errors));count++;}
+console.log('PASS all '+count+' numbered examples have no declared pin/peripheral conflicts on ATmega168');h.win.close();

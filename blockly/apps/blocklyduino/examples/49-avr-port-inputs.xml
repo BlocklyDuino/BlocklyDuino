@@ -1,0 +1,70 @@
+<xml>
+  <block type="arduino_setup_section" x="25" y="25">
+    <statement name="DO">
+      <block type="avr_port_direction">
+        <field name="PORT">D</field>
+        <field name="DIRECTION">INPUT</field>
+        <value name="MASK">
+          <block type="math_number">
+            <field name="NUM">4</field>
+          </block>
+        </value>
+        <next>
+          <block type="avr_port_bits">
+            <field name="PORT">D</field>
+            <field name="ACTION">SET</field>
+            <value name="MASK">
+              <block type="math_number">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+            <next>
+              <block type="avr_port_bits">
+                <field name="PORT">B</field>
+                <field name="ACTION">CLEAR</field>
+                <value name="MASK">
+                  <block type="math_number">
+                    <field name="NUM">32</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="avr_port_direction">
+                    <field name="PORT">B</field>
+                    <field name="DIRECTION">OUTPUT</field>
+                    <value name="MASK">
+                      <block type="math_number">
+                        <field name="NUM">32</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Choose input/output direction for the selected AVR port bits. Other bits are preserved. This is hardware-specific; use the board diagram to identify the affected pins.</comment>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+        <comment pinned="false" w="340" h="160">Choose input/output direction for the selected AVR port bits. Other bits are preserved. This is hardware-specific; use the board diagram to identify the affected pins.</comment>
+      </block>
+    </statement>
+    <comment pinned="false" w="480" h="240">Purpose: Configure an AVR port input and pull-up with masks, then read its bit without changing neighbouring pins.
+Wiring: Button between D2 and GND; observe the built-in D13 LED.
+Try: Press and release the D2 button and watch D13 follow the port input.</comment>
+  </block>
+  <block type="arduino_loop_section" x="25" y="345">
+    <statement name="DO">
+      <block type="avr_pin_write">
+        <field name="PIN">B5</field>
+        <value name="VALUE">
+          <block type="logic_negate">
+            <value name="BOOL">
+              <block type="avr_pin_read">
+                <field name="PIN">D2</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <comment pinned="false" w="340" h="160">Change a single AVR output bit directly. Set its direction to output first. Direct register operations bypass the usual digitalWrite overhead.</comment>
+      </block>
+    </statement>
+  </block>
+</xml>

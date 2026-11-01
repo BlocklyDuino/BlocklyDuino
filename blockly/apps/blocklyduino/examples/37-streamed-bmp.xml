@@ -1,0 +1,182 @@
+<xml>
+  <block type="st_sd" x="20" y="20">
+    <mutation uid="card37" />
+    <field name="NAME">card</field>
+    <field name="CS">10</field>
+    <comment pinned="false" w="480" h="240">Purpose: Write a monochrome BMP in raster order, one pixel at a time, then finish the file. No full image buffer is allocated.
+Wiring: SPI SD card: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.
+Try: Change the pixel formula to make stripes or a checkerboard; finish the image before reading it on the computer.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="310" y="20">
+    <field name="TYPE">uint16_t</field>
+    <field name="VAR">width</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">127</field>
+      </block>
+    </value>
+    <comment pinned="false" w="340" h="170">Create width as uint16_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="590" y="20">
+    <field name="TYPE">uint16_t</field>
+    <field name="VAR">height</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">63</field>
+      </block>
+    </value>
+    <comment pinned="false" w="340" h="170">Create height as uint16_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+  </block>
+  <block type="arduino_setup_section" x="20" y="190">
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="st_sd_ok">
+            <field name="DEVICE">card37</field>
+            <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="st_bmp_stream_create">
+            <field name="DEVICE">card37</field>
+            <value name="PATH">
+              <block type="text">
+                <field name="TEXT">SCAN.BMP</field>
+              </block>
+            </value>
+            <value name="WIDTH">
+              <block type="variables_get">
+                <field name="VAR">width</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="variables_get">
+                <field name="VAR">height</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if">
+                <value name="IF0">
+                  <block type="st_sd_ok">
+                    <field name="DEVICE">card37</field>
+                    <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_for">
+                    <field name="VAR">y</field>
+                    <value name="FROM">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_arithmetic">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">height</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="BY">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="controls_for">
+                        <field name="VAR">x</field>
+                        <value name="FROM">
+                          <block type="math_number">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="math_arithmetic">
+                            <field name="OP">MINUS</field>
+                            <value name="A">
+                              <block type="variables_get">
+                                <field name="VAR">width</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="BY">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="st_bmp_append_pixel">
+                            <field name="DEVICE">card37</field>
+                            <value name="WHITE">
+                              <block type="logic_compare">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <block type="math_modulo">
+                                    <value name="DIVIDEND">
+                                      <block type="math_arithmetic">
+                                        <field name="OP">ADD</field>
+                                        <value name="A">
+                                          <block type="variables_get">
+                                            <field name="VAR">x</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get">
+                                            <field name="VAR">y</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="DIVISOR">
+                                      <block type="math_number">
+                                        <field name="NUM">16</field>
+                                      </block>
+                                    </value>
+                                    <comment pinned="false" w="340" h="160">Keep the remainder after division. This is useful for wrapping a counter or animation position back to the beginning.</comment>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number">
+                                    <field name="NUM">8</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <comment pinned="false" w="340" h="160">Append the next pixel in scan order. The image writer packs the file format as it streams, so the complete image need not fit in RAM.</comment>
+                          </block>
+                        </statement>
+                        <comment pinned="false" w="340" h="170">Repeat the body with x taking each value from the start to the end, using the given step. Array indices start at zero.</comment>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="st_bmp_stream_finish">
+                        <field name="DEVICE">card37</field>
+                        <comment pinned="false" w="340" h="160">Finish and close the image file after all expected pixels. An incomplete scan is reported as an error rather than a complete image.</comment>
+                      </block>
+                    </next>
+                    <comment pinned="false" w="340" h="170">Repeat the body with y taking each value from the start to the end, using the given step. Array indices start at zero.</comment>
+                  </block>
+                </statement>
+              </block>
+            </next>
+            <field name="RESERVE">true</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

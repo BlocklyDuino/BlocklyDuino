@@ -1,0 +1,151 @@
+<xml>
+  <block type="music_buzzer" x="25" y="25">
+    <mutation uid="lead38" />
+    <field name="NAME">lead</field>
+    <field name="PIN">4</field>
+    <field name="ENGINE">IRQ</field>
+    <comment pinned="false" w="480" h="240">Purpose: Play three independent melody voices on three passive buzzers. The optional IRQ mixer shares one Timer2 and consumes periodic CPU time.
+Wiring: Passive buzzer: PIN D4; Passive buzzer: PIN D5; Passive buzzer: PIN D6. Common GND; use each module’s required supply.
+Try: Change one voice’s notes while the other two voices keep their own melodies.</comment>
+  </block>
+  <block type="music_buzzer" x="310" y="25">
+    <mutation uid="harm38" />
+    <field name="NAME">harmony</field>
+    <field name="PIN">5</field>
+    <comment pinned="false" w="340" h="160">Declare one passive buzzer and its output pin. Use its name in later blocks. The AVR engine generates sound with Timer2 and supports up to three independent voices.</comment>
+    <field name="ENGINE">IRQ</field>
+  </block>
+  <block type="music_buzzer" x="595" y="25">
+    <mutation uid="bass38" />
+    <field name="NAME">bass</field>
+    <field name="PIN">6</field>
+    <comment pinned="false" w="340" h="160">Declare one passive buzzer and its output pin. Use its name in later blocks. The AVR engine generates sound with Timer2 and supports up to three independent voices.</comment>
+    <field name="ENGINE">IRQ</field>
+  </block>
+  <block type="music_melody" x="25" y="150">
+    <mutation uid="lead_tune38" />
+    <field name="NAME">lead_tune</field>
+    <statement name="NOTES">
+      <block type="music_note_item">
+        <field name="PITCH">523</field>
+        <field name="MS">250</field>
+        <next>
+          <block type="music_note_item">
+            <field name="PITCH">659</field>
+            <field name="MS">250</field>
+            <next>
+              <block type="music_note_item">
+                <field name="PITCH">784</field>
+                <field name="MS">250</field>
+                <next>
+                  <block type="music_note_item">
+                    <field name="PITCH">1047</field>
+                    <field name="MS">250</field>
+                    <next>
+                      <block type="music_note_item">
+                        <field name="PITCH">784</field>
+                        <field name="MS">250</field>
+                        <next>
+                          <block type="music_note_item">
+                            <field name="PITCH">659</field>
+                            <field name="MS">250</field>
+                            <next>
+                              <block type="music_note_item">
+                                <field name="PITCH">523</field>
+                                <field name="MS">500</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="340" h="160">Describe a sequence of notes stored in program memory. Each item gives pitch and duration; R is a rest. Playback actions refer to this melody by name.</comment>
+  </block>
+  <block type="music_melody" x="310" y="150">
+    <mutation uid="harm_tune38" />
+    <field name="NAME">harmony_tune</field>
+    <statement name="NOTES">
+      <block type="music_note_item">
+        <field name="PITCH">330</field>
+        <field name="MS">1000</field>
+        <next>
+          <block type="music_note_item">
+            <field name="PITCH">392</field>
+            <field name="MS">1000</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="340" h="160">Describe a sequence of notes stored in program memory. Each item gives pitch and duration; R is a rest. Playback actions refer to this melody by name.</comment>
+  </block>
+  <block type="music_melody" x="595" y="150">
+    <mutation uid="bass_tune38" />
+    <field name="NAME">bass_tune</field>
+    <statement name="NOTES">
+      <block type="music_note_item">
+        <field name="PITCH">131</field>
+        <field name="MS">500</field>
+        <next>
+          <block type="music_note_item">
+            <field name="PITCH">196</field>
+            <field name="MS">500</field>
+            <next>
+              <block type="music_note_item">
+                <field name="PITCH">131</field>
+                <field name="MS">500</field>
+                <next>
+                  <block type="music_note_item">
+                    <field name="PITCH">196</field>
+                    <field name="MS">500</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="340" h="160">Describe a sequence of notes stored in program memory. Each item gives pitch and duration; R is a rest. Playback actions refer to this melody by name.</comment>
+  </block>
+  <block type="arduino_setup_section" x="25" y="520">
+    <statement name="DO">
+      <block type="music_play">
+        <field name="BUZZER">lead38</field>
+        <field name="MELODY">lead_tune38</field>
+        <field name="REPEAT">REPEAT</field>
+        <next>
+          <block type="music_play">
+            <field name="BUZZER">harm38</field>
+            <field name="MELODY">harm_tune38</field>
+            <field name="REPEAT">REPEAT</field>
+            <next>
+              <block type="music_play">
+                <field name="BUZZER">bass38</field>
+                <field name="MELODY">bass_tune38</field>
+                <field name="REPEAT">REPEAT</field>
+                <comment pinned="false" w="340" h="160">Start the named melody on this buzzer. The call returns immediately; the melody service block must run frequently in loop to advance the sequence.</comment>
+              </block>
+            </next>
+            <comment pinned="false" w="340" h="160">Start the named melody on this buzzer. The call returns immediately; the melody service block must run frequently in loop to advance the sequence.</comment>
+          </block>
+        </next>
+        <comment pinned="false" w="340" h="160">Start the named melody on this buzzer. The call returns immediately; the melody service block must run frequently in loop to advance the sequence.</comment>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_loop_section" x="420" y="520">
+    <statement name="DO">
+      <block type="music_update">
+        <comment pinned="false" w="340" h="170">Advance any active flash melodies. This returns quickly; put it in loop so the next note starts on time.</comment>
+      </block>
+    </statement>
+  </block>
+</xml>

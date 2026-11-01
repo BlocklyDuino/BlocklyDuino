@@ -1,0 +1,150 @@
+<xml>
+  <block type="st_sd" x="20" y="20">
+    <mutation uid="card42" />
+    <field name="NAME">card</field>
+    <field name="CS">10</field>
+    <comment pinned="false" w="480" h="240">Purpose: Create a grayscale BMP with selected palette levels and append calculated shades. Values must fit the chosen output range.
+Wiring: SPI SD card: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.
+Try: Change the number of palette shades and the pixel formula together.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="350" y="25">
+    <field name="TYPE">uint16_t</field>
+    <field name="VAR">grayLevels</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">256</field>
+      </block>
+    </value>
+    <next>
+      <block type="arduino_typed_variable" x="350" y="25">
+        <field name="TYPE">uint16_t</field>
+        <field name="VAR">width</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">65</field>
+          </block>
+        </value>
+        <next>
+          <block type="arduino_typed_variable" x="350" y="25">
+            <field name="TYPE">uint16_t</field>
+            <field name="VAR">height</field>
+            <value name="VALUE">
+              <block type="math_number">
+                <field name="NUM">32</field>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="170">Create height as uint16_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+          </block>
+        </next>
+        <comment pinned="false" w="340" h="170">Create width as uint16_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+      </block>
+    </next>
+    <comment pinned="false" w="340" h="170">Create grayLevels as uint16_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+  </block>
+  <block type="arduino_setup_section" x="25" y="140">
+    <statement name="DO">
+      <block type="st_bmp_stream_create">
+        <field name="DEVICE">card42</field>
+        <field name="RESERVE">false</field>
+        <value name="PATH">
+          <block type="text">
+            <field name="TEXT">GRAY.BMP</field>
+          </block>
+        </value>
+        <value name="WIDTH">
+          <block type="variables_get">
+            <field name="VAR">width</field>
+          </block>
+        </value>
+        <value name="HEIGHT">
+          <block type="variables_get">
+            <field name="VAR">height</field>
+          </block>
+        </value>
+        <value name="LEVELS">
+          <block type="variables_get">
+            <field name="VAR">grayLevels</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if">
+            <value name="IF0">
+              <block type="st_sd_ok">
+                <field name="DEVICE">card42</field>
+                <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="controls_for">
+                <field name="VAR">pixel</field>
+                <value name="FROM">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_arithmetic">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <block type="math_arithmetic">
+                        <field name="OP">MULTIPLY</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">width</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="variables_get">
+                            <field name="VAR">height</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="BY">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="st_bmp_append_pixel">
+                    <field name="DEVICE">card42</field>
+                    <value name="WHITE">
+                      <block type="math_modulo">
+                        <value name="DIVIDEND">
+                          <block type="variables_get">
+                            <field name="VAR">pixel</field>
+                          </block>
+                        </value>
+                        <value name="DIVISOR">
+                          <block type="variables_get">
+                            <field name="VAR">grayLevels</field>
+                          </block>
+                        </value>
+                        <comment pinned="false" w="340" h="160">Keep the remainder after division. This is useful for wrapping a counter or animation position back to the beginning.</comment>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Append the next pixel in scan order. The image writer packs the file format as it streams, so the complete image need not fit in RAM.</comment>
+                  </block>
+                </statement>
+                <next>
+                  <block type="st_bmp_stream_finish">
+                    <field name="DEVICE">card42</field>
+                    <comment pinned="false" w="340" h="160">Finish and close the image file after all expected pixels. An incomplete scan is reported as an error rather than a complete image.</comment>
+                  </block>
+                </next>
+                <comment pinned="false" w="340" h="170">Repeat the body with pixel taking each value from the start to the end, using the given step. Array indices start at zero.</comment>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

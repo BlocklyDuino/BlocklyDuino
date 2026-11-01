@@ -1,0 +1,179 @@
+<xml>
+  <block type="device_oled" x="25" y="25">
+    <mutation uid="oled65" />
+    <field name="NAME">oled</field>
+    <field name="MODEL">32</field>
+    <field name="ADDR">0x3C</field>
+    <comment pinned="false" w="480" h="240">Purpose: Build a 128-byte packed OLED tile: each byte stores eight vertical pixels. Send the tile without allocating a full-screen buffer.
+Wiring: SSD1306 I2C OLED: address 0x3C; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.
+Try: Change bits in the 128-byte tile; each byte represents eight vertical pixels.</comment>
+  </block>
+  <block type="arduino_array_declare" x="385" y="25">
+    <field name="VAR">frame</field>
+    <field name="TYPE">byte</field>
+    <field name="SIZE">1,128</field>
+    <comment pinned="false" w="340" h="160">The buffer is allocated once. Shape 1,128 is rows,columns; cells initially contain zero. Modify cells in RAM, then send the complete buffer.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="745" y="25">
+    <field name="VAR">phase</field>
+    <field name="TYPE">uint8_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <comment pinned="false" w="340" h="170">Create phase as uint8_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+  </block>
+  <block type="arduino_loop_section" x="25" y="180">
+    <statement name="DO">
+      <block type="controls_for">
+        <field name="VAR">page</field>
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="controls_for">
+            <field name="VAR">column</field>
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">127</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="arduino_array_set">
+                <mutation rank="2" />
+                <field name="VAR">frame</field>
+                <value name="INDEX">
+                  <block type="variables_get">
+                    <field name="VAR">page</field>
+                  </block>
+                </value>
+                <value name="INDEX2">
+                  <block type="variables_get">
+                    <field name="VAR">column</field>
+                  </block>
+                </value>
+                <value name="VALUE">
+                  <block type="ll_bits_shift">
+                    <field name="OP">SHL</field>
+                    <value name="VALUE">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="COUNT">
+                      <block type="math_modulo">
+                        <value name="DIVIDEND">
+                          <block type="math_arithmetic">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="variables_get">
+                                <field name="VAR">column</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get">
+                                <field name="VAR">phase</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="DIVISOR">
+                          <block type="math_number">
+                            <field name="NUM">8</field>
+                          </block>
+                        </value>
+                        <comment pinned="false" w="340" h="160">Keep the remainder after division. This is useful for wrapping a counter or animation position back to the beginning.</comment>
+                      </block>
+                    </value>
+                    <field name="WIDTH">8</field>
+                  </block>
+                </value>
+                <comment pinned="false" w="340" h="160">Replace one array element at the given indices. Indices start at zero and must stay below each declared dimension. Other elements keep their previous values.</comment>
+              </block>
+            </statement>
+            <comment pinned="false" w="340" h="160">Visit each column from 0 to 127. Indices start at zero; the last index is one less than the size.</comment>
+          </block>
+        </statement>
+        <comment pinned="false" w="340" h="160">Visit indices 0 through 0 of this dimension.</comment>
+        <next>
+          <block type="device_oled_buffer">
+            <field name="DEVICE">oled65</field>
+            <field name="LAYOUT">YX</field>
+            <value name="BUFFER">
+              <block type="arduino_array_ref">
+                <field name="VAR">frame</field>
+                <comment pinned="false" w="340" h="160">Pass the entire declared array to the next operation, without making another framebuffer. The receiving block determines the pixel/character format and layout.</comment>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="160">Only now send the prepared array. The loop above changes memory, not the physical output. This action reuses the named device and its wiring.</comment>
+            <field name="FORMAT">PACKED</field>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">phase</field>
+                <value name="VALUE">
+                  <block type="math_modulo">
+                    <value name="DIVIDEND">
+                      <block type="math_arithmetic">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">phase</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="DIVISOR">
+                      <block type="math_number">
+                        <field name="NUM">8</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Keep the remainder after division. This is useful for wrapping a counter or animation position back to the beginning.</comment>
+                  </block>
+                </value>
+                <next>
+                  <block type="base_delay">
+                    <value name="DELAY_TIME">
+                      <block type="math_number">
+                        <field name="NUM">120</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="340" h="160">This example sends a 128×8 tile (128 bytes) to the 128×32 OLED. Each byte contains 8 vertical pixels. Use shape 4,128 and pages 0..3 for a full 128×32 frame (512 bytes); prefer ATmega328P or larger for that full buffer. Shape 8,128 covers 128×64 (1024 bytes).</comment>
+  </block>
+</xml>

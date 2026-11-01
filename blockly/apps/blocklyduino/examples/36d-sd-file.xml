@@ -1,0 +1,76 @@
+<xml>
+  <block type="st_sd" x="25" y="25">
+    <mutation uid="card36" />
+    <field name="NAME">card</field>
+    <field name="CS">10</field>
+    <comment pinned="false" w="480" h="240">Purpose: Create or append a text file on an SPI SD card, then flush and close it. A FAT filesystem remains readable on a computer.
+Wiring: SPI SD card: CS D10; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.
+Try: Change the filename and text, upload, then inspect the file on a computer.</comment>
+  </block>
+  <block type="arduino_setup_section" x="25" y="170">
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="st_sd_ok">
+            <field name="DEVICE">card36</field>
+            <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="st_sd_open">
+            <field name="DEVICE">card36</field>
+            <field name="MODE">true</field>
+            <value name="PATH">
+              <block type="text">
+                <field name="TEXT">DATA.TXT</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if">
+                <value name="IF0">
+                  <block type="st_sd_ok">
+                    <field name="DEVICE">card36</field>
+                    <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="st_sd_print">
+                    <field name="DEVICE">card36</field>
+                    <field name="NEWLINE">true</field>
+                    <value name="TEXT">
+                      <block type="text">
+                        <field name="TEXT">Sensor log started</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="st_sd_print">
+                        <field name="DEVICE">card36</field>
+                        <field name="NEWLINE">true</field>
+                        <value name="TEXT">
+                          <block type="math_number">
+                            <field name="NUM">123</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="st_sd_flush">
+                            <field name="DEVICE">card36</field>
+                            <next>
+                              <block type="st_sd_close">
+                                <field name="DEVICE">card36</field>
+                              </block>
+                            </next>
+                            <comment pinned="false" w="340" h="160">Ask the filesystem to write buffered file data to the card. Flushing every sample can be slow; use it at a useful checkpoint and close the file when finished.</comment>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,33 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+(function(){'use strict';
+ function renderConnections(){var host=document.getElementById('content_connections');if(!host)return;host.textContent='';var p=BlocklyResources.profile(),a=BlocklyResources.analysis();
+  var title=document.createElement('h2');title.textContent='Connections · '+(p?p.name:'choose a board');host.appendChild(title);
+  if(p&&p.capabilities){var memory=p.capabilities.memory,summary=document.createElement('p');summary.textContent=p.clockMHz+' MHz · '+memory.applicationBytes.toLocaleString()+' bytes for sketch · '+memory.sramBytes.toLocaleString()+' bytes RAM · '+memory.eepromBytes+' bytes EEPROM. Pin / timer checks run before code generation; compilation checks sketch size.';host.appendChild(summary);}
+  var note=document.createElement('p');note.textContent='Shared I²C / SPI lines are reserved for that bus. Module power and logic voltage must match your board. These libraries use the default Wire / SPI bus shown below.';host.appendChild(note);
+  if(window.BoardDiagram&&p)host.appendChild(BoardDiagram.render(p,a));
+  a.rows.forEach(function(r){var b=Blockly.mainWorkspace.getBlockById(r.id),card=document.createElement('section');card.className='wiring-card';var h=document.createElement('h3');h.textContent=r.name.replace(/^inout_/, '').replace(/^avr_/, 'Direct ').replace(/_/g,' ');card.appendChild(h);if(b.getField('ADDR')){var addr=document.createElement('span');addr.textContent='Address '+b.getFieldValue('ADDR');card.appendChild(addr);}var s=BoardResources.spec(r);
+   Object.keys(s.pins||{}).forEach(function(key){var label=document.createElement('label');label.textContent=key+' ';var sel=document.createElement('select');sel.setAttribute('aria-label',r.name+' '+key);var choices=!b.getField(key)?[r.fields[key]]:s.fixed&&s.fixed[key]?[s.fixed[key]]:BoardResources.choices(BlocklyResources.records(),r.id,key,p),current=s.pins[key]==='avrpin'?r.fields[key]:BoardResources.pin(p,r.fields[key]);choices.forEach(function(v){sel.add(new Option(BoardResources.label(p,v),v));});if(choices.indexOf(current)<0){var bad=new Option(BoardResources.label(p,current)+' — conflict / unavailable',current);bad.disabled=true;sel.add(bad);}sel.value=current;sel.disabled=!b.getField(key)||!choices.length||(choices.length===1&&choices[0]===current);sel.onchange=function(){b.setFieldValue(this.value,key);BlocklyResources.update();};label.appendChild(sel);card.appendChild(label);});
+   var engines=BlocklyResources.engineOptions(b);if(engines){var active=engines.find(function(e){return e.value===r.fields.ENGINE;}),engineInfo=document.createElement('p');engineInfo.className='engine-explanation';engineInfo.textContent=(active?active.label+': '+active.description:'Unknown engine. Choose an available engine in the device block.');card.appendChild(engineInfo);var unavailable=engines.filter(function(e){return !e.available;});if(unavailable.length){var detail=document.createElement('details'),summary=document.createElement('summary');summary.textContent='Why other choices are unavailable';detail.appendChild(summary);unavailable.forEach(function(e){var text=document.createElement('p');text.textContent=e.label+' — '+e.reason;detail.appendChild(text);});card.appendChild(detail);}}
+   if(s.bus){var label=document.createElement('label');label.textContent=s.bus+' bus ';var sel=document.createElement('select');sel.disabled=true;sel.setAttribute('aria-label',r.name+' bus wiring');sel.add(new Option(r.wires.filter(function(w){return /^(SDA|SCL|MOSI|MISO|SCK)/.test(w);}).join(' · '),'default'));label.appendChild(sel);card.appendChild(label);}
+   if(b.getField('DEVICE_HUE'))card.style.borderLeftColor=Blockly.makeColour(Number(b.getFieldValue('DEVICE_HUE')));
+   if((s.rawPort||s.fixedLED)&&r.wires.length){var wires=document.createElement('p');wires.textContent=r.wires.join(' · ');card.appendChild(wires);}host.appendChild(card);
+  });
+  a.notes.forEach(function(note){var n=document.createElement('p');n.textContent=note;host.appendChild(n);});
+  a.errors.forEach(function(e){var text=document.createElement('p');text.className='error';text.textContent=e.message;host.appendChild(text);});if(!a.rows.length){var n=document.createElement('p');n.textContent='Add a device, pin operation or interrupt to see its connections.';host.appendChild(n);}
+ }
+ function install(){document.body.dataset.editorTab=window.selected||'blocks';window.openConnections=function(){tabClick('connections');};
+  var tabs=Array.from(document.querySelectorAll('[role=tab]'));tabs.forEach(function(t,i){t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?(i+1)%tabs.length:e.key==='ArrowLeft'?(i+tabs.length-1)%tabs.length:e.key==='Home'?0:e.key==='End'?tabs.length-1:-1;if(n>=0){e.preventDefault();tabs[n].click();tabs[n].focus();}});});
+  var ws=Blockly.mainWorkspace,tb=ws.toolbox_,box=tb.HtmlDiv,pinned=localStorage.getItem('blocklyduino.toolboxPinned')==='true',open=pinned,delay;
+  var pin=document.createElement('button');pin.className='toolbox-pin';pin.title='Pin toolbox open';pin.setAttribute('aria-label','Pin toolbox open');pin.textContent='⌖';box.insertBefore(pin,box.firstChild);
+  var peek=document.createElement('button');peek.id='toolbox-peek';peek.textContent='☰';peek.title='Show blocks';peek.setAttribute('aria-label','Show blocks');document.getElementById('content_blocks').appendChild(peek);
+  function show(value){open=pinned||value;document.body.classList.toggle('sidebar-open',open);document.body.classList.toggle('sidebar-pinned',pinned);pin.setAttribute('aria-pressed',String(pinned));peek.setAttribute('aria-expanded',String(open));if(!open)tb.clearSelection();Blockly.fireUiEvent(window,'resize');}
+  function later(){clearTimeout(delay);delay=setTimeout(function(){if(Blockly.dragMode_)return later();show(false);},450);}
+  peek.onpointerenter=peek.onfocus=function(){clearTimeout(delay);show(true);};peek.onclick=function(){show(true);};box.onpointerenter=function(){clearTimeout(delay);show(true);};box.onpointerleave=later;
+  var flyout=tb.flyout_;if(flyout.svgGroup_){flyout.svgGroup_.addEventListener('pointerenter',function(){clearTimeout(delay);});flyout.svgGroup_.addEventListener('pointerleave',later);}
+  pin.onclick=function(){pinned=!pinned;localStorage.setItem('blocklyduino.toolboxPinned',String(pinned));show(true);};
+  var position=tb.position;tb.position=function(){position.call(this);this.overlayWidth_=this.width;if(!pinned)this.width=0;};
+  var fpos=flyout.position;flyout.position=function(){var w=tb.width;if(!pinned)tb.width=tb.overlayWidth_||0;try{return fpos.call(this);}finally{tb.width=w;}};
+  show(pinned);
+ }
+ window.renderConnections=renderConnections;window.WorkbenchUI={install:install};
+})();

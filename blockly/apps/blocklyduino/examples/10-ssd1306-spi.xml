@@ -1,0 +1,132 @@
+<xml>
+  <block type="device_oled_spi" x="30" y="30">
+    <mutation uid="oled10" />
+    <field name="NAME">screen</field>
+    <field name="CS">10</field>
+    <field name="DC">9</field>
+    <field name="RESET">8</field>
+    <comment pinned="false" w="390" h="170">Purpose: Count seconds on an SSD1306 SPI OLED using a named device and no framebuffer. Update with millis timing.
+Wiring: SSD1306 SPI OLED: CS D10, DC D9, RESET D8; SPI MOSI D11, SCK D13; MISO is unused; CS/DC/RESET as listed. Common GND; use each module’s required supply.
+Try: Edit the heading or move the counter to another text row.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="510" y="30">
+    <field name="VAR">lastSample</field>
+    <field name="TYPE">uint32_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_typed_variable" x="990" y="30">
+    <field name="VAR">seconds</field>
+    <field name="TYPE">uint32_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_setup_section" x="30" y="290">
+    <statement name="DO">
+      <block type="device_oled_print">
+        <field name="DEVICE">oled10</field>
+        <value name="TEXT">
+          <block type="text">
+            <field name="TEXT">Tiny RAM, big fun</field>
+          </block>
+        </value>
+        <value name="COL">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="ROW">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <comment pinned="false" w="390" h="170">Initialize the named SPI OLED once and write a heading. Text coordinates are character cells: columns 0–15, rows 0–7.</comment>
+  </block>
+  <block type="arduino_loop_section" x="510" y="290">
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="logic_compare">
+            <field name="OP">GTE</field>
+            <value name="A">
+              <block type="math_arithmetic">
+                <field name="OP">MINUS</field>
+                <value name="A">
+                  <block type="arduino_millis" />
+                </value>
+                <value name="B">
+                  <block type="variables_get">
+                    <field name="VAR">lastSample</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">1000</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="variables_set">
+            <field name="VAR">lastSample</field>
+            <value name="VALUE">
+              <block type="arduino_millis" />
+            </value>
+            <next>
+              <block type="device_oled_print">
+                <field name="DEVICE">oled10</field>
+                <value name="TEXT">
+                  <block type="variables_get">
+                    <field name="VAR">seconds</field>
+                  </block>
+                </value>
+                <value name="COL">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="math_number">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">seconds</field>
+                    <value name="VALUE">
+                      <block type="math_arithmetic">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">seconds</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <comment pinned="false" w="390" h="170">Use elapsed milliseconds instead of delay. The command reader remains responsive between updates; unsigned subtraction also works when millis wraps.</comment>
+      </block>
+    </statement>
+    <comment pinned="false" w="390" h="170">Update the seconds counter once per second. For pixel patterns see the packed-buffer lesson; small tiles work on ATmega168.</comment>
+  </block>
+</xml>

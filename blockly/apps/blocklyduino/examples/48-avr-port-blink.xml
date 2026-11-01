@@ -1,0 +1,74 @@
+<xml>
+  <block type="arduino_setup_section" x="25" y="25">
+    <statement name="DO">
+      <block type="avr_port_bits">
+        <field name="PORT">B</field>
+        <field name="ACTION">CLEAR</field>
+        <value name="MASK">
+          <block type="math_number">
+            <field name="NUM">32</field>
+          </block>
+        </value>
+        <next>
+          <block type="avr_port_direction">
+            <field name="PORT">B</field>
+            <field name="DIRECTION">OUTPUT</field>
+            <value name="MASK">
+              <block type="math_number">
+                <field name="NUM">32</field>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="160">Choose input/output direction for the selected AVR port bits. Other bits are preserved. This is hardware-specific; use the board diagram to identify the affected pins.</comment>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="480" h="240">Purpose: Blink D13 through AVR port registers. Compare the generated code and Flash use with ordinary digitalWrite.
+Wiring: Only the Pro Mini; PB5 is the built-in L / D13 LED.
+Try: Change the wait times; PB5 is the built-in D13 LED.</comment>
+  </block>
+  <block type="arduino_loop_section" x="25" y="230">
+    <statement name="DO">
+      <block type="avr_pin_write">
+        <field name="PIN">B5</field>
+        <value name="VALUE">
+          <block type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <next>
+          <block type="base_delay">
+            <value name="DELAY_TIME">
+              <block type="math_number">
+                <field name="NUM">500</field>
+              </block>
+            </value>
+            <next>
+              <block type="avr_pin_write">
+                <field name="PIN">B5</field>
+                <value name="VALUE">
+                  <block type="logic_boolean">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="base_delay">
+                    <value name="DELAY_TIME">
+                      <block type="math_number">
+                        <field name="NUM">500</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+                  </block>
+                </next>
+                <comment pinned="false" w="340" h="160">Change a single AVR output bit directly. Set its direction to output first. Direct register operations bypass the usual digitalWrite overhead.</comment>
+              </block>
+            </next>
+            <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+          </block>
+        </next>
+        <comment pinned="false" w="340" h="160">Change a single AVR output bit directly. Set its direction to output first. Direct register operations bypass the usual digitalWrite overhead.</comment>
+      </block>
+    </statement>
+  </block>
+</xml>

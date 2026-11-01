@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Text notes and polyphonic SD scores</title><style>body{font:16px/1.6 system-ui;max-width:850px;margin:32px auto;padding:0 20px;color:#253141}code,pre{background:#edf2f6;padding:.2em .4em}pre{padding:1em;overflow:auto}a{color:#176a52}</style>
+<a href="music-guide.html">Music guide</a><h1>One note, a sequence, or a polyphonic score</h1>
+<h2>Shared pitch format</h2><p>Use A–G plus an optional # or b and an octave: C4, F#5, Bb6. A numeric pitch is Hz, e.g. 440. R (or rest in the record parser) means silence. Supported sound frequencies are 20–4000 Hz; unsupported notes are rejected. Duration is 1–60000 milliseconds.</p>
+<pre>C4 250
+F#5,100
+R 100
+440 500</pre>
+<p><b>play note record</b> accepts one record from a String variable or null-terminated char array, including text read from SD or EEPROM. It starts a note and returns immediately; trigger it once when busy is false. Invalid input leaves the existing sound unchanged.</p>
+<p><a href="../index.html?url=examples/39-sd-melody.xml">Example 39</a> opens <a href="MELODY.TXT" download>MELODY.TXT</a>, reads one bounded line into a variable and passes it to play note record. The last-operation-OK test rejects failed/overlong reads. <a href="../index.html?url=examples/68-music-note-variable.xml">Example 68</a> demonstrates a text variable without an SD card. The older <b>play score → sequence · one voice</b> format also streams whitespace-separated note/duration pairs with a 32-character read budget.</p>
+<h2>Timed polyphonic records</h2><p><a href="../index.html?url=examples/69-sd-polyphonic-score.xml">Example 69</a> maps voices 1, 2 and 3 once to three named passive buzzers. Copy <a href="POLY.TXT" download>POLY.TXT</a> to the root of a FAT16/FAT32 card. Select a timed format in play score and call service score on every loop pass, without delays.</p>
+<pre>@score 1 absolute
+# time_ms, voice, pitch, duration_ms
+0,1,C4,250
+0,2,E4,500
+0,3,G4,500
+250,1,F#5,250
+500,2,R,100
+500,3,440,100</pre>
+<p><b>absolute</b>: time is milliseconds since start. Records must be in nondecreasing time order. Equal times start overlapping voices; a new event on the same voice replaces its previous note. A rest silences that voice for its duration. <b>delta</b>: time is the interval after the previous event, not after that note finishes. Zero adds another event at the same time. The header is optional (default absolute) and must precede notes.</p>
+<pre>@score 1 delta
+0,1,C4,500
+0,2,E4,500
+0,3,G4,500
+500,1,C5,250</pre>
+<p>Comma, tab and whitespace separators work. Each timed event occupies one line; LF and CRLF are accepted. Comments start with # outside a pitch token and may be arbitrarily long. Event/header lines are limited to 39 stored characters. Times and cumulative delta times must be 0–2147483647 ms. A final line without newline is valid. Missing voices, bad pitches, invalid durations and decreasing absolute times stop the score and make score OK false.</p>
+<h2>Timing and memory</h2><p>The parser reads at most 32 characters per service call and buffers one event, not a whole song. Call it frequently; SD access or a slow loop can delay note starts. Same-time records are dispatched across a few service calls if they exceed the read budget. With the AVR IRQ engine, Timer2 independently generates and expires three voices while Timer0/millis remains available. Hardware outputs generate the waveform autonomously; AVR/STM32 hardware note expiry is serviced from loop and can be delayed by blocking I/O. This is cooperative scheduling, not a hard real-time guarantee.</p>
+<p>The file format is independent of the selected buzzer engine. Map each voice to a named hardware or software buzzer, including mixed engines. The editor checks their pins and timers. On ATmega168/328, SD reserves D11/MOSI so hardware sound can use D9/Timer1; two additional software voices may share Timer2. That mixed SD variant is larger than the software-only example and needs ATmega328P rather than the standard ATmega168 bootloader space. See <a href="motion-guide.html">pulse engines and timing limits</a>.</p>
+<p>The player owns the card's one open file until EOF/stop/error. Do not use that same file for image creation/logging during playback. Playback remains active through the last sounding note/rest. Stop closes the file and stops the mapped voices. Timed playback works across millis rollover.</p>
+<p>On ATmega168 the SD cache and three voices leave little stack headroom; keep the example small. ATmega328P provides twice the RAM. Compilation and host simulations do not verify a particular card's latency or the wiring of physical buzzers.</p></html>

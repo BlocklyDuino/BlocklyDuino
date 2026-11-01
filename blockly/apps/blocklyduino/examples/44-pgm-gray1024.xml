@@ -1,0 +1,106 @@
+<xml>
+  <block type="st_sd" x="25" y="25">
+    <mutation uid="image_card" />
+    <field name="NAME">card</field>
+    <field name="CS">10</field>
+    <comment pinned="false" w="480" h="240">Purpose: Write a 1024-level grayscale PGM, preserving more than 8 bits per sample. Use a computer image viewer that supports PGM.
+Wiring: SPI SD card: CS D10; digital write: PIN D6; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.
+Try: Change a 0–1023 pixel value and open the PGM in a viewer that supports that precision.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="310" y="25">
+    <field name="TYPE">uint32_t</field>
+    <field name="VAR">levels</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">1024</field>
+      </block>
+    </value>
+    <comment pinned="false" w="340" h="170">Create levels as uint32_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+  </block>
+  <block type="arduino_setup_section" x="25" y="100">
+    <statement name="DO">
+      <block type="st_image_begin">
+        <field name="DEVICE">image_card</field>
+        <field name="FORMAT">PGM_GRAY</field>
+        <field name="MODE">STREAM</field>
+        <value name="PATH">
+          <block type="text">
+            <field name="TEXT">GRAY.PGM</field>
+          </block>
+        </value>
+        <value name="WIDTH">
+          <block type="math_number">
+            <field name="NUM">32</field>
+          </block>
+        </value>
+        <value name="HEIGHT">
+          <block type="math_number">
+            <field name="NUM">32</field>
+          </block>
+        </value>
+        <value name="LEVELS">
+          <block type="variables_get">
+            <field name="VAR">levels</field>
+          </block>
+        </value>
+        <value name="RESERVE">
+          <block type="logic_boolean">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_for">
+            <field name="VAR">pixel</field>
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">1023</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="st_image_append_gray">
+                <field name="DEVICE">image_card</field>
+                <value name="SHADE">
+                  <block type="variables_get">
+                    <field name="VAR">pixel</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="st_image_finish">
+                <field name="DEVICE">image_card</field>
+                <next>
+                  <block type="controls_if">
+                    <value name="IF0">
+                      <block type="st_image_ok">
+                        <field name="DEVICE">image_card</field>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="inout_digital_write">
+                        <field name="PIN">6</field>
+                        <field name="STAT">HIGH</field>
+                        <comment pinned="false" w="340" h="160">Drive this output LOW or HIGH. This controls the connected digital signal; it does not produce a variable analog voltage.</comment>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+            <comment pinned="false" w="340" h="170">Repeat the body with pixel taking each value from the start to the end, using the given step. Array indices start at zero.</comment>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

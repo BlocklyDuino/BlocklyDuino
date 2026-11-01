@@ -1,0 +1,63 @@
+<xml>
+  <block type="music_buzzer" x="25" y="25">
+    <mutation uid="one38" />
+    <field name="NAME">speaker</field>
+    <field name="PIN">4</field>
+    <field name="ENGINE">IRQ</field>
+    <comment pinned="false" w="480" h="240">Purpose: Define a reusable flash melody with rests and play it through a named buzzer.
+Wiring: Passive buzzer: PIN D4. Common GND; use each module’s required supply.
+Try: Edit one note or rest in the melody definition; play it again.</comment>
+  </block>
+  <block type="music_melody" x="25" y="140">
+    <mutation uid="sig38" />
+    <field name="NAME">signal</field>
+    <statement name="NOTES">
+      <block type="music_note_item">
+        <field name="PITCH">659</field>
+        <field name="MS">150</field>
+        <next>
+          <block type="music_note_item">
+            <field name="PITCH">0</field>
+            <field name="MS">100</field>
+            <next>
+              <block type="music_note_item">
+                <field name="PITCH">784</field>
+                <field name="MS">150</field>
+                <next>
+                  <block type="music_note_item">
+                    <field name="PITCH">0</field>
+                    <field name="MS">100</field>
+                    <next>
+                      <block type="music_note_item">
+                        <field name="PITCH">1047</field>
+                        <field name="MS">300</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="340" h="160">Describe a sequence of notes stored in program memory. Each item gives pitch and duration; R is a rest. Playback actions refer to this melody by name.</comment>
+  </block>
+  <block type="arduino_setup_section" x="380" y="25">
+    <statement name="DO">
+      <block type="music_play">
+        <field name="BUZZER">one38</field>
+        <field name="MELODY">sig38</field>
+        <field name="REPEAT">ONCE</field>
+        <comment pinned="false" w="340" h="160">Start the named melody on this buzzer. The call returns immediately; the melody service block must run frequently in loop to advance the sequence.</comment>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_loop_section" x="380" y="180">
+    <statement name="DO">
+      <block type="music_update">
+        <comment pinned="false" w="340" h="170">Advance any active flash melodies. This returns quickly; put it in loop so the next note starts on time.</comment>
+      </block>
+    </statement>
+  </block>
+</xml>

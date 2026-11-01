@@ -1,0 +1,23 @@
+// Event-level test with real Blockly block trees and movement; SVG geometry is stubbed because jsdom has no layout.
+const h=require('../project-device-tests/harness'),{assert,win,B,fs,out}=h;win.Blockly=B;
+win.eval(fs.readFileSync(out+'/blockly_helper.js','utf8'));win.eval(fs.readFileSync(out+'/ux_blocks.js','utf8'));win.eval(fs.readFileSync(out+'/editor_actions.js','utf8'));
+const api=win.BlocklyEditorActions;
+const w=h.load('<xml><block type="base_delay" id="a" x="20" y="40"><value name="DELAY_TIME"><block type="math_number" id="n"><field name="NUM">25</field></block></value><next><block type="base_delay" id="b"><value name="DELAY_TIME"><block type="math_number" id="m"><field name="NUM">50</field></block></value></block></next></block><block type="base_delay" id="c" x="200" y="40"/></xml>');
+const roots=w.getTopBlocks(false),child=roots[0].getChildren()[0],parent=child.getParent(),initialCode=h.generate(w);let changes=0,checks=0;function ok(value,label){assert(value,label);checks++;}
+win.selected='blocks';win.workspaceReady=true;win.ensureBlocksMode=()=>true;win.editorStatus=()=>{};B.hideChaff=()=>{};win.requestAnimationFrame=fn=>{fn();return 1;};
+w.addChangeListener=()=>{};w.fireChangeEvent=()=>changes++;
+const host=win.document.getElementById('content_blocks'),svg=win.document.createElementNS('http://www.w3.org/2000/svg','svg'),canvas=win.document.createElementNS('http://www.w3.org/2000/svg','g');host.appendChild(svg);svg.appendChild(canvas);
+svg.createSVGPoint=()=>({x:0,y:0,matrixTransform(){return {x:this.x,y:this.y};}});canvas.getScreenCTM=()=>({inverse(){return this;}});w.getCanvas=()=>canvas;
+for(const b of roots){const node=win.document.createElementNS('http://www.w3.org/2000/svg','g');canvas.appendChild(node);b.getSvgRoot=()=>node;node.getBoundingClientRect=()=>({left:b.xy_.x,top:b.xy_.y,right:b.xy_.x+110,bottom:b.xy_.y+80});}
+win.HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','');};win.HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');};
+api.install();ok(!!win.document.getElementById('new_project'),'Visible new-project action injected');win.document.getElementById('select_stacks').click();ok(win.document.getElementById('select_stacks').getAttribute('aria-pressed')==='true','Selection tool activates');
+function mouse(type,target,x,y,shiftKey=false){target.dispatchEvent(new win.MouseEvent(type,{bubbles:true,cancelable:true,button:0,clientX:x,clientY:y,shiftKey}));}
+function key(name,extra={}){win.document.body.dispatchEvent(new win.KeyboardEvent('keydown',Object.assign({key:name,bubbles:true,cancelable:true},extra)));}
+mouse('mousedown',svg,5,20);mouse('mousemove',win.document,350,180);mouse('mouseup',win.document,350,180);ok(api.getSelection().length===2,'Marquee selects two independent complete stacks');
+mouse('mousedown',roots[0].getSvgRoot(),25,45);mouse('mousemove',win.document,75,95);mouse('mouseup',win.document,75,95);ok(roots[0].xy_.x===70&&roots[1].xy_.x===250,'Drag translates both roots equally');ok(roots[0].xy_.y===90&&roots[1].xy_.y===90,'Group vertical positions preserved');ok(child.getParent()===parent,'Nested connections are untouched');ok(h.generate(w)===initialCode,'Group movement does not change generated code');
+win.document.getElementById('undo_group_move').click();ok(roots[0].xy_.x===20&&roots[1].xy_.x===200,'Undo group move restores both roots');
+mouse('mousedown',roots[0].getSvgRoot(),25,45,true);ok(api.getSelection().length===1&&api.getSelection()[0]===roots[1],'Shift-click toggles one stack out');key('ArrowRight',{shiftKey:true});ok(roots[1].xy_.x===210&&roots[0].xy_.x===20,'Shift+arrow nudges selection only by 10');
+mouse('mousedown',roots[1].getSvgRoot(),215,45);mouse('mousemove',win.document,245,75);key('Escape');ok(roots[1].xy_.x===210&&roots[1].xy_.y===40,'Escape cancels in-progress group drag');ok(api.getSelection().length===0,'Escape exits and clears selection');
+mouse('mousedown',svg,10,20,true);mouse('mousemove',win.document,350,180,true);mouse('mouseup',win.document,350,180,true);ok(api.getSelection().length===2,'Shift+drag enters select mode directly');
+key('Delete');ok(w.getAllBlocks().length===5,'Delete waits for explicit dialog action');const go=Array.from(win.document.querySelectorAll('#ea-confirm button')).find(b=>b.textContent==='Delete selected');go.click();ok(w.getAllBlocks().length===0,'Confirmed delete removes complete stacks');ok(Object.keys(win.localStorage).some(k=>k.startsWith('arduino_recovery_')),'Deletion saves recovery');ok(changes>=3,'Moves/deletion emit workspace change events');
+console.log('PASS',checks,'gesture assertions; real Blockly connections/code preserved.');

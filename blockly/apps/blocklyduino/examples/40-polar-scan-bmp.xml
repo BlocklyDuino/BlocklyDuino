@@ -1,0 +1,187 @@
+<xml>
+  <block type="st_sd" x="20" y="20">
+    <mutation uid="card40" />
+    <field name="NAME">card</field>
+    <field name="CS">10</field>
+    <comment pinned="false" w="480" h="240">Purpose: Convert a polar servo/distance scan into row-ordered BMP output on SD. Advanced example with tight AVR memory margins.
+Wiring: SPI SD card: CS D10; Servo: PIN D9; HC-SR04: TRIG D5, ECHO D6; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.
+Try: Change the pixel/intensity mapping after understanding the polar-to-raster conversion.</comment>
+  </block>
+  <block type="device_servo" x="300" y="20">
+    <mutation uid="pan40" />
+    <field name="NAME">pan</field>
+    <field name="PIN">9</field>
+    <field name="ENGINE">CORE</field>
+  </block>
+  <block type="device_ultrasonic" x="540" y="20">
+    <mutation uid="range40" />
+    <field name="NAME">range</field>
+    <field name="TRIG">5</field>
+    <field name="ECHO">6</field>
+  </block>
+  <block type="arduino_setup_section" x="20" y="170">
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="st_sd_ok">
+            <field name="DEVICE">card40</field>
+            <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="st_bmp_stream_create">
+            <field name="DEVICE">card40</field>
+            <field name="RESERVE">false</field>
+            <value name="PATH">
+              <block type="text">
+                <field name="TEXT">POLAR.BMP</field>
+              </block>
+            </value>
+            <value name="WIDTH">
+              <block type="math_number">
+                <field name="NUM">128</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number">
+                <field name="NUM">61</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if">
+                <value name="IF0">
+                  <block type="st_sd_ok">
+                    <field name="DEVICE">card40</field>
+                    <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_for">
+                    <field name="VAR">angle</field>
+                    <value name="FROM">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_number">
+                        <field name="NUM">180</field>
+                      </block>
+                    </value>
+                    <value name="BY">
+                      <block type="math_number">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="device_servo_write">
+                        <field name="DEVICE">pan40</field>
+                        <value name="ANGLE">
+                          <block type="variables_get">
+                            <field name="VAR">angle</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="base_delay">
+                            <value name="DELAY_TIME">
+                              <block type="math_number">
+                                <field name="NUM">80</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="arduino_typed_variable">
+                                <field name="TYPE">int</field>
+                                <field name="VAR">distance</field>
+                                <value name="VALUE">
+                                  <block type="device_ultrasonic_read">
+                                    <field name="DEVICE">range40</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_for">
+                                    <field name="VAR">radius</field>
+                                    <value name="FROM">
+                                      <block type="math_number">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="TO">
+                                      <block type="math_number">
+                                        <field name="NUM">127</field>
+                                      </block>
+                                    </value>
+                                    <value name="BY">
+                                      <block type="math_number">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <statement name="DO">
+                                      <block type="st_bmp_append_pixel">
+                                        <field name="DEVICE">card40</field>
+                                        <value name="WHITE">
+                                          <block type="logic_operation">
+                                            <field name="OP">AND</field>
+                                            <value name="A">
+                                              <block type="logic_compare">
+                                                <field name="OP">GT</field>
+                                                <value name="A">
+                                                  <block type="variables_get">
+                                                    <field name="VAR">distance</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="logic_compare">
+                                                <field name="OP">EQ</field>
+                                                <value name="A">
+                                                  <block type="variables_get">
+                                                    <field name="VAR">radius</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="variables_get">
+                                                    <field name="VAR">distance</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <comment pinned="false" w="340" h="160">Append the next pixel in scan order. The image writer packs the file format as it streams, so the complete image need not fit in RAM.</comment>
+                                      </block>
+                                    </statement>
+                                    <comment pinned="false" w="340" h="170">Repeat the body with radius taking each value from the start to the end, using the given step. Array indices start at zero.</comment>
+                                  </block>
+                                </next>
+                                <comment pinned="false" w="340" h="170">Create distance as int. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+                              </block>
+                            </next>
+                            <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+                          </block>
+                        </next>
+                        <comment pinned="false" w="340" h="160">Send a target position to the named servo. The library keeps generating pulses; reaching the target takes mechanical time. Position mode uses degrees, pulse mode uses microseconds.</comment>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="st_bmp_stream_finish">
+                        <field name="DEVICE">card40</field>
+                        <comment pinned="false" w="340" h="160">Finish and close the image file after all expected pixels. An incomplete scan is reported as an error rather than a complete image.</comment>
+                      </block>
+                    </next>
+                    <comment pinned="false" w="340" h="170">Repeat the body with angle taking each value from the start to the end, using the given step. Array indices start at zero.</comment>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

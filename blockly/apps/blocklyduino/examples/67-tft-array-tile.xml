@@ -1,0 +1,130 @@
+<xml>
+  <block type="device_tft" x="25" y="25">
+    <mutation uid="tft67" />
+    <field name="NAME">tft</field>
+    <field name="CS">10</field>
+    <field name="DC">9</field>
+    <field name="RESET">8</field>
+    <field name="TAB">INITR_BLACKTAB</field>
+    <field name="ROTATION">0</field>
+    <comment pinned="false" w="480" h="240">Purpose: Prepare a small RGB565 colour tile and send it to an ST7735 TFT in one SPI transaction.
+Wiring: ST7735 SPI TFT: CS D10, DC D9, RESET D8; SPI MOSI D11, SCK D13; MISO is unused; CS/DC/RESET as listed. Common GND; use each module’s required supply.
+Try: Change RGB565 tile values or its target position without allocating a full-screen buffer.</comment>
+  </block>
+  <block type="arduino_array_declare" x="385" y="25">
+    <field name="VAR">frame</field>
+    <field name="TYPE">uint16_t</field>
+    <field name="SIZE">8,8</field>
+    <comment pinned="false" w="340" h="160">The buffer is allocated once. Shape 8,8 is rows,columns; cells initially contain zero. Modify cells in RAM, then send the complete buffer.</comment>
+  </block>
+  <block type="arduino_setup_section" x="25" y="180">
+    <statement name="DO">
+      <block type="controls_for">
+        <field name="VAR">row</field>
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">7</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="controls_for">
+            <field name="VAR">column</field>
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">7</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="arduino_array_set">
+                <mutation rank="2" />
+                <field name="VAR">frame</field>
+                <value name="INDEX">
+                  <block type="variables_get">
+                    <field name="VAR">row</field>
+                  </block>
+                </value>
+                <value name="INDEX2">
+                  <block type="variables_get">
+                    <field name="VAR">column</field>
+                  </block>
+                </value>
+                <value name="VALUE">
+                  <block type="math_arithmetic">
+                    <field name="OP">ADD</field>
+                    <value name="A">
+                      <block type="math_arithmetic">
+                        <field name="OP">MULTIPLY</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">row</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">2048</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_arithmetic">
+                        <field name="OP">MULTIPLY</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">column</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">64</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <comment pinned="false" w="340" h="160">Replace one array element at the given indices. Indices start at zero and must stay below each declared dimension. Other elements keep their previous values.</comment>
+              </block>
+            </statement>
+            <comment pinned="false" w="340" h="160">Visit indices 0 through 7 of this dimension.</comment>
+          </block>
+        </statement>
+        <comment pinned="false" w="340" h="160">Visit indices 0 through 7 of this dimension.</comment>
+        <next>
+          <block type="device_tft_buffer">
+            <field name="DEVICE">tft67</field>
+            <field name="LAYOUT">YX</field>
+            <value name="BUFFER">
+              <block type="arduino_array_ref">
+                <field name="VAR">frame</field>
+                <comment pinned="false" w="340" h="160">Pass the entire declared array to the next operation, without making another framebuffer. The receiving block determines the pixel/character format and layout.</comment>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="160">Only now send the prepared array. The loop above changes memory, not the physical output. This action reuses the named device and its wiring.</comment>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="340" h="160">Prepare an 8×8 RGB565 tile (128 bytes), then send it once. To scale up, change the array shape and loop limits together. A full 128×160 frame needs 40960 bytes and a larger board such as Pico.</comment>
+  </block>
+</xml>

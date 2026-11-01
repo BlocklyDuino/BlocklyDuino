@@ -1,0 +1,8 @@
+const assert=require('node:assert/strict'),{Image,validate}=require('../../blockly/apps/blocklyduino/serial_image.js'),P=require('../../blockly/apps/blocklyduino/serial_protocol.js');
+let m=new Image();assert.equal(m.consume('ordinary:12'),false);assert.throws(()=>m.consume('@pixel 0,0,10'),/header/);
+const c={version:1,id:'test',width:4,height:3,mode:'gray',max:1023};m.configure(c);m.consume('@pixel 1,2,1023');assert.deepEqual(Array.from(m.pixels.slice(36,40)),[255,255,255,255]);m.consume('@pixel 0,0,512');assert.equal(m.pixels[0],128);assert.equal(m.pixels[36],255);m.configure(c);assert.equal(m.pixels[0],128);const before=m.pixels.slice();
+for(const line of ['@pixel 4,0,0','@pixel -1,0,0','@pixel .5,0,0','@pixel 1,1,1024','@pixel 1,1,','@pixel 0,0,NaN','@pixel 0,0,Infinity','@image {}','@pixel 0,0,1,2']){assert.throws(()=>m.consume(line));assert.deepEqual(m.pixels,before);}
+assert.throws(()=>m.configure({...c,width:16777216,height:2}));assert.equal(m.config.width,4);
+let errors=[];const lines=new P.Lines(line=>{try{m.consume(line);}catch(e){errors.push(e.message);}});lines.push('@pix',0);lines.push('el 2,0,100\r',1);lines.push('\n@pixel 3,0,200\n',2);assert.equal(m.updates,4);assert.equal(errors.length,0);
+m.consume('@image-clear');assert(m.pixels.every(n=>n===0));m.configure({...c,mode:'rgb',max:65535});m.consume('@pixel 0,0,65535,32768,0');assert.deepEqual(Array.from(m.pixels.slice(0,4)),[255,128,0,255]);assert.equal(validate({...c,max:1023.5}).max,1023.5);
+console.log('PASS image protocol: framing, gray/RGB scaling, arbitrary update order, repeat-header retention, strict atomic validation and memory bounds');

@@ -1,0 +1,88 @@
+<xml>
+  <block type="inout_digital_write" x="30" y="30">
+    <field name="PIN">2</field>
+    <field name="STAT">HIGH</field>
+    <next>
+      <block type="inout_digital_write">
+        <field name="PIN">3</field>
+        <field name="STAT">LOW</field>
+        <next>
+          <block type="inout_digital_write">
+            <field name="PIN">4</field>
+            <field name="STAT">LOW</field>
+            <next>
+              <block type="base_delay">
+                <value name="DELAY_TIME">
+                  <block type="math_number">
+                    <field name="NUM">2000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="inout_digital_write">
+                    <field name="PIN">2</field>
+                    <field name="STAT">LOW</field>
+                    <next>
+                      <block type="inout_digital_write">
+                        <field name="PIN">3</field>
+                        <field name="STAT">HIGH</field>
+                        <next>
+                          <block type="base_delay">
+                            <value name="DELAY_TIME">
+                              <block type="math_number">
+                                <field name="NUM">700</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="inout_digital_write">
+                                <field name="PIN">3</field>
+                                <field name="STAT">LOW</field>
+                                <next>
+                                  <block type="inout_digital_write">
+                                    <field name="PIN">4</field>
+                                    <field name="STAT">HIGH</field>
+                                    <next>
+                                      <block type="base_delay">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number">
+                                            <field name="NUM">2000</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="inout_digital_write">
+                                            <field name="PIN">4</field>
+                                            <field name="STAT">LOW</field>
+                                            <comment pinned="false" w="340" h="160">Drive this output LOW or HIGH. This controls the connected digital signal; it does not produce a variable analog voltage.</comment>
+                                          </block>
+                                        </next>
+                                        <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+                                      </block>
+                                    </next>
+                                    <comment pinned="false" w="340" h="160">Drive this output LOW or HIGH. This controls the connected digital signal; it does not produce a variable analog voltage.</comment>
+                                  </block>
+                                </next>
+                                <comment pinned="false" w="340" h="160">Drive this output LOW or HIGH. This controls the connected digital signal; it does not produce a variable analog voltage.</comment>
+                              </block>
+                            </next>
+                            <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+                          </block>
+                        </next>
+                        <comment pinned="false" w="340" h="160">Drive this output LOW or HIGH. This controls the connected digital signal; it does not produce a variable analog voltage.</comment>
+                      </block>
+                    </next>
+                    <comment pinned="false" w="340" h="160">Drive this output LOW or HIGH. This controls the connected digital signal; it does not produce a variable analog voltage.</comment>
+                  </block>
+                </next>
+                <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+              </block>
+            </next>
+            <comment pinned="false" w="340" h="160">Drive this output LOW or HIGH. This controls the connected digital signal; it does not produce a variable analog voltage.</comment>
+          </block>
+        </next>
+        <comment pinned="false" w="340" h="160">Drive this output LOW or HIGH. This controls the connected digital signal; it does not produce a variable analog voltage.</comment>
+      </block>
+    </next>
+    <comment pinned="false" w="480" h="240">Purpose: Run a simple red/amber/green traffic-light sequence. Each wait makes the next visible phase last longer.
+Wiring: Red LED D2, amber D3, green D4; each LED needs its own series resistor to GND.
+Try: Change the red, amber and green wait times separately.</comment>
+  </block>
+</xml>

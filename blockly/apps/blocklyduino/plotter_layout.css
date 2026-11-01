@@ -1,0 +1,59 @@
+/* Fit is the default. Scroll is an explicit, remembered alternative. */
+.plotter-page[data-plotter-layout=fit]{height:100dvh;display:flex;flex-direction:column;overflow:hidden;gap:5px;padding:7px 10px}
+.plotter-page[data-plotter-layout=fit]>header,.plotter-page[data-plotter-layout=fit]>.connection-strip,.plotter-page[data-plotter-layout=fit]>.live-tools{flex:none;margin:0}
+.plotter-page[data-plotter-layout=fit]>header{padding:5px 10px;min-height:35px}
+.plotter-page[data-plotter-layout=fit] .connection-strip{padding:5px 9px}
+.plotter-page[data-plotter-layout=fit] .connection-strip button,.plotter-page[data-plotter-layout=fit] .connection-strip input,.plotter-page[data-plotter-layout=fit] .connection-strip select,.plotter-page[data-plotter-layout=fit]>.live-tools button{padding:4px 7px}
+.plotter-page[data-plotter-layout=fit] #plotter-context{flex:0 1 auto;min-height:0;max-height:38dvh;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.plotter-page[data-plotter-layout=fit] #plotter-context>.saved-settings{margin:0 0 4px}
+.plotter-page[data-plotter-layout=fit] #plotter-context .settings-body{max-height:23dvh}
+.plotter-page[data-plotter-layout=fit] #plotter-context .summary{margin:3px 0;align-items:center}
+.plotter-page[data-plotter-layout=fit] #dashboard-description{font-size:12px;line-height:1.35;margin:3px 0 5px}
+.plotter-page[data-plotter-layout=fit] .board-message{margin:5px 0;padding:6px 10px;font-size:13px}
+.plotter-page[data-plotter-layout=fit] #board-message-text{max-height:15dvh;overflow:auto;overscroll-behavior:contain}
+.plotter-page[data-plotter-layout=fit] .board-controls{margin:5px 0;padding:7px 10px}
+.plotter-page[data-plotter-layout=fit] .board-controls h3{margin:0 0 5px}
+.plotter-page[data-plotter-layout=fit] #control-list{gap:6px 14px}
+.plotter-page[data-plotter-layout=fit] .program-control{flex-basis:180px;min-width:140px}
+.plotter-page[data-plotter-layout=fit] .program-control .hint{margin:2px 0 0;font-size:11px}
+.plotter-page[data-plotter-layout=fit] .control-input-row input,.plotter-page[data-plotter-layout=fit] .control-input-row select,.plotter-page[data-plotter-layout=fit] .control-input-row button{padding:4px 7px}
+.plotter-page[data-plotter-layout=fit] #notice{margin:3px 0;font-size:11px;padding:4px 8px}
+.plotter-page[data-plotter-layout=fit] #dashboard{flex:1 1 0;min-height:0;height:auto;overflow:hidden;gap:8px;grid-auto-rows:minmax(0,1fr);align-content:stretch}
+.plotter-page[data-plotter-layout=fit] #dashboard>.widget{min-height:0;min-width:0;overflow:hidden;padding:8px;display:flex;flex-direction:column;gap:3px;border-radius:8px}
+.plotter-page[data-plotter-layout=fit] .widget h3{flex:none;margin:0;font-size:13px;line-height:1.2;max-height:2.4em;overflow:auto}
+.plotter-page[data-plotter-layout=fit] .widget canvas{flex:1 1 0;height:0;min-height:0;max-height:none;width:100%;object-fit:fill}
+.plotter-page[data-plotter-layout=fit] .widget .legend{flex:none;margin:0;gap:3px 8px;font-size:11px;max-height:30px;overflow:auto}
+.plotter-page[data-plotter-layout=fit] .widget-gauge .gauge-values{flex:none;gap:7px}
+.plotter-page[data-plotter-layout=fit] .gauge-values>.instrument-reading{min-width:60px}
+.plotter-page[data-plotter-layout=fit] .instrument-reading .value{font-size:clamp(14px,1.6vw,24px);line-height:1.1}
+.plotter-page[data-plotter-layout=fit] .instrument-reading .unit{font-size:11px}
+.plotter-page[data-plotter-layout=fit] .reading-label,.plotter-page[data-plotter-layout=fit] .subvalue,.plotter-page[data-plotter-layout=fit] .range{font-size:10px;line-height:1.2}
+.plotter-page[data-plotter-layout=fit] .bar-group{flex:1 1 0;min-height:0;margin:1px 0 0;gap:8px}
+.plotter-page[data-plotter-layout=fit] .bar-group .bar-track{flex:1 1 0;min-height:0;height:auto;margin:5px 0 3px}
+.plotter-page[data-plotter-layout=fit] .bar-group .subvalue{min-height:0}
+.plotter-page[data-plotter-layout=fit] #dashboard>.widget-raw{overflow:auto}
+.plotter-page[data-plotter-layout=fit] .raw-table{font-size:11px}.plotter-page[data-plotter-layout=fit] .raw-table td,.plotter-page[data-plotter-layout=fit] .raw-table th{padding:3px 5px}
+.plotter-page[data-plotter-layout=fit] .inline-image-frame{flex:1 1 0;min-height:0}
+.plotter-page[data-plotter-layout=fit] .inline-image-frame canvas{flex:none;width:100%;height:100%;object-fit:contain;min-height:0}
+.plotter-page[data-plotter-layout=fit] .image-tools{margin:0;gap:5px;flex:none}.plotter-page[data-plotter-layout=fit] .image-tools button{padding:3px 6px;font-size:11px}.plotter-page[data-plotter-layout=fit] .image-status{margin:0;font-size:10px;flex:none}
+.plotter-page[data-plotter-layout=fit] #dashboard>.empty{overflow:auto;padding:14px;grid-column:1/-1;min-height:0}
+.plotter-page[data-plotter-layout=fit] #plotter-diagnostics{flex:none;max-height:24dvh;overflow:auto;margin:0;padding:3px 8px;font-size:11px}
+.plotter-page[data-plotter-layout=fit] #scan-panel:not([hidden]){flex:1 1 0;min-height:0;display:flex;flex-direction:column;overflow:hidden;gap:4px}
+.plotter-page[data-plotter-layout=fit] #scan-panel .scan-frame{flex:1 1 0;height:auto;min-height:0}
+.plotter-page[data-plotter-layout=scroll] #plotter-context{overflow:visible}
+@media(max-height:550px){.plotter-page[data-plotter-layout=fit] #plotter-context{max-height:28dvh}.plotter-page[data-plotter-layout=fit]>header p{display:none}.plotter-page[data-plotter-layout=fit] #dashboard-meta{display:none}}
+.plotter-page[data-plotter-layout=fit] .connection-strip .serial-connection{padding:0;margin:0;border:0;border-radius:0}
+.plotter-page[data-plotter-layout=fit] #dashboard-meta{display:none}
+.plotter-page[data-plotter-layout=fit] .widget h3{overflow:hidden}
+.plotter-page #notice:empty{display:none}
+.plotter-page[data-plotter-layout=fit][data-context-only=true] #plotter-context{flex:1 1 0;max-height:none}
+.plotter-page[data-plotter-layout=fit][data-context-only=true] #dashboard{display:none}
+.plotter-page[data-plotter-layout=fit][data-context-only=true] #board-message-text{max-height:none}
+
+.plotter-page[data-plotter-layout=fit]>header>div{display:flex;align-items:center;flex-wrap:wrap;gap:3px 16px}
+.plotter-page[data-plotter-layout=fit] .summary h2{margin:2px 0}
+.plotter-page[data-plotter-layout=fit] .saved-settings>summary{padding:5px 9px}
+.plotter-page[data-plotter-layout=fit] .board-message{display:flex;align-items:baseline;gap:12px}
+.plotter-page[data-plotter-layout=fit] .board-message[hidden]{display:none}
+.plotter-page[data-plotter-layout=fit] .board-message .message-label{flex:none;margin:0}
+.plotter-page[data-plotter-layout=fit] #board-message-text{flex:1;min-width:0;margin:0}

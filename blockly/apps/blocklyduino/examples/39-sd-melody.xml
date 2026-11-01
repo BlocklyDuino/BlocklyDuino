@@ -1,0 +1,96 @@
+<xml>
+  <block type="st_sd" x="25" y="25">
+    <mutation uid="card39" />
+    <field name="NAME">card</field>
+    <field name="CS">10</field>
+    <comment pinned="false" w="480" h="240">Purpose: Read text notes from a known SD file and pass each note record to the buzzer. The line parser avoids loading the whole tune.
+Wiring: SPI SD card: CS D10; Passive buzzer: PIN D4; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.
+Try: Edit the note file on the SD card, using the note syntax from the SD music guide.</comment>
+  </block>
+  <block type="music_buzzer" x="495" y="25">
+    <mutation uid="speaker39" />
+    <field name="NAME">speaker</field>
+    <field name="PIN">4</field>
+    <comment pinned="false" w="340" h="160">Declare one passive buzzer and its output pin. Use its name in later blocks. The AVR engine generates sound with Timer2 and supports up to three independent voices.</comment>
+    <field name="ENGINE">IRQ</field>
+  </block>
+  <block type="arduino_setup_section" x="25" y="215">
+    <statement name="DO">
+      <block type="st_sd_open">
+        <field name="DEVICE">card39</field>
+        <field name="MODE">false</field>
+        <value name="PATH">
+          <block type="text">
+            <field name="TEXT">MELODY.TXT</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <comment pinned="false" w="340" h="160">Put MELODY.TXT in the SD root. Each line is a note and milliseconds, e.g. C4 250 or R 100. Open once, read only. Existing files are never overwritten.</comment>
+  </block>
+  <block type="arduino_loop_section" x="495" y="215">
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="logic_operation">
+            <field name="OP">AND</field>
+            <value name="A">
+              <block type="st_sd_ok">
+                <field name="DEVICE">card39</field>
+                <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+              </block>
+            </value>
+            <value name="B">
+              <block type="logic_negate">
+                <value name="BOOL">
+                  <block type="music_busy">
+                    <field name="DEVICE">speaker39</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="arduino_typed_variable">
+            <field name="VAR">record</field>
+            <field name="TYPE">String</field>
+            <value name="VALUE">
+              <block type="st_sd_read_line">
+                <field name="DEVICE">card39</field>
+                <value name="LIMIT">
+                  <block type="math_number">
+                    <field name="NUM">32</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="160">Read just one bounded line into a local variable. It can also come from EEPROM read text. Do not read another note until busy is false.</comment>
+            <next>
+              <block type="controls_if">
+                <value name="IF0">
+                  <block type="st_sd_ok">
+                    <field name="DEVICE">card39</field>
+                    <comment pinned="false" w="340" h="160">True when the most recent operation on this card succeeded. Check it before using data from a read or continuing a file write.</comment>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="music_note_record">
+                    <field name="DEVICE">speaker39</field>
+                    <value name="RECORD">
+                      <block type="variables_get">
+                        <field name="VAR">record</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Pass the record unchanged, e.g. F#5 250. Playback starts and returns immediately. The next loop waits for busy to become false. Blank/comment-only lines produce no sound.</comment>
+                  </block>
+                </statement>
+                <comment pinned="false" w="340" h="160">Play only a complete successfully read record. EOF or an overlong line makes OK false, so the loop stops reading.</comment>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

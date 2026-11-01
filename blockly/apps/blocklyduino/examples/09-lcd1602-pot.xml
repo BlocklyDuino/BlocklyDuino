@@ -1,0 +1,36 @@
+<xml>
+  <block type="lcd1602_i2c_print" x="30" y="30">
+    <field name="ADDR">0x27</field>
+    <field name="ROW">0</field>
+    <value name="CONTENT">
+      <block type="text">
+        <field name="TEXT">A0 value:</field>
+      </block>
+    </value>
+    <next>
+      <block type="lcd1602_i2c_print">
+        <field name="ADDR">0x27</field>
+        <field name="ROW">1</field>
+        <value name="CONTENT">
+          <block type="inout_analog_read">
+            <field name="PIN">A0</field>
+            <comment pinned="false" w="340" h="160">Measure the voltage on this analog input. On ATmega168/328, the ADC returns 0–1023; other boards may use a different ADC range. A potentiometer wiper or analog sensor connects here.</comment>
+          </block>
+        </value>
+        <next>
+          <block type="base_delay">
+            <value name="DELAY_TIME">
+              <block type="math_number">
+                <field name="NUM">250</field>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+          </block>
+        </next>
+      </block>
+    </next>
+    <comment pinned="false" w="480" h="240">Purpose: Read a potentiometer and print the value on a 16×2 I2C LCD. Learn how repeated prints update a text display.
+Wiring: HD44780 I2C LCD: address 0x27; analog read: PIN A0; I2C SDA A4, SCL A5; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.
+Try: Turn the potentiometer. Edit the label and move its output column.</comment>
+  </block>
+</xml>

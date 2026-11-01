@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "pot-dashboard",
+  "title": "Turn the potentiometer",
+  "history": 200,
+  "fields": [
+    {
+      "id": "adc",
+      "label": "ADC",
+      "min": 0,
+      "max": 1023
+    },
+    {
+      "id": "volts",
+      "label": "Voltage",
+      "unit": "V",
+      "min": 0,
+      "max": 5,
+      "derive": {
+        "op": "formula",
+        "expr": "adc * 5 / 1023"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "type": "gauge",
+      "field": "volts"
+    },
+    {
+      "type": "bar",
+      "field": "adc"
+    },
+    {
+      "type": "line",
+      "fields": [
+        "adc"
+      ]
+    },
+    {
+      "type": "raw",
+      "fields": [
+        "adc",
+        "volts"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+<xml>
+  <block type="device_stepper_driver" x="25" y="25">
+    <mutation uid="motor35" />
+    <field name="NAME">motor</field>
+    <field name="STEP">3</field>
+    <field name="DIR">4</field>
+    <field name="SPEED">600</field>
+    <field name="ACCEL">200</field>
+    <field name="ENGINE">LOOP</field>
+    <comment pinned="false" w="480" h="240">Purpose: Declare a STEP/DIR device once, request target positions and keep servicing the loop engine until each target is reached.
+Wiring: STEP/DIR driver: STEP D3, DIR D4. Common GND; use each module’s required supply.
+Try: Change the two position targets or the acceleration; call run on every loop pass.</comment>
+  </block>
+  <block type="arduino_setup_section" x="25" y="170">
+    <statement name="DO">
+      <block type="device_stepper_move">
+        <field name="DEVICE">motor35</field>
+        <field name="MODE">TO</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">800</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_loop_section" x="420" y="170">
+    <statement name="DO">
+      <block type="device_stepper_run">
+        <field name="DEVICE">motor35</field>
+        <next>
+          <block type="controls_if">
+            <value name="IF0">
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="device_stepper_position">
+                    <field name="DEVICE">motor35</field>
+                    <field name="READ">DISTANCE</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="device_stepper_move">
+                <field name="DEVICE">motor35</field>
+                <field name="MODE">TO</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="device_stepper_position">
+                        <field name="DEVICE">motor35</field>
+                        <field name="READ">POSITION</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+        <comment pinned="false" w="340" h="170">Service the motor on every loop pass. This emits a step only when due and returns quickly. Long delays would interrupt smooth movement.</comment>
+      </block>
+    </statement>
+  </block>
+</xml>

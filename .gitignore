@@ -13,3 +13,10 @@ ino_project
 # Python byte-compiled / optimized
 __pycache__/
 *.py[cod]
+
+# Local extension development and private runtime data
+/node_modules/
+/.venv/
+/.test-build/
+/.runtime/
+*.log

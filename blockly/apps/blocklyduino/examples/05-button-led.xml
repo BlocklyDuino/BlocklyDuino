@@ -1,0 +1,35 @@
+<xml>
+  <block type="controls_if" x="30" y="30">
+    <mutation else="1" />
+    <value name="IF0">
+      <block type="inout_digital_read">
+        <field name="PIN">2</field>
+      </block>
+    </value>
+    <statement name="DO0">
+      <block type="inout_buildin_led">
+        <field name="STAT">HIGH</field>
+        <comment pinned="false" w="340" h="160">Change the built-in LED state so the program has a visible indication of this step.</comment>
+      </block>
+    </statement>
+    <statement name="ELSE">
+      <block type="inout_buildin_led">
+        <field name="STAT">LOW</field>
+        <comment pinned="false" w="340" h="160">Change the built-in LED state so the program has a visible indication of this step.</comment>
+      </block>
+    </statement>
+    <next>
+      <block type="base_delay">
+        <value name="DELAY_TIME">
+          <block type="math_number">
+            <field name="NUM">20</field>
+          </block>
+        </value>
+        <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+      </block>
+    </next>
+    <comment pinned="false" w="480" h="240">Purpose: Read a button and change an LED. The input needs the pull-up or wiring described in the blocks.
+Wiring: Button between D2 and GND; internal pull-up is enabled. The output is the built-in D13 LED.
+Try: Swap the HIGH/LOW actions to make the LED light when the button is released.</comment>
+  </block>
+</xml>

@@ -1,0 +1,57 @@
+<xml>
+  <block type="st_sd" x="25" y="25">
+    <mutation uid="card69" />
+    <field name="NAME">card</field>
+    <field name="CS">10</field>
+    <comment pinned="false" w="480" h="240">Purpose: Play a timed, polyphonic score from SD without loading it all into RAM. Three IRQ voices and the SD cache leave a small stack margin.
+Wiring: SPI SD card: CS D10; Passive buzzer: PIN D4; Passive buzzer: PIN D5; Passive buzzer: PIN D6; SPI MOSI D11, MISO D12, SCK D13; CS as listed. Common GND; use each module’s required supply.
+Try: Edit one voice’s events in the SD score. This example has little free RAM; keep the buffer sizes unchanged.</comment>
+  </block>
+  <block type="music_buzzer" x="385" y="25">
+    <mutation uid="lead69" />
+    <field name="NAME">lead</field>
+    <field name="PIN">4</field>
+    <comment pinned="false" w="340" h="160">Declare one passive buzzer and its output pin. Use its name in later blocks. The AVR engine generates sound with Timer2 and supports up to three independent voices.</comment>
+    <field name="ENGINE">IRQ</field>
+  </block>
+  <block type="music_buzzer" x="745" y="25">
+    <mutation uid="bass69" />
+    <field name="NAME">bass</field>
+    <field name="PIN">5</field>
+    <comment pinned="false" w="340" h="160">Declare one passive buzzer and its output pin. Use its name in later blocks. The AVR engine generates sound with Timer2 and supports up to three independent voices.</comment>
+    <field name="ENGINE">IRQ</field>
+  </block>
+  <block type="music_buzzer" x="25" y="165">
+    <mutation uid="beat69" />
+    <field name="NAME">beat</field>
+    <field name="PIN">6</field>
+    <comment pinned="false" w="340" h="160">Declare one passive buzzer and its output pin. Use its name in later blocks. The AVR engine generates sound with Timer2 and supports up to three independent voices.</comment>
+    <field name="ENGINE">IRQ</field>
+  </block>
+  <block type="arduino_setup_section" x="25" y="320">
+    <statement name="DO">
+      <block type="sd_music_start">
+        <field name="DEVICE">card69</field>
+        <field name="BUZZER">lead69</field>
+        <field name="VOICES">3</field>
+        <field name="VOICE2">bass69</field>
+        <field name="VOICE3">beat69</field>
+        <value name="PATH">
+          <block type="text">
+            <field name="TEXT">POLY.TXT</field>
+          </block>
+        </value>
+        <comment pinned="false" w="340" h="160">Map file voices 1, 2 and 3 to lead, bass and beat. Copy the supplied POLY.TXT onto the SD root. Same-time events overlap. The file header chooses absolute or delta milliseconds.</comment>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_loop_section" x="25" y="500">
+    <statement name="DO">
+      <block type="sd_music_update">
+        <field name="DEVICE">card69</field>
+        <field name="BUZZER">lead69</field>
+        <comment pinned="false" w="340" h="160">Keep servicing the file on every loop pass, without delays. At most 32 characters are read per call. Only one upcoming event is buffered; Timer2 drives all three buzzer outputs independently.</comment>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,775 @@
+<xml>
+  <block type="serial_config" x="30" y="30">
+    <field name="BAUD">115200</field>
+    <comment pinned="false" w="480" h="240">Purpose: Write a register pointer and read data from an I2C device using generic transactions. Match the address/register to the attached chip.
+Wiring: Custom I2C device: address 0x68; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.
+Try: Set the actual I2C address and register for your chip before interpreting its bytes.</comment>
+  </block>
+  <block type="ll_i2c_device" x="510" y="30">
+    <mutation uid="raw_sensor" />
+    <field name="NAME">sensor</field>
+    <field name="ADDR">0x68</field>
+  </block>
+  <block type="arduino_setup_section" x="990" y="30">
+    <statement name="DO">
+      <block type="procedures_callnoreturn">
+        <mutation name="announcePlotter" />
+        <field name="NAME">announcePlotter</field>
+        <next>
+          <block type="controls_if">
+            <value name="IF0">
+              <block type="ll_i2c_config">
+                <value name="HZ">
+                  <block type="math_number">
+                    <field name="NUM">100000</field>
+                  </block>
+                </value>
+                <value name="TIMEOUT">
+                  <block type="math_number">
+                    <field name="NUM">25000</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="serial_print">
+                <value name="CONTENT">
+                  <block type="text">
+                    <field name="TEXT">@msg I2C ready: WHO_AM_I register read</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_loop_section" x="30" y="290">
+    <statement name="DO">
+      <block type="procedures_callnoreturn">
+        <mutation name="readPlotterCommand" />
+        <field name="NAME">readPlotterCommand</field>
+        <next>
+          <block type="controls_if">
+            <value name="IF0">
+              <block type="variables_get">
+                <field name="VAR">streaming</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="ll_i2c_start">
+                <field name="DEVICE">raw_sensor</field>
+                <next>
+                  <block type="ll_i2c_write">
+                    <field name="DEVICE">raw_sensor</field>
+                    <value name="VALUE">
+                      <block type="math_number">
+                        <field name="NUM">117</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="arduino_typed_variable">
+                        <field name="TYPE">uint8_t</field>
+                        <field name="VAR">status</field>
+                        <value name="VALUE">
+                          <block type="ll_i2c_end">
+                            <field name="DEVICE">raw_sensor</field>
+                            <value name="STOP">
+                              <block type="logic_boolean">
+                                <field name="BOOL">FALSE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if">
+                            <value name="IF0">
+                              <block type="logic_compare">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get">
+                                    <field name="VAR">status</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="arduino_typed_variable">
+                                <field name="TYPE">uint8_t</field>
+                                <field name="VAR">received</field>
+                                <value name="VALUE">
+                                  <block type="ll_i2c_request">
+                                    <field name="DEVICE">raw_sensor</field>
+                                    <value name="COUNT">
+                                      <block type="math_number">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <value name="STOP">
+                                      <block type="logic_boolean">
+                                        <field name="BOOL">TRUE</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if">
+                                    <value name="IF0">
+                                      <block type="logic_compare">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get">
+                                            <field name="VAR">received</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="ll_serial_number">
+                                        <field name="BASE">HEX</field>
+                                        <field name="END">println</field>
+                                        <value name="VALUE">
+                                          <block type="ll_i2c_read">
+                                            <field name="DEVICE">raw_sensor</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                                <comment pinned="false" w="340" h="170">Create received as uint8_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="serial_print">
+                                <value name="CONTENT">
+                                  <block type="text">
+                                    <field name="TEXT">@msg I2C status (0=OK):</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="ll_serial_number">
+                                    <field name="BASE">DEC</field>
+                                    <field name="END">println</field>
+                                    <value name="VALUE">
+                                      <block type="variables_get">
+                                        <field name="VAR">status</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="base_delay">
+                                        <value name="DELAY_TIME">
+                                          <block type="math_number">
+                                            <field name="NUM">1000</field>
+                                          </block>
+                                        </value>
+                                        <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                        <comment pinned="false" w="340" h="170">Create status as uint8_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_typed_variable" x="510" y="290">
+    <field name="VAR">streaming</field>
+    <field name="TYPE">bool</field>
+    <value name="VALUE">
+      <block type="logic_boolean">
+        <field name="BOOL">TRUE</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_array_declare" x="990" y="290">
+    <field name="VAR">commandBytes</field>
+    <field name="TYPE">byte</field>
+    <field name="SIZE">6</field>
+    <comment pinned="false" w="390" h="170">Fixed incoming line buffer, including room for a terminator. Charts, images and the JSON header stay on the computer/Flash, not in this array.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="30" y="550">
+    <field name="VAR">commandLength</field>
+    <field name="TYPE">uint8_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_typed_variable" x="510" y="550">
+    <field name="VAR">commandOverflow</field>
+    <field name="TYPE">bool</field>
+    <value name="VALUE">
+      <block type="logic_boolean">
+        <field name="BOOL">FALSE</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" collapsed="true" x="990" y="550">
+    <field name="NAME">readPlotterCommand</field>
+    <statement name="STACK">
+      <block type="controls_whileUntil">
+        <field name="MODE">WHILE</field>
+        <value name="BOOL">
+          <block type="logic_compare">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="serial_available" />
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="arduino_typed_variable">
+            <field name="VAR">incoming</field>
+            <field name="TYPE">int</field>
+            <value name="VALUE">
+              <block type="serial_read" />
+            </value>
+            <next>
+              <block type="controls_if">
+                <mutation else="1" />
+                <value name="IF0">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR">incoming</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_if">
+                    <mutation else="1" />
+                    <value name="IF0">
+                      <block type="logic_compare">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">commandOverflow</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_boolean">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="controls_if">
+                        <mutation else="1" />
+                        <value name="IF0">
+                          <block type="logic_operation">
+                            <field name="OP">AND</field>
+                            <value name="A">
+                              <block type="logic_operation">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="logic_operation">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="logic_operation">
+                                        <field name="OP">AND</field>
+                                        <value name="A">
+                                          <block type="logic_operation">
+                                            <field name="OP">AND</field>
+                                            <value name="A">
+                                              <block type="logic_operation">
+                                                <field name="OP">AND</field>
+                                                <value name="A">
+                                                  <block type="logic_compare">
+                                                    <field name="OP">EQ</field>
+                                                    <value name="A">
+                                                      <block type="variables_get">
+                                                        <field name="VAR">commandLength</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number">
+                                                        <field name="NUM">5</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="logic_compare">
+                                                    <field name="OP">EQ</field>
+                                                    <value name="A">
+                                                      <block type="variables_get">
+                                                        <field name="VAR">commandOverflow</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="logic_boolean">
+                                                        <field name="BOOL">FALSE</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="logic_compare">
+                                                <field name="OP">EQ</field>
+                                                <value name="A">
+                                                  <block type="arduino_array_get">
+                                                    <mutation rank="1" />
+                                                    <field name="VAR">commandBytes</field>
+                                                    <value name="INDEX">
+                                                      <block type="math_number">
+                                                        <field name="NUM">0</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number">
+                                                    <field name="NUM">83</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="arduino_array_get">
+                                                <mutation rank="1" />
+                                                <field name="VAR">commandBytes</field>
+                                                <value name="INDEX">
+                                                  <block type="math_number">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number">
+                                                <field name="NUM">84</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="arduino_array_get">
+                                            <mutation rank="1" />
+                                            <field name="VAR">commandBytes</field>
+                                            <value name="INDEX">
+                                              <block type="math_number">
+                                                <field name="NUM">2</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number">
+                                            <field name="NUM">65</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_compare">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="arduino_array_get">
+                                        <mutation rank="1" />
+                                        <field name="VAR">commandBytes</field>
+                                        <value name="INDEX">
+                                          <block type="math_number">
+                                            <field name="NUM">3</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number">
+                                        <field name="NUM">82</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_compare">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="arduino_array_get">
+                                    <mutation rank="1" />
+                                    <field name="VAR">commandBytes</field>
+                                    <value name="INDEX">
+                                      <block type="math_number">
+                                        <field name="NUM">4</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number">
+                                    <field name="NUM">84</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="variables_set">
+                            <field name="VAR">streaming</field>
+                            <value name="VALUE">
+                              <block type="logic_boolean">
+                                <field name="BOOL">TRUE</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="procedures_callnoreturn">
+                                <mutation name="announcePlotter" />
+                                <field name="NAME">announcePlotter</field>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="controls_if">
+                            <value name="IF0">
+                              <block type="logic_operation">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="logic_operation">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="logic_operation">
+                                        <field name="OP">AND</field>
+                                        <value name="A">
+                                          <block type="logic_operation">
+                                            <field name="OP">AND</field>
+                                            <value name="A">
+                                              <block type="logic_operation">
+                                                <field name="OP">AND</field>
+                                                <value name="A">
+                                                  <block type="logic_compare">
+                                                    <field name="OP">EQ</field>
+                                                    <value name="A">
+                                                      <block type="variables_get">
+                                                        <field name="VAR">commandLength</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number">
+                                                        <field name="NUM">4</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="logic_compare">
+                                                    <field name="OP">EQ</field>
+                                                    <value name="A">
+                                                      <block type="variables_get">
+                                                        <field name="VAR">commandOverflow</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="logic_boolean">
+                                                        <field name="BOOL">FALSE</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="logic_compare">
+                                                <field name="OP">EQ</field>
+                                                <value name="A">
+                                                  <block type="arduino_array_get">
+                                                    <mutation rank="1" />
+                                                    <field name="VAR">commandBytes</field>
+                                                    <value name="INDEX">
+                                                      <block type="math_number">
+                                                        <field name="NUM">0</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number">
+                                                    <field name="NUM">83</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="arduino_array_get">
+                                                <mutation rank="1" />
+                                                <field name="VAR">commandBytes</field>
+                                                <value name="INDEX">
+                                                  <block type="math_number">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number">
+                                                <field name="NUM">84</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="arduino_array_get">
+                                            <mutation rank="1" />
+                                            <field name="VAR">commandBytes</field>
+                                            <value name="INDEX">
+                                              <block type="math_number">
+                                                <field name="NUM">2</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number">
+                                            <field name="NUM">79</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_compare">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="arduino_array_get">
+                                        <mutation rank="1" />
+                                        <field name="VAR">commandBytes</field>
+                                        <value name="INDEX">
+                                          <block type="math_number">
+                                            <field name="NUM">3</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number">
+                                        <field name="NUM">80</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="variables_set">
+                                <field name="VAR">streaming</field>
+                                <value name="VALUE">
+                                  <block type="logic_boolean">
+                                    <field name="BOOL">FALSE</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="serial_text">
+                                    <field name="TEXT">@msg Output paused. Press Start to continue.</field>
+                                    <field name="END">println</field>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="serial_text">
+                        <field name="TEXT">@msg Command too long; shorten it and try again.</field>
+                        <field name="END">println</field>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR">commandLength</field>
+                        <value name="VALUE">
+                          <block type="math_number">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR">commandOverflow</field>
+                            <value name="VALUE">
+                              <block type="logic_boolean">
+                                <field name="BOOL">FALSE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="controls_if">
+                    <value name="IF0">
+                      <block type="logic_compare">
+                        <field name="OP">NEQ</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">incoming</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">13</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="controls_if">
+                        <mutation else="1" />
+                        <value name="IF0">
+                          <block type="logic_compare">
+                            <field name="OP">LT</field>
+                            <value name="A">
+                              <block type="variables_get">
+                                <field name="VAR">commandLength</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">5</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="arduino_array_set">
+                            <mutation rank="1" />
+                            <field name="VAR">commandBytes</field>
+                            <value name="INDEX">
+                              <block type="variables_get">
+                                <field name="VAR">commandLength</field>
+                              </block>
+                            </value>
+                            <value name="VALUE">
+                              <block type="variables_get">
+                                <field name="VAR">incoming</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR">commandLength</field>
+                                <value name="VALUE">
+                                  <block type="math_arithmetic">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <block type="variables_get">
+                                        <field name="VAR">commandLength</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="variables_set">
+                            <field name="VAR">commandOverflow</field>
+                            <value name="VALUE">
+                              <block type="logic_boolean">
+                                <field name="BOOL">TRUE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <comment pinned="false" w="390" h="170">Read one complete newline-terminated command. Partial lines stay in a fixed byte buffer. CR is ignored; oversized commands are discarded. There is no String allocation or waiting for bytes. Expand this reusable function to see the ordinary array and logic blocks.</comment>
+  </block>
+  <block type="procedures_defnoreturn" collapsed="true" x="30" y="810">
+    <field name="NAME">announcePlotter</field>
+    <statement name="STACK">
+      <block type="serial_text">
+        <field name="TEXT">@plot {"version":1,"id":"lesson-52","title":"I2C register read","description":"Write a register pointer and read data from an I2C device using generic transactions. Match the address/register to the attached chip. Set the actual I2C address and register for your chip before interpreting its bytes.","fields":[],"widgets":[]}</field>
+        <field name="END">println</field>
+        <comment pinned="false" w="390" h="170">This is an ordinary Serial text message stored in Flash. Click it to edit formatted JSON. The computer creates instruments and computes derived fields; this sketch sends only input values.</comment>
+        <next>
+          <block type="serial_text">
+            <field name="TEXT">@msg Write a register pointer and read data from an I2C device using generic transactions. Match the address/register to the attached chip. Results appear in the message log. Set the actual I2C address and register for your chip before interpreting its bytes.</field>
+            <field name="END">println</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="390" h="170">The sketch describes its output to Plotter. This shared function runs at boot and when Start requests the dashboard again.</comment>
+  </block>
+</xml>

@@ -1,0 +1,32 @@
+{
+  "cores": {
+    "avr": "arduino:avr@1.8.8",
+    "rp2040": "rp2040:rp2040@6.3.1",
+    "stm32": "STMicroelectronics:stm32@3.0.0"
+  },
+  "indexes": {
+    "rp2040": "https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json",
+    "stm32": "https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json"
+  },
+  "libraries": {
+    "Adafruit BusIO": "1.17.4",
+    "DHT sensor library": "1.4.7",
+    "AccelStepper": "1.64",
+    "DallasTemperature": "4.0.6",
+    "Adafruit GFX Library": "1.13.0",
+    "Adafruit NeoPixel": "1.15.5",
+    "Adafruit ST7735 and ST7789 Library": "1.12.0",
+    "Grove - LCD RGB Backlight": "1.0.2",
+    "IRremote": "4.7.1",
+    "Servo": "1.3.0",
+    "Adafruit seesaw Library": "1.7.9",
+    "U8g2": "2.36.19",
+    "Adafruit Unified Sensor": "1.1.15",
+    "Stepper": "1.1.3",
+    "SD": "1.3.0",
+    "SdFat": "2.3.0",
+    "LiquidCrystal I2C": "1.1.2",
+    "OneWire": "2.3.8",
+    "FastAccelStepper": "2.0.1"
+  }
+}

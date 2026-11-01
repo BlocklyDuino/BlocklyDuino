@@ -1,0 +1,12 @@
+BlocklyDuino classic editor extensions
+
+Based on BlocklyDuino (classic v1), Copyright (C) 2012-2015 Fred Lin.
+Original author and contributor notices remain in README.md and source files.
+The classic application and this extension are licensed under Apache-2.0.
+The existing v2 subtree is unchanged and retains its own license, v2/LICENSE.
+Third-party Arduino libraries are installed separately and retain their licenses.
+
+2026 changes: SKIPaBOLT-wtf / BlocklyDuino contributors.
+Modified upstream files: blockly/apps/blocklyduino/index.html,
+blockly/apps/blocklyduino/blockly_helper.js, README.md and .gitignore.
+See docs/CLASSIC-EXTENSIONS.md for the additions and implementation map.

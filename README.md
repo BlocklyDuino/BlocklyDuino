@@ -1,3 +1,23 @@
+## Classic editor workbench extension
+
+This branch extends the classic BlocklyDuino editor with named devices, typed
+programming blocks, interrupts, streamed storage/images, music, workspace tools,
+and a shared Serial Monitor/Plotter. It includes 78 curated, commented examples and
+a Python 3 / Arduino CLI backend. All 31 Serial examples provide their own Plotter
+layout and instructions; interactive examples also provide controls. The existing
+v2 subtree is unchanged.
+
+**Start here: [installation and usage](docs/GETTING-STARTED.md).**
+For a first Plotter experiment, upload example 55, **Interactive LED lab**, choose
+115200 baud, **Connect**, then **Start**. It needs only the board and USB-to-serial
+connection; its controls and readings appear automatically.
+See [changes and architecture](docs/CLASSIC-EXTENSIONS.md),
+[testing and limits](docs/TESTING.md), the [Pro Mini reference capability model](docs/board-capabilities.md), and the in-app **Guide**.
+
+The following is the original upstream project documentation.
+
+---
+
 ### Welcome to BlocklyDuino
 
 > Check [BlockDuino v2](https://github.com/BlocklyDuino/BlocklyDuino/tree/v2)

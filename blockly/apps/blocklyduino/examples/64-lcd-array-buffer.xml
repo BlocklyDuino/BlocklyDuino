@@ -1,0 +1,188 @@
+<xml>
+  <block type="device_lcd" x="25" y="25">
+    <mutation uid="lcd64" />
+    <field name="NAME">display</field>
+    <field name="ADDR">0x27</field>
+    <field name="COLS">20</field>
+    <field name="ROWS">4</field>
+    <comment pinned="false" w="480" h="240">Purpose: Prepare an 80-byte LCD character grid in RAM, then send the finished 20×4 frame once. Legacy text mode treats zero as a space.
+Wiring: HD44780 I2C LCD: address 0x27; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.
+Try: Change characters in the frame array, then send the complete frame.</comment>
+  </block>
+  <block type="arduino_array_declare" x="385" y="25">
+    <field name="VAR">frame</field>
+    <field name="TYPE">char</field>
+    <field name="SIZE">4,20</field>
+    <comment pinned="false" w="340" h="160">The whole buffer is allocated once. Shape is rows,columns; cells initially contain zero. Modify cells in RAM, then send the complete buffer.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="745" y="25">
+    <field name="VAR">phase</field>
+    <field name="TYPE">uint8_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <comment pinned="false" w="340" h="170">Create phase as uint8_t. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+  </block>
+  <block type="arduino_loop_section" x="25" y="180">
+    <statement name="DO">
+      <block type="controls_for">
+        <field name="VAR">row</field>
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">3</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="controls_for">
+            <field name="VAR">column</field>
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">19</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="arduino_array_set">
+                <mutation rank="2" />
+                <field name="VAR">frame</field>
+                <value name="INDEX">
+                  <block type="variables_get">
+                    <field name="VAR">row</field>
+                  </block>
+                </value>
+                <value name="INDEX2">
+                  <block type="variables_get">
+                    <field name="VAR">column</field>
+                  </block>
+                </value>
+                <value name="VALUE">
+                  <block type="math_arithmetic">
+                    <field name="OP">ADD</field>
+                    <value name="A">
+                      <block type="math_number">
+                        <field name="NUM">65</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_modulo">
+                        <value name="DIVIDEND">
+                          <block type="math_arithmetic">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="math_arithmetic">
+                                <field name="OP">ADD</field>
+                                <value name="A">
+                                  <block type="variables_get">
+                                    <field name="VAR">column</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="variables_get">
+                                    <field name="VAR">row</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get">
+                                <field name="VAR">phase</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="DIVISOR">
+                          <block type="math_number">
+                            <field name="NUM">26</field>
+                          </block>
+                        </value>
+                        <comment pinned="false" w="340" h="160">Keep the remainder after division. This is useful for wrapping a counter or animation position back to the beginning.</comment>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <comment pinned="false" w="340" h="160">Replace one array element at the given indices. Indices start at zero and must stay below each declared dimension. Other elements keep their previous values.</comment>
+              </block>
+            </statement>
+            <comment pinned="false" w="340" h="160">Visit each column from 0 to 19. Indices start at zero; the last index is one less than the size.</comment>
+          </block>
+        </statement>
+        <comment pinned="false" w="340" h="160">Visit each row from 0 to 3. Indices start at zero; the last index is one less than the size.</comment>
+        <next>
+          <block type="device_lcd_buffer">
+            <field name="DEVICE">lcd64</field>
+            <field name="LAYOUT">YX</field>
+            <value name="BUFFER">
+              <block type="arduino_array_ref">
+                <field name="VAR">frame</field>
+                <comment pinned="false" w="340" h="160">Pass the entire declared array to the next operation, without making another framebuffer. The receiving block determines the pixel/character format and layout.</comment>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="160">Only now send the prepared array. The loop above changes memory, not the physical output. This action reuses the named device and its wiring.</comment>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">phase</field>
+                <value name="VALUE">
+                  <block type="math_modulo">
+                    <value name="DIVIDEND">
+                      <block type="math_arithmetic">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">phase</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="DIVISOR">
+                      <block type="math_number">
+                        <field name="NUM">26</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Keep the remainder after division. This is useful for wrapping a counter or animation position back to the beginning.</comment>
+                  </block>
+                </value>
+                <next>
+                  <block type="base_delay">
+                    <value name="DELAY_TIME">
+                      <block type="math_number">
+                        <field name="NUM">160</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="340" h="160">Build 80 character codes in RAM, then send the 20×4 frame. 65 is ASCII A. Change the arithmetic to design another animation; writing the array alone does not touch the LCD.</comment>
+  </block>
+</xml>

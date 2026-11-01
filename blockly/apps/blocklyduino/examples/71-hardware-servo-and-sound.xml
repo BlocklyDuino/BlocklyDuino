@@ -1,0 +1,102 @@
+<xml>
+  <block type="device_servo" x="25" y="25">
+    <mutation uid="hwservo71" />
+    <field name="NAME">arm</field>
+    <field name="PIN">9</field>
+    <field name="ENGINE">HARDWARE</field>
+    <field name="MIN_US">1000</field>
+    <field name="MAX_US">2000</field>
+    <field name="FRAME_HZ">50</field>
+    <comment pinned="false" w="370" h="185">Purpose: Use a potentiometer to control hardware Servo pulses on D9 while a hardware buzzer on D11 plays a melody. Timer1 and Timer2 have separate owners.
+Wiring: Servo: PIN D9; Passive buzzer: PIN D11; analog read: PIN A0; Potentiometer outer legs VCC/GND; wiper on the listed analog input. Common GND; use each module’s required supply.
+Try: Turn A0 and edit the melody. Servo and sound use separate hardware timers.</comment>
+  </block>
+  <block type="music_buzzer" x="25" y="290">
+    <mutation uid="hwbuzzer71" />
+    <field name="NAME">bell</field>
+    <field name="PIN">11</field>
+    <field name="ENGINE">HARDWARE</field>
+    <comment pinned="false" w="370" h="185">The timer toggles the buzzer output autonomously. Loop services note durations and melody transitions automatically. Keep loop responsive: an AVR/STM32 hardware note can last too long during a blocking delay. Timer2 is unavailable to IRQ music, core tone or IRremote.</comment>
+  </block>
+  <block type="music_melody" x="450" y="25">
+    <mutation uid="hwmelody71" />
+    <field name="NAME">chime</field>
+    <comment pinned="false" w="370" h="185">A reusable flash sequence. The same melody and note-record blocks work with either sound engine. Hardware D11 on 16 MHz AVR cannot play below about 31 Hz; these notes are comfortably in range.</comment>
+    <statement name="NOTES">
+      <block type="music_note_item">
+        <field name="PITCH">C4</field>
+        <field name="MS">250</field>
+        <next>
+          <block type="music_note_item">
+            <field name="PITCH">E4</field>
+            <field name="MS">250</field>
+            <next>
+              <block type="music_note_item">
+                <field name="PITCH">G4</field>
+                <field name="MS">350</field>
+                <next>
+                  <block type="music_note_item">
+                    <field name="PITCH">R</field>
+                    <field name="MS">500</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_setup_section" x="450" y="290">
+    <comment pinned="false" w="370" h="185">Start the flash chime once in setup. Repetition happens in the sound engine; restarting play from every loop would never advance the melody.</comment>
+    <statement name="DO">
+      <block type="music_play">
+        <field name="BUZZER">hwbuzzer71</field>
+        <field name="MELODY">hwmelody71</field>
+        <value name="LOOP">
+          <block type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_loop_section" x="450" y="490">
+    <comment pinned="false" w="370" h="185">Read a potentiometer and update the servo target. Hardware continues producing PWM edges during ADC conversion. Generated code services hardware notes at the start of each loop; no delay is needed.</comment>
+    <statement name="DO">
+      <block type="device_servo_write">
+        <field name="DEVICE">hwservo71</field>
+        <field name="UNIT">DEGREES</field>
+        <value name="ANGLE">
+          <block type="base_map">
+            <value name="NUM">
+              <block type="inout_analog_read">
+                <field name="PIN">A0</field>
+              </block>
+            </value>
+            <value name="FROM_LOW">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="FROM_HIGH">
+              <block type="math_number">
+                <field name="NUM">1023</field>
+              </block>
+            </value>
+            <value name="TO_LOW">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="DMAX">
+              <block type="math_number">
+                <field name="NUM">180</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

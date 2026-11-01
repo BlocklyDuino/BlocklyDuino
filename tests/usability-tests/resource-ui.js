@@ -1,0 +1,14 @@
+const h=require('../project-device-tests/harness'),{assert,win,B}=h;win.Blockly=B;
+for(const file of ['interrupt_blocks.js','board_resources.js','resource_ui.js'])win.eval(h.fs.readFileSync(h.out+'/'+file,'utf8'));
+// Headless workspace has no warning SVG. Browser checks cover the actual rendering.
+B.Block.prototype.setWarningText=function(text){this.testWarning=text;};
+let ws=h.load('<xml><block type="device_lcd"><field name="ADDR">0x27</field></block><block type="inout_analog_read"><field name="PIN">A4</field></block></xml>');win.BlocklyResources.setTarget('arduino:avr:pro:cpu=16MHzatmega168');let read=ws.getAllBlocks().find(b=>b.type==='inout_analog_read');
+assert.equal(read.getFieldValue('PIN'),'A4','XML import retains conflicting wiring for repair');assert(!read.getField('PIN').getOptions_().some(x=>x[1]==='A4'));assert.throws(()=>h.generate(ws),/occupied/);read.setFieldValue('A0','PIN');assert(h.generate(ws).includes('analogRead(A0)'));
+let lcd2=h.newBlock(ws,'device_lcd',{});win.BlocklyResources.allocate(lcd2);assert.notEqual(lcd2.getFieldValue('ADDR'),'0x27');assert.equal(win.BlocklyResources.analysis().errors.length,0);
+let generic=h.newBlock(ws,'ll_i2c_device',{});win.BlocklyResources.allocate(generic);assert.equal(generic.getFieldValue('ADDR'),'0x68');
+let generic2=h.newBlock(ws,'ll_i2c_device',{NAME:'other'});win.BlocklyResources.allocate(generic2);assert.notEqual(generic2.getFieldValue('ADDR'),generic.getFieldValue('ADDR'),'A second generic I2C device gets an editable free address');
+let servo=h.newBlock(ws,'device_servo',{});win.BlocklyResources.allocate(servo);assert.equal(servo.getFieldValue('PIN'),'9','Keep the conventional pin when it is compatible and free');
+read.setFieldValue('A7','PIN');win.BlocklyResources.setTarget('rp2040:rp2040:rpipico');assert(win.BlocklyResources.analysis().errors.length>0,'Board switching reports invalid saved pins');let pin=servo.getField('PIN').getOptions_();assert(pin.some(x=>x[1]==='22'));assert(!pin.some(x=>x[1]==='23'));
+ws=h.load('<xml><block type="device_servo"><field name="NAME">same</field><field name="PIN">9</field><field name="DEVICE_HUE">0</field></block></xml>');win.BlocklyResources.setTarget('arduino:avr:uno');const xml=h.save(ws);assert.equal(h.load(xml).getAllBlocks()[0].getFieldValue('DEVICE_HUE'),'0');
+ws=h.load('<xml><block type="irq_external"><field name="PIN">2</field><field name="INPUT">INPUT_PULLUP</field></block><block type="inout_digital_read"><field name="PIN">2</field></block></xml>');const code=h.generate(ws);assert(code.includes('pinMode(2, INPUT_PULLUP)'));assert(!code.includes('pinMode(2, INPUT);'),'Reading an interrupt input must not disable its pull-up');
+console.log('PASS real Blockly integration: retained XML, free-pin selectors, shared buses, address allocation, board changes, colours and interrupt pull-up preservation');win.close();

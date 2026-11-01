@@ -1,0 +1,202 @@
+<xml>
+  <block type="arduino_setup_section" x="25" y="25">
+    <statement name="DO">
+      <block type="avr_port_bits">
+        <field name="PORT">B</field>
+        <field name="ACTION">CLEAR</field>
+        <value name="MASK">
+          <block type="math_number">
+            <field name="NUM">7</field>
+          </block>
+        </value>
+        <next>
+          <block type="avr_port_direction">
+            <field name="PORT">B</field>
+            <field name="DIRECTION">OUTPUT</field>
+            <value name="MASK">
+              <block type="math_number">
+                <field name="NUM">7</field>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="160">Choose input/output direction for the selected AVR port bits. Other bits are preserved. This is hardware-specific; use the board diagram to identify the affected pins.</comment>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="480" h="240">Purpose: Drive a byte pattern through direct port operations. This advanced lesson exposes register ownership and bit masks.
+Wiring: 74HC595 SER→D8, SRCLK→D9, RCLK→D10, OE→GND, MR→VCC. Add a resistor to each output LED.
+Try: Change the byte pattern sent to the 74HC595 and watch Q0–Q7.</comment>
+  </block>
+  <block type="arduino_loop_section" x="25" y="235">
+    <statement name="DO">
+      <block type="procedures_callnoreturn">
+        <mutation name="writeByte">
+          <arg name="data" />
+        </mutation>
+        <value name="ARG0">
+          <block type="math_number">
+            <field name="NUM">170</field>
+          </block>
+        </value>
+        <next>
+          <block type="base_delay">
+            <value name="DELAY_TIME">
+              <block type="math_number">
+                <field name="NUM">500</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn">
+                <mutation name="writeByte">
+                  <arg name="data" />
+                </mutation>
+                <value name="ARG0">
+                  <block type="math_number">
+                    <field name="NUM">85</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="base_delay">
+                    <value name="DELAY_TIME">
+                      <block type="math_number">
+                        <field name="NUM">500</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+                  </block>
+                </next>
+                <comment pinned="false" w="340" h="160">Run the blocks inside this named function, then continue with the next block here. Reuse functions for repeated actions instead of copying their blocks.</comment>
+              </block>
+            </next>
+            <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+          </block>
+        </next>
+        <comment pinned="false" w="340" h="160">Run the blocks inside this named function, then continue with the next block here. Reuse functions for repeated actions instead of copying their blocks.</comment>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" x="440" y="25">
+    <mutation>
+      <arg name="data" type="uint8_t" />
+    </mutation>
+    <field name="NAME">writeByte</field>
+    <statement name="STACK">
+      <block type="arduino_typed_variable">
+        <field name="VAR">bitIndex</field>
+        <field name="TYPE">int</field>
+        <field name="QUALIFIER">normal</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">7</field>
+          </block>
+        </value>
+        <next>
+          <block type="avr_pin_write">
+            <field name="PIN">B2</field>
+            <value name="VALUE">
+              <block type="logic_boolean">
+                <field name="BOOL">FALSE</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_for">
+                <field name="VAR">bitIndex</field>
+                <value name="FROM">
+                  <block type="math_number">
+                    <field name="NUM">7</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="BY">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="avr_pin_write">
+                    <field name="PIN">B0</field>
+                    <value name="VALUE">
+                      <block type="ll_bits_test">
+                        <field name="WIDTH">8</field>
+                        <value name="VALUE">
+                          <block type="variables_get">
+                            <field name="VAR">data</field>
+                          </block>
+                        </value>
+                        <value name="INDEX">
+                          <block type="variables_get">
+                            <field name="VAR">bitIndex</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="avr_pin_write">
+                        <field name="PIN">B1</field>
+                        <value name="VALUE">
+                          <block type="logic_boolean">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="avr_delay_us">
+                            <value name="US">
+                              <block type="math_number">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="avr_pin_write">
+                                <field name="PIN">B1</field>
+                                <value name="VALUE">
+                                  <block type="logic_boolean">
+                                    <field name="BOOL">FALSE</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="avr_delay_us">
+                                    <value name="US">
+                                      <block type="math_number">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                                <comment pinned="false" w="340" h="160">Change a single AVR output bit directly. Set its direction to output first. Direct register operations bypass the usual digitalWrite overhead.</comment>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                        <comment pinned="false" w="340" h="160">Change a single AVR output bit directly. Set its direction to output first. Direct register operations bypass the usual digitalWrite overhead.</comment>
+                      </block>
+                    </next>
+                    <comment pinned="false" w="340" h="160">Change a single AVR output bit directly. Set its direction to output first. Direct register operations bypass the usual digitalWrite overhead.</comment>
+                  </block>
+                </statement>
+                <next>
+                  <block type="avr_pin_write">
+                    <field name="PIN">B2</field>
+                    <value name="VALUE">
+                      <block type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                    <comment pinned="false" w="340" h="160">Change a single AVR output bit directly. Set its direction to output first. Direct register operations bypass the usual digitalWrite overhead.</comment>
+                  </block>
+                </next>
+                <comment pinned="false" w="340" h="170">Repeat the body with bitIndex taking each value from the start to the end, using the given step. Array indices start at zero.</comment>
+              </block>
+            </next>
+            <comment pinned="false" w="340" h="160">Change a single AVR output bit directly. Set its direction to output first. Direct register operations bypass the usual digitalWrite overhead.</comment>
+          </block>
+        </next>
+        <comment pinned="false" w="340" h="170">Create bitIndex as int. Outside a body it is global; inside a function/setup/loop it belongs to that body. Its value input is the initial value.</comment>
+      </block>
+    </statement>
+    <comment pinned="false" w="340" h="170">Define writeByte once and call it elsewhere. It does not run just because it is defined. Arguments and variables declared inside this body are local.</comment>
+  </block>
+</xml>

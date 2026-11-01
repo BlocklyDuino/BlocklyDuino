@@ -1,0 +1,11 @@
+const h=require('../project-device-tests/harness'),{assert,win,B,fs,path,out}=h;win.Blockly=B;
+for(const file of ['serial_blocks.js','interrupt_blocks.js','timer_interrupt_blocks.js','workspace_regions.js'])win.eval(fs.readFileSync(path.join(out,file),'utf8'));
+const name='60-interrupt-attach-detach',ws=h.load(fs.readFileSync(path.join(out,'examples',name+'.xml'),'utf8')),code=h.generate(ws);
+assert.equal(h.generate(h.load(h.save(ws))),code,'XML/code roundtrip');
+assert(code.includes('bx_irq_pulseInput_setEnabled(false);'),'starts disabled');
+assert(code.includes('bx_irq_pulseInput_setEnabled(true);'),'runtime attach');
+assert(code.includes('EIMSK & _BV(INT0)'),'state reads named interrupt enable mask');
+assert(code.includes('Serial.begin(115200);'),'correct baud');
+assert(code.includes('ATOMIC_BLOCK(ATOMIC_RESTORESTATE)'),'atomic shared counter read');
+const dir=path.resolve('.test-build/interrupt-example-tests',name);fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,name+'.ino'),code);
+console.log('PASS attach/detach example: roundtrip, starts detached, runtime actions, state, baud, atomic copy');

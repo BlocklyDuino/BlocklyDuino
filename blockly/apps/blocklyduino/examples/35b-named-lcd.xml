@@ -1,0 +1,64 @@
+<xml>
+  <block type="device_lcd" x="25" y="25">
+    <mutation uid="lcd35" />
+    <field name="NAME">display</field>
+    <field name="ADDR">0x27</field>
+    <field name="COLS">20</field>
+    <field name="ROWS">4</field>
+    <comment pinned="false" w="480" h="240">Purpose: Declare a 20×4 I2C LCD once and print through its named actions without repeating address or dimensions.
+Wiring: HD44780 I2C LCD: address 0x27; I2C SDA A4, SCL A5. Common GND; use each module’s required supply.
+Try: Change the message or the LCD columns/rows once in the device definition.</comment>
+  </block>
+  <block type="arduino_setup_section" x="25" y="140">
+    <statement name="DO">
+      <block type="device_lcd_print">
+        <field name="DEVICE">lcd35</field>
+        <value name="TEXT">
+          <block type="text">
+            <field name="TEXT">Named devices</field>
+          </block>
+        </value>
+        <value name="COL">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="ROW">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_loop_section" x="25" y="330">
+    <statement name="DO">
+      <block type="device_lcd_print">
+        <field name="DEVICE">lcd35</field>
+        <value name="TEXT">
+          <block type="arduino_millis" />
+        </value>
+        <value name="COL">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="ROW">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <next>
+          <block type="base_delay">
+            <value name="DELAY_TIME">
+              <block type="math_number">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+            <comment pinned="false" w="340" h="160">Wait for the given number of milliseconds (1000 ms = 1 second). This pauses the main program; avoid long waits when loop must service motors, music files or serial input.</comment>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

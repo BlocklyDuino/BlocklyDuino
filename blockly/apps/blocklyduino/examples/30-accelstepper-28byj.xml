@@ -1,0 +1,97 @@
+<xml>
+  <block type="device_stepper_coils" x="30" y="30">
+    <mutation uid="coils30" />
+    <field name="NAME">motor</field>
+    <field name="IN1">8</field>
+    <field name="IN2">9</field>
+    <field name="IN3">10</field>
+    <field name="IN4">11</field>
+    <field name="SPEED">500</field>
+    <field name="ACCEL">100</field>
+    <comment pinned="false" w="390" h="170">Purpose: Use one named 28BYJ-48 motor to travel between two positions with acceleration. Call run continuously; no delay interrupts the coil sequence.
+Wiring: 28BYJ-48 + ULN2003: IN1 D8, IN2 D9, IN3 D10, IN4 D11. Common GND; use each module’s required supply.
+Try: Change target 512 to 256 half-steps or reduce maximum speed and acceleration.</comment>
+  </block>
+  <block type="arduino_typed_variable" x="510" y="30">
+    <field name="VAR">target</field>
+    <field name="TYPE">int32_t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">512</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_setup_section" x="990" y="30">
+    <statement name="DO">
+      <block type="device_stepper_move">
+        <field name="DEVICE">coils30</field>
+        <field name="MODE">TO</field>
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">target</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <comment pinned="false" w="390" h="170">Set the first absolute target. This only requests movement; loop must service it.</comment>
+  </block>
+  <block type="arduino_loop_section" x="30" y="290">
+    <statement name="DO">
+      <block type="device_stepper_run">
+        <field name="DEVICE">coils30</field>
+        <next>
+          <block type="controls_if">
+            <value name="IF0">
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="device_stepper_position">
+                    <field name="DEVICE">coils30</field>
+                    <field name="READ">DISTANCE</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set">
+                <field name="VAR">target</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="variables_get">
+                        <field name="VAR">target</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="device_stepper_move">
+                    <field name="DEVICE">coils30</field>
+                    <field name="MODE">TO</field>
+                    <value name="VALUE">
+                      <block type="variables_get">
+                        <field name="VAR">target</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <comment pinned="false" w="390" h="170">Call run on every pass. At each target, reverse to the other position with acceleration and deceleration. No delay or slow display writes here; those would interrupt software pulse generation.</comment>
+  </block>
+</xml>
